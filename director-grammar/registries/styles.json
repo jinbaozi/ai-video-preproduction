@@ -1,0 +1,290 @@
+{
+  "version": "1.0",
+  "selection_note": "标签交集是可解释启发式，未经生成成功率校准。",
+  "styles": [
+    {
+      "id": "restrained_suspense",
+      "tasks": [
+        "narrative"
+      ],
+      "tags": [
+        "悬疑",
+        "信息差",
+        "克制"
+      ],
+      "techniques": [
+        "information_gap",
+        "delayed_reaction",
+        "motivated_push"
+      ],
+      "direction": "证据先可读，触发后人物反应，动作有停点",
+      "avoid": "拒绝无动机环绕和提前泄露",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "intimate_subtext",
+      "tasks": [
+        "narrative"
+      ],
+      "tags": [
+        "关系",
+        "克制",
+        "爱情"
+      ],
+      "techniques": [
+        "subtext",
+        "delayed_reaction",
+        "motivated_light"
+      ],
+      "direction": "用距离、停顿和道具处置表达关系",
+      "avoid": "拒绝表情和台词重复解释",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "urban_memory",
+      "tasks": [
+        "narrative"
+      ],
+      "tags": [
+        "记忆",
+        "错过",
+        "都市"
+      ],
+      "techniques": [
+        "ellipsis",
+        "subtext",
+        "depth_blocking"
+      ],
+      "direction": "用时间省略和空间距离组织记忆",
+      "avoid": "反射与遮挡不能盖住必要证据",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "observational",
+      "tasks": [
+        "observation",
+        "narrative"
+      ],
+      "tags": [
+        "写实",
+        "日常",
+        "观察"
+      ],
+      "techniques": [
+        "locked_observation",
+        "depth_blocking",
+        "motivated_light"
+      ],
+      "direction": "保持行动完整，让环境与人物共同传递信息",
+      "avoid": "不强行加入戏剧反转",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "movement_clarity",
+      "tasks": [
+        "demonstration",
+        "performance"
+      ],
+      "tags": [
+        "教学",
+        "步法",
+        "全身",
+        "舞蹈"
+      ],
+      "techniques": [
+        "locked_observation",
+        "contact_action",
+        "lateral_tracking"
+      ],
+      "direction": "优先呈现身体支撑、动作顺序和结束姿态",
+      "avoid": "拒绝遮挡脚部或打断关键步序",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "product_evidence",
+      "tasks": [
+        "product"
+      ],
+      "tags": [
+        "商品",
+        "材质",
+        "展示"
+      ],
+      "techniques": [
+        "locked_observation",
+        "rack_focus",
+        "motivated_light"
+      ],
+      "direction": "让产品形状、接触或用途成为证据",
+      "avoid": "不新增与商品无关的剧情",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "kinetic_space",
+      "tasks": [
+        "narrative",
+        "performance"
+      ],
+      "tags": [
+        "动作",
+        "追逐",
+        "武侠"
+      ],
+      "techniques": [
+        "depth_blocking",
+        "lateral_tracking",
+        "match_action"
+      ],
+      "direction": "先交代路线和力量关系，再加速度",
+      "avoid": "拒绝不可读的多方向叠加",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "heroic_reveal",
+      "tasks": [
+        "narrative",
+        "performance",
+        "product"
+      ],
+      "tags": [
+        "英雄",
+        "登场",
+        "奇观"
+      ],
+      "techniques": [
+        "orbit_reveal",
+        "depth_blocking",
+        "motivated_light"
+      ],
+      "direction": "视差与尺度服务登场，落点呈现核心关系",
+      "avoid": "精确圆弧不视为自然语言可保证参数",
+      "fallback": "lateral_tracking",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "formal_color",
+      "tasks": [
+        "narrative",
+        "performance"
+      ],
+      "tags": [
+        "秩序",
+        "色彩",
+        "史诗"
+      ],
+      "techniques": [
+        "color_structure",
+        "depth_blocking",
+        "locked_observation"
+      ],
+      "direction": "用构图秩序与色彩组织人物关系",
+      "avoid": "不能为了对称压掉动作证据",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "procedural",
+      "tasks": [
+        "narrative"
+      ],
+      "tags": [
+        "调查",
+        "证据",
+        "精确"
+      ],
+      "techniques": [
+        "restricted_pov",
+        "motivated_push",
+        "match_action"
+      ],
+      "direction": "按证据获得过程分配注意力",
+      "avoid": "减少没有信息增量的镜头移动",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "temporal_weave",
+      "tasks": [
+        "narrative"
+      ],
+      "tags": [
+        "时间",
+        "平行",
+        "交叉"
+      ],
+      "techniques": [
+        "parallel_edit",
+        "ellipsis",
+        "sound_bridge"
+      ],
+      "direction": "故事时序与展示顺序各自可追踪",
+      "avoid": "无可识别的时间锚点时退回顺序叙述",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "comic_timing",
+      "tasks": [
+        "narrative",
+        "performance"
+      ],
+      "tags": [
+        "喜剧",
+        "反差",
+        "节奏"
+      ],
+      "techniques": [
+        "delayed_reaction",
+        "depth_blocking",
+        "match_action"
+      ],
+      "direction": "铺垫、反差与反应留出可见停顿",
+      "avoid": "不要用快速切换替代笑点",
+      "fallback": "locked_observation",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    }
+  ]
+}

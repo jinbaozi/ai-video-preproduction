@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "adapter_id": "generic-video-v1",
+  "display_name": "Platform-neutral video prompt",
+  "status": "verified-local-contract",
+  "entry_point": "prompt-only",
+  "single_operation_duration_s": {"minimum": 1, "maximum": 12},
+  "aspect_ratios": ["9:16", "16:9", "1:1"],
+  "max_references": 5,
+  "requires_human_review": false,
+  "capability_evidence": "Local canonical contract only; no external generation claim."
+}
+

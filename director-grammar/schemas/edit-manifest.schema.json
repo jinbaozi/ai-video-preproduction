@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://director-grammar.local/edit-manifest.schema.json",
+  "title": "edit-manifest",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "execution_sha256": {
+      "type": "string",
+      "minLength": 1
+    },
+    "takes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "shot_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "minLength": 1
+          },
+          "frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "qa_status": {
+            "enum": [
+              "ACCEPTED",
+              "TEST_FIXTURE"
+            ]
+          },
+          "evidence_ref": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "shot_id",
+          "path",
+          "sha256",
+          "frames",
+          "qa_status",
+          "evidence_ref"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "execution_sha256",
+    "takes"
+  ],
+  "additionalProperties": false
+}

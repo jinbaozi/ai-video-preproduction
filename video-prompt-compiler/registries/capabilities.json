@@ -1,0 +1,424 @@
+{
+  "version": "1.0.0",
+  "profiles": [
+    {
+      "id": "seedance2.0",
+      "version": "2026.09.19.1",
+      "model": "Seedance 2.0",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "seedance20",
+      "evidence_level": "official_model",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "SEED20",
+        "SEED20_PAPER"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 15000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "seedance2.5",
+      "version": "2026.09.19.1",
+      "model": "Seedance 2.5",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "seedance25",
+      "evidence_level": "official_model",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "SEED25"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "duration_ms": {
+        "min": null,
+        "max": 30000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "agnes-video-2.5",
+      "version": "2026.09.19.1",
+      "model": "agnes-video-2.5",
+      "entry_point": "https://apihub.agnes-ai.com/v1/videos",
+      "backend": "agnes_api_draft",
+      "template": "agnes",
+      "evidence_level": "official_docs",
+      "verified_at": "2026-09-19",
+      "region": "international",
+      "account_verified": false,
+      "source_refs": [
+        "AGNES25"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 12000,
+        "allowed": [],
+        "step": 1000,
+        "scope": "entrypoint"
+      },
+      "resolutions": [
+        "720P",
+        "1080P",
+        "1K",
+        "2K"
+      ],
+      "ratios": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "max_refs": {
+        "image": 8,
+        "audio": 3,
+        "video": 1,
+        "total": 12
+      },
+      "native_audio": null,
+      "native_reference_syntax": "agnes",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "agnes-video-2.5-flash",
+      "version": "2026.09.19.1",
+      "model": "agnes-video-2.5-flash",
+      "entry_point": "https://apihub.agnes-ai.com/v1/videos",
+      "backend": "agnes_api_draft",
+      "template": "agnes",
+      "evidence_level": "official_docs",
+      "verified_at": "2026-09-19",
+      "region": "international",
+      "account_verified": false,
+      "source_refs": [
+        "AGNES25",
+        "AGNES_FLASH"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 12000,
+        "allowed": [],
+        "step": 1000,
+        "scope": "entrypoint"
+      },
+      "resolutions": [
+        "720P"
+      ],
+      "ratios": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "21:9"
+      ],
+      "max_refs": {
+        "image": 5,
+        "audio": 3,
+        "video": 0,
+        "total": 12
+      },
+      "native_audio": null,
+      "native_reference_syntax": "agnes",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "kling-v3",
+      "version": "2026.09.19.1",
+      "model": "Kling VIDEO 3.0",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "kling",
+      "evidence_level": "official_model",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "KLING3"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": null,
+        "max": 15000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "kling-v3-omni",
+      "version": "2026.09.19.1",
+      "model": "Kling VIDEO 3.0 Omni",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "kling_omni",
+      "evidence_level": "official_model",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "KLING_OMNI"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": null,
+        "max": 15000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "minimax-h3",
+      "version": "2026.09.19.1",
+      "model": "MiniMax H3",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "h3",
+      "evidence_level": "official_model",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "H3"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 15000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "veo3.1",
+      "version": "2026.09.19.1",
+      "model": "Veo 3.1",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "veo",
+      "evidence_level": "official_model",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "VEO31"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 8000,
+        "allowed": [
+          4000,
+          6000,
+          8000
+        ],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "wan3.0",
+      "version": "2026.09.19.1",
+      "model": "Wan 3.0",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "wan",
+      "evidence_level": "unverified",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "WAN"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": null,
+        "max": null,
+        "allowed": [],
+        "step": null,
+        "scope": "unknown"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": null,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "runway-gen4.5",
+      "version": "2026.09.19.1",
+      "model": "Runway Gen-4.5",
+      "entry_point": "model_prompt_plan; current transport unresolved",
+      "backend": "prompt_plan",
+      "template": "runway",
+      "evidence_level": "unverified",
+      "verified_at": "2026-09-19",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "RUNWAY"
+      ],
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "duration_ms": {
+        "min": null,
+        "max": null,
+        "allowed": [],
+        "step": null,
+        "scope": "unknown"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": null,
+        "audio": null,
+        "video": null,
+        "total": null
+      },
+      "native_audio": null,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    }
+  ]
+}

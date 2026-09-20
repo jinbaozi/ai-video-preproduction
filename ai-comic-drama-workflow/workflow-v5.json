@@ -1,0 +1,52 @@
+{
+  "schema_version": "5.0",
+  "workflow_id": "ai-comic-drama-v5",
+  "execution_mode": "current-agent",
+  "phases": [
+    {
+      "index": 1,
+      "name": "资料与项目事实",
+      "role": "canon"
+    },
+    {
+      "index": 2,
+      "name": "故事与剧本",
+      "role": "screenplay"
+    },
+    {
+      "index": 3,
+      "name": "导演方案",
+      "role": "director"
+    },
+    {
+      "index": 4,
+      "name": "美术方案",
+      "role": "art"
+    },
+    {
+      "index": 5,
+      "name": "视觉资产",
+      "role": "visual"
+    },
+    {
+      "index": 6,
+      "name": "分镜制作",
+      "role": "storyboard"
+    },
+    {
+      "index": 7,
+      "name": "分镜图片",
+      "role": "boards"
+    },
+    {
+      "index": 8,
+      "name": "视频提示词",
+      "role": "compile"
+    },
+    {
+      "index": 9,
+      "name": "验收与交付",
+      "role": "qa"
+    }
+  ]
+}

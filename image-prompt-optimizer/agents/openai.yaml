@@ -1,0 +1,13 @@
+interface:
+  display_name: 图像提示词优化器
+  short_description: "将图像意图编译为提示词与可验收制作合同，覆盖空间、表演、光色和模型适配"
+  default_prompt: "使用 $image-prompt-optimizer 根据我的需求与资料优化图像提示词，保留来源和硬约束，按需建立空间、表演、光色与制作合同，分离参数并列出验收条件。"
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

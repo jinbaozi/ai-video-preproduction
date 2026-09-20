@@ -1,0 +1,162 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "scenes"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "const": "director-treatment"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role_provenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "scene_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "pov": {
+            "type": "string",
+            "minLength": 1
+          },
+          "audience_information": {
+            "type": "string",
+            "minLength": 1
+          },
+          "emotional_start": {
+            "type": "string",
+            "minLength": 1
+          },
+          "emotional_end": {
+            "type": "string",
+            "minLength": 1
+          },
+          "camera_rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "edit_rationale": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "beats": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "beat_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "character_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "goal": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "obstacle": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "tactic": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "action": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reaction": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "trigger": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "beat_id",
+                "character_id",
+                "goal",
+                "obstacle",
+                "tactic",
+                "action",
+                "reaction",
+                "trigger"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "scene_id",
+          "purpose",
+          "pov",
+          "audience_information",
+          "emotional_start",
+          "emotional_end",
+          "camera_rationale",
+          "edit_rationale",
+          "source_refs",
+          "beats"
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:director-treatment.schema.json"
+}

@@ -1,0 +1,256 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://production-design-grammar.local/production-contract.schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "clauses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "requirement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "priority": {
+            "enum": [
+              "hard",
+              "soft"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^/(?:[^~]|~[01])*$"
+            },
+            "minItems": 1
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "check_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "change_policy": {
+            "enum": [
+              "explicit_revision"
+            ]
+          },
+          "execution": {
+            "type": "object",
+            "properties": {
+              "channel": {
+                "enum": [
+                  "prompt",
+                  "reference",
+                  "post",
+                  "review"
+                ]
+              },
+              "instruction": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              }
+            },
+            "required": [
+              "channel",
+              "instruction",
+              "reference_ids"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "id",
+          "requirement",
+          "priority",
+          "source_refs",
+          "paths",
+          "shot_ids",
+          "check_ids",
+          "change_policy",
+          "execution"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "gate": {
+            "enum": [
+              "G0",
+              "G1",
+              "G2",
+              "G3",
+              "G4"
+            ]
+          },
+          "scope": {
+            "type": "string",
+            "minLength": 1
+          },
+          "method": {
+            "enum": [
+              "static",
+              "frame_review",
+              "playback"
+            ]
+          },
+          "predicate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_required": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "type": "string",
+            "minLength": 1
+          },
+          "blocking": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "gate",
+          "scope",
+          "method",
+          "predicate",
+          "evidence_required",
+          "owner",
+          "blocking"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "plan_only",
+            "authorized_execution"
+          ]
+        },
+        "authorization_ref": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "budget_amount": {
+          "type": "number",
+          "minimum": 0
+        },
+        "currency": {
+          "type": "string",
+          "minLength": 1
+        },
+        "max_attempts_per_job": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "stop_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "mode",
+        "authorization_ref",
+        "budget_amount",
+        "currency",
+        "max_attempts_per_job",
+        "stop_conditions"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "scope",
+    "deliverables",
+    "clauses",
+    "checks",
+    "execution"
+  ],
+  "additionalProperties": false
+}

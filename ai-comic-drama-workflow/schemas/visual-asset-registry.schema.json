@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "assets",
+    "execution_status",
+    "degradations"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "visual-asset-registry"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "const": "asset_generation_or_prompt"
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "assets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_id",
+          "asset_type",
+          "version",
+          "description",
+          "source_refs",
+          "continuity_constraints",
+          "forbidden_inheritance",
+          "prompt",
+          "execution_status"
+        ],
+        "properties": {
+          "asset_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "asset_type": {
+            "type": "string",
+            "enum": [
+              "style-reference",
+              "character-reference",
+              "scene-reference",
+              "prop-reference",
+              "other"
+            ]
+          },
+          "version": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "continuity_constraints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "forbidden_inheritance": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "execution_status": {
+            "type": "string",
+            "enum": [
+              "prompt_ready",
+              "generated_unverified",
+              "generated_verified",
+              "provided",
+              "skipped"
+            ]
+          },
+          "media_path": {
+            "type": "string"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "execution_status": {
+      "type": "string",
+      "enum": [
+        "prompt_ready",
+        "media_partial",
+        "media_verified"
+      ]
+    },
+    "degradations": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:visual-asset-registry.schema.json"
+}

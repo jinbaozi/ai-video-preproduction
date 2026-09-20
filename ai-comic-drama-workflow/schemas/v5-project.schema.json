@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-project",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "workflow_id",
+    "project_id",
+    "execution_mode",
+    "delivery",
+    "mode",
+    "max_shots_per_task"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.0"
+    },
+    "workflow_id": {
+      "const": "ai-comic-drama-v5"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_mode": {
+      "const": "current-agent"
+    },
+    "delivery": {
+      "enum": [
+        "full",
+        "text-only"
+      ]
+    },
+    "mode": {
+      "enum": [
+        "text",
+        "reference",
+        "keyframe",
+        "edit",
+        "extend"
+      ]
+    },
+    "max_shots_per_task": {
+      "const": 5
+    }
+  },
+  "additionalProperties": true
+}

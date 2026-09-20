@@ -1,0 +1,245 @@
+{
+  "version": "1.0.0",
+  "targets": [
+    {
+      "id": "generic-keyframe",
+      "name": "通用关键帧",
+      "kind": "keyframe",
+      "needs_director": false,
+      "needs_first_frame": false,
+      "needs_entry_resolution": false,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "generic-video",
+      "name": "通用视频美术补充",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": false,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "generic-i2v",
+      "name": "通用首帧视频美术补充",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": true,
+      "needs_entry_resolution": false,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "libtv-handoff",
+      "name": "LibTV",
+      "kind": "agent",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "oiioii-handoff",
+      "name": "OiiOii",
+      "kind": "agent",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "seko-handoff",
+      "name": "Seko",
+      "kind": "agent",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "seedance-handoff",
+      "name": "即梦 / Seedance",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "kling-handoff",
+      "name": "Kling",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "hailuo-handoff",
+      "name": "海螺 / MiniMax",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "runway-handoff",
+      "name": "Runway",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "veo-handoff",
+      "name": "Veo",
+      "kind": "video",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    },
+    {
+      "id": "hypit-handoff",
+      "name": "Hypit 宿主合并交接",
+      "kind": "backend",
+      "needs_director": true,
+      "needs_first_frame": false,
+      "needs_entry_resolution": true,
+      "adapter": "offline-only",
+      "native_parameters": {},
+      "entry_key_fields": [
+        "provider",
+        "product_entry",
+        "model",
+        "mode",
+        "documentation_version",
+        "region",
+        "permissions"
+      ],
+      "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执"
+    }
+  ]
+}

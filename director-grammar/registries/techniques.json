@@ -1,0 +1,275 @@
+{
+  "version": "1.0",
+  "techniques": [
+    {
+      "id": "information_gap",
+      "domain": "narrative",
+      "name": "观众先知",
+      "preconditions": "已确定观众与人物各自所知",
+      "parameters": "只提前给观众一条证据",
+      "invariants": "人物反应不能先于触发",
+      "failure": "证据太早或人物无故先知",
+      "fallback": "限制视点加反应镜头",
+      "acceptance": "观众能指出何时看见证据，人物在触发后才改变行动",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "restricted_pov",
+      "domain": "narrative",
+      "name": "限制视点",
+      "preconditions": "知道谁拥有视点",
+      "parameters": "观察对象与反应成对",
+      "invariants": "不可插入视点持有者无法获知的事实而不标记切换",
+      "failure": "全知插入破坏悬念",
+      "fallback": "客观建立镜头",
+      "acceptance": "信息来源可归属且切换可读",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "ellipsis",
+      "domain": "narrative",
+      "name": "时间省略",
+      "preconditions": "省略前后有可辨锚点",
+      "parameters": "故事顺序与展示顺序分开",
+      "invariants": "保留因果连接",
+      "failure": "动作连续性被错误当作时间跳跃",
+      "fallback": "补结果或过渡镜头",
+      "acceptance": "观众理解省略而不误判瞬移",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "depth_blocking",
+      "domain": "blocking",
+      "name": "纵深调度",
+      "preconditions": "空间平面与通路明确",
+      "parameters": "前中后层各有功能",
+      "invariants": "人物轨迹与摄影机轨迹分开",
+      "failure": "近大远小/遮挡关系互相矛盾",
+      "fallback": "固定广景排练",
+      "acceptance": "关键人与物在变化后仍能定位",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "contact_action",
+      "domain": "blocking",
+      "name": "接触动作",
+      "preconditions": "已定义支撑与归属",
+      "parameters": "准备、接触、受力、移动、停住",
+      "invariants": "受力期间接触点连续",
+      "failure": "道具穿模或换手",
+      "fallback": "减少动作或拆成接触与结果",
+      "acceptance": "手、物、承载面连续可见且结果成立",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "delayed_reaction",
+      "domain": "performance",
+      "name": "延迟反应",
+      "preconditions": "触发可被角色感知",
+      "parameters": "眼神或手部先停，再执行动作",
+      "invariants": "延迟有可见载体",
+      "failure": "空泛紧张或反应先于声音",
+      "fallback": "固定中近景保留手和眼",
+      "acceptance": "触发、微反应、动作终态顺序清楚",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "subtext",
+      "domain": "performance",
+      "name": "潜台词",
+      "preconditions": "人物欲望与表层行为明确",
+      "parameters": "动作可以克制但必须可见",
+      "invariants": "不得新增对白解释潜台词",
+      "failure": "每种情绪堆同一张脸",
+      "fallback": "用道具处置表现选择",
+      "acceptance": "台词、停顿与动作形成可理解关系",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "locked_observation",
+      "domain": "camera",
+      "name": "固定观察",
+      "preconditions": "主要动作在画幅内成立",
+      "parameters": "相机固定，让主体运动",
+      "invariants": "支撑点与完整动作可见",
+      "failure": "用晃动假装真实",
+      "fallback": "扩大景别",
+      "acceptance": "开始到结束完整且无遮挡",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "motivated_push",
+      "domain": "camera",
+      "name": "有动机推进",
+      "preconditions": "推进后仍容纳关键证据",
+      "parameters": "从关系到反应，缓进并停住",
+      "invariants": "不是变焦替代物理位移的保证",
+      "failure": "裁掉手或突然跳切",
+      "fallback": "固定机位加剪辑",
+      "acceptance": "尺寸变化与视差合理且终态证据保留",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "lateral_tracking",
+      "domain": "camera",
+      "name": "横向跟移",
+      "preconditions": "运动路径与障碍已登记",
+      "parameters": "与人物同向保持可读距离",
+      "invariants": "运动方向连续",
+      "failure": "主体滑步或背景反向漂移",
+      "fallback": "固定全景",
+      "acceptance": "脚步、重心与背景位移相符",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "orbit_reveal",
+      "domain": "camera",
+      "name": "环绕揭示",
+      "preconditions": "被遮挡信息有空间位置",
+      "parameters": "弧线位移产生遮挡变化与视差",
+      "invariants": "轴线转换必须交代",
+      "failure": "背景旋转却无主体视角变化",
+      "fallback": "侧移或切入证据",
+      "acceptance": "新信息确因机位变化可见",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "rack_focus",
+      "domain": "optics",
+      "name": "焦点转移",
+      "preconditions": "前后对象在同框不同深度",
+      "parameters": "从一个证据转向另一证据",
+      "invariants": "焦点不是机位运动",
+      "failure": "清晰对象变化与叙事不相干",
+      "fallback": "切镜头",
+      "acceptance": "注意力转移与信息出现一致",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "axis_bridge",
+      "domain": "continuity",
+      "name": "轴线过渡",
+      "preconditions": "两侧机位和动作轴已定义",
+      "parameters": "经轴上镜头或连续越轴建立新方向",
+      "invariants": "不能仅写不越轴",
+      "failure": "左右镜像且无过渡",
+      "fallback": "回原机位",
+      "acceptance": "观众仍可追踪相对位置",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "match_action",
+      "domain": "editing",
+      "name": "动作接点",
+      "preconditions": "相邻段动作阶段可对应",
+      "parameters": "在动作中切，保留方向和归属",
+      "invariants": "不能跳过关键接触",
+      "failure": "手位/道具状态跳变",
+      "fallback": "用中性插入镜头",
+      "acceptance": "接点可读且无重复或缺失关键动作",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "parallel_edit",
+      "domain": "editing",
+      "name": "平行剪辑",
+      "preconditions": "每条线有独立时间与汇合点",
+      "parameters": "按因果节点交错",
+      "invariants": "不能伪造同时发生",
+      "failure": "只有频繁切换没有信息增量",
+      "fallback": "顺序叙述",
+      "acceptance": "各线时间关系与汇合清楚",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "sound_bridge",
+      "domain": "sound",
+      "name": "声音桥",
+      "preconditions": "声源与进入时点已确定",
+      "parameters": "声先画后或声后画先",
+      "invariants": "说话人/画外声归属明确",
+      "failure": "无来源音效替代剧情",
+      "fallback": "同步硬切",
+      "acceptance": "声音跨镜头有目的且同步点正确",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "motivated_light",
+      "domain": "lighting",
+      "name": "光源动机",
+      "preconditions": "主光源在空间中可解释",
+      "parameters": "记录方向、柔硬、阴影与色彩作用",
+      "invariants": "相邻镜头世界光向一致",
+      "failure": "画面左右的光向被误当世界左右",
+      "fallback": "固定布光",
+      "acceptance": "反打与转身仍符合相同光源",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    },
+    {
+      "id": "color_structure",
+      "domain": "design",
+      "name": "色彩组织",
+      "preconditions": "颜色关联已由剧情或用户建立",
+      "parameters": "为段落分配可区分的颜色作用",
+      "invariants": "颜色不能替代动作证据",
+      "failure": "把某导演等同高饱和",
+      "fallback": "只保留一处颜色线索",
+      "acceptance": "颜色支持段落识别且主体清楚",
+      "source_refs": [
+        "DESIGN",
+        "CHAT"
+      ]
+    }
+  ]
+}

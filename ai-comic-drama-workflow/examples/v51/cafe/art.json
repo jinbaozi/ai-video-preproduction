@@ -1,0 +1,487 @@
+{
+  "schema_version": "1.0",
+  "project_id": "CAFE_DEMO",
+  "revision": 1,
+  "canon": {
+    "uri": "canon.json",
+    "revision": "1"
+  },
+  "director": {
+    "uri": "director.json",
+    "sha256": "e2cd57fa510e408688a1a5a4660b522b25b1512b9be0a2f231f273637ce2b5fa",
+    "project_id": "CAFE_DEMO",
+    "revision": 2
+  },
+  "sources": [
+    {
+      "id": "SRC_SCRIPT",
+      "kind": "user",
+      "uri": "cafe.source.txt",
+      "locator": "完整段落",
+      "claim": "虚构测试场景。两位成年人物A、B相对坐在咖啡馆桌边。A将蓝色信封放在桌上并松开右手。B先看信封，再抬眼问：“你确定？”A点头后，B才伸右手接触信封、拿起并持稳。全片12秒，24fps，16:9；仅这一句对白，没有旁白或内心独白。",
+      "verification": "provided"
+    },
+    {
+      "id": "DESIGN",
+      "kind": "design",
+      "uri": "design://cafe",
+      "locator": "完整段落",
+      "claim": "坐标、近景、服装和环境音是用于验证分镜制作的原创设计补充，未绑定实际影像。",
+      "verification": "inference"
+    }
+  ],
+  "brief": {
+    "world_mode": "contemporary",
+    "medium": "live_action",
+    "tags": [
+      "当代",
+      "写实",
+      "室内"
+    ],
+    "forbidden_styles": [],
+    "locked_style": null,
+    "secondary": null
+  },
+  "world": {
+    "thesis": "虚构咖啡馆信封交接：通过可见迟疑和动作因果表现信任确认。",
+    "era": "当代虚构场景",
+    "region": "日间咖啡馆",
+    "social_logic": "两位成年人物确认信任后交接信封",
+    "shape_language": "一张原木桌连接相对而坐的人物",
+    "palette": [
+      {
+        "id": "BASE",
+        "color": "原木与中性色",
+        "role": "背景"
+      },
+      {
+        "id": "ACCENT",
+        "color": "深蓝与米色",
+        "role": "人物"
+      }
+    ],
+    "materials": [
+      {
+        "id": "CLOTH",
+        "base": "织物",
+        "craft": "日常衣料",
+        "finish": "自然哑光",
+        "wear": "保持整洁"
+      },
+      {
+        "id": "WOOD",
+        "base": "木材",
+        "craft": "平整木桌",
+        "finish": "自然木纹",
+        "wear": "轻微使用痕迹"
+      },
+      {
+        "id": "PAPER",
+        "base": "纸",
+        "craft": "折叠信封",
+        "finish": "蓝色无字",
+        "wear": "完好"
+      }
+    ],
+    "color_script": [
+      {
+        "shot_ids": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "palette_ids": [
+          "BASE",
+          "ACCENT"
+        ],
+        "change_reason": "保持同一场景世界光源"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "A",
+      "entity_id": "A",
+      "name": "A",
+      "kind": "character",
+      "origin": "existing",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "design": "成年人物A，短发、深蓝外套",
+      "identity_locks": [
+        "成年身份A",
+        "短发",
+        "深蓝外套"
+      ],
+      "material_ids": [
+        "CLOTH"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "B",
+      "entity_id": "B",
+      "name": "B",
+      "kind": "character",
+      "origin": "existing",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "design": "成年人物B，齐肩发、米色衬衣",
+      "identity_locks": [
+        "成年身份B",
+        "齐肩发",
+        "米色衬衣"
+      ],
+      "material_ids": [
+        "CLOTH"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "ENVELOPE",
+      "entity_id": "ENVELOPE",
+      "name": "蓝色信封",
+      "kind": "prop",
+      "origin": "existing",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "design": "一个蓝色无字纸信封",
+      "identity_locks": [
+        "数量1",
+        "蓝色",
+        "无可读文字"
+      ],
+      "material_ids": [
+        "PAPER"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "TABLE",
+      "entity_id": "TABLE",
+      "name": "咖啡桌",
+      "kind": "set",
+      "origin": "existing",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "design": "原木桌面，水平高度0.75米",
+      "identity_locks": [
+        "固定世界位置"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "ROOM",
+      "entity_id": "ROOM",
+      "name": "咖啡馆",
+      "kind": "set",
+      "origin": "existing",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "design": "安静室内，无额外角色",
+      "identity_locks": [
+        "同一空间",
+        "左侧窗户"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    }
+  ],
+  "set": {
+    "scene_id": "CAFE",
+    "location_entity_id": "ROOM",
+    "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+    "origin": "桌面中心在地面的投影，Z向上",
+    "bounds": {
+      "min_m": [
+        -4,
+        -4,
+        0
+      ],
+      "max_m": [
+        4,
+        4,
+        4
+      ]
+    },
+    "layout": [
+      {
+        "id": "LAY_A",
+        "asset_id": "A",
+        "position_m": [
+          -0.7,
+          0,
+          0
+        ],
+        "size_m": [
+          0.3,
+          0.3,
+          1.7
+        ],
+        "yaw_deg": 0,
+        "role": "原文实体及支撑空间"
+      },
+      {
+        "id": "LAY_B",
+        "asset_id": "B",
+        "position_m": [
+          0.7,
+          0,
+          0
+        ],
+        "size_m": [
+          0.3,
+          0.3,
+          1.7
+        ],
+        "yaw_deg": 0,
+        "role": "原文实体及支撑空间"
+      },
+      {
+        "id": "LAY_ENVELOPE",
+        "asset_id": "ENVELOPE",
+        "position_m": [
+          -0.3,
+          0,
+          0.9
+        ],
+        "size_m": [
+          0.2,
+          0.15,
+          0.01
+        ],
+        "yaw_deg": 0,
+        "role": "原文实体及支撑空间"
+      },
+      {
+        "id": "LAY_TABLE",
+        "asset_id": "TABLE",
+        "position_m": [
+          0,
+          0,
+          0
+        ],
+        "size_m": [
+          1.4,
+          1,
+          0.75
+        ],
+        "yaw_deg": 0,
+        "role": "原文实体及支撑空间"
+      },
+      {
+        "id": "LAY_ROOM",
+        "asset_id": "ROOM",
+        "position_m": [
+          0,
+          0,
+          0
+        ],
+        "size_m": [
+          6,
+          6,
+          3
+        ],
+        "yaw_deg": 0,
+        "role": "原文实体及支撑空间"
+      }
+    ],
+    "counts": [
+      {
+        "asset_id": "A",
+        "count": 1
+      },
+      {
+        "asset_id": "B",
+        "count": 1
+      },
+      {
+        "asset_id": "ENVELOPE",
+        "count": 1
+      },
+      {
+        "asset_id": "TABLE",
+        "count": 1
+      },
+      {
+        "asset_id": "ROOM",
+        "count": 1
+      }
+    ],
+    "functional_zones": [],
+    "practical_lights": [],
+    "atmosphere": "柔和中性窗光，安静日间咖啡馆"
+  },
+  "events": [],
+  "shots": [
+    {
+      "id": "S1",
+      "director_pointer": "/shots/0",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "visible_assets": [
+        "A",
+        "B",
+        "ENVELOPE",
+        "TABLE",
+        "ROOM"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "ENVELOPE",
+        "background": "同一咖啡馆墙面与窗光，不改变导演镜头",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": []
+    },
+    {
+      "id": "S2",
+      "director_pointer": "/shots/1",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "visible_assets": [
+        "A",
+        "B",
+        "ENVELOPE",
+        "TABLE",
+        "ROOM"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "B",
+        "background": "同一咖啡馆墙面与窗光，不改变导演镜头",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": []
+    },
+    {
+      "id": "S3",
+      "director_pointer": "/shots/2",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "visible_assets": [
+        "A",
+        "B",
+        "ENVELOPE",
+        "TABLE",
+        "ROOM"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "ENVELOPE",
+        "background": "同一咖啡馆墙面与窗光，不改变导演镜头",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": []
+    }
+  ],
+  "references": [],
+  "contract": {
+    "id": "ART_PRODUCT",
+    "version": 1,
+    "scope": "咖啡馆三镜头美术合同",
+    "deliverables": [
+      "Visual Bible",
+      "资产与参考计划",
+      "逐镜美术补充",
+      "合同与验收待办"
+    ],
+    "clauses": [
+      {
+        "id": "ART_CAFE",
+        "requirement": "保持咖啡馆、深蓝外套A、米色衬衣B及唯一蓝色信封的既定外观与世界位置。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/world",
+          "/set",
+          "/assets",
+          "/shots"
+        ],
+        "shot_ids": [],
+        "check_ids": [
+          "QA_CAFE"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "按当前镜头呈现可见美术约束，使用真实参考并审图",
+          "reference_ids": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "id": "QA_CAFE",
+        "gate": "G4",
+        "scope": "project",
+        "method": "playback",
+        "predicate": "原文人物身份、服装、蓝色信封、咖啡馆空间与光线保持",
+        "evidence_required": "实际图片与版本哈希",
+        "owner": "art",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "max_attempts_per_job": 2,
+      "stop_conditions": [
+        "没有外部生成授权时仅交付本地计划",
+        "失败达到上限或硬要求无法保留时停止依赖执行"
+      ]
+    }
+  }
+}

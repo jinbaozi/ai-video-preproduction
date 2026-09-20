@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "approval_id",
+    "request_id",
+    "selections",
+    "context_fingerprint"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "approval-record"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "approval_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selections": {
+      "type": "object"
+    },
+    "context_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "impact_scope": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:approval-record.schema.json"
+}

@@ -1,0 +1,261 @@
+{
+  "archive": "video-prompt-compiler.skill",
+  "archive_sha256": "113b3f2000ebc09cb828dc32eb9aca7878efe2b8472b363d67ee2aae11caf035",
+  "file_count": 63,
+  "files": {
+    "video-prompt-compiler/SKILL.md": {
+      "bytes": 8389,
+      "sha256": "4ccdd776588df0ea908ed1dd0ba06436da2217229ae65b3eaf244fcb3548d7b6"
+    },
+    "video-prompt-compiler/agents/openai.yaml": {
+      "bytes": 382,
+      "sha256": "43f656e2dba4d7a4b42ff90dad89a462e2bb4093682bc688078ef922ed32c502"
+    },
+    "video-prompt-compiler/examples/batch.ndjson": {
+      "bytes": 734,
+      "sha256": "f0a2a24b51c35cb8b94271aa8e294c82cfd1fdf3d2b01866f90893f90bd252fa"
+    },
+    "video-prompt-compiler/examples/brief.md": {
+      "bytes": 337,
+      "sha256": "8c20fe986090d0967c9d5e02b7696201f7c0ce3f2f2115c26074c26f8cfc019c"
+    },
+    "video-prompt-compiler/examples/missing-reference.avir.json": {
+      "bytes": 18913,
+      "sha256": "771b5ce32cad66e250a26f0237635cde7763f56c388eb0e3e635bb09da1434f4"
+    },
+    "video-prompt-compiler/examples/native-dialogue.avir.json": {
+      "bytes": 18339,
+      "sha256": "2c599b26ca4cac7de75a8fdb94c620e5bc73330c0db201f763e15d26776e93f7"
+    },
+    "video-prompt-compiler/examples/teahouse.avir.json": {
+      "bytes": 18327,
+      "sha256": "dc0e2d37ebe97cd839ca54c37214634bb0e09e364053c6acd80d63e520809965"
+    },
+    "video-prompt-compiler/examples/v51/cafe.avir.json": {
+      "bytes": 129596,
+      "sha256": "abdee819267dbe8048a9ebd1bf8d7797e1cf94cffbbdd4595c969e17529b9c99"
+    },
+    "video-prompt-compiler/examples/v51/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "video-prompt-compiler/examples/v52/cafe.avir.json": {
+      "bytes": 199293,
+      "sha256": "311913b60eca2236a32cef4f796a1bc9af9de88f27eaef584e636f2b976537af"
+    },
+    "video-prompt-compiler/examples/v52/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "video-prompt-compiler/references/audiovisual-grammar.md": {
+      "bytes": 3545,
+      "sha256": "ee799957e5ca78ffb5cc41fd3146c3360ca47c32376aef2f2549e7d45738e67c"
+    },
+    "video-prompt-compiler/references/avir-and-contract.md": {
+      "bytes": 3745,
+      "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14"
+    },
+    "video-prompt-compiler/references/cooperation-v5.md": {
+      "bytes": 2272,
+      "sha256": "efb5f262021768a32c316463038f9fa104d4618c94de0599fe79b93a0f4f24f5"
+    },
+    "video-prompt-compiler/references/detail-contract-v51.md": {
+      "bytes": 8138,
+      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "video-prompt-compiler/references/evaluation-and-runtime.md": {
+      "bytes": 3387,
+      "sha256": "bb2acf387400a1ea286345fa7110e0e2c60163a7f19c4bbac0d9b8cea12a8630"
+    },
+    "video-prompt-compiler/references/integration.md": {
+      "bytes": 1842,
+      "sha256": "ebea939cd8047c6760b55df8bbbe76154a3c779a514059cb10d98ffb35ede4f2"
+    },
+    "video-prompt-compiler/references/models/agnes.md": {
+      "bytes": 1915,
+      "sha256": "b2ff11f76448db25b027c78eab849d1aaa1cd4b9804310435ef17f8d3de5d140"
+    },
+    "video-prompt-compiler/references/models/extensions.md": {
+      "bytes": 1698,
+      "sha256": "ae084166dff9dafdcc1b7217c82024a5e729adb413d862b3bf38c158ccb0d14d"
+    },
+    "video-prompt-compiler/references/models/index.md": {
+      "bytes": 1234,
+      "sha256": "51c7dad11fa409e7ca82540b0fc0b770596f122f65060dacda5c8e12da26c488"
+    },
+    "video-prompt-compiler/references/models/kling.md": {
+      "bytes": 906,
+      "sha256": "fe932fee6d8da8f862f617ffa4427bee98985ba56d4af8525daef56199a4888d"
+    },
+    "video-prompt-compiler/references/models/seedance.md": {
+      "bytes": 1370,
+      "sha256": "0d6ff4b5c2d8cad7d04a6ae715575c31c054af8d8064d67dbf0feb522f42c580"
+    },
+    "video-prompt-compiler/references/passes-and-optimization.md": {
+      "bytes": 3260,
+      "sha256": "e6d67399285d6a84f625bb73780e6d84d2cc340314c7dd49438b7f9bc3243940"
+    },
+    "video-prompt-compiler/references/research-and-scope.md": {
+      "bytes": 3101,
+      "sha256": "eaba7409121f8d3edff71a3bc94dfb018c8ca3d0c3b858fe814853dca1e83f8d"
+    },
+    "video-prompt-compiler/references/research/deep-research-report.md": {
+      "bytes": 56589,
+      "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
+    },
+    "video-prompt-compiler/references/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
+    },
+    "video-prompt-compiler/references/verification.md": {
+      "bytes": 1463,
+      "sha256": "08629d99b06a05e38967062e992946598cec3a4741c0e148e2c8d5b12e870c61"
+    },
+    "video-prompt-compiler/registries/capabilities.json": {
+      "bytes": 9996,
+      "sha256": "cf3f9936dab51e9e406319698f0a9d4defcc79bcdcfc41eb1affad30a948b0d2"
+    },
+    "video-prompt-compiler/registries/rules.json": {
+      "bytes": 1208,
+      "sha256": "091ac1ab0fc536578d5faad0cab30539c58b6e65b086dae8b85d6b98ffcde946"
+    },
+    "video-prompt-compiler/registries/sources.json": {
+      "bytes": 4262,
+      "sha256": "c3ba9042f125e3c01291d5542b9640dbcf9408f47aa664dfd1a8105e915b6c15"
+    },
+    "video-prompt-compiler/requirements.txt": {
+      "bytes": 19,
+      "sha256": "756cc9e506ae4ee1a6f6c0507088b5cfc0dc8ba350fb2d2d46f1ffa72033adb6"
+    },
+    "video-prompt-compiler/schemas/avir-1.1.schema.json": {
+      "bytes": 73113,
+      "sha256": "908c9b1057e5e61f13ea373808a09b31a4d4550be9eefcff59517f7c8c18e9ed"
+    },
+    "video-prompt-compiler/schemas/avir-1.2.schema.json": {
+      "bytes": 97075,
+      "sha256": "c1663f3a19e4b399012ebd6ba586e067db7cc991abd50ac91eab6ddac71c0a46"
+    },
+    "video-prompt-compiler/schemas/avir.schema.json": {
+      "bytes": 33223,
+      "sha256": "85dcc86243f5bc4ff72c4a094d492c8ecaa2d458c31c4b63f83277697f46b660"
+    },
+    "video-prompt-compiler/schemas/capability.schema.json": {
+      "bytes": 4840,
+      "sha256": "ee75129ec8766627857661ce6a9d4bb7898fd16b6f4964b2797c773b237b9ebf"
+    },
+    "video-prompt-compiler/schemas/compile-artifact-1.1.schema.json": {
+      "bytes": 3568,
+      "sha256": "23cc0c1cd81542fc80c1055b7c4638f7c031679bdef13809e20254e07ad4bbd0"
+    },
+    "video-prompt-compiler/schemas/compile-artifact-1.2.schema.json": {
+      "bytes": 3694,
+      "sha256": "45ba24b01a85b265c17a1ade12468fdff4df29051ebd1c28bd354fffa3c1b154"
+    },
+    "video-prompt-compiler/schemas/compile-artifact.schema.json": {
+      "bytes": 3106,
+      "sha256": "010675744c96982745e5f5faba0dc861ccbd2c9ccc3167bc593c942e2bed3e5a"
+    },
+    "video-prompt-compiler/scripts/detail_runtime.py": {
+      "bytes": 34347,
+      "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
+    },
+    "video-prompt-compiler/scripts/observe_video.py": {
+      "bytes": 4634,
+      "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
+    },
+    "video-prompt-compiler/scripts/package_skill.py": {
+      "bytes": 4764,
+      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+    },
+    "video-prompt-compiler/scripts/shared_v51/detail-contract-v51.md": {
+      "bytes": 8138,
+      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "video-prompt-compiler/scripts/shared_v51/detail_runtime.py": {
+      "bytes": 34347,
+      "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
+    },
+    "video-prompt-compiler/scripts/shared_v51/observe_video.py": {
+      "bytes": 4634,
+      "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
+    },
+    "video-prompt-compiler/scripts/shared_v51/schema_source.py": {
+      "bytes": 6040,
+      "sha256": "4b5b3f077ca9b7ec2a3722bfe34d2e6ff4d5a47f9f18af8d49cdb5962c857568"
+    },
+    "video-prompt-compiler/scripts/shared_v51/upgrade_detail.py": {
+      "bytes": 7792,
+      "sha256": "5d5522c6922745281a02f9f13eb4c953087cab77455145d91e2c1eccd5f1a383"
+    },
+    "video-prompt-compiler/scripts/shared_v51/v51_support.py": {
+      "bytes": 10329,
+      "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
+    },
+    "video-prompt-compiler/scripts/shared_v52/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
+    },
+    "video-prompt-compiler/scripts/shared_v52/spatial_runtime.py": {
+      "bytes": 37370,
+      "sha256": "f0a090a787b96915fb3b067e2d021c75fed7b9dcd37534eb7f6daa3c04dd1579"
+    },
+    "video-prompt-compiler/scripts/shared_v52/spatial_schema.py": {
+      "bytes": 3790,
+      "sha256": "19fcfd9855e650238135aed4db85d8f6b326c4b130531a593029f173ba2fe043"
+    },
+    "video-prompt-compiler/scripts/shared_v52/upgrade_spatial.py": {
+      "bytes": 7034,
+      "sha256": "f4bec1dcaa87a1a89324c62c57e1df32cdd1be1b17708d0111d365f339ecb0e3"
+    },
+    "video-prompt-compiler/scripts/shared_v52/v52_support.py": {
+      "bytes": 10426,
+      "sha256": "9abfcb93b68c150cee5374fdb2646174a30c9a67694037829a5e58ec8eca8c21"
+    },
+    "video-prompt-compiler/scripts/spatial_runtime.py": {
+      "bytes": 37370,
+      "sha256": "f0a090a787b96915fb3b067e2d021c75fed7b9dcd37534eb7f6daa3c04dd1579"
+    },
+    "video-prompt-compiler/scripts/upgrade_detail.py": {
+      "bytes": 7792,
+      "sha256": "5d5522c6922745281a02f9f13eb4c953087cab77455145d91e2c1eccd5f1a383"
+    },
+    "video-prompt-compiler/scripts/upgrade_spatial.py": {
+      "bytes": 7034,
+      "sha256": "f4bec1dcaa87a1a89324c62c57e1df32cdd1be1b17708d0111d365f339ecb0e3"
+    },
+    "video-prompt-compiler/scripts/v51_support.py": {
+      "bytes": 10329,
+      "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
+    },
+    "video-prompt-compiler/scripts/v52_support.py": {
+      "bytes": 10426,
+      "sha256": "9abfcb93b68c150cee5374fdb2646174a30c9a67694037829a5e58ec8eca8c21"
+    },
+    "video-prompt-compiler/scripts/vpc.py": {
+      "bytes": 9176,
+      "sha256": "da7f57861e88e46836a74187a8df0fcaee8116208dfb2fc4b1eb316946deeda6"
+    },
+    "video-prompt-compiler/scripts/vpc_core.py": {
+      "bytes": 35613,
+      "sha256": "ea82415dd830014907391464de1a14d51de578b166ba30a7904f1182748fd2ab"
+    },
+    "video-prompt-compiler/templates/backends.json": {
+      "bytes": 3121,
+      "sha256": "44462cd0cd221dd8320e213496901cdc4645a8f8e47cbde2242d77bdbea928f1"
+    },
+    "video-prompt-compiler/tests/test_v51.py": {
+      "bytes": 8015,
+      "sha256": "3811164ebf594302dc0ed5490f9905cef9d742c32c83c6d151cccff49673a4aa"
+    },
+    "video-prompt-compiler/tests/test_v52.py": {
+      "bytes": 12163,
+      "sha256": "7f1427dcd833b4eb196ed6aae9a7a77949d4e6738d2c3e69f586ac9ac4b845a8"
+    },
+    "video-prompt-compiler/tests/test_vpc.py": {
+      "bytes": 11470,
+      "sha256": "abd0e04660cd5159546892c6c0cc03ec1a15afbea4292e8504005728689cb75c"
+    }
+  },
+  "name": "video-prompt-compiler",
+  "version": "1.3.0"
+}

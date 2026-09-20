@@ -1,0 +1,84 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "target_duration_s",
+    "segments"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "generation-segment-plan"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "const": "segment_plan"
+    },
+    "role_provenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "target_duration_s": {
+      "type": "number",
+      "minimum": 1
+    },
+    "segments": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "segment_id",
+          "index",
+          "target_duration_s",
+          "source_refs"
+        ],
+        "properties": {
+          "segment_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "index": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "target_duration_s": {
+            "type": "number",
+            "minimum": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:generation-segment-plan.schema.json"
+}

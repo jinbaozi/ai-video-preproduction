@@ -1,0 +1,140 @@
+{
+  "version": "1.0.0",
+  "templates": {
+    "seedance20": {
+      "guidance": "参考职责明确；按时间段表达动作、摄影机与音画关系。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "seedance25": {
+      "guidance": "保留当前时长和叙事节拍；参考分别约束外观、空间、运动与声音。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "agnes": {
+      "guidance": "按主体、环境、动作、镜头、风格、声音与一致性组织。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "action",
+        "camera",
+        "style",
+        "audio",
+        "constraints"
+      ]
+    },
+    "kling": {
+      "guidance": "保留 Shot 边界、元素身份、说话人与声音时点。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "kling_omni": {
+      "guidance": "逐项绑定多模态素材职责；各元素身份和声音归属分开。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "h3": {
+      "guidance": "将主体关系、时间节拍与音画关联组织为结构化上下文描述。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "veo": {
+      "guidance": "分开描述画面、运动与声音；对话原文和语言保持不变。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "wan": {
+      "guidance": "基于已抽取的文档事实和引用，形成有来源的场景节拍。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "runway": {
+      "guidance": "以可见主体运动、环境运动和摄影机运动表达；时长比例另行交接。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    }
+  }
+}

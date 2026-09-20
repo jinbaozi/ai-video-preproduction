@@ -1,0 +1,209 @@
+{
+  "archive": "director-grammar.skill",
+  "archive_sha256": "9f2314cbbf827f0d498057bfdf33cb051d28cd9e3870d9de71338466f88ffdf1",
+  "file_count": 50,
+  "files": {
+    "director-grammar/SKILL.md": {
+      "bytes": 8500,
+      "sha256": "cfd0f05c177d180f72627be4158f941b4948b4883a7933fb9d898b5f9b889f8b"
+    },
+    "director-grammar/agents/openai.yaml": {
+      "bytes": 370,
+      "sha256": "f4f4e674fcccec3171c06fd8515e55b1c2ed81b3724181c4337abc3baf18e007"
+    },
+    "director-grammar/examples/demonstration.director.json": {
+      "bytes": 10099,
+      "sha256": "38b08231453f2df8d9a0e98b1a8d4e4705f78ef651f1ad2a06046299c2907227"
+    },
+    "director-grammar/examples/missing-reference.director.json": {
+      "bytes": 32159,
+      "sha256": "d32537ad55c5a772acd7f3b85f5558713eee4aa0c171c508497fa56109032203"
+    },
+    "director-grammar/examples/teahouse.director.json": {
+      "bytes": 31791,
+      "sha256": "2a8e8c3231e0d10e70fb5eb6a055f4b13146452e9927b7504d6074f915975b33"
+    },
+    "director-grammar/examples/v51/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "director-grammar/examples/v51/director.json": {
+      "bytes": 122355,
+      "sha256": "e2cd57fa510e408688a1a5a4660b522b25b1512b9be0a2f231f273637ce2b5fa"
+    },
+    "director-grammar/examples/v52/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "director-grammar/examples/v52/director.json": {
+      "bytes": 192658,
+      "sha256": "8e0feefc228ba17d562c3425c202850875ad4e1f2ca58dc193d5d28098b10909"
+    },
+    "director-grammar/references/compiler.md": {
+      "bytes": 4434,
+      "sha256": "aab9af451efbcd8ca05f417f81e69defcc733cec11e5a7268f3d215847b69d2e"
+    },
+    "director-grammar/references/cooperation-v5.md": {
+      "bytes": 2318,
+      "sha256": "d3a4aad5cdf34e847c78a624c7ce7140c03f599702267521382cb90f07cfc2b6"
+    },
+    "director-grammar/references/detail-contract-v51.md": {
+      "bytes": 8138,
+      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "director-grammar/references/hypit.md": {
+      "bytes": 2352,
+      "sha256": "140a440a0f60674343b5d002e2f0b06e505ed47744da7e2f324146bdc0b0b283"
+    },
+    "director-grammar/references/integration.md": {
+      "bytes": 1870,
+      "sha256": "45bb545c9ac0977e175146f04c6d89aa33cc796b4c3705b1881c7a2c6a9957df"
+    },
+    "director-grammar/references/performance.md": {
+      "bytes": 2521,
+      "sha256": "98f8c01d3456f99c7f8d8f274bfaa6fdfc80c168ef5b4609847a40a7097c40e2"
+    },
+    "director-grammar/references/platforms.md": {
+      "bytes": 4096,
+      "sha256": "abc390f890845fc23ef3481757b5692fd8d920158e03111da1d95808f0201c03"
+    },
+    "director-grammar/references/production-contract.md": {
+      "bytes": 3589,
+      "sha256": "a633125f32a45b8292c1c7f532d101e9130c882cbe456c8c19cec1680acb9ba7"
+    },
+    "director-grammar/references/quality-and-repair.md": {
+      "bytes": 3115,
+      "sha256": "f22ffd50cf56354330c2aa9f5f3d507003121b1db5bb1c6191932bbb7c7e0e6a"
+    },
+    "director-grammar/references/sources.md": {
+      "bytes": 2541,
+      "sha256": "0d8d4c305239223fe3237b7478df6eda18e855544395e85bb6fa2d05e7a2ebe5"
+    },
+    "director-grammar/references/spatial-composition.md": {
+      "bytes": 3466,
+      "sha256": "24427cc131e31c4375b81b0f46a49b413485a9056a4dadd563ee10eafa61d94c"
+    },
+    "director-grammar/references/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
+    },
+    "director-grammar/references/style-and-camera.md": {
+      "bytes": 3066,
+      "sha256": "12ae76f518c39a71aab5940e19548fc6239dcbba0c642f51fc46a979924b6485"
+    },
+    "director-grammar/references/verification.md": {
+      "bytes": 3357,
+      "sha256": "c9f22dcbe85cb25b5313233f86751571846ffe766c5d55a9ce5b748b02fc5cb8"
+    },
+    "director-grammar/references/workflow.md": {
+      "bytes": 2901,
+      "sha256": "d9ffca55caac8ebdb88937bdda9c38c045505ef7eb30e4929638ee1d66e369f3"
+    },
+    "director-grammar/registries/capabilities.json": {
+      "bytes": 6128,
+      "sha256": "409983836b21253aa294a477c7b29661028e58801d6834a8ea072c8477471d15"
+    },
+    "director-grammar/registries/directors.json": {
+      "bytes": 5854,
+      "sha256": "b6f856bcf4150cc13ed03bdfa5a83da4d09f318d8be2b81a185d06b53f3643e4"
+    },
+    "director-grammar/registries/evidence.json": {
+      "bytes": 4749,
+      "sha256": "f103cb1448ed2c2bcb31efd3abebce92e4626f9be7c490b4b587b20552e56efe"
+    },
+    "director-grammar/registries/styles.json": {
+      "bytes": 6355,
+      "sha256": "5c57fc935d684a3bd6046df41c04a5c642527ae9187506d16ac344441dab2958"
+    },
+    "director-grammar/registries/techniques.json": {
+      "bytes": 8858,
+      "sha256": "eae1692d4ecf484cc47d91dc41e7d8272307cb49ebdaf6ffa2dca2e5751846ea"
+    },
+    "director-grammar/requirements.txt": {
+      "bytes": 20,
+      "sha256": "117bb7857e2106917057761be56b51e26df4b9c0e3ebdbcf48a992e94534c6ac"
+    },
+    "director-grammar/schemas/director-ir-1.1.schema.json": {
+      "bytes": 71995,
+      "sha256": "17f45d7c93868b120ce34f89d7b6e6e7d9f798dfc38d321eea5e1d4e10963c63"
+    },
+    "director-grammar/schemas/director-ir-1.2.schema.json": {
+      "bytes": 97014,
+      "sha256": "d76b5391d7e9be0ac0c180e5f592389755074f67eb1ce069d67eb2338f7e2149"
+    },
+    "director-grammar/schemas/director-ir.schema.json": {
+      "bytes": 30103,
+      "sha256": "1f59d06d378805decb1fcdad532a206d45f9c2129e0b61bebcfbe73fdff7df36"
+    },
+    "director-grammar/schemas/edit-manifest.schema.json": {
+      "bytes": 1537,
+      "sha256": "a9aa261fd6ea10d5f0892e3d043e7792bd560428770414214a877751875029bb"
+    },
+    "director-grammar/schemas/execution-ir.schema.json": {
+      "bytes": 9267,
+      "sha256": "82db15a61faba9789c1372a6636b98b89bc015994aca4ac04361a2a7d78fd468"
+    },
+    "director-grammar/schemas/production-contract.schema.json": {
+      "bytes": 6017,
+      "sha256": "76e17c7b8248cd2980eec9a448e46ad0683b22e61430eb0af98be73af3fc7855"
+    },
+    "director-grammar/schemas/qa-report.schema.json": {
+      "bytes": 2491,
+      "sha256": "212933355762bbc9e6ae33a837d3934fc7c1c7be8c7ab5daf792dac06655649b"
+    },
+    "director-grammar/scripts/detail_runtime.py": {
+      "bytes": 34347,
+      "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
+    },
+    "director-grammar/scripts/dg.py": {
+      "bytes": 43881,
+      "sha256": "6abf8f4d4bca2af06d269261ff9bda1808530ff30d704c0266913fbb03b26330"
+    },
+    "director-grammar/scripts/export_hypit.py": {
+      "bytes": 6552,
+      "sha256": "d05b3a410b00162b044f64f477c9809a668e1e766eadf099e5cfe1af0f88a05f"
+    },
+    "director-grammar/scripts/observe_video.py": {
+      "bytes": 4634,
+      "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
+    },
+    "director-grammar/scripts/package_skill.py": {
+      "bytes": 4764,
+      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+    },
+    "director-grammar/scripts/spatial_runtime.py": {
+      "bytes": 37370,
+      "sha256": "f0a090a787b96915fb3b067e2d021c75fed7b9dcd37534eb7f6daa3c04dd1579"
+    },
+    "director-grammar/scripts/upgrade_detail.py": {
+      "bytes": 7792,
+      "sha256": "5d5522c6922745281a02f9f13eb4c953087cab77455145d91e2c1eccd5f1a383"
+    },
+    "director-grammar/scripts/upgrade_spatial.py": {
+      "bytes": 7034,
+      "sha256": "f4bec1dcaa87a1a89324c62c57e1df32cdd1be1b17708d0111d365f339ecb0e3"
+    },
+    "director-grammar/scripts/v51_support.py": {
+      "bytes": 10329,
+      "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
+    },
+    "director-grammar/scripts/v52_support.py": {
+      "bytes": 10426,
+      "sha256": "9abfcb93b68c150cee5374fdb2646174a30c9a67694037829a5e58ec8eca8c21"
+    },
+    "director-grammar/templates/production-contract.md": {
+      "bytes": 1503,
+      "sha256": "363e7c84b3a58ecce32be9fd8ded1fc3c0c89c77eb497e376add7c8b5850894f"
+    },
+    "director-grammar/tests/test_dg.py": {
+      "bytes": 11518,
+      "sha256": "680f712341434ced476848fb09e7c0a4f1d1e277c74a89fd52fa27396961a950"
+    },
+    "director-grammar/tests/test_hypit.py": {
+      "bytes": 4233,
+      "sha256": "262cab94b0269508696662984bab7682035590205589f421995b23b72df1b2e1"
+    }
+  },
+  "name": "director-grammar",
+  "version": "1.3.0"
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "分镜语法与制作合同"
+  short_description: "将故事、导演与美术约束编译为可追溯的空间分镜、表演和制作合同"
+  default_prompt: "使用 $storyboard-grammar，根据原文及已有导演与美术方案制作可校验分镜，保留来源、空间、表演、声画和连续性合同。"
+
+policy:
+  allow_implicit_invocation: true

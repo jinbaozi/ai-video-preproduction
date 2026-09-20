@@ -1,0 +1,122 @@
+{
+  "verified_at": "2026-09-19",
+  "sources": [
+    {
+      "id": "DESIGN",
+      "kind": "project_design",
+      "title": "本项目原创协议与规则",
+      "uri": "local:SKILL.md",
+      "version": "1.0",
+      "verification": "design",
+      "claim": "DirectorIR、制作合同、路由评分与检查规则是项目设计，不是行业通用协议或经实测的成功率模型。"
+    },
+    {
+      "id": "CHAT",
+      "kind": "user_reference",
+      "title": "导演排名与风格解析",
+      "uri": "chatgpt-conversation://6aadc843-aca4-83e8-a176-dd65aa2de97f",
+      "version": "完整2轮对话，无可下载附件",
+      "verification": "read",
+      "claim": "架构与20位导演索引的需求来源；旧回答中的排名、参数和引用不视为当前已核验事实。"
+    },
+    {
+      "id": "DIRECTOR",
+      "kind": "community",
+      "title": "DirectorSKILL",
+      "uri": "https://github.com/wuwangzhang1216/DirectorSKILL/blob/main/SKILL.md",
+      "version": "main，浮动快照",
+      "verification": "read",
+      "claim": "借鉴按任务加载知识、先调度再构图的组织思路；不复制源码与模板，不宣称其内部工作流经过本项目实测。"
+    },
+    {
+      "id": "SEED_SKILL",
+      "kind": "community",
+      "title": "seedance-2.0",
+      "uri": "https://github.com/Emily2040/seedance-2.0/blob/main/SKILL.md",
+      "version": "main，浮动快照",
+      "verification": "read",
+      "claim": "借鉴入口核验、参考维度与非叙事任务区分。"
+    },
+    {
+      "id": "MINIMAX",
+      "kind": "official",
+      "title": "MiniMax T2V API",
+      "uri": "https://platform.minimax.io/docs/api-reference/video-generation-t2v",
+      "version": "文档快照 2026-09-19",
+      "verification": "read",
+      "claim": "MiniMax-Hailuo-2.3 T2V 的词法、2000字符、分辨率和时长组合；未调用接口。"
+    },
+    {
+      "id": "RUNWAY",
+      "kind": "official",
+      "title": "Gen-4 Video Prompting Guide",
+      "uri": "https://help.runwayml.com/hc/en-us/articles/39789879462419-Gen-4-Video-Prompting-Guide",
+      "version": "Gen-4 UI 文档",
+      "verification": "read",
+      "claim": "I2V以动作和正向语言为重点，5或10秒；不据此构造未核验API字段。"
+    },
+    {
+      "id": "KLING",
+      "kind": "official",
+      "title": "Kling VIDEO 3.0 Model User Guide",
+      "uri": "https://app.klingai.com/cn/quickstart/klingai-video-3-model-user-guide",
+      "version": "2026-02-06，VIDEO 3.0 UI",
+      "verification": "read",
+      "claim": "UI区分单镜头与自定义多镜头；本项目只输出UI镜头表，不推断第三方API。"
+    },
+    {
+      "id": "LIBTV",
+      "kind": "official",
+      "title": "LibTV Skills",
+      "uri": "https://github.com/libtv-labs/libtv-skills",
+      "version": "main，浮动快照",
+      "verification": "read",
+      "claim": "会话与消息API是Agent入口，不代表内部导演算法公开。"
+    },
+    {
+      "id": "SEEDANCE",
+      "kind": "official",
+      "title": "Seedance 2.0 发布说明",
+      "uri": "https://seed.bytedance.com/zh/blog/official-launch-of-seedance-2-0",
+      "version": "Seedance 2.0",
+      "verification": "read",
+      "claim": "模型研究与消费端入口必须分开；本项目未核验具体账号的附件槽位。"
+    },
+    {
+      "id": "OIIOII",
+      "kind": "official",
+      "title": "OiiOii 创作指南",
+      "uri": "https://articles.oiioii.ai/how-to-make-an-animated-music-video-with-ai-2",
+      "version": "站点文章",
+      "verification": "read",
+      "claim": "用于理解角色分工；首页抓取失败，未取得可调用结构契约。"
+    },
+    {
+      "id": "SEKO",
+      "kind": "official",
+      "title": "Seko Explore",
+      "uri": "https://seko.sensetime.com/explore",
+      "version": "公开页面",
+      "verification": "read",
+      "claim": "产品页面不构成API字段说明；执行契约未知。"
+    },
+    {
+      "id": "HYPIT",
+      "kind": "official",
+      "title": "Hypit repository",
+      "uri": "https://github.com/hypit-ai/hypit",
+      "version": "本地CLI 0.1.10",
+      "verification": "observed",
+      "claim": "本地核验svml/svs/svrun与素材装配；导出器不调用build。许可证见仓库LICENSE，不复制其实现。"
+    },
+    {
+      "id": "HYPIT_TRACK",
+      "kind": "local_official",
+      "title": "Hypit media-track README",
+      "uri": "https://github.com/hypit-ai/hypit/tree/main/packages/media-track",
+      "version": "本地安装0.1.10 packages/media-track/README.md",
+      "verification": "read",
+      "claim": "prepared media、时间窗、fit与显式源音轨；本版本仅装配已裁切本地素材。"
+    }
+  ]
+}

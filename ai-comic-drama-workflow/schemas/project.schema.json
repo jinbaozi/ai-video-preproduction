@@ -1,0 +1,93 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "title",
+    "format",
+    "work_depth",
+    "adaptation_policy",
+    "selected_config",
+    "workflow_id",
+    "entry_mode"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "project"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "const": "project_setup"
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "short-drama",
+        "film-narrative",
+        "visual-concept"
+      ]
+    },
+    "work_depth": {
+      "type": "string",
+      "enum": [
+        "quick",
+        "standard",
+        "deep"
+      ]
+    },
+    "adaptation_policy": {
+      "type": "string",
+      "enum": [
+        "source-strict",
+        "limited-expansion",
+        "creative-first"
+      ]
+    },
+    "workflow_id": {
+      "type": "string",
+      "const": "ai-comic-drama-main-v3"
+    },
+    "entry_mode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selected_config": {
+      "type": "object"
+    },
+    "external_generation_blocked": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:project.schema.json"
+}

@@ -1,0 +1,408 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://director-grammar.local/execution-ir.schema.json",
+  "title": "execution-ir",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "compiler_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ir_sha256": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capability_sha256": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registries_sha256": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "BLOCKED"
+      ]
+    },
+    "submitted": {
+      "const": false
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          },
+          "mode": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duration_seconds": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "edit_frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "bindings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "asset_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "filename": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "path": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "sha256": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "slot": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "dimensions": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                },
+                "roles": {
+                  "type": "array",
+                  "minItems": 1,
+                  "uniqueItems": true,
+                  "items": {
+                    "enum": [
+                      "reference",
+                      "first_frame",
+                      "last_frame"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "asset_id",
+                "filename",
+                "path",
+                "sha256",
+                "slot",
+                "dimensions",
+                "roles"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          },
+          "request": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "request_kind": {
+            "enum": [
+              "none",
+              "api_body",
+              "ui_fields",
+              "agent_task"
+            ]
+          },
+          "status": {
+            "enum": [
+              "PLANNED",
+              "BLOCKED"
+            ]
+          },
+          "reason": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "id",
+          "shot_ids",
+          "mode",
+          "duration_seconds",
+          "edit_frames",
+          "prompt",
+          "bindings",
+          "request",
+          "request_kind",
+          "status",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "edit_segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "shot_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "job_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "timeline_start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "source_in_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "take_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "shot_id",
+          "job_id",
+          "timeline_start_frame",
+          "frames",
+          "source_in_frame",
+          "take_id"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "losses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "feature": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel": {
+            "enum": [
+              "native",
+              "lexical",
+              "natural_language",
+              "post",
+              "unsupported",
+              "unknown",
+              "reference",
+              "review"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "info",
+              "warning",
+              "blocker"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "remedy": {
+            "type": "string",
+            "minLength": 1
+          },
+          "check_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "path",
+          "feature",
+          "channel",
+          "severity",
+          "reason",
+          "remedy",
+          "check_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "semantic_map": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "destination": {
+            "type": "string",
+            "minLength": 1
+          },
+          "channel": {
+            "type": "string",
+            "minLength": 1
+          },
+          "check_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "path",
+          "destination",
+          "channel",
+          "check_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "qa": {
+      "type": "object",
+      "properties": {
+        "G0": {
+          "enum": [
+            "STATIC_PASS",
+            "BLOCKED"
+          ]
+        },
+        "G1": {
+          "const": "STATIC_PASS"
+        },
+        "G2": {
+          "enum": [
+            "STATIC_PASS",
+            "BLOCKED"
+          ]
+        },
+        "G3": {
+          "const": "NOT_RUN"
+        },
+        "G4": {
+          "const": "NOT_RUN"
+        }
+      },
+      "required": [
+        "G0",
+        "G1",
+        "G2",
+        "G3",
+        "G4"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "compiler_version",
+    "ir_sha256",
+    "capability_sha256",
+    "registries_sha256",
+    "contract_id",
+    "target",
+    "status",
+    "submitted",
+    "jobs",
+    "edit_segments",
+    "losses",
+    "semantic_map",
+    "qa"
+  ],
+  "additionalProperties": false
+}

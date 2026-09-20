@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-prompt-compiler.local/capability.schema.json",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entry_point": {
+      "type": "string",
+      "minLength": 1
+    },
+    "backend": {
+      "enum": [
+        "agnes_api_draft",
+        "prompt_plan"
+      ]
+    },
+    "template": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_level": {
+      "enum": [
+        "official_docs",
+        "official_model",
+        "unverified"
+      ]
+    },
+    "verified_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "region": {
+      "type": "string",
+      "minLength": 1
+    },
+    "account_verified": {
+      "type": "boolean"
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+      },
+      "minItems": 1
+    },
+    "modes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "text",
+          "keyframe",
+          "reference",
+          "edit",
+          "extend"
+        ]
+      },
+      "minItems": 1
+    },
+    "duration_ms": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "max": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allowed": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "minItems": 0
+        },
+        "step": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "scope": {
+          "enum": [
+            "entrypoint",
+            "model",
+            "unknown"
+          ]
+        }
+      },
+      "required": [
+        "min",
+        "max",
+        "allowed",
+        "step",
+        "scope"
+      ],
+      "additionalProperties": false
+    },
+    "resolutions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "ratios": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "max_refs": {
+      "type": "object",
+      "properties": {
+        "image": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "audio": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "video": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "total": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "image",
+        "audio",
+        "video",
+        "total"
+      ],
+      "additionalProperties": false
+    },
+    "native_audio": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "native_reference_syntax": {
+      "enum": [
+        "agnes",
+        "unresolved"
+      ]
+    },
+    "max_prompt_chars": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "native_tokenizer": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "model",
+    "entry_point",
+    "backend",
+    "template",
+    "evidence_level",
+    "verified_at",
+    "region",
+    "account_verified",
+    "source_refs",
+    "modes",
+    "duration_ms",
+    "resolutions",
+    "ratios",
+    "max_refs",
+    "native_audio",
+    "native_reference_syntax",
+    "max_prompt_chars",
+    "native_tokenizer"
+  ],
+  "additionalProperties": false
+}

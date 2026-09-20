@@ -1,0 +1,225 @@
+{
+  "note": "沿用用户引用对话中的华语10位与国外10位检索范围；以下为本项目方法入口，不是排名、完整影史结论或对作品的复制。",
+  "directors": [
+    {
+      "name": "张艺谋",
+      "alias": "Zhang Yimou",
+      "style_id": "formal_color",
+      "method": "色彩段落、秩序与个体位置",
+      "counterexample": "不把所有作品等同高饱和",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "王家卫",
+      "alias": "Wong Kar-wai",
+      "style_id": "urban_memory",
+      "method": "省略时间、距离与记忆",
+      "counterexample": "霓虹和拖影不能替代关系",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "李安",
+      "alias": "Ang Lee",
+      "style_id": "intimate_subtext",
+      "method": "克制动作与潜台词",
+      "counterexample": "克制不等于缺乏可见反应",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "陈凯歌",
+      "alias": "Chen Kaige",
+      "style_id": "formal_color",
+      "method": "仪式空间与个人命运",
+      "counterexample": "宏大构图不能吞没动机",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "贾樟柯",
+      "alias": "Jia Zhangke",
+      "style_id": "observational",
+      "method": "环境和日常行为承载变化",
+      "counterexample": "写实不等于任意手持",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "吴宇森",
+      "alias": "John Woo",
+      "style_id": "kinetic_space",
+      "method": "对峙关系与动作节拍",
+      "counterexample": "慢动作须服务选择",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "徐克",
+      "alias": "Tsui Hark",
+      "style_id": "kinetic_space",
+      "method": "动作路线与空间奇想",
+      "counterexample": "速度不能损失方向",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "侯孝贤",
+      "alias": "Hou Hsiao-hsien",
+      "style_id": "observational",
+      "method": "时间持续与框内调度",
+      "counterexample": "长镜头须有观察对象",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "杨德昌",
+      "alias": "Edward Yang",
+      "style_id": "observational",
+      "method": "都市空间中的多人关系",
+      "counterexample": "远景仍需明确关注对象",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "周星驰",
+      "alias": "Stephen Chow",
+      "style_id": "comic_timing",
+      "method": "反差、身体动作与反应时机",
+      "counterexample": "夸张必须保留因果",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "阿尔弗雷德·希区柯克",
+      "alias": "Alfred Hitchcock",
+      "style_id": "restrained_suspense",
+      "method": "信息差与视点控制",
+      "counterexample": "不把悬疑等同暗光",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "斯坦利·库布里克",
+      "alias": "Stanley Kubrick",
+      "style_id": "formal_color",
+      "method": "几何秩序与距离压迫",
+      "counterexample": "对称不是所有镜头的目的",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "史蒂文·斯皮尔伯格",
+      "alias": "Steven Spielberg",
+      "style_id": "heroic_reveal",
+      "method": "以人物反应带出空间发现",
+      "counterexample": "奇观需有观察者",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "马丁·斯科塞斯",
+      "alias": "Martin Scorsese",
+      "style_id": "kinetic_space",
+      "method": "主观经验与移动视点",
+      "counterexample": "跟拍要有路径和心理动机",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "黑泽明",
+      "alias": "Akira Kurosawa",
+      "style_id": "kinetic_space",
+      "method": "队形、方向与环境响应",
+      "counterexample": "多人动作不能缺主次",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "弗朗西斯·福特·科波拉",
+      "alias": "Francis Ford Coppola",
+      "style_id": "intimate_subtext",
+      "method": "权力关系与仪式中的选择",
+      "counterexample": "暗部不应吞没证据",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "克里斯托弗·诺兰",
+      "alias": "Christopher Nolan",
+      "style_id": "temporal_weave",
+      "method": "多线时序与信息回收",
+      "counterexample": "碎片顺序需可解释",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "昆汀·塔伦蒂诺",
+      "alias": "Quentin Tarantino",
+      "style_id": "restrained_suspense",
+      "method": "对话张力、停顿与骤变",
+      "counterexample": "长对白需信息变化",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "大卫·芬奇",
+      "alias": "David Fincher",
+      "style_id": "procedural",
+      "method": "证据获得与注意力分配",
+      "counterexample": "精确不等于机械静止",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    },
+    {
+      "name": "迈克尔·贝",
+      "alias": "Michael Bay",
+      "style_id": "heroic_reveal",
+      "method": "视差、层次与英雄登场",
+      "counterexample": "不能把环绕角度当导演固定公式",
+      "source_refs": [
+        "CHAT",
+        "DESIGN"
+      ]
+    }
+  ]
+}

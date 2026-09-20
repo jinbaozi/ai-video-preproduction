@@ -1,0 +1,1255 @@
+{
+  "schema_version": "1.0",
+  "project_id": "DEMO_TEA",
+  "revision": 1,
+  "canon_ref": "local:example-only;replace-with-project-canon",
+  "sources": [
+    {
+      "id": "U1",
+      "kind": "user",
+      "uri": "chatgpt-conversation://6aadc843-aca4-83e8-a176-dd65aa2de97f",
+      "locator": "15秒雨夜茶馆工作示例",
+      "claim": "信使交信、观众看见藏刃、金属声触发收回信封；无对白",
+      "verification": "provided"
+    },
+    {
+      "id": "D1",
+      "kind": "design",
+      "uri": "local:examples/teahouse.director.json",
+      "locator": "本示例全部机位/坐标/表演/时间预算",
+      "claim": "为测试合同而编写的虚构设计，不是真实素材或用户已批准画面",
+      "verification": "inference"
+    }
+  ],
+  "intent": {
+    "task": "narrative",
+    "goal": "让观众先于信使发现危险，并通过收回信封读出警觉",
+    "tags": [
+      "悬疑",
+      "信息差",
+      "克制"
+    ],
+    "style_request": null,
+    "forbidden_techniques": [
+      "orbit_reveal"
+    ]
+  },
+  "format": {
+    "fps": 24,
+    "width": 1280,
+    "height": 720,
+    "total_frames": 360
+  },
+  "entities": [
+    {
+      "id": "A",
+      "name": "信使",
+      "kind": "character",
+      "description": "成年，灰色长衫，黑色束发",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "接头人",
+      "kind": "character",
+      "description": "成年，深褐长衫，黑色束发",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "E",
+      "name": "信封",
+      "kind": "prop",
+      "description": "未封口的米色纸信封",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "K",
+      "name": "短刃",
+      "kind": "prop",
+      "description": "暗色短刀，握柄在接头人左手",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "L",
+      "name": "茶馆",
+      "kind": "location",
+      "description": "雨夜旧茶馆，一张木桌，两把木椅，窗在西侧",
+      "source_refs": [
+        "D1"
+      ]
+    }
+  ],
+  "assets": [],
+  "scenes": [
+    {
+      "id": "SC1",
+      "location_id": "L",
+      "space": "雨夜茶馆，信使坐西侧，接头人坐东侧，一张木桌位于二人之间",
+      "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+      "axis_start_m": [
+        -0.7,
+        0,
+        0
+      ],
+      "axis_end_m": [
+        0.7,
+        0,
+        0
+      ],
+      "style_id": "restrained_suspense"
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "scene_id": "SC1",
+      "change": "信封到桌中央",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "B2",
+      "scene_id": "SC1",
+      "change": "观众看到危险证据",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "B3",
+      "scene_id": "SC1",
+      "change": "信使收回交付",
+      "source_refs": [
+        "U1"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "scene_id": "SC1",
+      "beat_id": "B1",
+      "source_refs": [
+        "U1",
+        "D1"
+      ],
+      "purpose": "建立交易关系",
+      "story_order": 1,
+      "frames": 96,
+      "narrative": {
+        "audience_before": [],
+        "audience_after": [
+          "交易进行中"
+        ],
+        "character_knows": [
+          "正在交信"
+        ],
+        "reveal": null,
+        "viewpoint": "客观观察，S2插入观众先知证据"
+      },
+      "start_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": 90,
+          "pose": "坐于桌左，右手伸向信封",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右手食指与中指压住信封",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": -90,
+          "pose": "坐于桌右，左手在桌下",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右前臂置于桌面",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "E",
+          "position_m": [
+            -0.4,
+            0,
+            0.8
+          ],
+          "yaw_deg": -90,
+          "pose": "信封在信使一侧",
+          "support": "桌面",
+          "contact": "A右手指尖压住信封",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": 90,
+          "pose": "坐于桌左，右手伸向信封",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右手食指与中指压住信封",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": -90,
+          "pose": "坐于桌右，左手在桌下",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右前臂置于桌面",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "E",
+          "position_m": [
+            0,
+            0,
+            0.8
+          ],
+          "yaw_deg": -90,
+          "pose": "信封在桌中央",
+          "support": "桌面",
+          "contact": "A右手指尖压住信封",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 24,
+          "action": "信使看向接头人，指尖轻压信封",
+          "reaction": "接头人保持坐姿",
+          "end_state": "手指贴纸"
+        },
+        {
+          "start_frame": 24,
+          "end_frame": 78,
+          "action": "信使右手带信封沿桌面推向中央",
+          "reaction": "接头人目光跟随",
+          "end_state": "信封停在桌中央，指尖仍接触"
+        },
+        {
+          "start_frame": 78,
+          "end_frame": 96,
+          "action": "手停在原处",
+          "reaction": "接头人不接信",
+          "end_state": "停住留剪辑余量"
+        }
+      ],
+      "composition": {
+        "rule": "人物分处左右，信封连接二人",
+        "attention_order": [
+          "A",
+          "E",
+          "B"
+        ],
+        "negative_space": "桌上方留少量呼吸空间，底边容纳完整手部",
+        "depth_layers": "手与桌沿在前，人物在中，窗棂在后",
+        "safe_area": [
+          0.05,
+          0.05,
+          0.9,
+          0.9
+        ],
+        "subjects": [
+          {
+            "entity_id": "A",
+            "box": [
+              0.08,
+              0.15,
+              0.32,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          },
+          {
+            "entity_id": "E",
+            "box": [
+              0.46,
+              0.62,
+              0.08,
+              0.06
+            ],
+            "visible_parts": [
+              "prop"
+            ]
+          },
+          {
+            "entity_id": "B",
+            "box": [
+              0.62,
+              0.15,
+              0.3,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "locked",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          0,
+          -3,
+          1.3
+        ],
+        "end_m": [
+          0,
+          -3,
+          1.3
+        ],
+        "look_at_m": [
+          0,
+          0,
+          0.9
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "两人和桌面同框的中景",
+        "framing_end": "保留手与信封的中景",
+        "path": "保持动作轴南侧，朝桌面观察",
+        "speed": "平稳，结尾停住",
+        "focus": "手与信封接触处和人物面部均可辨",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "A",
+          "trigger": "等待对方接信",
+          "face": "嘴角放松，眉间未收紧",
+          "eyes": "看向接头人眼睛",
+          "hands": "右手两指压纸，肩肘跟随前送",
+          "body": "骨盆保持坐稳",
+          "voice": null,
+          "visibility": "visible"
+        }
+      ],
+      "dialogue": [],
+      "sound": {
+        "ambience": "窗外持续细雨",
+        "cue": "衣料与纸轻擦声",
+        "sync": "声在接触发生时进入，S3反应晚于声音",
+        "silence": false
+      },
+      "lighting": {
+        "source": "西侧窗外漫射冷光与茶馆暖灯",
+        "direction": "主光从世界-X侧照入",
+        "quality": "柔光，桌底保留可辨的暗部",
+        "color_purpose": "冷雨夜对比暖室内，信封保持中性可辨"
+      },
+      "must_show": [
+        {
+          "entity_id": "A",
+          "part": "hands",
+          "reason": "接触过程"
+        },
+        {
+          "entity_id": "E",
+          "part": "prop",
+          "reason": "交付终态"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "depth_blocking",
+        "locked_observation"
+      ],
+      "continuity": {
+        "from_shot": null,
+        "match_entities": [],
+        "transition": "continuous",
+        "reason": "承接已建立的交易状态",
+        "invariants": [
+          "信使画面左，接头人画面右",
+          "信封始终受信使右手控制",
+          "衣装、发型和世界主光方向一致"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS1"
+      ]
+    },
+    {
+      "id": "S2",
+      "scene_id": "SC1",
+      "beat_id": "B2",
+      "source_refs": [
+        "U1",
+        "D1"
+      ],
+      "purpose": "观众先见危险",
+      "story_order": 2,
+      "frames": 120,
+      "narrative": {
+        "audience_before": [
+          "交易进行中"
+        ],
+        "audience_after": [
+          "桌下藏刃"
+        ],
+        "character_knows": [
+          "正在交信"
+        ],
+        "reveal": "桌下藏刃",
+        "viewpoint": "客观观察，S2插入观众先知证据"
+      },
+      "start_state": [
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": -90,
+          "pose": "左手在桌下握住刀柄",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "左手掌包住刀柄，右前臂置于桌面",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "K",
+          "position_m": [
+            0.5,
+            0,
+            0.55
+          ],
+          "yaw_deg": -90,
+          "pose": "刀身贴近桌下横档",
+          "support": "由B左手承托",
+          "contact": "B左手握柄",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": -90,
+          "pose": "左手在桌下握住刀柄",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "左手掌包住刀柄，右前臂置于桌面",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "K",
+          "position_m": [
+            0.5,
+            0,
+            0.55
+          ],
+          "yaw_deg": -90,
+          "pose": "刀身贴近桌下横档",
+          "support": "由B左手承托",
+          "contact": "B左手握柄",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 48,
+          "action": "桌下左手露出刀柄与短刃",
+          "reaction": "接头人身体保持不动",
+          "end_state": "观众看见藏刃"
+        },
+        {
+          "start_frame": 48,
+          "end_frame": 96,
+          "action": "左手缓慢收紧，刀背轻触木横档",
+          "reaction": "发出短促金属声",
+          "end_state": "接触点清楚"
+        },
+        {
+          "start_frame": 96,
+          "end_frame": 120,
+          "action": "刀与手停住",
+          "reaction": "声音衰减",
+          "end_state": "动作结束"
+        }
+      ],
+      "composition": {
+        "rule": "刀在画面中央偏左，握柄手在右",
+        "attention_order": [
+          "K",
+          "B"
+        ],
+        "negative_space": "接触点四周留少量空间",
+        "depth_layers": "刀背在前，手掌居中，木横档在后",
+        "safe_area": [
+          0.05,
+          0.05,
+          0.9,
+          0.9
+        ],
+        "subjects": [
+          {
+            "entity_id": "K",
+            "box": [
+              0.36,
+              0.4,
+              0.2,
+              0.2
+            ],
+            "visible_parts": [
+              "prop"
+            ]
+          },
+          {
+            "entity_id": "B",
+            "box": [
+              0.6,
+              0.2,
+              0.35,
+              0.65
+            ],
+            "visible_parts": [
+              "hands",
+              "body"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "locked",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          0,
+          -1,
+          0.5
+        ],
+        "end_m": [
+          0,
+          -1,
+          0.5
+        ],
+        "look_at_m": [
+          0.5,
+          0,
+          0.55
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "桌下手与刀的细节",
+        "framing_end": "保留刀背和横档接触点",
+        "path": "保持动作轴南侧，朝桌面观察",
+        "speed": "平稳，结尾停住",
+        "focus": "刀背接触横档处",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "B",
+          "trigger": "手掌调整握柄",
+          "face": null,
+          "eyes": null,
+          "hands": "左手收紧刀柄，食指不穿过刀柄",
+          "body": "躯干保持稳定",
+          "voice": null,
+          "visibility": "occluded"
+        }
+      ],
+      "dialogue": [],
+      "sound": {
+        "ambience": "窗外持续细雨",
+        "cue": "刀背轻触桌下木横档的短促金属声",
+        "sync": "声在接触发生时进入，S3反应晚于声音",
+        "silence": false
+      },
+      "lighting": {
+        "source": "西侧窗外漫射冷光与茶馆暖灯",
+        "direction": "主光从世界-X侧照入",
+        "quality": "柔光，桌底保留可辨的暗部",
+        "color_purpose": "冷雨夜对比暖室内，信封保持中性可辨"
+      },
+      "must_show": [
+        {
+          "entity_id": "K",
+          "part": "prop",
+          "reason": "危险证据"
+        },
+        {
+          "entity_id": "B",
+          "part": "hands",
+          "reason": "刀背接触动作"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "depth_blocking",
+        "locked_observation"
+      ],
+      "continuity": {
+        "from_shot": "S1",
+        "match_entities": [],
+        "transition": "cutaway",
+        "reason": "插入细节期间主桌交易暂停",
+        "invariants": [
+          "信使画面左，接头人画面右",
+          "信封始终受信使右手控制",
+          "衣装、发型和世界主光方向一致"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS2"
+      ]
+    },
+    {
+      "id": "S3",
+      "scene_id": "SC1",
+      "beat_id": "B3",
+      "source_refs": [
+        "U1",
+        "D1"
+      ],
+      "purpose": "收回动作表现警觉",
+      "story_order": 3,
+      "frames": 144,
+      "narrative": {
+        "audience_before": [
+          "交易进行中",
+          "桌下藏刃"
+        ],
+        "audience_after": [
+          "信使已经警觉"
+        ],
+        "character_knows": [
+          "金属声来自桌下"
+        ],
+        "reveal": null,
+        "viewpoint": "客观观察，S2插入观众先知证据"
+      },
+      "start_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": 90,
+          "pose": "坐于桌左，右手伸向信封",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右手食指与中指压住信封",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": -90,
+          "pose": "坐于桌右，左手在桌下",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右前臂置于桌面",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "E",
+          "position_m": [
+            0,
+            0,
+            0.8
+          ],
+          "yaw_deg": -90,
+          "pose": "信封在桌中央",
+          "support": "桌面",
+          "contact": "A右手指尖压住信封",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿不变，右肘收回，指尖压着面前信封",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右手食指与中指压住信封",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0.9
+          ],
+          "yaw_deg": -90,
+          "pose": "坐于桌右，左手在桌下",
+          "support": "双脚落地、坐骨由椅面支撑",
+          "contact": "右前臂置于桌面",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "E",
+          "position_m": [
+            -0.4,
+            0,
+            0.8
+          ],
+          "yaw_deg": -90,
+          "pose": "信封回到信使面前，手停住",
+          "support": "桌面",
+          "contact": "A右手指尖压住信封",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 24,
+          "action": "金属声传来，信使指尖先停",
+          "reaction": "目光短暂下移，眉间轻收",
+          "end_state": "尚未拉动信封"
+        },
+        {
+          "start_frame": 24,
+          "end_frame": 108,
+          "action": "信使右手沿原路拉回信封，纸面始终贴桌",
+          "reaction": "接头人右手仍不碰信封",
+          "end_state": "信封回到信使面前"
+        },
+        {
+          "start_frame": 108,
+          "end_frame": 144,
+          "action": "信使手指与摄影机一起停住",
+          "reaction": "目光回到接头人脸上",
+          "end_state": "面部、手、信封同框保留"
+        }
+      ],
+      "composition": {
+        "rule": "人物分处左右，信封连接二人",
+        "attention_order": [
+          "A",
+          "E",
+          "B"
+        ],
+        "negative_space": "桌上方留少量呼吸空间，底边容纳完整手部",
+        "depth_layers": "手与桌沿在前，人物在中，窗棂在后",
+        "safe_area": [
+          0.05,
+          0.05,
+          0.9,
+          0.9
+        ],
+        "subjects": [
+          {
+            "entity_id": "A",
+            "box": [
+              0.08,
+              0.15,
+              0.32,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          },
+          {
+            "entity_id": "E",
+            "box": [
+              0.46,
+              0.62,
+              0.08,
+              0.06
+            ],
+            "visible_parts": [
+              "prop"
+            ]
+          },
+          {
+            "entity_id": "B",
+            "box": [
+              0.62,
+              0.15,
+              0.3,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "dolly_in",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          -0.3,
+          -3,
+          1.3
+        ],
+        "end_m": [
+          -0.3,
+          -2,
+          1.3
+        ],
+        "look_at_m": [
+          -0.3,
+          0,
+          1
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "两人和桌面同框的中景",
+        "framing_end": "保留手与信封的中景",
+        "path": "保持动作轴南侧，朝桌面观察",
+        "speed": "平稳，结尾停住",
+        "focus": "手与信封接触处和人物面部均可辨",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "A",
+          "trigger": "听见上一镜金属碰撞声",
+          "face": "眉间轻收、嘴唇短暂闭紧后放松",
+          "eyes": "先瞥桌沿再回到对方面部",
+          "hands": "指尖压住纸面沿桌拉回，停止后仍接触",
+          "body": "骨盆稳坐，右肩和肘向身体收回",
+          "voice": null,
+          "visibility": "visible"
+        }
+      ],
+      "dialogue": [],
+      "sound": {
+        "ambience": "窗外持续细雨",
+        "cue": "承接上一镜金属声",
+        "sync": "声在接触发生时进入，S3反应晚于声音",
+        "silence": false
+      },
+      "lighting": {
+        "source": "西侧窗外漫射冷光与茶馆暖灯",
+        "direction": "主光从世界-X侧照入",
+        "quality": "柔光，桌底保留可辨的暗部",
+        "color_purpose": "冷雨夜对比暖室内，信封保持中性可辨"
+      },
+      "must_show": [
+        {
+          "entity_id": "A",
+          "part": "face",
+          "reason": "警觉反应"
+        },
+        {
+          "entity_id": "A",
+          "part": "hands",
+          "reason": "拉回过程"
+        },
+        {
+          "entity_id": "E",
+          "part": "prop",
+          "reason": "道具终态"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "information_gap",
+        "contact_action",
+        "motivated_push"
+      ],
+      "continuity": {
+        "from_shot": "S1",
+        "match_entities": [
+          "A",
+          "B",
+          "E"
+        ],
+        "transition": "continuous",
+        "reason": "承接已建立的交易状态",
+        "invariants": [
+          "信使画面左，接头人画面右",
+          "信封始终受信使右手控制",
+          "衣装、发型和世界主光方向一致"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS3"
+      ]
+    }
+  ],
+  "contract": {
+    "id": "CONTRACT_TEA",
+    "version": 1,
+    "scope": "15秒虚构古风悬疑的前期合同示例",
+    "deliverables": [
+      "导演合同",
+      "可复制提示词",
+      "执行计划与损失表",
+      "待填实际素材QA"
+    ],
+    "clauses": [
+      {
+        "id": "C1",
+        "requirement": "雨夜茶馆交易，观众先见藏刃，信使听声后收回信封",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/shots/0/narrative",
+          "/shots/1/narrative",
+          "/shots/2/narrative"
+        ],
+        "check_ids": [
+          "G1SPACE",
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C2",
+        "requirement": "动作初终态明确，纸不离桌，接触过程连续",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/shots/0/phases",
+          "/shots/2/phases"
+        ],
+        "check_ids": [
+          "QAS1",
+          "QAS3"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C3",
+        "requirement": "人物左右关系与世界轴线一致",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/scenes/0",
+          "/shots/0/camera",
+          "/shots/2/composition"
+        ],
+        "check_ids": [
+          "G1SPACE",
+          "QAS3"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C4",
+        "requirement": "刀与手接触点可见",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/shots/1/must_show"
+        ],
+        "check_ids": [
+          "QAS2"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C5",
+        "requirement": "信使微反应须在可见景别出现",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/shots/2/performance"
+        ],
+        "check_ids": [
+          "QAS3"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C6",
+        "requirement": "角色、道具与来源可追踪",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/entities",
+          "/sources"
+        ],
+        "check_ids": [
+          "G0INPUT"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C7",
+        "requirement": "声音触发反应，全片无对白",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/shots/1/sound",
+          "/shots/2/dialogue"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C8",
+        "requirement": "按15秒24fps16:9交付",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/format"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "C9",
+        "requirement": "执行方法与损失有记录",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/contract/execution"
+        ],
+        "check_ids": [
+          "G2MAP"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "id": "G0INPUT",
+        "gate": "G0",
+        "scope": "project",
+        "method": "static",
+        "predicate": "事实、实体、素材与授权来源清楚",
+        "evidence_required": "输入清单与来源记录",
+        "owner": "planner",
+        "blocking": true
+      },
+      {
+        "id": "G1SPACE",
+        "gate": "G1",
+        "scope": "project",
+        "method": "static",
+        "predicate": "初终态、时序、轴线与可见证据一致",
+        "evidence_required": "validate输出和人工平面审核",
+        "owner": "director",
+        "blocking": true
+      },
+      {
+        "id": "G2MAP",
+        "gate": "G2",
+        "scope": "project",
+        "method": "static",
+        "predicate": "每条硬要求有执行或后期路径，无静默丢失",
+        "evidence_required": "execution.json和合同核对记录",
+        "owner": "compiler_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QAS1",
+        "gate": "G3",
+        "scope": "S1",
+        "method": "frame_review",
+        "predicate": "动作起中末与接触区间可读，人物身份、道具归属、构图及轴线满足合同",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QAS2",
+        "gate": "G3",
+        "scope": "S2",
+        "method": "frame_review",
+        "predicate": "动作起中末与接触区间可读，人物身份、道具归属、构图及轴线满足合同",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QAS3",
+        "gate": "G3",
+        "scope": "S3",
+        "method": "frame_review",
+        "predicate": "动作起中末与接触区间可读，人物身份、道具归属、构图及轴线满足合同",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "playback",
+        "predicate": "360帧、24fps、16:9；先给危险证据再有反应，金属声同步，接点与节奏成立",
+        "evidence_required": "最终文件probe、完整播放记录和理解测试",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "max_attempts_per_job": 2,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "stop_conditions": [
+        "未授权实际生成",
+        "实际失败达到单任务尝试上限",
+        "关键约束无法满足时停止依赖执行"
+      ]
+    },
+    "acceptance": {
+      "rule": "all_blocking_checks_pass",
+      "waivers": []
+    }
+  }
+}

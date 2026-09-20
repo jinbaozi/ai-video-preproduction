@@ -1,0 +1,7 @@
+# 原生图片任务
+
+先读取当前Imagegen Skill，检查参考图，再按当前真实工具契约调用Codex原生image_gen。不要改用API、CLI模型或外部渲染器。job.bindings列出的全部图片必须实际输入；使用本地引用时先查看文件，不混用互斥参数。工具调用在宿主执行，不声称图片由Luna/Astra直接生成。
+
+返回media.output_path、sha256、provider=codex-imagegen、input_hash、完全一致的bindings，以及实际取得的call_evidence。查看输出并由对应阶段模型记录qa.passed与visual_findings。模型执行记录填实际agent_id及宿主派发证据。不能伪造模型、种子、费用或输出控制参数。
+
+每次只执行一个已派发任务；调用结果不确定时提交故障证据而非重复生成。用户导入图片须有明确导入说明，provider=provided，不冒充原生调用。Kernel复制并以资产名称保存，不能只留缓存路径。

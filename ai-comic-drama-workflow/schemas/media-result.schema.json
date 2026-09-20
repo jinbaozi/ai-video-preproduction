@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "job_id",
+    "input_hash",
+    "output_path",
+    "sha256",
+    "provider",
+    "call_evidence",
+    "reference_bindings"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "const": "media-result"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role_provenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "job_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_hash": {
+      "type": "string",
+      "minLength": 1
+    },
+    "output_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sha256": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provider": {
+      "enum": [
+        "codex-imagegen",
+        "provided",
+        "local-blender",
+        "local-fixture"
+      ]
+    },
+    "call_evidence": {
+      "type": "object"
+    },
+    "reference_bindings": {
+      "type": "array",
+      "items": {
+        "$ref": "urn:ai-comic-drama:3.0:reference-binding.schema.json"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:media-result.schema.json"
+}

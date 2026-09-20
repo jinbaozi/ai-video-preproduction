@@ -1,0 +1,243 @@
+{
+  "version": "1.0",
+  "policy": "只描述指定入口的文档快照；不继承品牌同名能力。值unknown或未核验附件能力不得提交。",
+  "profiles": [
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "generic-t2v",
+      "provider": "generic",
+      "entry_point": "offline",
+      "model_id": "unspecified",
+      "mode": "t2v",
+      "backend": "text",
+      "source_refs": [],
+      "evidence_level": "project_design",
+      "durations": [],
+      "max_chars": null,
+      "max_references": 0,
+      "camera_channel": "natural_language",
+      "native_audio": false,
+      "reference_roles": []
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "generic-i2v",
+      "provider": "generic",
+      "entry_point": "offline",
+      "model_id": "unspecified",
+      "mode": "i2v",
+      "backend": "text",
+      "source_refs": [],
+      "evidence_level": "project_design",
+      "durations": [],
+      "max_chars": null,
+      "max_references": 1,
+      "camera_channel": "natural_language",
+      "native_audio": false,
+      "reference_roles": [
+        "first_frame"
+      ]
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "minimax-hailuo-2.3-t2v",
+      "provider": "MiniMax",
+      "entry_point": "https://api.minimax.io/v1/video_generation",
+      "model_id": "MiniMax-Hailuo-2.3",
+      "mode": "t2v",
+      "backend": "api",
+      "source_refs": [
+        "MINIMAX"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [
+        6,
+        10
+      ],
+      "resolution_durations": {
+        "768P": [
+          6,
+          10
+        ],
+        "1080P": [
+          6
+        ]
+      },
+      "default_resolution": "768P",
+      "max_chars": 2000,
+      "max_references": 0,
+      "camera_channel": "lexical",
+      "native_audio": false,
+      "reference_roles": []
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "runway-gen4-ui-i2v",
+      "provider": "Runway",
+      "entry_point": "web_ui",
+      "model_id": "Gen-4",
+      "mode": "i2v",
+      "backend": "ui",
+      "source_refs": [
+        "RUNWAY"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [
+        5,
+        10
+      ],
+      "max_chars": null,
+      "max_references": 1,
+      "camera_channel": "natural_language",
+      "native_audio": false,
+      "reference_roles": [
+        "first_frame"
+      ]
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "kling-3-ui-multishot",
+      "provider": "Kling",
+      "entry_point": "web_ui_custom_multi_shot",
+      "model_id": "VIDEO-3.0",
+      "mode": "multishot",
+      "backend": "ui",
+      "source_refs": [
+        "KLING"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "max_chars": null,
+      "max_references": 0,
+      "camera_channel": "natural_language",
+      "native_audio": true,
+      "reference_roles": []
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "libtv-agent",
+      "provider": "LibTV",
+      "entry_point": "/openapi/session",
+      "model_id": "platform-selected",
+      "mode": "agent",
+      "backend": "agent",
+      "source_refs": [
+        "LIBTV"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [],
+      "max_chars": null,
+      "max_references": 0,
+      "camera_channel": "natural_language",
+      "native_audio": null,
+      "reference_roles": []
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "jimeng-entry-unverified",
+      "provider": "即梦",
+      "entry_point": "not_verified",
+      "model_id": "not_verified",
+      "mode": "unverified",
+      "backend": "blocked",
+      "source_refs": [
+        "SEEDANCE"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [],
+      "max_chars": null,
+      "max_references": 0,
+      "camera_channel": "unknown",
+      "native_audio": null,
+      "reference_roles": []
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "oiioii-entry-unverified",
+      "provider": "OiiOii",
+      "entry_point": "not_verified",
+      "model_id": "not_verified",
+      "mode": "unverified",
+      "backend": "blocked",
+      "source_refs": [
+        "OIIOII"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [],
+      "max_chars": null,
+      "max_references": 0,
+      "camera_channel": "unknown",
+      "native_audio": null,
+      "reference_roles": []
+    },
+    {
+      "version": "1.0",
+      "verified_at": "2026-09-19",
+      "region": "not_verified",
+      "account": "not_verified",
+      "live_test": false,
+      "id": "seko-entry-unverified",
+      "provider": "Seko",
+      "entry_point": "not_verified",
+      "model_id": "not_verified",
+      "mode": "unverified",
+      "backend": "blocked",
+      "source_refs": [
+        "SEKO"
+      ],
+      "evidence_level": "official_documentation",
+      "durations": [],
+      "max_chars": null,
+      "max_references": 0,
+      "camera_channel": "unknown",
+      "native_audio": null,
+      "reference_roles": []
+    }
+  ]
+}

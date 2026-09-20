@@ -1,0 +1,15 @@
+{
+  "schema": "skill-suite/1.0",
+  "active": [
+    "ai-comic-drama-workflow",
+    "director-grammar",
+    "production-design-grammar",
+    "storyboard-grammar",
+    "video-prompt-compiler",
+    "image-prompt-optimizer"
+  ],
+  "legacy": [
+    "video-storyboard-prompter-zh"
+  ],
+  "execution_mode": "current-agent"
+}

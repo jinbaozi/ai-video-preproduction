@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-role-result",
+  "type": "object",
+  "required": [
+    "schema",
+    "task_id",
+    "context_fingerprint",
+    "checks",
+    "conflicts",
+    "unresolved"
+  ],
+  "properties": {
+    "schema": {
+      "const": "role-result/5.0"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1
+    },
+    "conflicts": {
+      "type": "array"
+    },
+    "unresolved": {
+      "type": "array"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "reused": {
+      "type": "boolean"
+    },
+    "artifact": {
+      "type": "string",
+      "minLength": 1
+    },
+    "artifact_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "handoff": {
+      "type": "array"
+    },
+    "prompt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "media": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256",
+        "provider",
+        "call_evidence",
+        "input_bindings",
+        "visual_review"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "provider": {
+          "enum": [
+            "image_gen",
+            "provided"
+          ]
+        },
+        "input_bindings": {
+          "type": "array"
+        },
+        "visual_review": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

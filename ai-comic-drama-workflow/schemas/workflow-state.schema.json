@@ -1,0 +1,86 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "status",
+    "stage_status",
+    "decisions",
+    "failure_counts"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "workflow-state"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "running",
+        "awaiting_choice",
+        "awaiting_agent_result",
+        "blocked",
+        "failed",
+        "complete"
+      ]
+    },
+    "current_stage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "active_task": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "active_decision": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "stage_status": {
+      "type": "object"
+    },
+    "decisions": {
+      "type": "object"
+    },
+    "failure_counts": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:workflow-state.schema.json"
+}

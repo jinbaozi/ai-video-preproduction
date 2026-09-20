@@ -1,0 +1,1339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://production-design-grammar.local/art-ir.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "canon": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "uri",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "director": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "uri": {
+              "type": "string",
+              "minLength": 1
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "project_id": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "required": [
+            "uri",
+            "sha256",
+            "project_id",
+            "revision"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "kind": {
+            "enum": [
+              "user",
+              "canon",
+              "director",
+              "asset",
+              "official",
+              "community",
+              "design"
+            ]
+          },
+          "uri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification": {
+            "enum": [
+              "provided",
+              "read",
+              "observed",
+              "inference",
+              "unverified"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "uri",
+          "locator",
+          "claim",
+          "verification"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "brief": {
+      "type": "object",
+      "properties": {
+        "world_mode": {
+          "enum": [
+            "historical",
+            "contemporary",
+            "fantasy",
+            "future",
+            "product"
+          ]
+        },
+        "medium": {
+          "enum": [
+            "live_action",
+            "3d",
+            "2d",
+            "mixed"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "forbidden_styles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        },
+        "locked_style": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "secondary": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "style_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "dimension": {
+                  "enum": [
+                    "palette",
+                    "material",
+                    "shape",
+                    "graphics"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "style_id",
+                "dimension",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "world_mode",
+        "medium",
+        "tags",
+        "forbidden_styles",
+        "locked_style",
+        "secondary"
+      ],
+      "additionalProperties": false
+    },
+    "world": {
+      "type": "object",
+      "properties": {
+        "thesis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "era": {
+          "type": "string",
+          "minLength": 1
+        },
+        "region": {
+          "type": "string",
+          "minLength": 1
+        },
+        "social_logic": {
+          "type": "string",
+          "minLength": 1
+        },
+        "shape_language": {
+          "type": "string",
+          "minLength": 1
+        },
+        "palette": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "color": {
+                "type": "string",
+                "minLength": 1
+              },
+              "role": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "color",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "materials": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "base": {
+                "type": "string",
+                "minLength": 1
+              },
+              "craft": {
+                "type": "string",
+                "minLength": 1
+              },
+              "finish": {
+                "type": "string",
+                "minLength": 1
+              },
+              "wear": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "base",
+              "craft",
+              "finish",
+              "wear"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "color_script": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "palette_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "change_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "shot_ids",
+              "palette_ids",
+              "change_reason"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "thesis",
+        "era",
+        "region",
+        "social_logic",
+        "shape_language",
+        "palette",
+        "materials",
+        "color_script"
+      ],
+      "additionalProperties": false
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "entity_id": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "character",
+              "set",
+              "prop",
+              "costume",
+              "graphic",
+              "effect"
+            ]
+          },
+          "origin": {
+            "enum": [
+              "existing",
+              "design_proposal"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "design": {
+            "type": "string",
+            "minLength": 1
+          },
+          "identity_locks": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "material_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "initial_state": {
+            "type": "object",
+            "minProperties": 1,
+            "propertyNames": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "additionalProperties": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "state_rules": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "field": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "allowed_values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 2,
+                  "uniqueItems": true
+                }
+              },
+              "required": [
+                "field",
+                "allowed_values"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          },
+          "graphic_text": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "entity_id",
+          "name",
+          "kind",
+          "origin",
+          "source_refs",
+          "design",
+          "identity_locks",
+          "material_ids",
+          "initial_state",
+          "state_rules",
+          "graphic_text"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "set": {
+      "type": "object",
+      "properties": {
+        "scene_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "location_entity_id": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coordinate_system": {
+          "const": "right-handed:X-right,Y-depth,Z-up;meters"
+        },
+        "origin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "bounds": {
+          "type": "object",
+          "properties": {
+            "min_m": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "max_m": {
+              "type": "array",
+              "items": {
+                "type": "number"
+              },
+              "minItems": 3,
+              "maxItems": 3
+            }
+          },
+          "required": [
+            "min_m",
+            "max_m"
+          ],
+          "additionalProperties": false
+        },
+        "layout": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "asset_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "position_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "size_m": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "yaw_deg": {
+                "type": "number"
+              },
+              "role": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "asset_id",
+              "position_m",
+              "size_m",
+              "yaw_deg",
+              "role"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "counts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "asset_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "count": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "asset_id",
+              "count"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "functional_zones": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "min_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "max_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "min_m",
+              "max_m",
+              "purpose"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "practical_lights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "position_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "color": {
+                "type": "string",
+                "minLength": 1
+              },
+              "art_purpose": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "position_m",
+              "source",
+              "color",
+              "art_purpose"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "atmosphere": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "scene_id",
+        "location_entity_id",
+        "coordinate_system",
+        "origin",
+        "bounds",
+        "layout",
+        "counts",
+        "functional_zones",
+        "practical_lights",
+        "atmosphere"
+      ],
+      "additionalProperties": false
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "shot_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "asset_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "field": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "before": {
+            "type": "string",
+            "minLength": 1
+          },
+          "after": {
+            "type": "string",
+            "minLength": 1
+          },
+          "director_pointer": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^/(?:[^~]|~[01])*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "trigger": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "shot_id",
+          "order",
+          "asset_id",
+          "field",
+          "before",
+          "after",
+          "director_pointer",
+          "source_refs",
+          "trigger"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "director_pointer": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^/(?:[^~]|~[01])*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "visible_assets": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "required_references": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "composition_support": {
+            "type": "object",
+            "properties": {
+              "focal_asset": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "background": {
+                "type": "string",
+                "minLength": 1
+              },
+              "separation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "negative_space": {
+                "type": "string",
+                "minLength": 1
+              },
+              "occlusion": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "focal_asset",
+              "background",
+              "separation",
+              "negative_space",
+              "occlusion"
+            ],
+            "additionalProperties": false
+          },
+          "performance_support": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "required_parts": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1,
+                  "uniqueItems": true
+                },
+                "wardrobe_makeup": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "background": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "entity_id",
+                "required_parts",
+                "wardrobe_makeup",
+                "background"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          },
+          "relative_relations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "subject_asset": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "relation": {
+                  "enum": [
+                    "supported_by",
+                    "inside",
+                    "near",
+                    "world_left_of",
+                    "world_right_of",
+                    "in_front_of_camera"
+                  ]
+                },
+                "object_asset": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "criterion": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "subject_asset",
+                "relation",
+                "object_asset",
+                "criterion"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "id",
+          "director_pointer",
+          "source_refs",
+          "visible_assets",
+          "required_references",
+          "composition_support",
+          "performance_support",
+          "relative_relations"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "asset_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "role": {
+            "enum": [
+              "identity",
+              "scene",
+              "prop",
+              "costume",
+              "material",
+              "style",
+              "first_frame"
+            ]
+          },
+          "file": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "planned",
+              "ready"
+            ]
+          },
+          "inherit": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "exclude": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "rights": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "asset_id",
+          "role",
+          "file",
+          "sha256",
+          "status",
+          "inherit",
+          "exclude",
+          "rights",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "contract": {
+      "$ref": "#/$defs/contract"
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "revision",
+    "canon",
+    "director",
+    "sources",
+    "brief",
+    "world",
+    "assets",
+    "set",
+    "events",
+    "shots",
+    "references",
+    "contract"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "contract": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deliverables": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "clauses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "requirement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "priority": {
+                "enum": [
+                  "hard",
+                  "soft"
+                ]
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^/(?:[^~]|~[01])*$"
+                },
+                "minItems": 1
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0,
+                "uniqueItems": true
+              },
+              "check_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1,
+                "uniqueItems": true
+              },
+              "change_policy": {
+                "enum": [
+                  "explicit_revision"
+                ]
+              },
+              "execution": {
+                "type": "object",
+                "properties": {
+                  "channel": {
+                    "enum": [
+                      "prompt",
+                      "reference",
+                      "post",
+                      "review"
+                    ]
+                  },
+                  "instruction": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reference_ids": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "minItems": 0,
+                    "uniqueItems": true
+                  }
+                },
+                "required": [
+                  "channel",
+                  "instruction",
+                  "reference_ids"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "requirement",
+              "priority",
+              "source_refs",
+              "paths",
+              "shot_ids",
+              "check_ids",
+              "change_policy",
+              "execution"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "gate": {
+                "enum": [
+                  "G0",
+                  "G1",
+                  "G2",
+                  "G3",
+                  "G4"
+                ]
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              },
+              "method": {
+                "enum": [
+                  "static",
+                  "frame_review",
+                  "playback"
+                ]
+              },
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_required": {
+                "type": "string",
+                "minLength": 1
+              },
+              "owner": {
+                "type": "string",
+                "minLength": 1
+              },
+              "blocking": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "gate",
+              "scope",
+              "method",
+              "predicate",
+              "evidence_required",
+              "owner",
+              "blocking"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "execution": {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "enum": [
+                "plan_only",
+                "authorized_execution"
+              ]
+            },
+            "authorization_ref": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "budget_amount": {
+              "type": "number",
+              "minimum": 0
+            },
+            "currency": {
+              "type": "string",
+              "minLength": 1
+            },
+            "max_attempts_per_job": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "stop_conditions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 1,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "mode",
+            "authorization_ref",
+            "budget_amount",
+            "currency",
+            "max_attempts_per_job",
+            "stop_conditions"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "version",
+        "scope",
+        "deliverables",
+        "clauses",
+        "checks",
+        "execution"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

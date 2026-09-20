@@ -1,0 +1,291 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://storyboard-grammar.local/handoff.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "storyboard-handoff/1.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "BLOCKED"
+      ]
+    },
+    "input_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "ir_file": {
+      "const": "storyboard.ir.json"
+    },
+    "asset_base": {
+      "type": "string",
+      "minLength": 1
+    },
+    "upstreams": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/upstream"
+      },
+      "minItems": 0
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "scene_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "start_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "end_frame": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "panel_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          },
+          "requirement_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "id",
+          "scene_id",
+          "start_frame",
+          "end_frame",
+          "panel_ids",
+          "requirement_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "timebase": {
+      "$ref": "#/$defs/delivery"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+      },
+      "minItems": 1
+    },
+    "execution_ready": {
+      "const": false
+    },
+    "submitted": {
+      "const": false
+    },
+    "visual_qa": {
+      "const": "NOT_RUN"
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "const": "avir/1.0"
+        },
+        "adapter": {
+          "const": "host_explicit_mapping"
+        },
+        "negotiation": {
+          "const": "REQUIRED"
+        },
+        "preserve": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "protocol",
+        "adapter",
+        "negotiation",
+        "preserve"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "revision",
+    "status",
+    "input_hash",
+    "ir_file",
+    "asset_base",
+    "upstreams",
+    "shots",
+    "timebase",
+    "source_ids",
+    "execution_ready",
+    "submitted",
+    "visual_qa",
+    "target"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "upstream": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "kind": {
+          "enum": [
+            "director",
+            "art",
+            "canon"
+          ]
+        },
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "schema_version": {
+          "type": "string",
+          "minLength": 1
+        },
+        "project_id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "revision": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/lock"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "uri",
+        "sha256",
+        "schema_version",
+        "project_id",
+        "revision",
+        "locks"
+      ],
+      "additionalProperties": false
+    },
+    "lock": {
+      "type": "object",
+      "properties": {
+        "source_pointer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_pointer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mode": {
+          "enum": [
+            "equal",
+            "mapped"
+          ]
+        },
+        "source_value": {},
+        "target_value": {},
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "source_pointer",
+        "target_pointer",
+        "mode",
+        "source_value",
+        "target_value",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "fps": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 120
+        },
+        "total_frames": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "aspect_ratio": {
+          "enum": [
+            "16:9",
+            "9:16",
+            "1:1",
+            "4:3",
+            "3:4",
+            "21:9"
+          ]
+        },
+        "resolution": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "fps",
+        "total_frames",
+        "aspect_ratio",
+        "resolution"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

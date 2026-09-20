@@ -1,0 +1,681 @@
+{
+  "schema": "avir/1.0",
+  "project_id": "tea",
+  "revision": 1,
+  "tenant_id": "local",
+  "intent": "克制的赴约场景，杯子动作与一句原文对白",
+  "sources": [
+    {
+      "id": "BRIEF",
+      "kind": "user",
+      "uri": "brief.md",
+      "locator": "全文；合成验收夹具",
+      "claim": "合成测试用例，不是真实用户项目或已拍素材。8秒16:9，两位成年人物坐在茶桌两侧。林岚把杯子轻放在桌上后看向周宁；周宁保持沉默。4秒切近景，林岚轻声说“你终于来了。”不可新增角色、改变杯子归属或提前出现旁白。音乐和环境声由后期制作。",
+      "verification": "provided",
+      "sha256": "8c20fe986090d0967c9d5e02b7696201f7c0ce3f2f2115c26074c26f8cfc019c"
+    },
+    {
+      "id": "DESIGN",
+      "kind": "design",
+      "uri": "example://staging",
+      "locator": "测试设计补充",
+      "claim": "为验证空间、镜头和表演字段选择坐标与可见部位；不是原用户新增剧情。",
+      "verification": "inference",
+      "sha256": null
+    }
+  ],
+  "entities": [
+    {
+      "id": "LIN",
+      "kind": "person",
+      "label": "林岚",
+      "appearance": "成年女性，深色长发，米色衬衣",
+      "locks": [
+        "身份",
+        "发型",
+        "米色衬衣"
+      ],
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "ZHOU",
+      "kind": "person",
+      "label": "周宁",
+      "appearance": "成年男性，短发，深色外套",
+      "locks": [
+        "身份",
+        "深色外套"
+      ],
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "CUP",
+      "kind": "prop",
+      "label": "茶杯",
+      "appearance": "一个白瓷茶杯",
+      "locks": [
+        "数量1",
+        "白瓷"
+      ],
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "TEA",
+      "description": "室内茶桌，两人相对而坐，简洁墙面背景",
+      "coordinates": {
+        "unit": "m",
+        "axes": "x=world-right,y=up,z=depth",
+        "origin": "茶桌中心在地面的投影"
+      },
+      "lighting": "世界左侧柔和室内光照亮面部，反打时光源不换边",
+      "source_refs": [
+        "DESIGN"
+      ]
+    }
+  ],
+  "assets": [],
+  "bindings": [],
+  "output": {
+    "duration_ms": 8000,
+    "aspect_ratio": "16:9",
+    "resolution": "720P"
+  },
+  "shots": [
+    {
+      "id": "S1",
+      "scene_id": "TEA",
+      "start_ms": 0,
+      "end_ms": 4000,
+      "purpose": "让观众看懂赴约后的克制情绪",
+      "transition": "cut",
+      "transition_reason": null,
+      "composition": {
+        "framing": "两人和茶桌的中景，完整保留放杯的手与落点",
+        "layers": "前景桌沿，中景人物，后景简洁墙面",
+        "screen_positions": "林岚在画面左侧，周宁在画面右侧；近景保持林岚看向画外右侧",
+        "required_visible": [
+          {
+            "entity_id": "LIN",
+            "parts": [
+              "face",
+              "hands"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "position": [
+          0,
+          1.35,
+          -2.5
+        ],
+        "look_at": [
+          -0.2,
+          1.25,
+          0
+        ],
+        "shot_size": "medium",
+        "angle": "平视略侧，保留手部与面部",
+        "pitch_deg": 0,
+        "roll_deg": 0,
+        "lens_intent": "自然透视，焦距仅为创作意图",
+        "movement": "固定机位",
+        "trajectory": "摄影机不位移",
+        "focus": "先杯子与手，近景焦点保持林岚眼睛",
+        "axis_side": "A",
+        "axis_change_reason": null
+      },
+      "relations": [
+        {
+          "subject": "LIN",
+          "relation": "world_left_of",
+          "object": "ZHOU",
+          "description": "两人在桌两侧，相距约一米；该关系独立于反打画面左右"
+        }
+      ],
+      "start_state": [
+        {
+          "entity_id": "LIN",
+          "position": [
+            -0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，右手持杯",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "ZHOU",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [
+            "CUP"
+          ],
+          "visible_parts": [
+            "face",
+            "eyes",
+            "hands"
+          ]
+        },
+        {
+          "entity_id": "ZHOU",
+          "position": [
+            0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，双手自然放在膝上",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "LIN",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": [
+            "face",
+            "hands"
+          ]
+        },
+        {
+          "entity_id": "CUP",
+          "position": [
+            -0.25,
+            0.9,
+            0
+          ],
+          "pose": "杯身直立",
+          "facing": "杯口向上",
+          "gaze_target": null,
+          "support": "林岚右手握持",
+          "holding": [],
+          "visible_parts": [
+            "杯身"
+          ]
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "LIN",
+          "position": [
+            -0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，右手离开桌上杯子",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "ZHOU",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": [
+            "face",
+            "eyes",
+            "hands"
+          ]
+        },
+        {
+          "entity_id": "ZHOU",
+          "position": [
+            0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，双手自然放在膝上",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "LIN",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": [
+            "face",
+            "hands"
+          ]
+        },
+        {
+          "entity_id": "CUP",
+          "position": [
+            -0.25,
+            0.75,
+            0
+          ],
+          "pose": "杯身直立",
+          "facing": "杯口向上",
+          "gaze_target": null,
+          "support": "杯底落在桌面",
+          "holding": [],
+          "visible_parts": [
+            "杯身"
+          ]
+        }
+      ],
+      "performance": [
+        {
+          "id": "E1",
+          "start_ms": 0,
+          "end_ms": 4000,
+          "actor_id": "LIN",
+          "trigger": "周宁已在对面坐定",
+          "micro_expression": null,
+          "needed_parts": [
+            "hands"
+          ],
+          "action": "右前臂向下移动，指腹保持握杯，杯底接触桌面后才松开手指；手掌离杯回收",
+          "feedback": "周宁保持坐姿与沉默，视线停在林岚脸上",
+          "settle": "林岚坐稳，身体没有突然位移",
+          "psychology": {
+            "intent": "确认对方真的赴约",
+            "visible_translation": "放杯后稍停，再抬眼看向周宁",
+            "audibility": "silent"
+          },
+          "source_refs": [
+            "BRIEF",
+            "DESIGN"
+          ]
+        }
+      ],
+      "style": [
+        "自然肤质与已有服装纹理",
+        "柔和室内光线",
+        "柔和室内光线"
+      ],
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "S2",
+      "scene_id": "TEA",
+      "start_ms": 4000,
+      "end_ms": 8000,
+      "purpose": "让观众看懂赴约后的克制情绪",
+      "transition": "cut",
+      "transition_reason": null,
+      "composition": {
+        "framing": "林岚面部与肩部近景，右手和桌上杯子保留在画面下沿，周宁在画外右侧",
+        "layers": "前景桌沿，中景人物，后景简洁墙面",
+        "screen_positions": "林岚在画面左侧，周宁在画面右侧；近景保持林岚看向画外右侧",
+        "required_visible": [
+          {
+            "entity_id": "LIN",
+            "parts": [
+              "face",
+              "hands"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "position": [
+          -0.35,
+          1.35,
+          -1.0
+        ],
+        "look_at": [
+          -0.5,
+          1.25,
+          0
+        ],
+        "shot_size": "close",
+        "angle": "平视略侧，保留手部与面部",
+        "pitch_deg": 0,
+        "roll_deg": 0,
+        "lens_intent": "自然透视，焦距仅为创作意图",
+        "movement": "固定机位",
+        "trajectory": "摄影机不位移",
+        "focus": "林岚眉眼清晰，杯子仍可辨认",
+        "axis_side": "A",
+        "axis_change_reason": null
+      },
+      "relations": [
+        {
+          "subject": "LIN",
+          "relation": "world_left_of",
+          "object": "ZHOU",
+          "description": "两人在桌两侧，相距约一米；该关系独立于反打画面左右"
+        }
+      ],
+      "start_state": [
+        {
+          "entity_id": "LIN",
+          "position": [
+            -0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，右手离开桌上杯子",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "ZHOU",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": [
+            "face",
+            "eyes",
+            "hands"
+          ]
+        },
+        {
+          "entity_id": "ZHOU",
+          "position": [
+            0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，双手自然放在膝上",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "LIN",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": []
+        },
+        {
+          "entity_id": "CUP",
+          "position": [
+            -0.25,
+            0.75,
+            0
+          ],
+          "pose": "杯身直立",
+          "facing": "杯口向上",
+          "gaze_target": null,
+          "support": "杯底落在桌面",
+          "holding": [],
+          "visible_parts": [
+            "杯身"
+          ]
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "LIN",
+          "position": [
+            -0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，右手离开桌上杯子",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "ZHOU",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": [
+            "face",
+            "eyes",
+            "hands"
+          ]
+        },
+        {
+          "entity_id": "ZHOU",
+          "position": [
+            0.5,
+            0,
+            0
+          ],
+          "pose": "坐姿，双手自然放在膝上",
+          "facing": "朝向茶桌内侧",
+          "gaze_target": "LIN",
+          "support": "双足接地，坐骨落在椅面",
+          "holding": [],
+          "visible_parts": []
+        },
+        {
+          "entity_id": "CUP",
+          "position": [
+            -0.25,
+            0.75,
+            0
+          ],
+          "pose": "杯身直立",
+          "facing": "杯口向上",
+          "gaze_target": null,
+          "support": "杯底落在桌面",
+          "holding": [],
+          "visible_parts": [
+            "杯身"
+          ]
+        }
+      ],
+      "performance": [
+        {
+          "id": "E2",
+          "start_ms": 4000,
+          "end_ms": 8000,
+          "actor_id": "LIN",
+          "trigger": "杯子已经稳定落桌",
+          "micro_expression": "上眼睑微抬，嘴角轻收，不夸张挑眉",
+          "needed_parts": [
+            "face",
+            "eyes"
+          ],
+          "action": "林岚抬眼看周宁，保持坐姿，轻声说出指定台词后自然合唇",
+          "feedback": "周宁保持坐姿与沉默，视线停在林岚脸上",
+          "settle": "林岚坐稳，身体没有突然位移",
+          "psychology": {
+            "intent": "确认对方真的赴约",
+            "visible_translation": "放杯后稍停，再抬眼看向周宁",
+            "audibility": "silent"
+          },
+          "source_refs": [
+            "BRIEF",
+            "DESIGN"
+          ]
+        }
+      ],
+      "style": [
+        "自然肤质与已有服装纹理",
+        "柔和室内光线",
+        "柔和室内光线"
+      ],
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ]
+    }
+  ],
+  "audio": {
+    "utterances": [
+      {
+        "id": "D1",
+        "shot_id": "S2",
+        "start_ms": 4500,
+        "end_ms": 6800,
+        "speaker_id": "LIN",
+        "kind": "dialogue",
+        "text": "你终于来了。",
+        "language": "zh-CN",
+        "delivery": "轻声，中慢语速，句末落低，不说成质问",
+        "route": "post",
+        "source_refs": [
+          "BRIEF",
+          "DESIGN"
+        ]
+      }
+    ],
+    "cues": [
+      {
+        "id": "A1",
+        "shot_id": "S1",
+        "start_ms": 0,
+        "end_ms": 4000,
+        "kind": "ambience",
+        "description": "安静室内底噪；杯底接触时轻瓷声，不盖过对白",
+        "sync_event": "E1",
+        "route": "post",
+        "source_refs": [
+          "BRIEF",
+          "DESIGN"
+        ]
+      },
+      {
+        "id": "M1",
+        "shot_id": "S2",
+        "start_ms": 4000,
+        "end_ms": 8000,
+        "kind": "music",
+        "description": "低音量稀疏钢琴，台词时下压，不强加节奏切点",
+        "sync_event": null,
+        "route": "post",
+        "source_refs": [
+          "BRIEF",
+          "DESIGN"
+        ]
+      }
+    ]
+  },
+  "contract": [
+    {
+      "id": "C_DURATION",
+      "level": "hard",
+      "requirement": "成片8秒，16:9，不截断或拉长",
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ],
+      "shot_ids": [],
+      "checks": [
+        {
+          "path": "/output/duration_ms",
+          "op": "equals",
+          "value": 8000
+        }
+      ],
+      "channel": "parameter",
+      "execution": "目标原生参数或待核验入口规格",
+      "acceptance": {
+        "method": "media",
+        "criterion": "成片8秒，16:9，不截断或拉长；在对应时间码逐项核对。"
+      },
+      "on_unsupported": "block"
+    },
+    {
+      "id": "C_CAST",
+      "level": "hard",
+      "requirement": "林岚与周宁身份服装固定，不增加角色",
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ],
+      "shot_ids": [],
+      "checks": [
+        {
+          "path": "/entities/0/locks",
+          "op": "contains",
+          "value": "身份"
+        }
+      ],
+      "channel": "prompt",
+      "execution": "生成后逐镜审片；后期项由剪辑/声音宿主按时轴制作",
+      "acceptance": {
+        "method": "media",
+        "criterion": "林岚与周宁身份服装固定，不增加角色；在对应时间码逐项核对。"
+      },
+      "on_unsupported": "block"
+    },
+    {
+      "id": "C_CUP",
+      "level": "hard",
+      "requirement": "杯底接触桌面后才松手，近景继承杯已落桌状态",
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ],
+      "shot_ids": [],
+      "checks": [
+        {
+          "path": "/shots/1/start_state/0/holding",
+          "op": "equals",
+          "value": []
+        }
+      ],
+      "channel": "prompt",
+      "execution": "生成后逐镜审片；后期项由剪辑/声音宿主按时轴制作",
+      "acceptance": {
+        "method": "media",
+        "criterion": "杯底接触桌面后才松手，近景继承杯已落桌状态；在对应时间码逐项核对。"
+      },
+      "on_unsupported": "block"
+    },
+    {
+      "id": "C_DIALOGUE",
+      "level": "hard",
+      "requirement": "林岚：“你终于来了。”；周宁不说话；禁止新增旁白",
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ],
+      "shot_ids": [],
+      "checks": [
+        {
+          "path": "/audio/utterances/0/text",
+          "op": "equals",
+          "value": "你终于来了。"
+        }
+      ],
+      "channel": "post",
+      "execution": "生成后逐镜审片；后期项由剪辑/声音宿主按时轴制作",
+      "acceptance": {
+        "method": "media",
+        "criterion": "林岚：“你终于来了。”；周宁不说话；禁止新增旁白；在对应时间码逐项核对。"
+      },
+      "on_unsupported": "post"
+    },
+    {
+      "id": "C_SPACE",
+      "level": "hard",
+      "requirement": "林岚与周宁的世界相对位置保持，换景别不跨轴",
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ],
+      "shot_ids": [],
+      "checks": [
+        {
+          "path": "/shots/1/camera/axis_side",
+          "op": "equals",
+          "value": "A"
+        }
+      ],
+      "channel": "prompt",
+      "execution": "生成后逐镜审片；后期项由剪辑/声音宿主按时轴制作",
+      "acceptance": {
+        "method": "media",
+        "criterion": "林岚与周宁的世界相对位置保持，换景别不跨轴；在对应时间码逐项核对。"
+      },
+      "on_unsupported": "block"
+    },
+    {
+      "id": "C_FACE",
+      "level": "hard",
+      "requirement": "近景眉眼和嘴角细节必须可见，不以夸张表情替代克制反应",
+      "source_refs": [
+        "BRIEF",
+        "DESIGN"
+      ],
+      "shot_ids": [],
+      "checks": [
+        {
+          "path": "/shots/1/camera/shot_size",
+          "op": "equals",
+          "value": "close"
+        }
+      ],
+      "channel": "prompt",
+      "execution": "生成后逐镜审片；后期项由剪辑/声音宿主按时轴制作",
+      "acceptance": {
+        "method": "media",
+        "criterion": "近景眉眼和嘴角细节必须可见，不以夸张表情替代克制反应；在对应时间码逐项核对。"
+      },
+      "on_unsupported": "block"
+    }
+  ],
+  "policy": {
+    "allow_semantic_invention": false,
+    "max_canonical_units": null,
+    "context_ir": "rules"
+  },
+  "expansions": []
+}

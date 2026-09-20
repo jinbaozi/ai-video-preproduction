@@ -1,0 +1,134 @@
+{
+  "version": "1.0.0",
+  "method": "tag_match_suggestion",
+  "styles": [
+    {
+      "id": "transparent",
+      "name": "透明叙事与人物关系",
+      "tags": [
+        "对话",
+        "关系",
+        "清晰",
+        "dialogue"
+      ],
+      "conflicts": [],
+      "file": "styles/transparent.json"
+    },
+    {
+      "id": "suspense",
+      "name": "悬疑与信息揭示",
+      "tags": [
+        "悬疑",
+        "秘密",
+        "揭示",
+        "suspense"
+      ],
+      "conflicts": [],
+      "file": "styles/suspense.json"
+    },
+    {
+      "id": "action",
+      "name": "动作与空间关系",
+      "tags": [
+        "动作",
+        "追逐",
+        "打斗",
+        "路径",
+        "action"
+      ],
+      "conflicts": [
+        "subjective"
+      ],
+      "file": "styles/action.json"
+    },
+    {
+      "id": "comedy",
+      "name": "喜剧与反应节奏",
+      "tags": [
+        "喜剧",
+        "反差",
+        "笑点",
+        "comedy"
+      ],
+      "conflicts": [],
+      "file": "styles/comedy.json"
+    },
+    {
+      "id": "observational",
+      "name": "观察式与长镜头",
+      "tags": [
+        "长镜头",
+        "观察",
+        "纪录",
+        "one take"
+      ],
+      "conflicts": [
+        "subjective"
+      ],
+      "file": "styles/observational.json"
+    },
+    {
+      "id": "animation",
+      "name": "角色动画与姿态表演",
+      "tags": [
+        "动画",
+        "姿态",
+        "剪影",
+        "animation"
+      ],
+      "conflicts": [],
+      "file": "styles/animation.json"
+    },
+    {
+      "id": "wuxia",
+      "name": "武侠仙侠与纵深调度",
+      "tags": [
+        "武侠",
+        "仙侠",
+        "高低",
+        "纵深"
+      ],
+      "conflicts": [],
+      "file": "styles/wuxia.json"
+    },
+    {
+      "id": "product",
+      "name": "产品演示与商业展示",
+      "tags": [
+        "产品",
+        "演示",
+        "操作",
+        "product"
+      ],
+      "conflicts": [],
+      "file": "styles/product.json"
+    },
+    {
+      "id": "vertical",
+      "name": "竖屏短剧与人物互动",
+      "tags": [
+        "竖屏",
+        "9:16",
+        "短剧",
+        "vertical"
+      ],
+      "conflicts": [],
+      "file": "styles/vertical.json"
+    },
+    {
+      "id": "subjective",
+      "name": "主观记忆与联想蒙太奇",
+      "tags": [
+        "主观",
+        "记忆",
+        "梦境",
+        "蒙太奇"
+      ],
+      "conflicts": [
+        "action",
+        "observational"
+      ],
+      "file": "styles/subjective.json"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "phase_id",
+    "phase_folder",
+    "role_provenance",
+    "task_id",
+    "context_fingerprint",
+    "input_artifacts",
+    "loaded_resources",
+    "output_contract",
+    "constraints"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "task-envelope"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "phase_id": {
+      "type": "string",
+      "pattern": "^phase-[0-9]{2}$"
+    },
+    "phase_folder": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "input_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "loaded_resources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "output_contract": {
+      "type": "object"
+    },
+    "constraints": {
+      "type": "object"
+    },
+    "shot_batch": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:task-envelope.schema.json"
+}

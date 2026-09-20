@@ -1,0 +1,272 @@
+{
+  "version": "2026-09-19.1",
+  "coverage": "补核的一手页面、论文及明确标记的索引/受限材料；非全网穷尽，原聊天引用ID未转换为伪URL。",
+  "sources": [
+    {
+      "id": "CHAT_PLAN",
+      "kind": "prior_conversation",
+      "uri": "chatgpt-conversation://6aadea70-1800-83e8-89e6-dadada53c5db",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "完整方案已读取；无可读取附件，原包、30条来源与42项测试未取得。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量",
+      "snapshot": "references/conversation-plan.md",
+      "snapshot_sha256": "cae09336db49025604c3d8e90b30282e95a79f6636c53f2bce4fbfe7ad0d7bad"
+    },
+    {
+      "id": "PROJECT_RULES",
+      "kind": "original",
+      "uri": "local:storyboard-grammar",
+      "verification": "design",
+      "checked_at": "2026-09-19",
+      "claim": "本项目原创协议、语法卡、规则和代码；不是从业者本人发布的方法论。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "LOCAL_DIRECTOR",
+      "kind": "local_contract",
+      "uri": "../director-grammar/schemas/director-ir.schema.json",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "schema_version=1.0；导演拥有意图、镜头与表演；本包只读。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量",
+      "sha256": "1f59d06d378805decb1fcdad532a206d45f9c2129e0b61bebcfbe73fdff7df36"
+    },
+    {
+      "id": "LOCAL_ART",
+      "kind": "local_contract",
+      "uri": "../production-design-grammar/schemas/art-ir.schema.json",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "schema_version=1.0；美术拥有视觉世界并通过指针绑定导演。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量",
+      "sha256": "46b4564a16bd011b23c371a50eab897c15f52c2109560ab38a303dbcf71138de"
+    },
+    {
+      "id": "LOCAL_AVIR",
+      "kind": "local_contract",
+      "uri": "../video-prompt-compiler/schemas/avir.schema.json",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "avir/1.0，整数毫秒；无独立节拍/画格/细粒度状态事件字段。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量",
+      "sha256": "85dcc86243f5bc4ff72c4a094d492c8ecaa2d458c31c4b63f83277697f46b660"
+    },
+    {
+      "id": "AGENT_SKILLS",
+      "kind": "primary",
+      "uri": "https://agentskills.io/specification",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "SKILL.md与按需资源组织。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "STORYBOARDER",
+      "kind": "project_primary",
+      "uri": "https://wonderunit.com/storyboarder/",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "分镜创作与审阅工具；作为画格工作流参考。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "LAWKUK9",
+      "kind": "project_primary",
+      "uri": "https://github.com/lawkuk9/ai-video-storyboard-converter-public",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "原文、台词、空间、表演与连续性；不继承约15秒壳或复制受限规则。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "INFERENCE_SKILL",
+      "kind": "discovery",
+      "uri": "https://www.skills.sh/inference-sh-6/skills/storyboard-creation",
+      "verification": "discovery_only",
+      "checked_at": "2026-09-19",
+      "claim": "发现分镜Skill索引；仓库raw路径未成功读取，不当作已核验源码。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "FILMAGENT",
+      "kind": "research_primary",
+      "uri": "https://arxiv.org/abs/2501.12909",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "受控虚拟三维空间中的分工与电影自动化研究；不能推及扩散模型硬控制。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "MOVIEAGENT",
+      "kind": "research_primary",
+      "uri": "https://arxiv.org/abs/2503.07314",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "层级场景/镜头规划研究；非本项目已验证生产SDK。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "STORY2BOARD",
+      "kind": "research_primary",
+      "uri": "https://arxiv.org/abs/2508.09983",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "研究分镜表现力与一致性；不混同同名商业产品。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "OTIO",
+      "kind": "project_primary",
+      "uri": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "剪辑时间线信息交换；不承载完整故事事实源。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "HYPIT",
+      "kind": "project_primary",
+      "uri": "https://github.com/hypit-ai/hypit",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "视频创作语言/运行系统及确定性制作；本包未运行或导出。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "LIBTV",
+      "kind": "project_primary",
+      "uri": "https://github.com/libtv-labs/libtv-skills",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "官方仓库提供会话、上传、生成消息、进度与下载脚本。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "OIIOII",
+      "kind": "official_product",
+      "uri": "https://articles.oiioii.ai/how-to-make-an-animated-music-video-with-ai-2",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "官方文章列出角色分工、共享scene graph与资产命名。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "SEKO",
+      "kind": "official_product",
+      "uri": "https://www.sensetime.com/cn/news/seko-3-0-ai-1",
+      "verification": "limited",
+      "checked_at": "2026-09-19",
+      "claim": "已定位官方Seko 3.0公告，页面提取有限；没有可验证内部Skill或执行Schema。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "SEEDANCE",
+      "kind": "official_model",
+      "uri": "https://seed.bytedance.com/en/seedance2_0",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "官方模型页面；产品概述与实际API/网页权限分开。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "KLING",
+      "kind": "official_docs",
+      "uri": "https://kling.ai/quickstart/klingai-video-3-model-user-guide",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "VIDEO 3.0区分Multi-Shot和Custom Multi-Shot。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "MINIMAX",
+      "kind": "official_docs",
+      "uri": "https://platform.minimax.io/docs/api-reference/video-generation-t2v",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "海螺T2V文档属于执行层；本包不硬编码当前模型能力。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "RUNWAY",
+      "kind": "official_docs",
+      "uri": "https://help.runwayml.com/hc/en-us/articles/39789879462419-Gen-4-Video-Prompting-Guide",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "Gen-4提示中主体、相机和环境运动分开描述；限定该文档适用范围。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "VEO",
+      "kind": "official_docs",
+      "uri": "https://ai.google.dev/gemini-api/docs/veo",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "Gemini API视频工作流按具体模型和模式区分。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "ZHANG_JIANBAI",
+      "kind": "creator_course",
+      "uri": "https://www.bilibili.com/cheese/play/ep2500018",
+      "verification": "index_verified",
+      "checked_at": "2026-09-19",
+      "claim": "公开课程页面将张建柏标为中国电影分镜师；未访问付费课程全文。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "ZHANG_BO",
+      "kind": "institution_primary",
+      "uri": "https://www.cuc.edu.cn/2019/0226/c1761a161118/page.htm",
+      "verification": "index_verified",
+      "checked_at": "2026-09-19",
+      "claim": "中国传媒大学署其为流浪地球概念艺术指导兼故事板总监。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "FEI_CLARKE",
+      "kind": "exhibition_primary",
+      "uri": "https://www.prada.com/ww/en/pradasphere/special-projects/2025/a-kind-of-language-prada-rong-zhai.html",
+      "verification": "read",
+      "checked_at": "2026-09-19",
+      "claim": "展览将流浪地球II绘图署名Xuehao Fei、布达佩斯大饭店分镜署名Jay Clarke；不推断全部分镜独立完成。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "ANDERSON",
+      "kind": "creator_primary",
+      "uri": "https://storyboardsbyjtoddanderson.com/product/big-lebowski-book/",
+      "verification": "index_verified",
+      "checked_at": "2026-09-19",
+      "claim": "作者官方分镜书页面及科恩兄弟合作经历。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "HARDMAN",
+      "kind": "creator_primary",
+      "uri": "https://www.gabrielhardman-storyboards.com/",
+      "verification": "index_verified",
+      "checked_at": "2026-09-19",
+      "claim": "本人站列有Ford v Ferrari、Logan、Inception等分镜项目。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "RUSSELL",
+      "kind": "creator_primary",
+      "uri": "https://www.dynamicimagesdr.com/",
+      "verification": "index_verified",
+      "checked_at": "2026-09-19",
+      "claim": "本人站标明概念与分镜及视觉开发岗位，不混同同名导演或摄影师。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    },
+    {
+      "id": "SHI",
+      "kind": "studio_primary",
+      "uri": "https://www.pixar.com/shi",
+      "verification": "index_verified",
+      "checked_at": "2026-09-19",
+      "claim": "Pixar资料确认Domee Shi曾任Inside Out story artist；页面含旧时间表，不用于当前职务判断。",
+      "usage": "设计依据或案例检索；不承诺实测画面质量"
+    }
+  ]
+}

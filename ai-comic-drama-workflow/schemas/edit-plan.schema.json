@@ -1,0 +1,152 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "timeline",
+    "dialogue_table",
+    "voice_cast",
+    "sfx",
+    "music",
+    "subtitle_language"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "const": "edit-plan"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role_provenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provenance": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "timeline": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "in_s": {
+            "type": "number",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "shot_id",
+          "duration_s"
+        ]
+      },
+      "minItems": 1
+    },
+    "dialogue_table": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "line_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "speaker_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "start_s": {
+            "type": "number",
+            "minimum": 0
+          },
+          "end_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "duration_s": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "line_id",
+          "speaker_id",
+          "text",
+          "start_s"
+        ],
+        "anyOf": [
+          {
+            "required": [
+              "end_s"
+            ]
+          },
+          {
+            "required": [
+              "duration_s"
+            ]
+          }
+        ]
+      }
+    },
+    "voice_cast": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "sfx": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "music": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "subtitle_language": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:edit-plan.schema.json"
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-task-envelope",
+  "type": "object",
+  "required": [
+    "schema",
+    "task_id",
+    "context_fingerprint",
+    "project_id",
+    "stage",
+    "kind",
+    "slot",
+    "dependencies",
+    "inputs",
+    "scope",
+    "module",
+    "expected_result"
+  ],
+  "properties": {
+    "schema": {
+      "const": "task-envelope/5.0"
+    },
+    "task_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "context_fingerprint": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "stage": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9
+    },
+    "dependencies": {
+      "type": "array"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "inputs": {
+      "type": "array"
+    },
+    "expected_result": {
+      "const": "role-result/5.0"
+    }
+  },
+  "additionalProperties": true
+}

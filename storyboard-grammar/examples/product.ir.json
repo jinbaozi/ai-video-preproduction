@@ -1,0 +1,471 @@
+{
+  "schema_version": "storyboard-ir/1.0",
+  "project_id": "PRODUCT_DEMO",
+  "revision": 1,
+  "canon_ref": "example://product-v1",
+  "intent": "仅展示外形与转动关系，不编造功能、实测或品牌。",
+  "scope": {
+    "source_ids": [
+      "SRC_PRODUCT"
+    ],
+    "shot_ids": [
+      "P_SHOT"
+    ],
+    "excluded_utterance_ids": []
+  },
+  "sources": [
+    {
+      "id": "SRC_PRODUCT",
+      "kind": "script",
+      "uri": "product.source.txt",
+      "locator": "完整虚构测试需求",
+      "revision": "1",
+      "verification": "provided",
+      "excerpt": "虚构产品外观展示测试。6秒，24fps，9:16。一台无品牌无文字的桌面音箱立在展台上，缓慢旋转约60度，展示正面和侧面外观。没有人物、台词或旁白，轻音乐后期制作；不宣称音质或性能。",
+      "excerpt_sha256": "31b778e1648f088a153db448885c17ffaaa2f92c4f9bacc92d8fede50b76a1ca",
+      "file_sha256": "98905b4cf49e11a94f0afc9b930e2a7a7482bce0ad328f16978992e140a52544",
+      "utterances": []
+    }
+  ],
+  "upstreams": [],
+  "entities": [
+    {
+      "id": "PRODUCT",
+      "kind": "prop",
+      "name": "桌面音箱",
+      "appearance": "无品牌无文字的浅灰圆角桌面音箱",
+      "identity_locks": [
+        "数量1",
+        "无品牌",
+        "无文字"
+      ],
+      "source_refs": [
+        "SRC_PRODUCT"
+      ]
+    },
+    {
+      "id": "STUDIO",
+      "kind": "environment",
+      "name": "展示空间",
+      "appearance": "中性灰背景与固定圆形展台",
+      "identity_locks": [
+        "固定展台",
+        "中性背景"
+      ],
+      "source_refs": [
+        "SRC_PRODUCT"
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "SET_PRODUCT",
+      "description": "固定展台位于中性摄影空间；PRODUCT坐标为产品中心，STUDIO坐标为地面原点。",
+      "location_id": "STUDIO",
+      "entity_ids": [
+        "PRODUCT",
+        "STUDIO"
+      ],
+      "time_of_day": "受控室内",
+      "coordinates": {
+        "unit": "m",
+        "axes": "x=world-right,y=up,z=depth",
+        "origin": "桌面中心在地面的投影"
+      },
+      "bounds": {
+        "min_m": [
+          -3,
+          0,
+          -4
+        ],
+        "max_m": [
+          3,
+          3,
+          4
+        ]
+      },
+      "axis": {
+        "id": "AX_PRODUCT",
+        "start_m": [
+          -1,
+          0,
+          0
+        ],
+        "end_m": [
+          1,
+          0,
+          0
+        ]
+      },
+      "lighting": {
+        "world_source": "世界左前方柔光箱",
+        "position_m": [
+          -1.5,
+          2,
+          -1
+        ],
+        "quality": "柔和轮廓与可读材质",
+        "color": "中性"
+      },
+      "source_refs": [
+        "SRC_PRODUCT"
+      ]
+    }
+  ],
+  "assets": [],
+  "bindings": [],
+  "beats": [
+    {
+      "id": "B_PRODUCT",
+      "scene_id": "SET_PRODUCT",
+      "change": "从正面外观转到侧面外观",
+      "depends_on": [],
+      "required": true,
+      "exclusion_reason": null,
+      "source_refs": [
+        "SRC_PRODUCT"
+      ]
+    }
+  ],
+  "style": {
+    "medium": "产品实拍意图",
+    "primary": "product",
+    "modifiers": [
+      "vertical"
+    ],
+    "rationale": "关键目标是外形与转动可读，竖屏保留产品完整轮廓。",
+    "forbidden": [],
+    "tags": [
+      "产品",
+      "竖屏"
+    ]
+  },
+  "delivery": {
+    "fps": 24,
+    "total_frames": 144,
+    "aspect_ratio": "9:16",
+    "resolution": null
+  },
+  "shots": [
+    {
+      "id": "P_SHOT",
+      "scene_id": "SET_PRODUCT",
+      "beat_ids": [
+        "B_PRODUCT"
+      ],
+      "start_frame": 0,
+      "end_frame": 144,
+      "purpose": "展示同一音箱的正面与侧面外形",
+      "viewpoint": "客观产品观察",
+      "audience_before": "只见正面外观",
+      "audience_after": "看见同一产品侧面外观",
+      "composition": {
+        "rule": "单主体居中，完整轮廓与底部接触关系可读",
+        "attention_order": [
+          "PRODUCT"
+        ],
+        "negative_space": "产品四周留白，不插入文字",
+        "safe_area": "边缘10%留白，不含平台固定UI假设",
+        "depth_layers": "前景展台边缘、中景产品、背景灰色空间",
+        "subjects": [
+          {
+            "entity_id": "PRODUCT",
+            "box": [
+              0.2,
+              0.3,
+              0.6,
+              0.4
+            ],
+            "visible_parts": [
+              "body"
+            ],
+            "screen_side": "center",
+            "depth": "midground",
+            "occlusion": "轮廓无遮挡"
+          }
+        ]
+      },
+      "camera": {
+        "size": "full",
+        "start_m": [
+          0,
+          1.1,
+          -1.8
+        ],
+        "end_m": [
+          0,
+          1.1,
+          -1.8
+        ],
+        "look_at_m": [
+          0,
+          1.1,
+          0
+        ],
+        "pitch_deg": 0,
+        "roll_deg": 0,
+        "lens_intent": "自然透视，按实际机位距离选择镜头，不作为模型原生焦距参数",
+        "movement": "固定",
+        "motivation": "固定相机让产品转动可比较",
+        "path": "相机静止",
+        "focus": "产品正侧表面",
+        "axis_side": "negative",
+        "axis_strategy": "same_side",
+        "axis_reason": null,
+        "precision": "intent"
+      },
+      "relations": [],
+      "state_start": {
+        "PRODUCT": {
+          "position_m": [
+            0,
+            1,
+            0
+          ],
+          "yaw_deg": 0,
+          "head_yaw_deg": 0,
+          "head_pitch_deg": 0,
+          "pose": "直立于展台",
+          "gaze_target": null,
+          "support": "STUDIO.pedestal",
+          "contacts": [
+            "STUDIO.pedestal"
+          ],
+          "holder": null,
+          "condition": "保持既有外观与完好状态"
+        },
+        "STUDIO": {
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "head_yaw_deg": 0,
+          "head_pitch_deg": 0,
+          "pose": "固定建筑",
+          "gaze_target": null,
+          "support": "ROOM.floor",
+          "contacts": [],
+          "holder": null,
+          "condition": "保持既有外观与完好状态"
+        }
+      },
+      "state_end": {
+        "PRODUCT": {
+          "position_m": [
+            0,
+            1,
+            0
+          ],
+          "yaw_deg": 60,
+          "head_yaw_deg": 0,
+          "head_pitch_deg": 0,
+          "pose": "直立于展台",
+          "gaze_target": null,
+          "support": "STUDIO.pedestal",
+          "contacts": [
+            "STUDIO.pedestal"
+          ],
+          "holder": null,
+          "condition": "保持既有外观与完好状态"
+        },
+        "STUDIO": {
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "head_yaw_deg": 0,
+          "head_pitch_deg": 0,
+          "pose": "固定建筑",
+          "gaze_target": null,
+          "support": "ROOM.floor",
+          "contacts": [],
+          "holder": null,
+          "condition": "保持既有外观与完好状态"
+        }
+      },
+      "events": [
+        {
+          "id": "EV_ROTATE",
+          "start_frame": 12,
+          "end_frame": 108,
+          "kind": "move",
+          "actor_id": "PRODUCT",
+          "target_id": null,
+          "effector": null,
+          "trigger": "前12帧正面静置已建立",
+          "action": "展台托住音箱缓慢匀速转约60度，最后停稳",
+          "feedback": "同一产品侧面逐渐显露，背景不移动",
+          "changes": [
+            {
+              "entity_id": "PRODUCT",
+              "field": "yaw_deg",
+              "before": 0,
+              "after": 60
+            }
+          ],
+          "source_refs": [
+            "SRC_PRODUCT"
+          ],
+          "depends_on": []
+        }
+      ],
+      "performance": [],
+      "panels": [
+        {
+          "id": "P_FRONT",
+          "frame": 0,
+          "moment": "音箱完整正面，底部接触展台",
+          "event_ids": [],
+          "subject_ids": [
+            "PRODUCT"
+          ],
+          "must_show": [
+            "音箱完整正面，底部接触展台"
+          ],
+          "source_refs": [
+            "SRC_PRODUCT"
+          ]
+        },
+        {
+          "id": "P_MOVING",
+          "frame": 60,
+          "moment": "产品仍在转动，保留实际动作中的画格审阅要求",
+          "event_ids": [
+            "EV_ROTATE"
+          ],
+          "subject_ids": [
+            "PRODUCT"
+          ],
+          "must_show": [
+            "产品仍在转动，保留实际动作中的画格审阅要求"
+          ],
+          "source_refs": [
+            "SRC_PRODUCT"
+          ]
+        },
+        {
+          "id": "P_SIDE",
+          "frame": 143,
+          "moment": "音箱转动后稳住，侧面与轮廓可见",
+          "event_ids": [
+            "EV_ROTATE"
+          ],
+          "subject_ids": [
+            "PRODUCT"
+          ],
+          "must_show": [
+            "音箱转动后稳住，侧面与轮廓可见"
+          ],
+          "source_refs": [
+            "SRC_PRODUCT"
+          ]
+        }
+      ],
+      "transition": {
+        "type": "cut",
+        "reason": "单镜完成外观展示",
+        "match": "片尾稳住留剪辑余量",
+        "state_exceptions": []
+      },
+      "source_refs": [
+        "SRC_PRODUCT"
+      ]
+    }
+  ],
+  "audio": {
+    "utterances": [],
+    "cues": [
+      {
+        "id": "MUSIC_PRODUCT",
+        "shot_ids": [
+          "P_SHOT"
+        ],
+        "kind": "music",
+        "start_frame": 0,
+        "end_frame": 144,
+        "description": "轻量原创合成器短音，进入柔和，片尾淡出",
+        "diegetic": false,
+        "sync_event": null,
+        "sync_frame": null,
+        "route": "post",
+        "mix": "柔和低音量，不添加人物声或旁白",
+        "source_refs": [
+          "SRC_PRODUCT"
+        ]
+      }
+    ]
+  },
+  "contract": [
+    {
+      "id": "REQ_SINGLE_PRODUCT",
+      "statement": "全片仅一台音箱，外观不变，无人物、台词与旁白。",
+      "source_refs": [
+        "SRC_PRODUCT"
+      ],
+      "owner": "storyboard",
+      "strength": "hard",
+      "shot_ids": [
+        "P_SHOT"
+      ],
+      "checks": [
+        {
+          "path": "/entities",
+          "op": "equals",
+          "value": [
+            {
+              "id": "PRODUCT",
+              "kind": "prop",
+              "name": "桌面音箱",
+              "appearance": "无品牌无文字的浅灰圆角桌面音箱",
+              "identity_locks": [
+                "数量1",
+                "无品牌",
+                "无文字"
+              ],
+              "source_refs": [
+                "SRC_PRODUCT"
+              ]
+            },
+            {
+              "id": "STUDIO",
+              "kind": "environment",
+              "name": "展示空间",
+              "appearance": "中性灰背景与固定圆形展台",
+              "identity_locks": [
+                "固定展台",
+                "中性背景"
+              ],
+              "source_refs": [
+                "SRC_PRODUCT"
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/audio/utterances",
+          "op": "equals",
+          "value": []
+        }
+      ],
+      "channel": "prompt",
+      "execution": "生成层保留产品身份与完整轮廓；音乐后期加入",
+      "acceptance": [
+        {
+          "phase": "structure",
+          "criterion": "实体和音轨登记符合要求",
+          "evidence": "IR与QA"
+        },
+        {
+          "phase": "media",
+          "criterion": "逐帧只有一台同外观音箱，实听无人声",
+          "evidence": "实际视频与混音"
+        }
+      ],
+      "fallback": "block"
+    }
+  ]
+}

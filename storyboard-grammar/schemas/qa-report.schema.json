@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://storyboard-grammar.local/qa-report.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "storyboard-qa/1.0"
+    },
+    "status": {
+      "enum": [
+        "VALID",
+        "INVALID",
+        "BLOCKED"
+      ]
+    },
+    "structure": {
+      "enum": [
+        "PASS",
+        "FAIL"
+      ]
+    },
+    "media": {
+      "const": "NOT_RUN"
+    },
+    "visual": {
+      "const": "NOT_RUN"
+    },
+    "execution_ready": {
+      "const": false
+    },
+    "submitted": {
+      "const": false
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "enum": [
+              "error",
+              "warning",
+              "blocker"
+            ]
+          }
+        },
+        "required": [
+          "code",
+          "path",
+          "message",
+          "severity"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "contract_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "structure": {
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          },
+          "acceptance": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "phase": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "status": {
+                  "enum": [
+                    "PASS",
+                    "FAIL",
+                    "NOT_RUN"
+                  ]
+                },
+                "criterion": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "evidence": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "phase",
+                "status",
+                "criterion",
+                "evidence"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          }
+        },
+        "required": [
+          "id",
+          "structure",
+          "acceptance"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "manual_checks": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema_version",
+    "status",
+    "structure",
+    "media",
+    "visual",
+    "execution_ready",
+    "submitted",
+    "diagnostics",
+    "contract_results",
+    "manual_checks"
+  ],
+  "additionalProperties": false
+}

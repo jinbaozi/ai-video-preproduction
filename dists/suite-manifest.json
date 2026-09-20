@@ -1,0 +1,83 @@
+{
+  "active_skills": [
+    "ai-comic-drama-workflow",
+    "director-grammar",
+    "production-design-grammar",
+    "storyboard-grammar",
+    "video-prompt-compiler",
+    "image-prompt-optimizer"
+  ],
+  "legacy_skills": [
+    "video-storyboard-prompter-zh"
+  ],
+  "modules": {
+    "adapter_version": "1.2.0",
+    "modules": {
+      "director-grammar": {
+        "archive": "director-grammar.skill",
+        "sha256": "9f2314cbbf827f0d498057bfdf33cb051d28cd9e3870d9de71338466f88ffdf1",
+        "version": "1.3.0"
+      },
+      "image-prompt-optimizer": {
+        "archive": "image-prompt-optimizer.skill",
+        "sha256": "7c90e10b176e9150a1337a71d9f49fffdcb77ac858fc204ad47e8dde7589b72b",
+        "version": "1.3.0"
+      },
+      "production-design-grammar": {
+        "archive": "production-design-grammar.skill",
+        "sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+        "version": "1.3.0"
+      },
+      "storyboard-grammar": {
+        "archive": "storyboard-grammar.skill",
+        "sha256": "54bec863e46c735a0d84aa43d522f65e84aa99f6eb8250586e9ebbb2de6e8966",
+        "version": "1.3.0"
+      },
+      "video-prompt-compiler": {
+        "archive": "video-prompt-compiler.skill",
+        "sha256": "113b3f2000ebc09cb828dc32eb9aca7878efe2b8472b363d67ee2aae11caf035",
+        "version": "1.3.0"
+      }
+    },
+    "schema": "skill-modules/1.0"
+  },
+  "packages": [
+    {
+      "archive": "/Users/godxu/101-副业/00-工作流/dists/director-grammar.skill",
+      "files": 50,
+      "sha256": "9f2314cbbf827f0d498057bfdf33cb051d28cd9e3870d9de71338466f88ffdf1",
+      "status": "VERIFIED"
+    },
+    {
+      "archive": "/Users/godxu/101-副业/00-工作流/dists/production-design-grammar.skill",
+      "files": 35,
+      "sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+      "status": "VERIFIED"
+    },
+    {
+      "archive": "/Users/godxu/101-副业/00-工作流/dists/storyboard-grammar.skill",
+      "files": 57,
+      "sha256": "54bec863e46c735a0d84aa43d522f65e84aa99f6eb8250586e9ebbb2de6e8966",
+      "status": "VERIFIED"
+    },
+    {
+      "archive": "/Users/godxu/101-副业/00-工作流/dists/video-prompt-compiler.skill",
+      "files": 63,
+      "sha256": "113b3f2000ebc09cb828dc32eb9aca7878efe2b8472b363d67ee2aae11caf035",
+      "status": "VERIFIED"
+    },
+    {
+      "archive": "/Users/godxu/101-副业/00-工作流/dists/image-prompt-optimizer.skill",
+      "files": 62,
+      "sha256": "7c90e10b176e9150a1337a71d9f49fffdcb77ac858fc204ad47e8dde7589b72b",
+      "status": "VERIFIED"
+    },
+    {
+      "archive": "/Users/godxu/101-副业/00-工作流/dists/ai-comic-drama-workflow.skill",
+      "files": 195,
+      "sha256": "de877dcb6f2e5dd1be127c06aa072f4140578eb6e04f79edf537231dbbd201c2",
+      "status": "VERIFIED"
+    }
+  ],
+  "schema": "skill-suite/1.0"
+}

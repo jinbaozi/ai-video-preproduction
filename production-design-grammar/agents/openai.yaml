@@ -1,0 +1,7 @@
+interface:
+  display_name: "美术指导 · Production Design Grammar"
+  short_description: "将视觉世界、空间资产与美术连续性编译为可追溯的制作合同，并与导演职责明确衔接"
+  default_prompt: "使用 $production-design-grammar，读取当前 Canon、资产和导演方案，制作有来源、约束、执行路径与验收条件的美术合同。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,3457 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://director-grammar.local/director-ir-1.2.schema.json",
+  "title": "director-ir",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.2"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "canon_ref": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "kind": {
+            "enum": [
+              "user",
+              "canon",
+              "asset",
+              "official",
+              "community",
+              "design"
+            ]
+          },
+          "uri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verification": {
+            "enum": [
+              "provided",
+              "read",
+              "observed",
+              "inference",
+              "unverified"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "uri",
+          "locator",
+          "claim",
+          "verification"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "intent": {
+      "type": "object",
+      "properties": {
+        "task": {
+          "enum": [
+            "narrative",
+            "observation",
+            "demonstration",
+            "performance",
+            "product"
+          ]
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "style_request": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "forbidden_techniques": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "task",
+        "goal",
+        "tags",
+        "style_request",
+        "forbidden_techniques"
+      ],
+      "additionalProperties": false
+    },
+    "format": {
+      "type": "object",
+      "properties": {
+        "fps": {
+          "oneOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "string",
+              "pattern": "^[1-9][0-9]*/[1-9][0-9]*$"
+            }
+          ]
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "total_frames": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "fps",
+        "width",
+        "height",
+        "total_frames"
+      ],
+      "additionalProperties": false
+    },
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "enum": [
+              "character",
+              "prop",
+              "location",
+              "voice"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "kind",
+          "description",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "filename": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "anyOf": [
+              {
+                "type": "string",
+                "minLength": 1
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "status": {
+            "enum": [
+              "missing",
+              "draft",
+              "approved"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "filename",
+          "path",
+          "sha256",
+          "status",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "location_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "space": {
+            "type": "string",
+            "minLength": 1
+          },
+          "coordinate_system": {
+            "const": "right-handed:X-right,Y-depth,Z-up;meters"
+          },
+          "axis_start_m": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "axis_end_m": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 3,
+            "maxItems": 3
+          },
+          "style_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          }
+        },
+        "required": [
+          "id",
+          "location_id",
+          "space",
+          "coordinate_system",
+          "axis_start_m",
+          "axis_end_m",
+          "style_id"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "beats": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "scene_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "change": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "scene_id",
+          "change",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "scene_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "beat_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "story_order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "frames": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "narrative": {
+            "type": "object",
+            "properties": {
+              "audience_before": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "audience_after": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "character_knows": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "reveal": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "viewpoint": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "audience_before",
+              "audience_after",
+              "character_knows",
+              "reveal",
+              "viewpoint"
+            ],
+            "additionalProperties": false
+          },
+          "start_state": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "position_m": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "yaw_deg": {
+                  "type": "number"
+                },
+                "pose": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "support": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "contact": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "gaze_target": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "entity_id",
+                "position_m",
+                "yaw_deg",
+                "pose",
+                "support",
+                "contact",
+                "gaze_target"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "end_state": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "position_m": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "yaw_deg": {
+                  "type": "number"
+                },
+                "pose": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "support": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "contact": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "gaze_target": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "entity_id",
+                "position_m",
+                "yaw_deg",
+                "pose",
+                "support",
+                "contact",
+                "gaze_target"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "phases": {
+            "const": []
+          },
+          "composition": {
+            "type": "object",
+            "properties": {
+              "rule": {
+                "type": "string",
+                "minLength": 1
+              },
+              "attention_order": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "negative_space": {
+                "type": "string",
+                "minLength": 1
+              },
+              "depth_layers": {
+                "type": "string",
+                "minLength": 1
+              },
+              "safe_area": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "minItems": 4,
+                "maxItems": 4
+              },
+              "subjects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entity_id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "box": {
+                      "type": "array",
+                      "items": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    "visible_parts": {
+                      "type": "array",
+                      "items": {
+                        "enum": [
+                          "face",
+                          "eyes",
+                          "hands",
+                          "feet",
+                          "body",
+                          "prop"
+                        ]
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "entity_id",
+                    "box",
+                    "visible_parts"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "rule",
+              "attention_order",
+              "negative_space",
+              "depth_layers",
+              "safe_area",
+              "subjects"
+            ],
+            "additionalProperties": false
+          },
+          "camera": {
+            "type": "object",
+            "properties": {
+              "movement": {
+                "enum": [
+                  "locked",
+                  "dolly_in",
+                  "dolly_out",
+                  "truck_left",
+                  "truck_right",
+                  "pan_left",
+                  "pan_right",
+                  "tilt_up",
+                  "tilt_down",
+                  "pedestal_up",
+                  "pedestal_down",
+                  "orbit",
+                  "tracking",
+                  "handheld",
+                  "zoom_in",
+                  "zoom_out"
+                ]
+              },
+              "motivation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "end_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "look_at_m": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              },
+              "roll_deg": {
+                "type": "number"
+              },
+              "focal_mm": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "framing_start": {
+                "type": "string",
+                "minLength": 1
+              },
+              "framing_end": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "speed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "focus": {
+                "type": "string",
+                "minLength": 1
+              },
+              "precision": {
+                "enum": [
+                  "qualitative",
+                  "metric"
+                ]
+              },
+              "axis_side": {
+                "enum": [
+                  "positive",
+                  "negative",
+                  "on_axis"
+                ]
+              },
+              "axis_transition": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "movement",
+              "motivation",
+              "start_m",
+              "end_m",
+              "look_at_m",
+              "roll_deg",
+              "focal_mm",
+              "framing_start",
+              "framing_end",
+              "path",
+              "speed",
+              "focus",
+              "precision",
+              "axis_side",
+              "axis_transition"
+            ],
+            "additionalProperties": false
+          },
+          "performance": {
+            "const": []
+          },
+          "dialogue": {
+            "const": []
+          },
+          "sound": {
+            "type": "object",
+            "properties": {
+              "ambience": {
+                "type": "string",
+                "minLength": 1
+              },
+              "cue": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sync": {
+                "type": "string",
+                "minLength": 1
+              },
+              "silence": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "ambience",
+              "cue",
+              "sync",
+              "silence"
+            ],
+            "additionalProperties": false
+          },
+          "lighting": {
+            "type": "object",
+            "properties": {
+              "source": {
+                "type": "string",
+                "minLength": 1
+              },
+              "direction": {
+                "type": "string",
+                "minLength": 1
+              },
+              "quality": {
+                "type": "string",
+                "minLength": 1
+              },
+              "color_purpose": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "source",
+              "direction",
+              "quality",
+              "color_purpose"
+            ],
+            "additionalProperties": false
+          },
+          "must_show": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "entity_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "part": {
+                  "enum": [
+                    "face",
+                    "eyes",
+                    "hands",
+                    "feet",
+                    "body",
+                    "prop"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "entity_id",
+                "part",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "asset_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "entity_id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "dimension": {
+                  "enum": [
+                    "identity",
+                    "costume",
+                    "space",
+                    "lighting",
+                    "composition",
+                    "motion",
+                    "voice",
+                    "style"
+                  ]
+                },
+                "role": {
+                  "enum": [
+                    "reference",
+                    "first_frame",
+                    "last_frame"
+                  ]
+                }
+              },
+              "required": [
+                "asset_id",
+                "entity_id",
+                "dimension",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0
+          },
+          "technique_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          },
+          "continuity": {
+            "type": "object",
+            "properties": {
+              "from_shot": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "match_entities": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "transition": {
+                "enum": [
+                  "continuous",
+                  "cutaway",
+                  "ellipsis",
+                  "new_scene"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              },
+              "invariants": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "from_shot",
+              "match_entities",
+              "transition",
+              "reason",
+              "invariants"
+            ],
+            "additionalProperties": false
+          },
+          "acceptance_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "scene_id",
+          "beat_id",
+          "source_refs",
+          "purpose",
+          "story_order",
+          "frames",
+          "narrative",
+          "start_state",
+          "end_state",
+          "phases",
+          "composition",
+          "camera",
+          "performance",
+          "dialogue",
+          "sound",
+          "lighting",
+          "must_show",
+          "references",
+          "technique_ids",
+          "continuity",
+          "acceptance_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "contract": {
+      "$ref": "production-contract.schema.json"
+    },
+    "timeline": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "const": "detail-timeline/1.2"
+        },
+        "coordinate_system": {
+          "const": "x-right,y-up,z-depth; screen and anatomical directions are separate"
+        },
+        "action_groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "parent_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "purpose": {
+                "type": "string",
+                "minLength": 1
+              },
+              "beat_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "parent_id",
+              "purpose",
+              "beat_ids",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              },
+              "parent_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "semantic_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "actor_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "target_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "effector": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "operation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "speed": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "support": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "contact": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "feedback": {
+                "type": "string",
+                "minLength": 1
+              },
+              "settle": {
+                "type": "string",
+                "minLength": 1
+              },
+              "depends_on": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action_id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "relation": {
+                      "enum": [
+                        "after_end",
+                        "after_start",
+                        "overlaps",
+                        "at_marker"
+                      ]
+                    },
+                    "marker": {
+                      "anyOf": [
+                        {
+                          "type": "string",
+                          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "offset_ms": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "action_id",
+                    "relation",
+                    "marker",
+                    "offset_ms"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              },
+              "markers": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "at_ms": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "meaning": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "at_ms",
+                    "meaning"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              },
+              "changes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "entity_id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "field": {
+                      "enum": [
+                        "position",
+                        "pose",
+                        "body_facing",
+                        "head_facing",
+                        "gaze",
+                        "contacts",
+                        "supports",
+                        "controllers",
+                        "visible_parts",
+                        "condition"
+                      ]
+                    },
+                    "before": {},
+                    "after": {},
+                    "at_ms": {
+                      "type": "number",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "entity_id",
+                    "field",
+                    "before",
+                    "after",
+                    "at_ms"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "id",
+              "start_ms",
+              "end_ms",
+              "shot_ids",
+              "origin",
+              "parent_id",
+              "semantic_id",
+              "actor_id",
+              "target_id",
+              "effector",
+              "operation",
+              "trigger",
+              "path",
+              "speed",
+              "support",
+              "contact",
+              "feedback",
+              "settle",
+              "depends_on",
+              "markers",
+              "changes"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "performances": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              },
+              "action_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "actor_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "behavior": {
+                "type": "string",
+                "minLength": 1
+              },
+              "trigger": {
+                "type": "string",
+                "minLength": 1
+              },
+              "feedback": {
+                "type": "string",
+                "minLength": 1
+              },
+              "settle": {
+                "type": "string",
+                "minLength": 1
+              },
+              "face": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "eyes": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "hands": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "body": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "breathing": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "voice": {
+                "type": "object",
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "specified",
+                      "not_applicable",
+                      "not_visible",
+                      "unknown"
+                    ]
+                  },
+                  "text": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "status",
+                  "text"
+                ],
+                "additionalProperties": false
+              },
+              "needed_parts": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "readability": {
+                "enum": [
+                  "body",
+                  "face",
+                  "detail"
+                ]
+              },
+              "psychology": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "intent": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "visible_translation": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "audibility": {
+                        "enum": [
+                          "silent",
+                          "internal_voice"
+                        ]
+                      },
+                      "utterance_id": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "intent",
+                      "visible_translation",
+                      "audibility",
+                      "utterance_id"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "start_ms",
+              "end_ms",
+              "shot_ids",
+              "origin",
+              "action_ids",
+              "actor_id",
+              "behavior",
+              "trigger",
+              "feedback",
+              "settle",
+              "face",
+              "eyes",
+              "hands",
+              "body",
+              "breathing",
+              "voice",
+              "needed_parts",
+              "readability",
+              "psychology"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "camera_operations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              },
+              "operation": {
+                "enum": [
+                  "unknown",
+                  "locked",
+                  "dolly_in",
+                  "dolly_out",
+                  "truck",
+                  "pan",
+                  "tilt",
+                  "pedestal",
+                  "orbit",
+                  "tracking",
+                  "handheld",
+                  "zoom",
+                  "rack_focus"
+                ]
+              },
+              "start_position": {
+                "type": "string",
+                "minLength": 1
+              },
+              "end_position": {
+                "type": "string",
+                "minLength": 1
+              },
+              "start_framing": {
+                "type": "string",
+                "minLength": 1
+              },
+              "end_framing": {
+                "type": "string",
+                "minLength": 1
+              },
+              "height": {
+                "type": "string",
+                "minLength": 1
+              },
+              "orientation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "speed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "look_at": {
+                "type": "string",
+                "minLength": 1
+              },
+              "focus": {
+                "type": "string",
+                "minLength": 1
+              },
+              "axis": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sync_action_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "precision": {
+                "enum": [
+                  "intent",
+                  "reference_required",
+                  "controlled"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "start_ms",
+              "end_ms",
+              "shot_ids",
+              "origin",
+              "operation",
+              "start_position",
+              "end_position",
+              "start_framing",
+              "end_framing",
+              "height",
+              "orientation",
+              "path",
+              "speed",
+              "look_at",
+              "focus",
+              "axis",
+              "sync_action_ids",
+              "precision"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "audio_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              },
+              "kind": {
+                "enum": [
+                  "dialogue",
+                  "narration",
+                  "internal_voice",
+                  "sfx",
+                  "ambience",
+                  "music",
+                  "silence"
+                ]
+              },
+              "speaker_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "placement": {
+                "enum": [
+                  "on_screen",
+                  "off_screen",
+                  "voice_over",
+                  "environment"
+                ]
+              },
+              "lip_sync": {
+                "type": "boolean"
+              },
+              "route": {
+                "enum": [
+                  "native",
+                  "post"
+                ]
+              },
+              "delivery": {
+                "type": "string",
+                "minLength": 1
+              },
+              "mix": {
+                "type": "string",
+                "minLength": 1
+              },
+              "overlap_reason": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "source_utterance_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "sync": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "action_id": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                      },
+                      "anchor": {
+                        "enum": [
+                          "start",
+                          "end",
+                          "marker"
+                        ]
+                      },
+                      "marker_id": {
+                        "anyOf": [
+                          {
+                            "type": "string",
+                            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "offset_ms": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "action_id",
+                      "anchor",
+                      "marker_id",
+                      "offset_ms"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "phrases": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "start_ms": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "end_ms": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "text": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "delivery": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "start_ms",
+                    "end_ms",
+                    "text",
+                    "delivery"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              }
+            },
+            "required": [
+              "id",
+              "start_ms",
+              "end_ms",
+              "shot_ids",
+              "origin",
+              "kind",
+              "speaker_id",
+              "text",
+              "placement",
+              "lip_sync",
+              "route",
+              "delivery",
+              "mix",
+              "overlap_reason",
+              "source_utterance_id",
+              "sync",
+              "phrases"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "state_samples": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "shot_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "at_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "entities": {
+                "type": "object",
+                "propertyNames": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "additionalProperties": {
+                  "type": "object",
+                  "properties": {
+                    "position": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "pose": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "body_facing": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "head_facing": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "gaze": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "contacts": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 0
+                    },
+                    "supports": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 0
+                    },
+                    "controllers": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 0
+                    },
+                    "visible_parts": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 0
+                    },
+                    "condition": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "position",
+                    "pose",
+                    "body_facing",
+                    "head_facing",
+                    "gaze",
+                    "contacts",
+                    "supports",
+                    "controllers",
+                    "visible_parts",
+                    "condition"
+                  ],
+                  "additionalProperties": false
+                }
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "shot_id",
+              "at_ms",
+              "entities",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 2
+        },
+        "visibility": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "shot_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "entity_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "parts": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "minItems": 0
+              },
+              "readability": {
+                "enum": [
+                  "body",
+                  "face",
+                  "detail"
+                ]
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "shot_id",
+              "entity_id",
+              "start_ms",
+              "end_ms",
+              "parts",
+              "readability",
+              "reason"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "segments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "status": {
+                "enum": [
+                  "proposed",
+                  "accepted"
+                ]
+              },
+              "continuous_shot": {
+                "type": "boolean"
+              },
+              "entry_state": {
+                "type": "string",
+                "minLength": 1
+              },
+              "exit_state": {
+                "type": "string",
+                "minLength": 1
+              },
+              "camera_continuity": {
+                "type": "string",
+                "minLength": 1
+              },
+              "audio_continuity": {
+                "type": "string",
+                "minLength": 1
+              },
+              "reference_plan": {
+                "type": "string",
+                "minLength": 1
+              },
+              "overlap_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "cost_impact": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "start_ms",
+              "end_ms",
+              "shot_ids",
+              "status",
+              "continuous_shot",
+              "entry_state",
+              "exit_state",
+              "camera_continuity",
+              "audio_continuity",
+              "reference_plan",
+              "overlap_ms",
+              "cost_impact"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "source_time_maps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "source_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "source_start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "source_end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "project_start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "project_end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "method": {
+                "enum": [
+                  "identity",
+                  "trim",
+                  "retime",
+                  "design"
+                ]
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "source_id",
+              "source_start_ms",
+              "source_end_ms",
+              "project_start_ms",
+              "project_end_ms",
+              "method",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "channel": {
+                "enum": [
+                  "prompt",
+                  "post",
+                  "parameter",
+                  "review"
+                ]
+              },
+              "instruction": {
+                "type": "string",
+                "minLength": 1
+              },
+              "payload": {},
+              "supported": {
+                "type": "boolean"
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "version",
+              "channel",
+              "instruction",
+              "payload",
+              "supported",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "semantic_review": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "enum": [
+                "PENDING",
+                "PASS",
+                "FAIL"
+              ]
+            },
+            "reviewer": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "input_sha256": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "minLength": 1
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "findings": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              },
+              "minItems": 0
+            }
+          },
+          "required": [
+            "status",
+            "reviewer",
+            "input_sha256",
+            "findings"
+          ],
+          "additionalProperties": false
+        },
+        "spatial_nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "entity_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "kind": {
+                "enum": [
+                  "entity",
+                  "part",
+                  "camera",
+                  "region",
+                  "group"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "part": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "parent_id": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "frame": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "world",
+                      "screen",
+                      "local",
+                      "anatomical"
+                    ]
+                  },
+                  "anchor_node_id": {
+                    "anyOf": [
+                      {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "unit": {
+                    "enum": [
+                      "m",
+                      "normalized",
+                      "relative"
+                    ]
+                  },
+                  "transforms": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "at_ms": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "origin": {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        },
+                        "basis": {
+                          "type": "array",
+                          "items": {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3
+                          },
+                          "minItems": 3,
+                          "maxItems": 3
+                        }
+                      },
+                      "required": [
+                        "at_ms",
+                        "origin",
+                        "basis"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "minItems": 0
+                  }
+                },
+                "required": [
+                  "kind",
+                  "anchor_node_id",
+                  "unit",
+                  "transforms"
+                ],
+                "additionalProperties": false
+              },
+              "bounds": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "min": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      },
+                      "max": {
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        },
+                        "minItems": 3,
+                        "maxItems": 3
+                      }
+                    },
+                    "required": [
+                      "min",
+                      "max"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "entity_id",
+              "kind",
+              "label",
+              "part",
+              "parent_id",
+              "frame",
+              "bounds",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "motion_tracks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "node_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "property": {
+                "enum": [
+                  "position",
+                  "orientation",
+                  "gaze",
+                  "rotation",
+                  "zoom",
+                  "focus",
+                  "deformation",
+                  "extent",
+                  "group_motion",
+                  "light",
+                  "color",
+                  "material",
+                  "atmosphere"
+                ]
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "action_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "camera_operation_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "unit": {
+                "enum": [
+                  "m",
+                  "normalized",
+                  "degrees",
+                  "unitless",
+                  "relative",
+                  "kelvin"
+                ]
+              },
+              "axis": {
+                "anyOf": [
+                  {
+                    "type": "array",
+                    "items": {
+                      "type": "number"
+                    },
+                    "minItems": 3,
+                    "maxItems": 3
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "speed": {
+                "type": "string",
+                "minLength": 1
+              },
+              "keyframes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "at_ms": {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    "value": {
+                      "type": "object",
+                      "properties": {
+                        "mode": {
+                          "enum": [
+                            "numeric",
+                            "relative"
+                          ]
+                        },
+                        "value": {
+                          "anyOf": [
+                            {
+                              "oneOf": [
+                                {
+                                  "type": "number"
+                                },
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  },
+                                  "minItems": 3,
+                                  "maxItems": 3
+                                }
+                              ]
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        },
+                        "description": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "target_node_id": {
+                          "anyOf": [
+                            {
+                              "type": "string",
+                              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                            },
+                            {
+                              "type": "null"
+                            }
+                          ]
+                        }
+                      },
+                      "required": [
+                        "mode",
+                        "value",
+                        "description",
+                        "target_node_id"
+                      ],
+                      "additionalProperties": false
+                    },
+                    "transition": {
+                      "enum": [
+                        "none",
+                        "hold",
+                        "linear"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "at_ms",
+                    "value",
+                    "transition"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 2
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "node_id",
+              "property",
+              "start_ms",
+              "end_ms",
+              "shot_ids",
+              "action_ids",
+              "camera_operation_ids",
+              "unit",
+              "axis",
+              "path",
+              "speed",
+              "keyframes",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "spatial_relations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "subject_node_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "object_node_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "predicate": {
+                "enum": [
+                  "world_left_of",
+                  "world_right_of",
+                  "world_in_front_of",
+                  "world_behind",
+                  "screen_left_of",
+                  "screen_right_of",
+                  "above",
+                  "below",
+                  "near",
+                  "far",
+                  "faces",
+                  "touching",
+                  "supports",
+                  "contains",
+                  "occludes",
+                  "attached_to"
+                ]
+              },
+              "frame": {
+                "enum": [
+                  "world",
+                  "screen",
+                  "local",
+                  "anatomical"
+                ]
+              },
+              "scope": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "point"
+                      },
+                      "at_ms": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "at_ms"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "kind": {
+                        "const": "interval"
+                      },
+                      "start_ms": {
+                        "type": "number",
+                        "minimum": 0
+                      },
+                      "end_ms": {
+                        "type": "number",
+                        "minimum": 0
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "start_ms",
+                      "end_ms"
+                    ],
+                    "additionalProperties": false
+                  }
+                ]
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "criterion": {
+                "type": "string",
+                "minLength": 1
+              },
+              "distance_m": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "attachment": {
+                "anyOf": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "subject_part": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "object_part": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "relative_offset": {
+                        "anyOf": [
+                          {
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            },
+                            "minItems": 3,
+                            "maxItems": 3
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "release_at_ms": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      }
+                    },
+                    "required": [
+                      "subject_part",
+                      "object_part",
+                      "relative_offset",
+                      "release_at_ms"
+                    ],
+                    "additionalProperties": false
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "subject_node_id",
+              "object_node_id",
+              "predicate",
+              "frame",
+              "scope",
+              "shot_ids",
+              "criterion",
+              "distance_m",
+              "attachment",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "composition_tracks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "shot_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "start_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "end_ms": {
+                "type": "number",
+                "minimum": 0
+              },
+              "framing": {
+                "type": "string",
+                "minLength": 1
+              },
+              "attention_order": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "negative_space": {
+                "type": "string",
+                "minLength": 1
+              },
+              "safe_area": {
+                "type": "string",
+                "minLength": 1
+              },
+              "depth_layers": {
+                "type": "string",
+                "minLength": 1
+              },
+              "subjects": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "node_id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "box": {
+                      "anyOf": [
+                        {
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          },
+                          "minItems": 4,
+                          "maxItems": 4
+                        },
+                        {
+                          "type": "null"
+                        }
+                      ]
+                    },
+                    "depth": {
+                      "enum": [
+                        "foreground",
+                        "midground",
+                        "background",
+                        "unspecified"
+                      ]
+                    },
+                    "visible_parts": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 0
+                    },
+                    "readability": {
+                      "enum": [
+                        "body",
+                        "face",
+                        "detail"
+                      ]
+                    },
+                    "occlusion": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "presence": {
+                      "enum": [
+                        "inside",
+                        "partial",
+                        "outside"
+                      ]
+                    },
+                    "description": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "node_id",
+                    "box",
+                    "depth",
+                    "visible_parts",
+                    "readability",
+                    "occlusion",
+                    "presence",
+                    "description"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "origin": {
+                "type": "object",
+                "properties": {
+                  "kind": {
+                    "enum": [
+                      "observed",
+                      "source",
+                      "design"
+                    ]
+                  },
+                  "source_refs": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "minItems": 1
+                  },
+                  "locator": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "kind",
+                  "source_refs",
+                  "locator"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "id",
+              "shot_ids",
+              "start_ms",
+              "end_ms",
+              "framing",
+              "attention_order",
+              "negative_space",
+              "safe_area",
+              "depth_layers",
+              "subjects",
+              "origin"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "schema",
+        "coordinate_system",
+        "action_groups",
+        "actions",
+        "performances",
+        "camera_operations",
+        "audio_events",
+        "state_samples",
+        "visibility",
+        "segments",
+        "source_time_maps",
+        "extensions",
+        "semantic_review",
+        "spatial_nodes",
+        "motion_tracks",
+        "spatial_relations",
+        "composition_tracks"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "revision",
+    "canon_ref",
+    "sources",
+    "intent",
+    "format",
+    "entities",
+    "assets",
+    "scenes",
+    "beats",
+    "shots",
+    "contract",
+    "timeline"
+  ],
+  "additionalProperties": false
+}

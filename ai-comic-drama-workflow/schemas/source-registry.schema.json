@@ -1,0 +1,118 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "entry_mode",
+    "sources"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "source-registry"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "const": "source_ingest"
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "entry_mode": {
+      "type": "string",
+      "enum": [
+        "novel",
+        "screenplay",
+        "storyboard",
+        "mixed",
+        "reference-only",
+        "legacy-project"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "source_id",
+          "kind",
+          "stored_path",
+          "sha256",
+          "rights_status",
+          "authority"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "novel",
+              "screenplay",
+              "storyboard",
+              "reference-image",
+              "reference-video",
+              "legacy-project",
+              "other"
+            ]
+          },
+          "stored_path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "rights_status": {
+            "type": "string",
+            "enum": [
+              "unknown",
+              "owned-or-authorized",
+              "licensed",
+              "public-domain",
+              "unverified-prompt-only"
+            ]
+          },
+          "authority": {
+            "type": "string",
+            "enum": [
+              "source",
+              "approved-downstream",
+              "reference",
+              "advisory"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:source-registry.schema.json"
+}

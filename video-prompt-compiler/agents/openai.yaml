@@ -1,0 +1,7 @@
+interface:
+  display_name: "视频提示词编译器"
+  short_description: "将视频创意编译为有来源、空间表演约束和验收条件的多模型提示词合同"
+  default_prompt: "使用 $video-prompt-compiler 将我的创意和参考素材编译为目标模型的提示词、参数、引用绑定及可验收制作合同。"
+
+policy:
+  allow_implicit_invocation: true

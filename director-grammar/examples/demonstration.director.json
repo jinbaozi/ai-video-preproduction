@@ -1,0 +1,397 @@
+{
+  "schema_version": "1.0",
+  "project_id": "DEMO_STEP",
+  "revision": 1,
+  "canon_ref": "local:demonstration-example",
+  "sources": [
+    {
+      "id": "U1",
+      "kind": "user",
+      "uri": "local:example-request",
+      "locator": "6秒滑步教学",
+      "claim": "全身含脚，固定机位，讲清支撑与滑动；不添加戏剧冲突",
+      "verification": "provided"
+    },
+    {
+      "id": "D1",
+      "kind": "design",
+      "uri": "local:examples/demonstration.director.json",
+      "locator": "本教学示例机位、坐标、表演与时间预算",
+      "claim": "为测试合同而编写的虚构设计，不是真实素材或用户已批准画面",
+      "verification": "inference"
+    }
+  ],
+  "intent": {
+    "task": "demonstration",
+    "goal": "看清左右脚支撑切换和滑动路径",
+    "tags": [
+      "教学",
+      "步法",
+      "全身"
+    ],
+    "style_request": null,
+    "forbidden_techniques": [
+      "orbit_reveal",
+      "parallel_edit"
+    ]
+  },
+  "format": {
+    "fps": 24,
+    "width": 1280,
+    "height": 720,
+    "total_frames": 144
+  },
+  "entities": [
+    {
+      "id": "A",
+      "name": "示范者",
+      "kind": "character",
+      "description": "成年，黑色运动服与白色平底鞋",
+      "source_refs": [
+        "U1"
+      ]
+    },
+    {
+      "id": "L",
+      "name": "练习室",
+      "kind": "location",
+      "description": "平坦地面与空白背景",
+      "source_refs": [
+        "U1"
+      ]
+    }
+  ],
+  "assets": [],
+  "scenes": [
+    {
+      "id": "SC1",
+      "location_id": "L",
+      "space": "明亮练习室，地面平坦，示范者位于中央",
+      "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+      "axis_start_m": [
+        -0.7,
+        0,
+        0
+      ],
+      "axis_end_m": [
+        0.7,
+        0,
+        0
+      ],
+      "style_id": "movement_clarity"
+    }
+  ],
+  "beats": [
+    {
+      "id": "B1",
+      "scene_id": "SC1",
+      "change": "完成一次支撑换脚与滑步",
+      "source_refs": [
+        "U1"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "scene_id": "SC1",
+      "beat_id": "B1",
+      "source_refs": [
+        "U1",
+        "D1"
+      ],
+      "purpose": "建立交易关系",
+      "story_order": 1,
+      "frames": 144,
+      "narrative": {
+        "audience_before": [],
+        "audience_after": [
+          "左脚承重时右脚后滑"
+        ],
+        "character_knows": [
+          "动作步骤"
+        ],
+        "reveal": null,
+        "viewpoint": "正面观察"
+      },
+      "start_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            0,
+            0,
+            0.9
+          ],
+          "yaw_deg": 90,
+          "pose": "身体直立，双脚前后错开",
+          "support": "左前脚掌",
+          "contact": "左前掌承重，右脚贴地",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            0,
+            0,
+            0.9
+          ],
+          "yaw_deg": 90,
+          "pose": "右脚滑至左脚后方，身体停稳",
+          "support": "双脚",
+          "contact": "右脚跟落地，双脚支撑",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 24,
+          "action": "左脚跟提起，前脚掌承重",
+          "reaction": "右腿放松准备滑动",
+          "end_state": "重心落在左前脚掌"
+        },
+        {
+          "start_frame": 24,
+          "end_frame": 108,
+          "action": "右脚保持鞋底轻触地面，缓慢向后滑动",
+          "reaction": "上身保持稳定",
+          "end_state": "右脚到左脚后方"
+        },
+        {
+          "start_frame": 108,
+          "end_frame": 144,
+          "action": "右脚跟落地，双脚支撑停住",
+          "reaction": "重心回到双脚之间",
+          "end_state": "全身停稳"
+        }
+      ],
+      "composition": {
+        "rule": "主体居中，全身入画",
+        "attention_order": [
+          "A"
+        ],
+        "negative_space": "鞋底下留地面，头顶留空",
+        "depth_layers": "地面接触在前，身体居中，背景简洁",
+        "safe_area": [
+          0.05,
+          0.05,
+          0.9,
+          0.9
+        ],
+        "subjects": [
+          {
+            "entity_id": "A",
+            "box": [
+              0.3,
+              0.08,
+              0.4,
+              0.84
+            ],
+            "visible_parts": [
+              "body",
+              "hands",
+              "feet"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "locked",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          0,
+          -4,
+          1
+        ],
+        "end_m": [
+          0,
+          -4,
+          1
+        ],
+        "look_at_m": [
+          0,
+          0,
+          0.9
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "含头顶和鞋底的全景",
+        "framing_end": "保持全身全景",
+        "path": "固定于示范者正前方，观察全身和地面接触区",
+        "speed": "平稳，结尾停住",
+        "focus": "全身和脚底清楚",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "A",
+          "trigger": "左脚承重建立后",
+          "face": null,
+          "eyes": null,
+          "hands": null,
+          "body": "骨盆保持水平，膝微屈；右脚沿地面后滑",
+          "voice": null,
+          "visibility": "too_small"
+        }
+      ],
+      "dialogue": [],
+      "sound": {
+        "ambience": "安静练习室",
+        "cue": "鞋底轻擦地面",
+        "sync": "与滑动接触同步",
+        "silence": false
+      },
+      "lighting": {
+        "source": "练习室顶窗",
+        "direction": "左上方漫射光",
+        "quality": "柔和，脚底保留接触阴影",
+        "color_purpose": "衣服与地面有明暗区分"
+      },
+      "must_show": [
+        {
+          "entity_id": "A",
+          "part": "feet",
+          "reason": "支撑和滑动可见"
+        },
+        {
+          "entity_id": "A",
+          "part": "body",
+          "reason": "全身协调"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "locked_observation",
+        "contact_action"
+      ],
+      "continuity": {
+        "from_shot": null,
+        "match_entities": [],
+        "transition": "continuous",
+        "reason": "承接已建立的交易状态",
+        "invariants": [
+          "同一示范者、衣装和练习室",
+          "脚底接触过程始终可见"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS1"
+      ]
+    }
+  ],
+  "contract": {
+    "id": "CONTRACT_STEP",
+    "version": 1,
+    "scope": "6秒动作教学示例",
+    "deliverables": [
+      "导演合同",
+      "可复制提示词",
+      "执行计划与损失表",
+      "待填实际素材QA"
+    ],
+    "clauses": [
+      {
+        "id": "C1",
+        "requirement": "6秒全身步法教学，固定机位，支撑与滑动过程可见；内容仅包含已列示范步骤，不增添戏剧冲突或故事",
+        "priority": "hard",
+        "source_refs": [
+          "U1",
+          "D1"
+        ],
+        "paths": [
+          "/intent",
+          "/format",
+          "/shots/0"
+        ],
+        "check_ids": [
+          "G0INPUT",
+          "G1SPACE",
+          "G2MAP",
+          "QAS1",
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "lexical",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "id": "G0INPUT",
+        "gate": "G0",
+        "scope": "project",
+        "method": "static",
+        "predicate": "事实、实体、素材与授权来源清楚",
+        "evidence_required": "输入清单与来源记录",
+        "owner": "planner",
+        "blocking": true
+      },
+      {
+        "id": "G1SPACE",
+        "gate": "G1",
+        "scope": "project",
+        "method": "static",
+        "predicate": "初终态、时序、轴线与可见证据一致",
+        "evidence_required": "validate输出和人工平面审核",
+        "owner": "director",
+        "blocking": true
+      },
+      {
+        "id": "G2MAP",
+        "gate": "G2",
+        "scope": "project",
+        "method": "static",
+        "predicate": "每条硬要求有执行或后期路径，无静默丢失",
+        "evidence_required": "execution.json和合同核对记录",
+        "owner": "compiler_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QAS1",
+        "gate": "G3",
+        "scope": "S1",
+        "method": "frame_review",
+        "predicate": "动作起中末与接触区间可读，人物身份、道具归属、构图及轴线满足合同",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "playback",
+        "predicate": "144帧24fps，脚底全程可見，一次动作清楚完成，无新增故事",
+        "evidence_required": "最终文件probe、完整播放记录和理解测试",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "max_attempts_per_job": 2,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "stop_conditions": [
+        "未授权实际生成",
+        "实际失败达到单任务尝试上限",
+        "关键约束无法满足时停止依赖执行"
+      ]
+    },
+    "acceptance": {
+      "rule": "all_blocking_checks_pass",
+      "waivers": []
+    }
+  }
+}

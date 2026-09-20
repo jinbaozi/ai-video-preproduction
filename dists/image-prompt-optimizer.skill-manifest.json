@@ -1,0 +1,257 @@
+{
+  "archive": "image-prompt-optimizer.skill",
+  "archive_sha256": "7c90e10b176e9150a1337a71d9f49fffdcb77ac858fc204ad47e8dde7589b72b",
+  "file_count": 62,
+  "files": {
+    "image-prompt-optimizer/SKILL.md": {
+      "bytes": 29430,
+      "sha256": "9b17fd6e5b1d5a30d601ef79eaf1333e3ebd271642570662d542dc9480295df1"
+    },
+    "image-prompt-optimizer/agents/openai.yaml": {
+      "bytes": 555,
+      "sha256": "e91a7ddc52020589456f114300efe217efd350c5ebdf53a03b45792ef0d42289"
+    },
+    "image-prompt-optimizer/assets/icon.svg": {
+      "bytes": 1210,
+      "sha256": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee"
+    },
+    "image-prompt-optimizer/examples/cafe-reference-prompt.md": {
+      "bytes": 1527,
+      "sha256": "a633b58a738a42fc26a6be0573acd1a9a8659889923cbaea4e3276dd87ffd1d5"
+    },
+    "image-prompt-optimizer/examples/gpt-image-2-examples.md": {
+      "bytes": 12845,
+      "sha256": "3aed1e7f1c928c291c76cb2674e286da4253cd6261f128e4103eeb587093c099"
+    },
+    "image-prompt-optimizer/examples/narrative-and-backends.md": {
+      "bytes": 4932,
+      "sha256": "6b9ed1ab7817cdf3a5856ec920411c73331a95865d77eedcc34e8202f843c53c"
+    },
+    "image-prompt-optimizer/examples/portrait-examples.md": {
+      "bytes": 9744,
+      "sha256": "3f0478048026b73b04a93b20d737dc4e4bda9c698d7a065b46372820e7cf2edc"
+    },
+    "image-prompt-optimizer/examples/production-contract.json": {
+      "bytes": 21388,
+      "sha256": "c5e1e0d343741a612399417f888473c743ae44fc24d090c47d9a7fa441cc0e00"
+    },
+    "image-prompt-optimizer/examples/visual-anchor-prompts.md": {
+      "bytes": 4772,
+      "sha256": "67d7ea7ffeccb2616aceafbec0a089e38af8051a217d90c9c872822c36d57612"
+    },
+    "image-prompt-optimizer/presets/clean-render-profiles.md": {
+      "bytes": 1977,
+      "sha256": "74ce848b48076499f9c42b5bbfe5ecf554d86604423ee16b6fa5c1343e87a026"
+    },
+    "image-prompt-optimizer/presets/portrait-realism-profiles.md": {
+      "bytes": 3155,
+      "sha256": "bdf9724077f4b6b87f4fc6c923b285de52412c6fa4394b304bf9665a1b08d01f"
+    },
+    "image-prompt-optimizer/presets/summer-candid-cosplay.md": {
+      "bytes": 1940,
+      "sha256": "874ee2e247f3005760277c852e0e64939d23ac7162c794ca893a82071783e540"
+    },
+    "image-prompt-optimizer/references/backend-lowering.md": {
+      "bytes": 3679,
+      "sha256": "e68eaa7769654e853031efd2872000fc2194e92ca2ee46e70ddb214625f93de6"
+    },
+    "image-prompt-optimizer/references/character-appearance.md": {
+      "bytes": 9707,
+      "sha256": "b3cb6fafc16e207b8ee64cfc4d50d797c73eebdd1c8728d5d5e6cff4cd151631"
+    },
+    "image-prompt-optimizer/references/character-transcreation.md": {
+      "bytes": 1408,
+      "sha256": "157252c689d18656148d9c36cbdebfac30a81e1562d52d145d36a7e481554bf3"
+    },
+    "image-prompt-optimizer/references/chatgpt-astra-workflow.md": {
+      "bytes": 2465,
+      "sha256": "0cfc96a74d690819dae3820a8a61140d2ba00448e2cbab1526582c721fdd96c5"
+    },
+    "image-prompt-optimizer/references/chatgpt-image-quality.md": {
+      "bytes": 6667,
+      "sha256": "e51d97cd9e2880882ab572feb71c4fe5395b7b278bbe23320dcaf7fd47b91b69"
+    },
+    "image-prompt-optimizer/references/commercial-series-and-rights.md": {
+      "bytes": 3289,
+      "sha256": "4616107fe6ad255fc6c829f72ac78937b5872a77433c2570baa2b505b59a01b1"
+    },
+    "image-prompt-optimizer/references/compiler-evaluation.md": {
+      "bytes": 2550,
+      "sha256": "6215c2ed7f43d363605e53d5a991d892266ff55673fb27f2ad42118aaae55749"
+    },
+    "image-prompt-optimizer/references/composition-and-scene.md": {
+      "bytes": 2112,
+      "sha256": "7c7a99904463d5e1d1f23ab2a482250a353e420fe89ad301500648dbae74ae52"
+    },
+    "image-prompt-optimizer/references/cooperation-v5.md": {
+      "bytes": 2705,
+      "sha256": "8e74b3a9687124c3be11adb47b0b858c1493264d48e60b6fb0d0d2c4d391985e"
+    },
+    "image-prompt-optimizer/references/detail-contract-v51.md": {
+      "bytes": 8138,
+      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "image-prompt-optimizer/references/gpt-image-2-4k.md": {
+      "bytes": 4746,
+      "sha256": "2941a4aedc46e473752e722ccbd7bf7bf7c6df1f7f43aca81d870cabb22d771b"
+    },
+    "image-prompt-optimizer/references/gpt-image-2.md": {
+      "bytes": 19497,
+      "sha256": "c837535e0881572f3d7757b0d35417dc77ce8a4c24c1c99ae3948c2eb45edd26"
+    },
+    "image-prompt-optimizer/references/image-finish-contract.md": {
+      "bytes": 3727,
+      "sha256": "aa174012446be8e93fc7850733a045786e42a321b76197ecdf1c339f13f6ad0a"
+    },
+    "image-prompt-optimizer/references/intent-compiler.md": {
+      "bytes": 6114,
+      "sha256": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03"
+    },
+    "image-prompt-optimizer/references/lighting-and-color.md": {
+      "bytes": 7133,
+      "sha256": "c4d64d5d403d5c9d2a5c7bcf579b0772789792186e54dc72f983473e18277a1a"
+    },
+    "image-prompt-optimizer/references/model-adaptation.md": {
+      "bytes": 6802,
+      "sha256": "dc19fc27ca4c5f180202ae94bdcc26f83c395a2a896d14335c09d2db95a2b32a"
+    },
+    "image-prompt-optimizer/references/multi-subject-and-interaction.md": {
+      "bytes": 1657,
+      "sha256": "0762001055b7db550a75ff04b1d460624da65eed82f4b3162f5a42e82b07661f"
+    },
+    "image-prompt-optimizer/references/natural-viewing-realism.md": {
+      "bytes": 16960,
+      "sha256": "b1c7dbdf9fc984f50d4db20147021aafbf1047765f797cbc1aa7d8a02a1a31a8"
+    },
+    "image-prompt-optimizer/references/photography-language.md": {
+      "bytes": 6863,
+      "sha256": "2faf766ca15274952ea1a47d8e0004df165b3a76ce5f300e3a191d252c7f5429"
+    },
+    "image-prompt-optimizer/references/portrait-camera-and-framing.md": {
+      "bytes": 6496,
+      "sha256": "3b0e0abd17d09b52554e7901005095184d39676a2544844c07a5c276d7d31986"
+    },
+    "image-prompt-optimizer/references/portrait-photo-realism.md": {
+      "bytes": 8698,
+      "sha256": "bf4c4c1a25c6b3e0c7f84270ff68037194daa50d2c9720e79414ed28788b50ac"
+    },
+    "image-prompt-optimizer/references/realism-evaluation.md": {
+      "bytes": 7985,
+      "sha256": "889e8ac514dafd6642a83e8c66188cebca1495bad5f6063981a8294744d73ae1"
+    },
+    "image-prompt-optimizer/references/research-adoption.md": {
+      "bytes": 4784,
+      "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
+    },
+    "image-prompt-optimizer/references/sources.md": {
+      "bytes": 19184,
+      "sha256": "371103ff61cd48a816c8233f05dc42dfe2d145ed7f0cbcba2a8172f7da680e95"
+    },
+    "image-prompt-optimizer/references/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
+    },
+    "image-prompt-optimizer/references/spatial-performance.md": {
+      "bytes": 5492,
+      "sha256": "5e529bd6a73953bf8ea0fc3320d5776d757bd6e497c30491c912185a6b7b88b2"
+    },
+    "image-prompt-optimizer/references/structural-realism.md": {
+      "bytes": 7826,
+      "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+    },
+    "image-prompt-optimizer/references/task-routing-and-layout.md": {
+      "bytes": 5579,
+      "sha256": "5ee3c4a8d4021b06e75d5754c62044e5c7fc87b65030337ba2715c1c434dafe0"
+    },
+    "image-prompt-optimizer/references/visual-anchor-styles.md": {
+      "bytes": 7711,
+      "sha256": "47a40e20a6440e616bc4a76f9351d518b553e2b8f0467d0ad3c05cdc1034d066"
+    },
+    "image-prompt-optimizer/schemas/production-contract.schema.json": {
+      "bytes": 25435,
+      "sha256": "b6a6ae186e76643fb4698f6c5bb0868828328a1c05602f45975a19d9c071fd76"
+    },
+    "image-prompt-optimizer/scripts/package_skill.py": {
+      "bytes": 4764,
+      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+    },
+    "image-prompt-optimizer/scripts/validate_gpt_image_2_size.py": {
+      "bytes": 3114,
+      "sha256": "caaf109007951705d6be91fe02f5e4aeaa56cf71a7fdc13fb0e1f72cb81f14e3"
+    },
+    "image-prompt-optimizer/scripts/validate_production_contract.py": {
+      "bytes": 15005,
+      "sha256": "f6956198ac056bab699d8a56989a8c0d975b3f5a649b744a5fa0e945ae76e28d"
+    },
+    "image-prompt-optimizer/templates/complex-brief.md": {
+      "bytes": 3627,
+      "sha256": "aef770063634800014a59ef7f12a45559274348c3662a309add7d27cda160cb1"
+    },
+    "image-prompt-optimizer/templates/gpt-image-2-prompts.md": {
+      "bytes": 8151,
+      "sha256": "40583a79125ae79508d8d392791b2a3127eaa50cc440c61496cd6fb671948241"
+    },
+    "image-prompt-optimizer/templates/portrait-camera-and-framing.md": {
+      "bytes": 2611,
+      "sha256": "f788db7a7619dbc87103d911b6797b17852db7f9189b70af4eed42ae9cce4922"
+    },
+    "image-prompt-optimizer/templates/production-contract.md": {
+      "bytes": 1993,
+      "sha256": "8f156b9ccf183bbeda62260fc5fb94bcb50d4d6e731c51bd2407bca253c0a8d0"
+    },
+    "image-prompt-optimizer/templates/prompt-blueprints.md": {
+      "bytes": 6809,
+      "sha256": "5257016c4d6ad411f0f8a3cfec286b6042ea5fea450033ace0e2572e716b1bad"
+    },
+    "image-prompt-optimizer/tests/chatgpt-image-quality-cases.md": {
+      "bytes": 3327,
+      "sha256": "a93988f7a63280685355f4717f17ea87bbb796a44667fc70411f14de9ec57677"
+    },
+    "image-prompt-optimizer/tests/gpt-image-2-forward-cases.md": {
+      "bytes": 11173,
+      "sha256": "46bddea71b1f3f62ace9862acaccb15a99272a2af150bb727b01c7121bba4645"
+    },
+    "image-prompt-optimizer/tests/multi-scene-forward-cases.md": {
+      "bytes": 3469,
+      "sha256": "2122ca69f174375eca16f708acffa5575946d785183e45f854347ff6fc3283f2"
+    },
+    "image-prompt-optimizer/tests/natural-viewing-forward-cases.md": {
+      "bytes": 7431,
+      "sha256": "70e5818b5adc81e072c44ca652ccff6a4d6d499443bf085f57aab7bec5dc4506"
+    },
+    "image-prompt-optimizer/tests/portrait-camera-and-framing-cases.md": {
+      "bytes": 2528,
+      "sha256": "b5ba0b234cbed4924f69b481287e8e5c3069b6dd3be3ddce6de5592fde856609"
+    },
+    "image-prompt-optimizer/tests/production-contract-forward-cases.md": {
+      "bytes": 3461,
+      "sha256": "735debac35b8af0451f3851e3d5f0dcc130acde914ea4311f3e7a30f261472aa"
+    },
+    "image-prompt-optimizer/tests/production-contract-validation.md": {
+      "bytes": 2310,
+      "sha256": "9a82da8b896dd8154c49fed9648170386a4ec2aba3cce95c2a7d30ba442a319d"
+    },
+    "image-prompt-optimizer/tests/realism-enhancement-cases.md": {
+      "bytes": 3921,
+      "sha256": "bb603354673232c49f4f743924f7a72acb8d3a64ea240ea734206ff7def3f6e9"
+    },
+    "image-prompt-optimizer/tests/structural-realism-cases.md": {
+      "bytes": 2236,
+      "sha256": "3de01c072f84fa3332108747e71ef0204721573f02d06f6b76fdcff2399d816d"
+    },
+    "image-prompt-optimizer/tests/test_production_contract.py": {
+      "bytes": 8623,
+      "sha256": "b63069e33d0453b2fbe90f7f96b863f21d409584de0bb92ff6ef792bc2ea29a4"
+    },
+    "image-prompt-optimizer/tests/test_validate_gpt_image_2_size.py": {
+      "bytes": 2190,
+      "sha256": "ed357909f852fbf40e1ca1d51872b7b35c27b8b288f21b6376a17a304a407440"
+    },
+    "image-prompt-optimizer/tests/validation-checklist.md": {
+      "bytes": 19340,
+      "sha256": "6325020d3d39031820318852fa55da4db40e2e7476b10df3e3db254f4b4103dd"
+    }
+  },
+  "name": "image-prompt-optimizer",
+  "version": "1.3.0"
+}

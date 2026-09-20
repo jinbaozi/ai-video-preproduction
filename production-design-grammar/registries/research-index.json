@@ -1,0 +1,146 @@
+{
+  "status": "CONVERSATION_DERIVED_NOT_REVERIFIED_FILM_CREDITS",
+  "boundary": "案例与署名来自聊天方案，需引用为事实时另核原始机构资料；学习方向为本项目分析，不进入编译参数",
+  "entries": [
+    {
+      "name": "叶锦添",
+      "work": "卧虎藏龙",
+      "study_question": "文化材料与服化环境",
+      "grammar_lookup": "ritual_myth",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "张叔平",
+      "work": "花样年华",
+      "study_question": "生活物件与室内边界",
+      "grammar_lookup": "urban_memory",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "霍廷霄",
+      "work": "英雄",
+      "study_question": "礼制尺度与色彩",
+      "grammar_lookup": "ritual_myth",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "曹久平、张建群",
+      "work": "太阳照常升起",
+      "study_question": "生活空间与象征物",
+      "grammar_lookup": "handmade_fable",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "屠楠、陆苇",
+      "work": "妖猫传",
+      "study_question": "历史意象与城市陈设",
+      "grammar_lookup": "ritual_myth",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "黄文英",
+      "work": "刺客聂隐娘",
+      "study_question": "织物和空间层次",
+      "grammar_lookup": "period_lived_in",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "文念中、利国林",
+      "work": "明月几时有",
+      "study_question": "年代陈设与人物处境",
+      "grammar_lookup": "period_lived_in",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "马光荣",
+      "work": "影",
+      "study_question": "近单色材料分离",
+      "grammar_lookup": "ink_material",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "林子侨",
+      "work": "金手指",
+      "study_question": "财富与关键物件",
+      "grammar_lookup": "urban_memory",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "麦国强",
+      "work": "智齿",
+      "study_question": "城市层积与环境压力",
+      "grammar_lookup": "urban_memory",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Patrice Vermette",
+      "work": "Dune",
+      "study_question": "气候资源与尺度",
+      "grammar_lookup": "alien_monument",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Sarah Greenwood",
+      "work": "Barbie",
+      "study_question": "玩具与舞台空间逻辑",
+      "grammar_lookup": "graphic_blocks",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Hannah Beachler",
+      "work": "Black Panther",
+      "study_question": "文化研究与未来技术",
+      "grammar_lookup": "culture_future",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Adam Stockhausen",
+      "work": "The Grand Budapest Hotel",
+      "study_question": "形态秩序与图形",
+      "grammar_lookup": "graphic_blocks",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Dennis Gassner",
+      "work": "Blade Runner 2049",
+      "study_question": "材料层积和环境差异",
+      "grammar_lookup": "industrial_layers",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Dante Ferretti",
+      "work": "Hugo",
+      "study_question": "工艺机械与空间细节",
+      "grammar_lookup": "industrial_layers",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Stuart Craig",
+      "work": "Harry Potter and the Deathly Hallows Part 2",
+      "study_question": "系列资产规则继承",
+      "grammar_lookup": "gothic_environment",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "Nathan Crowley",
+      "work": "Interstellar",
+      "study_question": "功能技术与行动尺度",
+      "grammar_lookup": "industrial_layers",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "柳成姬 Ryu Seong-hie",
+      "work": "小姐",
+      "study_question": "心理空间与隐藏信息",
+      "grammar_lookup": "urban_memory",
+      "source_ref": "CHAT_PLAN"
+    },
+    {
+      "name": "李河俊 Lee Ha-jun",
+      "work": "寄生虫",
+      "study_question": "楼层入口与社会阶层",
+      "grammar_lookup": "contemporary_observation",
+      "source_ref": "CHAT_PLAN"
+    }
+  ]
+}

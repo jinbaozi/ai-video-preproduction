@@ -1,0 +1,366 @@
+{
+  "schema_version": "1.0",
+  "project_id": "PRODUCT",
+  "revision": 1,
+  "canon": {
+    "uri": "local:fictional-example-PRODUCT",
+    "revision": "demo-1"
+  },
+  "director": null,
+  "sources": [
+    {
+      "id": "D1",
+      "kind": "design",
+      "uri": "local:examples",
+      "locator": "PRODUCT 本示例全部原创设计",
+      "claim": "演示合同的虚构设计，非用户批准素材、史实复原或实际媒体",
+      "verification": "inference"
+    }
+  ],
+  "brief": {
+    "world_mode": "product",
+    "medium": "3d",
+    "tags": [
+      "产品",
+      "品牌",
+      "演示"
+    ],
+    "forbidden_styles": [],
+    "locked_style": null,
+    "secondary": null
+  },
+  "world": {
+    "thesis": "让观众识别杯盖旋转接口与产品表面，保持品牌文字准确",
+    "era": "当代原创示例",
+    "region": "室内产品展示台",
+    "social_logic": "功能演示，无附加人物剧情",
+    "shape_language": "一个杯体与一个固定展示台，尺寸服务接口可读性",
+    "palette": [
+      {
+        "id": "BASE",
+        "color": "中灰",
+        "role": "背景"
+      },
+      {
+        "id": "ACCENT",
+        "color": "银灰",
+        "role": "产品材质本色"
+      }
+    ],
+    "materials": [
+      {
+        "id": "STEEL",
+        "base": "不锈钢",
+        "craft": "拉伸成形",
+        "finish": "细拉丝哑光",
+        "wear": "新品无额外划痕"
+      },
+      {
+        "id": "SURFACE",
+        "base": "展示板",
+        "craft": "平面成形",
+        "finish": "中灰哑光",
+        "wear": "无脏污"
+      }
+    ],
+    "color_script": [
+      {
+        "shot_ids": [
+          "P01"
+        ],
+        "palette_ids": [
+          "BASE",
+          "ACCENT"
+        ],
+        "change_reason": "在同一场景继承底色，关系由器物与空间表达，不逐镜换滤镜"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "CUP",
+      "entity_id": null,
+      "name": "保温杯",
+      "kind": "prop",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "原创圆柱保温杯，单杯单盖，不发明保温功效",
+      "identity_locks": [
+        "杯口与盖螺纹一致",
+        "一只杯体"
+      ],
+      "material_ids": [
+        "STEEL"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": "DEMO"
+    },
+    {
+      "id": "PLINTH",
+      "entity_id": null,
+      "name": "展示台",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "平整中灰展示台",
+      "identity_locks": [
+        "平整承重表面"
+      ],
+      "material_ids": [
+        "SURFACE"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    }
+  ],
+  "set": {
+    "scene_id": "SC1",
+    "location_entity_id": null,
+    "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+    "origin": "室内地面中心，Z=0为地面",
+    "bounds": {
+      "min_m": [
+        -4,
+        -4,
+        0
+      ],
+      "max_m": [
+        4,
+        4,
+        4
+      ]
+    },
+    "layout": [
+      {
+        "id": "BASE1",
+        "asset_id": "PLINTH",
+        "position_m": [
+          0,
+          0,
+          0
+        ],
+        "size_m": [
+          1,
+          1,
+          0.8
+        ],
+        "yaw_deg": 0,
+        "role": "承托产品"
+      },
+      {
+        "id": "CUP1",
+        "asset_id": "CUP",
+        "position_m": [
+          0,
+          0,
+          0.8
+        ],
+        "size_m": [
+          0.08,
+          0.08,
+          0.22
+        ],
+        "yaw_deg": 0,
+        "role": "静置产品"
+      }
+    ],
+    "counts": [
+      {
+        "asset_id": "CUP",
+        "count": 1
+      }
+    ],
+    "functional_zones": [],
+    "practical_lights": [],
+    "atmosphere": "清洁无烟，不添加水珠暗示未经证明的性能"
+  },
+  "events": [],
+  "shots": [
+    {
+      "id": "P01",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "visible_assets": [
+        "CUP",
+        "PLINTH"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "CUP",
+        "background": "中灰无纹理背景与拉丝轮廓分离，精确字由后期合成",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": [
+        {
+          "subject_asset": "CUP",
+          "relation": "supported_by",
+          "object_asset": "PLINTH",
+          "criterion": "杯底接触台面，接触阴影连续，无悬浮"
+        }
+      ]
+    }
+  ],
+  "references": [],
+  "contract": {
+    "id": "ART_PRODUCT",
+    "version": 1,
+    "scope": "虚构示例的美术前期合同；不包含真实生成或既有批准",
+    "deliverables": [
+      "Visual Bible",
+      "资产与参考计划",
+      "逐镜美术补充",
+      "合同与验收待办"
+    ],
+    "clauses": [
+      {
+        "id": "WORLD",
+        "requirement": "保持所定义的世界形态、色材和场景布局；坐标是设计意图，实际布局须审图",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/world",
+          "/set"
+        ],
+        "shot_ids": [],
+        "check_ids": [
+          "G0INPUT",
+          "G1DESIGN",
+          "G2MAP",
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_P01",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/shots/0",
+          "/assets/0",
+          "/assets/1"
+        ],
+        "shot_ids": [
+          "P01"
+        ],
+        "check_ids": [
+          "QA_P01"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "TEXT_CUP",
+        "requirement": "画内文字逐字为：DEMO",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/assets/0/graphic_text"
+        ],
+        "shot_ids": [],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "post",
+          "instruction": "制作可编辑图形，按表面透视合成并逐字复核",
+          "reference_ids": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "id": "G0INPUT",
+        "gate": "G0",
+        "scope": "project",
+        "method": "static",
+        "predicate": "来源、身份、版本和字段指针正确；推演未伪装成观察事实",
+        "evidence_required": "输入来源核对记录与校验结果",
+        "owner": "art_planner",
+        "blocking": true
+      },
+      {
+        "id": "G1DESIGN",
+        "gate": "G1",
+        "scope": "project",
+        "method": "static",
+        "predicate": "布局、资产和可读性条件与导演/用户约束一致",
+        "evidence_required": "布局及部门联合评审记录",
+        "owner": "art_director",
+        "blocking": true
+      },
+      {
+        "id": "G2MAP",
+        "gate": "G2",
+        "scope": "project",
+        "method": "static",
+        "predicate": "每条要求都有具体任务和可用依赖，未静默丢失",
+        "evidence_required": "编译覆盖表与宿主入口核对记录",
+        "owner": "host_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_P01",
+        "gate": "G3",
+        "scope": "P01",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "frame_review",
+        "predicate": "跨镜资产、色材、方位和状态保持一致；准确文字无误；与本项目合同逐条比对",
+        "evidence_required": "最终媒体文件/哈希与完整审核记录",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "max_attempts_per_job": 2,
+      "stop_conditions": [
+        "没有外部生成授权时仅交付本地计划",
+        "失败达到上限或硬要求无法保留时停止依赖执行"
+      ]
+    }
+  }
+}

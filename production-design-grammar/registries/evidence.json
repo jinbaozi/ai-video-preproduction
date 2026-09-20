@@ -1,0 +1,77 @@
+{
+  "verified_on": "2026-09-19",
+  "sources": [
+    {
+      "id": "CHAT_PLAN",
+      "uri": "chatgpt-conversation://6aaddbd7-d0d8-83e8-a492-932455471296",
+      "locator": "完整单轮用户/助手文本，无可访问附件",
+      "claim": "ArtIR、12语法、离线编译、连续性与平台边界",
+      "verification": "read",
+      "kind": "prior_conversation"
+    },
+    {
+      "id": "DIRECTOR_LOCAL",
+      "uri": "../director-grammar/SKILL.md",
+      "locator": "v1.0.0 + references/integration.md + schemas + teahouse example",
+      "claim": "导演拥有镜头、调度、表演与叙事，本包只读引用",
+      "verification": "read",
+      "kind": "local_contract"
+    },
+    {
+      "id": "BFDG",
+      "uri": "https://britishfilmdesigners.com/resources/job-roles-explained/",
+      "locator": "Production Designer / Art Director / Set Decorator",
+      "claim": "视觉设计与落地执行职责分层",
+      "verification": "read",
+      "kind": "primary"
+    },
+    {
+      "id": "AGENT_SKILLS",
+      "uri": "https://agentskills.io/specification",
+      "locator": "SKILL.md 与渐进披露",
+      "claim": "入口、资源、脚本按需加载",
+      "verification": "read",
+      "kind": "primary"
+    },
+    {
+      "id": "OMNI_ART",
+      "uri": "https://raw.githubusercontent.com/waterblower/Omni-Art-Skills/main/image-art-direction/SKILL.md",
+      "locator": "v1.1.0，主/局部/气氛/不可用参考",
+      "claim": "实际读图，参考用途和内容/风格/连续性区分",
+      "verification": "read",
+      "kind": "upstream_project"
+    },
+    {
+      "id": "LIBTV",
+      "uri": "https://github.com/libtv-labs/libtv-skills",
+      "locator": "公开仓库 README",
+      "claim": "有可用客户端技能；本包不复刻内部美术Agent",
+      "verification": "read",
+      "kind": "primary"
+    },
+    {
+      "id": "HYPIT",
+      "uri": "https://github.com/hypit-ai/hypit",
+      "locator": "README，浮动main",
+      "claim": "Hypit为执行与视频制作系统，本包没有原生转换器",
+      "verification": "read",
+      "kind": "primary"
+    },
+    {
+      "id": "HYPIT_RUN",
+      "uri": "https://hypit.ai/quickstart/run/",
+      "locator": "Author / Run / explicit Candidates / build",
+      "claim": "创作源、运行意图、显式复用与实际build分离",
+      "verification": "read",
+      "kind": "primary"
+    },
+    {
+      "id": "DESIGN_RULES",
+      "uri": "local:production-design-grammar",
+      "locator": "v1.0.0 原创实现",
+      "claim": "风格路由、ArtIR、合同、空间和状态检查为本项目设计",
+      "verification": "inference",
+      "kind": "original"
+    }
+  ]
+}

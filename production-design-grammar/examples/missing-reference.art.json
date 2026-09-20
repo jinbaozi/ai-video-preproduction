@@ -1,0 +1,842 @@
+{
+  "schema_version": "1.0",
+  "project_id": "DEMO_TEA",
+  "revision": 1,
+  "canon": {
+    "uri": "local:example-only;replace-with-project-canon",
+    "revision": "demo-1"
+  },
+  "director": {
+    "uri": "fixtures/teahouse.director.json",
+    "sha256": "2a8e8c3231e0d10e70fb5eb6a055f4b13146452e9927b7504d6074f915975b33",
+    "project_id": "DEMO_TEA",
+    "revision": 1
+  },
+  "sources": [
+    {
+      "id": "D1",
+      "kind": "design",
+      "uri": "local:examples/teahouse-linked.art.json",
+      "locator": "本示例美术增补；既有人物动作来源为固定导演夹具",
+      "claim": "材料/背景/离散状态为设计补充，不改变原导演镜头",
+      "verification": "inference"
+    },
+    {
+      "id": "DIRECTOR",
+      "kind": "director",
+      "uri": "fixtures/teahouse.director.json",
+      "locator": "entities/scenes/shots，按director字段哈希冻结",
+      "claim": "A/B/E/K/L身份、交易动作、镜头与可见性以原DirectorIR为准",
+      "verification": "read"
+    }
+  ],
+  "brief": {
+    "world_mode": "historical",
+    "medium": "live_action",
+    "tags": [
+      "年代",
+      "生活",
+      "室内"
+    ],
+    "forbidden_styles": [],
+    "locked_style": null,
+    "secondary": null
+  },
+  "world": {
+    "thesis": "以克制的色材衬托既定交易动作，让信封与手保持可读",
+    "era": "原导演示例的虚构古风年代",
+    "region": "原导演雨夜茶馆",
+    "social_logic": "简陋交易场所，物件服务既定动作",
+    "shape_language": "一张木桌、两把木椅，窗在西侧，桌下横档保留",
+    "palette": [
+      {
+        "id": "BASE",
+        "color": "低饱和褐木与灰布",
+        "role": "退后背景"
+      },
+      {
+        "id": "ACCENT",
+        "color": "信封的中性米白",
+        "role": "保留动作证据，不改成发光道具"
+      }
+    ],
+    "materials": [
+      {
+        "id": "WOOD",
+        "base": "木",
+        "craft": "榫接",
+        "finish": "哑光",
+        "wear": "桌沿被手长期磨亮，动作区域不堆杂物"
+      },
+      {
+        "id": "CLOTH",
+        "base": "麻布",
+        "craft": "平织",
+        "finish": "哑光灰/深褐",
+        "wear": "保留原衣装，局部袖口使用痕迹"
+      },
+      {
+        "id": "PAPER",
+        "base": "纸",
+        "craft": "折叠",
+        "finish": "米色粗纸",
+        "wear": "未封口，不新增文字"
+      },
+      {
+        "id": "METAL",
+        "base": "铁",
+        "craft": "锻造",
+        "finish": "暗色刀身",
+        "wear": "刀背接触面局部亮痕"
+      }
+    ],
+    "color_script": [
+      {
+        "shot_ids": [
+          "S1",
+          "S3"
+        ],
+        "palette_ids": [
+          "BASE",
+          "ACCENT"
+        ],
+        "change_reason": "信封和手的接触为当前镜头的可见重点"
+      },
+      {
+        "shot_ids": [
+          "S2"
+        ],
+        "palette_ids": [
+          "BASE"
+        ],
+        "change_reason": "桌下细节只保留暗刀与木横档的材料差异，不把桌上信封放进画面"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "A",
+      "entity_id": "A",
+      "name": "信使",
+      "kind": "character",
+      "origin": "existing",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "design": "成年，灰色长衫，黑色束发",
+      "identity_locks": [
+        "成年，灰色长衫，黑色束发"
+      ],
+      "material_ids": [
+        "CLOTH"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "B",
+      "entity_id": "B",
+      "name": "接头人",
+      "kind": "character",
+      "origin": "existing",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "design": "成年，深褐长衫，黑色束发",
+      "identity_locks": [
+        "成年，深褐长衫，黑色束发"
+      ],
+      "material_ids": [
+        "CLOTH"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "E",
+      "entity_id": "E",
+      "name": "信封",
+      "kind": "prop",
+      "origin": "existing",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "design": "未封口的米色纸信封",
+      "identity_locks": [
+        "未封口的米色纸信封"
+      ],
+      "material_ids": [
+        "PAPER"
+      ],
+      "initial_state": {
+        "area": "A_side"
+      },
+      "state_rules": [
+        {
+          "field": "area",
+          "allowed_values": [
+            "A_side",
+            "table_center"
+          ]
+        }
+      ],
+      "graphic_text": null
+    },
+    {
+      "id": "K",
+      "entity_id": "K",
+      "name": "短刃",
+      "kind": "prop",
+      "origin": "existing",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "design": "暗色短刀，握柄在接头人左手",
+      "identity_locks": [
+        "暗色短刀，握柄在接头人左手"
+      ],
+      "material_ids": [
+        "METAL"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "L",
+      "entity_id": "L",
+      "name": "茶馆",
+      "kind": "set",
+      "origin": "existing",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "design": "雨夜旧茶馆，一张木桌，两把木椅，窗在西侧",
+      "identity_locks": [
+        "雨夜旧茶馆，一张木桌，两把木椅，窗在西侧"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "TABLE",
+      "entity_id": null,
+      "name": "木桌",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "原导演木桌的美术布局实例，包含桌下横档",
+      "identity_locks": [
+        "一张桌",
+        "不得遮挡既定刀与手细节"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "CHAIR",
+      "entity_id": null,
+      "name": "木椅",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "二人原有木椅",
+      "identity_locks": [
+        "两把椅",
+        "维持导演支撑关系"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    }
+  ],
+  "set": {
+    "scene_id": "SC1",
+    "location_entity_id": "L",
+    "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+    "origin": "原导演桌面中心投影到地面；沿用原米制世界坐标",
+    "bounds": {
+      "min_m": [
+        -4,
+        -4,
+        0
+      ],
+      "max_m": [
+        4,
+        4,
+        4
+      ]
+    },
+    "layout": [
+      {
+        "id": "TABLE1",
+        "asset_id": "TABLE",
+        "position_m": [
+          0,
+          0,
+          0
+        ],
+        "size_m": [
+          1.2,
+          0.7,
+          0.8
+        ],
+        "yaw_deg": 0,
+        "role": "交易桌"
+      },
+      {
+        "id": "CHAIR_A",
+        "asset_id": "CHAIR",
+        "position_m": [
+          -0.7,
+          0,
+          0
+        ],
+        "size_m": [
+          0.4,
+          0.4,
+          0.45
+        ],
+        "yaw_deg": 0,
+        "role": "信使坐椅"
+      },
+      {
+        "id": "CHAIR_B",
+        "asset_id": "CHAIR",
+        "position_m": [
+          0.7,
+          0,
+          0
+        ],
+        "size_m": [
+          0.4,
+          0.4,
+          0.45
+        ],
+        "yaw_deg": 0,
+        "role": "接头人坐椅"
+      }
+    ],
+    "counts": [
+      {
+        "asset_id": "TABLE",
+        "count": 1
+      },
+      {
+        "asset_id": "CHAIR",
+        "count": 2
+      }
+    ],
+    "functional_zones": [],
+    "practical_lights": [
+      {
+        "id": "WINDOW",
+        "position_m": [
+          -4,
+          0,
+          1.5
+        ],
+        "source": "西侧窗外漫射光",
+        "color": "冷灰",
+        "art_purpose": "维持原导演世界-X侧光，反打需重新判断画面方向"
+      },
+      {
+        "id": "LAMP",
+        "position_m": [
+          0,
+          1.5,
+          2.3
+        ],
+        "source": "茶馆原有暖灯的设计位置",
+        "color": "低饱和暖色",
+        "art_purpose": "桌下保留可辨材质；曝光由摄影决定"
+      }
+    ],
+    "atmosphere": "窗外细雨，室内不增烟遮挡手部"
+  },
+  "events": [
+    {
+      "id": "PUSH",
+      "shot_id": "S1",
+      "order": 0,
+      "asset_id": "E",
+      "field": "area",
+      "before": "A_side",
+      "after": "table_center",
+      "director_pointer": "/shots/0/phases/1",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "trigger": "信使沿桌面推信封，手指持续压纸"
+    },
+    {
+      "id": "PULL",
+      "shot_id": "S3",
+      "order": 0,
+      "asset_id": "E",
+      "field": "area",
+      "before": "table_center",
+      "after": "A_side",
+      "director_pointer": "/shots/2/phases/1",
+      "source_refs": [
+        "DIRECTOR"
+      ],
+      "trigger": "信使警觉后沿桌面拉回信封"
+    }
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "director_pointer": "/shots/0",
+      "source_refs": [
+        "DIRECTOR",
+        "D1"
+      ],
+      "visible_assets": [
+        "A",
+        "B",
+        "E",
+        "L",
+        "TABLE",
+        "CHAIR"
+      ],
+      "required_references": [
+        "REF_S1"
+      ],
+      "composition_support": {
+        "focal_asset": "E",
+        "background": "信封移动范围清空，窗棂不穿过面部",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [
+        {
+          "entity_id": "A",
+          "required_parts": [
+            "face",
+            "hands"
+          ],
+          "wardrobe_makeup": "灰衣和袖口保持原形制，手指不被衣袖吞没",
+          "background": "脸后深度层次平静"
+        }
+      ],
+      "relative_relations": []
+    },
+    {
+      "id": "S2",
+      "director_pointer": "/shots/1",
+      "source_refs": [
+        "DIRECTOR",
+        "D1"
+      ],
+      "visible_assets": [
+        "B",
+        "K",
+        "TABLE"
+      ],
+      "required_references": [
+        "REF_S2"
+      ],
+      "composition_support": {
+        "focal_asset": "K",
+        "background": "桌下横档与暗刀以材质反射区分，不新增亮色装饰",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [
+        {
+          "entity_id": "B",
+          "required_parts": [
+            "hands"
+          ],
+          "wardrobe_makeup": "左袖保留手与刀柄接触区",
+          "background": "横档纹理不要吞没刀背"
+        }
+      ],
+      "relative_relations": []
+    },
+    {
+      "id": "S3",
+      "director_pointer": "/shots/2",
+      "source_refs": [
+        "DIRECTOR",
+        "D1"
+      ],
+      "visible_assets": [
+        "A",
+        "B",
+        "E",
+        "L",
+        "TABLE",
+        "CHAIR"
+      ],
+      "required_references": [
+        "REF_S3"
+      ],
+      "composition_support": {
+        "focal_asset": "A",
+        "background": "原推镜过程中保留脸、手、纸面分离；不改机位",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [
+        {
+          "entity_id": "A",
+          "required_parts": [
+            "face",
+            "eyes",
+            "hands"
+          ],
+          "wardrobe_makeup": "刘海不遮眉眼，保持既有黑色束发和灰色长衫",
+          "background": "面后不新增高反光或高频图形"
+        }
+      ],
+      "relative_relations": []
+    }
+  ],
+  "references": [
+    {
+      "id": "REF_S1",
+      "asset_id": "E",
+      "role": "first_frame",
+      "file": null,
+      "sha256": null,
+      "status": "planned",
+      "inherit": [
+        "本镜已批准初态、构图与资产"
+      ],
+      "exclude": [
+        "其他镜头末态",
+        "不相干人物或背景"
+      ],
+      "rights": "待按本项目授权制作的首帧，尚无素材",
+      "source_refs": [
+        "D1"
+      ]
+    },
+    {
+      "id": "REF_S2",
+      "asset_id": "K",
+      "role": "first_frame",
+      "file": null,
+      "sha256": null,
+      "status": "planned",
+      "inherit": [
+        "本镜已批准初态、构图与资产"
+      ],
+      "exclude": [
+        "其他镜头末态",
+        "不相干人物或背景"
+      ],
+      "rights": "待按本项目授权制作的首帧，尚无素材",
+      "source_refs": [
+        "D1"
+      ]
+    },
+    {
+      "id": "REF_S3",
+      "asset_id": "A",
+      "role": "first_frame",
+      "file": null,
+      "sha256": null,
+      "status": "planned",
+      "inherit": [
+        "本镜已批准初态、构图与资产"
+      ],
+      "exclude": [
+        "其他镜头末态",
+        "不相干人物或背景"
+      ],
+      "rights": "待按本项目授权制作的首帧，尚无素材",
+      "source_refs": [
+        "D1"
+      ]
+    }
+  ],
+  "contract": {
+    "id": "ART_DEMO_TEA",
+    "version": 1,
+    "scope": "虚构示例的美术前期合同；不包含真实生成或既有批准",
+    "deliverables": [
+      "Visual Bible",
+      "资产与参考计划",
+      "逐镜美术补充",
+      "合同与验收待办"
+    ],
+    "clauses": [
+      {
+        "id": "WORLD",
+        "requirement": "保持所定义的世界形态、色材和场景布局；坐标是设计意图，实际布局须审图",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/world",
+          "/set"
+        ],
+        "shot_ids": [],
+        "check_ids": [
+          "G0INPUT",
+          "G1DESIGN",
+          "G2MAP",
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_S1",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1",
+          "DIRECTOR"
+        ],
+        "paths": [
+          "/shots/0",
+          "/assets/0",
+          "/assets/1",
+          "/assets/2",
+          "/assets/4",
+          "/assets/5",
+          "/assets/6"
+        ],
+        "shot_ids": [
+          "S1"
+        ],
+        "check_ids": [
+          "QA_S1"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_S2",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1",
+          "DIRECTOR"
+        ],
+        "paths": [
+          "/shots/1",
+          "/assets/1",
+          "/assets/3",
+          "/assets/5"
+        ],
+        "shot_ids": [
+          "S2"
+        ],
+        "check_ids": [
+          "QA_S2"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_S3",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1",
+          "DIRECTOR"
+        ],
+        "paths": [
+          "/shots/2",
+          "/assets/0",
+          "/assets/1",
+          "/assets/2",
+          "/assets/4",
+          "/assets/5",
+          "/assets/6"
+        ],
+        "shot_ids": [
+          "S3"
+        ],
+        "check_ids": [
+          "QA_S3"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "STATE_PUSH",
+        "requirement": "信使沿桌面推信封，手指持续压纸；E 的 area 由 A_side 变为 table_center，只能在本镜发生",
+        "priority": "hard",
+        "source_refs": [
+          "DIRECTOR"
+        ],
+        "paths": [
+          "/events/0"
+        ],
+        "shot_ids": [
+          "S1"
+        ],
+        "check_ids": [
+          "QA_S1"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "视频阶段依据导演原事件制作并核对起中末状态；关键帧仅取初态",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "STATE_PULL",
+        "requirement": "信使警觉后沿桌面拉回信封；E 的 area 由 table_center 变为 A_side，只能在本镜发生",
+        "priority": "hard",
+        "source_refs": [
+          "DIRECTOR"
+        ],
+        "paths": [
+          "/events/1"
+        ],
+        "shot_ids": [
+          "S3"
+        ],
+        "check_ids": [
+          "QA_S3"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "视频阶段依据导演原事件制作并核对起中末状态；关键帧仅取初态",
+          "reference_ids": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "id": "G0INPUT",
+        "gate": "G0",
+        "scope": "project",
+        "method": "static",
+        "predicate": "来源、身份、版本和字段指针正确；推演未伪装成观察事实",
+        "evidence_required": "输入来源核对记录与校验结果",
+        "owner": "art_planner",
+        "blocking": true
+      },
+      {
+        "id": "G1DESIGN",
+        "gate": "G1",
+        "scope": "project",
+        "method": "static",
+        "predicate": "布局、资产和可读性条件与导演/用户约束一致",
+        "evidence_required": "布局及部门联合评审记录",
+        "owner": "art_director",
+        "blocking": true
+      },
+      {
+        "id": "G2MAP",
+        "gate": "G2",
+        "scope": "project",
+        "method": "static",
+        "predicate": "每条要求都有具体任务和可用依赖，未静默丢失",
+        "evidence_required": "编译覆盖表与宿主入口核对记录",
+        "owner": "host_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_S1",
+        "gate": "G3",
+        "scope": "S1",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_S2",
+        "gate": "G3",
+        "scope": "S2",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_S3",
+        "gate": "G3",
+        "scope": "S3",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "playback",
+        "predicate": "跨镜资产、色材、方位和状态保持一致；准确文字无误；与本项目合同逐条比对",
+        "evidence_required": "最终媒体文件/哈希与完整审核记录",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "max_attempts_per_job": 2,
+      "stop_conditions": [
+        "没有外部生成授权时仅交付本地计划",
+        "失败达到上限或硬要求无法保留时停止依赖执行"
+      ]
+    }
+  }
+}

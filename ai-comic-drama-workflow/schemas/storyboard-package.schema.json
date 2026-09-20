@@ -1,0 +1,109 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "artifact_id",
+    "project_id",
+    "revision",
+    "stage_id",
+    "role_provenance",
+    "depth",
+    "views",
+    "shots",
+    "previsualization_status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.0"
+    },
+    "artifact_type": {
+      "type": "string",
+      "const": "storyboard-package"
+    },
+    "artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage_id": {
+      "type": "string",
+      "const": "storyboard_package"
+    },
+    "role_provenance": {
+      "type": "string",
+      "const": "kernel"
+    },
+    "depth": {
+      "type": "string",
+      "enum": [
+        "narrative",
+        "blocking",
+        "action",
+        "full-dimensional"
+      ]
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "shots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_id",
+          "timeline_path",
+          "timeline_sha256",
+          "key_moments",
+          "derived_views"
+        ],
+        "properties": {
+          "shot_id": {
+            "type": "string"
+          },
+          "timeline_path": {
+            "type": "string"
+          },
+          "timeline_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "key_moments": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 3,
+            "items": {
+              "type": "object"
+            }
+          },
+          "derived_views": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "previsualization_status": {
+      "type": "string",
+      "enum": [
+        "structured_previsualization",
+        "verified_3d",
+        "not_selected"
+      ]
+    }
+  },
+  "additionalProperties": true,
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:ai-comic-drama:3.0:storyboard-package.schema.json"
+}

@@ -1,0 +1,76 @@
+{
+  "version": "1.0.0",
+  "rules": [
+    {
+      "id": "CORE.SCHEMA.V1",
+      "reads": [
+        "/"
+      ],
+      "writes": []
+    },
+    {
+      "id": "CORE.REFGRAPH.V1",
+      "reads": [
+        "/assets",
+        "/bindings"
+      ],
+      "writes": []
+    },
+    {
+      "id": "CORE.CONTINUITY.V1",
+      "reads": [
+        "/shots"
+      ],
+      "writes": []
+    },
+    {
+      "id": "CORE.CONTRACT.V1",
+      "reads": [
+        "/contract",
+        "/sources"
+      ],
+      "writes": []
+    },
+    {
+      "id": "CORE.CONTEXT.V1",
+      "reads": [
+        "/shots",
+        "/entities",
+        "/bindings",
+        "/expansions"
+      ],
+      "writes": [
+        "context-ir.json"
+      ]
+    },
+    {
+      "id": "CORE.STYLE.DEDUP.V1",
+      "reads": [
+        "/shots/*/style"
+      ],
+      "writes": [
+        "compact view only"
+      ]
+    },
+    {
+      "id": "CORE.BUDGET.V1",
+      "reads": [
+        "rendered prompt"
+      ],
+      "writes": []
+    },
+    {
+      "id": "BACKEND.LOWER.V1",
+      "reads": [
+        "context view",
+        "capability",
+        "template"
+      ],
+      "writes": [
+        "prompt",
+        "parameters",
+        "asset_bindings"
+      ]
+    }
+  ]
+}

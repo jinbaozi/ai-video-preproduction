@@ -1,0 +1,326 @@
+{
+  "schema_version": "1.0",
+  "project_id": "ALIEN",
+  "revision": 1,
+  "canon": {
+    "uri": "local:fictional-example-ALIEN",
+    "revision": "demo-1"
+  },
+  "director": null,
+  "sources": [
+    {
+      "id": "D1",
+      "kind": "design",
+      "uri": "local:examples",
+      "locator": "ALIEN 本示例全部原创设计",
+      "claim": "演示合同的虚构设计，非用户批准素材、史实复原或实际媒体",
+      "verification": "inference"
+    }
+  ],
+  "brief": {
+    "world_mode": "future",
+    "medium": "3d",
+    "tags": [
+      "异星",
+      "纪念碑",
+      "尺度"
+    ],
+    "forbidden_styles": [],
+    "locked_style": null,
+    "secondary": null
+  },
+  "world": {
+    "thesis": "用入口与尺度参照呈现资源受限的异星制度",
+    "era": "架空未来",
+    "region": "干旱异星聚落",
+    "social_logic": "建筑以节约资源和分级通行为依据",
+    "shape_language": "巨大墙体与小型可通过入口，参照标尺明示尺度",
+    "palette": [
+      {
+        "id": "BASE",
+        "color": "灰赭",
+        "role": "矿物底色"
+      },
+      {
+        "id": "ACCENT",
+        "color": "暗蓝",
+        "role": "入口权限标记"
+      }
+    ],
+    "materials": [
+      {
+        "id": "STONE",
+        "base": "矿物烧结材料",
+        "craft": "模块砌筑",
+        "finish": "低反射粗糙面",
+        "wear": "迎风面风蚀，接缝处积尘"
+      }
+    ],
+    "color_script": [
+      {
+        "shot_ids": [
+          "A01"
+        ],
+        "palette_ids": [
+          "BASE",
+          "ACCENT"
+        ],
+        "change_reason": "在同一场景继承底色，关系由器物与空间表达，不逐镜换滤镜"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "GATE",
+      "entity_id": null,
+      "name": "聚落入口",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "高8米墙体中的2.2米通行门洞",
+      "identity_locks": [
+        "门洞位置固定",
+        "不可封死入口"
+      ],
+      "material_ids": [
+        "STONE"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "SCALE",
+      "entity_id": null,
+      "name": "尺度杆",
+      "kind": "prop",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "高1.8米无文字尺度参照",
+      "identity_locks": [
+        "高度1.8米"
+      ],
+      "material_ids": [
+        "STONE"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    }
+  ],
+  "set": {
+    "scene_id": "SC1",
+    "location_entity_id": null,
+    "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+    "origin": "室内地面中心，Z=0为地面",
+    "bounds": {
+      "min_m": [
+        -10,
+        -10,
+        0
+      ],
+      "max_m": [
+        10,
+        10,
+        10
+      ]
+    },
+    "layout": [
+      {
+        "id": "WALL",
+        "asset_id": "GATE",
+        "position_m": [
+          0,
+          3,
+          0
+        ],
+        "size_m": [
+          10,
+          1,
+          8
+        ],
+        "yaw_deg": 0,
+        "role": "入口墙体"
+      },
+      {
+        "id": "ROD",
+        "asset_id": "SCALE",
+        "position_m": [
+          -2,
+          2,
+          0
+        ],
+        "size_m": [
+          0.15,
+          0.15,
+          1.8
+        ],
+        "yaw_deg": 0,
+        "role": "尺度参照"
+      }
+    ],
+    "counts": [],
+    "functional_zones": [],
+    "practical_lights": [],
+    "atmosphere": "薄尘限制在地表，不遮入口"
+  },
+  "events": [],
+  "shots": [
+    {
+      "id": "A01",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "visible_assets": [
+        "GATE",
+        "SCALE"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "GATE",
+        "background": "大体块与小开口分区，尺度杆完整可见",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": []
+    }
+  ],
+  "references": [],
+  "contract": {
+    "id": "ART_ALIEN",
+    "version": 1,
+    "scope": "虚构示例的美术前期合同；不包含真实生成或既有批准",
+    "deliverables": [
+      "Visual Bible",
+      "资产与参考计划",
+      "逐镜美术补充",
+      "合同与验收待办"
+    ],
+    "clauses": [
+      {
+        "id": "WORLD",
+        "requirement": "保持所定义的世界形态、色材和场景布局；坐标是设计意图，实际布局须审图",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/world",
+          "/set"
+        ],
+        "shot_ids": [],
+        "check_ids": [
+          "G0INPUT",
+          "G1DESIGN",
+          "G2MAP",
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_A01",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/shots/0",
+          "/assets/0",
+          "/assets/1"
+        ],
+        "shot_ids": [
+          "A01"
+        ],
+        "check_ids": [
+          "QA_A01"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "id": "G0INPUT",
+        "gate": "G0",
+        "scope": "project",
+        "method": "static",
+        "predicate": "来源、身份、版本和字段指针正确；推演未伪装成观察事实",
+        "evidence_required": "输入来源核对记录与校验结果",
+        "owner": "art_planner",
+        "blocking": true
+      },
+      {
+        "id": "G1DESIGN",
+        "gate": "G1",
+        "scope": "project",
+        "method": "static",
+        "predicate": "布局、资产和可读性条件与导演/用户约束一致",
+        "evidence_required": "布局及部门联合评审记录",
+        "owner": "art_director",
+        "blocking": true
+      },
+      {
+        "id": "G2MAP",
+        "gate": "G2",
+        "scope": "project",
+        "method": "static",
+        "predicate": "每条要求都有具体任务和可用依赖，未静默丢失",
+        "evidence_required": "编译覆盖表与宿主入口核对记录",
+        "owner": "host_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_A01",
+        "gate": "G3",
+        "scope": "A01",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "frame_review",
+        "predicate": "跨镜资产、色材、方位和状态保持一致；准确文字无误；与本项目合同逐条比对",
+        "evidence_required": "最终媒体文件/哈希与完整审核记录",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "max_attempts_per_job": 2,
+      "stop_conditions": [
+        "没有外部生成授权时仅交付本地计划",
+        "失败达到上限或硬要求无法保留时停止依赖执行"
+      ]
+    }
+  }
+}

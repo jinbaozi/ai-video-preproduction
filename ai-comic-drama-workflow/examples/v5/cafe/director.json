@@ -1,0 +1,1294 @@
+{
+  "schema_version": "1.0",
+  "project_id": "CAFE_DEMO",
+  "revision": 1,
+  "canon_ref": "canon.json",
+  "sources": [
+    {
+      "id": "SRC_SCRIPT",
+      "kind": "user",
+      "uri": "cafe.source.txt",
+      "locator": "完整段落",
+      "claim": "虚构测试场景。两位成年人物A、B相对坐在咖啡馆桌边。A将蓝色信封放在桌上并松开右手。B先看信封，再抬眼问：“你确定？”A点头后，B才伸右手接触信封、拿起并持稳。全片12秒，24fps，16:9；仅这一句对白，没有旁白或内心独白。",
+      "verification": "provided"
+    },
+    {
+      "id": "DESIGN",
+      "kind": "design",
+      "uri": "design://cafe",
+      "locator": "完整段落",
+      "claim": "坐标、近景、服装和环境音是用于验证分镜制作的原创设计补充，未绑定实际影像。",
+      "verification": "inference"
+    }
+  ],
+  "intent": {
+    "task": "narrative",
+    "goal": "虚构咖啡馆信封交接：通过可见迟疑和动作因果表现信任确认。",
+    "tags": [
+      "对话",
+      "克制"
+    ],
+    "style_request": null,
+    "forbidden_techniques": []
+  },
+  "format": {
+    "fps": 24,
+    "width": 1280,
+    "height": 720,
+    "total_frames": 288
+  },
+  "entities": [
+    {
+      "id": "A",
+      "name": "A",
+      "kind": "character",
+      "description": "成年人物A，短发、深蓝外套",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "B",
+      "kind": "character",
+      "description": "成年人物B，齐肩发、米色衬衣",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "ENVELOPE",
+      "name": "蓝色信封",
+      "kind": "prop",
+      "description": "一个蓝色无字纸信封",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "TABLE",
+      "name": "咖啡桌",
+      "kind": "prop",
+      "description": "原木桌面，水平高度0.75米",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "ROOM",
+      "name": "咖啡馆",
+      "kind": "location",
+      "description": "安静室内，无额外角色",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    }
+  ],
+  "assets": [],
+  "scenes": [
+    {
+      "id": "CAFE",
+      "location_id": "ROOM",
+      "space": "A与B相对而坐，桌面在两人之间；人物坐标为地面投影，信封坐标为中心，桌子为落地中心。",
+      "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+      "axis_start_m": [
+        -0.7,
+        0,
+        0
+      ],
+      "axis_end_m": [
+        0.7,
+        0,
+        0
+      ],
+      "style_id": "restrained_suspense"
+    }
+  ],
+  "beats": [
+    {
+      "id": "BEAT1",
+      "scene_id": "CAFE",
+      "change": "建立关系，A放下并松开信封",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "BEAT2",
+      "scene_id": "CAFE",
+      "change": "B因疑虑先询问，暂不接触",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    },
+    {
+      "id": "BEAT3",
+      "scene_id": "CAFE",
+      "change": "A点头后B接触、拿起并持稳",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "S1",
+      "scene_id": "CAFE",
+      "beat_id": "BEAT1",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "purpose": "建立关系，A放下并松开信封",
+      "story_order": 1,
+      "frames": 96,
+      "narrative": {
+        "audience_before": [],
+        "audience_after": [
+          "A松开信封，等待B回应"
+        ],
+        "character_knows": [
+          "A松开信封，等待B回应"
+        ],
+        "reveal": null,
+        "viewpoint": "客观观察，接近B的迟疑视点"
+      },
+      "start_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿，右手持信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 270,
+          "pose": "坐姿，右手停在桌沿",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "ENVELOPE"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "position_m": [
+            -0.3,
+            0,
+            0.9
+          ],
+          "yaw_deg": 0,
+          "pose": "纸面水平",
+          "support": "A.right_hand",
+          "contact": "['A.right_hand']；holder=A.right_hand",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "TABLE",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "桌面水平，桌脚接地",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "ROOM",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "固定建筑",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿，右手已离开信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 270,
+          "pose": "坐姿，右手停在桌沿",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "ENVELOPE"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "position_m": [
+            -0.2,
+            0,
+            0.76
+          ],
+          "yaw_deg": 0,
+          "pose": "纸面水平",
+          "support": "TABLE.top",
+          "contact": "['TABLE.top']；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "TABLE",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "桌面水平，桌脚接地",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "ROOM",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "固定建筑",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 96,
+          "action": "右前臂前送，信封向下接触桌面，指腹仍夹住纸边；信封停稳后A伸开手指，右手回收",
+          "reaction": "B视线跟随信封落向桌面；B右手仍停在桌沿",
+          "end_state": "A松开信封，等待B回应"
+        }
+      ],
+      "composition": {
+        "rule": "以人物和信封构成稳定注意力三角",
+        "attention_order": [
+          "A",
+          "B",
+          "ENVELOPE"
+        ],
+        "negative_space": "视线前方留白，关键手部不贴边",
+        "depth_layers": "前景桌沿与信封，中景人物，后景咖啡馆墙面",
+        "safe_area": [
+          0.02,
+          0.02,
+          0.96,
+          0.96
+        ],
+        "subjects": [
+          {
+            "entity_id": "A",
+            "box": [
+              0.07,
+              0.12,
+              0.35,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          },
+          {
+            "entity_id": "B",
+            "box": [
+              0.58,
+              0.12,
+              0.35,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          },
+          {
+            "entity_id": "ENVELOPE",
+            "box": [
+              0.43,
+              0.68,
+              0.14,
+              0.09
+            ],
+            "visible_parts": [
+              "body"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "locked",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          0,
+          -3,
+          1.3
+        ],
+        "end_m": [
+          0,
+          -3,
+          1.3
+        ],
+        "look_at_m": [
+          0,
+          0,
+          1.3
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "以人物和信封构成稳定注意力三角",
+        "framing_end": "以人物和信封构成稳定注意力三角",
+        "path": "相机静止",
+        "speed": "平稳，结尾停住",
+        "focus": "人物与递物区域",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "A",
+          "trigger": "B已坐在对面，A仍右手持信封",
+          "face": null,
+          "eyes": "看向B",
+          "hands": "信封触桌前拇指与食指夹住纸边；停稳后伸开手指，右掌回收",
+          "body": "坐骨落在椅面，肩部放松；需要伸手时前臂移动，躯干不瞬移",
+          "voice": null,
+          "visibility": "visible"
+        }
+      ],
+      "dialogue": [],
+      "sound": {
+        "ambience": "安静咖啡馆空气底噪",
+        "cue": "蓝色信封与桌面的轻摩擦声",
+        "sync": "与动作接触时点同步；不增加旁白",
+        "silence": false
+      },
+      "lighting": {
+        "source": "世界左侧窗户日光",
+        "direction": "世界-X侧",
+        "quality": "柔和漫射",
+        "color_purpose": "中性日光，保持深蓝与米色服装"
+      },
+      "must_show": [
+        {
+          "entity_id": "A",
+          "part": "face",
+          "reason": "原文关键可见信息"
+        },
+        {
+          "entity_id": "B",
+          "part": "face",
+          "reason": "原文关键可见信息"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "part": "body",
+          "reason": "原文关键可见信息"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "depth_blocking",
+        "locked_observation"
+      ],
+      "continuity": {
+        "from_shot": null,
+        "match_entities": [],
+        "transition": "continuous",
+        "reason": "相同场景连续时间",
+        "invariants": [
+          "身份、服装、世界位置及信封状态承接"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS1"
+      ]
+    },
+    {
+      "id": "S2",
+      "scene_id": "CAFE",
+      "beat_id": "BEAT2",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "purpose": "B因疑虑先询问，暂不接触",
+      "story_order": 2,
+      "frames": 96,
+      "narrative": {
+        "audience_before": [
+          "A松开信封，等待B回应"
+        ],
+        "audience_after": [
+          "B的怀疑通过发问表现"
+        ],
+        "character_knows": [
+          "B的怀疑通过发问表现"
+        ],
+        "reveal": null,
+        "viewpoint": "客观观察，接近B的迟疑视点"
+      },
+      "start_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿，右手已离开信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 270,
+          "pose": "坐姿，右手停在桌沿",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "ENVELOPE"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "position_m": [
+            -0.2,
+            0,
+            0.76
+          ],
+          "yaw_deg": 0,
+          "pose": "纸面水平",
+          "support": "TABLE.top",
+          "contact": "['TABLE.top']；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "TABLE",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "桌面水平，桌脚接地",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "ROOM",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "固定建筑",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿，右手已离开信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 270,
+          "pose": "坐姿，右手停在桌沿",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "position_m": [
+            -0.2,
+            0,
+            0.76
+          ],
+          "yaw_deg": 0,
+          "pose": "纸面水平",
+          "support": "TABLE.top",
+          "contact": "['TABLE.top']；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "TABLE",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "桌面水平，桌脚接地",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "ROOM",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "固定建筑",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 96,
+          "action": "B从信封抬眼看向A",
+          "reaction": "A等待B开口",
+          "end_state": "B的怀疑通过发问表现"
+        }
+      ],
+      "composition": {
+        "rule": "B面部近景，保留视线通向画外A",
+        "attention_order": [
+          "B"
+        ],
+        "negative_space": "视线前方留白，关键手部不贴边",
+        "depth_layers": "B面部与肩线清楚，后景咖啡馆墙面虚化；不要求画外道具出现在近景",
+        "safe_area": [
+          0.02,
+          0.02,
+          0.96,
+          0.96
+        ],
+        "subjects": [
+          {
+            "entity_id": "B",
+            "box": [
+              0.15,
+              0.08,
+              0.7,
+              0.78
+            ],
+            "visible_parts": [
+              "face",
+              "eyes"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "locked",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          0.2,
+          -1.1,
+          1.3
+        ],
+        "end_m": [
+          0.2,
+          -1.1,
+          1.3
+        ],
+        "look_at_m": [
+          0.7,
+          0,
+          1.3
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "B面部近景，保留视线通向画外A",
+        "framing_end": "B面部近景，保留视线通向画外A",
+        "path": "相机静止",
+        "speed": "平稳，结尾停住",
+        "focus": "B眉眼和嘴唇",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "B",
+          "trigger": "信封已被A松开，B刚从信封抬眼看向A",
+          "face": "保持克制，不夸张皱眉",
+          "eyes": "抬眼动作已在112帧完成，此段视线停在画外A脸上",
+          "hands": null,
+          "body": "坐姿稳定，肩线不耸起，不新增肢体动作",
+          "voice": "B询问时音量偏低，中慢语速，句尾轻扬",
+          "visibility": "visible"
+        }
+      ],
+      "dialogue": [
+        {
+          "speaker_id": "B",
+          "text": "你确定？",
+          "start_frame": 24,
+          "end_frame": 60,
+          "delivery": "轻声，中慢语速，句尾微扬；说完自然合唇"
+        }
+      ],
+      "sound": {
+        "ambience": "安静咖啡馆空气底噪",
+        "cue": "蓝色信封与桌面的轻摩擦声",
+        "sync": "与动作接触时点同步；不增加旁白",
+        "silence": false
+      },
+      "lighting": {
+        "source": "世界左侧窗户日光",
+        "direction": "世界-X侧",
+        "quality": "柔和漫射",
+        "color_purpose": "中性日光，保持深蓝与米色服装"
+      },
+      "must_show": [
+        {
+          "entity_id": "B",
+          "part": "face",
+          "reason": "原文关键可见信息"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "depth_blocking",
+        "locked_observation"
+      ],
+      "continuity": {
+        "from_shot": "S1",
+        "match_entities": [
+          "A",
+          "B",
+          "ENVELOPE",
+          "TABLE",
+          "ROOM"
+        ],
+        "transition": "continuous",
+        "reason": "相同场景连续时间",
+        "invariants": [
+          "身份、服装、世界位置及信封状态承接"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS2"
+      ]
+    },
+    {
+      "id": "S3",
+      "scene_id": "CAFE",
+      "beat_id": "BEAT3",
+      "source_refs": [
+        "SRC_SCRIPT",
+        "DESIGN"
+      ],
+      "purpose": "A点头后B接触、拿起并持稳",
+      "story_order": 3,
+      "frames": 96,
+      "narrative": {
+        "audience_before": [
+          "B的怀疑通过发问表现"
+        ],
+        "audience_after": [
+          "信封现在归B右手持有"
+        ],
+        "character_knows": [
+          "信封现在归B右手持有"
+        ],
+        "reveal": null,
+        "viewpoint": "客观观察，接近B的迟疑视点"
+      },
+      "start_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿，右手已离开信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 270,
+          "pose": "坐姿，右手停在桌沿",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "A"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "position_m": [
+            -0.2,
+            0,
+            0.76
+          ],
+          "yaw_deg": 0,
+          "pose": "纸面水平",
+          "support": "TABLE.top",
+          "contact": "['TABLE.top']；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "TABLE",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "桌面水平，桌脚接地",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "ROOM",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "固定建筑",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        }
+      ],
+      "end_state": [
+        {
+          "entity_id": "A",
+          "position_m": [
+            -0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 90,
+          "pose": "坐姿，右手已离开信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "B"
+        },
+        {
+          "entity_id": "B",
+          "position_m": [
+            0.7,
+            0,
+            0
+          ],
+          "yaw_deg": 270,
+          "pose": "坐姿，右手稳持信封",
+          "support": "椅面承托坐骨，双足落地",
+          "contact": "[]；holder=None",
+          "gaze_target": "ENVELOPE"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "position_m": [
+            0.3,
+            0,
+            0.95
+          ],
+          "yaw_deg": 0,
+          "pose": "纸面水平",
+          "support": "B.right_hand",
+          "contact": "['B.right_hand']；holder=B.right_hand",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "TABLE",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "桌面水平，桌脚接地",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        },
+        {
+          "entity_id": "ROOM",
+          "position_m": [
+            0,
+            0,
+            0
+          ],
+          "yaw_deg": 0,
+          "pose": "固定建筑",
+          "support": "ROOM.floor",
+          "contact": "[]；holder=None",
+          "gaze_target": null
+        }
+      ],
+      "phases": [
+        {
+          "start_frame": 0,
+          "end_frame": 96,
+          "action": "A下颌缓缓下点一次；A点头后抬回原位；B看清点头后前伸右手，指腹接触信封右边；右手拇指与食指夹住信封后向上提离桌面",
+          "reaction": "B看A，手不动；B仍等待点头完整结束；A不再伸手；A保持空手，B提起后停稳",
+          "end_state": "信封现在归B右手持有"
+        }
+      ],
+      "composition": {
+        "rule": "以人物和信封构成稳定注意力三角",
+        "attention_order": [
+          "A",
+          "B",
+          "ENVELOPE"
+        ],
+        "negative_space": "视线前方留白，关键手部不贴边",
+        "depth_layers": "前景桌沿与信封，中景人物，后景咖啡馆墙面",
+        "safe_area": [
+          0.02,
+          0.02,
+          0.96,
+          0.96
+        ],
+        "subjects": [
+          {
+            "entity_id": "A",
+            "box": [
+              0.07,
+              0.12,
+              0.35,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          },
+          {
+            "entity_id": "B",
+            "box": [
+              0.58,
+              0.12,
+              0.35,
+              0.76
+            ],
+            "visible_parts": [
+              "face",
+              "eyes",
+              "hands",
+              "body"
+            ]
+          },
+          {
+            "entity_id": "ENVELOPE",
+            "box": [
+              0.43,
+              0.68,
+              0.14,
+              0.09
+            ],
+            "visible_parts": [
+              "body"
+            ]
+          }
+        ]
+      },
+      "camera": {
+        "movement": "locked",
+        "motivation": "使关键人物与道具关系可读",
+        "start_m": [
+          0,
+          -3,
+          1.3
+        ],
+        "end_m": [
+          0,
+          -3,
+          1.3
+        ],
+        "look_at_m": [
+          0,
+          0,
+          1.3
+        ],
+        "roll_deg": 0,
+        "focal_mm": 40,
+        "framing_start": "以人物和信封构成稳定注意力三角",
+        "framing_end": "以人物和信封构成稳定注意力三角",
+        "path": "相机静止",
+        "speed": "平稳，结尾停住",
+        "focus": "人物与递物区域",
+        "precision": "qualitative",
+        "axis_side": "negative",
+        "axis_transition": null
+      },
+      "performance": [
+        {
+          "entity_id": "B",
+          "trigger": "A点头并抬回原位",
+          "face": null,
+          "eyes": "先确认A点头，右手接触前再将视线落回信封",
+          "hands": "A点头后右前臂前伸，指腹先接触纸边，再用拇指与食指夹住并提起",
+          "body": "坐骨落在椅面，肩部放松；需要伸手时前臂移动，躯干不瞬移",
+          "voice": null,
+          "visibility": "visible"
+        }
+      ],
+      "dialogue": [],
+      "sound": {
+        "ambience": "安静咖啡馆空气底噪",
+        "cue": "蓝色信封与桌面的轻摩擦声",
+        "sync": "与动作接触时点同步；不增加旁白",
+        "silence": false
+      },
+      "lighting": {
+        "source": "世界左侧窗户日光",
+        "direction": "世界-X侧",
+        "quality": "柔和漫射",
+        "color_purpose": "中性日光，保持深蓝与米色服装"
+      },
+      "must_show": [
+        {
+          "entity_id": "A",
+          "part": "face",
+          "reason": "原文关键可见信息"
+        },
+        {
+          "entity_id": "B",
+          "part": "face",
+          "reason": "原文关键可见信息"
+        },
+        {
+          "entity_id": "ENVELOPE",
+          "part": "body",
+          "reason": "原文关键可见信息"
+        }
+      ],
+      "references": [],
+      "technique_ids": [
+        "depth_blocking",
+        "locked_observation"
+      ],
+      "continuity": {
+        "from_shot": "S2",
+        "match_entities": [
+          "A",
+          "B",
+          "ENVELOPE",
+          "TABLE",
+          "ROOM"
+        ],
+        "transition": "continuous",
+        "reason": "相同场景连续时间",
+        "invariants": [
+          "身份、服装、世界位置及信封状态承接"
+        ]
+      },
+      "acceptance_ids": [
+        "QAS3"
+      ]
+    }
+  ],
+  "contract": {
+    "id": "CONTRACT_TEA",
+    "version": 1,
+    "scope": "虚构咖啡馆信封交接：通过可见迟疑和动作因果表现信任确认。",
+    "deliverables": [
+      "导演合同",
+      "可复制提示词",
+      "执行计划与损失表",
+      "待填实际素材QA"
+    ],
+    "clauses": [
+      {
+        "id": "REQ_DURATION",
+        "requirement": "全片12秒，24fps",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/format"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "native",
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "REQ_CUSTODY",
+        "requirement": "结尾信封由B右手持有，A不持信封。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/shots/2/end_state"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "REQ_LINE",
+        "requirement": "B：“你确定？”；不改词，不增旁白。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/shots/1/dialogue"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "REQ_CAST",
+        "requirement": "保持指定人物与外形，不新增角色。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/entities"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "REQ_FACE",
+        "requirement": "B询问时眉眼可见，近景承载微表情。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/shots/1/composition"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "REQ_WAIT",
+        "requirement": "B等待A点头完成后才伸手。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/shots/2/phases"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      },
+      {
+        "id": "REQ_SPACE",
+        "requirement": "A始终在B的世界左侧。",
+        "priority": "hard",
+        "source_refs": [
+          "SRC_SCRIPT",
+          "DESIGN"
+        ],
+        "paths": [
+          "/scenes/0"
+        ],
+        "check_ids": [
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "allowed_channels": [
+          "natural_language",
+          "reference",
+          "post",
+          "review"
+        ]
+      }
+    ],
+    "checks": [
+      {
+        "id": "QAS1",
+        "gate": "G3",
+        "scope": "S1",
+        "method": "frame_review",
+        "predicate": "对照当前咖啡馆原文检查身份、交接、台词和连续性",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QAS2",
+        "gate": "G3",
+        "scope": "S2",
+        "method": "frame_review",
+        "predicate": "对照当前咖啡馆原文检查身份、交接、台词和连续性",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QAS3",
+        "gate": "G3",
+        "scope": "S3",
+        "method": "frame_review",
+        "predicate": "对照当前咖啡馆原文检查身份、交接、台词和连续性",
+        "evidence_required": "take文件、哈希、时间码或帧号及审片观察",
+        "owner": "media_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "playback",
+        "predicate": "对照当前咖啡馆原文检查身份、交接、台词和连续性",
+        "evidence_required": "最终文件probe、完整播放记录和理解测试",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "max_attempts_per_job": 2,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "stop_conditions": [
+        "未授权实际生成",
+        "实际失败达到单任务尝试上限",
+        "关键约束无法满足时停止依赖执行"
+      ]
+    },
+    "acceptance": {
+      "rule": "all_blocking_checks_pass",
+      "waivers": []
+    }
+  }
+}

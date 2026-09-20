@@ -1,0 +1,7 @@
+interface:
+  display_name: "六技能协作工作流 V5"
+  short_description: "当前 Agent 串联导演、美术、实际参考图、分镜与视频提示词，可恢复并复用独立制作包"
+  default_prompt: "使用 $ai-comic-drama-workflow，根据我的资料完成参考图与视频提示词制作包；复用已有成果，普通阶段自动继续，只在必要决定时询问。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://video-prompt-compiler.local/compile-artifact.schema.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "compiled-artifact/1.2"
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "COMPILED",
+        "BLOCKED",
+        "INVALID"
+      ]
+    },
+    "prompt": {
+      "type": "string"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "parameter_semantics": {
+      "enum": [
+        "api_fields",
+        "intent_only"
+      ]
+    },
+    "payload_draft": {
+      "anyOf": [
+        {
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "asset_bindings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "losses": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "trace": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "post_production": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "counts": {
+      "type": "object",
+      "properties": {
+        "canonical_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "canonical_algorithm": {
+          "const": "CPT-v1"
+        },
+        "native_count": {
+          "type": "null"
+        },
+        "native_tokenizer": {
+          "type": "null"
+        },
+        "chars": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "canonical_count",
+        "canonical_algorithm",
+        "native_count",
+        "native_tokenizer",
+        "chars"
+      ],
+      "additionalProperties": false
+    },
+    "execution": {
+      "type": "object",
+      "properties": {
+        "submitted": {
+          "const": false
+        },
+        "runnable": {
+          "const": false
+        },
+        "media_qa": {
+          "const": "NOT_RUN"
+        },
+        "next_steps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "submitted",
+        "runnable",
+        "media_qa",
+        "next_steps"
+      ],
+      "additionalProperties": false
+    },
+    "detail_blocks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "detail_coverage": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "segment_proposals": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "semantic_review": {
+      "type": "object"
+    },
+    "spatial_checks": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "target",
+    "mode",
+    "status",
+    "prompt",
+    "parameters",
+    "parameter_semantics",
+    "payload_draft",
+    "asset_bindings",
+    "diagnostics",
+    "losses",
+    "trace",
+    "coverage",
+    "post_production",
+    "counts",
+    "execution",
+    "detail_blocks",
+    "detail_coverage",
+    "segment_proposals",
+    "semantic_review",
+    "spatial_checks"
+  ],
+  "additionalProperties": false
+}

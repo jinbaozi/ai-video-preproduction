@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-state",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifacts",
+    "media",
+    "sources",
+    "completed_tasks",
+    "prompts",
+    "approvals",
+    "decisions",
+    "active_task",
+    "inflight",
+    "build"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "5.0"
+    },
+    "artifacts": {
+      "type": "object"
+    },
+    "media": {
+      "type": "object"
+    },
+    "sources": {
+      "type": "array"
+    },
+    "completed_tasks": {
+      "type": "object"
+    },
+    "prompts": {
+      "type": "object"
+    },
+    "approvals": {
+      "type": "object"
+    },
+    "decisions": {
+      "type": "array"
+    }
+  },
+  "additionalProperties": true
+}

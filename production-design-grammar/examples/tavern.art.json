@@ -1,0 +1,854 @@
+{
+  "schema_version": "1.0",
+  "project_id": "TAVERN",
+  "revision": 1,
+  "canon": {
+    "uri": "local:fictional-example-TAVERN",
+    "revision": "demo-1"
+  },
+  "director": null,
+  "sources": [
+    {
+      "id": "D1",
+      "kind": "design",
+      "uri": "local:examples",
+      "locator": "TAVERN 本示例全部原创设计",
+      "claim": "演示合同的虚构设计，非用户批准素材、史实复原或实际媒体",
+      "verification": "inference"
+    }
+  ],
+  "brief": {
+    "world_mode": "historical",
+    "medium": "live_action",
+    "tags": [
+      "年代",
+      "生活",
+      "酒馆"
+    ],
+    "forbidden_styles": [],
+    "locked_style": null,
+    "secondary": null
+  },
+  "world": {
+    "thesis": "从独自进入到共桌接纳，以同一只碗的交接表达关系",
+    "era": "唐代意象启发的架空年代，非考古复原",
+    "region": "虚构内陆城镇",
+    "social_logic": "有限资源下的共同用餐空间，维修痕迹而非金饰表达生活",
+    "shape_language": "六根木柱、南门北炉，桌案尺度服务端碗与落座",
+    "palette": [
+      {
+        "id": "BASE",
+        "color": "灰褐",
+        "role": "环境底色"
+      },
+      {
+        "id": "ACCENT",
+        "color": "残朱",
+        "role": "器物与角色关系的重复强调"
+      }
+    ],
+    "materials": [
+      {
+        "id": "WOOD",
+        "base": "木",
+        "craft": "榫接木作",
+        "finish": "烟熏哑光",
+        "wear": "扶握处光滑、桌脚近地局部水迹"
+      },
+      {
+        "id": "CLOTH",
+        "base": "麻纤维",
+        "craft": "粗织",
+        "finish": "低光泽",
+        "wear": "袖口磨损而非全身平均污渍"
+      },
+      {
+        "id": "CERAMIC",
+        "base": "陶胎",
+        "craft": "拉坯烧制",
+        "finish": "薄灰釉",
+        "wear": "碗沿一处固定缺口"
+      }
+    ],
+    "color_script": [
+      {
+        "shot_ids": [
+          "S01",
+          "S02",
+          "S03"
+        ],
+        "palette_ids": [
+          "BASE",
+          "ACCENT"
+        ],
+        "change_reason": "在同一场景继承底色，关系由器物与空间表达，不逐镜换滤镜"
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "PILLAR",
+      "entity_id": null,
+      "name": "木柱",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "六根同形木柱，位置固定",
+      "identity_locks": [
+        "柱数6",
+        "方位固定"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "TABLE",
+      "entity_id": null,
+      "name": "桌案",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "三张木桌，主桌中央留交接面",
+      "identity_locks": [
+        "桌面高度0.75m",
+        "主桌位置固定"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "DOOR",
+      "entity_id": null,
+      "name": "南门",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "南墙入口",
+      "identity_locks": [
+        "南墙开口"
+      ],
+      "material_ids": [
+        "WOOD"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "HEARTH",
+      "entity_id": null,
+      "name": "北炉",
+      "kind": "set",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "北墙炉口，外沿防火石",
+      "identity_locks": [
+        "北墙固定"
+      ],
+      "material_ids": [
+        "CERAMIC"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "GUEST",
+      "entity_id": "GUEST",
+      "name": "剑客",
+      "kind": "character",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "成年，灰褐麻衣，左肩固定补片",
+      "identity_locks": [
+        "既定成年身份",
+        "补片在人物左肩"
+      ],
+      "material_ids": [
+        "CLOTH"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "HOST",
+      "entity_id": "HOST",
+      "name": "店主",
+      "kind": "character",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "成年，围裙残朱补片",
+      "identity_locks": [
+        "围裙补片与脸部身份稳定"
+      ],
+      "material_ids": [
+        "CLOTH"
+      ],
+      "initial_state": {
+        "condition": "stable"
+      },
+      "state_rules": [],
+      "graphic_text": null
+    },
+    {
+      "id": "BOWL",
+      "entity_id": null,
+      "name": "灰釉陶碗",
+      "kind": "prop",
+      "origin": "design_proposal",
+      "source_refs": [
+        "D1"
+      ],
+      "design": "灰釉陶碗，固定一处缺口",
+      "identity_locks": [
+        "形制与缺口不变"
+      ],
+      "material_ids": [
+        "CERAMIC"
+      ],
+      "initial_state": {
+        "holder": "table"
+      },
+      "state_rules": [
+        {
+          "field": "holder",
+          "allowed_values": [
+            "table",
+            "host",
+            "guest"
+          ]
+        }
+      ],
+      "graphic_text": null
+    }
+  ],
+  "set": {
+    "scene_id": "SC1",
+    "location_entity_id": null,
+    "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+    "origin": "室内地面中心，Z=0为地面",
+    "bounds": {
+      "min_m": [
+        -4,
+        -4,
+        0
+      ],
+      "max_m": [
+        4,
+        4,
+        4
+      ]
+    },
+    "layout": [
+      {
+        "id": "COL1",
+        "asset_id": "PILLAR",
+        "position_m": [
+          -2,
+          -2,
+          0
+        ],
+        "size_m": [
+          0.25,
+          0.25,
+          3.2
+        ],
+        "yaw_deg": 0,
+        "role": "承重柱"
+      },
+      {
+        "id": "COL2",
+        "asset_id": "PILLAR",
+        "position_m": [
+          2,
+          -2,
+          0
+        ],
+        "size_m": [
+          0.25,
+          0.25,
+          3.2
+        ],
+        "yaw_deg": 0,
+        "role": "承重柱"
+      },
+      {
+        "id": "COL3",
+        "asset_id": "PILLAR",
+        "position_m": [
+          -2,
+          0,
+          0
+        ],
+        "size_m": [
+          0.25,
+          0.25,
+          3.2
+        ],
+        "yaw_deg": 0,
+        "role": "承重柱"
+      },
+      {
+        "id": "COL4",
+        "asset_id": "PILLAR",
+        "position_m": [
+          2,
+          0,
+          0
+        ],
+        "size_m": [
+          0.25,
+          0.25,
+          3.2
+        ],
+        "yaw_deg": 0,
+        "role": "承重柱"
+      },
+      {
+        "id": "COL5",
+        "asset_id": "PILLAR",
+        "position_m": [
+          -2,
+          2,
+          0
+        ],
+        "size_m": [
+          0.25,
+          0.25,
+          3.2
+        ],
+        "yaw_deg": 0,
+        "role": "承重柱"
+      },
+      {
+        "id": "COL6",
+        "asset_id": "PILLAR",
+        "position_m": [
+          2,
+          2,
+          0
+        ],
+        "size_m": [
+          0.25,
+          0.25,
+          3.2
+        ],
+        "yaw_deg": 0,
+        "role": "承重柱"
+      },
+      {
+        "id": "T1",
+        "asset_id": "TABLE",
+        "position_m": [
+          0,
+          0,
+          0
+        ],
+        "size_m": [
+          1.2,
+          0.7,
+          0.75
+        ],
+        "yaw_deg": 0,
+        "role": "主桌"
+      },
+      {
+        "id": "T2",
+        "asset_id": "TABLE",
+        "position_m": [
+          -3,
+          1,
+          0
+        ],
+        "size_m": [
+          1.2,
+          0.7,
+          0.75
+        ],
+        "yaw_deg": 0,
+        "role": "副桌"
+      },
+      {
+        "id": "T3",
+        "asset_id": "TABLE",
+        "position_m": [
+          3,
+          1,
+          0
+        ],
+        "size_m": [
+          1.2,
+          0.7,
+          0.75
+        ],
+        "yaw_deg": 0,
+        "role": "副桌"
+      },
+      {
+        "id": "ENTRANCE",
+        "asset_id": "DOOR",
+        "position_m": [
+          0,
+          -4,
+          0
+        ],
+        "size_m": [
+          1.2,
+          0.15,
+          2.2
+        ],
+        "yaw_deg": 0,
+        "role": "南入口"
+      },
+      {
+        "id": "FIRE",
+        "asset_id": "HEARTH",
+        "position_m": [
+          0,
+          3.8,
+          0
+        ],
+        "size_m": [
+          1.2,
+          0.4,
+          1
+        ],
+        "yaw_deg": 0,
+        "role": "北炉"
+      }
+    ],
+    "counts": [
+      {
+        "asset_id": "PILLAR",
+        "count": 6
+      },
+      {
+        "asset_id": "TABLE",
+        "count": 3
+      }
+    ],
+    "functional_zones": [
+      {
+        "id": "ENTRY_CLEAR",
+        "min_m": [
+          -0.6,
+          -3.8,
+          0
+        ],
+        "max_m": [
+          0.6,
+          -0.8,
+          2.2
+        ],
+        "purpose": "入口至主桌的通行区域，人工审查家具不得侵占"
+      }
+    ],
+    "practical_lights": [
+      {
+        "id": "FIRE_LIGHT",
+        "position_m": [
+          0,
+          3.8,
+          0.5
+        ],
+        "source": "北炉火",
+        "color": "低饱和暖橙",
+        "art_purpose": "器物边缘提供局部暖色，不把所有镜头统一染黄"
+      }
+    ],
+    "atmosphere": "不遮蔽动作的薄烟，仅为美术建议"
+  },
+  "events": [
+    {
+      "id": "LIFT",
+      "shot_id": "S02",
+      "order": 0,
+      "asset_id": "BOWL",
+      "field": "holder",
+      "before": "table",
+      "after": "host",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "trigger": "示例故事要求店主端起碗，手托碗底建立新支撑"
+    },
+    {
+      "id": "PASS",
+      "shot_id": "S03",
+      "order": 0,
+      "asset_id": "BOWL",
+      "field": "holder",
+      "before": "host",
+      "after": "guest",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "trigger": "示例故事要求剑客接稳后店主松手"
+    }
+  ],
+  "shots": [
+    {
+      "id": "S01",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "visible_assets": [
+        "PILLAR",
+        "TABLE",
+        "DOOR",
+        "HEARTH",
+        "GUEST",
+        "BOWL"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "GUEST",
+        "background": "门与柱建立层次，缺口陶碗保持在主桌，不显示后续持碗状态",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": []
+    },
+    {
+      "id": "S02",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "visible_assets": [
+        "TABLE",
+        "HOST",
+        "BOWL"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "BOWL",
+        "background": "台面留空，围裙残朱补片与陶碗建立视觉联系",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [],
+      "relative_relations": []
+    },
+    {
+      "id": "S03",
+      "director_pointer": null,
+      "source_refs": [
+        "D1"
+      ],
+      "visible_assets": [
+        "TABLE",
+        "HOST",
+        "GUEST",
+        "BOWL"
+      ],
+      "required_references": [],
+      "composition_support": {
+        "focal_asset": "BOWL",
+        "background": "交接区不添花瓶，灰衣与深木背景区分",
+        "separation": "关键主体与背景保持明度及纹理频率区分，不擅自改变导演景别",
+        "negative_space": "动作与视线所需空间不堆置新装饰",
+        "occlusion": "检查起中末帧的关键接触面与所需可见部位"
+      },
+      "performance_support": [
+        {
+          "entity_id": "GUEST",
+          "required_parts": [
+            "face",
+            "hands"
+          ],
+          "wardrobe_makeup": "保持左肩补片，不让袖口遮手",
+          "background": "脸后低频墙面"
+        }
+      ],
+      "relative_relations": []
+    }
+  ],
+  "references": [],
+  "contract": {
+    "id": "ART_TAVERN",
+    "version": 1,
+    "scope": "虚构示例的美术前期合同；不包含真实生成或既有批准",
+    "deliverables": [
+      "Visual Bible",
+      "资产与参考计划",
+      "逐镜美术补充",
+      "合同与验收待办"
+    ],
+    "clauses": [
+      {
+        "id": "WORLD",
+        "requirement": "保持所定义的世界形态、色材和场景布局；坐标是设计意图，实际布局须审图",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/world",
+          "/set"
+        ],
+        "shot_ids": [],
+        "check_ids": [
+          "G0INPUT",
+          "G1DESIGN",
+          "G2MAP",
+          "G4FINAL"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_S01",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/shots/0",
+          "/assets/0",
+          "/assets/1",
+          "/assets/2",
+          "/assets/3",
+          "/assets/4",
+          "/assets/6"
+        ],
+        "shot_ids": [
+          "S01"
+        ],
+        "check_ids": [
+          "QA_S01"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_S02",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/shots/1",
+          "/assets/1",
+          "/assets/5",
+          "/assets/6"
+        ],
+        "shot_ids": [
+          "S02"
+        ],
+        "check_ids": [
+          "QA_S02"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "ART_S03",
+        "requirement": "保持本镜所列可见资产及其不可改特征；按既定镜头保证关键部位和接触面可读",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/shots/2",
+          "/assets/1",
+          "/assets/4",
+          "/assets/5",
+          "/assets/6"
+        ],
+        "shot_ids": [
+          "S03"
+        ],
+        "check_ids": [
+          "QA_S03"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将对应字段与本条要求送入逐镜美术交接，宿主合并后核对并审实际结果",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "STATE_LIFT",
+        "requirement": "示例故事要求店主端起碗，手托碗底建立新支撑；BOWL 的 holder 由 table 变为 host，只能在本镜发生",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/events/0"
+        ],
+        "shot_ids": [
+          "S02"
+        ],
+        "check_ids": [
+          "QA_S02"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "视频阶段依据导演原事件制作并核对起中末状态；关键帧仅取初态",
+          "reference_ids": []
+        }
+      },
+      {
+        "id": "STATE_PASS",
+        "requirement": "示例故事要求剑客接稳后店主松手；BOWL 的 holder 由 host 变为 guest，只能在本镜发生",
+        "priority": "hard",
+        "source_refs": [
+          "D1"
+        ],
+        "paths": [
+          "/events/1"
+        ],
+        "shot_ids": [
+          "S03"
+        ],
+        "check_ids": [
+          "QA_S03"
+        ],
+        "change_policy": "explicit_revision",
+        "execution": {
+          "channel": "prompt",
+          "instruction": "视频阶段依据导演原事件制作并核对起中末状态；关键帧仅取初态",
+          "reference_ids": []
+        }
+      }
+    ],
+    "checks": [
+      {
+        "id": "G0INPUT",
+        "gate": "G0",
+        "scope": "project",
+        "method": "static",
+        "predicate": "来源、身份、版本和字段指针正确；推演未伪装成观察事实",
+        "evidence_required": "输入来源核对记录与校验结果",
+        "owner": "art_planner",
+        "blocking": true
+      },
+      {
+        "id": "G1DESIGN",
+        "gate": "G1",
+        "scope": "project",
+        "method": "static",
+        "predicate": "布局、资产和可读性条件与导演/用户约束一致",
+        "evidence_required": "布局及部门联合评审记录",
+        "owner": "art_director",
+        "blocking": true
+      },
+      {
+        "id": "G2MAP",
+        "gate": "G2",
+        "scope": "project",
+        "method": "static",
+        "predicate": "每条要求都有具体任务和可用依赖，未静默丢失",
+        "evidence_required": "编译覆盖表与宿主入口核对记录",
+        "owner": "host_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_S01",
+        "gate": "G3",
+        "scope": "S01",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_S02",
+        "gate": "G3",
+        "scope": "S02",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "QA_S03",
+        "gate": "G3",
+        "scope": "S03",
+        "method": "frame_review",
+        "predicate": "该镜的资产锚点、世界布局、材质、遮挡与所需表情/接触面满足逐镜美术条件；状态变化有可见依据",
+        "evidence_required": "实际素材及哈希、起中末帧/关键交接时间码、具名审查观察",
+        "owner": "visual_reviewer",
+        "blocking": true
+      },
+      {
+        "id": "G4FINAL",
+        "gate": "G4",
+        "scope": "project",
+        "method": "playback",
+        "predicate": "跨镜资产、色材、方位和状态保持一致；准确文字无误；与本项目合同逐条比对",
+        "evidence_required": "最终媒体文件/哈希与完整审核记录",
+        "owner": "final_reviewer",
+        "blocking": true
+      }
+    ],
+    "execution": {
+      "mode": "plan_only",
+      "authorization_ref": null,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "max_attempts_per_job": 2,
+      "stop_conditions": [
+        "没有外部生成授权时仅交付本地计划",
+        "失败达到上限或硬要求无法保留时停止依赖执行"
+      ]
+    }
+  }
+}

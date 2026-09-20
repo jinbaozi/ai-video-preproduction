@@ -1,0 +1,7 @@
+interface:
+  display_name: "导演语法与制作合同"
+  short_description: "将导演意图编译为可追溯的镜头、空间、表演和平台制作合同"
+  default_prompt: "使用 $director-grammar，根据我的素材和目标设计镜头，选择合适风格，生成制作合同、平台提示词与验收条件。"
+
+policy:
+  allow_implicit_invocation: true

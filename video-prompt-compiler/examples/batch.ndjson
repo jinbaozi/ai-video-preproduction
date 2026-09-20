@@ -1,0 +1,10 @@
+{"input": "teahouse.avir.json", "target": "seedance2.0", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "seedance2.5", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "agnes-video-2.5", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "agnes-video-2.5-flash", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "kling-v3", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "kling-v3-omni", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "minimax-h3", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "veo3.1", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "wan3.0", "mode": "text"}
+{"input": "teahouse.avir.json", "target": "runway-gen4.5", "mode": "text"}

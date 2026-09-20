@@ -1,0 +1,774 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "example-cafe-001",
+  "versions": {
+    "skill": "1.2.0",
+    "compiler": "agent-icir-1.0",
+    "packs": [
+      "spatial-performance/1.0",
+      "image-finish-contract/1.0"
+    ]
+  },
+  "sources": [
+    {
+      "id": "U1",
+      "kind": "user",
+      "locator": "fictional-example://request",
+      "excerpt": "一张4:5竖幅写实咖啡馆照片，只有两名虚构成年人。A穿红外套坐画面左侧，B穿蓝外套坐右侧。A右手握住白杯杯柄，杯底仍放在桌上；A强忍委屈看着B，B静静看着A。台词A：“我没事。”仅作表演上下文，不画文字。窗外逆光，脸部可辨，背景柔和虚化。去异常彩色噪点，保留自然肤质，不改变服装颜色。只输出提示词与制作合同。",
+      "sha256": null,
+      "reviewed": true
+    },
+    {
+      "id": "A1",
+      "kind": "assumption",
+      "locator": "fictional-example://design-assumptions",
+      "excerpt": "创作默认：中景腰部取景、桌边平视；B双手松放桌边；室内反射补光；五官表演细节与窗外高光保护。此为合成示例，非真实用户/素材。",
+      "sha256": null,
+      "reviewed": true
+    }
+  ],
+  "icir": {
+    "locale": "zh-CN",
+    "intent": "一张4:5竖幅写实咖啡馆照片，只有两名虚构成年人。A穿红外套坐画面左侧，B穿蓝外套坐右侧。A右手握住白杯杯柄，杯底仍放在桌上；A强忍委屈看着B，B静静看着A。台词A：“我没事。”仅作表演上下文，不画文字。窗外逆光，脸部可辨，背景柔和虚化。去异常彩色噪点，保留自然肤质，不改变服装颜色。只输出提示词与制作合同。",
+    "mode": "text_to_image",
+    "entities": [
+      {
+        "id": "A",
+        "kind": "person",
+        "description": "虚构成年人，红外套",
+        "source_ids": [
+          "U1"
+        ]
+      },
+      {
+        "id": "B",
+        "kind": "person",
+        "description": "虚构成年人，蓝外套",
+        "source_ids": [
+          "U1"
+        ]
+      },
+      {
+        "id": "CUP",
+        "kind": "object",
+        "description": "白杯",
+        "source_ids": [
+          "U1"
+        ]
+      },
+      {
+        "id": "TABLE",
+        "kind": "scene_anchor",
+        "description": "咖啡桌",
+        "source_ids": [
+          "U1"
+        ]
+      }
+    ],
+    "references": [],
+    "frames": [
+      {
+        "id": "F1",
+        "entity_ids": [
+          "A",
+          "B",
+          "CUP",
+          "TABLE"
+        ],
+        "scene": "咖啡馆，背后窗户",
+        "moment": "A刚说完话，右手仍握杯柄，杯底仍在桌上",
+        "composition": "4:5竖幅，A左B右，隔桌相对",
+        "camera": {
+          "viewpoint": "桌边平视",
+          "framing": "中景至腰部",
+          "equipment_intent": "未指定器材参数",
+          "derived_visual_intent": "自然人物比例",
+          "focus_depth": "两人面部可读，远背景柔和虚化"
+        },
+        "performance": [
+          {
+            "entity_id": "A",
+            "position": "画面左侧",
+            "action": "右手握杯柄，杯底仍在桌上",
+            "gaze": "B",
+            "support_contact": "杯底由桌面承重",
+            "emotion": "隐忍委屈",
+            "micro_expression": "眉内侧轻收、唇线刚闭合、下颌略绷住"
+          },
+          {
+            "entity_id": "B",
+            "position": "画面右侧",
+            "action": "双手松放桌边",
+            "gaze": "A"
+          }
+        ],
+        "lighting": {
+          "key": "背后窗光",
+          "fill": "室内柔和反射光",
+          "backlight": "靠窗侧发丝及肩线轮廓",
+          "exposure_intent": "脸部可辨，窗外高光克制"
+        },
+        "color": {
+          "palette": "红蓝外套与低饱和环境",
+          "protected_colors": [
+            "红外套",
+            "蓝外套",
+            "自然肤色"
+          ]
+        },
+        "quality": {
+          "realism": "自然摄影",
+          "detail_budget": "中景关注表情、握持和衣料层次",
+          "denoise_targets": [
+            "阴影异常彩色噪点"
+          ],
+          "preserve_texture": [
+            "自然皮肤纹理",
+            "衣料层次"
+          ]
+        }
+      }
+    ],
+    "relations": [
+      {
+        "frame_id": "F1",
+        "from": "A",
+        "relation": "left_of",
+        "to": "B",
+        "coordinate_system": "screen",
+        "description": "A左B右"
+      },
+      {
+        "frame_id": "F1",
+        "from": "A",
+        "relation": "holds",
+        "to": "CUP",
+        "coordinate_system": "screen",
+        "description": "A右手握杯柄"
+      },
+      {
+        "frame_id": "F1",
+        "from": "TABLE",
+        "relation": "supports",
+        "to": "CUP",
+        "coordinate_system": "screen",
+        "description": "杯底接触桌面并承重"
+      },
+      {
+        "frame_id": "F1",
+        "from": "A",
+        "relation": "looks_at",
+        "to": "B",
+        "coordinate_system": "screen",
+        "description": "A看着B"
+      },
+      {
+        "frame_id": "F1",
+        "from": "B",
+        "relation": "looks_at",
+        "to": "A",
+        "coordinate_system": "screen",
+        "description": "B看着A"
+      }
+    ],
+    "texts": [
+      {
+        "id": "T1",
+        "frame_id": "F1",
+        "kind": "dialogue",
+        "speaker_id": "A",
+        "content": "我没事。",
+        "channel": "context_only",
+        "placement": null,
+        "source_ids": [
+          "U1"
+        ]
+      }
+    ],
+    "output": {
+      "aspect_ratio": "4:5",
+      "requested_pixels": null,
+      "delivered_pixels": null,
+      "native_resolution": "unknown",
+      "crop_safe_area": "脸与杯子完整入画",
+      "format": null
+    }
+  },
+  "facts": [
+    {
+      "path": "/icir/frames/0/entity_ids",
+      "value": [
+        "A",
+        "B",
+        "CUP",
+        "TABLE"
+      ],
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/entities/0/description",
+      "value": "虚构成年人，红外套",
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/entities/1/description",
+      "value": "虚构成年人，蓝外套",
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/relations/0",
+      "value": {
+        "frame_id": "F1",
+        "from": "A",
+        "relation": "left_of",
+        "to": "B",
+        "coordinate_system": "screen",
+        "description": "A左B右"
+      },
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/frames/0/performance/0/action",
+      "value": "右手握杯柄，杯底仍在桌上",
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/texts/0",
+      "value": {
+        "id": "T1",
+        "frame_id": "F1",
+        "kind": "dialogue",
+        "speaker_id": "A",
+        "content": "我没事。",
+        "channel": "context_only",
+        "placement": null,
+        "source_ids": [
+          "U1"
+        ]
+      },
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/output/aspect_ratio",
+      "value": "4:5",
+      "origin": "explicit",
+      "source_ids": [
+        "U1"
+      ],
+      "reason": "从示例原话提取"
+    },
+    {
+      "path": "/icir/frames/0/quality/denoise_targets",
+      "value": [
+        "阴影异常彩色噪点"
+      ],
+      "origin": "derived",
+      "source_ids": [
+        "U1",
+        "A1"
+      ],
+      "reason": "按原需求保留；复合字段含用于执行的场景推导"
+    },
+    {
+      "path": "/icir/frames/0/lighting/exposure_intent",
+      "value": "脸部可辨，窗外高光克制",
+      "origin": "derived",
+      "source_ids": [
+        "U1",
+        "A1"
+      ],
+      "reason": "按原需求保留；复合字段含用于执行的场景推导"
+    },
+    {
+      "path": "/icir/frames/0/camera",
+      "value": {
+        "viewpoint": "桌边平视",
+        "framing": "中景至腰部",
+        "equipment_intent": "未指定器材参数",
+        "derived_visual_intent": "自然人物比例",
+        "focus_depth": "两人面部可读，远背景柔和虚化"
+      },
+      "origin": "assumed",
+      "source_ids": [
+        "A1"
+      ],
+      "reason": "未指定景别，按互动可读性选择中景"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "H1",
+      "level": "hard",
+      "requirement": "只有A、B两名人物；白杯和桌子归属明确",
+      "path": "/icir/frames/0/entity_ids",
+      "value": [
+        "A",
+        "B",
+        "CUP",
+        "TABLE"
+      ],
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H2",
+      "level": "hard",
+      "requirement": "A的身份与红外套不变",
+      "path": "/icir/entities/0/description",
+      "value": "虚构成年人，红外套",
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H3",
+      "level": "hard",
+      "requirement": "B的身份与蓝外套不变",
+      "path": "/icir/entities/1/description",
+      "value": "虚构成年人，蓝外套",
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H4",
+      "level": "hard",
+      "requirement": "A在B的画面左侧",
+      "path": "/icir/relations/0",
+      "value": {
+        "frame_id": "F1",
+        "from": "A",
+        "relation": "left_of",
+        "to": "B",
+        "coordinate_system": "screen",
+        "description": "A左B右"
+      },
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H5",
+      "level": "hard",
+      "requirement": "握持动作和支撑成立",
+      "path": "/icir/frames/0/performance/0/action",
+      "value": "右手握杯柄，杯底仍在桌上",
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H6",
+      "level": "hard",
+      "requirement": "台词精确归A，仅为上下文，不渲染文字",
+      "path": "/icir/texts/0",
+      "value": {
+        "id": "T1",
+        "frame_id": "F1",
+        "kind": "dialogue",
+        "speaker_id": "A",
+        "content": "我没事。",
+        "channel": "context_only",
+        "placement": null,
+        "source_ids": [
+          "U1"
+        ]
+      },
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H7",
+      "level": "hard",
+      "requirement": "竖幅4:5",
+      "path": "/icir/output/aspect_ratio",
+      "value": "4:5",
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H8",
+      "level": "hard",
+      "requirement": "去异常彩噪，保留自然纹理",
+      "path": "/icir/frames/0/quality/denoise_targets",
+      "value": [
+        "阴影异常彩色噪点"
+      ],
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H9",
+      "level": "hard",
+      "requirement": "逆光且脸部可辨",
+      "path": "/icir/frames/0/lighting/exposure_intent",
+      "value": "脸部可辨，窗外高光克制",
+      "source_ids": [
+        "U1"
+      ]
+    },
+    {
+      "id": "H10",
+      "level": "hard",
+      "requirement": "两人互相注视，A隐忍委屈，B安静回应",
+      "path": "/icir/relations/3",
+      "value": {
+        "frame_id": "F1",
+        "from": "A",
+        "relation": "looks_at",
+        "to": "B",
+        "coordinate_system": "screen",
+        "description": "A看着B"
+      },
+      "source_ids": [
+        "U1"
+      ]
+    }
+  ],
+  "compilations": [
+    {
+      "id": "OUT1",
+      "target": "通用自然语言（未选择生成模型）",
+      "surface": "generic",
+      "adapter_version": "generic/1.0",
+      "status": "READY",
+      "prompt": "生成一张4:5竖幅写实咖啡馆照片，画面只有两名虚构成年人，A穿红外套坐在画面左侧，B穿蓝外套坐在画面右侧，隔桌相对。桌边中景，取景至腰部，机位接近坐姿眼高，两人面部处于可读的清晰区，远处咖啡馆背景柔和虚化。A右手握白杯杯柄，杯底仍放在桌面，重量由桌面支撑；B双手松放桌边。A看着B，眉内侧轻收、唇线刚闭合、下颌略绷住，握杯的手保持稳定；B安静看着A。背后窗光勾勒靠窗侧发丝和肩线，面部由室内柔和反射光照亮，保留五官层次，窗外高光克制。保护红、蓝外套固有色和自然肤色，仅降低阴影中的异常彩色噪点，保留自然皮肤纹理和衣料层次，不新增胶片颗粒。画面不渲染任何文字。",
+      "negative_prompt": null,
+      "native_params": {},
+      "capability": {
+        "status": "unknown",
+        "checked_at": null,
+        "source_ids": [],
+        "negative_mode": "unknown",
+        "allowed_native_params": []
+      },
+      "constraint_clauses": {
+        "H1": "画面只有两名虚构成年人",
+        "H2": "A穿红外套坐在画面左侧",
+        "H3": "B穿蓝外套坐在画面右侧",
+        "H4": "A穿红外套坐在画面左侧，B穿蓝外套坐在画面右侧",
+        "H5": "A右手握白杯杯柄，杯底仍放在桌面，重量由桌面支撑",
+        "H6": "画面不渲染任何文字",
+        "H7": "4:5竖幅",
+        "H8": "仅降低阴影中的异常彩色噪点，保留自然皮肤纹理和衣料层次",
+        "H9": "背后窗光勾勒靠窗侧发丝和肩线，面部由室内柔和反射光照亮，保留五官层次",
+        "H10": "A看着B，眉内侧轻收、唇线刚闭合、下颌略绷住，握杯的手保持稳定；B安静看着A"
+      },
+      "trace": [
+        {
+          "operation": "derive",
+          "path": "/icir/frames/0/performance",
+          "reason": "将隐忍转为眉、唇、下颌与握持张力；不新增哭泣或剧情"
+        },
+        {
+          "operation": "preserve",
+          "path": "/icir/texts/0",
+          "reason": "保留台词和说话人作上下文，正文仅编译其表演与禁止画字要求"
+        }
+      ],
+      "warnings": [
+        "这是合成示例，未生成图像；所有验收结果等待实际执行。"
+      ]
+    }
+  ],
+  "execution": [
+    {
+      "id": "S1",
+      "owner": "optimizer-agent",
+      "action": "编译并检查正文与制作合同",
+      "depends_on": [],
+      "inputs": [
+        "U1"
+      ],
+      "outputs": [
+        "production-contract.json",
+        "prompt.md"
+      ],
+      "status": "DONE",
+      "stop_condition": "存在硬冲突则阻断受影响输出"
+    },
+    {
+      "id": "S2",
+      "owner": "downstream-image-runtime",
+      "action": "按用户后续授权生成",
+      "depends_on": [
+        "S1"
+      ],
+      "inputs": [
+        "prompt.md"
+      ],
+      "outputs": [
+        "generated-image"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "无用户生成请求/工具时不执行"
+    },
+    {
+      "id": "S3",
+      "owner": "visual-reviewer",
+      "action": "取得成品后验收",
+      "depends_on": [
+        "S2"
+      ],
+      "inputs": [
+        "generated-image"
+      ],
+      "outputs": [
+        "visual-review"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "没有结果图不能完成视觉验收"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "CH1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "只有A、B两名人物；白杯和桌子归属明确",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "只有A、B两名人物；白杯和桌子归属明确",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "A的身份与红外套不变",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "A的身份与红外套不变",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "B的身份与蓝外套不变",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "B的身份与蓝外套不变",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "A在B的画面左侧",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "A在B的画面左侧",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "握持动作和支撑成立",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "握持动作和支撑成立",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH6",
+      "constraint_ids": [
+        "H6"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "台词精确归A，仅为上下文，不渲染文字",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH6",
+      "constraint_ids": [
+        "H6"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "台词精确归A，仅为上下文，不渲染文字",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH7",
+      "constraint_ids": [
+        "H7"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "竖幅4:5",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH7",
+      "constraint_ids": [
+        "H7"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "竖幅4:5",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH8",
+      "constraint_ids": [
+        "H8"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "去异常彩噪，保留自然纹理",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH8",
+      "constraint_ids": [
+        "H8"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "去异常彩噪，保留自然纹理",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "CH9",
+      "constraint_ids": [
+        "H9"
+      ],
+      "stage": "static",
+      "method": "原文/IR/正文逐条对照",
+      "expected": "逆光且脸部可辨",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "VH9",
+      "constraint_ids": [
+        "H9"
+      ],
+      "stage": "visual",
+      "method": "取得图像后人工检查；画幅同时读取像素；文字先OCR提取再人工逐字核对",
+      "expected": "逆光且脸部可辨",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "staticH10",
+      "constraint_ids": [
+        "H10"
+      ],
+      "stage": "static",
+      "method": "对照双人视线与表演要求",
+      "expected": "两人互相注视，A隐忍委屈，B安静回应",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "visualH10",
+      "constraint_ids": [
+        "H10"
+      ],
+      "stage": "visual",
+      "method": "对照双人视线与表演要求",
+      "expected": "两人互相注视，A隐忍委屈，B安静回应",
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "unresolved": []
+}

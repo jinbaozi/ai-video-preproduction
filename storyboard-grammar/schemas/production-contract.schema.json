@@ -1,0 +1,177 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://storyboard-grammar.local/production-contract.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "storyboard-contract/1.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "input_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/requirement"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "project_id",
+    "input_hash",
+    "requirements"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "requirement": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+        },
+        "statement": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "minItems": 1
+        },
+        "owner": {
+          "enum": [
+            "canon",
+            "director",
+            "art",
+            "storyboard",
+            "camera",
+            "sound",
+            "edit",
+            "host"
+          ]
+        },
+        "strength": {
+          "enum": [
+            "hard",
+            "soft"
+          ]
+        },
+        "shot_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "minItems": 0
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/check"
+          },
+          "minItems": 1
+        },
+        "channel": {
+          "enum": [
+            "prompt",
+            "parameter",
+            "reference",
+            "previs",
+            "post"
+          ]
+        },
+        "execution": {
+          "type": "string",
+          "minLength": 1
+        },
+        "acceptance": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "phase": {
+                "enum": [
+                  "structure",
+                  "panel",
+                  "media",
+                  "human"
+                ]
+              },
+              "criterion": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "phase",
+              "criterion",
+              "evidence"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        },
+        "fallback": {
+          "enum": [
+            "block",
+            "revise",
+            "post",
+            "warn"
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "statement",
+        "source_refs",
+        "owner",
+        "strength",
+        "shot_ids",
+        "checks",
+        "channel",
+        "execution",
+        "acceptance",
+        "fallback"
+      ],
+      "additionalProperties": false
+    },
+    "check": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "op": {
+          "enum": [
+            "equals",
+            "contains",
+            "exists"
+          ]
+        },
+        "value": {}
+      },
+      "required": [
+        "path",
+        "op",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

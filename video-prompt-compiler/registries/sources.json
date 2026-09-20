@@ -1,0 +1,110 @@
+{
+  "version": "2026.09.19.1",
+  "report": {
+    "path": "references/research/deep-research-report.md",
+    "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6",
+    "conversation_id": "6aade506-ff64-83e8-800d-5405e3b993e5",
+    "status": "READ",
+    "citation_boundary": "原报告的turn引用无法独立解析；上列URL为本次补核的一手来源。"
+  },
+  "sources": [
+    {
+      "id": "SEED20",
+      "kind": "official_model",
+      "url": "https://seed.bytedance.com/en/seedance2_0",
+      "checked_at": "2026-09-19",
+      "claim": "统一多模态输入及音视频联合生成；产品概述不是渠道 API 契约。"
+    },
+    {
+      "id": "SEED20_PAPER",
+      "kind": "official_research",
+      "url": "https://arxiv.org/abs/2604.14148",
+      "checked_at": "2026-09-19",
+      "claim": "2.0 技术报告；模型配置不自动继承为任意入口能力。"
+    },
+    {
+      "id": "SEED25",
+      "kind": "official_model",
+      "url": "https://seed.bytedance.com/en/blog/one-take-creation-flexible-referencing-introducing-seedance-2-5",
+      "checked_at": "2026-09-19",
+      "claim": "2.5 单次最长30秒、多模态参考、白模与时间定位编辑；产品参考上限不当作 API 上限。"
+    },
+    {
+      "id": "AGNES25",
+      "kind": "official_docs",
+      "url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25",
+      "checked_at": "2026-09-19",
+      "claim": "国际站 API：4至12秒；图片8、视频1、音频3，总数12；参考语法及模式互斥。"
+    },
+    {
+      "id": "AGNES_FLASH",
+      "kind": "official_docs",
+      "url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash",
+      "checked_at": "2026-09-19",
+      "claim": "Flash：720P、图片5、音频3、无视频参考，其余继承2.5公共接口。"
+    },
+    {
+      "id": "KLING3",
+      "kind": "official_docs",
+      "url": "https://kling.ai/quickstart/klingai-video-3-model-user-guide",
+      "checked_at": "2026-09-19",
+      "claim": "3.0 原生音画、分镜与元素一致性，最长15秒；未核验当前账户 UI 槽位。"
+    },
+    {
+      "id": "KLING_OMNI",
+      "kind": "official_docs",
+      "url": "https://kling.ai/quickstart/klingai-video-3-omni-model-user-guide",
+      "checked_at": "2026-09-19",
+      "claim": "Omni 的多模态元素与参考工作流；不借用普通 V3 的载荷。"
+    },
+    {
+      "id": "H3",
+      "kind": "official_model",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+      "checked_at": "2026-09-19",
+      "claim": "Context-IR 是未完全开源的托管预处理；Base 与 Regenerate 分层。本包无官方序列化兼容声明。"
+    },
+    {
+      "id": "VEO31",
+      "kind": "official_docs",
+      "url": "https://ai.google.dev/gemini-api/docs/veo?hl=en",
+      "checked_at": "2026-09-19",
+      "claim": "4/6/8秒；参考图或1080p/4k需8秒，扩展720p；具体操作独立适配。"
+    },
+    {
+      "id": "RUNWAY",
+      "kind": "official_docs",
+      "url": "https://docs.dev.runwayml.com/api/",
+      "checked_at": "2026-09-19",
+      "claim": "API目录已读取；具体Gen-4.5参数与限制需要补查，不能从报告伪造当前API验证。"
+    },
+    {
+      "id": "WAN",
+      "kind": "unverified",
+      "url": "https://wan.video/",
+      "checked_at": "2026-09-19",
+      "claim": "官网正文未能读取；报告中的Wan3.0信息保留为待核验候选。"
+    },
+    {
+      "id": "OPEN_H3",
+      "kind": "community_project",
+      "url": "https://github.com/ruashots/open-h3-ir",
+      "checked_at": "2026-09-19",
+      "claim": "独立本地Context-IR实现，借鉴分层响应、validator和引用关系，不复制代码或默认扩写策略。"
+    },
+    {
+      "id": "DSPY",
+      "kind": "project_primary",
+      "url": "https://github.com/stanfordnlp/dspy",
+      "checked_at": "2026-09-19",
+      "claim": "可借鉴离线优化程序与下游评估；不是视频后端适配器。"
+    },
+    {
+      "id": "VBENCH",
+      "kind": "project_primary",
+      "url": "https://github.com/Vchitect/VBench",
+      "checked_at": "2026-09-19",
+      "claim": "多维视频评测作为真实生成后的可选评估；静态编译不能产生这些分数。"
+    }
+  ]
+}

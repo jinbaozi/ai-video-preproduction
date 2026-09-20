@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://production-design-grammar.local/handoff.schema.json",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "kind": {
+      "const": "OFFLINE_HANDOFF_NOT_API_REQUEST"
+    },
+    "art_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "target": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "PLANNED",
+        "BLOCKED"
+      ]
+    },
+    "execution_implemented": {
+      "const": false
+    },
+    "runnable": {
+      "const": false
+    },
+    "api_submission_allowed": {
+      "const": false
+    },
+    "submitted": {
+      "const": false
+    },
+    "blockers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "director_context": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "art_support": {
+            "type": "object"
+          },
+          "state_before": {
+            "type": "object"
+          },
+          "state_after": {
+            "type": "object"
+          },
+          "events": {
+            "type": "array"
+          },
+          "reference_bindings": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "id",
+          "director_context",
+          "art_support",
+          "state_before",
+          "state_after",
+          "events",
+          "reference_bindings"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "clause_id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "channel": {
+            "enum": [
+              "prompt",
+              "reference",
+              "post",
+              "review"
+            ]
+          },
+          "instruction": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reference_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0,
+            "uniqueItems": true
+          },
+          "check_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "clause_id",
+          "channel",
+          "instruction",
+          "reference_ids",
+          "check_ids"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema_version",
+    "kind",
+    "art_sha256",
+    "target",
+    "status",
+    "execution_implemented",
+    "runnable",
+    "api_submission_allowed",
+    "submitted",
+    "blockers",
+    "shots",
+    "tasks"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,237 @@
+{
+  "archive": "storyboard-grammar.skill",
+  "archive_sha256": "54bec863e46c735a0d84aa43d522f65e84aa99f6eb8250586e9ebbb2de6e8966",
+  "file_count": 57,
+  "files": {
+    "storyboard-grammar/SKILL.md": {
+      "bytes": 7426,
+      "sha256": "45786a64796d5b27ab8d7090adfd32e4fa3a3d0c46be7069e9c3a5416bb4416d"
+    },
+    "storyboard-grammar/agents/openai.yaml": {
+      "bytes": 390,
+      "sha256": "71bb3d7fb24504df529b3b88551e279f72877def38ff35d7279f80774c506160"
+    },
+    "storyboard-grammar/examples/cafe.ir.json": {
+      "bytes": 53410,
+      "sha256": "6d23e71f5475d81aea86d2cbfd3dc5e571c671c050c86b9d6bdc2417ff0902af"
+    },
+    "storyboard-grammar/examples/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "storyboard-grammar/examples/missing-reference.ir.json": {
+      "bytes": 53926,
+      "sha256": "18f61299144387300a9c9eb2b94e7eddc83251b3700f030f5af819cb140f62a7"
+    },
+    "storyboard-grammar/examples/product.ir.json": {
+      "bytes": 11903,
+      "sha256": "a2dcc764c7725ae81edb965d336ad7f231f4aa4d4636eb22b29a9097eb1a4a1b"
+    },
+    "storyboard-grammar/examples/product.source.txt": {
+      "bytes": 250,
+      "sha256": "98905b4cf49e11a94f0afc9b930e2a7a7482bce0ad328f16978992e140a52544"
+    },
+    "storyboard-grammar/examples/v51/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "storyboard-grammar/examples/v51/storyboard.json": {
+      "bytes": 134041,
+      "sha256": "50fafc11d2640cda29204b175885756752a9fd17503e7b4b7831704d4d5ce9ff"
+    },
+    "storyboard-grammar/examples/v52/cafe.source.txt": {
+      "bytes": 309,
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817"
+    },
+    "storyboard-grammar/examples/v52/storyboard.json": {
+      "bytes": 203570,
+      "sha256": "8c2338dc866014ee7be3ba4770f16d25a89d43377c82e4edaab9df5196b6c06d"
+    },
+    "storyboard-grammar/references/audio.md": {
+      "bytes": 2372,
+      "sha256": "fd8c37c72271032c532d8ddbc6697d653ea7eb270f8acb1d0ded67a7d88f23e2"
+    },
+    "storyboard-grammar/references/compilation.md": {
+      "bytes": 2816,
+      "sha256": "f39b8cece9defa17d62dd5928f47612f05ea637ab8269053cbf6ee5a6d179563"
+    },
+    "storyboard-grammar/references/continuity-and-qa.md": {
+      "bytes": 3093,
+      "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3"
+    },
+    "storyboard-grammar/references/conversation-plan.md": {
+      "bytes": 23369,
+      "sha256": "cae09336db49025604c3d8e90b30282e95a79f6636c53f2bce4fbfe7ad0d7bad"
+    },
+    "storyboard-grammar/references/cooperation-v5.md": {
+      "bytes": 2279,
+      "sha256": "019134c7af9de7da115c680397878e9f6835a2db6cc819e37ebf353dd57c8866"
+    },
+    "storyboard-grammar/references/detail-contract-v51.md": {
+      "bytes": 8138,
+      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "storyboard-grammar/references/ir-guide.md": {
+      "bytes": 4200,
+      "sha256": "6d244197f477e4d4f5cdb484c923422a27d4edb6dd53c172ab213dcb02626e5c"
+    },
+    "storyboard-grammar/references/ownership-and-integration.md": {
+      "bytes": 3885,
+      "sha256": "4093518477b72b208f9dbe850ebca44f0159ee86cc2dd003ba1d818cf102db57"
+    },
+    "storyboard-grammar/references/performance-action.md": {
+      "bytes": 3032,
+      "sha256": "d0dc9334385c5e538cc98f40225a0ebbea9c159a39282b0457ea4ca6a7457320"
+    },
+    "storyboard-grammar/references/platforms.md": {
+      "bytes": 2181,
+      "sha256": "e9d6eb2293554e379310b2648be7a11ed333fe3bb16ccd186bbf24c4b02339c8"
+    },
+    "storyboard-grammar/references/production-contract.md": {
+      "bytes": 3116,
+      "sha256": "c4edfdc4180f719b3112d4d264d5d733a5c940b1ff8259e1d37994fb159791d0"
+    },
+    "storyboard-grammar/references/research.md": {
+      "bytes": 4448,
+      "sha256": "2ff40e4c497c0f0329278e43b85f09fb84ae632e775f4e9ee0e681a8a4dfe7eb"
+    },
+    "storyboard-grammar/references/shot-language.md": {
+      "bytes": 2502,
+      "sha256": "240924e62fb56419eae884cfab74f68279cb2cea3c06b54362d20a4f3c5bac32"
+    },
+    "storyboard-grammar/references/spatial-composition.md": {
+      "bytes": 3584,
+      "sha256": "ae2e5b82c183faad0f3842d6ab15a18daa9b9d2124632090b91f96c71e56d1d8"
+    },
+    "storyboard-grammar/references/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
+    },
+    "storyboard-grammar/references/verification.md": {
+      "bytes": 2209,
+      "sha256": "6c82d0feb4d24743b31eeae7597e2105fa4af7eee7c8816ba2bf2324edf40d60"
+    },
+    "storyboard-grammar/references/workflow.md": {
+      "bytes": 2928,
+      "sha256": "9d5f98df87b1f51b52db0e755c1c946f18c104ec253621c38954cbd4fdd54d48"
+    },
+    "storyboard-grammar/registries/sources.json": {
+      "bytes": 11465,
+      "sha256": "d7ae69edf699e5870b4abae30933c6b4018bde4a8b265218516eb00cc8f1b195"
+    },
+    "storyboard-grammar/registries/style-index.json": {
+      "bytes": 2583,
+      "sha256": "d78e74ac44bc5a4e2e56df8e918a8410e8fe1239d9c30aae977b1d262aac8891"
+    },
+    "storyboard-grammar/requirements.txt": {
+      "bytes": 20,
+      "sha256": "4046ca1e3a64f4ea791fb4fb3d8566242086ff1c8e2431e2c349e1052ffc6ba0"
+    },
+    "storyboard-grammar/schemas/handoff.schema.json": {
+      "bytes": 6013,
+      "sha256": "56aae4a21db62bf6d52ebbe8cddf662610867a2d1c9d30d21666a3ab426fd71f"
+    },
+    "storyboard-grammar/schemas/production-contract.schema.json": {
+      "bytes": 3755,
+      "sha256": "28475b964d75073f37347595f80078a41deb79fbfb0911042a04e29e40f6e4b1"
+    },
+    "storyboard-grammar/schemas/qa-report.schema.json": {
+      "bytes": 3187,
+      "sha256": "ce2e25558bfaacd5b5a23accedf5decc3ae3fd54c7e6a6bb7ddb10f8b6931e98"
+    },
+    "storyboard-grammar/schemas/storyboard-ir-1.1.schema.json": {
+      "bytes": 92814,
+      "sha256": "8a7970ea804b82edbe283c3d766a418a233ecc8eac0d635aa8dbf477818ca064"
+    },
+    "storyboard-grammar/schemas/storyboard-ir-1.2.schema.json": {
+      "bytes": 117731,
+      "sha256": "76e8a594e23bcf017995792fe290b28a8419e0215458cafc052a782881c096f7"
+    },
+    "storyboard-grammar/schemas/storyboard-ir.schema.json": {
+      "bytes": 47382,
+      "sha256": "ce90ce55ea293daa1a3c2fd3642a1512f2d5063daab6394b339e265122072a7b"
+    },
+    "storyboard-grammar/scripts/detail_runtime.py": {
+      "bytes": 34347,
+      "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
+    },
+    "storyboard-grammar/scripts/observe_video.py": {
+      "bytes": 4634,
+      "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
+    },
+    "storyboard-grammar/scripts/package_skill.py": {
+      "bytes": 4764,
+      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+    },
+    "storyboard-grammar/scripts/spatial_runtime.py": {
+      "bytes": 37370,
+      "sha256": "f0a090a787b96915fb3b067e2d021c75fed7b9dcd37534eb7f6daa3c04dd1579"
+    },
+    "storyboard-grammar/scripts/storyboard.py": {
+      "bytes": 46540,
+      "sha256": "8235500ae71b576611341f3ff9e0ff439b33199cdc218fdef89196d87a450be0"
+    },
+    "storyboard-grammar/scripts/upgrade_detail.py": {
+      "bytes": 7792,
+      "sha256": "5d5522c6922745281a02f9f13eb4c953087cab77455145d91e2c1eccd5f1a383"
+    },
+    "storyboard-grammar/scripts/upgrade_spatial.py": {
+      "bytes": 7034,
+      "sha256": "f4bec1dcaa87a1a89324c62c57e1df32cdd1be1b17708d0111d365f339ecb0e3"
+    },
+    "storyboard-grammar/scripts/v51_support.py": {
+      "bytes": 10329,
+      "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
+    },
+    "storyboard-grammar/scripts/v52_support.py": {
+      "bytes": 10426,
+      "sha256": "9abfcb93b68c150cee5374fdb2646174a30c9a67694037829a5e58ec8eca8c21"
+    },
+    "storyboard-grammar/styles/action.json": {
+      "bytes": 942,
+      "sha256": "3279e70706b1ea35f11f82e1c4467d555409d97136e603639178693c0525d34e"
+    },
+    "storyboard-grammar/styles/animation.json": {
+      "bytes": 921,
+      "sha256": "a22d0bc84a30f24119e4956055d20c399652b05dfbeaf3bac141c4d60694d12c"
+    },
+    "storyboard-grammar/styles/comedy.json": {
+      "bytes": 867,
+      "sha256": "eae1b3e26da04c7c5f4de8dc2a4a3d3e1ec881ac99ca654c0e935621a4da427c"
+    },
+    "storyboard-grammar/styles/observational.json": {
+      "bytes": 913,
+      "sha256": "af0f340392f7cfc7f1e8b67c5579ef02bfb7529666030efb2a87fde713b87556"
+    },
+    "storyboard-grammar/styles/product.json": {
+      "bytes": 892,
+      "sha256": "217a3515e2d2a1d1ce4f8808fad73213b139415656839fc14e2995cce03ed1de"
+    },
+    "storyboard-grammar/styles/subjective.json": {
+      "bytes": 898,
+      "sha256": "ebbd0a4516e4a24ab3222769a858284f24e7854af6324999ef8fa1680e0da171"
+    },
+    "storyboard-grammar/styles/suspense.json": {
+      "bytes": 908,
+      "sha256": "9e33044c163d1b2cab3668a0f53ae187a56d22d6d848199bdfa2ac4826fff2d3"
+    },
+    "storyboard-grammar/styles/transparent.json": {
+      "bytes": 971,
+      "sha256": "e8cb1d8d7d0eb72bdde6248ab91726718d43e244a68c6d862789214203c6d4b4"
+    },
+    "storyboard-grammar/styles/vertical.json": {
+      "bytes": 984,
+      "sha256": "b54b8e24d3fb2769860877328ca08a63e53c9a0e501d575c4065e0b136194cf5"
+    },
+    "storyboard-grammar/styles/wuxia.json": {
+      "bytes": 983,
+      "sha256": "e3067bb3ec3602695faa6fc48c516dfbdb3abd79fdbedef74fdf899c01fcea47"
+    },
+    "storyboard-grammar/tests/test_storyboard.py": {
+      "bytes": 19866,
+      "sha256": "c8d7a4531d756653f4f4391e72520121de4e0edd8c194b3dde6a4fba3b7c3614"
+    }
+  },
+  "name": "storyboard-grammar",
+  "version": "1.3.0"
+}
