@@ -12,8 +12,8 @@ import tempfile
 import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
-NAMES=('ai-comic-drama-workflow','director-grammar','production-design-grammar','storyboard-grammar','video-prompt-compiler','image-prompt-optimizer')
-PATTERNS=('test_v5_workflow.py','test_dg.py','test_art_compile.py','test_storyboard.py','test_vpc.py','test_validate_gpt_image_2_size.py')
+NAMES=('ai-comic-drama-workflow','screenplay-grammar','director-grammar','production-design-grammar','storyboard-grammar','video-prompt-compiler','image-prompt-optimizer')
+PATTERNS=('test_v5_workflow.py','test_sg.py','test_dg.py','test_art_compile.py','test_storyboard.py','test_vpc.py','test_validate_gpt_image_2_size.py')
 
 
 def verify(packages,out,quick_validator=None):
@@ -31,6 +31,8 @@ def verify(packages,out,quick_validator=None):
             if name=='ai-comic-drama-workflow':env['PYTHONPATH']=str(skill/'src')
             commands=[[sys.executable,'-m','unittest','discover','-s','tests','-p',pattern,'-v'],
                       [sys.executable,'scripts/package_skill.py','--out',str(base/'rebuilt'/name)]]
+            if name=='screenplay-grammar':commands.insert(1,[sys.executable,'scripts/sg.py','compile','examples/lantern.project.json','--out',str(base/'screenplay-lantern')])
+            if name=='director-grammar':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_screenplay.py','-v'])
             if name=='director-grammar':commands.insert(1,[sys.executable,'scripts/dg.py','compile','examples/v51/director.json','--target','generic-t2v','--out',str(base/'native-director')])
             if name=='storyboard-grammar':commands.insert(1,[sys.executable,'scripts/storyboard.py','compile','examples/v51/storyboard.json','--out',str(base/'native-storyboard')])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v51.py','-v'])
@@ -39,6 +41,7 @@ def verify(packages,out,quick_validator=None):
             if name=='storyboard-grammar':commands.insert(1,[sys.executable,'scripts/storyboard.py','compile','examples/v52/storyboard.json','--out',str(base/'native-storyboard-v52')])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52.py','-v'])
             if name=='ai-comic-drama-workflow':
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_screenplay_integration.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52_workflow.py','-v'])
                 commands.insert(1,[sys.executable,'scripts/run_v5_example.py','--version','v52','--out',str(base/'example-v52')])
             if quick_validator:commands.insert(0,[sys.executable,str(Path(quick_validator).resolve()),str(skill)])

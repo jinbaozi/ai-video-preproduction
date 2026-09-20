@@ -1,0 +1,300 @@
+{
+  "canon": {
+    "facts": [],
+    "proposals": [],
+    "ref": null
+  },
+  "characters": [
+    {
+      "goal": "处理完交房事务",
+      "id": "DAUGHTER",
+      "name": "林岚",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "voice": "短句具体，关心藏在安排里"
+    },
+    {
+      "goal": "希望女儿再回来",
+      "id": "MOTHER",
+      "name": "母亲",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "voice": "借事务提出关系愿望"
+    }
+  ],
+  "contract": {
+    "checks": [
+      {
+        "assertions": [],
+        "blocking": true,
+        "evidence_required": "当前版本全文语义复核与具体观察",
+        "id": "END_REVIEW",
+        "method": "semantic",
+        "predicate": "行动与对白是否落实既定结尾而未改变关系意义？"
+      }
+    ],
+    "clauses": [
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "END_REVIEW"
+        ],
+        "id": "ENDING",
+        "owner": "screenplay",
+        "paths": [
+          "/narrative/ending"
+        ],
+        "priority": "hard",
+        "realization": "narrative",
+        "requirement": "保留结尾事件与关系意义：林岚主动答应次日回来带早饭，母亲以摆碗回应，未宣称所有旧矛盾解决。",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      }
+    ],
+    "deliverables": [
+      "screenplay"
+    ],
+    "scope": "母女交房前整理旧家，女儿主动答应第二天回来。保留“我带早饭”。"
+  },
+  "culture": {
+    "claims": [],
+    "mode": "contemporary",
+    "overlays": [
+      "modern_chinese"
+    ]
+  },
+  "language": "zh-CN",
+  "locks": [
+    {
+      "meaning": "保留女儿主动承诺的原话",
+      "path": "/scenes/0/blocks/8/text",
+      "sha256": "ade7df8d7f0799a526f539cd80c3de6b86fa2a771443325b0979bca5f0061b51"
+    }
+  ],
+  "narrative": {
+    "ending": "林岚主动答应次日回来带早饭，母亲以摆碗回应，未宣称所有旧矛盾解决。",
+    "events": [
+      {
+        "block_ids": [
+          "K2",
+          "K4",
+          "K5"
+        ],
+        "causes": [],
+        "description": "交房使留钥匙的理由失效",
+        "id": "E1",
+        "preconditions": [],
+        "scene_id": "KITCHEN",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": []
+      },
+      {
+        "block_ids": [
+          "K7",
+          "K8",
+          "K9",
+          "K10"
+        ],
+        "causes": [
+          "E1"
+        ],
+        "description": "改为相约次日，女儿主动回应",
+        "id": "E2",
+        "preconditions": [],
+        "scene_id": "KITCHEN",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": []
+      }
+    ],
+    "initial_knowledge": [],
+    "premise": "交房前，母女用一把即将失效的钥匙商量下一次见面。",
+    "promises": [],
+    "reveal_order": [
+      "E1",
+      "E2"
+    ]
+  },
+  "open_issues": [],
+  "project_id": "KEYS",
+  "propositions": [],
+  "review": {
+    "content_sha256": "4feb5e165f437c1f7d580428cf76df56153a3753b95e5beac691bb244950ca99",
+    "findings": [
+      "只扩写 K8：离开的准备转为放下纸箱、收钥匙，仍由女儿主动答应次日回来。",
+      "其他九块、全部台词和事件结果逐字保留；没有新增人物、疾病或秘密。"
+    ],
+    "reviewer": "current-agent / revision-case-review",
+    "status": "PASS"
+  },
+  "revision": 2,
+  "rewrite_scope": {
+    "allow_new_events": false,
+    "allowed_paths": [
+      "/scenes",
+      "/narrative"
+    ],
+    "level": "scene",
+    "preserve_paths": [
+      "/narrative"
+    ]
+  },
+  "scenes": [
+    {
+      "blocks": [
+        {
+          "id": "K1",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "纸箱堆在墙边。桌上摆着两只碗，一只扣着。林岚把一串钥匙放在桌上。"
+        },
+        {
+          "id": "K2",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "DAUGHTER",
+          "text": "房东明早来收房。"
+        },
+        {
+          "id": "K3",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "母亲把其中一把钥匙拨到林岚面前。"
+        },
+        {
+          "id": "K4",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "MOTHER",
+          "text": "这把留着。"
+        },
+        {
+          "id": "K5",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "DAUGHTER",
+          "text": "门锁要换。"
+        },
+        {
+          "id": "K6",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "母亲拿起钥匙，挂回门边的钩子，手停在那里。"
+        },
+        {
+          "id": "K7",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "MOTHER",
+          "text": "那你明早来，替我交。"
+        },
+        {
+          "id": "K8",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "林岚已经抱起装好的纸箱。她在门边停下，把箱子放回地上，取下钥匙，收进外套口袋。"
+        },
+        {
+          "id": "K9",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "DAUGHTER",
+          "text": "我带早饭。"
+        },
+        {
+          "id": "K10",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "母亲将扣着的碗翻过来，推到林岚面前。"
+        }
+      ],
+      "heading": "内景·旧家厨房·夜",
+      "id": "KITCHEN",
+      "purpose": "从处理交房转向主动约定见面",
+      "source_refs": [
+        "DESIGN"
+      ]
+    }
+  ],
+  "schema": "script-ir/1.0",
+  "source_refs": [
+    "USER",
+    "DESIGN"
+  ],
+  "sources": [
+    {
+      "excerpt": "母女交房前整理旧家，女儿主动答应第二天回来。保留“我带早饭”。",
+      "id": "USER",
+      "kind": "user",
+      "locator": "request",
+      "sha256": null,
+      "uri": "inline:user",
+      "verification": "provided"
+    },
+    {
+      "excerpt": "当前 Agent 根据一句话创意编写的人物、事件和正文；非用户原著或已批准项目。",
+      "id": "DESIGN",
+      "kind": "design",
+      "locator": "本样例原创设计",
+      "sha256": null,
+      "uri": "design://KEYS",
+      "verification": "inference"
+    }
+  ],
+  "status": "READY",
+  "task": {
+    "forbidden_techniques": [],
+    "operation": "expand",
+    "output": "screenplay",
+    "style_request": null,
+    "tags": [
+      "亲情",
+      "关系"
+    ]
+  },
+  "timing": {
+    "estimated_range_seconds": null,
+    "evidence": null,
+    "measured_seconds": null,
+    "target_seconds": null
+  },
+  "title": "备用钥匙"
+}

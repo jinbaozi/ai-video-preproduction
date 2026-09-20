@@ -1,0 +1,43 @@
+{
+  "evidence": [
+    {
+      "id": "CHAT_DESIGN",
+      "url": "chatgpt-conversation://6aafa702-e294-83e8-a3bb-167ed20ca2f2",
+      "title": "创建导演技能：独立编剧方案",
+      "status": "provided_design",
+      "scope": "读取到的方案正文；工具末尾截断，原型附件未取得；非原型源码或测试证据"
+    },
+    {
+      "id": "SW_COMMUNITY",
+      "url": "https://github.com/jtydhr88/screenwriting-skills",
+      "title": "screenwriting-skills",
+      "status": "read",
+      "scope": "README 中工作流、媒介分层与多语言说明；未复制其正文或代码",
+      "accessed": "2026-09-20"
+    },
+    {
+      "id": "DRAMA_COMMUNITY",
+      "url": "https://github.com/zenstory-ai/drama-skills",
+      "title": "drama-skills",
+      "status": "read",
+      "scope": "README 中小说分析、故事开发、单集写作与下游分工；未复制其正文或代码",
+      "accessed": "2026-09-20"
+    },
+    {
+      "id": "FOUNTAIN",
+      "url": "https://fountain.io/syntax/",
+      "title": "Fountain syntax",
+      "status": "read",
+      "scope": "强制场景标题、角色名与动作元素；本包实现子集",
+      "accessed": "2026-09-20"
+    },
+    {
+      "id": "HYPIT",
+      "url": "https://github.com/hypit-ai/hypit",
+      "title": "Hypit",
+      "status": "read",
+      "scope": "作为外部视频工作流项目参考；编剧不依赖或执行它",
+      "accessed": "2026-09-20"
+    }
+  ]
+}

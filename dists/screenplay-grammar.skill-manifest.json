@@ -1,0 +1,229 @@
+{
+  "archive": "screenplay-grammar.skill",
+  "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+  "file_count": 55,
+  "files": {
+    "screenplay-grammar/SKILL.md": {
+      "bytes": 5740,
+      "sha256": "2e048ced4a5c8a08b1da62b9914da9a5344c48c8287940b2defd6eff4b2e4d8f"
+    },
+    "screenplay-grammar/agents/openai.yaml": {
+      "bytes": 392,
+      "sha256": "cf914c0bc33cbbb92374ec9a57aeb114d416ef613835d174fe90849adf2b4360"
+    },
+    "screenplay-grammar/examples/bus-story.project.json": {
+      "bytes": 6453,
+      "sha256": "9b4947dacf05da1db884c249abdc66d6e47322a4fc560b30291f1da00cfaa9c4"
+    },
+    "screenplay-grammar/examples/complete.before.json": {
+      "bytes": 6863,
+      "sha256": "572758228b0f71e39574b9ecf58020ad7c24902fb06e5239800300d4659914e6"
+    },
+    "screenplay-grammar/examples/complete.project.json": {
+      "bytes": 7237,
+      "sha256": "e77e5497f1bfd98422b2559b19c4c63366dd2afba96d1c0150e70256846a5251"
+    },
+    "screenplay-grammar/examples/continue.before.json": {
+      "bytes": 7207,
+      "sha256": "888dc1ee79b51ac09d99d24fae9384b6d84b46fad5ef0f2cf6582043e8e436f9"
+    },
+    "screenplay-grammar/examples/continue.project.json": {
+      "bytes": 9013,
+      "sha256": "c7fb54f086f880ef056071023bedc2c1276e4b5e6b675a7345fbc527856c7419"
+    },
+    "screenplay-grammar/examples/expand.before.json": {
+      "bytes": 7203,
+      "sha256": "4d1631aaca20f0d2d794f5e45b8c18ade55eadedc7c82a4200052e4708a4032f"
+    },
+    "screenplay-grammar/examples/expand.project.json": {
+      "bytes": 7420,
+      "sha256": "158c84f1554f0d93c08871f21c071fbc0b311b520b7c44ac4ab3cfde7d232541"
+    },
+    "screenplay-grammar/examples/keys.patch.json": {
+      "bytes": 376,
+      "sha256": "86413830190e93b5b7285ec32925a9448bac52e7e2321cfde546d4ed19e04eae"
+    },
+    "screenplay-grammar/examples/keys.project.json": {
+      "bytes": 7323,
+      "sha256": "f35a8b0b6ac41f4eb86b6d21310bd27527931fb408543fe0fda91d49540de7bd"
+    },
+    "screenplay-grammar/examples/lantern.project.json": {
+      "bytes": 10290,
+      "sha256": "b6de3f041ec602f9faa3ae5231eb0d7a988c13ced9a87dbf06ca65c19051c1b7"
+    },
+    "screenplay-grammar/references/chinese.md": {
+      "bytes": 2190,
+      "sha256": "28f158a24df4f6c5760040783e720bc8061903cd1499adaee3081a722f28d057"
+    },
+    "screenplay-grammar/references/contract.md": {
+      "bytes": 1248,
+      "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
+    },
+    "screenplay-grammar/references/cooperation.md": {
+      "bytes": 1855,
+      "sha256": "22316e5014235c1e6a2f12c499a568b405c56618e7ec3b3d5a33c5588e5eb4fe"
+    },
+    "screenplay-grammar/references/long-form.md": {
+      "bytes": 1246,
+      "sha256": "140fb6d71655173e7e1c164af0edc54cbb1f009a4a80179c5bdc8ab9a69e5c91"
+    },
+    "screenplay-grammar/references/ownership.md": {
+      "bytes": 1024,
+      "sha256": "0592e2e198b58fcadebd7028046e4d5dc55c231299e8892baf1ddd6e23a71aeb"
+    },
+    "screenplay-grammar/references/revision.md": {
+      "bytes": 981,
+      "sha256": "cf22bbcf24f7fd6abb679337a8aa0355e956a817bbd88c6da1d0ce40e1e77883"
+    },
+    "screenplay-grammar/references/runtime.md": {
+      "bytes": 1472,
+      "sha256": "68e67be22ebf012b02d16f507ce96be4bb8a04d6f3184a36deb524a26b5b2de2"
+    },
+    "screenplay-grammar/references/sources.md": {
+      "bytes": 1186,
+      "sha256": "5ccbddeeed877e3ca483f828ce2bcb642551956855435e14357791190a1b0d98"
+    },
+    "screenplay-grammar/references/techniques/adaptation_ledger.md": {
+      "bytes": 422,
+      "sha256": "9d12bd7c70bbb2ed7ffba94d9e71ed09888df344c215cc332a09f2cf4ce4feb1"
+    },
+    "screenplay-grammar/references/techniques/causal_chain.md": {
+      "bytes": 386,
+      "sha256": "f0c6948640696eed48f5cf0b88d3ebdc4c7506173d0c62f884117924ad020769"
+    },
+    "screenplay-grammar/references/techniques/character_voice.md": {
+      "bytes": 416,
+      "sha256": "6cb2b417734db26c4a583b662afa75a5ff7f335d17c5837b3b5dcc820e9bb5a3"
+    },
+    "screenplay-grammar/references/techniques/choice_cost.md": {
+      "bytes": 401,
+      "sha256": "eff87321094c8c8fc5d7f4ad21c3f779ebc9aef3f68852a59d25fa68e097d748"
+    },
+    "screenplay-grammar/references/techniques/dialogue_economy.md": {
+      "bytes": 416,
+      "sha256": "b6e5b14504d9b70e3fb657dcf7425c4ba739c9414181e251d1f03dee928b0b0b"
+    },
+    "screenplay-grammar/references/techniques/ellipsis.md": {
+      "bytes": 383,
+      "sha256": "2074e682bc6e3be435ae14a93a38ae44d70ea14ea389201cc8d0ad62fb6347fd"
+    },
+    "screenplay-grammar/references/techniques/externalize.md": {
+      "bytes": 413,
+      "sha256": "4788815b6c993d766c9a9c58231a24b2f4dfebf8acd24bb4c8251cd7869942e2"
+    },
+    "screenplay-grammar/references/techniques/fair_clue.md": {
+      "bytes": 419,
+      "sha256": "6d88e4e3c93bbafaa21e8397921e121d5f8086ada362d9966356aff1c41997c0"
+    },
+    "screenplay-grammar/references/techniques/goal_strategy.md": {
+      "bytes": 386,
+      "sha256": "fa4e103efc6d47b3ad18f1d4594d9bb6dd808156687e28c0365479e0878d5141"
+    },
+    "screenplay-grammar/references/techniques/irony.md": {
+      "bytes": 371,
+      "sha256": "a113566b888ecb17045895273084e81cef2d8946745358328675293ce41aed85"
+    },
+    "screenplay-grammar/references/techniques/knowledge_update.md": {
+      "bytes": 416,
+      "sha256": "965b2dd4d245233d61b13d9fe1ae5d73c307aea2e5332dc855c96e54b9ff981d"
+    },
+    "screenplay-grammar/references/techniques/object_meaning.md": {
+      "bytes": 377,
+      "sha256": "42886aa39f16f8f8e3915a64ef2f690c74ae63b15cbda77887d7364f07bcb6e5"
+    },
+    "screenplay-grammar/references/techniques/opposing_agendas.md": {
+      "bytes": 374,
+      "sha256": "7a0789a98b4e990a392c3619ef7b1a142beae47f9d33fad6eba428405640e514"
+    },
+    "screenplay-grammar/references/techniques/premise.md": {
+      "bytes": 416,
+      "sha256": "e58886e9663de682804a092572484c54b4b32d80eeb053bbfd2e54fa4b1f9581"
+    },
+    "screenplay-grammar/references/techniques/restricted_view.md": {
+      "bytes": 401,
+      "sha256": "04067fce1e600291b1c3ebc40ee4e425534670732c417fb84f2beff67a7969d2"
+    },
+    "screenplay-grammar/references/techniques/scene_entry_exit.md": {
+      "bytes": 404,
+      "sha256": "86c458d448ed7df7cd44ef2083b5e69d0cd559a2a3ee983b78582c9c672deaa5"
+    },
+    "screenplay-grammar/references/techniques/serial_consequence.md": {
+      "bytes": 410,
+      "sha256": "4fb769ce3632075417a836949ec98406b3d07706d693ae9abfc17224d138e3c2"
+    },
+    "screenplay-grammar/references/techniques/setup_payoff.md": {
+      "bytes": 395,
+      "sha256": "e0c6039a598925d74e407af75b9d2ac894fc5994728a62fa6497468b0e01cc83"
+    },
+    "screenplay-grammar/references/techniques/subtext.md": {
+      "bytes": 389,
+      "sha256": "6ee02f7d6771fb15a64248adba8548be7b62c8c58453bc6fd1d5d0b90f633e5b"
+    },
+    "screenplay-grammar/references/techniques/world_rules.md": {
+      "bytes": 416,
+      "sha256": "45bbc4b736d647bce06551b6c391eb9785634c8d34cf8631ccb4a67573561f29"
+    },
+    "screenplay-grammar/references/verification.md": {
+      "bytes": 593,
+      "sha256": "73239dce5e169abc94694da1b721bfff88fe1367de9634f60eaff802214fd7f0"
+    },
+    "screenplay-grammar/references/writing.md": {
+      "bytes": 1537,
+      "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef"
+    },
+    "screenplay-grammar/registries/evidence.json": {
+      "bytes": 1465,
+      "sha256": "cc20c3de1bac9862ec60a13e274ea5564a93dc55808ac8ba2341a3dddad698f8"
+    },
+    "screenplay-grammar/registries/styles.json": {
+      "bytes": 3737,
+      "sha256": "04a5c39038c9470ea84766e49ac513c8a6b1f0b79be5c1c62e233079b25846fd"
+    },
+    "screenplay-grammar/registries/techniques.json": {
+      "bytes": 3632,
+      "sha256": "77ab7adceb5ee1e3b38b1f196a626613845425b7ae2d2b4b00445da71bd1bf76"
+    },
+    "screenplay-grammar/registries/writers.json": {
+      "bytes": 13331,
+      "sha256": "f1d7ebbe5b426aa11e4c0af29347eb22fa48344e63c3961040c08382f6e8e651"
+    },
+    "screenplay-grammar/requirements.txt": {
+      "bytes": 20,
+      "sha256": "117bb7857e2106917057761be56b51e26df4b9c0e3ebdbcf48a992e94534c6ac"
+    },
+    "screenplay-grammar/schemas/director-map.schema.json": {
+      "bytes": 2264,
+      "sha256": "35585956cf0d2abb5e6e0b6ef5a679eb95354c9825f6dbc3ad484a768f3f6971"
+    },
+    "screenplay-grammar/schemas/handoff.schema.json": {
+      "bytes": 2382,
+      "sha256": "6bdc88a7e23caec15562aec8e21256782422206ac9cd89ac3d77431d1fe31eac"
+    },
+    "screenplay-grammar/schemas/patch.schema.json": {
+      "bytes": 903,
+      "sha256": "8eca1678f81add097683f32272fe3aa005ac0457ebc844a4131ce202d1b44575"
+    },
+    "screenplay-grammar/schemas/project.schema.json": {
+      "bytes": 28213,
+      "sha256": "849d192b7807643c74fc7593b8c406aa1192b51c75ed4e3bd2207de64889589e"
+    },
+    "screenplay-grammar/scripts/package_skill.py": {
+      "bytes": 4764,
+      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+    },
+    "screenplay-grammar/scripts/screenplay_protocol.py": {
+      "bytes": 15694,
+      "sha256": "a7c0b715871bf4f4aacf3d2c1360fb25d89aace60c851e483190fff12eb7f5e5"
+    },
+    "screenplay-grammar/scripts/sg.py": {
+      "bytes": 13092,
+      "sha256": "1f2b7b83c013a003be735a8a81c5663480bb0c213f89a651c188c0bb05fb6508"
+    },
+    "screenplay-grammar/tests/test_sg.py": {
+      "bytes": 10724,
+      "sha256": "f21b9a4f98a4055370d513b91d59da9ffc190e2ea9c5b8549efb3e5d7dbea066"
+    }
+  },
+  "name": "screenplay-grammar",
+  "version": "1.0.0"
+}

@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screenplay-grammar.local/handoff.schema.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "screenplay-handoff/1.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "script_ref": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "uri",
+        "sha256"
+      ],
+      "additionalProperties": false
+    },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "ready": {
+      "type": "boolean"
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "owner": {
+            "const": "screenplay"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_paths": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^/"
+            },
+            "minItems": 1
+          },
+          "source_fingerprint": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "source_values": {
+            "type": "array",
+            "items": {},
+            "minItems": 1
+          },
+          "literal": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "id",
+          "owner",
+          "statement",
+          "source_paths",
+          "source_fingerprint",
+          "source_values",
+          "literal"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "director_freedom": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "schema",
+    "project_id",
+    "revision",
+    "script_ref",
+    "content_sha256",
+    "ready",
+    "requirements",
+    "director_freedom"
+  ],
+  "additionalProperties": false
+}

@@ -16,6 +16,8 @@ from ai_comic_drama_workflow.v5_adapters import digest, encoded, pointer, storyb
 from ai_comic_drama_workflow.v5_modules import ROOT, MODULES, digest_file, load_python, read
 
 FIXTURE=ROOT/'examples/v5/cafe'
+sys.path.insert(0,str(ROOT/'scripts'))
+from screenplay_fixture import screenplay, director_mapping
 
 
 def save(path,value):
@@ -23,6 +25,8 @@ def save(path,value):
 
 
 def review(task,value):
+    if task['kind']=='director' and task['handoff']['required_handoffs']:
+        return director_mapping(task,value)
     rows=[]
     for req in task['handoff']['required_handoffs']:
         cid=req['id'].split(':')[-1]
@@ -46,7 +50,9 @@ def result_for(task,**kw):
 
 def submit_fixture(k,author,task,complete=True):
     kind=task['kind']
-    if kind in ('canon','screenplay'):
+    if kind=='screenplay' and k.screenplay_protocol():
+        value=screenplay(k)
+    elif kind in ('canon','screenplay'):
         value={'project_id':'CAFE_DEMO','revision':1,'content':(FIXTURE/'cafe.source.txt').read_text(),
                'source_refs':[s['id'] for s in k.state['sources']]}
         if kind=='canon':value.update(entities=[{'id':e['id']} for e in read(FIXTURE/'director.json')['entities']],locks=[])
@@ -54,8 +60,9 @@ def submit_fixture(k,author,task,complete=True):
         value={'project_id':'CAFE_DEMO','passed':True,'build_id':k.state['build']['build_id'],
                'checks':['Synthetic static fixture acceptance only; no real media was generated or reviewed.']}
     else:value=read(author/(kind+'.json'))
+    mapping=review(task,value)
     path=save(author/('submitted-'+kind+'.json'),value)
-    result=result_for(task,artifact=str(path),artifact_sha256=digest_file(path),complete=complete,handoff=review(task,value))
+    result=result_for(task,artifact=str(path),artifact_sha256=digest_file(path),complete=complete,handoff=mapping)
     k.submit(result);return result
 
 

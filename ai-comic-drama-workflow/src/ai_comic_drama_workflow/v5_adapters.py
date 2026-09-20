@@ -44,7 +44,8 @@ def role_brief(role, artifacts, scope=None):
     return {'schema': 'role-brief/1.0', 'role': role, 'scope': scope or {},
             'inputs': deepcopy(artifacts), 'ownership': {
                 'canon': 'source facts, stable IDs, user decisions and asset registry',
-                'director': 'intent, information order and explicitly locked shot/performance fields',
+                'screenplay': 'story causality, character choices, knowledge, reveal constraints, dialogue and outcomes',
+                'director': 'audiovisual realization of screenplay constraints, blocking and explicitly locked shot/performance fields',
                 'art': 'world, set topology, costume, material and practical light sources',
                 'storyboard': 'unlocked shot/panel/timing details and continuity',
                 'compiler': 'loss-aware model adaptation; no semantic invention'},

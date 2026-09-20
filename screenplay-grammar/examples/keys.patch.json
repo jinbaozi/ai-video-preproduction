@@ -1,0 +1,11 @@
+{
+  "base_sha256": "75ff22680f13777d392a0b04ee31ac218392d03c32dcf9099e5f1122a26068c4",
+  "changes": [
+    {
+      "path": "/scenes/0/blocks/0/text",
+      "reason": "压缩重复表达，保留两只碗与放钥匙动作。",
+      "value": "纸箱挨墙摞着。桌上两只碗，一只倒扣。林岚把钥匙放在桌边。"
+    }
+  ],
+  "schema": "screenplay-patch/1.0"
+}

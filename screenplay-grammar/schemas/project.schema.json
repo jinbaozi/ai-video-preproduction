@@ -1,0 +1,1158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://screenplay-grammar.local/project.schema.json",
+  "type": "object",
+  "properties": {
+    "schema": {
+      "const": "script-ir/1.0"
+    },
+    "project_id": {
+      "type": "string",
+      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+    },
+    "revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "language": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "READY"
+      ]
+    },
+    "task": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "enum": [
+            "create",
+            "story",
+            "complete",
+            "continue",
+            "polish",
+            "expand",
+            "adapt",
+            "diagnose",
+            "structure"
+          ]
+        },
+        "output": {
+          "enum": [
+            "screenplay",
+            "story"
+          ]
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        },
+        "style_request": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "forbidden_techniques": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "operation",
+        "output",
+        "tags",
+        "style_request",
+        "forbidden_techniques"
+      ],
+      "additionalProperties": false
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "kind": {
+            "enum": [
+              "user",
+              "original",
+              "canon",
+              "design",
+              "official",
+              "community"
+            ]
+          },
+          "uri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "excerpt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "verification": {
+            "enum": [
+              "provided",
+              "read",
+              "inference",
+              "unverified"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "uri",
+          "locator",
+          "excerpt",
+          "sha256",
+          "verification"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "source_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+      },
+      "minItems": 1
+    },
+    "canon": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[a-f0-9]{64}$"
+                }
+              },
+              "required": [
+                "uri",
+                "sha256"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "facts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "id",
+              "text",
+              "source_refs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "proposals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "kind": {
+                "enum": [
+                  "entity",
+                  "fact"
+                ]
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "status": {
+                "enum": [
+                  "proposed",
+                  "registered"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "kind",
+              "text",
+              "source_refs",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "ref",
+        "facts",
+        "proposals"
+      ],
+      "additionalProperties": false
+    },
+    "characters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "goal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "voice": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "goal",
+          "voice",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "propositions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "truth": {
+            "enum": [
+              "true",
+              "false",
+              "unresolved",
+              "fictional_rule"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "statement",
+          "truth",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "narrative": {
+      "type": "object",
+      "properties": {
+        "premise": {
+          "type": "string"
+        },
+        "ending": {
+          "type": "string"
+        },
+        "initial_knowledge": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "actor": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "proposition": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "state": {
+                "enum": [
+                  "knows",
+                  "suspects",
+                  "believes",
+                  "unknown"
+                ]
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "actor",
+              "proposition",
+              "state",
+              "source_refs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "description": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scene_id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "block_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "causes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 0
+              },
+              "preconditions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "actor": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "proposition": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "state": {
+                      "enum": [
+                        "knows",
+                        "suspects",
+                        "believes",
+                        "unknown"
+                      ]
+                    },
+                    "source_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "actor",
+                    "proposition",
+                    "state",
+                    "source_refs"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              },
+              "updates": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "actor": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "proposition": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    "state": {
+                      "enum": [
+                        "knows",
+                        "suspects",
+                        "believes",
+                        "unknown"
+                      ]
+                    },
+                    "source_refs": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "actor",
+                    "proposition",
+                    "state",
+                    "source_refs"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "id",
+              "description",
+              "scene_id",
+              "block_ids",
+              "causes",
+              "preconditions",
+              "updates",
+              "source_refs"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "reveal_order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "minItems": 0
+        },
+        "promises": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "setup_event": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "payoff_event": {
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "status": {
+                "enum": [
+                  "open",
+                  "fulfilled",
+                  "intentionally_open"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "setup_event",
+              "payoff_event",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "premise",
+        "ending",
+        "initial_knowledge",
+        "events",
+        "reveal_order",
+        "promises"
+      ],
+      "additionalProperties": false
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+          },
+          "heading": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "blocks": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "kind": {
+                  "enum": [
+                    "prose",
+                    "action",
+                    "dialogue",
+                    "narration",
+                    "inner_voice",
+                    "sound",
+                    "text"
+                  ]
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "speaker": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "source_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "id",
+                "kind",
+                "text",
+                "speaker",
+                "source_refs"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "heading",
+          "purpose",
+          "blocks",
+          "source_refs"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "culture": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "contemporary",
+            "historical",
+            "historical_adaptation",
+            "invented"
+          ]
+        },
+        "overlays": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "modern_chinese",
+              "historical",
+              "wuxia",
+              "xianxia",
+              "xuanhuan",
+              "zhiguai",
+              "gufeng_romance"
+            ]
+          },
+          "minItems": 0
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "statement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "kind": {
+                "enum": [
+                  "historical",
+                  "fictional"
+                ]
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "verified": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "statement",
+              "kind",
+              "source_refs",
+              "verified"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "mode",
+        "overlays",
+        "claims"
+      ],
+      "additionalProperties": false
+    },
+    "timing": {
+      "type": "object",
+      "properties": {
+        "target_seconds": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "estimated_range_seconds": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0
+              },
+              "minItems": 2
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "measured_seconds": {
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "target_seconds",
+        "estimated_range_seconds",
+        "measured_seconds",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    "contract": {
+      "type": "object",
+      "properties": {
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deliverables": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "clauses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "requirement": {
+                "type": "string",
+                "minLength": 1
+              },
+              "priority": {
+                "enum": [
+                  "hard",
+                  "soft"
+                ]
+              },
+              "owner": {
+                "const": "screenplay"
+              },
+              "source_refs": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^/"
+                },
+                "minItems": 1
+              },
+              "realization": {
+                "enum": [
+                  "prose",
+                  "action",
+                  "dialogue",
+                  "narrative",
+                  "sound",
+                  "text"
+                ]
+              },
+              "steps": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "agent_write",
+                    "static_validate",
+                    "semantic_review",
+                    "text_compile",
+                    "director_realize"
+                  ]
+                },
+                "minItems": 1
+              },
+              "check_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+                },
+                "minItems": 1
+              },
+              "change_policy": {
+                "enum": [
+                  "preserve",
+                  "explicit_revision"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "requirement",
+              "priority",
+              "owner",
+              "source_refs",
+              "paths",
+              "realization",
+              "steps",
+              "check_ids",
+              "change_policy"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[A-Za-z][A-Za-z0-9_-]*$"
+              },
+              "method": {
+                "enum": [
+                  "static",
+                  "semantic"
+                ]
+              },
+              "predicate": {
+                "type": "string",
+                "minLength": 1
+              },
+              "assertions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "pattern": "^/"
+                    },
+                    "op": {
+                      "enum": [
+                        "equals",
+                        "contains",
+                        "exists"
+                      ]
+                    },
+                    "value": {}
+                  },
+                  "required": [
+                    "path",
+                    "op"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 0
+              },
+              "evidence_required": {
+                "type": "string",
+                "minLength": 1
+              },
+              "blocking": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "id",
+              "method",
+              "predicate",
+              "assertions",
+              "evidence_required",
+              "blocking"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "scope",
+        "deliverables",
+        "clauses",
+        "checks"
+      ],
+      "additionalProperties": false
+    },
+    "locks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "meaning": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "path",
+          "sha256",
+          "meaning"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 0
+    },
+    "rewrite_scope": {
+      "type": "object",
+      "properties": {
+        "level": {
+          "enum": [
+            "diagnose",
+            "line",
+            "scene",
+            "structure"
+          ]
+        },
+        "allowed_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "minItems": 0
+        },
+        "preserve_paths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "minItems": 0
+        },
+        "allow_new_events": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "level",
+        "allowed_paths",
+        "preserve_paths",
+        "allow_new_events"
+      ],
+      "additionalProperties": false
+    },
+    "review": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "NOT_RUN",
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "content_sha256": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reviewer": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "findings": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 0
+        }
+      },
+      "required": [
+        "status",
+        "content_sha256",
+        "reviewer",
+        "findings"
+      ],
+      "additionalProperties": false
+    },
+    "open_issues": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema",
+    "project_id",
+    "revision",
+    "title",
+    "language",
+    "status",
+    "task",
+    "sources",
+    "source_refs",
+    "canon",
+    "characters",
+    "propositions",
+    "narrative",
+    "scenes",
+    "culture",
+    "timing",
+    "contract",
+    "locks",
+    "rewrite_scope",
+    "review",
+    "open_issues"
+  ],
+  "additionalProperties": false
+}

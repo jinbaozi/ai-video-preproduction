@@ -19,7 +19,7 @@ from .v5_handoff import briefing, requirements, validate_handoff
 from .v5_adapters import VERSION as ADAPTER_VERSION
 from .v5_modules import ROOT, MODULES, read, digest_file, default_lock, module_path, native_validate, load_python, verify_archive, verify_module
 
-STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay',None),
+STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay','screenplay-grammar'),
           (3,'导演方案','director','director-grammar'), (4,'美术方案','art','production-design-grammar'),
           (5,'视觉资产','visual','image-prompt-optimizer'), (6,'分镜制作','storyboard','storyboard-grammar'),
           (7,'分镜图片','boards','image-prompt-optimizer'), (8,'视频提示词','compile','video-prompt-compiler'),
@@ -77,6 +77,15 @@ class V5Kernel:
 
     def modules(self,name):return module_path(self.root,name,self.skill_root)
 
+    def screenplay_protocol(self):
+        if 'screenplay-grammar' not in read(self.root/'modules.lock.json')['modules']:return None
+        return load_python(self.modules('screenplay-grammar'),'screenplay_protocol.py')
+
+    def stage_module(self,kind):
+        module=STAGES[STAGE_BY_KIND[kind]-1][3]
+        if kind=='screenplay' and 'screenplay-grammar' not in read(self.root/'modules.lock.json')['modules']:return None
+        return module
+
     @classmethod
     def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT):
         root=Path(project).expanduser().resolve()
@@ -91,13 +100,13 @@ class V5Kernel:
         validate_protocol('project',kernel.project,kernel.skill_root)
         kernel.write('project.json',kernel.project)
         lock=default_lock(skill_root);kernel.write('modules.lock.json',lock)
-        for name in MODULES:
+        for name in lock['modules']:
             source=Path(skill_root)/'assets/bundled-skills'/(name+'.skill')
             if digest_file(source)!=lock['modules'][name]['sha256']:raise ValueError('Bundled module differs from lock')
             dest=root/'runtime/module-archives'/(lock['modules'][name]['sha256']+'.skill')
             dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,dest)
         kernel.write('phase-index.json',{'schema_version':'5.0','phases':[
-            {'index':i,'name':n,'role':r,'module':m} for i,n,r,m in STAGES]})
+            {'index':i,'name':n,'role':r,'module':m if m in lock['modules'] else None} for i,n,r,m in STAGES]})
         state={'schema_version':'5.0','artifacts':{},'media':{},'prompts':{},'approvals':{},'decisions':[],
                'completed_tasks':{},'active_task':None,'active_decision':None,'inflight':None,
                'status':'RUNNING','revision_scope':{},'provided_jobs':[],'host':{'image_capability':'unknown','evidence':None},
@@ -222,7 +231,7 @@ class V5Kernel:
                         **context['modules']['modules'][module]} if module else None,
               'max_shots_per_task':5,'expected_result':'role-result/5.0','output_contract':{'kind':kind,'format':'native artifact + role-result/5.0'},
               'brief':role_brief(kind,self.input_records(dependencies,state),scope),
-              'project':self.project,'handoff':briefing(kind,self.handoff_inputs(dependencies),scope),**extra}
+              'project':self.project,'handoff':briefing(kind,self.handoff_inputs(dependencies),scope,self.screenplay_protocol() if kind=='director' else None),**extra}
         task['handoff']['reference_observations']=self.observation_status()
         if slot in state['artifacts']:task['previous']=state['artifacts'][slot]
         task['existing_media']=[v for v in state['media'].values() if self.media_valid(v,state)]
@@ -378,7 +387,7 @@ class V5Kernel:
         if state['active_decision']:return {'status':'AWAITING_USER_DECISION','decision':state['active_decision']}
         for kind in ('canon','screenplay','director'):
             if not self.valid(kind):
-                i=STAGE_BY_KIND[kind];module=STAGES[i-1][3]
+                i=STAGE_BY_KIND[kind];module=self.stage_module(kind)
                 return self.task(kind,kind,i,module,self.role_dependencies(kind),state['revision_scope'])
         director=self.data('director')
         for scene in director['scenes']:
@@ -445,6 +454,8 @@ class V5Kernel:
             for entry in obj.get('references',[]):
                 if entry.get('file'):refs.append((entry,'file',False))
             for entry in obj.get('upstreams',[]):refs.append((entry,'uri',True))
+            if obj.get('schema')=='script-ir/1.0' and obj.get('canon',{}).get('ref'):
+                refs.append((obj['canon']['ref'],'uri',False))
             if isinstance(obj.get('director'),dict):refs.append((obj['director'],'uri',True))
             for entry,field,nested in refs:
                 old=entry[field]
@@ -464,6 +475,27 @@ class V5Kernel:
             raise ValueError('Native project_id differs; use the same project ID or an explicit source-preserving migration')
         if kind in ('director','art','storyboard','avir'):
             native_validate(kind,path,self.modules)
+        elif kind=='screenplay' and self.screenplay_protocol():
+            if value.get('schema')!='script-ir/1.0':
+                raise ValueError('Legacy screenplay needs source-preserving structuring into ScriptIR; not automatically accepted')
+            native_validate(kind,path,self.modules)
+            available={s['id']:s for s in self.state['sources']}; hashes={s['sha256'] for s in self.state['sources']}
+            original_sources=[s for s in value['sources'] if s['kind'] in ('user','original')]
+            if not original_sources:raise ValueError('Screenplay requires a registered original source')
+            for source in value['sources']:
+                if source['kind'] in ('user','original'):
+                    expected=available.get(source['id'],{}).get('sha256')
+                    if (expected and source['sha256']!=expected) or source['sha256'] not in hashes:
+                        raise ValueError('Unknown or changed narrative source: '+source['id'])
+            if self.valid('canon'):
+                canon=self.data('canon');ref=value['canon']['ref']
+                if not ref or ref['sha256']!=self.state['artifacts']['canon']['sha256']:
+                    raise ValueError('Screenplay must bind the current Canon; reconcile design proposals and re-review')
+                known={e['id'] for e in canon.get('entities',[])}
+                if any(c['id'] not in known for c in value['characters']):
+                    raise ValueError('Register screenplay characters with the Canon owner before handoff')
+                for lock in canon.get('locks',[]):
+                    if lock['kind']=='screenplay' and not assert_check(value,lock['check']):raise ValueError('Canon screenplay lock fails')
         elif kind in ('canon','screenplay'):
             if not value.get('content') or not value.get('source_refs'):
                 raise ValueError('Narrative content and source_refs are required')
@@ -509,9 +541,11 @@ class V5Kernel:
         ready=self.prerequisites_ready(kind)
         if dependencies is None:
             dependencies=self.role_dependencies(kind,scope) if ready else []
-        required=requirements(kind,self.handoff_inputs(dependencies))
-        review=validate_handoff(kind,value,required,handoff)
-        module=STAGES[STAGE_BY_KIND[kind]-1][3]
+        protocol=self.screenplay_protocol() if kind=='director' else None
+        required=requirements(kind,self.handoff_inputs(dependencies),protocol)
+        screenplay=(self.data('screenplay'),protocol) if protocol and self.valid('screenplay') else None
+        review=validate_handoff(kind,value,required,handoff,screenplay)
+        module=self.stage_module(kind)
         record={'kind':kind,'slot':slot,'stage':STAGE_BY_KIND[kind],'uri':uri,'sha256':digest_file(self.path(uri)),
             'original_sha256':digest_file(source),'revision':(old or {}).get('revision',0)+1,'scope':scope or {},
             'dependencies':dependencies,'files':files,'locks':locks if locks is not None else (old or {}).get('locks',[]),
@@ -640,19 +674,21 @@ class V5Kernel:
     @mutate
     def update_modules(self,lock_path,archives):
         lock=read(Path(lock_path));old=read(self.root/'modules.lock.json')
-        if set(lock['modules'])!=set(MODULES):raise ValueError('Expected the five professional modules')
+        if set(lock['modules'])!=set(MODULES):raise ValueError('Expected the six professional modules')
         if lock.get('adapter_version')!=ADAPTER_VERSION:raise ValueError('Module lock requires another adapter version')
         changed=[]
         for name,item in lock['modules'].items():
             source=Path(archives)/(name+'.skill')
             verify_module(source,name,item)
-            if item!=old['modules'][name]:changed.append(name)
+            if item!=old['modules'].get(name):changed.append(name)
             self.write('runtime/module-archives/'+item['sha256']+'.skill',source.read_bytes())
         self.write('history/modules-'+digest(old)+'.json',old);self.write('modules.lock.json',lock)
         state=self.state
-        affected={'director-grammar':'director','production-design-grammar':'art','storyboard-grammar':'storyboard'}
+        affected={'screenplay-grammar':'screenplay','director-grammar':'director','production-design-grammar':'art','storyboard-grammar':'storyboard'}
         for record in state['artifacts'].values():
             if record['kind'] in [affected[n] for n in changed if n in affected]:record['invalidated']=True
+        self.write('phase-index.json',{'schema_version':'5.0','phases':[
+            {'index':i,'name':n,'role':r,'module':m} for i,n,r,m in STAGES]})
         state.update(active_task=None,build=None,status='RUNNING')
         self.save(state)
         return {'status':'UPDATED','changed':changed,'existing_media':'retained; current dependency and prompt fingerprints will be rechecked'}

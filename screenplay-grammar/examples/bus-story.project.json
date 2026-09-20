@@ -1,0 +1,240 @@
+{
+  "canon": {
+    "facts": [],
+    "proposals": [],
+    "ref": null
+  },
+  "characters": [
+    {
+      "goal": "陪女儿等车又不显得刻意",
+      "id": "F",
+      "name": "父亲",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "voice": "用具体小事关心"
+    },
+    {
+      "goal": "从工作里缓过来",
+      "id": "D",
+      "name": "女儿",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "voice": "先简短后来主动说话"
+    }
+  ],
+  "contract": {
+    "checks": [
+      {
+        "assertions": [],
+        "blocking": true,
+        "evidence_required": "当前版本全文语义复核与具体观察",
+        "id": "END_REVIEW",
+        "method": "semantic",
+        "predicate": "行动与对白是否落实既定结尾而未改变关系意义？"
+      }
+    ],
+    "clauses": [
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "END_REVIEW"
+        ],
+        "id": "ENDING",
+        "owner": "screenplay",
+        "paths": [
+          "/narrative/ending"
+        ],
+        "priority": "hard",
+        "realization": "narrative",
+        "requirement": "保留结尾事件与关系意义：女儿选择和父亲一起等下一班车，两人分吃已经凉了的饭。",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      }
+    ],
+    "deliverables": [
+      "story"
+    ],
+    "scope": "写一个父亲和女儿下班后在公交站等车的生活故事，不加疾病或秘密。"
+  },
+  "culture": {
+    "claims": [],
+    "mode": "contemporary",
+    "overlays": [
+      "modern_chinese"
+    ]
+  },
+  "language": "zh-CN",
+  "locks": [],
+  "narrative": {
+    "ending": "女儿选择和父亲一起等下一班车，两人分吃已经凉了的饭。",
+    "events": [
+      {
+        "block_ids": [
+          "P1"
+        ],
+        "causes": [],
+        "description": "父亲以顺路掩饰送饭",
+        "id": "E1",
+        "preconditions": [],
+        "scene_id": "BUS",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": []
+      },
+      {
+        "block_ids": [
+          "P2"
+        ],
+        "causes": [
+          "E1"
+        ],
+        "description": "女儿主动说工作不顺",
+        "id": "E2",
+        "preconditions": [],
+        "scene_id": "BUS",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": []
+      },
+      {
+        "block_ids": [
+          "P3"
+        ],
+        "causes": [
+          "E2"
+        ],
+        "description": "女儿选择留下陪父亲吃饭",
+        "id": "E3",
+        "preconditions": [],
+        "scene_id": "BUS",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": []
+      }
+    ],
+    "initial_knowledge": [],
+    "premise": "父亲绕路送饭，女儿在等车的间隙慢慢愿意说起一天。",
+    "promises": [],
+    "reveal_order": []
+  },
+  "open_issues": [],
+  "project_id": "STORY",
+  "propositions": [],
+  "review": {
+    "content_sha256": "7820af92789da759ae82a8122bd0d9e41ee0fd263de499fd7fc57adfa2ff8485",
+    "findings": [
+      "P1 的顺路被共同生活经验识破，P2 父亲承认不懂，未安排说教解决工作问题。",
+      "P3 女儿主动错过一班车并分饭，完成陪伴选择；没有疾病、秘密或突发灾难。",
+      "用餐动作核对：带有两双筷子，女儿递给父亲一双，各自可以进食。"
+    ],
+    "reviewer": "current-agent / original-example-review",
+    "status": "PASS"
+  },
+  "revision": 1,
+  "rewrite_scope": {
+    "allow_new_events": true,
+    "allowed_paths": [
+      "/scenes",
+      "/narrative",
+      "/characters",
+      "/propositions"
+    ],
+    "level": "structure",
+    "preserve_paths": []
+  },
+  "scenes": [
+    {
+      "blocks": [
+        {
+          "id": "P1",
+          "kind": "prose",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "父亲站在站牌后面，饭盒提得很低，像怕被谁认出来。女儿走近时，他先看了一眼电子屏，说车还要六分钟。她接过饭盒，问他怎么绕了这么远。他说顺路。她没拆穿，那条路她从小走到大。"
+        },
+        {
+          "id": "P2",
+          "kind": "prose",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "她手机亮了几次。父亲没有看屏幕，把提袋里的两双筷子抽出来，又放回去。她终于把手机扣在饭盒上，说今天做的表又被退回来了。他问是哪个格子。她笑了一下，说不是格子的事。他也笑，承认自己不懂。"
+        },
+        {
+          "id": "P3",
+          "kind": "prose",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "车到站时，饭盒还没打开。女儿朝车门迈了半步，又退回父亲身边。她说下一班也一样，把盖子揭开，递给他一双筷子。饭有点凉，两个人坐在站牌下，终于不用再找顺路的理由。"
+        }
+      ],
+      "heading": "公交站·傍晚",
+      "id": "BUS",
+      "purpose": "事务性问候变成自愿陪伴",
+      "source_refs": [
+        "DESIGN"
+      ]
+    }
+  ],
+  "schema": "script-ir/1.0",
+  "source_refs": [
+    "USER",
+    "DESIGN"
+  ],
+  "sources": [
+    {
+      "excerpt": "写一个父亲和女儿下班后在公交站等车的生活故事，不加疾病或秘密。",
+      "id": "USER",
+      "kind": "user",
+      "locator": "request",
+      "sha256": null,
+      "uri": "inline:user",
+      "verification": "provided"
+    },
+    {
+      "excerpt": "当前 Agent 根据一句话创意编写的人物、事件和正文；非用户原著或已批准项目。",
+      "id": "DESIGN",
+      "kind": "design",
+      "locator": "本样例原创设计",
+      "sha256": null,
+      "uri": "design://STORY",
+      "verification": "inference"
+    }
+  ],
+  "status": "READY",
+  "task": {
+    "forbidden_techniques": [],
+    "operation": "story",
+    "output": "story",
+    "style_request": null,
+    "tags": [
+      "亲情",
+      "观察"
+    ]
+  },
+  "timing": {
+    "estimated_range_seconds": null,
+    "evidence": null,
+    "measured_seconds": null,
+    "target_seconds": null
+  },
+  "title": "晚一班车"
+}

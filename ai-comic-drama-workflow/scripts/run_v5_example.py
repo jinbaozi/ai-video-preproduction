@@ -10,6 +10,8 @@ sys.path.insert(0,str(ROOT/'src'))
 from ai_comic_drama_workflow.v5 import V5Kernel
 from ai_comic_drama_workflow.v5_modules import read,digest_file
 from ai_comic_drama_workflow.v5_adapters import encoded
+sys.path.insert(0,str(ROOT/'scripts'))
+from screenplay_fixture import screenplay, director_mapping
 
 
 def run_example(out, version='v5'):
@@ -23,7 +25,9 @@ def run_example(out, version='v5'):
         if step['status']=='DELIVERED':return step
         if 'task' not in step:raise ValueError(str(step))
         task=step['task'];kind=task['kind']
-        if kind in ('canon','screenplay'):
+        if kind=='screenplay' and k.screenplay_protocol():
+            value=screenplay(k)
+        elif kind in ('canon','screenplay'):
             value={'project_id':'CAFE_DEMO','revision':1,'content':(author/'cafe.source.txt').read_text(),
                    'source_refs':[s['id'] for s in k.state['sources']]}
             if kind=='canon':value.update(entities=[{'id':e['id']} for e in read(author/'director.json')['entities']],locks=[])
@@ -31,8 +35,9 @@ def run_example(out, version='v5'):
             value={'project_id':'CAFE_DEMO','passed':True,'build_id':k.state['build']['build_id'],
                    'checks':['Fixed fixture: source order, B dialogue, two identities, hand custody and explicit coordinate conversion checked.','Static example only; actual images and video NOT_RUN.']}
         else:value=read(author/(kind+'.json'))
-        path=author/('result-'+kind+'.json');path.write_bytes(encoded(value));handoff=[]
-        for req in task['handoff']['required_handoffs']:
+        handoff=director_mapping(task,value) if kind=='director' and k.screenplay_protocol() else []
+        path=author/('result-'+kind+'.json');path.write_bytes(encoded(value))
+        for req in ([] if kind=='director' else task['handoff']['required_handoffs']):
             cid=req['id'].split(':')[-1]
             if req.get('preservation_only'):
                 handoff.append({'requirement_id':req['id'],'source_fingerprint':req['source_fingerprint'],'target_checks':[{'path':req['source_paths'][0],'op':'equals','value':req['source_values'][0]}],'reason':'Same complete temporal detail retained; no summary or creative change.'})

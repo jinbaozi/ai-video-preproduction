@@ -1,10 +1,11 @@
-# 六技能套装 V5.2
+# 七技能套装 V5.3
 
-六个入口各自可用，总工作流另外携带五个专业模块的锁定包。`hypit-ai`保持原状，实际视频生成与剪辑不在本套装终点内。
+七个入口各自可用，总工作流另外携带六个专业模块的锁定包。`hypit-ai`保持原状，实际视频生成与剪辑不在本套装终点内。
 
 | 入口 | 独立使用示例 | 协作职责 |
 |---|---|---|
 | ai-comic-drama-workflow | 根据原文制作参考图、分镜和视频提示词完整包 | 唯一项目入口，管理事实、资产、决定和版本 |
+| screenplay-grammar | 一句话生成中文/国风故事或剧本，补全润色扩写 | 故事因果、人物认知、信息约束与台词 |
 | director-grammar | 为这段剧本设计信息显露、关键表演与镜头原则 | 决定与锁定 |
 | production-design-grammar | 为这个场景设计角色服装、空间、道具与光源 | 世界与逐镜美术约束 |
 | storyboard-grammar | 直接把这段原文细化为三镜分镜 | 细化未锁镜头、动作、画格和连续性 |
@@ -27,12 +28,12 @@
 
 [工作流用法](ai-comic-drama-workflow/README.md) · [完整接口](ai-comic-drama-workflow/references/v5/runtime.md) · [迁移清单](ai-comic-drama-workflow/references/v5/retirement.md) · [验收边界](ai-comic-drama-workflow/references/v5/verification.md)
 
-发行目录为[dists](dists/)，包含6个`.skill`、各自的manifest与SHA-256，以及suite-manifest。安装时选择需要的入口即可；总工作流无需安装相邻专业目录。活动技能默认发现保持启用，没有新增第七个入口。
+发行目录为[dists](dists/)，包含7个`.skill`、各自的manifest与SHA-256，以及suite-manifest。安装时选择需要的入口即可；总工作流无需安装相邻专业目录。活动技能默认发现保持启用；新增独立编剧入口。
 
 
 ## V5.2 使用与边界
 
-新完整制作使用 DirectorIR 1.2 → ArtIR 1.0 → StoryboardIR 1.2 → AVIR 1.2。ArtIR 不重复维护动作时间轨；保留导演原文件绑定和空间/服化道约束。轻量独立任务不强制结构化包。
+新完整制作使用 ScriptIR 1.0 → DirectorIR 1.2 → ArtIR 1.0 → StoryboardIR 1.2 → AVIR 1.2。ArtIR 不重复维护动作时间轨；保留导演原文件绑定和空间/服化道约束。轻量独立任务不强制结构化包。
 
 推荐启动提示词：
 
@@ -71,3 +72,7 @@
 ```
 
 详见 [V5.2 空间合同](video-prompt-compiler/references/spatial-contract-v52.md)。原生包升级使用各原生技能内 `scripts/upgrade_spatial.py`，输出新目录中的原件、草案和缺项报告。工作流局部修订增加 `--node-id`、`--track-id`，与既有动作/镜头范围互斥。旧模块锁不会静默更新。
+
+## V5.3 独立编剧接入
+
+新增 screenplay-grammar（中文、国风、一句话故事与剧本、补全润色扩写）。新套件为总工作流加六个专业模块；编剧决定剧情语义，导演负责视听实现。旧项目按原锁继续，显式升级才改用原生 ScriptIR。标准发行在 [dists](dists/)，验收方法与边界见 [验证说明](ai-comic-drama-workflow/references/v5/verification.md)。

@@ -11,8 +11,9 @@ import sys
 import zipfile
 from pathlib import Path, PurePosixPath
 
-MODULES = ('director-grammar', 'production-design-grammar', 'storyboard-grammar',
+MODULES = ('screenplay-grammar', 'director-grammar', 'production-design-grammar', 'storyboard-grammar',
            'video-prompt-compiler', 'image-prompt-optimizer')
+LEGACY_MODULES = tuple(name for name in MODULES if name != 'screenplay-grammar')
 ROOT = Path(__file__).resolve().parents[2]
 if not (ROOT / 'SKILL.md').exists():
     ROOT = Path(sys.prefix) / 'share/ai-comic-drama-workflow'
@@ -57,8 +58,8 @@ def verify_archive(archive, expected=None):
 
 def default_lock(root=ROOT):
     lock = read(Path(root) / 'modules.lock.json')
-    if set(lock['modules']) != set(MODULES):
-        raise ValueError('The workflow requires exactly five locked professional modules')
+    if set(lock['modules']) not in (set(MODULES), set(LEGACY_MODULES)):
+        raise ValueError('Expected a six-module lock or a preserved legacy five-module lock')
     return lock
 
 
@@ -111,14 +112,16 @@ def load_python(module, script):
 
 def native_validate(kind, path, modules):
     names = {'director': ('director-grammar', 'dg.py', 'validate'),
+             'screenplay': ('screenplay-grammar', 'sg.py', 'validate'),
              'art': ('production-design-grammar', 'art_compile.py', 'validate'),
              'storyboard': ('storyboard-grammar', 'storyboard.py', 'inspect'),
              'avir': ('video-prompt-compiler', 'vpc.py', 'validate')}
     if kind not in names:
         return {'status': 'VALID'}
     name, script, command = names[kind]
-    result = subprocess.run([sys.executable, str(modules(name) / 'scripts' / script), command,
-                             str(Path(path).resolve())], capture_output=True, text=True)
+    args = [sys.executable, str(modules(name) / 'scripts' / script), command, str(Path(path).resolve())]
+    if kind == 'screenplay': args.append('--final')
+    result = subprocess.run(args, capture_output=True, text=True)
     try:
         report = json.loads(result.stdout)
     except ValueError as error:

@@ -2,6 +2,7 @@
   "schema": "skill-suite/1.0",
   "active": [
     "ai-comic-drama-workflow",
+    "screenplay-grammar",
     "director-grammar",
     "production-design-grammar",
     "storyboard-grammar",

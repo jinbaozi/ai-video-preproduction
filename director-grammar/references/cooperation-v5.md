@@ -1,6 +1,6 @@
 # 导演：独立与协作契约
 
-决定意图、信息顺序、关键表演与已锁定镜头；分镜细化未锁部分。独立使用保留现有compile与导出命令；协作模式的最终视频提示词统一交给video-prompt-compiler。
+落实编剧确定的信息顺序与剧情约束，决定视听意图、关键表演与已锁定镜头；分镜细化未锁部分。独立使用保留现有compile与导出命令；协作模式的最终视频提示词统一交给video-prompt-compiler。
 
 ## 独立入口
 
@@ -21,3 +21,5 @@ ai-comic-drama-workflow V5由当前Agent顺序调用本模块。任务信封给�
 静态检查、图片审核和视频执行分别记录。submitted=false或NOT_RUN不能由人工改字段冒充执行。
 
 结果格式必须声明`schema: role-result/5.0`。任务内`handoff.required_handoffs`给出上游硬要求及源指纹；交回requirement_id、source_fingerprint、target_checks、reason，分镜另给target_clause。先在目标原生Schema中保留硬合同，再解释语义映射；仅复制文字或留在旁注不算满足执行要求。
+
+编剧上游交接必须按 [screenplay-handoff.md](screenplay-handoff.md) 验证，角色认知、对白语义和结局的修订返回编剧。

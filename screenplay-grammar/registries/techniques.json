@@ -1,0 +1,164 @@
+{
+  "techniques": [
+    {
+      "id": "premise",
+      "name": "前提提炼",
+      "path": "references/techniques/premise.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "goal_strategy",
+      "name": "目标与策略",
+      "path": "references/techniques/goal_strategy.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "causal_chain",
+      "name": "因果链",
+      "path": "references/techniques/causal_chain.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "opposing_agendas",
+      "name": "对立议程",
+      "path": "references/techniques/opposing_agendas.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "choice_cost",
+      "name": "选择与代价",
+      "path": "references/techniques/choice_cost.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "restricted_view",
+      "name": "限制视点",
+      "path": "references/techniques/restricted_view.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "knowledge_update",
+      "name": "认知更新",
+      "path": "references/techniques/knowledge_update.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "fair_clue",
+      "name": "线索公平",
+      "path": "references/techniques/fair_clue.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "setup_payoff",
+      "name": "铺垫回收",
+      "path": "references/techniques/setup_payoff.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "subtext",
+      "name": "潜台词",
+      "path": "references/techniques/subtext.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "character_voice",
+      "name": "人物声音",
+      "path": "references/techniques/character_voice.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "dialogue_economy",
+      "name": "对白压缩",
+      "path": "references/techniques/dialogue_economy.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "externalize",
+      "name": "行动外化",
+      "path": "references/techniques/externalize.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "scene_entry_exit",
+      "name": "场景进出",
+      "path": "references/techniques/scene_entry_exit.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "ellipsis",
+      "name": "省略与留白",
+      "path": "references/techniques/ellipsis.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "object_meaning",
+      "name": "物件变义",
+      "path": "references/techniques/object_meaning.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "irony",
+      "name": "反讽与喜剧",
+      "path": "references/techniques/irony.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "world_rules",
+      "name": "规则与代价",
+      "path": "references/techniques/world_rules.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "serial_consequence",
+      "name": "连载后果",
+      "path": "references/techniques/serial_consequence.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "adaptation_ledger",
+      "name": "改编取舍",
+      "path": "references/techniques/adaptation_ledger.md",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    }
+  ]
+}

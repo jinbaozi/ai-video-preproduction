@@ -1,0 +1,406 @@
+{
+  "canon": {
+    "facts": [],
+    "proposals": [],
+    "ref": null
+  },
+  "characters": [
+    {
+      "goal": "决定是否弥补昨日没有为渡客留灯的选择",
+      "id": "LIN",
+      "name": "林照",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "voice": "话少，遇到自己的辩解时变得具体"
+    },
+    {
+      "goal": "保住自己心安理得的解释",
+      "id": "OLD",
+      "name": "昨日的林照",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "voice": "先用熟悉的理由劝说，最后让步"
+    }
+  ],
+  "contract": {
+    "checks": [
+      {
+        "assertions": [],
+        "blocking": true,
+        "evidence_required": "当前版本全文语义复核与具体观察",
+        "id": "END_REVIEW",
+        "method": "semantic",
+        "predicate": "行动与对白是否落实既定结尾而未改变关系意义？"
+      }
+    ],
+    "clauses": [
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "END_REVIEW"
+        ],
+        "id": "ENDING",
+        "owner": "screenplay",
+        "paths": [
+          "/narrative/ending"
+        ],
+        "priority": "hard",
+        "realization": "narrative",
+        "requirement": "保留结尾事件与关系意义：林照放走昨日的自己，把仅剩灯油用来为眼前的渡客照路，接受无法改写昨日的事实。",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      }
+    ],
+    "deliverables": [
+      "screenplay"
+    ],
+    "scope": "守灯人发现灯里住着昨日的自己，写一篇完整的国风志怪短剧。"
+  },
+  "culture": {
+    "claims": [],
+    "mode": "invented",
+    "overlays": [
+      "zhiguai"
+    ]
+  },
+  "language": "zh-CN",
+  "locks": [],
+  "narrative": {
+    "ending": "林照放走昨日的自己，把仅剩灯油用来为眼前的渡客照路，接受无法改写昨日的事实。",
+    "events": [
+      {
+        "block_ids": [
+          "B1",
+          "B4"
+        ],
+        "causes": [],
+        "description": "灯中昨日与船声出现",
+        "id": "E1",
+        "preconditions": [],
+        "scene_id": "S1",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": [
+          {
+            "actor": "LIN",
+            "proposition": "HEARD",
+            "source_refs": [
+              "DESIGN"
+            ],
+            "state": "suspects"
+          }
+        ]
+      },
+      {
+        "block_ids": [
+          "B5",
+          "B6",
+          "B8"
+        ],
+        "causes": [
+          "E1"
+        ],
+        "description": "昨日承认听见求渡声，规则表明无法改变过去",
+        "id": "E2",
+        "preconditions": [
+          {
+            "actor": "LIN",
+            "proposition": "HEARD",
+            "source_refs": [
+              "DESIGN"
+            ],
+            "state": "suspects"
+          }
+        ],
+        "scene_id": "S2",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": [
+          {
+            "actor": "LIN",
+            "proposition": "HEARD",
+            "source_refs": [
+              "DESIGN"
+            ],
+            "state": "knows"
+          }
+        ]
+      },
+      {
+        "block_ids": [
+          "B10",
+          "B11",
+          "B12",
+          "B13"
+        ],
+        "causes": [
+          "E2"
+        ],
+        "description": "放下重复的借口，为当下渡客留灯",
+        "id": "E3",
+        "preconditions": [],
+        "scene_id": "S3",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "updates": []
+      }
+    ],
+    "initial_knowledge": [
+      {
+        "actor": "OLD",
+        "proposition": "HEARD",
+        "source_refs": [
+          "DESIGN"
+        ],
+        "state": "knows"
+      }
+    ],
+    "premise": "孤渡守灯人看见灯焰中昨日的自己；这盏灯只能照亮被它留住的一夜。",
+    "promises": [],
+    "reveal_order": [
+      "E1",
+      "E2",
+      "E3"
+    ]
+  },
+  "open_issues": [],
+  "project_id": "LANTERN",
+  "propositions": [
+    {
+      "id": "HEARD",
+      "source_refs": [
+        "DESIGN"
+      ],
+      "statement": "昨日林照曾听见渡客叩船帮",
+      "truth": "true"
+    }
+  ],
+  "review": {
+    "content_sha256": "d71198dd1ac8afa4282f87a68eea5cf64b221fd1cf4d2fed7bcd0186e8910db3",
+    "findings": [
+      "B1-B4 建立异常，B5-B8 才让林照从怀疑获得承认；没有提前知情。",
+      "B8 限定灯只能保留一夜，B11-B13 改变当前选择，没有临时增加回溯救人的能力。",
+      "结尾用照路行动回应责任，未强加死亡、反派或历史官制；架空规则不是史实。",
+      "道具连续性复核：B7 隔着闭合灯罩触碰；B8 先建立开罩即散的规则；B11 同一盏灯开罩、添油、重新罩好后提走，B13 不再把它留在亭中。"
+    ],
+    "reviewer": "current-agent / original-example-review",
+    "status": "PASS"
+  },
+  "revision": 1,
+  "rewrite_scope": {
+    "allow_new_events": true,
+    "allowed_paths": [
+      "/scenes",
+      "/narrative",
+      "/characters",
+      "/propositions"
+    ],
+    "level": "structure",
+    "preserve_paths": []
+  },
+  "scenes": [
+    {
+      "blocks": [
+        {
+          "id": "B1",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "林照擦去灯罩水雾。焰心里，一个同样穿湿衣的自己正在吹灯。"
+        },
+        {
+          "id": "B2",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "LIN",
+          "text": "别吹。我昨夜就是这样收工的。"
+        },
+        {
+          "id": "B3",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "OLD",
+          "text": "水涨了。谁也不会来了。"
+        },
+        {
+          "id": "B4",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "远处传来一下叩船帮的声音。灯里的自己捂住耳朵，火光随之缩小。"
+        }
+      ],
+      "heading": "外景·渡口灯亭·夜",
+      "id": "S1",
+      "purpose": "建立灯的异常与昨夜未留灯的事实",
+      "source_refs": [
+        "DESIGN"
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "id": "B5",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "LIN",
+          "text": "你听见了。"
+        },
+        {
+          "id": "B6",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "OLD",
+          "text": "我听见了。可我没有出去。"
+        },
+        {
+          "id": "B7",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "林照把手贴在灯罩上。焰中的渡口仿佛延伸到掌心，他摸到的仍是冰冷玻璃。"
+        },
+        {
+          "id": "B8",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "OLD",
+          "text": "灯只能留住一夜。罩子一开，我就散了。你添油，我还能把那些理由再说一遍。"
+        },
+        {
+          "id": "B9",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "油壶只剩薄薄一层。此刻，河上又响起一下叩船帮的声音。林照把油壶停在灯门前。"
+        }
+      ],
+      "heading": "内景·灯亭·连续",
+      "id": "S2",
+      "purpose": "解释规则与选择代价",
+      "source_refs": [
+        "DESIGN"
+      ]
+    },
+    {
+      "blocks": [
+        {
+          "id": "B10",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "LIN",
+          "text": "我不陪你说了。"
+        },
+        {
+          "id": "B11",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "林照揭开灯罩。焰中的自己没有阻拦，随一缕烟散去。他添上最后一点油，重新罩好灯，提着它沿石阶向下。"
+        },
+        {
+          "id": "B12",
+          "kind": "dialogue",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": "LIN",
+          "text": "别靠左，那里缺一阶。我给你照着。"
+        },
+        {
+          "id": "B13",
+          "kind": "action",
+          "source_refs": [
+            "DESIGN"
+          ],
+          "speaker": null,
+          "text": "河上的桨声转向亮处。灯罩上映着两级湿石阶，再没有第二个人影。"
+        }
+      ],
+      "heading": "外景·渡口·稍后",
+      "id": "S3",
+      "purpose": "用当下行动回应昨日选择",
+      "source_refs": [
+        "DESIGN"
+      ]
+    }
+  ],
+  "schema": "script-ir/1.0",
+  "source_refs": [
+    "USER",
+    "DESIGN"
+  ],
+  "sources": [
+    {
+      "excerpt": "守灯人发现灯里住着昨日的自己，写一篇完整的国风志怪短剧。",
+      "id": "USER",
+      "kind": "user",
+      "locator": "request",
+      "sha256": null,
+      "uri": "inline:user",
+      "verification": "provided"
+    },
+    {
+      "excerpt": "当前 Agent 根据一句话创意编写的人物、事件和正文；非用户原著或已批准项目。",
+      "id": "DESIGN",
+      "kind": "design",
+      "locator": "本样例原创设计",
+      "sha256": null,
+      "uri": "design://LANTERN",
+      "verification": "inference"
+    }
+  ],
+  "status": "READY",
+  "task": {
+    "forbidden_techniques": [],
+    "operation": "create",
+    "output": "screenplay",
+    "style_request": null,
+    "tags": [
+      "志怪",
+      "奇幻"
+    ]
+  },
+  "timing": {
+    "estimated_range_seconds": null,
+    "evidence": null,
+    "measured_seconds": null,
+    "target_seconds": null
+  },
+  "title": "留灯"
+}

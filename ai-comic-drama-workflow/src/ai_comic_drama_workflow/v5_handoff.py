@@ -3,8 +3,13 @@ from copy import deepcopy
 from .v5_adapters import assert_check, digest, pointer
 
 
-def requirements(kind, inputs):
+def requirements(kind, inputs, screenplay_protocol=None):
     result = []
+    if kind == 'director' and screenplay_protocol:
+        for slot, value, record in inputs:
+            if slot == 'screenplay' and value.get('schema') == 'script-ir/1.0':
+                result.extend(screenplay_protocol.requirements(value))
+        return result
     if kind not in ('art', 'storyboard'):
         return result
     for slot, value, record in inputs:
@@ -38,7 +43,7 @@ def requirements(kind, inputs):
     return result
 
 
-def briefing(kind, inputs, scope):
+def briefing(kind, inputs, scope, screenplay_protocol=None):
     selected = []
     for slot, value, record in inputs:
         if slot == 'director':
@@ -51,6 +56,9 @@ def briefing(kind, inputs, scope):
         elif slot.startswith('art:'):
             fields = ('world', 'set', 'assets', 'shots', 'references')
             basis = {'source': value['set'].get('coordinate_system'), 'per_scene': value['set']['scene_id']}
+        elif slot == 'screenplay' and value.get('schema') == 'script-ir/1.0':
+            fields = ('characters', 'narrative', 'scenes', 'propositions', 'contract', 'locks', 'culture')
+            basis = None
         else:
             fields = ('content', 'entities', 'locks')
             basis = None
@@ -58,12 +66,22 @@ def briefing(kind, inputs, scope):
                          'fields': {key: {'pointer': '/' + key, 'value': deepcopy(value[key])}
                                     for key in fields if key in value}, 'coordinates': basis})
     return {'kind': kind, 'scope': scope or {}, 'inputs': selected,
-            'required_handoffs': requirements(kind, inputs),
+            'required_handoffs': requirements(kind, inputs, screenplay_protocol),
             'semantic_action': 'Current Agent records target assertions and rationale; unresolved interpretation is a conflict, never silently guessed.'}
 
 
-def validate_handoff(kind, value, required, review):
+def validate_handoff(kind, value, required, review, screenplay=None):
     review = review or []
+    if kind == 'director' and screenplay:
+        project, protocol = screenplay
+        if not review: raise ValueError('Director requires screenplay mappings and current semantic review')
+        stamp = review[0].get('review', {})
+        if any(row.get('review') != stamp for row in review): raise ValueError('Inconsistent screenplay review binding')
+        mapping = {'schema': 'screenplay-director-map/1.0', **stamp,
+                   'mappings': [{k: v for k, v in row.items() if k != 'review'} for row in review]}
+        errors = protocol.validate_mapping(value, required, mapping, protocol.content_hash(project))
+        if errors: raise ValueError('; '.join(errors))
+        return deepcopy(review)
     if len({r['requirement_id'] for r in review}) != len(review):
         raise ValueError('Duplicate handoff requirement')
     by_id = {r['requirement_id']: r for r in review}

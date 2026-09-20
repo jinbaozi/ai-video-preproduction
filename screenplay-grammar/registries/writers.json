@@ -1,0 +1,425 @@
+{
+  "ranking_basis": "用户提供方案的研究顺序；非官方作者排名。作品署名来自该方案，未在本次逐项独立核验。",
+  "writers": [
+    {
+      "rank": 1,
+      "group": "华语",
+      "name": "刘和平",
+      "english_name": "Liu Heping",
+      "credit_reference": "大明王朝1566",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "institutional_ensemble",
+      "method_analysis": "制度利益、策略对白与群像因果",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 2,
+      "group": "华语",
+      "name": "芦苇",
+      "english_name": "Lu Wei",
+      "credit_reference": "霸王别姬（合作编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "historical_fate",
+      "method_analysis": "文学改编与人物命运",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 3,
+      "group": "华语",
+      "name": "刘恒",
+      "english_name": "Liu Heng",
+      "credit_reference": "菊豆",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "moral_ambiguity",
+      "method_analysis": "生存压力与伦理选择",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 4,
+      "group": "华语",
+      "name": "朱天文",
+      "english_name": "Chu Tien-wen",
+      "credit_reference": "海上花",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "poetic_ellipsis",
+      "method_analysis": "生活片段、省略与历史记忆",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 5,
+      "group": "华语",
+      "name": "吴念真",
+      "english_name": "Wu Nien-jen",
+      "credit_reference": "多桑",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "character_causal",
+      "method_analysis": "庶民经验、口语与代际关系",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 6,
+      "group": "华语",
+      "name": "韦家辉",
+      "english_name": "Wai Ka-fai",
+      "credit_reference": "神探（合作编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "rule_high_concept",
+      "method_analysis": "认知错位与规则型叙事",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 7,
+      "group": "华语",
+      "name": "王朔",
+      "english_name": "Wang Shuo",
+      "credit_reference": "编辑部的故事（合作编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "ironic_comedy",
+      "method_analysis": "对白博弈与自尊防御",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 8,
+      "group": "华语",
+      "name": "李樯",
+      "english_name": "Li Qiang",
+      "credit_reference": "立春",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "character_causal",
+      "method_analysis": "愿望与社会评价的落差",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 9,
+      "group": "华语",
+      "name": "兰晓龙",
+      "english_name": "Lan Xiaolong",
+      "credit_reference": "士兵突击",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "institutional_ensemble",
+      "method_analysis": "团队任务与信念冲突",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 10,
+      "group": "华语",
+      "name": "高满堂",
+      "english_name": "Gao Mantang",
+      "credit_reference": "闯关东（合作编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "historical_fate",
+      "method_analysis": "家庭事业双线与时代变化",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 11,
+      "group": "华语",
+      "name": "邹静之",
+      "english_name": "Zou Jingzhi",
+      "credit_reference": "归来",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "relationship_subtext",
+      "method_analysis": "物件叙事与对白压缩",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 12,
+      "group": "华语",
+      "name": "王丽萍",
+      "english_name": "Wang Liping",
+      "credit_reference": "媳妇的美好时代",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "relationship_subtext",
+      "method_analysis": "家庭协商与生活推进",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 13,
+      "group": "华语",
+      "name": "海宴",
+      "english_name": "Hai Yan",
+      "credit_reference": "琅琊榜",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "serial_consequence",
+      "method_analysis": "身份信息与长线回收",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 14,
+      "group": "华语",
+      "name": "张冀",
+      "english_name": "Zhang Ji",
+      "credit_reference": "亲爱的",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "moral_ambiguity",
+      "method_analysis": "调研转化与多方动机",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 15,
+      "group": "华语",
+      "name": "鲍鲸鲸",
+      "english_name": "Bao Jingjing",
+      "credit_reference": "失恋33天",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "romantic_comedy",
+      "method_analysis": "青年声音与自我认同",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 1,
+      "group": "国外",
+      "name": "比利·怀尔德",
+      "english_name": "Billy Wilder",
+      "credit_reference": "桃色公寓（合作编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "ironic_comedy",
+      "method_analysis": "欲望陷阱、反讽与铺垫回收",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 2,
+      "group": "国外",
+      "name": "威廉·戈德曼",
+      "english_name": "William Goldman",
+      "credit_reference": "公主新娘",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "character_causal",
+      "method_analysis": "故事提炼与改编结构",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 3,
+      "group": "国外",
+      "name": "帕迪·查耶夫斯基",
+      "english_name": "Paddy Chayefsky",
+      "credit_reference": "电视台风云",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "institutional_ensemble",
+      "method_analysis": "组织利益与观点戏剧化",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 4,
+      "group": "国外",
+      "name": "罗伯特·唐尼",
+      "english_name": "Robert Towne",
+      "credit_reference": "唐人街",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "restricted_mystery",
+      "method_analysis": "分层真相与认知更新",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 5,
+      "group": "国外",
+      "name": "查理·考夫曼",
+      "english_name": "Charlie Kaufman",
+      "credit_reference": "成为约翰·马尔科维奇",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "rule_high_concept",
+      "method_analysis": "心理外化与元叙事",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 6,
+      "group": "国外",
+      "name": "艾伦·索金",
+      "english_name": "Aaron Sorkin",
+      "credit_reference": "社交网络",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "institutional_ensemble",
+      "method_analysis": "对白目标、阻力与地位",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 7,
+      "group": "国外",
+      "name": "诺拉·艾芙隆",
+      "english_name": "Nora Ephron",
+      "credit_reference": "当哈利遇到莎莉",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "romantic_comedy",
+      "method_analysis": "亲密关系观念的行动检验",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 8,
+      "group": "国外",
+      "name": "保罗·施拉德",
+      "english_name": "Paul Schrader",
+      "credit_reference": "出租车司机",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "character_causal",
+      "method_analysis": "行为模式与道德危机",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 9,
+      "group": "国外",
+      "name": "昆汀·塔伦蒂诺",
+      "english_name": "Quentin Tarantino",
+      "credit_reference": "低俗小说（故事创作含协作）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "restricted_mystery",
+      "method_analysis": "非线性与对白延迟危险",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 10,
+      "group": "国外",
+      "name": "桥本忍",
+      "english_name": "Shinobu Hashimoto",
+      "credit_reference": "切腹",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "moral_ambiguity",
+      "method_analysis": "证词结构与伦理反转",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 11,
+      "group": "国外",
+      "name": "阿斯哈·法哈蒂",
+      "english_name": "Asghar Farhadi",
+      "credit_reference": "一次别离",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "moral_ambiguity",
+      "method_analysis": "信息差与多方理由",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 12,
+      "group": "国外",
+      "name": "奉俊昊",
+      "english_name": "Bong Joon-ho",
+      "credit_reference": "寄生虫（与韩进元共同编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "rule_high_concept",
+      "method_analysis": "类型转换与结构性障碍",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 13,
+      "group": "国外",
+      "name": "菲比·沃勒-布里奇",
+      "english_name": "Phoebe Waller-Bridge",
+      "credit_reference": "伦敦生活（剧集主创与编剧）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "ironic_comedy",
+      "method_analysis": "幽默、心理防御与观众关系",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 14,
+      "group": "国外",
+      "name": "文斯·吉里根",
+      "english_name": "Vince Gilligan",
+      "credit_reference": "绝命毒师（编剧室协作）",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "serial_consequence",
+      "method_analysis": "行为后果与长期人物弧",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "rank": 15,
+      "group": "国外",
+      "name": "艾玛·汤普森",
+      "english_name": "Emma Thompson",
+      "credit_reference": "理智与情感",
+      "credit_verification": "provided_not_independently_verified",
+      "profile": "relationship_subtext",
+      "method_analysis": "改编压缩与情感外化",
+      "analysis_kind": "project_interpretation",
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    }
+  ]
+}

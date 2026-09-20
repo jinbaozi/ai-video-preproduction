@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the six active Skills and vendor exactly the same five module archives."""
+"""Build seven active Skills and vendor exactly the same six module archives."""
 import argparse
 import importlib.util
 import json
@@ -7,7 +7,7 @@ from pathlib import Path
 import shutil
 
 ROOT=Path(__file__).resolve().parents[1]
-MODULES=('director-grammar','production-design-grammar','storyboard-grammar','video-prompt-compiler','image-prompt-optimizer')
+MODULES=('screenplay-grammar','director-grammar','production-design-grammar','storyboard-grammar','video-prompt-compiler','image-prompt-optimizer')
 
 
 def package_suite(workspace,out):
@@ -19,6 +19,8 @@ def package_suite(workspace,out):
     sync(workspace, check=True)
     from sync_v52 import sync as sync_spatial
     sync_spatial(workspace, check=True)
+    from sync_screenplay import sync as sync_screenplay
+    sync_screenplay(workspace, check=True)
     bundles=ROOT/'assets/bundled-skills';bundles.mkdir(parents=True,exist_ok=True)
     records=[]
     for name in MODULES:

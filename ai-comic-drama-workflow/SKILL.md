@@ -2,12 +2,12 @@
 name: ai-comic-drama-workflow
 description: >
   在 Codex 中由当前 Agent 顺序执行可恢复的 V5 视频前期制作工作流，从资料、剧本或独立制作包到导演方案、美术、实际参考图、分镜和模型视频提示词。
-  单独安装即可使用随包锁定的五个专业模块；用于完整制作、续作、局部修订、独立成果导入和旧项目复制迁移，不负责视频生成、配音剪辑或发布。
+  单独安装即可使用随包锁定的六个专业模块；用于完整制作、续作、局部修订、独立成果导入和旧项目复制迁移，不负责视频生成、配音剪辑或发布。
 metadata:
-  version: "0.5.2"
+  version: "0.6.0"
 ---
 
-# 六技能协作工作流 V5.2
+# 七技能协作工作流 V5.3
 
 ## V5.2 运动与动态空间入口
 
@@ -36,7 +36,8 @@ metadata:
 
 ## 专业职责
 
-- director-grammar：导演意图、信息显露、表演与已锁定镜头；分镜细化未锁部分。
+- screenplay-grammar：独立故事、剧本、因果、人物认知、信息揭示约束和台词；也支持中文与国风补全、润色、扩写。
+- director-grammar：落实编剧约束的视听设计、表演与已锁定镜头；分镜细化未锁部分。
 - production-design-grammar：世界、场景拓扑、服化道、材质、世界光源；不重写镜头和台词。
 - storyboard-grammar：镜头、画格、时序、连续性；保留上游锁定项。
 - video-prompt-compiler：组合流程唯一模型编译出口；不借优化改变创作决定。
@@ -50,4 +51,8 @@ metadata:
 摄影数值和坐标是制作意图；实际入口未证明的控制、槽位和媒体属性不能写成已执行能力。
 
 Python 3.12+；纯文本制作不需要媒体工具，真实图片登记需 ffmpeg/ffprobe 和宿主生图/导入能力。
-本包包含五个与独立发行包字节一致的锁定模块，无同级源码运行依赖。详见 [模块和发行](references/v5/modules.md)、[交接与验收](references/v5/contracts.md)、[迁移](references/v5/migration.md)。
+本包包含六个与独立发行包字节一致的锁定模块，无同级源码运行依赖。详见 [模块和发行](references/v5/modules.md)、[交接与验收](references/v5/contracts.md)、[迁移](references/v5/migration.md)。
+
+## 编剧原生接入
+
+第二阶段使用锁定 screenplay-grammar；新项目必须通过 ScriptIR 原生校验与内容指纹复核。编剧新增实体先由 Canon 所有者登记，再重绑主稿；导演交回每条硬要求的映射。旧五模块项目按旧锁继续，显式升级后旧剧本进入待结构化状态。纯剧本请求直接使用独立技能；text-only 仍指现有前期制作流程不生图。

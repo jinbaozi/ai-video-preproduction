@@ -1,0 +1,340 @@
+{
+  "director_sha256": "ecdaff971f9fa6333f128b72b2f8adc3cfcf2adcd86c26f2ade34edec41d3c89",
+  "findings": [
+    "固定咖啡馆样例与原文对读；仅测试协议，不代表真实媒体通过。"
+  ],
+  "mappings": [
+    {
+      "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+      "requirement_id": "screenplay:ENDING",
+      "source_fingerprint": "06371c16d49c69fc377fa121f32075bbdef38e9c5cfed9c9d2e652962392c497",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/2/end_state",
+          "value": [
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "A",
+              "gaze_target": "B",
+              "pose": "坐姿，右手已离开信封",
+              "position_m": [
+                -0.7,
+                0,
+                0
+              ],
+              "support": "椅面承托坐骨，双足落地",
+              "yaw_deg": 90
+            },
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "B",
+              "gaze_target": "ENVELOPE",
+              "pose": "坐姿，右手稳持信封",
+              "position_m": [
+                0.7,
+                0,
+                0
+              ],
+              "support": "椅面承托坐骨，双足落地",
+              "yaw_deg": 270
+            },
+            {
+              "contact": "['B.right_hand']；holder=B.right_hand",
+              "entity_id": "ENVELOPE",
+              "gaze_target": null,
+              "pose": "纸面水平",
+              "position_m": [
+                0.3,
+                0,
+                0.95
+              ],
+              "support": "B.right_hand",
+              "yaw_deg": 0
+            },
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "TABLE",
+              "gaze_target": null,
+              "pose": "桌面水平，桌脚接地",
+              "position_m": [
+                0,
+                0,
+                0
+              ],
+              "support": "ROOM.floor",
+              "yaw_deg": 0
+            },
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "ROOM",
+              "gaze_target": null,
+              "pose": "固定建筑",
+              "position_m": [
+                0,
+                0,
+                0
+              ],
+              "support": "ROOM.floor",
+              "yaw_deg": 0
+            }
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/phases",
+          "value": [
+            {
+              "action": "A下颌缓缓下点一次；A点头后抬回原位；B看清点头后前伸右手，指腹接触信封右边；右手拇指与食指夹住信封后向上提离桌面",
+              "end_frame": 96,
+              "end_state": "信封现在归B右手持有",
+              "reaction": "B看A，手不动；B仍等待点头完整结束；A不再伸手；A保持空手，B提起后停稳",
+              "start_frame": 0
+            }
+          ]
+        }
+      ],
+      "target_clause": "REQ_CUSTODY"
+    },
+    {
+      "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+      "requirement_id": "screenplay:DIALOGUE_LINE",
+      "source_fingerprint": "701d1d373fa3f341cde9f29c50a8c036359a7204105353bcdbd4f15859953206",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/1/dialogue/0/text",
+          "value": "你确定？"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/dialogue/0/speaker_id",
+          "value": "B"
+        }
+      ],
+      "target_clause": "REQ_LINE"
+    },
+    {
+      "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "source_fingerprint": "06371c16d49c69fc377fa121f32075bbdef38e9c5cfed9c9d2e652962392c497",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/2/end_state",
+          "value": [
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "A",
+              "gaze_target": "B",
+              "pose": "坐姿，右手已离开信封",
+              "position_m": [
+                -0.7,
+                0,
+                0
+              ],
+              "support": "椅面承托坐骨，双足落地",
+              "yaw_deg": 90
+            },
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "B",
+              "gaze_target": "ENVELOPE",
+              "pose": "坐姿，右手稳持信封",
+              "position_m": [
+                0.7,
+                0,
+                0
+              ],
+              "support": "椅面承托坐骨，双足落地",
+              "yaw_deg": 270
+            },
+            {
+              "contact": "['B.right_hand']；holder=B.right_hand",
+              "entity_id": "ENVELOPE",
+              "gaze_target": null,
+              "pose": "纸面水平",
+              "position_m": [
+                0.3,
+                0,
+                0.95
+              ],
+              "support": "B.right_hand",
+              "yaw_deg": 0
+            },
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "TABLE",
+              "gaze_target": null,
+              "pose": "桌面水平，桌脚接地",
+              "position_m": [
+                0,
+                0,
+                0
+              ],
+              "support": "ROOM.floor",
+              "yaw_deg": 0
+            },
+            {
+              "contact": "[]；holder=None",
+              "entity_id": "ROOM",
+              "gaze_target": null,
+              "pose": "固定建筑",
+              "position_m": [
+                0,
+                0,
+                0
+              ],
+              "support": "ROOM.floor",
+              "yaw_deg": 0
+            }
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/phases",
+          "value": [
+            {
+              "action": "A下颌缓缓下点一次；A点头后抬回原位；B看清点头后前伸右手，指腹接触信封右边；右手拇指与食指夹住信封后向上提离桌面",
+              "end_frame": 96,
+              "end_state": "信封现在归B右手持有",
+              "reaction": "B看A，手不动；B仍等待点头完整结束；A不再伸手；A保持空手，B提起后停稳",
+              "start_frame": 0
+            }
+          ]
+        }
+      ],
+      "target_clause": "REQ_CUSTODY"
+    },
+    {
+      "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "source_fingerprint": "ec12ace5017c6b7bade0551ccad99e1e32510468ac9810d4e670299cab9c0b18",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/narrative",
+          "value": {
+            "audience_after": [
+              "A松开信封，等待B回应"
+            ],
+            "audience_before": [],
+            "character_knows": [
+              "A松开信封，等待B回应"
+            ],
+            "reveal": null,
+            "viewpoint": "客观观察，接近B的迟疑视点"
+          }
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/narrative",
+          "value": {
+            "audience_after": [
+              "B的怀疑通过发问表现"
+            ],
+            "audience_before": [
+              "A松开信封，等待B回应"
+            ],
+            "character_knows": [
+              "B的怀疑通过发问表现"
+            ],
+            "reveal": null,
+            "viewpoint": "客观观察，接近B的迟疑视点"
+          }
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/narrative",
+          "value": {
+            "audience_after": [
+              "信封现在归B右手持有"
+            ],
+            "audience_before": [
+              "B的怀疑通过发问表现"
+            ],
+            "character_knows": [
+              "信封现在归B右手持有"
+            ],
+            "reveal": null,
+            "viewpoint": "客观观察，接近B的迟疑视点"
+          }
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/phases",
+          "value": [
+            {
+              "action": "A下颌缓缓下点一次；A点头后抬回原位；B看清点头后前伸右手，指腹接触信封右边；右手拇指与食指夹住信封后向上提离桌面",
+              "end_frame": 96,
+              "end_state": "信封现在归B右手持有",
+              "reaction": "B看A，手不动；B仍等待点头完整结束；A不再伸手；A保持空手，B提起后停稳",
+              "start_frame": 0
+            }
+          ]
+        }
+      ],
+      "target_clause": "REQ_WAIT"
+    },
+    {
+      "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "source_fingerprint": "13d6f140173809f07d68b12c03f2aa479dadcf5c8574d6a34e0229ee97256da5",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/narrative",
+          "value": {
+            "audience_after": [
+              "A松开信封，等待B回应"
+            ],
+            "audience_before": [],
+            "character_knows": [
+              "A松开信封，等待B回应"
+            ],
+            "reveal": null,
+            "viewpoint": "客观观察，接近B的迟疑视点"
+          }
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/narrative",
+          "value": {
+            "audience_after": [
+              "B的怀疑通过发问表现"
+            ],
+            "audience_before": [
+              "A松开信封，等待B回应"
+            ],
+            "character_knows": [
+              "B的怀疑通过发问表现"
+            ],
+            "reveal": null,
+            "viewpoint": "客观观察，接近B的迟疑视点"
+          }
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/narrative",
+          "value": {
+            "audience_after": [
+              "信封现在归B右手持有"
+            ],
+            "audience_before": [
+              "B的怀疑通过发问表现"
+            ],
+            "character_knows": [
+              "信封现在归B右手持有"
+            ],
+            "reveal": null,
+            "viewpoint": "客观观察，接近B的迟疑视点"
+          }
+        }
+      ],
+      "target_clause": "REQ_WAIT"
+    }
+  ],
+  "reviewer": "authored-cafe-fixture / static test",
+  "schema": "screenplay-director-map/1.0",
+  "screenplay_sha256": "827d52a5d6075ae2a48185874938d282a99cdec5818824ec5d7c8d399cc4e960"
+}

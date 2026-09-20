@@ -688,20 +688,45 @@ def main():
     sub = parser.add_subparsers(dest="command",required=True)
     for name in ("validate","route"):
         p = sub.add_parser(name); p.add_argument("input")
+        if name=="validate":
+            p.add_argument("--screenplay-handoff"); p.add_argument("--screenplay-map")
     p = sub.add_parser("compile"); p.add_argument("input"); p.add_argument("--target",required=True)
     p.add_argument("--asset-root"); p.add_argument("--resolution"); p.add_argument("--out",required=True)
+    p.add_argument("--screenplay-handoff"); p.add_argument("--screenplay-map")
+    p = sub.add_parser("import-screenplay"); p.add_argument("input"); p.add_argument("--out",required=True)
     p = sub.add_parser("qa"); p.add_argument("input"); p.add_argument("execution"); p.add_argument("report")
     p.add_argument("--evidence-root",required=True)
     args = parser.parse_args()
     try:
+        if args.command=="import-screenplay":
+            from screenplay_protocol import load_handoff
+            handoff,project=load_handoff(args.input)
+            brief={"schema":"screenplay-director-brief/1.0","screenplay_handoff":str(Path(args.input).resolve()),
+                   "project_id":project["project_id"],"content_sha256":handoff["content_sha256"],
+                   "characters":project["characters"],"narrative":project["narrative"],"scenes":project["scenes"],
+                   "requirements":handoff["requirements"],"director_freedom":handoff["director_freedom"],
+                   "notice":"Read-only screenplay briefing, not a fabricated DirectorIR or user approval."}
+            with Path(args.out).open("x",encoding="utf-8") as f:f.write(dump(brief))
+            print(dump({"status":"IMPORTED","out":args.out}));return 0
         ir = read(args.input)
+        handoff=getattr(args,"screenplay_handoff",None); mapping=getattr(args,"screenplay_map",None)
+        if bool(handoff)!=bool(mapping):raise ValueError("Both --screenplay-handoff and --screenplay-map are required")
+        binding={"status":"NOT_CHECKED"}
+        if handoff:
+            from screenplay_protocol import check_handoff, content_hash
+            errors=check_handoff(ir,handoff,mapping)
+            if errors:
+                print(dump({"status":"BLOCKED","errors":errors,"owner":"screenplay/director"}));return 2
+            binding={"status":"REVIEW_ATTESTED","handoff_sha256":file_digest(handoff),
+                     "mapping_sha256":file_digest(mapping),"director_content_sha256":content_hash(ir)}
         if args.command=="validate":
-            errors=validate(ir); result={"status":"INVALID" if errors else "STATIC_VALID","errors":errors}
+            errors=validate(ir); result={"status":"INVALID" if errors else "STATIC_VALID","errors":errors,"screenplay_binding":binding}
         elif args.command=="route":
             result=route(ir["intent"])
         elif args.command=="compile":
             result=compile_ir(ir,args.target,args.asset_root or Path(args.input).resolve().parent,args.resolution)
             write_bundle(args.out,ir,result)
+            save(Path(args.out)/"screenplay-binding.json",binding)
         else:
             result=qa_gate(ir,read(args.execution),read(args.report),args.evidence_root)
         print(dump(result))

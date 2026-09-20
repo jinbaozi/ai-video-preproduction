@@ -1,0 +1,6 @@
+interface:
+  display_name: "专业编剧与中文故事创作"
+  short_description: "独立完成中文与国风故事、剧本、补全润色扩写，并交付可追溯制作合同"
+  default_prompt: "使用 $screenplay-grammar，根据我的创意或原文完成故事或剧本，保留指定内容，按需交付制作合同与导演交接包。"
+policy:
+  allow_implicit_invocation: true

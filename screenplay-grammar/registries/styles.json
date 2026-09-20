@@ -1,0 +1,207 @@
+{
+  "styles": [
+    {
+      "id": "character_causal",
+      "name": "人物因果",
+      "tags": [
+        "人物",
+        "选择",
+        "成长"
+      ],
+      "techniques": [
+        "goal_strategy",
+        "causal_chain",
+        "choice_cost"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "institutional_ensemble",
+      "name": "制度群像",
+      "tags": [
+        "权谋",
+        "群像",
+        "组织"
+      ],
+      "techniques": [
+        "opposing_agendas",
+        "goal_strategy",
+        "causal_chain"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "historical_fate",
+      "name": "历史命运",
+      "tags": [
+        "历史",
+        "家族",
+        "时代"
+      ],
+      "techniques": [
+        "choice_cost",
+        "externalize",
+        "adaptation_ledger"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "moral_ambiguity",
+      "name": "伦理困境",
+      "tags": [
+        "伦理",
+        "家庭",
+        "两难"
+      ],
+      "techniques": [
+        "opposing_agendas",
+        "choice_cost",
+        "knowledge_update"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "restricted_mystery",
+      "name": "限制视点悬疑",
+      "tags": [
+        "悬疑",
+        "调查",
+        "推理"
+      ],
+      "techniques": [
+        "restricted_view",
+        "fair_clue",
+        "knowledge_update"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "relationship_subtext",
+      "name": "关系潜台词",
+      "tags": [
+        "关系",
+        "亲情",
+        "含蓄"
+      ],
+      "techniques": [
+        "subtext",
+        "object_meaning",
+        "scene_entry_exit"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "poetic_ellipsis",
+      "name": "诗性省略",
+      "tags": [
+        "诗意",
+        "记忆",
+        "观察"
+      ],
+      "techniques": [
+        "ellipsis",
+        "object_meaning",
+        "scene_entry_exit"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "ironic_comedy",
+      "name": "反讽喜剧",
+      "tags": [
+        "喜剧",
+        "反讽"
+      ],
+      "techniques": [
+        "irony",
+        "goal_strategy",
+        "dialogue_economy"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "rule_high_concept",
+      "name": "规则高概念",
+      "tags": [
+        "奇幻",
+        "科幻",
+        "志怪",
+        "玄幻"
+      ],
+      "techniques": [
+        "premise",
+        "world_rules",
+        "setup_payoff"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "serial_consequence",
+      "name": "剧集后果链",
+      "tags": [
+        "连载",
+        "剧集",
+        "长篇"
+      ],
+      "techniques": [
+        "serial_consequence",
+        "causal_chain",
+        "setup_payoff"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "romantic_comedy",
+      "name": "爱情喜剧",
+      "tags": [
+        "爱情",
+        "青春",
+        "古偶"
+      ],
+      "techniques": [
+        "subtext",
+        "irony",
+        "character_voice"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    },
+    {
+      "id": "non_dramatic",
+      "name": "非戏剧叙述",
+      "tags": [
+        "教学",
+        "说明",
+        "观察性"
+      ],
+      "techniques": [
+        "scene_entry_exit",
+        "dialogue_economy"
+      ],
+      "source_refs": [
+        "CHAT_DESIGN"
+      ]
+    }
+  ]
+}

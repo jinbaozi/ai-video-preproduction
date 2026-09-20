@@ -1,0 +1,121 @@
+{
+  "content_sha256": "827d52a5d6075ae2a48185874938d282a99cdec5818824ec5d7c8d399cc4e960",
+  "director_freedom": [
+    "景别、机位与运镜",
+    "在剧情动作与结果内的表演和走位",
+    "不改变信息顺序约束的覆盖与剪辑",
+    "不改词义和说话归属的声音处理"
+  ],
+  "project_id": "CAFE_DEMO",
+  "ready": true,
+  "requirements": [
+    {
+      "id": "screenplay:ENDING",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "06371c16d49c69fc377fa121f32075bbdef38e9c5cfed9c9d2e652962392c497",
+      "source_paths": [
+        "/narrative/ending"
+      ],
+      "source_values": [
+        "A点头后B接过信封，结尾由B右手持稳，A不再持有。"
+      ],
+      "statement": "A点头后B接过信封，结尾由B右手持稳，A不再持有。"
+    },
+    {
+      "id": "screenplay:DIALOGUE_LINE",
+      "literal": true,
+      "owner": "screenplay",
+      "source_fingerprint": "701d1d373fa3f341cde9f29c50a8c036359a7204105353bcdbd4f15859953206",
+      "source_paths": [
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/1/speaker"
+      ],
+      "source_values": [
+        "你确定？",
+        "B"
+      ],
+      "statement": "保留台词原文及说话人 B"
+    },
+    {
+      "id": "screenplay:NARRATIVE_ending",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "06371c16d49c69fc377fa121f32075bbdef38e9c5cfed9c9d2e652962392c497",
+      "source_paths": [
+        "/narrative/ending"
+      ],
+      "source_values": [
+        "A点头后B接过信封，结尾由B右手持稳，A不再持有。"
+      ],
+      "statement": "保留叙事语义 ending"
+    },
+    {
+      "id": "screenplay:NARRATIVE_events",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "ec12ace5017c6b7bade0551ccad99e1e32510468ac9810d4e670299cab9c0b18",
+      "source_paths": [
+        "/narrative/events"
+      ],
+      "source_values": [
+        [
+          {
+            "block_ids": [
+              "PLACE"
+            ],
+            "causes": [],
+            "description": "放下信封，等待回应",
+            "id": "E1",
+            "preconditions": [],
+            "scene_id": "CAFE",
+            "source_refs": [
+              "SRC_SCRIPT"
+            ],
+            "updates": []
+          },
+          {
+            "block_ids": [
+              "LINE",
+              "TAKE"
+            ],
+            "causes": [
+              "E1"
+            ],
+            "description": "B询问并等待A点头后才接过",
+            "id": "E2",
+            "preconditions": [],
+            "scene_id": "CAFE",
+            "source_refs": [
+              "SRC_SCRIPT"
+            ],
+            "updates": []
+          }
+        ]
+      ],
+      "statement": "保留叙事语义 events"
+    },
+    {
+      "id": "screenplay:NARRATIVE_reveal_order",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "13d6f140173809f07d68b12c03f2aa479dadcf5c8574d6a34e0229ee97256da5",
+      "source_paths": [
+        "/narrative/reveal_order"
+      ],
+      "source_values": [
+        [
+          "E1",
+          "E2"
+        ]
+      ],
+      "statement": "保留叙事语义 reveal_order"
+    }
+  ],
+  "revision": 1,
+  "schema": "screenplay-handoff/1.0",
+  "script_ref": {
+    "sha256": "796280b074b51bcd9061d2b7396b7b9fce87fafde3d0a0184d35a56c4a30e10b",
+    "uri": "screenplay.json"
+  }
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "paths": [
+      "/shots/2/end_state",
+      "/shots/2/phases"
+    ],
+    "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+    "requirement_id": "screenplay:ENDING",
+    "target_clause": "REQ_CUSTODY"
+  },
+  {
+    "paths": [
+      "/shots/1/dialogue/0/text",
+      "/shots/1/dialogue/0/speaker_id"
+    ],
+    "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+    "requirement_id": "screenplay:DIALOGUE_LINE",
+    "target_clause": "REQ_LINE"
+  },
+  {
+    "paths": [
+      "/shots/2/end_state",
+      "/shots/2/phases"
+    ],
+    "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+    "requirement_id": "screenplay:NARRATIVE_ending",
+    "target_clause": "REQ_CUSTODY"
+  },
+  {
+    "paths": [
+      "/shots/0/narrative",
+      "/shots/1/narrative",
+      "/shots/2/narrative",
+      "/shots/2/phases"
+    ],
+    "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+    "requirement_id": "screenplay:NARRATIVE_events",
+    "target_clause": "REQ_WAIT"
+  },
+  {
+    "paths": [
+      "/shots/0/narrative",
+      "/shots/1/narrative",
+      "/shots/2/narrative"
+    ],
+    "reason": "预写咖啡馆夹具复核：先放下并松开，B询问，A点头后B才拿起；信封结尾归B右手，只有B说“你确定？”。",
+    "requirement_id": "screenplay:NARRATIVE_reveal_order",
+    "target_clause": "REQ_WAIT"
+  }
+]

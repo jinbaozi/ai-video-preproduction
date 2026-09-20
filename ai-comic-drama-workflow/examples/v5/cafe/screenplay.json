@@ -1,0 +1,213 @@
+{
+  "canon": {
+    "facts": [],
+    "proposals": [],
+    "ref": null
+  },
+  "characters": [
+    {
+      "goal": "确认后交出信封",
+      "id": "A",
+      "name": "A",
+      "source_refs": [
+        "SRC_SCRIPT"
+      ],
+      "voice": "简短直接"
+    },
+    {
+      "goal": "得到确认后接过信封",
+      "id": "B",
+      "name": "B",
+      "source_refs": [
+        "SRC_SCRIPT"
+      ],
+      "voice": "简短直接"
+    }
+  ],
+  "contract": {
+    "checks": [
+      {
+        "assertions": [],
+        "blocking": true,
+        "evidence_required": "完整原文与分场对读",
+        "id": "C_END",
+        "method": "semantic",
+        "predicate": "B等待点头后接过且持有信封"
+      }
+    ],
+    "clauses": [
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_END"
+        ],
+        "id": "ENDING",
+        "owner": "screenplay",
+        "paths": [
+          "/narrative/ending"
+        ],
+        "priority": "hard",
+        "realization": "action",
+        "requirement": "A点头后B接过信封，结尾由B右手持稳，A不再持有。",
+        "source_refs": [
+          "SRC_SCRIPT"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      }
+    ],
+    "deliverables": [
+      "screenplay"
+    ],
+    "scope": "A与B交接蓝色信封，B询问，A点头后B才接过。"
+  },
+  "culture": {
+    "claims": [],
+    "mode": "contemporary",
+    "overlays": [
+      "modern_chinese"
+    ]
+  },
+  "language": "zh-CN",
+  "locks": [],
+  "narrative": {
+    "ending": "A点头后B接过信封，结尾由B右手持稳，A不再持有。",
+    "events": [
+      {
+        "block_ids": [
+          "PLACE"
+        ],
+        "causes": [],
+        "description": "放下信封，等待回应",
+        "id": "E1",
+        "preconditions": [],
+        "scene_id": "CAFE",
+        "source_refs": [
+          "SRC_SCRIPT"
+        ],
+        "updates": []
+      },
+      {
+        "block_ids": [
+          "LINE",
+          "TAKE"
+        ],
+        "causes": [
+          "E1"
+        ],
+        "description": "B询问并等待A点头后才接过",
+        "id": "E2",
+        "preconditions": [],
+        "scene_id": "CAFE",
+        "source_refs": [
+          "SRC_SCRIPT"
+        ],
+        "updates": []
+      }
+    ],
+    "initial_knowledge": [],
+    "premise": "一次带迟疑的信封交接。",
+    "promises": [],
+    "reveal_order": [
+      "E1",
+      "E2"
+    ]
+  },
+  "open_issues": [],
+  "project_id": "CAFE_DEMO",
+  "propositions": [],
+  "review": {
+    "content_sha256": "827d52a5d6075ae2a48185874938d282a99cdec5818824ec5d7c8d399cc4e960",
+    "findings": [
+      "三块正文对应原文放下、询问、点头后接过，未添加对白或角色。"
+    ],
+    "reviewer": "current-agent / authored-cafe-fixture",
+    "status": "PASS"
+  },
+  "revision": 1,
+  "rewrite_scope": {
+    "allow_new_events": true,
+    "allowed_paths": [
+      "/scenes",
+      "/narrative",
+      "/characters",
+      "/propositions"
+    ],
+    "level": "structure",
+    "preserve_paths": []
+  },
+  "scenes": [
+    {
+      "blocks": [
+        {
+          "id": "PLACE",
+          "kind": "action",
+          "source_refs": [
+            "SRC_SCRIPT"
+          ],
+          "speaker": null,
+          "text": "A将蓝色信封放在桌上，松开右手。B先看信封，再抬眼。"
+        },
+        {
+          "id": "LINE",
+          "kind": "dialogue",
+          "source_refs": [
+            "SRC_SCRIPT"
+          ],
+          "speaker": "B",
+          "text": "你确定？"
+        },
+        {
+          "id": "TAKE",
+          "kind": "action",
+          "source_refs": [
+            "SRC_SCRIPT"
+          ],
+          "speaker": null,
+          "text": "A点头后，B才伸右手接触信封、拿起并持稳。"
+        }
+      ],
+      "heading": "内景·咖啡馆·日",
+      "id": "CAFE",
+      "purpose": "确认信任后交接",
+      "source_refs": [
+        "SRC_SCRIPT"
+      ]
+    }
+  ],
+  "schema": "script-ir/1.0",
+  "source_refs": [
+    "SRC_SCRIPT"
+  ],
+  "sources": [
+    {
+      "excerpt": "虚构测试场景。两位成年人物A、B相对坐在咖啡馆桌边。A将蓝色信封放在桌上并松开右手。B先看信封，再抬眼问：“你确定？”A点头后，B才伸右手接触信封、拿起并持稳。全片12秒，24fps，16:9；仅这一句对白，没有旁白或内心独白。",
+      "id": "SRC_SCRIPT",
+      "kind": "user",
+      "locator": "完整段落",
+      "sha256": "91ae414b277e219e1c9e344f612e7454eb2069ffa5b779f3c0ef679866acf817",
+      "uri": "cafe.source.txt",
+      "verification": "provided"
+    }
+  ],
+  "status": "READY",
+  "task": {
+    "forbidden_techniques": [],
+    "operation": "create",
+    "output": "screenplay",
+    "style_request": null,
+    "tags": []
+  },
+  "timing": {
+    "estimated_range_seconds": null,
+    "evidence": null,
+    "measured_seconds": null,
+    "target_seconds": null
+  },
+  "title": "信封交接"
+}
