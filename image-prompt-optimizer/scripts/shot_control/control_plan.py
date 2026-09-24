@@ -134,4 +134,14 @@ def derive(ir, config, plan):
                 'status': 'DRAFT_REQUIRES_HOST_REVIEW',
                 'acceptance': ['保持主身份与场景母版', '核对本时刻姿态、手别、视线和构图', '不得出现箭头、ID、时码或面板'],
                 'generated': False, 'visual_review': 'NOT_RUN'})
+            if 'look_design' in config:
+                from .craft import look_for_shot
+                requests[-1]['craft_state'] = {
+                    'look_design': look_for_shot(config, shot['id']),
+                    'lighting_intent': next(s['lighting'] for s in ir['scenes'] if s['id']==shot['scene_id']),
+                    'performances': [deepcopy(p) for p in ir['timeline']['performances']
+                                     if shot['id'] in p['shot_ids'] and p['start_ms'] <= at <= p['end_ms']],
+                    'audio_events': [deepcopy(e) for e in ir['timeline']['audio_events']
+                                     if shot['id'] in e['shot_ids'] and e['start_ms'] <= at < e['end_ms']],
+                    'grading_execution': 'POST_PRODUCTION_NOT_MODEL_PARAMETER'}
     return frames, requests

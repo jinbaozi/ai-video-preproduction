@@ -19,6 +19,9 @@ def validate_config(ir, config):
     if 'proxy_scene' in config:
         from .previs import validate_geometry
         validate_geometry(ir, config['proxy_scene'])
+    if 'look_design' in config:
+        from .craft import validate_look
+        validate_look(ir, config['look_design'])
     shots = {s['id'] for s in ir['shots']}
     if set(config['lenses'])-shots:
         raise ValueError('Unknown lens shot')
@@ -101,4 +104,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
         if 'proxy_scene' in config:
             from .previs import geometry_for_shot
             value['proxy_scene'] = geometry_for_shot(config, shot_id)
+        if 'look_design' in config:
+            from .craft import look_for_shot
+            value['look_design'] = look_for_shot(config, shot_id)
     return digest(value)

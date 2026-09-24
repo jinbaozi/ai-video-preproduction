@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "00db3a08685c48fd83bf97803472c73b6ffbb4bad477dfcfb1b493680afd2ce9",
-  "file_count": 103,
+  "archive_sha256": "97036a2e48325d6367aa36ff7e02f20b74ae818e1ac00930cead2fc525189189",
+  "file_count": 107,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 10309,
-      "sha256": "a9f528e7281e76ac1e3737c89f974ebbc062834fbb5d5a4c2340250d692c3329"
+      "bytes": 10310,
+      "sha256": "59a8a17dc84eb5d6f64e8446de364d305fca214f70d72b45489e1677ea4c1c9e"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -22,6 +22,10 @@
     "video-prompt-compiler/examples/control/cafe-control.json": {
       "bytes": 792,
       "sha256": "e7f186a5e1075d1d06bbc16f25dce48826d0027629488c95e323eea08944abef"
+    },
+    "video-prompt-compiler/examples/control/cafe-look.json": {
+      "bytes": 2110,
+      "sha256": "cfd41e1202485c346056d65f51bcc97e2c67b2153911f3a4aa9a07d13dbc2170"
     },
     "video-prompt-compiler/examples/missing-reference.avir.json": {
       "bytes": 18913,
@@ -112,8 +116,8 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/shot-control.md": {
-      "bytes": 16539,
-      "sha256": "0cefca281f564cacce9b5c88897f1726ac77b464f19f66e78f532b83604db643"
+      "bytes": 19823,
+      "sha256": "e9ac895980e9f09c952f7e0d902343944f2fb0ee244b6fa825c0ec01d1f5a3e0"
     },
     "video-prompt-compiler/references/spatial-contract-v52.md": {
       "bytes": 7583,
@@ -192,16 +196,20 @@
       "sha256": "3ea8a161e9861fa8fc5c0762f3b403129576e981c51740a3fe7908d38cc6bfa5"
     },
     "video-prompt-compiler/schemas/keyframe-request.schema.json": {
-      "bytes": 2273,
-      "sha256": "0cb794a29d76321db69965e412eda451ee84781c8c90da59bc16581367bc9a6d"
+      "bytes": 3027,
+      "sha256": "4117c1ec081cfa3e6e318c307042775167954a3a0a7424ca8fad95ed29945e88"
+    },
+    "video-prompt-compiler/schemas/look-design.schema.json": {
+      "bytes": 2767,
+      "sha256": "6e1a7ffd674fef93572fa57c81febedcdb3ea77fc24944376e319ef20023ab4a"
     },
     "video-prompt-compiler/schemas/previs-geometry.schema.json": {
       "bytes": 3819,
       "sha256": "9d7ffe5c028022fa39b236bb307b18526109886ef589ab973eafd05501a1da68"
     },
     "video-prompt-compiler/schemas/shot-control-config.schema.json": {
-      "bytes": 3279,
-      "sha256": "a8f6d8c550159bac04b1b9f719c27fe0dd2d5dddd30b8846515676f76287b18a"
+      "bytes": 3330,
+      "sha256": "21677fb052a194bd5062a01aa6bbdab5ec5bd7b8b2c3220f79ffbe68579d0c0d"
     },
     "video-prompt-compiler/schemas/shot-control.schema.json": {
       "bytes": 3077,
@@ -212,8 +220,8 @@
       "sha256": "bc070b7a7142d4e12a654fa5912b8090b4449f7e99b1f6af6960b3ef3dcb87f3"
     },
     "video-prompt-compiler/scripts/control_cli.py": {
-      "bytes": 6409,
-      "sha256": "826303be9ed44dbfe1c1c796702d072255be8fdb00b888c5cea458074e73db94"
+      "bytes": 7494,
+      "sha256": "07832dae8f2eeb6c6ac1253153aa5a03729d1557026ec2394f4369cc053c86cb"
     },
     "video-prompt-compiler/scripts/detail_runtime.py": {
       "bytes": 34347,
@@ -300,8 +308,12 @@
       "sha256": "527c6a08bbb1b7f697637bc85fb34db48acbe16632230b2c6b98a44d30495735"
     },
     "video-prompt-compiler/scripts/shot_control/control_plan.py": {
-      "bytes": 7984,
-      "sha256": "a64a7bd56e4f7e41a919ded816a56dadeab825362fdc1988106dd8102e07f700"
+      "bytes": 8777,
+      "sha256": "6f8fde60502be959927892e37385ad12ceeea3f9f5724c2ab69346065374134e"
+    },
+    "video-prompt-compiler/scripts/shot_control/craft.py": {
+      "bytes": 16218,
+      "sha256": "b0c2454507739f049a89af01d3afb2f3fbe24ccb851d87efb005f5df0412eff7"
     },
     "video-prompt-compiler/scripts/shot_control/joint_compile.py": {
       "bytes": 17005,
@@ -320,8 +332,8 @@
       "sha256": "8eaba594add018a1fc9e6f2539e0bb72d7663d436cd27b7207c4ee08c06c09c2"
     },
     "video-prompt-compiler/scripts/shot_control/package.py": {
-      "bytes": 6183,
-      "sha256": "140453c352055eb0939412ed9797fcb304f889a508fee4ba47f0f0aa6aa7d768"
+      "bytes": 6452,
+      "sha256": "485b6021e83047dadfe5679615bd61da903479f226ba0682a63fb01ea7e08ced"
     },
     "video-prompt-compiler/scripts/shot_control/previs.py": {
       "bytes": 14570,
@@ -332,8 +344,8 @@
       "sha256": "7af35b5c47f1d782a25b9019f035148880be2afc40315f92ad91e72cfe1bd9dc"
     },
     "video-prompt-compiler/scripts/shot_control/repair.py": {
-      "bytes": 11588,
-      "sha256": "fd77113fcb8d7f8805964ead2ab30069a1670d59ad2b665c5ad8ad4677e3cae5"
+      "bytes": 11832,
+      "sha256": "a908db8a92475a80d8b345b47bafd2678de4146f4338dc28e2ae94c633ae5cc0"
     },
     "video-prompt-compiler/scripts/shot_control/review.html": {
       "bytes": 2567,
@@ -379,6 +391,10 @@
       "bytes": 6667,
       "sha256": "565cfbfc177679b031b92bfddb0aeca70675983011dbcdc3b28d5cb304d46826"
     },
+    "video-prompt-compiler/tests/test_craft.py": {
+      "bytes": 7955,
+      "sha256": "c7d2dbea6a7542ad496f067416978129aef22f130036876165f763596ad51cb5"
+    },
     "video-prompt-compiler/tests/test_joint_control.py": {
       "bytes": 9502,
       "sha256": "2b87b8cc90cf70b34ebd0ce1408c9ae3738d8c6317fda2fd7851450a49674164"
@@ -392,8 +408,8 @@
       "sha256": "876c5bd2c903aa14b0d8263eedf4d1b1ceee7232ee764563066f1d74027e9b97"
     },
     "video-prompt-compiler/tests/test_prompt_projection.py": {
-      "bytes": 6611,
-      "sha256": "27074152087d6490506a6a4f7dc9a6d4a093bce61db1b864631c4b30ffc7b671"
+      "bytes": 6612,
+      "sha256": "21e1d4514bb49a2cef6e35eafdcea411669926e64ae2d886ed2c99b23b27aa4c"
     },
     "video-prompt-compiler/tests/test_segment_delivery.py": {
       "bytes": 4989,
@@ -417,5 +433,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.9.0"
+  "version": "1.10.0"
 }

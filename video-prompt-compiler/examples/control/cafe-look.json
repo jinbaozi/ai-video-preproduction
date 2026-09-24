@@ -1,0 +1,82 @@
+{
+  "schema": "shot-control-config/0.2",
+  "lenses": {
+    "S1": {
+      "vertical_fov_deg": 50,
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Synthetic cafe camera design"
+    },
+    "S2": {
+      "vertical_fov_deg": 50,
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Synthetic cafe camera design"
+    },
+    "S3": {
+      "vertical_fov_deg": 50,
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Synthetic cafe camera design"
+    }
+  },
+  "controls": [],
+  "look_design": {
+    "schema": "look-design/0.1",
+    "owner": "production-design-grammar",
+    "material_palette": [
+      {
+        "id": "A_COAT",
+        "entity_id": "A",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_pointers": [
+          "/entities/0/appearance"
+        ],
+        "color_srgb": "#24364B",
+        "basis": "authored_proxy",
+        "evidence": "Synthetic navy swatch interpreting source appearance; not a pixel target"
+      },
+      {
+        "id": "B_SHIRT",
+        "entity_id": "B",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_pointers": [
+          "/entities/1/appearance"
+        ],
+        "color_srgb": "#D6CCB7",
+        "basis": "authored_proxy",
+        "evidence": "Synthetic beige swatch; not observed from a generated image"
+      },
+      {
+        "id": "ENVELOPE_BLUE",
+        "entity_id": "ENVELOPE",
+        "shot_ids": [
+          "S1",
+          "S3"
+        ],
+        "source_pointers": [
+          "/entities/2/appearance"
+        ],
+        "color_srgb": "#356C9C",
+        "basis": "authored_proxy",
+        "evidence": "Synthetic blue material swatch; not a final pixel target"
+      }
+    ],
+    "grading_plan": [
+      {
+        "shot_id": "S1",
+        "source_pointers": [
+          "/scenes/0/lighting"
+        ],
+        "evidence": "Synthetic authored grading demonstration; requires actual shot review before production use",
+        "exposure_stops": 0.25,
+        "contrast": 1.05,
+        "saturation": 0.9
+      }
+    ]
+  }
+}

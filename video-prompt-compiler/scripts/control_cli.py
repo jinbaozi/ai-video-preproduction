@@ -18,6 +18,10 @@ def main():
     p = sub.add_parser('verify'); p.add_argument('package')
     p = sub.add_parser('previs'); p.add_argument('package'); p.add_argument('--shot', required=True); p.add_argument('--blender', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('verify-previs'); p.add_argument('package')
+    p = sub.add_parser('craft'); p.add_argument('package'); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-craft'); p.add_argument('package')
+    p = sub.add_parser('grade'); p.add_argument('package'); p.add_argument('--shot', required=True); p.add_argument('--media', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-grade'); p.add_argument('package')
     p = sub.add_parser('segment'); p.add_argument('input'); p.add_argument('--target', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('lower'); p.add_argument('package'); p.add_argument('--shot', action='append'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('compile'); p.add_argument('package'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--shot', action='append'); p.add_argument('--out', required=True)
@@ -48,6 +52,19 @@ def main():
         elif args.command == 'verify-previs':
             from shot_control.previs import verify_render
             result = verify_render(args.package)
+        elif args.command == 'craft':
+            from shot_control.craft import export
+            result = export(args.package, args.out)
+        elif args.command == 'verify-craft':
+            from shot_control.craft import verify
+            verify(args.package)
+            result = {'status':'VERIFIED_CRAFT_ASSETS','media_quality':'NOT_RUN'}
+        elif args.command == 'grade':
+            from shot_control.craft import grade_video
+            result = grade_video(args.package, args.shot, args.media, args.out)
+        elif args.command == 'verify-grade':
+            from shot_control.craft import verify_grade
+            result = verify_grade(args.package)
         elif args.command == 'lower':
             from shot_control.control_lowering import lower
             from shot_control.package import verify_package

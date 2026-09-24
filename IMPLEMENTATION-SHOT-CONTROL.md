@@ -63,3 +63,13 @@ c26f7a1 的网页端审核结论为 Request changes。此前工具层完成不�
 抽查开始、落物和结束三个实际帧可见两个人物轮廓、桌面和信封，未见标签或箭头；人物仍无手臂、关节和表情，桌子也只有几何桌面，不能据此验收递物表演。自动生成资产清单保持 review/binding=null。网页端对 93c10e7 的第二轮审核仍在运行，未将等待状态写作审核通过。该增量补上实际本地白模生产路径，模型生成/上传/效果对照及完整表演资产仍未完成。
 
 验证：编译器全量 143 项无失败（默认环境跳过 1 项 Blender 集成；该项在显式本机 Blender 环境已实际通过）。5 项 previs 专项均通过；Skill 静态检查通过。七包独立安装、重复构建和内置一致性全部 PASS，报告为本地 `outputs/shot-control-previs-release-check/report.json`。实际白模 lower 到 Agnes reference 时如期因缺当前用途视觉审核及上传绑定而 BLOCKED。发行版本 video-prompt-compiler 1.9.0、image-prompt-optimizer 1.7.0。
+
+## 表演与光色制作资产增量
+
+增加 craft/verify-craft 和 grade/verify-grade。表演排练卡逐字保留原生触发、行为、部位、视线、声音与收束，按构图时段检查可读性，缺段不通过。材质色样绑定原实体外观、具体镜头及设计依据；照明独立承接源场景和动态 light/color/material/atmosphere 轨道，不把色板当成最终像素保证。开启 look_design 后，关键帧请求携带不可手改的光色设计、当时表演及光线原文；局部依赖失效同步覆盖这些内容。
+
+显式调色配方生成 33³ LUT，并实际处理有完整色彩标记的 8-bit limited-range BT.709 视频。工作空间为 BT.709 OETF 逆变换后的线性 Rec.709，裁切到 0–1 后重新编码。实测发现本机通用编码参数未完整写入传递函数/原色，改为显式 H.264 编码器参数并实查输出；未知编码和 HDR 仍阻断，不靠重贴标签通过。专项验证恒等调色的像素容差、真实去饱和效果、解码后音频一致，以及重封摘要仍不能放行被篡改的 LUT。
+
+本地 `outputs/craft-cafe-r2/` 含三份表演请求、排练卡、色板、光源交接、LUT 及合成色条视频的实际调色回执。排练卡和关键帧保留原台词、声音路由、放置及口型要求，不把后期对白改作原生声音。这不是已拍摄的表演参考、生成模型风格锚点或实拍质量验收；真实人物表情驱动、逐区域颜色观察和模型效果对照仍需继续。网页端第二轮对抗性审核尚未返回终局结论。
+
+验证：全量 147 项无失败（1 项 Blender 默认跳过，前轮已有实际运行证据）；声音交接增补后 4 项 craft 专项再次通过。最终七包隔离安装、内置一致性及重复构建全部 PASS，报告为 `outputs/shot-control-craft-release-final/report.json`；之前的 release-check 为中间版本。Skill 静态检查和最终实际 grade/verify-grade 通过。发行版本 video-prompt-compiler 1.10.0、image-prompt-optimizer 1.8.0。

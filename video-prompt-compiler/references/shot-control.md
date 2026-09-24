@@ -87,6 +87,26 @@ python scripts/control_cli.py verify-previs outputs/previs-example/render
 
 几何按镜头进入临时资产的派生指纹；修改相应几何会使其失效，无关镜头几何和身份母版不会因此全部作废。artifact-manifest 仅为已有单素材 clay 控制项自动登记实物，review/binding 初始均为 null；多素材控制项由宿主显式登记。渲染成功是 RENDERED_LOCAL，验包是 VERIFIED_LOCAL_RENDER，均不等于视觉审核、模型提交或生成服从度通过。Agent 必须看实际帧并按用途审阅，随后由宿主绑定实际可访问素材。
 
+## 表演、固有色、照明与调色
+
+`craft` 从 AVIR 原生 performances、composition_tracks 和 scenes.lighting 派生排练卡、表演请求及独立光源交接；不重新创作触发、微反应、手别、视线或表情时点。整个表演区间按构图变化划分，逐段检查人物所需部位及 body/face/detail 可读程度；缺段或不可读返回 BLOCKED，由导演/分镜修订，不能擅自加特写。`rehearsal.md` 是可供演员/动画宿主执行的交接卡，绝不是已经拍摄的表演视频。
+
+配置 look_design 后，事件关键帧的只读 craft_state 同时携带本镜光色设计、光线原文和本时刻表演全文；调色标为 POST_PRODUCTION_NOT_MODEL_PARAMETER。这些派生内容由统一验证器重算，宿主不能手改关键帧来源。光色变化按镜头影响临时资产和关键帧请求，并进入返修依赖图；未相关镜头和身份母版不因此全量失效。
+
+可选 `control-config.look_design` 属于美术的显式设计补充，遵守 `look-design.schema.json`。material_palette 每项绑定原实体 appearance/locks 和镜头，色样需标明 authored_proxy 与依据；脚本不把“深蓝”等词自动猜成唯一色号。lighting_plan 保留源场景光线全文及逐镜 light/color/material/atmosphere 轨道，不将固有色、光源颜色和最终调色混成一项。色板 SVG 是审阅资产，不能放进首尾帧槽位；最终肤色、服装和背景需要实际分区观察，不能凭全图直方图或色号宣称合格。
+
+```bash
+python scripts/control_cli.py build examples/v52/cafe.avir.json --config examples/control/cafe-look.json --out outputs/cafe-look
+python scripts/control_cli.py craft outputs/cafe-look --out outputs/cafe-craft
+python scripts/control_cli.py verify-craft outputs/cafe-craft
+python scripts/control_cli.py grade outputs/cafe-craft --shot S1 --media /absolute/path/to/shot-bt709.mp4 --out outputs/graded-S1
+python scripts/control_cli.py verify-grade outputs/graded-S1
+```
+
+`grading_plan` 生成 33³ `.cube` LUT，输入解码为 BT.709 非线性 RGB，经 BT.709 OETF 逆变换进入线性 Rec.709，按显式曝光/对比度/饱和度配方处理，再编码回 BT.709；超范围值明确裁到 0–1。这是本地后期变换，不能用于承诺生成模型精确色彩或品牌色，也不等于显示器校准。公式依据 [ITU-R BT.709](https://www.itu.int/rec/R-REC-BT.709-6-201506-I)，执行使用 [FFmpeg lut3d/scale](https://ffmpeg.org/ffmpeg-filters.html#lut3d)。
+
+当前执行只接收实际 ffprobe 标记齐全的 8-bit、limited-range BT.709、方形像素、无旋转的单镜视频，并要求时长与原镜头一致；未知编码/HDR 被拒绝，不通过补标签猜测。显式控制 YUV/RGB 矩阵和范围，使用 tetrahedral LUT 插值；H.264 输出写入并实查原色、传递函数和矩阵。保留音频流，不拉伸时间；记录源视频、LUT、制作包、输出视频与色彩探测摘要。verify-craft 重派生所有资产，包括 LUT 内容；verify-grade 核验当前输入、配方和实收输出。GRADED_LOCAL 只表示后期文件生成，不是视觉质量 PASS。微表情驱动视频、经确认的风格锚点帧和真实区域质量验收仍由宿主制作、观察后登记。
+
 离线 HTML 将轨迹按镜头只存一份，帧更新节点。摄影机 SVG 使用配置和 crop 的输出比例，不再固定拉伸到 16:9。尚无浏览器视觉验收或真实生成质量结论。
 
 ## 联合编译与限定范围

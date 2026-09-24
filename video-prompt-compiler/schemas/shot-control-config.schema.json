@@ -135,6 +135,9 @@
     },
     "proxy_scene": {
       "type": "object"
+    },
+    "look_design": {
+      "type": "object"
     }
   },
   "required": [

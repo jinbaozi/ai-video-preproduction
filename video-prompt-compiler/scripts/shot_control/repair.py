@@ -70,6 +70,9 @@ def plan_repairs(before_package, after_package, manifest_path, observations=None
             if asset['role'] not in ('identity','appearance','style','scene'):
                 selectors += ['/shots/'+str(before['ir']['shots'].index(old_shot)), '/timeline', '/entities', '/scenes']
                 edges.append({'from':'config:/lenses/'+use['shot_id'], 'to':ident, 'selector':'camera recipe'})
+                for field in ('proxy_scene','look_design'):
+                    if field in before['config']:
+                        edges.append({'from':'config:/'+field,'to':ident,'selector':'shot-scoped '+use['shot_id']+' recipe content'})
             for pointer in sorted(set(selectors)):
                 edges.append({'from':'source:'+pointer,'to':ident,'selector':'scoped recipe content'})
             if reasons:

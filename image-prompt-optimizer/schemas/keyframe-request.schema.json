@@ -104,6 +104,40 @@
         "object",
         "null"
       ]
+    },
+    "craft_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "look_design": {
+          "type": "object"
+        },
+        "lighting_intent": {
+          "type": "string"
+        },
+        "performances": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "grading_execution": {
+          "const": "POST_PRODUCTION_NOT_MODEL_PARAMETER"
+        },
+        "audio_events": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "look_design",
+        "lighting_intent",
+        "performances",
+        "grading_execution",
+        "audio_events"
+      ]
     }
   },
   "required": [
