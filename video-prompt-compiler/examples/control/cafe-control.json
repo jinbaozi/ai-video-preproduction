@@ -1,0 +1,24 @@
+{
+  "schema": "shot-control-config/0.1",
+  "lenses": {
+    "S1": {
+      "vertical_fov_deg": 50,
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Synthetic cafe review lens; authored visualization proxy, not calibrated optics or model parameter."
+    },
+    "S2": {
+      "vertical_fov_deg": 50,
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Synthetic cafe review lens; authored visualization proxy, not calibrated optics or model parameter."
+    },
+    "S3": {
+      "vertical_fov_deg": 50,
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Synthetic cafe review lens; authored visualization proxy, not calibrated optics or model parameter."
+    }
+  },
+  "controls": []
+}

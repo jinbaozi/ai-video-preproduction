@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "keyframe-request/0.1"
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "avir/1.2"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "sha256"
+      ]
+    },
+    "shot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "at_ms": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "source_pointers": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "camera_state": {
+      "type": "object"
+    },
+    "subject_state": {
+      "type": "object"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "master_anchors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "generation_mode": {
+      "enum": [
+        "UNRESOLVED",
+        "generate",
+        "edit"
+      ]
+    },
+    "status": {
+      "const": "DRAFT_REQUIRES_HOST_REVIEW"
+    },
+    "acceptance": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "generated": {
+      "const": false
+    },
+    "visual_review": {
+      "const": "NOT_RUN"
+    }
+  },
+  "required": [
+    "schema",
+    "id",
+    "source",
+    "shot_id",
+    "at_ms",
+    "source_pointers",
+    "camera_state",
+    "subject_state",
+    "references",
+    "master_anchors",
+    "generation_mode",
+    "status",
+    "acceptance",
+    "generated",
+    "visual_review"
+  ]
+}

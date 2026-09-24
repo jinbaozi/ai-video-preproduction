@@ -150,6 +150,10 @@ def verify(package):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == 'control':
+        from control_cli import main as control_main
+        sys.argv.pop(1)
+        return control_main()
     parser=argparse.ArgumentParser(description=__doc__)
     sub=parser.add_subparsers(dest='command',required=True)
     sub.add_parser('profiles',help='列出精确目标ID与已实现边界')

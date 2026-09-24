@@ -76,3 +76,9 @@
 ## V5.3 独立编剧接入
 
 新增 screenplay-grammar（中文、国风、一句话故事与剧本、补全润色扩写）。新套件为总工作流加六个专业模块；编剧决定剧情语义，导演负责视听实现。旧项目按原锁继续，显式升级才改用原生 ScriptIR。标准发行在 [dists](dists/)，验收方法与边界见 [验证说明](ai-comic-drama-workflow/references/v5/verification.md)。
+
+## 镜头控制资产 0.1
+
+视频编译器 1.6.0、图片优化器 1.4.0 增加同源调度预览、关键帧请求、编辑差量、事件切点、素材核验、Agnes 模式检查和二维媒体观察。使用方法与实装边界见 [镜头控制合同](video-prompt-compiler/references/shot-control.md)。旧项目及 AVIR 版本不迁移，旧 `compile` 输出语义保持；显式使用 `vpc.py control` 启用。
+
+当前交付为本地前期工具，不含已生成关键帧、白模 MP4 或模型效果验证。分阶段落实情况见 [实施记录](IMPLEMENTATION-SHOT-CONTROL.md)。

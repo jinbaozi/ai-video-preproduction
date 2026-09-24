@@ -21,6 +21,8 @@ def package_suite(workspace,out):
     sync_spatial(workspace, check=True)
     from sync_screenplay import sync as sync_screenplay
     sync_screenplay(workspace, check=True)
+    from sync_shot_control import sync as sync_controls
+    sync_controls(workspace, check=True)
     bundles=ROOT/'assets/bundled-skills';bundles.mkdir(parents=True,exist_ok=True)
     records=[]
     for name in MODULES:

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "shot-control/0.1"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "avir/1.2"
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "kind",
+        "path",
+        "sha256"
+      ]
+    },
+    "shot_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "source_pointers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "channel": {
+            "enum": [
+              "first_frame",
+              "last_frame",
+              "image_reference",
+              "clay_video_reference",
+              "audio_reference",
+              "pose",
+              "depth",
+              "mask",
+              "camera_trajectory",
+              "deterministic_composite"
+            ]
+          },
+          "artifact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "hardness": {
+            "enum": [
+              "hard",
+              "soft"
+            ]
+          },
+          "fallback_policy": {
+            "enum": [
+              "block",
+              "report_loss"
+            ]
+          },
+          "status": {
+            "const": "PLANNED"
+          }
+        },
+        "required": [
+          "id",
+          "requirement_id",
+          "shot_ids",
+          "source_pointers",
+          "channel",
+          "artifact_ids",
+          "hardness",
+          "fallback_policy",
+          "status"
+        ]
+      },
+      "minItems": 0
+    },
+    "video_generated": {
+      "const": false
+    },
+    "video_qa": {
+      "const": "NOT_RUN"
+    }
+  },
+  "required": [
+    "schema",
+    "source",
+    "shot_ids",
+    "controls",
+    "video_generated",
+    "video_qa"
+  ]
+}

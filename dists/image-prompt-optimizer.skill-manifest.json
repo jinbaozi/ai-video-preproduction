@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "7c90e10b176e9150a1337a71d9f49fffdcb77ac858fc204ad47e8dde7589b72b",
-  "file_count": 62,
+  "archive_sha256": "431224ab407e840f56b0fa8471c9ee6faedf194794228d94e05f38f4e694ea31",
+  "file_count": 83,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 29430,
-      "sha256": "9b17fd6e5b1d5a30d601ef79eaf1333e3ebd271642570662d542dc9480295df1"
+      "bytes": 29771,
+      "sha256": "1db755cef7ee55b062ff88a4aa3461da2c16c327fe88ad2a8200143e4266e292"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -143,6 +143,10 @@
       "bytes": 4784,
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
+    "image-prompt-optimizer/references/shot-control.md": {
+      "bytes": 7380,
+      "sha256": "bd7f892090e87c3e5a929ab7d847f88f3e11061fec1448f341afcb37a391fe4d"
+    },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
       "sha256": "371103ff61cd48a816c8233f05dc42dfe2d145ed7f0cbcba2a8172f7da680e95"
@@ -167,13 +171,89 @@
       "bytes": 7711,
       "sha256": "47a40e20a6440e616bc4a76f9351d518b553e2b8f0467d0ad3c05cdc1034d066"
     },
+    "image-prompt-optimizer/registries/control-capabilities.json": {
+      "bytes": 2506,
+      "sha256": "3f2ecf38ef55366021e39d6a818c68a7e6b34b3cf2aedebf7e258dc801fff88f"
+    },
+    "image-prompt-optimizer/requirements.txt": {
+      "bytes": 19,
+      "sha256": "756cc9e506ae4ee1a6f6c0507088b5cfc0dc8ba350fb2d2d46f1ffa72033adb6"
+    },
+    "image-prompt-optimizer/schemas/control-artifacts.schema.json": {
+      "bytes": 3456,
+      "sha256": "85b5b4f44dc2c7681597a1c968e3a9f871f1defcb1b678ca63534e207718552e"
+    },
+    "image-prompt-optimizer/schemas/control-media-review.schema.json": {
+      "bytes": 4539,
+      "sha256": "bdb71fa9812db9ccaada127f64cc5f1cca3d45415e8643fe0842b3bfb9e0d4b0"
+    },
+    "image-prompt-optimizer/schemas/edit-delta.schema.json": {
+      "bytes": 1548,
+      "sha256": "3ea8a161e9861fa8fc5c0762f3b403129576e981c51740a3fe7908d38cc6bfa5"
+    },
+    "image-prompt-optimizer/schemas/keyframe-request.schema.json": {
+      "bytes": 2063,
+      "sha256": "4aec64d80cd15e280c0b363510239a5aa19fa212b0c1a289a4bfd98c7dbbf004"
+    },
     "image-prompt-optimizer/schemas/production-contract.schema.json": {
       "bytes": 25435,
       "sha256": "b6a6ae186e76643fb4698f6c5bb0868828328a1c05602f45975a19d9c071fd76"
     },
+    "image-prompt-optimizer/schemas/shot-control-config.schema.json": {
+      "bytes": 3038,
+      "sha256": "cf1e87b1eb9aeb547938da8e132a88f97e3523076cc82be67d2196f3b78d790c"
+    },
+    "image-prompt-optimizer/schemas/shot-control.schema.json": {
+      "bytes": 2887,
+      "sha256": "dce40cacc0ccdf076e5ea3b2c24e1b080deecce88ffb252a6f20ead31bf701af"
+    },
+    "image-prompt-optimizer/scripts/control_cli.py": {
+      "bytes": 4609,
+      "sha256": "dd8724a7f9976a4d4ac1178a7fb6f7d590168e5e04cccccf2a96af2d670d7f45"
+    },
     "image-prompt-optimizer/scripts/package_skill.py": {
       "bytes": 4764,
       "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+    },
+    "image-prompt-optimizer/scripts/shot_control/__init__.py": {
+      "bytes": 87,
+      "sha256": "8318b051639196ffe22bcb3b08a0db08951630a83d3c663f4acbd6e4745fb798"
+    },
+    "image-prompt-optimizer/scripts/shot_control/camera_projection.py": {
+      "bytes": 2066,
+      "sha256": "789aa7c36d9998631b14c0db690db91abbfa9fa2f267e1014e57279161affe7c"
+    },
+    "image-prompt-optimizer/scripts/shot_control/common.py": {
+      "bytes": 1470,
+      "sha256": "fdb3fb288a2bb8e54dd334b6a453fc2c8df9e582bc3e6d34852d5610d10c8659"
+    },
+    "image-prompt-optimizer/scripts/shot_control/control_lowering.py": {
+      "bytes": 7541,
+      "sha256": "bf5b7c966d693c6041a6f72550aa9f96361512bc00438fca56149f1d6504f4d6"
+    },
+    "image-prompt-optimizer/scripts/shot_control/control_plan.py": {
+      "bytes": 8512,
+      "sha256": "78f49c5646fa86957467fd6947907aac5cddf170e6d762c8a244afb3d3e94829"
+    },
+    "image-prompt-optimizer/scripts/shot_control/media_probe.py": {
+      "bytes": 1715,
+      "sha256": "a94d567bd234ae7a9537dcd735316d1f74061c67b1ee8c6e14f63e823c11400c"
+    },
+    "image-prompt-optimizer/scripts/shot_control/media_review.py": {
+      "bytes": 2465,
+      "sha256": "668bdac749fbb83cbd4b8b7444ed2da8fdc834fcc4db6b7f1f7874c9cde6e816"
+    },
+    "image-prompt-optimizer/scripts/shot_control/render_blocking.py": {
+      "bytes": 3207,
+      "sha256": "9c46b96644ea0aa1a9138ca213504b4d06e69a90c9a2ef5fc161ab28b63e156d"
+    },
+    "image-prompt-optimizer/scripts/shot_control/review.html": {
+      "bytes": 2474,
+      "sha256": "f8703074613eb4313eb0804628ee4f7d0c79ddc5621723e5c13dbede491c7709"
+    },
+    "image-prompt-optimizer/scripts/shot_control/segment_candidates.py": {
+      "bytes": 1751,
+      "sha256": "d3e980cf9ee842e63c8dc602a7ad985c116cb90089b4dc3a3263328c6f757e00"
     },
     "image-prompt-optimizer/scripts/validate_gpt_image_2_size.py": {
       "bytes": 3114,
@@ -239,6 +319,10 @@
       "bytes": 2236,
       "sha256": "3de01c072f84fa3332108747e71ef0204721573f02d06f6b76fdcff2399d816d"
     },
+    "image-prompt-optimizer/tests/test_control_contracts.py": {
+      "bytes": 1031,
+      "sha256": "cf4d0606f7405c0a4276d3f54a4abbbb553358e82d10a5d26ec4289d283d571d"
+    },
     "image-prompt-optimizer/tests/test_production_contract.py": {
       "bytes": 8623,
       "sha256": "b63069e33d0453b2fbe90f7f96b863f21d409584de0bb92ff6ef792bc2ea29a4"
@@ -253,5 +337,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.3.0"
+  "version": "1.4.0"
 }

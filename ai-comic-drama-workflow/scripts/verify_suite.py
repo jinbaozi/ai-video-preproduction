@@ -40,6 +40,9 @@ def verify(packages,out,quick_validator=None):
             if name=='director-grammar':commands.insert(1,[sys.executable,'scripts/dg.py','compile','examples/v52/director.json','--target','generic-t2v','--out',str(base/'native-director-v52')])
             if name=='storyboard-grammar':commands.insert(1,[sys.executable,'scripts/storyboard.py','compile','examples/v52/storyboard.json','--out',str(base/'native-storyboard-v52')])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52.py','-v'])
+            if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_shot_control.py','-v'])
+            if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'scripts/control_cli.py','--help'])
+            if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])
             if name=='ai-comic-drama-workflow':
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_screenplay_integration.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52_workflow.py','-v'])

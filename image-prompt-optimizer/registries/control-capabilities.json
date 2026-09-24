@@ -1,0 +1,99 @@
+{
+  "schema": "control-capabilities/0.1",
+  "routes": [
+    {
+      "vendor": "Agnes",
+      "model": "agnes-video-2.5",
+      "surface": "API",
+      "entry": "https://apihub.agnes-ai.com/v1/videos",
+      "mode": "keyframe",
+      "version": "2026-09-24",
+      "documented": true,
+      "probe_passed": false,
+      "quality_validated": false,
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5",
+      "channels": [
+        "first_frame",
+        "last_frame"
+      ],
+      "max_refs": {
+        "image": 2,
+        "video": 0,
+        "audio": 0,
+        "total": 2
+      }
+    },
+    {
+      "vendor": "Agnes",
+      "model": "agnes-video-2.5",
+      "surface": "API",
+      "entry": "https://apihub.agnes-ai.com/v1/videos",
+      "mode": "reference",
+      "version": "2026-09-24",
+      "documented": true,
+      "probe_passed": false,
+      "quality_validated": false,
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5",
+      "channels": [
+        "image_reference",
+        "audio_reference",
+        "clay_video_reference"
+      ],
+      "max_refs": {
+        "image": 8,
+        "video": 1,
+        "audio": 3,
+        "total": 12
+      }
+    },
+    {
+      "vendor": "Agnes",
+      "model": "agnes-video-2.5-flash",
+      "surface": "API",
+      "entry": "https://apihub.agnes-ai.com/v1/videos",
+      "mode": "keyframe",
+      "version": "2026-09-24",
+      "documented": true,
+      "probe_passed": false,
+      "quality_validated": false,
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5-flash",
+      "channels": [
+        "first_frame",
+        "last_frame"
+      ],
+      "max_refs": {
+        "image": 2,
+        "video": 0,
+        "audio": 0,
+        "total": 2
+      }
+    },
+    {
+      "vendor": "Agnes",
+      "model": "agnes-video-2.5-flash",
+      "surface": "API",
+      "entry": "https://apihub.agnes-ai.com/v1/videos",
+      "mode": "reference",
+      "version": "2026-09-24",
+      "documented": true,
+      "probe_passed": false,
+      "quality_validated": false,
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5-flash",
+      "channels": [
+        "image_reference",
+        "audio_reference"
+      ],
+      "max_refs": {
+        "image": 5,
+        "video": 0,
+        "audio": 3,
+        "total": 8
+      }
+    }
+  ],
+  "experimental_backends": {
+    "VACE": "NOT_INTEGRATED",
+    "SymphoMotion": "NOT_INTEGRATED",
+    "Seedance2.5": "ENTRY_UNRESOLVED"
+  }
+}

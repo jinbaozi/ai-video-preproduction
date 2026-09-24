@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "shot-control-config/0.1"
+    },
+    "lenses": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "vertical_fov_deg": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "exclusiveMaximum": 180
+          },
+          "aspect": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "basis": {
+            "enum": [
+              "authored_proxy",
+              "calibrated"
+            ]
+          },
+          "evidence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "crop": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 4,
+            "maxItems": 4
+          }
+        },
+        "required": [
+          "vertical_fov_deg",
+          "aspect",
+          "basis",
+          "evidence"
+        ]
+      }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "source_pointers": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "channel": {
+            "enum": [
+              "first_frame",
+              "last_frame",
+              "image_reference",
+              "clay_video_reference",
+              "audio_reference",
+              "pose",
+              "depth",
+              "mask",
+              "camera_trajectory",
+              "deterministic_composite"
+            ]
+          },
+          "artifact_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 0
+          },
+          "hardness": {
+            "enum": [
+              "hard",
+              "soft"
+            ]
+          },
+          "fallback_policy": {
+            "enum": [
+              "block",
+              "report_loss"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "requirement_id",
+          "shot_ids",
+          "source_pointers",
+          "channel",
+          "artifact_ids",
+          "hardness",
+          "fallback_policy"
+        ]
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "schema",
+    "lenses",
+    "controls"
+  ]
+}
