@@ -27,3 +27,5 @@
 结论保持 **CAUSE_UNRESOLVED / CONTROL_BENEFIT_NOT_ESTABLISHED**。这些结果不能推出 VACE 或 MPS 普遍不兼容，也不能证明控制收益。下一项门槛是在已核验运行器上取得可辨识的生成基线，再做同一冻结镜头的时序控制对照；产品通用 VACE 适配继续未集成。
 
 2026-09-25 补查到 ComfyUI 上游 [issue #15793](https://github.com/Comfy-Org/ComfyUI/issues/15793)：报告者在不同 Apple 芯片上观察到 Wan 输出失真，切换精度和标准／分块解码未解决其复现。其具体对照主要使用 Wan2.2 5B，与本次 VACE 1.3B、单帧也失败的条件不同；这是后续跨设备／CPU 基线诊断的线索，不是本实验的原因证明或已验证修复。未据此修改用户的 ComfyUI／PyTorch 环境。
+
+后续 [CPU 单帧实跑](../cpu-baseline-r1/README.md) 得到了可辨识的卡通人物和桌面，但仍不符合原自然质感要求。设备和 VAE 精度同时改变，根因与控制收益仍未确定；不覆盖本目录三组原始失败结果。

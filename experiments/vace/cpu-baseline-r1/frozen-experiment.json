@@ -1,0 +1,11 @@
+{
+  "purpose": "CPU single-frame baseline with original VACE checkpoint, text, seed, dimensions and 20-step fp32-compute branch. CPU placement and explicit fp32 VAE differ from prior MPS/bf16-VAE run; this is a whole-runtime diagnostic, not one-factor root-cause proof.",
+  "workflow_sha256": "87fc820f68eb5ea5aa5865bc3cb9ec2ad793b3f3b49e1f44c4fc7a6195733fd0",
+  "paired_prompt_id": "69a26458-114c-444d-a58c-183f349a6135",
+  "server_flags": [
+    "--cpu",
+    "--fp32-vae"
+  ],
+  "review": "Inspect the actual output for coherent adult figures, table and envelope versus coarse saturated blocks; no temporal or trajectory claim from one frame.",
+  "commercial_api_charge": 0
+}

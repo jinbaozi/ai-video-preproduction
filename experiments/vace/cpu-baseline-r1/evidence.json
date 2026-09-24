@@ -1,0 +1,77 @@
+{
+  "schema": "vace-comfy-cpu-diagnostic/0.1",
+  "runner_lock": "../comfy-runtime-lock.json",
+  "runtime_override": {
+    "flags": [
+      "--cpu",
+      "--fp32-vae"
+    ],
+    "device": "cpu",
+    "vae_dtype": "float32",
+    "model_compute_dtype": "float32",
+    "checkpoint_dtype": "original fp16 checkpoint; not native fp32 weights",
+    "text_encoder_device": "cpu",
+    "text_encoder_dtype": "float16",
+    "isolation": "Separate base, input, output and database paths; existing source and dependencies unchanged."
+  },
+  "paired_evidence": "../diagnostics-r1/evidence.json",
+  "paired_prompt_id": "69a26458-114c-444d-a58c-183f349a6135",
+  "comparison_verified": "Every retained non-output node equals the MPS precision-pair fp32 branch; other fp16 branch removed and output prefix changed. Runtime device and VAE precision both differ.",
+  "prompt_id": "86c0aebc-e718-4909-9eeb-e9be36f3a8ef",
+  "actual_job_status": "success",
+  "status": "EXECUTED_QUALITY_FAIL",
+  "elapsed_ms": 98382,
+  "cached_nodes": [],
+  "workflow": {
+    "path": "workflow-api.json",
+    "bytes": 3084,
+    "sha256": "87fc820f68eb5ea5aa5865bc3cb9ec2ad793b3f3b49e1f44c4fc7a6195733fd0"
+  },
+  "frozen_before_submission": {
+    "path": "frozen-experiment.json",
+    "bytes": 677,
+    "sha256": "3c5d7adb5b79d6d7fb6c8844a218c381309e7f69bd75710c5ce22e817dc01335"
+  },
+  "local_evidence": {
+    "history.json": {
+      "path": "history.json",
+      "bytes": 5197,
+      "sha256": "86c41094263dab9871441a8ca59b98049a754be28eee4b3c75f12f89f8879dee"
+    },
+    "submission-receipt.json": {
+      "path": "submission-receipt.json",
+      "bytes": 152,
+      "sha256": "b90d908e178053fe259b3169a9b5ca135f67f8ba0226a1c7d11ace95ed38c09a"
+    },
+    "system-stats.json": {
+      "path": "system-stats.json",
+      "bytes": 2142,
+      "sha256": "36e40742d36f67585acef43e57e47af7b10411156cefeba5ede8645dd4881eb3"
+    }
+  },
+  "raw_output": {
+    "path": "actual-output.png",
+    "bytes": 162385,
+    "sha256": "5574b14f2a89f93918779b8fc1f8d3cc07ea326b3e7e65b72c2a40cd9ed4db39",
+    "width": 512,
+    "height": 288,
+    "frames": 1,
+    "copied_byte_identically": true
+  },
+  "commercial_api_charge": 0,
+  "review": {
+    "method": "Actually viewed the original PNG; decoded the complete image. No temporal or trajectory review is possible from this single frame.",
+    "result": "FAIL",
+    "observed": "Recognizable anime/cartoon figures: short-haired left figure in dark blue, bob-haired right figure in beige, wooden table and left window. Bright blue paper/envelope is curved and held vertically between the figures; a white/yellow cup is present. Simplified faces and hands; no photographic skin or material texture.",
+    "recognizability": "IMPROVED_VERSUS_PRIOR_MPS_BLOCKS",
+    "original_style_gate": "FAIL_CARTOON_DESPITE_NEGATIVE_PROMPT",
+    "event_timing_and_trajectory": "NOT_EVALUATED_SINGLE_FRAME",
+    "limits": "The frame is not an event-bound approved keyframe. Its envelope posture cannot certify or falsify a particular AVIR event time; it supplies no four-second action evidence."
+  },
+  "conclusion": {
+    "cause": "UNRESOLVED_MULTIPLE_RUNTIME_FACTORS_CHANGED",
+    "control_benefit": "NOT_ESTABLISHED_NO_CONTROL_INPUT",
+    "product_integration": "NOT_INTEGRATED",
+    "next_gate": "Establish acceptable style and temporal output before claiming controlled motion or production delivery; preserve the source and original acceptance."
+  }
+}
