@@ -4,7 +4,7 @@ import math
 from urllib.parse import urlparse
 from .common import read, sha, confined, schema_check, digest
 from .media_probe import probe
-from .asset_usage import OBLIGATION_TYPES, compatible
+from .asset_usage import OBLIGATION_TYPES, compatible, reference_scope_matches
 
 CHANNELS = {'first_frame': 'image', 'last_frame': 'image', 'image_reference': 'image',
             'clay_video_reference': 'video', 'audio_reference': 'audio'}
@@ -32,7 +32,8 @@ def lower(package, target, mode, manifest_path, scope=None):
     if set(scope) != {'start_ms', 'end_ms'} or any(type(v) not in (int, float) or not math.isfinite(v) for v in scope.values()) or not 0 <= scope['start_ms'] < scope['end_ms'] <= ir['output']['duration_ms']:
         raise ValueError('Invalid execution scope')
     active_shots = {s['id'] for s in ir['shots'] if s['start_ms'] < scope['end_ms'] and s['end_ms'] > scope['start_ms']}
-    controls = [c for c in plan['controls'] if active_shots.intersection(c['shot_ids'])]
+    # Image-host inputs remain in the frozen plan but are not video API attachments.
+    controls = [c for c in plan['controls'] if c['channel'] != 'keyframe_input' and active_shots.intersection(c['shot_ids'])]
     registry = read(Path(__file__).resolve().parents[2]/'registries/control-capabilities.json')
     route = next((r for r in registry['routes'] if r['model'] == target and r['mode'] == mode), None)
     manifest_path = Path(manifest_path).resolve(); manifest = read(manifest_path)
@@ -67,7 +68,12 @@ def lower(package, target, mode, manifest_path, scope=None):
                 if shot is None or not shot['start_ms'] <= u['start_ms'] <= u['end_ms'] <= shot['end_ms']:
                     problems.append('ASSET_TIME_SCOPE:'+ident); continue
                 if u['shot_id'] not in needed_shots: continue
+                if not reference_scope_matches(a, c, u):
+                    problems.append('EXPLICIT_REFERENCE_SCOPE_REQUIRED:'+ident); continue
                 a_ms, b_ms = max(shot['start_ms'], scope['start_ms']), min(shot['end_ms'], scope['end_ms'])
+                reference_scope = c.get('reference_scopes', {}).get(u['shot_id'])
+                if reference_scope and not reference_scope['start_ms'] <= a_ms <= b_ms <= reference_scope['end_ms']:
+                    continue
                 if c['channel'] in ('first_frame', 'last_frame'):
                     at = scope['start_ms'] if c['channel'] == 'first_frame' else scope['end_ms']
                     # Boundary ownership is directional: previous shot cannot own next shot's first frame.
@@ -78,6 +84,8 @@ def lower(package, target, mode, manifest_path, scope=None):
                         continue
                 elif c['channel'] in ('clay_video_reference', 'audio_reference'):
                     if (u['start_ms'], u['end_ms']) != (a_ms, b_ms): continue
+                elif c['channel'] == 'image_reference' and a['role'] == 'clean_keyframe' and u['start_ms'] == u['end_ms']:
+                    pass  # Explicit scope was checked above; preserve the captured event time.
                 elif not u['start_ms'] <= a_ms <= b_ms <= u['end_ms']:
                     continue
                 applicable.append(u)

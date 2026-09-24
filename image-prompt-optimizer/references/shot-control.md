@@ -93,6 +93,12 @@ verify/lower/keyframe-check/review 共用严格验证器：核对 schema、完�
 
 第二轮审核后的输入规则：原生 reference 合同保留独立 visual_reference 义务，lower 仍为 NOT_COMPILED；联合编译对指向 assets/bindings 的断言映射同一附件索引，未知的参考断言返回 BLOCKED。媒体职责必须符合消费通道：首尾帧为 clean_keyframe 图片，视频参考为 clay/performance 视频，音频参考为 audio，静态参考通道仅接收图片。时序通道不能因 identity/style 标签跳过机位或动作依赖。素材 HTTPS URL 禁止 fragment，query 原样保留。
 
+仅用于图片宿主的身份、场景母版或编辑基图，显式声明 `channel: keyframe_input`。它仍须经过原生来源职责、镜头时段、实际文件、当前用途审核、配方与失效检查；可进入 keyframe-check/stage，但 lower/compile 不把它放进视频附件、配额或首尾帧槽位。`image_reference` 继续表示需要提交给视频模型的参考图，旧配置不自动改写；同一素材若兼有两种用途，分别声明两个控制项。宿主用途不抵销任何原生正文、参数、reference 或后期义务。
+
+收到的 `clean_keyframe` 保留 `start_ms == end_ms == at_ms`。如需作普通参考，控制项必须事前声明 `reference_scopes: {"S2": {"start_ms": 4000, "end_ms": 8000}}`，由原 `source_pointers` 限定允许参考的职责；范围须在对应镜头内并包含采样时刻。stage/previs-frame 在缺范围时先阻断，避免生成必然无法消费的输出。接收器把该范围写入用途的 `reference_scope`，并纳入冻结阶段、配方与用途审核摘要。lower 要求实际请求落在已授权范围内，不能手动扩张范围或修改事件时刻绕过检查；这不是整段姿态保证。首尾帧仍精确匹配执行范围端点，视频和音频仍要求完整区间覆盖。
+
+联合编译与 lower 使用相同消费分类：仅声明 `keyframe_input` 的原生母版保留在 `source_bindings` 和制作来源说明中，明确没有作为本请求附件提供；真正声明为视频参考的控制和原生 reference 合同仍需映射实际附件，不能靠宿主分类抵销。所有实际图片除了文件头探测，还必须具有有效尺寸并通过 FFmpeg 严格像素解码，损坏图片不能靠 PASS 审核声明进入接收或降译流程。
+
 冻结包会重派生并核对审阅 HTML/SVG。lens.aspect × crop.width / crop.height 必须等于原生输出画幅；没有 lens 时使用交付画幅展示未知投影。摄影机基退化保持 UNDETERMINED，不放行到关键帧生成。扩展时刻与原生 number 毫秒一致，不隐式舍入；构建先在临时目录完整校验，再原子发布，失败不留下半包。目标视频 API 的时长步进限制仍独立检查。
 
 单时刻 clean_keyframe 的适用性由该时刻求值状态、参与实体、摄影机、场景与光色/几何设计决定；未来动作反馈和无轨道、无状态、未参与构图的实体外观不再使首帧失效。持续视频参考仍保守依赖整镜；当前有位置/状态的画外实体保留依赖，因为尚无完整遮挡与反射求解。图内长名称缩写并在边缘避让，完整标签在 HTML legend 中保留，圆点坐标不变。

@@ -45,7 +45,7 @@ def partitions(ir, config, cap, scope):
     return best.get(end, []), [] if end in best else ['NO_SAFE_EVENT_PARTITION']
 
 
-def _source_bindings(ir, manifest, media, active_shots):
+def _source_bindings(ir, config, manifest, media, active_shots):
     """Existing AVIR filenames and responsibilities resolve through the same submitted index."""
     assets = {a['id']: a for a in manifest['artifacts']}
     source_assets = {a['id']: a for a in ir['assets']}
@@ -55,6 +55,15 @@ def _source_bindings(ir, manifest, media, active_shots):
         if not set(binding['shot_ids']) & active_shots: continue
         ident = binding['asset_id']; actual = assets.get(ident); original = source_assets[ident]
         entry = index.get(ident)
+        needed = set(binding['shot_ids']) & active_shots
+        uses = [c for c in config['controls'] if ident in c['artifact_ids'] and needed.intersection(c['shot_ids'])]
+        host_shots = {sid for c in uses if c['channel'] == 'keyframe_input' for sid in c['shot_ids']}
+        host_only = bool(uses) and needed <= host_shots and all(c['channel'] == 'keyframe_input' for c in uses)
+        if host_only and actual:
+            if actual['sha256'] != original['sha256'] or actual['kind'] != original['kind'] or Path(actual['path']).name != original['filename'] or original['inspection'] != 'observed':
+                errors.append('SOURCE_ASSET_IDENTITY_MISMATCH:'+ident)
+            rows.append({**original, 'consumer':'image_host', 'native_slot':None})
+            continue
         if not actual or not entry:
             errors.append('UNMAPPED_SOURCE_ASSET:'+ident); continue
         if actual['sha256'] != original['sha256'] or actual['kind'] != original['kind'] or Path(actual['path']).name != original['filename']:
@@ -157,7 +166,7 @@ def compile_package(package, target, mode, manifest_path, shot_ids=None):
         if media['route'] and (media['route']['entry'] != cap['entry_point'] or media['route']['model'] != cap['model']):
             errors.append('CAPABILITY_REGISTRY_CONFLICT')
         active = set(media['scope']['shot_ids'])
-        bindings, binding_errors = _source_bindings(ir, manifest, media, active); errors += binding_errors
+        bindings, binding_errors = _source_bindings(ir, config, manifest, media, active); errors += binding_errors
         output_view = deepcopy(ir); output_view['output']['duration_ms'] = span['end_ms']-span['start_ms']
         errors += [e['code'] for e in target_errors(output_view, cap, mode) if e['severity'] in ('error','blocker')]
         for a in ir['timeline']['audio_events']:
@@ -174,7 +183,8 @@ def compile_package(package, target, mode, manifest_path, shot_ids=None):
             c = controls[row['control_id']]
             for b in row['bindings']:
                 a = assets[b['artifact_id']]
-                applicable = '；'.join(f"{u['shot_id']} / 项目 {u['start_ms']/1000:g}–{u['end_ms']/1000:g} 秒" for u in b['uses'])
+                applicable = '；'.join(f"{u['shot_id']} / 项目 {u['start_ms']/1000:g}–{u['end_ms']/1000:g} 秒" +
+                    (f"事件采样；参考适用 {u['reference_scope']['start_ms']/1000:g}–{u['reference_scope']['end_ms']/1000:g} 秒" if 'reference_scope' in u else '') for u in b['uses'])
                 role = {'identity':'身份','appearance':'造型','style':'美术风格','scene':'场景布局','clean_keyframe':'关键帧构图','clay':'动作及运镜预演','performance':'表演','audio':'声音节奏'}.get(a['role'],a['role'])
                 annex.append(f"{b['label']}（{Path(a['path']).name}）：{role}；适用 {applicable}；仅辅助：{clauses[c['requirement_id']]['requirement']}。不得继承未指定的身份、服装、场景或运镜维度。")
         if annex: prompt += '\n\n【本请求附件与职责】\n'+'\n'.join(annex)
@@ -198,6 +208,7 @@ def compile_package(package, target, mode, manifest_path, shot_ids=None):
         requests.append({'id': f'REQUEST_{number:03d}', 'scope': media['scope'], 'route': media['route'], 'parameters': parameters,
                          'prompt': prompt, 'prompt_coverage': coverage, 'prompt_trace': trace,
                          'attachment_index': media['attachment_index'], 'control_coverage': media['coverage'],
+                         'source_bindings': bindings,
                          'primary_obligations': obligations, 'post_tasks': post,
                          'status': 'BLOCKED' if errors else 'COMPILED_DRAFT', 'reasons': sorted(set(errors)),
                          'payload_draft': None if errors else payload, 'submitted': False, 'runnable': False,

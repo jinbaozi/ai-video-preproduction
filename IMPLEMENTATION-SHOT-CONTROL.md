@@ -147,3 +147,17 @@ GPT-6 Pro 第二轮审核已终结，针对 93c10e7 给出 Request changes，原
 实际 AVIR 白模重渲染为 512×288、16 fps；冻结 65 帧（含 4000 ms 结束边界）、原生动作提示、模型参数与验收后提交。真实作业 715e1f88-b266-4226-8806-4a5ea06e6cc4 成功返回视频，总耗时 1033.494 秒，无商业 API 费用。原始 WebM 65 帧／实际容器 4063 ms；按事前规则只去掉结束边界帧，得到 64 帧／4 秒 MP4。准备脚本逐帧来源映射与实际提交控制文件可重复构建到相同字节摘要。
 
 实看八张抽帧后质量 FAIL：洋红背景、蓝色简化人形，未满足人物服装、手部动作、信封和中性日光要求。道具无法可靠识别，轨迹误差记 UNDETERMINED，不填零或声称提升。单帧 VAE 对照保持中性灰，只能说明该单帧路径没有相同颜色异常；无白模输入的配对实验另行执行。源码／权重锁、实际工作流、时间映射、耗时、失败抽帧及限制在 experiments/vace。原始视频留本地，不进入 Skill 发行包；通用产品后端和完整质量交付仍未完成。
+
+## 1a3eb6c 网页审核后的交接修复
+
+GPT‑6 Pro 网页最终完成 31 分 42 秒审核，结论 Request changes，43 项断言中的 6 项失败归并为 F01–F03。原报告保存在 validation-artifacts/shot-control-audit-round4.md；它未实跑完整联合编译、全仓回归、七包安装或 Blender，不能把其局部验证扩写为整体通过。
+
+F01：共享媒体验证现在拒绝 ffprobe 错误、零尺寸和无法完整解码的图片；PASS 声明不能覆盖技术失败。已重放审核包中的三份原始损坏 PNG，全部拒绝，记录见 audit-round4-decode-replay.json。完整宿主回归另覆盖四种损坏文件与失败时不留半包，保留有效、未审、FAIL、UNDETERMINED 路径。
+
+F02：新增显式 keyframe_input 消费通道，只用于图片宿主的母版与编辑输入仍走来源／用途／配方审核，但不占视频附件和预算。lower 与联合编译一致区分消费阶段，原生来源保留在 source_bindings，并明确没有随视频请求提供。真正的视频参考和原生 reference 义务继续要求提交映射。有效原生源的 stage → receive → 首帧联合编译已实际通过；原有非法模式混用继续阻断。
+
+F03：事件 at_ms 不改成整段时长。普通参考输出须事前在控制项中冻结 reference_scopes，接收后写入用途 reference_scope；允许继承职责仍由原 source_pointers 限定。范围、当前用途审核和配方一起校验，缺范围在宿主执行前阻断，越界或扩写用途同时被 lower 与后续编辑基图检查拒绝。首尾帧精确端点、视频／音频区间规则保持独立。
+
+最终代码全量 170 项无失败（默认跳过 2 项 Blender）；本机 Blender 专项 8 项全部实际通过。最终宿主专项 10 项通过，包含完整联合编译、图片破损、范围扩写和编辑基图拒绝。版本 video-prompt-compiler 1.14.0、image-prompt-optimizer 1.12.0、workflow 0.7.5。170 项的最终日志为本地 /private/tmp/shot-control-host-round4-current.log；合成软件测试通过不代表生成质量通过。
+
+最终七包静态检查、隔离安装、内置一致性和重复构建全部 PASS：outputs/shot-control-host-round4-release-current/report.json。公开验证摘要及各发行包摘要见 validation-artifacts/shot-control-round4-verification.json。此前中间检查不代替该最终发行记录；推送后仍需网页端独立复核本次修改。

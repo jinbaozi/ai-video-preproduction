@@ -12,7 +12,7 @@ def probe(path):
         raise ValueError('Media file missing')
     command = ['ffprobe', '-v', 'error', '-show_streams', '-show_format', '-of', 'json', str(path)]
     result = subprocess.run(command, capture_output=True, text=True, timeout=30)
-    if result.returncode:
+    if result.returncode or result.stderr.strip():
         raise ValueError('Media probe failed: '+result.stderr[:500])
     data = json.loads(result.stdout)
     video = next((s for s in data['streams'] if s['codec_type'] == 'video'), None)
@@ -25,6 +25,15 @@ def probe(path):
     kind = 'image' if video and format_name in still_formats and duration is None else 'video' if video else 'audio' if audio else 'unknown'
     rotation = int(next((x.get('rotation', 0) for x in (video or {}).get('side_data_list', []) if 'rotation' in x), (video or {}).get('tags', {}).get('rotate', 0))) % 360
     width, height = (video or {}).get('width'), (video or {}).get('height')
+    if video and (not width or not height):
+        raise ValueError('Media has no positive video dimensions')
+    if kind == 'image':
+        # Header metadata alone does not prove that the returned pixels decode.
+        decoded = subprocess.run(['ffmpeg', '-v', 'error', '-xerror', '-err_detect', 'explode',
+                                  '-i', str(path), '-map', '0:v:0', '-f', 'null', '-'],
+                                 capture_output=True, text=True, timeout=30)
+        if decoded.returncode or decoded.stderr.strip():
+            raise ValueError('Image decode failed: '+decoded.stderr[:500])
     display_width, display_height = (height, width) if rotation in (90, 270) else (width, height)
     return {'rotation_deg': rotation, 'display_width': display_width, 'display_height': display_height, 'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size,
             'detected_kind': kind, 'format': format_name,

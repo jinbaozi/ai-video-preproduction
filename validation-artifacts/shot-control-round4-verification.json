@@ -1,0 +1,84 @@
+{
+  "schema": "shot-control-verification/0.1",
+  "created_at_utc": "2026-09-24T18:36:08.120877+00:00",
+  "tests": {
+    "full": {
+      "count": 170,
+      "skipped": 2,
+      "status": "PASS",
+      "log_sha256": "741f3258649544628f4e42045d675ef736c2b8b4b64d12518a54661bc0cde20f"
+    },
+    "host": {
+      "count": 10,
+      "skipped": 0,
+      "status": "PASS",
+      "log_sha256": "cfd62ae2dacfb2bff0b550917c1e49cffda2badf39125a4a5de1e678ec00ac15"
+    },
+    "blender": {
+      "count": 8,
+      "skipped": 0,
+      "status": "PASS",
+      "log_sha256": "c4e77a68bee629fdc3ff48a048964ad84896d0d27e0ebbf2d8a66c7ba2609a55"
+    }
+  },
+  "release": {
+    "status": "PASS",
+    "report_sha256": "5961791d3e2f34619ebf00492f757ef3b7375622afb1a2830b521ef4654afb77",
+    "bundled_modules_equal_standalone": true,
+    "packages": [
+      {
+        "name": "ai-comic-drama-workflow",
+        "archive_sha256": "353325e20c4bfbcd9d3b071bbe6735a313dcf0513ef083806ceb0c2f3e06517f",
+        "file_count": 205,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "screenplay-grammar",
+        "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+        "file_count": 55,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "director-grammar",
+        "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+        "file_count": 62,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "production-design-grammar",
+        "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+        "file_count": 35,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "storyboard-grammar",
+        "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+        "file_count": 57,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "video-prompt-compiler",
+        "archive_sha256": "518b917b2bc61cc271c5248b04863cd57ebc50132b435158a0810a558dd5a2a4",
+        "file_count": 114,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "image-prompt-optimizer",
+        "archive_sha256": "7d1d754f9beb77cf31168990e31002f8daa71dc116204c7f9e9876cde946c9ef",
+        "file_count": 104,
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      }
+    ]
+  },
+  "reviewer_report": "shot-control-audit-round4.md",
+  "reviewer_target": "1a3eb6c510a7f387369b0c1e183b830e35e3c7c3",
+  "original_bad_png_replay": "audit-round4-decode-replay.json",
+  "scope_note": "Author validation; reviewer did not run these full tests. Software tests use synthetic host/visual/upload assertions. Actual VACE generation has a separate quality FAIL record."
+}

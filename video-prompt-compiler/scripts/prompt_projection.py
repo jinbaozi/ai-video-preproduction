@@ -144,7 +144,8 @@ def render(ir, bindings, target, mode, detail, audit_blocks, audit_coverage,
             for j, source in enumerate(ir['assets']):
                 if source['id'] == binding['asset_id']:
                     paths.append(f'/assets/{j}/filename')
-            add(f"参考 {asset['filename']}：用于 {binding['target_id']} 的{'、'.join(binding['roles'])}；禁止继承{'、'.join(binding['negative_roles']) or '未指定额外维度'}。",
+            reference = (f"关键帧制作来源记录 {asset['filename']}（未作为本请求附件提供）" if asset.get('consumer') == 'image_host' else f"参考 {asset['filename']}")
+            add(f"{reference}：用于 {binding['target_id']} 的{'、'.join(binding['roles'])}；禁止继承{'、'.join(binding['negative_roles']) or '未指定额外维度'}。",
                 paths, binding['id'])
 
     # Node definitions are emitted once as spatial anchors, not repeated after

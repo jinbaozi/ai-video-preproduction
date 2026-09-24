@@ -35,8 +35,14 @@ def _uses(bundle, request, artifact_id):
         if not compatible({'kind':'image', 'role':'clean_keyframe'}, control):
             raise ValueError('Output artifact has an incompatible control channel')
         at = request['at_ms']
-        uses.append({'control_id':control['id'], 'shot_id':request['shot_id'], 'start_ms':at, 'end_ms':at,
-                     'recipe_sha256':recipe(bundle['ir'], bundle['config'], control, request['shot_id'], 'clean_keyframe', at, at)})
+        use = {'control_id':control['id'], 'shot_id':request['shot_id'], 'start_ms':at, 'end_ms':at,
+               'recipe_sha256':recipe(bundle['ir'], bundle['config'], control, request['shot_id'], 'clean_keyframe', at, at)}
+        if control['channel'] == 'image_reference':
+            scope = control.get('reference_scopes', {}).get(request['shot_id'])
+            if scope is None or not scope['start_ms'] <= at <= scope['end_ms']:
+                raise ValueError('Event image_reference output requires an explicit frozen reference scope containing its event')
+            use['reference_scope'] = deepcopy(scope)
+        uses.append(use)
     if not uses: raise ValueError('Output artifact must be declared for this shot in the frozen controls')
     return uses
 

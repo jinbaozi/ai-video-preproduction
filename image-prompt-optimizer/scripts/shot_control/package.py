@@ -50,6 +50,12 @@ def validate_config(ir, config):
             raise ValueError('Media cannot discharge a parameter or post-production obligation')
         if c['channel'] == 'deterministic_composite':
             raise ValueError('Post-production requires a post-production obligation, not a media reference')
+        for sid, scope in c.get('reference_scopes', {}).items():
+            if c['channel'] != 'image_reference' or sid not in c['shot_ids']:
+                raise ValueError('Reference scope requires an owned image-reference shot')
+            shot = next(s for s in ir['shots'] if s['id'] == sid)
+            if not shot['start_ms'] <= scope['start_ms'] < scope['end_ms'] <= shot['end_ms']:
+                raise ValueError('Reference scope is outside its shot')
 
 
 def verify_package(package):
@@ -96,6 +102,8 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
     slices = {p: pointer(ir, p) for p in control['source_pointers']}
     value = {'schema': 'control-asset-recipe/0.2', 'role': role, 'slices': slices}
     if role == 'clean_keyframe' and start_ms == end_ms:
+        if shot_id in control.get('reference_scopes', {}):
+            value['reference_scope'] = control['reference_scopes'][shot_id]
         from .control_plan import frame
         shot = next(s for s in ir['shots'] if s['id'] == shot_id)
         state = frame(ir, shot, start_ms, config['lenses'].get(shot_id, {}))
@@ -130,7 +138,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
             from .craft import look_for_shot
             value['look_design'] = look_for_shot(config, shot_id)
         return digest(value)
-    if role not in ('identity', 'appearance', 'style', 'scene') or control['channel'] != 'image_reference':
+    if role not in ('identity', 'appearance', 'style', 'scene') or control['channel'] not in ('image_reference', 'keyframe_input'):
         from .control_plan import frame, event_times
         shot = next(s for s in ir['shots'] if s['id'] == shot_id)
         lens = config['lenses'].get(shot_id, {})

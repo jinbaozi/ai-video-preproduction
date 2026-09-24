@@ -1,0 +1,25 @@
+{
+  "results": [
+    {
+      "file": "bad_idat.png",
+      "reason": "Media probe failed: [png @ <decoder-address>] inflate returned error -3",
+      "result": "REJECTED",
+      "sha256": "53219331dc304e90bd6fa825424f9821ef77c28d66ebc66b7602eb987d919b94"
+    },
+    {
+      "file": "no_idat.png",
+      "reason": "Media has no positive video dimensions",
+      "result": "REJECTED",
+      "sha256": "3af4d1d02080abd029432118d98b6a7a2cafc8c58ee8cf87cec7d68f8add3f8c"
+    },
+    {
+      "file": "zeros_idat.png",
+      "reason": "Image decode failed: [png @ <decoder-address>] IEND without all image",
+      "result": "REJECTED",
+      "sha256": "e522b1f6f5f3a17f739f453193a7456ef9d8b75fd897ef22ac0f47a3611d3ff7"
+    }
+  ],
+  "scope": "Author replay of the three original malformed PNG files against current media_probe; not a rerun of all 43 reviewer assertions. Full host chains covered separately by test_keyframe_host.py.",
+  "reviewed_commit": "1a3eb6c510a7f387369b0c1e183b830e35e3c7c3",
+  "audit_archive_sha256": "204e2e0025440fcecd632e1b9e405a2c3a9e6a416540ff5a7e7585cd5455427e"
+}

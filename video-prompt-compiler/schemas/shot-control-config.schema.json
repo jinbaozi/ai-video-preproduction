@@ -85,6 +85,7 @@
               "first_frame",
               "last_frame",
               "image_reference",
+              "keyframe_input",
               "clay_video_reference",
               "audio_reference",
               "pose",
@@ -117,6 +118,28 @@
           },
           "purpose": {
             "const": "supplement"
+          },
+          "reference_scopes": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "start_ms": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "end_ms": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "start_ms",
+                "end_ms"
+              ]
+            }
           }
         },
         "required": [
