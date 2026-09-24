@@ -59,6 +59,6 @@ V5使用独立的project/state/任务协议，默认CLI只进入V5。V4项目与
 
 ## V5.2 运动与空间
 
-新完整制作采用 DirectorIR / StoryboardIR / AVIR 1.2，支持部位轨迹、动态构图、时刻画格与 `revise storyboard --node-id ID` / `--track-id ID`。工作流 0.5.2、专业模块 1.3.0、转换器 1.2.0，项目存储仍 5.0。
+新完整制作采用 DirectorIR / StoryboardIR / AVIR 1.2，支持部位轨迹、动态构图、时刻画格与 `revise storyboard --node-id ID` / `--track-id ID`。工作流 Skill 0.7.0、视频提示词编译器 1.5.0、转换器 1.2.0；其他专业模块版本以 `modules.lock.json` 为准，项目存储仍 5.0。编译器将完整制作合同保留在审计附件，向模型交付按镜头与时间展开的正文及其字段覆盖，并按模型单次时长生成自包含的分段提示词；每段包含该段所需完整图片引用和细节，阻塞片段保留阻塞状态。既有项目模块锁不自动迁移。
 
 [空间合同](references/spatial-contract-v52.md)说明明确相对描述、数值依据、无损正文及几何判定边界。旧项目模块锁保持，旧包升级只生成新草案。运行 `python scripts/run_v5_example.py --version v52 --out NEW_DIR` 验证内置模块三镜文本链。

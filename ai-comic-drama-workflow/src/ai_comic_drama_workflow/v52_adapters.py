@@ -13,7 +13,17 @@ def storyboard_to_avir(ir,base,overrides,legacy):
  avir,report=temporal_static_conversion(proxy,base,overrides,legacy)
  avir['schema']='avir/1.2';avir['timeline']=deepcopy(ir['timeline'])
  for clause in extra:
-  avir['contract'].append({'id':clause['id'],'level':clause['strength'],'requirement':clause['statement'],'source_refs':clause['source_refs'],'shot_ids':clause['shot_ids'],'checks':deepcopy(clause['checks']),'channel':clause['channel'],'execution':clause['execution'],'acceptance':{'method':'media','criterion':'；'.join(a['criterion'] for a in clause['acceptance'])},'on_unsupported':'block' if clause['strength']=='hard' else 'warn'})
+  checks=[]
+  for check in clause['checks']:
+   if check['path'].startswith('/timeline/'):
+    checks.append(deepcopy(check));continue
+   target=report['field_mapping'].get(check['path'])
+   if target:
+    mapped={'path':target,'op':'exists' if check['op']=='exists' else 'equals'}
+    if check['op']!='exists':mapped['value']=deepcopy(pointer(avir,target))
+    checks.append(mapped)
+   else:checks.append(deepcopy(check))
+  avir['contract'].append({'id':clause['id'],'level':clause['strength'],'requirement':clause['statement'],'source_refs':clause['source_refs'],'shot_ids':clause['shot_ids'],'checks':checks,'channel':clause['channel'],'execution':clause['execution'],'acceptance':{'method':'media','criterion':'；'.join(a['criterion'] for a in clause['acceptance'])},'on_unsupported':'block' if clause['strength']=='hard' else 'warn'})
  if semantic_status(ir) and report['status']!='BLOCKED':avir['timeline']['semantic_review']['input_sha256']=content_hash(avir)
  coverage=[]
  for path,value in leaves(ir['timeline'],'/timeline'):

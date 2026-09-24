@@ -1,6 +1,6 @@
 {
   "archive": "storyboard-grammar.skill",
-  "archive_sha256": "54bec863e46c735a0d84aa43d522f65e84aa99f6eb8250586e9ebbb2de6e8966",
+  "archive_sha256": "0d4ccf9ac9acd08b740df4fba4f54352bfea1698825b6fb21e363114439baf36",
   "file_count": 57,
   "files": {
     "storyboard-grammar/SKILL.md": {
@@ -184,8 +184,8 @@
       "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
     },
     "storyboard-grammar/scripts/v52_support.py": {
-      "bytes": 10426,
-      "sha256": "9abfcb93b68c150cee5374fdb2646174a30c9a67694037829a5e58ec8eca8c21"
+      "bytes": 10133,
+      "sha256": "9acd5489fe8d9b0dd6a772057e667b1761e01050e383dedfc0bf808ea321efd0"
     },
     "storyboard-grammar/styles/action.json": {
       "bytes": 942,

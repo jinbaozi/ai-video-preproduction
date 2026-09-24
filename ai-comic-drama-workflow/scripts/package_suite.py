@@ -25,13 +25,13 @@ def package_suite(workspace,out):
     records=[]
     for name in MODULES:
         pkg.ROOT=workspace/name;pkg.NAME=name
-        result=pkg.build(out);records.append(result)
+        result=pkg.build(out);records.append({**result,'archive':name+'.skill'})
         for suffix in ('.skill','.skill-manifest.json','.skill.sha256'):
             shutil.copyfile(out/(name+suffix),bundles/(name+suffix))
         lock['modules'][name]={'version':json.loads((out/(name+'.skill-manifest.json')).read_text())['version'],'sha256':result['sha256'],'archive':name+'.skill'}
     (ROOT/'modules.lock.json').write_bytes(pkg.encoded(lock))
     pkg.ROOT=ROOT;pkg.NAME=ROOT.name
-    records.append(pkg.build(out))
+    result=pkg.build(out);records.append({**result,'archive':ROOT.name+'.skill'})
     index={'schema':'skill-suite/1.0','active_skills':[ROOT.name,*MODULES],
            'legacy_skills':['video-storyboard-prompter-zh'],'packages':records,'modules':lock}
     (out/'suite-manifest.json').write_bytes(pkg.encoded(index))

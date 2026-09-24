@@ -11,9 +11,13 @@ from ai_comic_drama_workflow.v5_modules import ROOT,digest_file
 class SpatialWorkflowTests(unittest.TestCase):
  def setUp(self):self.base=ROOT/'examples/v52/cafe';self.ir=json.loads((self.base/'storyboard.json').read_text())
  def test_exact_spatial_handoff(self):
+  self.ir['contract'].append({'id':'ENTITY_AND_SPACE','owner':'storyboard','strength':'hard','statement':'Synthetic entity and spatial preservation test','source_refs':[],'shot_ids':[],'checks':[{'path':'/entities','op':'equals','value':copy.deepcopy(self.ir['entities'])},{'path':'/timeline/schema','op':'equals','value':self.ir['timeline']['schema']}],'channel':'prompt','execution':'test','fallback':'block','acceptance':[{'criterion':'test','phase':'structure','evidence':'test'}]})
   avir,report=storyboard_to_avir(self.ir,self.base);self.assertEqual(report['status'],'MAPPED');self.assertEqual(report['adapter'],'1.2.0')
   for name in FIELDS:self.assertEqual(self.ir['timeline'][name],avir['timeline'][name])
   self.assertEqual(avir['timeline']['audio_events'],self.ir['timeline']['audio_events']);self.assertEqual(avir['timeline']['actions'],self.ir['timeline']['actions'])
+  contract=next(c for c in avir['contract'] if c['id']=='ENTITY_AND_SPACE')
+  entities=next(c for c in contract['checks'] if c['path']=='/entities')
+  self.assertEqual(entities['value'],avir['entities'])
  def test_new_relation_enum_and_contract_pointer(self):
   t=self.ir['timeline'];t['spatial_relations'].append({'id':'ABOVE_TEST','subject_node_id':'N_A','object_node_id':'N_B','predicate':'above','frame':'world','scope':{'kind':'point','at_ms':4000},'shot_ids':['S2'],'criterion':'来源明确的端点相对关系','distance_m':None,'attachment':None,'origin':t['spatial_nodes'][0]['origin']})
   path='/timeline/spatial_relations/'+str(len(t['spatial_relations'])-1)+'/predicate';clause=copy.deepcopy(self.ir['contract'][0]);clause.update(id='SPACE_NEW',checks=[{'path':path,'op':'equals','value':'above'}]);self.ir['contract'].append(clause)

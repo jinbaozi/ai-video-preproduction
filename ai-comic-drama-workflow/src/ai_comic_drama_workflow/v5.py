@@ -277,7 +277,9 @@ class V5Kernel:
                 key=('ASSET_'+ir['set']['scene_id']+'_' if stage==5 else 'BOARD_')+brief['id']
                 refs=[]
                 if stage==7:
-                    participants=set(ir['shots'][int(brief['source_pointer'].split('/')[2])]['state_start'])
+                    shot=ir['shots'][int(brief['source_pointer'].split('/')[2])]
+                    panel=shot['panels'][int(brief['source_pointer'].split('/')[4])]
+                    participants=set(panel.get('subject_ids',shot['state_start']))
                     refs=[{'key':m['key'],'uri':m['uri'],'sha256':m['sha256'],'entity_id':m.get('entity_id'),
                            'purpose':('identity/wardrobe' if m['role']=='identity' else 'object/scene appearance')+' only; preserve the requested panel composition'}
                           for m in state['media'].values() if m['stage']==5 and m.get('entity_id') in participants and self.media_valid(m,state)]
@@ -805,6 +807,11 @@ class V5Kernel:
         if mapping and mapping['storyboard_sha256']!=state['artifacts']['storyboard']['sha256']:
             return {'status':'BLOCKED','reason':'Mapping review is stale; update it for the revised storyboard'}
         avir,report=storyboard_to_avir(sb,source.parent,(mapping or {}).get('mappings'))
+        # Compilation adds verified image receipts after the deterministic
+        # storyboard adapter. Rebind semantic review only when its source hash
+        # was valid before those non-creative receipt additions.
+        from .v52_spatial_runtime import content_hash as spatial_content_hash, semantic_status as spatial_semantic_status
+        semantic_review_valid=(isinstance(avir.get('timeline'),dict) and 'semantic_review' in avir['timeline'] and spatial_semantic_status(avir))
         pinned_adapter=self.project.get('adapter_version')
         supported={'1.0.0':{'storyboard-ir/1.0'},'1.1.0':{'storyboard-ir/1.0','storyboard-ir/1.1'},ADAPTER_VERSION:{'storyboard-ir/1.0','storyboard-ir/1.1','storyboard-ir/1.2'}}
         if sb.get('schema_version') not in supported.get(pinned_adapter,set()):
@@ -844,6 +851,8 @@ class V5Kernel:
                             'source_refs':[sid],'shot_ids':shot_ids,'checks':[{'path':f'/bindings/{binding_index}/asset_id','op':'equals','value':asset_id}],
                             'channel':'prompt','execution':'按指定画格时刻及用途参考，后续动作遵循分镜',
                             'acceptance':{'method':'media','criterion':'画格时刻与动作、身份参考职责没有越界'},'on_unsupported':'block'})
+        if semantic_review_valid:
+            avir['timeline']['semantic_review']['input_sha256']=spatial_content_hash(avir)
         imported_record=state['artifacts'].get('avir')
         if imported_record and not self.valid('avir'):
             self.data('avir')  # Byte changes are errors, not permission to discard a package.

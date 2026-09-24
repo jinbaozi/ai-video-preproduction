@@ -1,6 +1,6 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "306ac7dd4e8a67f29f0ed19154936e89cf3bc72ecc36703e60707d80f3c889b5",
+  "archive_sha256": "8bab1e5413f934b91bfa0240d4236d6fc5a6e6b8ac55220dbee3111e6f980210",
   "file_count": 62,
   "files": {
     "director-grammar/SKILL.md": {
@@ -232,8 +232,8 @@
       "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
     },
     "director-grammar/scripts/v52_support.py": {
-      "bytes": 10426,
-      "sha256": "9abfcb93b68c150cee5374fdb2646174a30c9a67694037829a5e58ec8eca8c21"
+      "bytes": 10133,
+      "sha256": "9acd5489fe8d9b0dd6a772057e667b1761e01050e383dedfc0bf808ea321efd0"
     },
     "director-grammar/templates/production-contract.md": {
       "bytes": 1503,
