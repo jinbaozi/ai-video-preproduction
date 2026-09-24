@@ -31,6 +31,26 @@ python scripts/control_cli.py edit-check edit-delta.json
 
 优化器交付请求和提示词；宿主依用户已有授权生成/编辑，实际查看后登记文件和哈希、审核人、具体检查项与 PASS/FAIL。`control-artifacts/0.2` 保存来源版本 `source_sha256`，另用 `uses` 绑定控制 ID、镜头、起止和派生配方 `recipe_sha256`。审核还须绑定 `uses_sha256`。镜头素材依赖源断言、镜头时轨、场景和相机配置；身份/外观/风格/场景母版只依赖对应断言切片，不因无关轨迹修改而全部失效。静态校验不会自己填写生成或审图成功。审阅 SVG 禁止放入首尾帧或主体参考；干净帧还需实际检查箭头、标签、时间码污染。未知姿态回分镜补齐，不插值手势和接触。
 
+### 宿主输入冻结与实收登记
+
+```bash
+python scripts/control_cli.py keyframe-stage request.json --package outputs/control-v001 --artifacts masters.json --prompt prompt.txt --artifact K001_0 --out outputs/keyframe-stage
+python scripts/control_cli.py verify-keyframe-stage outputs/keyframe-stage
+# 外部宿主实际生成后，Agent 按真实调用记录整理 host-result.json，再接收实物：
+python scripts/control_cli.py keyframe-receive outputs/keyframe-stage --media actual.png --host-result host-result.json --out outputs/keyframe-received
+python scripts/control_cli.py verify-keyframe-received outputs/keyframe-received
+```
+
+`keyframe-stage` 验证请求，冻结控制包、提示词原文、主锚点及编辑基图的真实文件。`stage.json.inputs` 是宿主应使用的顺序：编辑基图首先，其后按 master_anchors 顺序去重。输出 ID 必须已在冻结配置中声明，不能替换主锚点。输入副本保留真实文件名，路径用输入序号隔离重名。此操作仅准备输入，不调用模型、不上传文件。
+
+`host-result.json` 遵守 `keyframe-host-result/0.1`：绑定 stage-manifest 文件摘要、提示词文件摘要、实际有序输入摘要、实收文件名与摘要；记录真实 host/model/execution_id/evidence，宿主未暴露型号或执行 ID 时填 null。`recording_mode` 区分 contemporaneous、retrospective 与 synthetic_test。历史实验只能作为 retrospective 回放，不能声称在原调用前已冻结这份新交接包。这是宿主记录的本地一致性检查，不是厂商签名或独立执行证明；不把自填记录当作探测通过。
+
+实收包包含独立 stage 副本、原始输出、host-result、实际 ffprobe 信息与 control-artifacts 清单。默认 `review=null`、输出 `binding=null`；已生成的图片也不能自动算审核通过。登记保留整套输入与每次失败尝试，不覆盖旧包；复制到新位置仍可验证，原始输入随后变化不会篡改已冻结副本。该清单含本次选用的锚点、基图和产物；其他镜头资产仍需由工作流按 ID/摘要显式合并，不隐式丢弃或宣称全片可编译。
+
+实际看图后，可在新的接收目录执行同一命令并添加 `--review visual-review.json`。该文件遵守 `keyframe-image-review/0.1`，绑定图片及 stage 摘要，按顺序逐项覆盖 request.acceptance 和 edit_delta.acceptance 去重后的全集，每项记录 PASS/FAIL/UNDETERMINED 与具体观察依据。任一失败使本图 FAIL，未确定项保留无审核通过状态；不能只填写局部编辑成功。可确定的画幅冲突或非方形像素也会阻止 PASS；实收尺寸保留，不静默缩放。静态检查不自行判读脸、姿态或投影。
+
+`verify-keyframe-received` 重算实收清单和审核摘要，拒绝篡改后重新封装的派生清单。即使输出与旧基图共用逻辑 ID，旧基图仍保存在 stage 中；旧用途失效记录保留并按文件摘要区分。后续修复继续走 keyframe-check/stage；视频上传绑定仍由外部宿主记录，不能改写本次接收包来伪造上传成功。
+
 ## 表演、色彩与所有权
 
 复用 `timeline.performances` 中触发、可见反应、身体/头部/视线、起止、反馈与收束。依据 composition 的可见部位及可读尺度验收；背面和远景不能以微表情作为通过条件。缺必要景别返回导演/分镜，编译器不新增特写。FACS 或强度曲线仅为内部设计，不能新增未经证实的 API 字段。

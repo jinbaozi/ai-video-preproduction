@@ -1,0 +1,46 @@
+{
+  "attempts": [
+    {
+      "attempt": 1,
+      "input_sha256": [
+        "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b",
+        "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2",
+        "a196b4a6f33fb8c7e805b63339eb6e1204c9b4005a7aee83831f52959d395135"
+      ],
+      "output_sha256": "43c441c07b4acdaca2260de213fed3ea73c5b606e9450a0566ca9d17a244d0fa",
+      "prompt_sha256": "7d2f38930914705abfc23e9b942df0d94f22d179b92e1c3dc683b7c22bcfa6eb",
+      "receipt_sha256": "37afbe43b8082a3ca148f9aebc04a9fe6f7a73f06cbd1ebe169cc118bd1385e3",
+      "recording_mode": "retrospective",
+      "verification": {
+        "provenance": "HOST_ASSERTION_NOT_INDEPENDENT_EXECUTION_PROOF",
+        "status": "VERIFIED_RECEIVED_KEYFRAME",
+        "submitted": false,
+        "visual_review": "FAIL"
+      }
+    },
+    {
+      "attempt": 2,
+      "input_sha256": [
+        "43c441c07b4acdaca2260de213fed3ea73c5b606e9450a0566ca9d17a244d0fa",
+        "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b",
+        "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2",
+        "a196b4a6f33fb8c7e805b63339eb6e1204c9b4005a7aee83831f52959d395135"
+      ],
+      "output_sha256": "ba87d989c530236655f0ed195d9a50c4d940c67f90311bf9d84207586f6f56cc",
+      "prompt_sha256": "6e4c2ba821b8118e732c84367605ad4237babb615a21c1cb2b5d3da5e60571c3",
+      "receipt_sha256": "29112e0a8bd2c37df37b84e01f75e722d00b053a23738c2e026d90764df230b0",
+      "recording_mode": "retrospective",
+      "verification": {
+        "provenance": "HOST_ASSERTION_NOT_INDEPENDENT_EXECUTION_PROOF",
+        "status": "VERIFIED_RECEIVED_KEYFRAME",
+        "submitted": false,
+        "visual_review": "FAIL"
+      }
+    }
+  ],
+  "historical_record_sha256": "d6479613c203d78fb99bd0db35b7df467f89067276a243affc1ad7e307ffbf50",
+  "implementation": "image-prompt-optimizer standalone shared runtime",
+  "new_model_calls": 0,
+  "schema": "host-keyframe-replay-evidence/0.1",
+  "submitted": false
+}

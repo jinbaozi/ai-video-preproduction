@@ -47,6 +47,18 @@ class PrevisTests(unittest.TestCase):
         del geometry['objects'][0]['trajectory']; geometry['objects'][0]['node_id']='MISSING'
         with self.assertRaisesRegex(ValueError,'Unknown'): validate_geometry(self.ir,geometry)
 
+    def test_decimal_milliseconds_keep_exact_whole_frame_count(self):
+        # JSON numbers with a decimal point are legal native timing, even when integral.
+        self.ir['shots'][0]['end_ms']=4000.0
+        self.config['proxy_scene'].update(fps=2.0,resolution=[320.0,180.0])
+        bundle=verify_package(self.package()); plan=derive(bundle,'S1')
+        self.assertEqual(len(plan['video_samples']),8)
+        self.assertIsInstance(plan['fps'],int)
+        self.assertTrue(all(isinstance(v,int) for v in plan['geometry']['resolution']))
+        self.assertEqual(plan['samples'][plan['video_samples'][-1]]['at_ms'],3500)
+        bundle['ir']['shots'][0]['end_ms']=4000.5
+        with self.assertRaisesRegex(ValueError,'whole number of frames'): derive(bundle,'S1')
+
     def test_unresolved_orientation_and_incorrect_aspect_block(self):
         bundle=verify_package(self.package())
         bundle['config']['proxy_scene']['objects'][0]['orientation']='node_direction'

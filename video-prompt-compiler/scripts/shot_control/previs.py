@@ -43,12 +43,16 @@ def derive(bundle, shot_id):
     if shot is None: raise ValueError('Unknown previs shot')
     geometry = geometry_for_shot(config, shot_id)
     if geometry is None or not geometry['objects']: raise ValueError('Explicit proxy geometry required')
-    fps = geometry['fps']; duration = shot['end_ms']-shot['start_ms']
-    if duration*fps % 1000: raise ValueError('Shot duration must contain a whole number of frames; no retiming')
-    count = duration*fps//1000
-    movie_times = [Fraction(shot['start_ms']) + Fraction(i*1000, fps) for i in range(count)]
+    # JSON Schema integer accepts 24.0 as well as 24; renderer APIs need Python ints.
+    geometry = {**geometry, 'fps':int(geometry['fps']), 'resolution':[int(v) for v in geometry['resolution']]}
+    fps = geometry['fps']
+    start, end = Fraction(str(shot['start_ms'])), Fraction(str(shot['end_ms']))
+    frame_count = (end-start)*fps/1000
+    if frame_count.denominator != 1: raise ValueError('Shot duration must contain a whole number of frames; no retiming')
+    count = frame_count.numerator
+    movie_times = [start + Fraction(i*1000, fps) for i in range(count)]
     event_ms = event_times(ir, shot)
-    all_times = sorted(set(movie_times) | set(map(Fraction, event_ms)))
+    all_times = sorted(set(movie_times) | {Fraction(str(t)) for t in event_ms})
     view = shot_view(ir, shot_id)
     nodes = {n['id']: n for n in ir['timeline']['spatial_nodes']}
     required = {x['entity_id'] for x in shot['composition']['required_visible']}
@@ -92,7 +96,7 @@ def derive(bundle, shot_id):
     return {'schema': 'previs-render-plan/0.1', 'shot_id': shot_id, 'source_sha256': bundle['plan']['source']['sha256'],
             'geometry': geometry, 'start_ms': shot['start_ms'], 'end_ms': shot['end_ms'], 'fps': fps,
             'samples': samples, 'video_samples': [index[t] for t in movie_times],
-            'event_samples': [index[Fraction(t)] for t in event_ms],
+            'event_samples': [index[Fraction(str(t))] for t in event_ms],
             'fidelity': 'EXPLICIT_GEOMETRY_ONLY', 'appearance': 'NEUTRAL_CLAY',
             'limitations': ['No invented gait, anatomy, facial performance or contact solving',
                             'No depth of field, material palette, or production lighting',

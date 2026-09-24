@@ -101,3 +101,19 @@ GPT-6 Pro 第二轮审核已终结，针对 93c10e7 给出 Request changes，原
 首轮全量 157 项发现一个新增夹具合同未同步及一个旧版本号写死的测试失败；修复后受影响 10 项复测通过。实际 Blender 竖屏、裁切、roll、重新打开场景后的投影与交接测试通过。最终全量和七包发行结果待本节后续记录。
 
 最终验证：编译器全量 157 项无失败（默认跳过 1 项 Blender；该项已显式实际运行通过），七个 Skill 静态检查、隔离安装、内置一致性及重复构建全部 PASS。发行报告为 `outputs/shot-control-audit-r2-release-final/report.json`，此前 release-check 是中间版本。版本 video-prompt-compiler 1.11.0、image-prompt-optimizer 1.9.0、workflow 0.7.2。真实视频执行、数值摄影机成片效果、完整表演与专用控制后端实验仍未完成。
+
+## 宿主关键帧输入冻结与实收登记
+
+增加 keyframe-stage/verify-keyframe-stage、keyframe-receive/verify-keyframe-received。本地冻结原生控制包、请求、提示词、主锚点及编辑基图；实际输入顺序和内容摘要与宿主记录核对。结果按真实文件探测并生成独立清单，默认无审核、无上传绑定。实际审图记录须覆盖原请求和编辑差量的全部验收项；FAIL 与 UNDETERMINED 不会变成 PASS，可确定的画幅冲突也阻止通过。失败产物继续作为受限修复基图，旧基图与每次尝试留存，不覆盖母版。
+
+回执明确是 HOST_ASSERTION_NOT_INDEPENDENT_EXECUTION_PROOF；文件一致性不是厂商签名，不证明模型实际执行指定输入。宿主未暴露型号/执行 ID 时记录 null。历史素材只可标 retrospective，不能追认成事前冻结。独立输出目录原子发布，坏摘要、错序或缺失审核项不会留下半包。
+
+使用图片优化器独立运行时回放已有 cafe 两次真实图片，代码为 `validation-artifacts/replay-keyframe-host.py`，公开摘要为 `validation-artifacts/host-keyframe-replay-evidence.json`，本地完整包为 `outputs/host-keyframe-receive-r1/`。本轮重新查看两张实际输出，仍保留第一张信封竖直、第二张投影位置偏离的 FAIL；其余未充分核对的条件保留 UNDETERMINED。两包可独立复验，但均未上传/生成视频，本轮新增模型调用为 0。
+
+5 项专项测试通过，覆盖输入顺序/内容绑定、目录搬移后复验、坏输入不发布、审核全集与三种结果、重封清单篡改和画幅误报。第三轮网页对抗性审核针对已推送的 886e931，仍需待其返回后处理；本增量不冒充已经过该审核。
+
+另外复现并修复预演数字类型边界：完整原生包接受 end_ms=4000.0，但旧 derive 将浮点帧数传入 range 而抛出 TypeError。现以十进制有理数计算帧数与事件索引，合法整数值的 fps/resolution 规范为渲染器需要的 Python int；不满整帧的真实时长仍明确拒绝，不隐式量化。新增回归从原生 build/verify 正例进入，6 项预演专项无失败（默认跳过 1 项），真实 Blender 集成另行实际通过。
+
+宿主交接增量后的全量 162 项无失败（1 项默认 Blender 跳过）；随后上述预演修复按受影响范围复测，没有把新增用例倒算成先前全量运行。图片独立包的 keyframe-stage → keyframe-receive 命令行也已实际完成历史实物接收，并保持 FAIL。中间发行检查通过后又补齐整数值浮点表示，最终发行验收另行记录，不能引用中间摘要冒充最终包。
+
+最终七个 Skill 静态检查、隔离安装（含新交接及预演回归）、内置一致性和重复构建均 PASS，报告为 `outputs/shot-control-host-receive-release-final2/report.json`；release-check 和 release-final 是中间版本。当前发行 video-prompt-compiler 1.12.0、image-prompt-optimizer 1.10.0、workflow 0.7.3。带原始请求摘要比对的历史回放在 `outputs/host-keyframe-receive-r2/` 再次成功，实收摘要与 r1 相同。完整生成质量、真实视频入口/实收观察、表演光色收益与专用控制实验继续未完成。

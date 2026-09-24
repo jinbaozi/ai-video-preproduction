@@ -15,6 +15,10 @@ def main():
     p = sub.add_parser('probe'); p.add_argument('input')
     p = sub.add_parser('edit-check'); p.add_argument('input')
     p = sub.add_parser('keyframe-check'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--artifacts', required=True)
+    p = sub.add_parser('keyframe-stage'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--prompt', required=True); p.add_argument('--artifact', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-keyframe-stage'); p.add_argument('package')
+    p = sub.add_parser('keyframe-receive'); p.add_argument('package'); p.add_argument('--media', required=True); p.add_argument('--host-result', required=True); p.add_argument('--review'); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-keyframe-received'); p.add_argument('package')
     p = sub.add_parser('verify'); p.add_argument('package')
     p = sub.add_parser('previs'); p.add_argument('package'); p.add_argument('--shot', required=True); p.add_argument('--blender', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('verify-previs'); p.add_argument('package')
@@ -42,6 +46,19 @@ def main():
         elif args.command == 'keyframe-check':
             from shot_control.keyframes import check_request
             result = check_request(read(args.input), args.package, args.artifacts)
+        elif args.command == 'keyframe-stage':
+            from shot_control.keyframe_host import stage
+            result = stage(args.package, args.input, args.artifacts, args.prompt, args.artifact, args.out)
+        elif args.command == 'verify-keyframe-stage':
+            from shot_control.keyframe_host import verify_stage
+            verify_stage(args.package)
+            result = {'status':'VERIFIED_HOST_INPUTS', 'host_execution':'NOT_RUN'}
+        elif args.command == 'keyframe-receive':
+            from shot_control.keyframe_host import receive
+            result = receive(args.package, args.media, args.host_result, args.out, args.review)
+        elif args.command == 'verify-keyframe-received':
+            from shot_control.keyframe_host import verify_received
+            result = verify_received(args.package)
         elif args.command == 'verify':
             from shot_control.package import verify_package
             verify_package(args.package)
