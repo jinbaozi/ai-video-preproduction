@@ -17,7 +17,10 @@ def main():
     p = sub.add_parser('keyframe-check'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--artifacts', required=True)
     p = sub.add_parser('verify'); p.add_argument('package')
     p = sub.add_parser('segment'); p.add_argument('input'); p.add_argument('--target', required=True); p.add_argument('--out', required=True)
-    p = sub.add_parser('lower'); p.add_argument('package'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('lower'); p.add_argument('package'); p.add_argument('--shot', action='append'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('compile'); p.add_argument('package'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--shot', action='append'); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-compile'); p.add_argument('package')
+    p = sub.add_parser('repair'); p.add_argument('before'); p.add_argument('after'); p.add_argument('--artifacts', required=True); p.add_argument('--observations'); p.add_argument('--media'); p.add_argument('--out', required=True)
     p = sub.add_parser('review'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--media', required=True); p.add_argument('--out', required=True)
     args = parser.parse_args()
     try:
@@ -39,10 +42,26 @@ def main():
             result = {'status': 'VERIFIED', 'media_review': 'NOT_RUN'}
         elif args.command == 'lower':
             from shot_control.control_lowering import lower
-            result = lower(args.package, args.target, args.mode, args.artifacts)
+            from shot_control.package import verify_package
+            from shot_control.joint_compile import scope_for_shots
+            scope = scope_for_shots(verify_package(args.package)['ir'], args.shot)
+            result = lower(args.package, args.target, args.mode, args.artifacts, scope)
             if Path(args.out).exists():
                 raise ValueError('Use a new output file')
             write(args.out, result)
+        elif args.command == 'compile':
+            if not Path(__file__).with_name('vpc_core.py').is_file():
+                raise ValueError('Joint compilation requires the video-prompt-compiler package')
+            from shot_control.joint_compile import export
+            result = export(args.package, args.target, args.mode, args.artifacts, args.out, args.shot)
+        elif args.command == 'verify-compile':
+            if not Path(__file__).with_name('vpc_core.py').is_file():
+                raise ValueError('Joint compilation requires the video-prompt-compiler package')
+            from shot_control.joint_compile import verify_export
+            result = verify_export(args.package)
+        elif args.command == 'repair':
+            from shot_control.repair import export
+            result = export(args.before, args.after, args.artifacts, args.out, args.observations, args.media)
         elif args.command == 'segment':
             from vpc_core import profile, validate
             import spatial_runtime as spatial

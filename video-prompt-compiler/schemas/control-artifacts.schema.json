@@ -44,7 +44,8 @@
               "style",
               "clay",
               "performance",
-              "audio"
+              "audio",
+              "scene"
             ]
           },
           "review": {
@@ -177,6 +178,43 @@
     },
     "submitted": {
       "const": false
+    },
+    "invalidated_uses": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "artifact_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "use_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "task_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "artifact_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "required": [
+          "artifact_id",
+          "use_sha256",
+          "reason",
+          "task_id",
+          "artifact_sha256"
+        ]
+      }
     }
   },
   "required": [

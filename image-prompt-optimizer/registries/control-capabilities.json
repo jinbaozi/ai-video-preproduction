@@ -89,6 +89,44 @@
         "audio": 3,
         "total": 8
       }
+    },
+    {
+      "vendor": "Agnes",
+      "model": "agnes-video-2.5",
+      "surface": "API",
+      "entry": "https://apihub.agnes-ai.com/v1/videos",
+      "mode": "text",
+      "version": "2026-09-24",
+      "documented": true,
+      "probe_passed": false,
+      "quality_validated": false,
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25",
+      "channels": [],
+      "max_refs": {
+        "image": 0,
+        "video": 0,
+        "audio": 0,
+        "total": 0
+      }
+    },
+    {
+      "vendor": "Agnes",
+      "model": "agnes-video-2.5-flash",
+      "surface": "API",
+      "entry": "https://apihub.agnes-ai.com/v1/videos",
+      "mode": "text",
+      "version": "2026-09-24",
+      "documented": true,
+      "probe_passed": false,
+      "quality_validated": false,
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash",
+      "channels": [],
+      "max_refs": {
+        "image": 0,
+        "video": 0,
+        "audio": 0,
+        "total": 0
+      }
     }
   ],
   "experimental_backends": {

@@ -81,7 +81,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
     """Master references depend on their assertion slices, temporal assets on evaluated shot state."""
     slices = {p: pointer(ir, p) for p in control['source_pointers']}
     value = {'schema': 'control-asset-recipe/0.2', 'role': role, 'slices': slices}
-    if role not in ('identity', 'appearance', 'style'):
+    if role not in ('identity', 'appearance', 'style', 'scene'):
         from .control_plan import frame, event_times
         shot = next(s for s in ir['shots'] if s['id'] == shot_id)
         lens = config['lenses'].get(shot_id, {})

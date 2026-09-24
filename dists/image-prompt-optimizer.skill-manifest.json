@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "1536cd6a8a892d71f68f1046e003f042ee50e88e0dac7e8de6d703fbd0c90664",
-  "file_count": 92,
+  "archive_sha256": "017f18db56adb971ab6129debb15c6f99c59cb6955510a7268b217384ac0385b",
+  "file_count": 94,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29771,
-      "sha256": "d5f62ae4d5650c6ad726d3802f66294835c263658cf9f74c86268b1a546356aa"
+      "sha256": "a8e69d742bc109d0636f43ad0b8b42cd9ef411fff1a1d8b82ac530eb367cd18b"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 9698,
-      "sha256": "a0fd873f03eae5c666af216ee7989bcf3d018ab5e9883c1a4899c522e7a9f735"
+      "bytes": 13946,
+      "sha256": "23d90512c7ae27fefd383410a74ebadb26e91599db60a9688900fe74c52a1b3b"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -172,8 +172,8 @@
       "sha256": "47a40e20a6440e616bc4a76f9351d518b553e2b8f0467d0ad3c05cdc1034d066"
     },
     "image-prompt-optimizer/registries/control-capabilities.json": {
-      "bytes": 2502,
-      "sha256": "d8d5bb83af982f179720e351742f8d6bb70969bfbb5bb7a0dda7059002082107"
+      "bytes": 3516,
+      "sha256": "4915f01d51c05455093bd1025e5486ad44ac93134084facdf8b9e8856b2bba0a"
     },
     "image-prompt-optimizer/requirements.txt": {
       "bytes": 19,
@@ -188,8 +188,8 @@
       "sha256": "c1663f3a19e4b399012ebd6ba586e067db7cc991abd50ac91eab6ddac71c0a46"
     },
     "image-prompt-optimizer/schemas/control-artifacts.schema.json": {
-      "bytes": 4690,
-      "sha256": "5ef28afa40385abc1d5d8c0bdc20502bfaf4654400a019682f7b181185c3f1b8"
+      "bytes": 5575,
+      "sha256": "dc867a2b9fa46258f18518da13b40b578b319fe0c3a3a378259257ad12a1c1e1"
     },
     "image-prompt-optimizer/schemas/control-media-review.schema.json": {
       "bytes": 3828,
@@ -220,8 +220,8 @@
       "sha256": "46793a2a44f49897969fa9526ef9fb2a5ab916d2250313cb0817995b73345fcc"
     },
     "image-prompt-optimizer/scripts/control_cli.py": {
-      "bytes": 4108,
-      "sha256": "c2883b9e1c5ff1c3faee697b463bbf7163213233323116b2a0d7924b5ebb3d82"
+      "bytes": 5837,
+      "sha256": "b74719d3abbf3392e95463a22b8488d8409d1299e90fd0c2f5490b6db3d64ec0"
     },
     "image-prompt-optimizer/scripts/detail_runtime.py": {
       "bytes": 34347,
@@ -244,16 +244,20 @@
       "sha256": "330fd75345b8177b11efdee0e38038722b6ac400c2c6b04ecdfccb5838f02084"
     },
     "image-prompt-optimizer/scripts/shot_control/control_lowering.py": {
-      "bytes": 10504,
-      "sha256": "7d198cfdbe45e9b6c0d3e4e8483db2502239334873706da44b48225aa5d7ac3e"
+      "bytes": 12214,
+      "sha256": "527c6a08bbb1b7f697637bc85fb34db48acbe16632230b2c6b98a44d30495735"
     },
     "image-prompt-optimizer/scripts/shot_control/control_plan.py": {
       "bytes": 7984,
       "sha256": "a64a7bd56e4f7e41a919ded816a56dadeab825362fdc1988106dd8102e07f700"
     },
+    "image-prompt-optimizer/scripts/shot_control/joint_compile.py": {
+      "bytes": 17005,
+      "sha256": "d61194d7696b04d5874afbdab425e5025e3fec595e16efd5657a1e87b13e38be"
+    },
     "image-prompt-optimizer/scripts/shot_control/keyframes.py": {
-      "bytes": 4092,
-      "sha256": "abc4709b3be7dcc0b72c0f05efb7a63f8c1ec6e8681cdd4dd34976722e30bbec"
+      "bytes": 6431,
+      "sha256": "f8f4985f8cebe6546089a115162a3fcafb352994edaccccd2d0f895fd78ae97c"
     },
     "image-prompt-optimizer/scripts/shot_control/media_probe.py": {
       "bytes": 2229,
@@ -264,12 +268,16 @@
       "sha256": "8eaba594add018a1fc9e6f2539e0bb72d7663d436cd27b7207c4ee08c06c09c2"
     },
     "image-prompt-optimizer/scripts/shot_control/package.py": {
-      "bytes": 5887,
-      "sha256": "0a99db9426628e8f7b24b17d9196317fc5c92e53ee9977dd84652481b217679d"
+      "bytes": 5896,
+      "sha256": "65df60ecb681c7ff75a8f69dd0fcb517c6415384e0250de6dc138cb1d85d6635"
     },
     "image-prompt-optimizer/scripts/shot_control/render_blocking.py": {
       "bytes": 3706,
       "sha256": "7af35b5c47f1d782a25b9019f035148880be2afc40315f92ad91e72cfe1bd9dc"
+    },
+    "image-prompt-optimizer/scripts/shot_control/repair.py": {
+      "bytes": 11588,
+      "sha256": "fd77113fcb8d7f8805964ead2ab30069a1670d59ad2b665c5ad8ad4677e3cae5"
     },
     "image-prompt-optimizer/scripts/shot_control/review.html": {
       "bytes": 2567,
@@ -356,8 +364,8 @@
       "sha256": "3de01c072f84fa3332108747e71ef0204721573f02d06f6b76fdcff2399d816d"
     },
     "image-prompt-optimizer/tests/test_control_contracts.py": {
-      "bytes": 1545,
-      "sha256": "761b086508aae85b1ef19ce1c67d7a0a2ddae3412b081b2edc40c1a258a813ad"
+      "bytes": 1792,
+      "sha256": "fd7e6b4098359765d5dc29f23bfbbb759e251462ed276596c95213bf3f7c77ae"
     },
     "image-prompt-optimizer/tests/test_production_contract.py": {
       "bytes": 8623,
@@ -373,5 +381,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.5.0"
+  "version": "1.6.0"
 }

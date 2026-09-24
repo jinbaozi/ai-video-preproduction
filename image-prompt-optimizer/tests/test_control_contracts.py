@@ -17,6 +17,10 @@ class ControlContractsTests(unittest.TestCase):
             result = verify_package(tmp)
             self.assertEqual(result['plan']['shot_ids'], ['S1', 'S2', 'S3'])
             self.assertTrue(result['requests'])
+            from shot_control.repair import plan_repairs
+            repair = plan_repairs(tmp, tmp, Path(tmp)/'artifact-manifest.json')
+            self.assertEqual(repair['status'], 'UNCHANGED')
+            self.assertEqual(repair['tasks'], [])
 
     def test_standalone_edit_contract_and_conflict(self):
         value = {'schema':'edit-delta/0.1','keyframe_id':'K1',

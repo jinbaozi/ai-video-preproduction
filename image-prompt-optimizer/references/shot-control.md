@@ -20,7 +20,7 @@ python scripts/control_cli.py lower outputs/control-v001 --target agnes-video-2.
 
 ## 图片关键帧与编辑交接
 
-`keyframe-requests.json` 按事件生成请求，保存来源内容摘要、原始指针、镜头状态、主体姿态及可见性与绑定。每条符合 `keyframe-request.schema.json`。Agent 从现有资产登记中补齐真实 `master_anchors`（身份、造型和场景分责），选择 generate/edit，然后在图片优化器独立包运行：
+`keyframe-requests.json` 按事件生成请求，保存来源内容摘要、原始指针、镜头状态、主体姿态及可见性与绑定。每条符合 `keyframe-request.schema.json`。Agent 从现有资产登记中补齐真实 `master_anchors`（身份、造型和场景分责），主身份与场景锚点必须对应冻结 AVIR 中已 observed 的真实 assets/bindings，ID、文件摘要、文件名和职责一致；身份覆盖当前构图中可见人物，场景对应本镜 scene_id。不能用只有 style 的任意文件充当全部主锚点。选择 generate/edit，然后在图片优化器独立包运行：
 
 ```bash
 python scripts/control_cli.py keyframe-check request.json --package outputs/control-v001 --artifacts /absolute/path/to/control-artifacts.json
@@ -29,7 +29,7 @@ python scripts/control_cli.py edit-check edit-delta.json
 
 图片独立包携带同源原生 AVIR 校验运行时，可验证冻结控制包；制作中的 AVIR 编写、build/segment 仍由视频编译器负责。`edit-delta/0.1` 用属性路径区分允许变化和保持项，检测父子路径冲突。不要把普通身份图同时当作衣服、动作、风格权威。每帧依附主身份与场景锚点，相邻帧只作辅助，避免无限串行编辑漂移。
 
-优化器交付请求和提示词；宿主依用户已有授权生成/编辑，实际查看后登记文件和哈希、审核人、具体检查项与 PASS/FAIL。`control-artifacts/0.2` 保存来源版本 `source_sha256`，另用 `uses` 绑定控制 ID、镜头、起止和派生配方 `recipe_sha256`。审核还须绑定 `uses_sha256`。镜头素材依赖源断言、镜头时轨、场景和相机配置；身份/外观/风格母版只依赖对应断言切片，不因无关轨迹修改而全部失效。静态校验不会自己填写生成或审图成功。审阅 SVG 禁止放入首尾帧或主体参考；干净帧还需实际检查箭头、标签、时间码污染。未知姿态回分镜补齐，不插值手势和接触。
+优化器交付请求和提示词；宿主依用户已有授权生成/编辑，实际查看后登记文件和哈希、审核人、具体检查项与 PASS/FAIL。`control-artifacts/0.2` 保存来源版本 `source_sha256`，另用 `uses` 绑定控制 ID、镜头、起止和派生配方 `recipe_sha256`。审核还须绑定 `uses_sha256`。镜头素材依赖源断言、镜头时轨、场景和相机配置；身份/外观/风格/场景母版只依赖对应断言切片，不因无关轨迹修改而全部失效。静态校验不会自己填写生成或审图成功。审阅 SVG 禁止放入首尾帧或主体参考；干净帧还需实际检查箭头、标签、时间码污染。未知姿态回分镜补齐，不插值手势和接触。
 
 ## 表演、色彩与所有权
 
@@ -41,7 +41,7 @@ python scripts/control_cli.py edit-check edit-delta.json
 
 能力键为厂商、精确型号、界面、端点、模式、版本。新增 registry 将 documented、probe_passed、quality_validated 分开。目前只实现 Agnes 国际 API 的媒体字段静态降译，依据 [2.5 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25) 和 [Flash 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash)，核验日 2026-09-24。没有账户探测或质量实测。参考视频仅是条件参考，不是专用三维轨迹通道；Flash 白模视频路线阻断。首尾帧与参考数组互斥，附件不能超入口预算。
 
-每个 control 绑定原硬要求、原断言指针、所选通道、真实资产和 fallback，`purpose` 必须为 `supplement`。媒体仅辅助 prompt 类型要求；不能冒领 parameter 或 post 要求。shot_ids 必须落在原合同适用镜头内，hardness 不得降级。缺文件、摘要变化、未审图、过期来源、审阅图、槽位冲突、媒体限制、未解析上传绑定均阻断；`report_loss` 不自动批准降级。`media_fields_draft` 只有媒体字段，必须与独立验证的正文和参数合并，由宿主核查 URL 可达性。`primary_obligations` 将 prompt/native_parameter/post_production 分开保留为 NOT_COMPILED。单独 lower 的 BOUND_DRAFT 仅说明辅助素材静态绑定成立，不是完整合同覆盖。联合编译入口仍待实现。
+每个 control 绑定原硬要求、原断言指针、所选通道、真实资产和 fallback，`purpose` 必须为 `supplement`。媒体仅辅助 prompt 类型要求；不能冒领 parameter 或 post 要求。shot_ids 必须落在原合同适用镜头内，hardness 不得降级。缺文件、摘要变化、未审图、过期来源、审阅图、槽位冲突、媒体限制、未解析上传绑定均阻断；`report_loss` 不自动批准降级。`media_fields_draft` 只有辅助媒体字段；使用 control compile 统一编译正文、参数、附件与职责，由宿主核查 URL 可达性。`primary_obligations` 将 prompt/native_parameter/post_production 分开保留为 NOT_COMPILED。单独 lower 的 BOUND_DRAFT 仅说明辅助素材静态绑定成立，不是完整合同覆盖。通过下述显式 compile 入口继续编译主执行义务。
 
 证据链按计划→真实文件→检查→宿主绑定→提交回执→实收媒体→实际观察推进。当前脚本实现计划派生和绑定草案，始终 `submitted=false`、`runnable=false`、`video_qa=NOT_RUN`；不伪造后三阶段，`COMPILED` 原义不变。执行器网络提交仍属于外部集成。
 
@@ -57,7 +57,7 @@ python scripts/control_cli.py review observations.json --package outputs/control
 
 ## 阶段边界
 
-已实现：派生合同、三视图/时间轴、事件关键帧请求、编辑冲突检查、事件切点提案、媒体元数据探测、两种 Agnes 模式静态绑定、二维观察与返修、独立包携带资源。
+已实现：派生合同、三视图/时间轴、事件关键帧请求、编辑冲突检查、事件切点提案、媒体元数据探测、Agnes 三模式联合编译及静态绑定、二维观察、依赖失效与返修文件、独立包携带资源。
 
 待外部生产条件：真实身份/场景锚点的生成和审图、包含明确几何/骨架的白模渲染器、实际模型提交与效果对照。当前根节点预览不是白模 MP4。VACE/SymphoMotion 专用编码、权重及运行器保持 NOT_INTEGRATED；Seedance 2.5 实际入口保持 ENTRY_UNRESOLVED，不能继承其他型号能力。没有已生成媒体，不得宣称画质、轨迹或情绪控制提升。后续实验保留所有尝试、失败、耗时与费用，先做纯文本/参考/关键帧/白模的小范围对照。
 
@@ -70,3 +70,33 @@ verify/lower/keyframe-check/review 共用严格验证器：核对 schema、完�
 附件按内容和槽位去重，attachment_index 同时决定提交数组和 `<Picture N>/<Audio N>/<Video N>`。同一 URL 声明不同内容立即阻断；同一内容可以承担多个职责。原始绑定 URL 与统一提交 URL 分列。音频单个文件仍需正时长和大小限制，总时长单独检查 2–12 秒。
 
 离线 HTML 将轨迹按镜头只存一份，帧更新节点。摄影机 SVG 使用配置和 crop 的输出比例，不再固定拉伸到 16:9。尚无浏览器视觉验收或真实生成质量结论。
+
+## 联合编译与限定范围
+
+保留旧 vpc.py compile。新增的显式入口只属于视频编译器，读取完整冻结控制包和真实资产清单：
+
+```bash
+python scripts/control_cli.py compile outputs/control-v001 --target agnes-video-2.5 --mode text --artifacts outputs/control-v001/artifact-manifest.json --out outputs/joint-text
+python scripts/control_cli.py compile outputs/control-v001 --target agnes-video-2.5 --mode keyframe --shot S2 --artifacts /absolute/path/to/control-artifacts.json --out outputs/joint-shot-S2
+python scripts/control_cli.py verify-compile outputs/joint-shot-S2
+```
+
+同一次编译产生逐请求的正文、原字段到正文的覆盖、API 参数、附件索引、辅助职责、主执行义务和后期任务。附件标签由提交数组同源生成，正文保留真实文件名。已有 AVIR bindings 的 asset_id 必须精确映射到参与提交的清单 ID、摘要和文件名，不能仅凭相同字节悄悄更换来源 ID。跨请求同一 URL 绑定不同内容也阻断。目标能力与控制路由快照一并保存，端点或型号冲突不能合并。
+
+`--shot` 可重复，但必须选择连续镜头；不隐式剪掉中间镜头。未选择时编译全片。按事件及明确状态寻找合法切点，内部首尾帧强制在其镜头边界拆段；片段缺所选模式的媒体时保留 BLOCKED 请求，不丢掉片段。lower 也可用 --shot 绑定请求范围，第二镜首帧不能充当全片首帧。一个 control 可为不同镜头绑定不同关键帧，依实际用途选择各段附件。
+
+分段的 seconds 是本请求时长，全片时长条款保留 ASSEMBLY_REQUIRED；部分镜头导出明确 complete_project_scope=false。参数义务仅记已映射的结构断言，不能据此声称自然语言中的全部技术要求已兑现。后期任务为 PLANNED，所有 media_acceptance 为 NOT_RUN；COMPILED_DRAFT 仍不是已提交或模型控制成功。verify-compile 从原包和清单重新编译并比对正文及 JSON，单纯重算被改文件的摘要不能骗过校验。
+
+## 依赖失效与返修文件
+
+```bash
+python scripts/control_cli.py repair outputs/control-v001 outputs/control-v002 --artifacts /absolute/path/to/control-artifacts.json --out outputs/repair-v002
+# 有实收视频的失败观察时，在上述命令同时加入：
+# --observations observations.json --media actual.mp4
+```
+
+命令比较两份同项目的已验证控制包，输出 dependency-graph.json、逐用途状态、关键帧与计划片段依赖、tasks/ 中的 OPEN 返修工作项、output-invalidations.json，以及包含真实文件副本的 artifact-manifest.json。原始 AVIR、清单和素材不修改。下一轮 lower/compile/keyframe-check 使用新清单；失效用途会被实际阻断，未受影响用途继续可用。返修文件是模块工作指令，尚未写入某个实际 V5 项目的 active_task；由当前 Agent 按 owner/module 接续已有项目 revise/任务交接，不能冒充已经完成返修。
+
+失效记录同时绑定资产字节摘要与用途摘要。仅变更用途 ID 或删掉旧记录不是审核；新的图片/视频须重新登记文件哈希、当前配方、用途审核和上传绑定。重新生成并审过的新字节可保留旧失败历史，旧内容的失效标记不会永久封锁新内容。身份/造型/风格/场景母版依赖其职责切片，无关运镜变化不使全部母版失效。
+
+观察输入必须连同实际视频一起重新经过冻结基线验证；FAIL 为该实收媒体的精确时段创建失效记录和责任模块任务。失败视频本身不证明上游身份母版有错，因此不自动废弃所有母版。要修改上游设计，由责任模块修订原生来源，再派生受影响资产和片段。上述命令创建任务和执行阻断，不自动宣称生成、审图或返修质量通过。

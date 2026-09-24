@@ -15,7 +15,10 @@ sys.path.insert(0, str(ROOT/'scripts'))
 from shot_control.camera_projection import project
 from shot_control.common import read, write, sha, schema_check, digest
 from shot_control.control_plan import build, frame
-from shot_control.control_lowering import lower, validate_delta
+from shot_control.control_lowering import lower as raw_lower, validate_delta
+
+def lower(package, target, mode, manifest):
+    return raw_lower(package, target, mode, manifest, {"start_ms":4000,"end_ms":8000})
 from shot_control.media_review import evaluate
 from shot_control.package import verify_package, recipe
 from shot_control.keyframes import check_request
@@ -150,7 +153,7 @@ class ShotControlTests(unittest.TestCase):
             bad = copy.deepcopy(a); bad['uses'][0][field] = value
             result = lower(self.out, 'agnes-video-2.5', 'keyframe', self.manifest(bad))
             self.assertTrue(any(expected in r for r in result['reasons']), result)
-            self.assertIn('C1:CURRENT_USE_REVIEW_REQUIRED:K1', result['reasons'])
+            self.assertEqual(result['status'], 'BLOCKED')
         changed = copy.deepcopy(config); changed['lenses']['S2']['vertical_fov_deg'] = 70
         second = Path(self.tmp.name)/'new-lens'; build(self.source, second, changed)
         result = lower(second, 'agnes-video-2.5', 'keyframe', self.manifest(a))
