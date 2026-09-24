@@ -69,7 +69,7 @@ def check_request(request, package, manifest_path):
                 reasons.append('ANCHOR_RESPONSIBILITY_UNRESOLVED:'+ident); continue
             if not compatible(a, c): reasons.append('ANCHOR_ROLE_CHANNEL_MISMATCH:'+ident)
             if not reference_scope_matches(a, c, u): reasons.append('ANCHOR_REFERENCE_SCOPE_MISMATCH:'+ident)
-            if u['recipe_sha256'] != recipe(bundle['ir'], bundle['config'], c, u['shot_id'], a['role'], u['start_ms'], u['end_ms']):
+            if u['recipe_sha256'] != recipe(bundle['ir'], bundle['config'], c, u['shot_id'], a['role'], u['start_ms'], u['end_ms'], frames=bundle['frames']):
                 reasons.append('STALE_ANCHOR_RECIPE:'+ident)
     nodes = {n['id']:n for n in bundle['ir']['timeline']['spatial_nodes']}
     people = {e['id'] for e in bundle['ir']['entities'] if e['kind']=='person'}

@@ -4,6 +4,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import unittest
+from unittest.mock import patch
 
 import test_shot_control as fixtures
 from shot_control.common import read, sha, write, digest
@@ -176,6 +177,16 @@ class KeyframeHostTests(unittest.TestCase):
         self.assertNotIn('images',req['payload_draft'])
         self.assertIn('ID_B.png（未作为本请求附件提供）',req['prompt'])
         self.assertNotIn('参考 ID_B.png',req['prompt'])
+
+    def test_staged_keyframe_survives_projection_roundoff_through_receive_and_compile(self):
+        self.prepare(anchor_channel='keyframe_input')
+        seal=sha(self.staged/'stage-manifest.json')
+        with patch('shot_control.control_plan.project',fixtures.projection_with_roundoff):
+            verify_stage(self.staged)
+            bound=self.received_binding()
+            compiled=compile_package(self.out,'agnes-video-2.5','keyframe',bound,['S2'])
+            self.assertEqual(compiled['status'],'COMPILED_DRAFT',compiled['reasons'])
+            self.assertEqual(sha(self.staged/'stage-manifest.json'),seal)
 
     def test_received_event_can_be_a_reference_without_widening_its_use(self):
         self.prepare(output_channel='image_reference')

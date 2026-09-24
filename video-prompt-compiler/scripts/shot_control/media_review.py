@@ -1,5 +1,6 @@
 """Frozen source-derived evaluation baseline; observers provide measurements only."""
 import math
+from fractions import Fraction
 from .common import schema_check, digest, pointer
 
 
@@ -41,7 +42,9 @@ def evaluate(review, package, media):
     # No implicit retiming, crop or aspect stretch. A different output needs a new explicit plan.
     timeline = video_timeline(media)
     info['video_timeline'] = timeline
-    if abs(timeline['end_ms']-(end-start)) > 1:
+    start_exact, end_exact = Fraction(str(start)), Fraction(str(end))
+    video_end = Fraction(timeline['end_ms_exact'])
+    if abs(video_end-(end_exact-start_exact)) > 1:
         raise ValueError('Media duration differs from frozen time map')
     if any(abs(width/height-baseline['aspects'][sid]) > 2/max(height, 1) for sid in shot_ids):
         raise ValueError('Media aspect differs from frozen projection')
@@ -53,7 +56,7 @@ def evaluate(review, package, media):
     errors, missing, unresolved = [], [], []
     for k, planned in expected.items():
         actual = observed.get(k)
-        if k[2]-start >= timeline['end_ms']+1: raise ValueError('Sample outside video duration')
+        if Fraction(str(k[2]))-start_exact >= video_end+1: raise ValueError('Sample outside video duration')
         if planned['status'] != 'IN_FRAME' or planned['xy'] is None:
             unresolved.append({'shot_id': k[0], 'node_id': k[1], 'at_ms': k[2], 'reason': planned['status']})
             continue
@@ -73,13 +76,13 @@ def evaluate(review, package, media):
         raise ValueError('Duplicate or unmatched event')
     events = []
     # The decoded endpoint already matches this boundary within 1 ms quantization.
-    media_end = end
+    media_end = end_exact
     for e in planned_events:
         at = actual_events.get(e['id'], {}).get('observed_ms')
-        if at is not None and not start <= at <= media_end: raise ValueError('Event outside video')
-        events.append({'id': e['id'], 'error_ms': None if at is None else at-e['planned_ms']})
+        if at is not None and not start_exact <= Fraction(str(at)) <= media_end: raise ValueError('Event outside video')
+        events.append({'id': e['id'], 'error_ms': None if at is None else float(Fraction(str(at))-Fraction(str(e['planned_ms'])))})
     for f in review['findings']:
-        if not start <= f['start_ms'] <= f['end_ms'] <= media_end: raise ValueError('Finding outside video')
+        if not start_exact <= Fraction(str(f['start_ms'])) <= Fraction(str(f['end_ms'])) <= media_end: raise ValueError('Finding outside video')
         for p in f['source_pointers']: pointer(bundle['ir'], p)
     return {'schema': 'control-media-evaluation/0.2', 'media_sha256': info['sha256'],
             'evaluation_plan_sha256': digest(baseline), 'media_probe': info,

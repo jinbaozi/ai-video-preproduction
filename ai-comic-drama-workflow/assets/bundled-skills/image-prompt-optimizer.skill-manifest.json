@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "810e41809e4a10cc2a48f73d8d9296ce7c83ee6c9738f9ed77faa2f691e67aee",
+  "archive_sha256": "85c57e32fcd2f21f0939f921a2c95b079f867eb693d6cde5e0031bf4bcb4dc2b",
   "file_count": 104,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29772,
-      "sha256": "c192c74a6131ab16b1bf33dd3d6cb592b1005d35eb4db69c931e8bbf1aca92b5"
+      "sha256": "aa7e04fe6591e7cadd864ecdefc71faa4f0fffab1ade7c1eadfaf690757b6d61"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 30245,
-      "sha256": "1f8d9442e3d2d576ff1b69ac2ee2de8d7dbf3940205dac0d7e0ef20a619ad9a5"
+      "bytes": 31482,
+      "sha256": "54629b8cd6688d964ae3adbc952e252728f659acd74ae00f98f855a5f540efc2"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -268,8 +268,8 @@
       "sha256": "330fd75345b8177b11efdee0e38038722b6ac400c2c6b04ecdfccb5838f02084"
     },
     "image-prompt-optimizer/scripts/shot_control/control_lowering.py": {
-      "bytes": 13118,
-      "sha256": "1fb1dfdf3d5caa3a991e8c4e72130753e76514224ab5fab0b341463ab0df6c7c"
+      "bytes": 13143,
+      "sha256": "ef4a9b594b330c1f3422867f777106d59ee91065d62cf2179405727e98e76973"
     },
     "image-prompt-optimizer/scripts/shot_control/control_plan.py": {
       "bytes": 9872,
@@ -284,28 +284,28 @@
       "sha256": "841db141d054ca31b9064b9583bdecf574fbc0e7ca81d52f567b2548f1c1b6f1"
     },
     "image-prompt-optimizer/scripts/shot_control/keyframe_host.py": {
-      "bytes": 12446,
-      "sha256": "f2d87f50f7373be691ff7373cf2ba073ef33d9b99b6c1f1b506039fcb22ae13c"
+      "bytes": 12471,
+      "sha256": "320657a28d4aec7c426448518568328d74d4bf8176b09dc071d3448d07c1616d"
     },
     "image-prompt-optimizer/scripts/shot_control/keyframes.py": {
-      "bytes": 6914,
-      "sha256": "4d8cf449d04ec4bd101bb56ae90d2dd67734b18ca514bda115a51b2c5955f4dc"
+      "bytes": 6939,
+      "sha256": "faaf75b1fa65bbe47336fb1173b87f5c2cdf1313ec75a89f8eacd252531ee590"
     },
     "image-prompt-optimizer/scripts/shot_control/media_probe.py": {
-      "bytes": 5063,
-      "sha256": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12"
+      "bytes": 5726,
+      "sha256": "62edc5ee6f6762ebc126d343f040690bd5ccce75bf9ceabdad06155de0ee2767"
     },
     "image-prompt-optimizer/scripts/shot_control/media_review.py": {
-      "bytes": 6752,
-      "sha256": "e0d42beb0a82574fb2a7a0c82c588a49e8660f4290d820946473a7e0ff8d1caa"
+      "bytes": 7019,
+      "sha256": "039728a92cabecaa7ab85b8a5dfb9b4299aea6c4694b224a5ca82f5bf84dd2f7"
     },
     "image-prompt-optimizer/scripts/shot_control/package.py": {
-      "bytes": 9884,
-      "sha256": "7ee33b2147280d12ead1cd328e453494588c0d3e032171c3309abd49572d1c97"
+      "bytes": 12217,
+      "sha256": "64a41c4febff8341b9b2922f4ca0b4adad9a9279408187981e64c52391d94ee3"
     },
     "image-prompt-optimizer/scripts/shot_control/previs.py": {
-      "bytes": 15485,
-      "sha256": "8987c7c78c743e5cdf8616db861825166d34765e28cd07fa79c67945e4fdd4b5"
+      "bytes": 15510,
+      "sha256": "fa1a1928a5d29fb500db8afd323fb0e13fffcfb22ccab6655bbb96e5c81c3892"
     },
     "image-prompt-optimizer/scripts/shot_control/previs_frame.py": {
       "bytes": 5073,
@@ -316,8 +316,8 @@
       "sha256": "58c9aadbe9f3ad783c36d549447f261db176c5999eec72d636eaac687b3dcf78"
     },
     "image-prompt-optimizer/scripts/shot_control/repair.py": {
-      "bytes": 12437,
-      "sha256": "fbe179a46f5026e9cf93331bd5f77158e4c526cc7a4e00b3ed60a986a1435f10"
+      "bytes": 12508,
+      "sha256": "fdb7795f53897b789b874e0c13a32481d07cd4aacb586ed28fe06bd6cb0721eb"
     },
     "image-prompt-optimizer/scripts/shot_control/review.html": {
       "bytes": 2697,
@@ -421,5 +421,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.14.0"
+  "version": "1.15.0"
 }

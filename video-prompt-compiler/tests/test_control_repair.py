@@ -203,6 +203,25 @@ class ControlRepairTests(unittest.TestCase):
                     event=next(e for e in result['event_errors'] if e['id']=='camera_operations:CAM_S2:end')
                     self.assertEqual(event['error_ms'],0)
 
+    def test_exact_millisecond_gaps_at_later_times_and_fractional_fps_are_accepted(self):
+        from shot_control.media_review import evaluate
+        _,_,base,_=self.partial_review()
+        for name,rate,frames,scope in [('whole-30','30',360,None),
+                                       ('ntsc','24000/1001',96,{'start_ms':4000,'end_ms':8004})]:
+            with self.subTest(name=name):
+                video=Path(self.tmp.name)/(name+'.mkv')
+                subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i',f'testsrc2=s=320x180:r={rate}',
+                  '-frames:v',str(frames),'-c:v','ffv1','-threads','1','-pix_fmt','yuv420p',str(video)],check=True)
+                review={**base,'media_sha256':sha(video)}
+                if scope is None:review.pop('execution_range')
+                else:review['execution_range']=scope
+                result=evaluate(review,self.out,video)
+                timeline=result['media_probe']['video_timeline']
+                self.assertEqual(timeline['frame_count'],frames)
+                self.assertEqual(timeline['time_base'],'1/1000')
+                self.assertEqual(timeline['end_ms_exact'],'12000' if scope is None else '4003')
+                self.assertEqual(result['complete_project_scope'],scope is None)
+
     def test_regenerated_reviewed_content_retires_only_old_invalidation(self):
         config,c=self.configured();old=self.artifact(config,c,content=100);new=self.artifact(config,c,content=200)
         manifest=self.manifest(new);data=read(manifest)

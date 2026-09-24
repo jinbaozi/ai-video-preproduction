@@ -9,6 +9,8 @@ import struct
 import zlib
 import subprocess
 import wave
+import math
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
@@ -23,6 +25,13 @@ from shot_control.media_review import evaluate
 from shot_control.package import verify_package, recipe
 from shot_control.keyframes import check_request
 from shot_control.render_blocking import svg
+
+
+def projection_with_roundoff(*args, **kwargs):
+    result = project(*args, **kwargs)
+    if result.get('xy') is not None:
+        result['xy'][0] = math.nextafter(result['xy'][0], math.inf)
+    return result
 
 
 class ShotControlTests(unittest.TestCase):
@@ -85,6 +94,33 @@ class ShotControlTests(unittest.TestCase):
     def test_source_tampering_blocks(self):
         self.build(); (self.out/'production-specification.json').write_text('{}')
         with self.assertRaises(ValueError): lower(self.out, 'agnes-video-2.5', 'reference', self.out/'artifact-manifest.json')
+
+    def test_projection_roundoff_preserves_frozen_baseline_and_temporal_recipe(self):
+        from shot_control.repair import plan_repairs
+        config,c=self.configured();asset=self.artifact(config,c);manifest=self.manifest(asset)
+        before=verify_package(self.out);files={p:sha(self.out/p) for p in read(self.out/'package-manifest.json')['files']}
+        # Simulate only a host libm rounding difference; validators and actual PNG probing remain real.
+        with patch('shot_control.control_plan.project',projection_with_roundoff):
+            after=verify_package(self.out)
+            self.assertEqual(after['frames'],before['frames'])
+            self.assertEqual(digest(after['evaluation']),digest(before['evaluation']))
+            result=lower(self.out,'agnes-video-2.5','keyframe',manifest)
+            self.assertEqual(result['status'],'BOUND_DRAFT',result['reasons'])
+            self.assertEqual(plan_repairs(self.out,self.out,manifest)['status'],'UNCHANGED')
+        self.assertEqual(files,{p:sha(self.out/p) for p in files})
+
+    def test_projection_roundoff_does_not_relax_time_position_status_or_material_changes(self):
+        self.build();path=self.out/'review/frames.json';frozen=read(path)
+        def point(frames):return next(p for p in frames[1]['points'] if p['projection'].get('xy') is not None)
+        cases=[lambda f:f[1].update(at_ms=math.nextafter(f[1]['at_ms'],math.inf)),
+               lambda f:point(f)['position'].__setitem__(0,math.nextafter(point(f)['position'][0],math.inf)),
+               lambda f:point(f)['projection'].update(status='UNDETERMINED'),
+               lambda f:point(f)['projection']['xy'].__setitem__(0,point(f)['projection']['xy'][0]+1e-6),
+               lambda f:point(f)['projection']['xy'].__setitem__(0,True)]
+        for change in cases:
+            changed=copy.deepcopy(frozen);change(changed);write(path,changed)
+            seal=read(self.out/'package-manifest.json');seal['files']['review/frames.json']=sha(path);write(self.out/'package-manifest.json',seal)
+            with self.assertRaisesRegex(ValueError,'Derived data mismatch'):verify_package(self.out)
 
     def configured(self, channel='first_frame', ids=None):
         c = {'id': 'C1', 'requirement_id': 'REQ_FACE', 'shot_ids': ['S2'],

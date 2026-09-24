@@ -1,0 +1,105 @@
+{
+  "before_commit": "05e0e4ba88cc51061fb0b787d54a13698ade39ef",
+  "before_sources_sha256": {
+    "media_probe.py": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12",
+    "package.py": "7ee33b2147280d12ead1cd328e453494588c0d3e032171c3309abd49572d1c97"
+  },
+  "limits": [
+    "Old module functions loaded from exact Git-verified files in original audit snapshot with unchanged current derivation/schema dependencies; not a full old checkout rerun",
+    "Original reviewer package, observation files and original media are byte-identical; no baseline substitution",
+    "Projection tolerance applies only to calculated xy/depth; independent single-ULP simulation is separate from this actual foreign-package evidence",
+    "This is software/media-contract validation, not actual visual tracking or model-quality success"
+  ],
+  "projection": {
+    "after": "VERIFIED_UNCHANGED_PRODUCER_PACKAGE",
+    "before_error": "Derived data mismatch: review/frames.json",
+    "difference_count": 123,
+    "example": {
+      "absolute_difference": 1.1102230246251565e-16,
+      "frozen": 0.6206285142786627,
+      "path": "/0/points/1/projection/xy/0",
+      "recomputed": 0.6206285142786626,
+      "ulp_difference": 1.0
+    },
+    "max_absolute_difference": 1.1102230246251565e-16,
+    "max_ulp_difference": 1.0,
+    "original_evaluation_plan_sha256": "1aa16a28ef1427a2af76af215c5cfbe22756c66514b585e8c50105774148262d",
+    "original_package_files_unchanged": {
+      "artifact-manifest.json": "d049667a30b21964ff38b10151b34042772ea1d8d6c3dee40fe72ad4762ebf90",
+      "control-config.json": "5481cee361b5024be1bf59cf883abca823f0bf5f610fe74b46bd1eabc77de941",
+      "control-coverage.json": "7f9727003e31ef10c90f53d75206c2b1fe8feb07a81e30c3e5e4992f7fdba947",
+      "control-plan.json": "92a7de432604a6584b94f4bfd562b33a6fc8a7d9ff4f9365bf324a9b0e23d9d7",
+      "evaluation-plan.json": "b8fe448ee51f95090554a96824bea47c3857791e55de3c983594884b61f1db69",
+      "keyframe-requests.json": "6419947fc5987b2140c4ff8c97216ed7bcb8ace1bf19cefba913dc128c567ec2",
+      "package-manifest.json": "4eb1f3a143dde069fea24d686b02c009151af18b593bb3b4d016b4a950c92c69",
+      "production-specification.json": "7cba87df5921d8d751bfe53831162445c509b1891f35c0e7b51fa4dc60d44172",
+      "review/blocking-001.svg": "2ee489d835fcdd1c4599da714a5a6d68fb61d3624356de780e00e9bb6a664453",
+      "review/blocking-002.svg": "2ee489d835fcdd1c4599da714a5a6d68fb61d3624356de780e00e9bb6a664453",
+      "review/blocking-003.svg": "2ee489d835fcdd1c4599da714a5a6d68fb61d3624356de780e00e9bb6a664453",
+      "review/frames.json": "6f435ce55f27d9cf6eeabd9d6b63203a257be15cf3f2f3256357392bbed76a76",
+      "review/index.html": "8a91cabb0f2158cfd2cc419a1ebef7307dc375e406b38c6ebf2fdcb0f618f12e"
+    },
+    "returned_evaluation_plan_sha256": "1aa16a28ef1427a2af76af215c5cfbe22756c66514b585e8c50105774148262d"
+  },
+  "schema": "numeric-boundary-reproduction/0.1",
+  "video_time": {
+    "after": [
+      {
+        "complete_project_scope": true,
+        "coverage": 1.0,
+        "evaluation_plan_sha256": "1aa16a28ef1427a2af76af215c5cfbe22756c66514b585e8c50105774148262d",
+        "id": "N03_MKV30_12s_exact_1ms",
+        "mean_error": 0.0,
+        "media_sha256": "d729a37fd6912d791d30d83f17f93452897a39b84e98ce786cf4e68a95139329",
+        "review_sha256": "99409c8876e6522e3d78c33f232cd294aaf96f153b86456b403f0e7be44196d2",
+        "status": "OBSERVATIONS_RECORDED",
+        "video_timeline": {
+          "decode": "FULL_SELECTED_VIDEO_STREAM",
+          "duration_ms": 12000.0,
+          "end_ms": 12000.0,
+          "end_ms_exact": "12000",
+          "frame_count": 360,
+          "frame_timing_format": "integer_pts_and_duration_ticks",
+          "frame_timing_sha256": "18156e9b797c1f7c652744b6be4f077bc7fbad295fcad8dd03c9d2143b31f555",
+          "start_ms": 0.0,
+          "start_ms_exact": "0",
+          "time_base": "1/1000"
+        }
+      },
+      {
+        "complete_project_scope": false,
+        "coverage": 1.0,
+        "evaluation_plan_sha256": "1aa16a28ef1427a2af76af215c5cfbe22756c66514b585e8c50105774148262d",
+        "id": "N04_MKV23976_exact_1ms",
+        "mean_error": 0.0,
+        "media_sha256": "c66322b4bf50be4ef8041fe8ce2b6c783a5a93235d040b7bf4cdefe685feb793",
+        "review_sha256": "9bf426f74364b3e303fd42d3b013de7762c5d2cdc467f28d75c35a97f006a504",
+        "status": "OBSERVATIONS_RECORDED",
+        "video_timeline": {
+          "decode": "FULL_SELECTED_VIDEO_STREAM",
+          "duration_ms": 4003.0,
+          "end_ms": 4003.0,
+          "end_ms_exact": "4003",
+          "frame_count": 96,
+          "frame_timing_format": "integer_pts_and_duration_ticks",
+          "frame_timing_sha256": "ae4a4cfb48380cde8b9f7e6a5fc7fda663e11cedc52da878dd90322086cdd7df",
+          "start_ms": 0.0,
+          "start_ms_exact": "0",
+          "time_base": "1/1000"
+        }
+      }
+    ],
+    "before": [
+      {
+        "error": "Video frame timeline has gaps or overlaps",
+        "file": "normal-30-12s.mkv",
+        "sha256": "d729a37fd6912d791d30d83f17f93452897a39b84e98ce786cf4e68a95139329"
+      },
+      {
+        "error": "Video frame timeline has gaps or overlaps",
+        "file": "normal-24000_1001.mkv",
+        "sha256": "c66322b4bf50be4ef8041fe8ce2b6c783a5a93235d040b7bf4cdefe685feb793"
+      }
+    ]
+  }
+}

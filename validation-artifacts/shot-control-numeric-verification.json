@@ -1,0 +1,116 @@
+{
+  "schema": "shot-control-numeric-verification/0.1",
+  "status": "PASS_SCOPED_SOFTWARE_VALIDATION",
+  "parent_commit": "05e0e4ba88cc51061fb0b787d54a13698ade39ef",
+  "changes": [
+    "Exact rational video clock comparisons from integer PTS and time base; unchanged 1 ms gate",
+    "Preserve producer-frozen frames, evaluation hash and sampled recipe inputs across up to 8 ULP differences limited to derived projection xy/depth"
+  ],
+  "versions": {
+    "video-prompt-compiler": "1.17.0",
+    "image-prompt-optimizer": "1.15.0",
+    "ai-comic-drama-workflow": "0.7.8"
+  },
+  "source_tests": {
+    "run": 181,
+    "skipped": 2,
+    "failures": 0,
+    "seconds": 355.758,
+    "command": "python -m unittest discover -s video-prompt-compiler/tests -v",
+    "log_sha256": "2df16ac4df44a12f195357cca8150306ca5a20c6c599d9f46371df03df5dda6d",
+    "skips": "Blender render integration tests require explicit opt-in"
+  },
+  "independent_scripts_replayed": {
+    "original": {
+      "total": 42,
+      "passed": 42
+    },
+    "supplemental": {
+      "total": 21,
+      "passed": 21
+    },
+    "source": "Original 05e0e4b auditor scripts replayed unchanged against current source; actual encoded media and synthetic observations"
+  },
+  "original_foreign_package_replay": "numeric-boundary-reproduction.json",
+  "isolated_image_skill": {
+    "archive_sha256": "85c57e32fcd2f21f0939f921a2c95b079f867eb693d6cde5e0031bf4bcb4dc2b",
+    "status": "PASS",
+    "scope": "Image Skill extracted alone, no PYTHONPATH or sibling video Skill; untouched foreign producer package, original observations and original media retained",
+    "cases": [
+      {
+        "case": "N03_MKV30_12s_exact_1ms",
+        "status": "IDENTICAL_TO_VIDEO_SKILL",
+        "evaluation_sha256": "f43c057169e8cb6800667bc7855864b92bb0a50a6361bd9d9d53143a23494d42"
+      },
+      {
+        "case": "N04_MKV23976_exact_1ms",
+        "status": "IDENTICAL_TO_VIDEO_SKILL",
+        "evaluation_sha256": "92dfb2aab48364dd572a7bbe7ec2a71760a40aee2ab4e2d759e62e98e4e643c6"
+      }
+    ]
+  },
+  "release": {
+    "status": "PASS",
+    "packages": [
+      {
+        "name": "ai-comic-drama-workflow",
+        "archive_sha256": "28b3b70502aae12b5c87fb0e3452db00049e65089ebff67eb33486fb737f65c6",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "screenplay-grammar",
+        "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "director-grammar",
+        "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "production-design-grammar",
+        "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "storyboard-grammar",
+        "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "video-prompt-compiler",
+        "archive_sha256": "3f3ceb73e27469a371e982f44890d65b5d2bcec9f2e5ece738bf44b98988a078",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "image-prompt-optimizer",
+        "archive_sha256": "85c57e32fcd2f21f0939f921a2c95b079f867eb693d6cde5e0031bf4bcb4dc2b",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      }
+    ],
+    "bundled_modules_equal_standalone": true
+  },
+  "existing_actual_blender_render_reverification": {
+    "status": "VERIFIED_LOCAL_RENDER",
+    "projection_check": {
+      "status": "PASS",
+      "samples": 66,
+      "max_normalized_projection_error": 1.7062127472003215e-07
+    },
+    "visual_review": "NOT_RUN",
+    "model_execution": "NOT_RUN"
+  },
+  "limits": [
+    "No new independent web verdict for this revision yet; script replay is local",
+    "No new Blender rendering in this verification run",
+    "Model video quality and control benefit are not established by these checks",
+    "Current CPU 65-frame baseline job is still running and is separate from software acceptance"
+  ]
+}

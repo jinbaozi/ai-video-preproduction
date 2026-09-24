@@ -184,7 +184,7 @@ def render(package, shot_id, out, blender):
         artifacts.append({'id': control['artifact_ids'][0], 'kind': 'video', 'role': 'clay', 'path': 'clay.mp4',
             'sha256': sha(out/'clay.mp4'), 'source_sha256': plan['source_sha256'], 'review': None, 'binding': None,
             'uses': [{'control_id': control['id'], 'shot_id': shot_id, 'start_ms': plan['start_ms'], 'end_ms': plan['end_ms'],
-                      'recipe_sha256': recipe(bundle['ir'], bundle['config'], control, shot_id, 'clay', plan['start_ms'], plan['end_ms'])}]})
+                      'recipe_sha256': recipe(bundle['ir'], bundle['config'], control, shot_id, 'clay', plan['start_ms'], plan['end_ms'], frames=bundle['frames'])}]})
     # Merge one generated file's responsibilities without duplicate asset IDs.
     merged = {}
     for artifact in artifacts:

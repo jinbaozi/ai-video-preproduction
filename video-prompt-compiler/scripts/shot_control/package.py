@@ -1,9 +1,42 @@
 """One fail-closed verifier for every consumer of a derived control package."""
 from pathlib import Path
+from copy import deepcopy
 import math
 from .common import read, sha, digest, schema_check, pointer, confined
 
 ROOT = Path(__file__).resolve().parents[2]
+
+
+def projection_frames_match(frozen, derived):
+    """Permit libm roundoff only in calculated projection xy/depth, never source/time/status."""
+    def scalar(a, b):
+        return (type(a) in (int, float) and type(b) in (int, float)
+                and math.isfinite(a) and math.isfinite(b)
+                and abs(a-b) <= 8*max(math.ulp(a), math.ulp(b)))
+    actual = deepcopy(frozen)
+    if not isinstance(actual, list) or len(actual) != len(derived): return False
+    for a, b in zip(actual, derived):
+        if not isinstance(a, dict) or not isinstance(a.get('points'), list) or len(a['points']) != len(b['points']): return False
+        for p, q in zip(a['points'], b['points']):
+            if not isinstance(p, dict) or not isinstance(p.get('projection'), dict): return False
+            x, y = p['projection'], q['projection']
+            if 'depth' in y:
+                if not scalar(x.get('depth'), y['depth']): return False
+                x['depth'] = y['depth']
+            if y.get('xy') is not None:
+                if not isinstance(x.get('xy'), list) or len(x['xy']) != 2: return False
+                if not all(scalar(v, w) for v, w in zip(x['xy'], y['xy'])): return False
+                x['xy'] = y['xy']
+    return actual == derived
+
+
+def frozen_values_in_derived_order(frozen, derived):
+    # JSON storage sorts keys; the existing HTML renderer uses construction order.
+    if isinstance(derived, dict):
+        return {k: frozen_values_in_derived_order(frozen[k], v) for k, v in derived.items()}
+    if isinstance(derived, list):
+        return [frozen_values_in_derived_order(a, b) for a, b in zip(frozen, derived)]
+    return frozen
 
 
 def validate_source(ir, base=None):
@@ -80,6 +113,12 @@ def verify_package(package):
         raise ValueError('Plan and config controls differ')
     from .control_plan import derive
     frames, requests = derive(ir, config, plan)
+    frozen_frames = read(package/'review/frames.json')
+    if not projection_frames_match(frozen_frames, frames):
+        raise ValueError('Derived data mismatch: review/frames.json')
+    # Keep the byte-verified producer values as the frozen evaluation/recipe basis.
+    # Replacing them with host-recomputed floats would silently change existing hashes.
+    frames = frozen_values_in_derived_order(frozen_frames, frames)
     from .media_review import evaluation_plan
     expected = {'review/frames.json': frames, 'keyframe-requests.json': requests,
                 'evaluation-plan.json': evaluation_plan(ir, frames),
@@ -97,16 +136,19 @@ def verify_package(package):
             'evaluation': expected['evaluation-plan.json']}
 
 
-def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
+def recipe(ir, config, control, shot_id, role, start_ms, end_ms, *, frames=None):
     """Master references depend on their assertion slices, temporal assets on evaluated shot state."""
     slices = {p: pointer(ir, p) for p in control['source_pointers']}
     value = {'schema': 'control-asset-recipe/0.2', 'role': role, 'slices': slices}
+    def state_at(shot, at, lens):
+        from .control_plan import frame
+        frozen = next((f for f in (frames or []) if f['shot_id'] == shot_id and f['at_ms'] == at), None)
+        return frozen if frozen is not None else frame(ir, shot, at, lens)
     if role == 'clean_keyframe' and start_ms == end_ms:
         if shot_id in control.get('reference_scopes', {}):
             value['reference_scope'] = control['reference_scopes'][shot_id]
-        from .control_plan import frame
         shot = next(s for s in ir['shots'] if s['id'] == shot_id)
-        state = frame(ir, shot, start_ms, config['lenses'].get(shot_id, {}))
+        state = state_at(shot, start_ms, config['lenses'].get(shot_id, {}))
         # An instantaneous frame consumes the evaluated state, not future action feedback.
         nodes = {n['id']:n for n in ir['timeline']['spatial_nodes']}
         relevant = {p['id'] for p in state['points'] if p['position'] is not None}
@@ -139,7 +181,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
             value['look_design'] = look_for_shot(config, shot_id)
         return digest(value)
     if role not in ('identity', 'appearance', 'style', 'scene') or control['channel'] not in ('image_reference', 'keyframe_input'):
-        from .control_plan import frame, event_times
+        from .control_plan import event_times
         shot = next(s for s in ir['shots'] if s['id'] == shot_id)
         lens = config['lenses'].get(shot_id, {})
         times = sorted({start_ms, end_ms}|{t for t in event_times(ir, shot) if start_ms <= t <= end_ms})
@@ -151,7 +193,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
         value.update(shot=shot, timeline=timeline, entities=ir['entities'],
                      scene=next(x for x in ir['scenes'] if x['id'] == shot['scene_id']),
                      shot_id=shot_id, start_ms=start_ms, end_ms=end_ms, lens=lens,
-                     states=[frame(ir, shot, t, lens) for t in times])
+                     states=[state_at(shot, t, lens) for t in times])
         if 'proxy_scene' in config:
             from .previs import geometry_for_shot
             value['proxy_scene'] = geometry_for_shot(config, shot_id)

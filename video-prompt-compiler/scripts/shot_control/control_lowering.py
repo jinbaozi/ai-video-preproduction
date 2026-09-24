@@ -112,7 +112,7 @@ def lower(package, target, mode, manifest_path, scope=None):
                 problems.append('VISUAL_REVIEW_REQUIRED:'+ident)
             # Revision is provenance; use fingerprints determine applicability.
             for u in applicable:
-                if u['recipe_sha256'] != recipe(ir, config, c, u['shot_id'], a['role'], u['start_ms'], u['end_ms']):
+                if u['recipe_sha256'] != recipe(ir, config, c, u['shot_id'], a['role'], u['start_ms'], u['end_ms'], frames=bundle['frames']):
                     problems.append('STALE_ASSET_RECIPE:'+ident)
             if review is None or review['uses_sha256'] != digest(a['uses']):
                 problems.append('CURRENT_USE_REVIEW_REQUIRED:'+ident)

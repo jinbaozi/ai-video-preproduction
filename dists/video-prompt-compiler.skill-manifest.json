@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "a4acef9219b5eb12a9c90f9a057f4ceed28ab283377e7251723d8bf0db8d73a1",
+  "archive_sha256": "3f3ceb73e27469a371e982f44890d65b5d2bcec9f2e5ece738bf44b98988a078",
   "file_count": 114,
   "files": {
     "video-prompt-compiler/SKILL.md": {
       "bytes": 10310,
-      "sha256": "d3caeb8e47ee5cb54c5f6bc2f606dc1a558f961bb39575976000a7a730d77b2e"
+      "sha256": "83ffa2c2fda96c3540b5cc7959ab6a2118439cf37346e46a1c4e8950ddc0986d"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -116,8 +116,8 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/shot-control.md": {
-      "bytes": 30245,
-      "sha256": "1f8d9442e3d2d576ff1b69ac2ee2de8d7dbf3940205dac0d7e0ef20a619ad9a5"
+      "bytes": 31482,
+      "sha256": "54629b8cd6688d964ae3adbc952e252728f659acd74ae00f98f855a5f540efc2"
     },
     "video-prompt-compiler/references/spatial-contract-v52.md": {
       "bytes": 7583,
@@ -316,8 +316,8 @@
       "sha256": "330fd75345b8177b11efdee0e38038722b6ac400c2c6b04ecdfccb5838f02084"
     },
     "video-prompt-compiler/scripts/shot_control/control_lowering.py": {
-      "bytes": 13118,
-      "sha256": "1fb1dfdf3d5caa3a991e8c4e72130753e76514224ab5fab0b341463ab0df6c7c"
+      "bytes": 13143,
+      "sha256": "ef4a9b594b330c1f3422867f777106d59ee91065d62cf2179405727e98e76973"
     },
     "video-prompt-compiler/scripts/shot_control/control_plan.py": {
       "bytes": 9872,
@@ -332,28 +332,28 @@
       "sha256": "841db141d054ca31b9064b9583bdecf574fbc0e7ca81d52f567b2548f1c1b6f1"
     },
     "video-prompt-compiler/scripts/shot_control/keyframe_host.py": {
-      "bytes": 12446,
-      "sha256": "f2d87f50f7373be691ff7373cf2ba073ef33d9b99b6c1f1b506039fcb22ae13c"
+      "bytes": 12471,
+      "sha256": "320657a28d4aec7c426448518568328d74d4bf8176b09dc071d3448d07c1616d"
     },
     "video-prompt-compiler/scripts/shot_control/keyframes.py": {
-      "bytes": 6914,
-      "sha256": "4d8cf449d04ec4bd101bb56ae90d2dd67734b18ca514bda115a51b2c5955f4dc"
+      "bytes": 6939,
+      "sha256": "faaf75b1fa65bbe47336fb1173b87f5c2cdf1313ec75a89f8eacd252531ee590"
     },
     "video-prompt-compiler/scripts/shot_control/media_probe.py": {
-      "bytes": 5063,
-      "sha256": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12"
+      "bytes": 5726,
+      "sha256": "62edc5ee6f6762ebc126d343f040690bd5ccce75bf9ceabdad06155de0ee2767"
     },
     "video-prompt-compiler/scripts/shot_control/media_review.py": {
-      "bytes": 6752,
-      "sha256": "e0d42beb0a82574fb2a7a0c82c588a49e8660f4290d820946473a7e0ff8d1caa"
+      "bytes": 7019,
+      "sha256": "039728a92cabecaa7ab85b8a5dfb9b4299aea6c4694b224a5ca82f5bf84dd2f7"
     },
     "video-prompt-compiler/scripts/shot_control/package.py": {
-      "bytes": 9884,
-      "sha256": "7ee33b2147280d12ead1cd328e453494588c0d3e032171c3309abd49572d1c97"
+      "bytes": 12217,
+      "sha256": "64a41c4febff8341b9b2922f4ca0b4adad9a9279408187981e64c52391d94ee3"
     },
     "video-prompt-compiler/scripts/shot_control/previs.py": {
-      "bytes": 15485,
-      "sha256": "8987c7c78c743e5cdf8616db861825166d34765e28cd07fa79c67945e4fdd4b5"
+      "bytes": 15510,
+      "sha256": "fa1a1928a5d29fb500db8afd323fb0e13fffcfb22ccab6655bbb96e5c81c3892"
     },
     "video-prompt-compiler/scripts/shot_control/previs_frame.py": {
       "bytes": 5073,
@@ -364,8 +364,8 @@
       "sha256": "58c9aadbe9f3ad783c36d549447f261db176c5999eec72d636eaac687b3dcf78"
     },
     "video-prompt-compiler/scripts/shot_control/repair.py": {
-      "bytes": 12437,
-      "sha256": "fbe179a46f5026e9cf93331bd5f77158e4c526cc7a4e00b3ed60a986a1435f10"
+      "bytes": 12508,
+      "sha256": "fdb7795f53897b789b874e0c13a32481d07cd4aacb586ed28fe06bd6cb0721eb"
     },
     "video-prompt-compiler/scripts/shot_control/review.html": {
       "bytes": 2697,
@@ -412,8 +412,8 @@
       "sha256": "1b6a5140b7a3bd06f1de41a8f2cf1c273ddbdc30d9badf6e84cfaeafcd57714b"
     },
     "video-prompt-compiler/tests/test_control_repair.py": {
-      "bytes": 15416,
-      "sha256": "8425b134f4c0adbebdf85e526283a2719cfc2699acc1e84bb2146fddf5e34f14"
+      "bytes": 16687,
+      "sha256": "d4dfd9606a5bcc36ca7f5b68105f0fae04b91b1b41709fb23844789eae1c1eef"
     },
     "video-prompt-compiler/tests/test_craft.py": {
       "bytes": 8038,
@@ -428,8 +428,8 @@
       "sha256": "47c3475655f06648424f983fe417f34ea5c18f9c5d14a69332621cb97cdb75fa"
     },
     "video-prompt-compiler/tests/test_keyframe_host.py": {
-      "bytes": 15291,
-      "sha256": "214e1763771e571cfced14d414222511430f5578e44e76615e983865fdac8642"
+      "bytes": 15943,
+      "sha256": "6026b36bd5b7ebfa4ac2bbd517321e6d3a6a53ba96dda707e48a2bf79808c991"
     },
     "video-prompt-compiler/tests/test_previs.py": {
       "bytes": 8756,
@@ -444,8 +444,8 @@
       "sha256": "3ae7931e5929d992d99f0a757dc217dc7acf628cefd0faef3c847de453e819cc"
     },
     "video-prompt-compiler/tests/test_shot_control.py": {
-      "bytes": 16969,
-      "sha256": "fdb7cd0189ed320c7a75c27589eae73ec990fa8a6c6406898ee0eec01159c6fd"
+      "bytes": 19360,
+      "sha256": "a282764df0106179cc87747165c081d1787e0dcb945882fe51e20d98fb99442d"
     },
     "video-prompt-compiler/tests/test_v51.py": {
       "bytes": 8015,
@@ -461,5 +461,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.16.0"
+  "version": "1.17.0"
 }

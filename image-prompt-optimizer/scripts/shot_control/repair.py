@@ -58,14 +58,14 @@ def plan_repairs(before_package, after_package, manifest_path, observations=None
                 raise ValueError('Artifact use is not owned by the baseline package')
             if not old_shot['start_ms'] <= use['start_ms'] <= use['end_ms'] <= old_shot['end_ms']:
                 raise ValueError('Artifact use is outside baseline shot')
-            expected_before = recipe(before['ir'],before['config'],old,use['shot_id'],asset['role'],use['start_ms'],use['end_ms'])
+            expected_before = recipe(before['ir'],before['config'],old,use['shot_id'],asset['role'],use['start_ms'],use['end_ms'],frames=before['frames'])
             if expected_before != use['recipe_sha256']: raise ValueError('Baseline artifact recipe is already stale')
             if new is None or new_shot is None or asset['id'] not in new['artifact_ids'] or use['shot_id'] not in new['shot_ids']:
                 reasons.append('CONTROL_OR_SHOT_RETIRED'); expected_after = None
             elif not new_shot['start_ms'] <= use['start_ms'] <= use['end_ms'] <= new_shot['end_ms']:
                 reasons.append('TIME_SCOPE_CHANGED'); expected_after = None
             else:
-                expected_after = recipe(after['ir'],after['config'],new,use['shot_id'],asset['role'],use['start_ms'],use['end_ms'])
+                expected_after = recipe(after['ir'],after['config'],new,use['shot_id'],asset['role'],use['start_ms'],use['end_ms'],frames=after['frames'])
                 if expected_after != expected_before: reasons.append('DEPENDENCY_CONTENT_CHANGED')
             if file_problem: reasons.append('MISSING_OR_CHANGED_FILE')
             if invalidated_use(manifest,asset['id'],use): reasons.append('PREVIOUSLY_INVALIDATED')
@@ -105,7 +105,7 @@ def plan_repairs(before_package, after_package, manifest_path, observations=None
     for sid in sorted(set(old_shots)|set(new_shots)):
         fingerprints = []
         for bundle, shot in ((before,old_shots.get(sid)),(after,new_shots.get(sid))):
-            fingerprints.append(recipe(bundle['ir'],bundle['config'],{'source_pointers':[]},sid,'clay',shot['start_ms'],shot['end_ms']) if shot else None)
+            fingerprints.append(recipe(bundle['ir'],bundle['config'],{'source_pointers':[]},sid,'clay',shot['start_ms'],shot['end_ms'],frames=bundle['frames']) if shot else None)
         dependencies = [n for n in nodes if n['kind']=='artifact_use' and n['use']['shot_id']==sid]
         changed = fingerprints[0] != fingerprints[1] or any(n['status']=='INVALIDATED' for n in dependencies)
         ident = 'planned-shot-output:'+sid

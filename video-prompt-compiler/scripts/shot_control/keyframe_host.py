@@ -36,7 +36,7 @@ def _uses(bundle, request, artifact_id):
             raise ValueError('Output artifact has an incompatible control channel')
         at = request['at_ms']
         use = {'control_id':control['id'], 'shot_id':request['shot_id'], 'start_ms':at, 'end_ms':at,
-               'recipe_sha256':recipe(bundle['ir'], bundle['config'], control, request['shot_id'], 'clean_keyframe', at, at)}
+               'recipe_sha256':recipe(bundle['ir'], bundle['config'], control, request['shot_id'], 'clean_keyframe', at, at, frames=bundle['frames'])}
         if control['channel'] == 'image_reference':
             scope = control.get('reference_scopes', {}).get(request['shot_id'])
             if scope is None or not scope['start_ms'] <= at <= scope['end_ms']:
