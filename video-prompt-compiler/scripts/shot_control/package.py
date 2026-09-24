@@ -128,7 +128,9 @@ def verify_package(package):
     for name, value in expected.items():
         if read(package/name) != value: raise ValueError('Derived data mismatch: '+name)
     from .render_blocking import review_files
-    for name, value in review_files(frames).items():
+    review_html = (package/'review/index.html').read_text(encoding='utf-8')
+    layout = 2 if review_html.startswith('<!doctype html><html lang="zh" data-label-layout="2">') else 1
+    for name, value in review_files(frames, label_layout=layout).items():
         if (package/name).read_text(encoding='utf-8') != value:
             raise ValueError('Derived review mismatch: '+name)
     schema_check(read(package/'artifact-manifest.json'), 'control-artifacts')

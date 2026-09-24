@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "85c57e32fcd2f21f0939f921a2c95b079f867eb693d6cde5e0031bf4bcb4dc2b",
+  "archive_sha256": "62012f06511b044367d8446a63b59f14d12242a5176f6e41207d9525a50cac82",
   "file_count": 104,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29772,
-      "sha256": "aa7e04fe6591e7cadd864ecdefc71faa4f0fffab1ade7c1eadfaf690757b6d61"
+      "sha256": "0cc5a49116fd85b92474bd3f0d76ff704c9f385d084fa8e77008335b65833459"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 31482,
-      "sha256": "54629b8cd6688d964ae3adbc952e252728f659acd74ae00f98f855a5f540efc2"
+      "bytes": 31788,
+      "sha256": "1260589a0354d9a033d264c17710643042901e034198bc6e3c698b420396b0c5"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -300,8 +300,8 @@
       "sha256": "039728a92cabecaa7ab85b8a5dfb9b4299aea6c4694b224a5ca82f5bf84dd2f7"
     },
     "image-prompt-optimizer/scripts/shot_control/package.py": {
-      "bytes": 12217,
-      "sha256": "64a41c4febff8341b9b2922f4ca0b4adad9a9279408187981e64c52391d94ee3"
+      "bytes": 12419,
+      "sha256": "468d6755cab44419f0f6535b2f6903ad95d6ce8805781666d1339d991f2dccde"
     },
     "image-prompt-optimizer/scripts/shot_control/previs.py": {
       "bytes": 15510,
@@ -312,8 +312,8 @@
       "sha256": "fc418db33504221027b3193efab282ca0d6959eb5e6d37727b31aef5660c5755"
     },
     "image-prompt-optimizer/scripts/shot_control/render_blocking.py": {
-      "bytes": 4440,
-      "sha256": "58c9aadbe9f3ad783c36d549447f261db176c5999eec72d636eaac687b3dcf78"
+      "bytes": 5983,
+      "sha256": "c466ef3f8a3636d472f8357421f2c9a10d313db2e91ad35bc72eca3624e5a0f6"
     },
     "image-prompt-optimizer/scripts/shot_control/repair.py": {
       "bytes": 12508,
@@ -421,5 +421,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.15.0"
+  "version": "1.15.1"
 }

@@ -1,0 +1,116 @@
+{
+  "schema": "shot-control-browser-review/0.1",
+  "status": "PASS_SCOPED_DESKTOP_REVIEW",
+  "parent_commit": "a7b4072674fdd43d1ae8f12132c45d5d310480fb",
+  "fixture": "video-prompt-compiler/examples/v52/cafe.avir.json",
+  "config": "video-prompt-compiler/examples/control/cafe-control.json",
+  "versions": {
+    "video-prompt-compiler": "1.17.1",
+    "image-prompt-optimizer": "1.15.1",
+    "ai-comic-drama-workflow": "0.7.9"
+  },
+  "source_frame_sha256": "0e6a4890b5fb26524df4ea9ff7b005ae982c45dbf3b2516790b42ce24d8b1952",
+  "evaluation_file_sha256": "2a721956375793e9de4e05b3ab0dce75f75cfd4fc8c8dd95cafe0332a6b04217",
+  "frozen_frames_and_evaluation_unchanged": true,
+  "browser": {
+    "surface": "Chrome through CUA, localhost only",
+    "before": "Actually viewed desktop screenshot: overlapping cafe table, room and envelope labels",
+    "after": "Actually viewed top/camera and side screenshots: labels separated with leader lines, planned points retained",
+    "rendered_text_bounds_at_s1_zero": [
+      {
+        "view": "top",
+        "labels": 6,
+        "overlapping_pairs": []
+      },
+      {
+        "view": "camera",
+        "labels": 5,
+        "overlapping_pairs": []
+      },
+      {
+        "view": "side",
+        "labels": 6,
+        "overlapping_pairs": []
+      }
+    ],
+    "interactions": [
+      {
+        "action": "End",
+        "result": "S3 12.000 seconds, index135"
+      },
+      {
+        "action": "Home",
+        "result": "S1 0.000 seconds, index0"
+      },
+      {
+        "action": "Seek index41 then ArrowRight",
+        "result": "S1 4.000 seconds -> S2 4.000 seconds; camera changes from [0,1.3,-3] to [0.2,1.3,-1.1]"
+      },
+      {
+        "action": "Play then Pause",
+        "result": "Timeline advances; pause remains at S3 9.600 seconds/index108 over a later independent snapshot"
+      }
+    ]
+  },
+  "source_tests": {
+    "command": "python -m unittest discover -s video-prompt-compiler/tests -p test_shot_control.py -v",
+    "total": 26,
+    "failures": 0,
+    "seconds": 19.422
+  },
+  "compatibility": "Untouched original reviewer 05e0e4b foreign package and freshly built prior layout both verify; exact legacy regeneration retained, layout marker tampering tested and rejected",
+  "limitations": [
+    "Desktop cafe fixture only; not exhaustive mobile or dense-scene visual acceptance",
+    "Layout tests additionally cover portrait camera aspect; portrait screenshots were not taken",
+    "Full labels remain in legend when no free in-frame label row exists",
+    "No change to AVIR, projection geometry, media generation or quality acceptance"
+  ],
+  "release": {
+    "status": "PASS",
+    "packages": [
+      {
+        "name": "ai-comic-drama-workflow",
+        "archive_sha256": "ff25aab90db2ce70461cf764b4b2a1cd8d2b6e9c3f1f64ed8e8f8a88b38cd934",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "screenplay-grammar",
+        "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "director-grammar",
+        "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "production-design-grammar",
+        "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "storyboard-grammar",
+        "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "video-prompt-compiler",
+        "archive_sha256": "a4bf9e3b9d0c078e883745cb7bc601d59648bcf99d261db4bf8f6917e15f1aff",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "image-prompt-optimizer",
+        "archive_sha256": "62012f06511b044367d8446a63b59f14d12242a5176f6e41207d9525a50cac82",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      }
+    ],
+    "bundled_modules_equal_standalone": true
+  }
+}

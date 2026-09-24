@@ -24,7 +24,7 @@ def lower(package, target, mode, manifest):
 from shot_control.media_review import evaluate
 from shot_control.package import verify_package, recipe
 from shot_control.keyframes import check_request
-from shot_control.render_blocking import svg
+from shot_control.render_blocking import svg, review_files
 
 
 def projection_with_roundoff(*args, **kwargs):
@@ -237,6 +237,48 @@ class ShotControlTests(unittest.TestCase):
     def test_portrait_camera_canvas_preserves_aspect(self):
         f = frame(self.ir, self.ir['shots'][0], 0, {**self.lens, 'aspect': 9/16})
         self.assertIn('viewBox="0 0 202.5 360"', svg(f, 'camera', 10))
+
+    def test_cafe_labels_do_not_overlap_or_move_points(self):
+        import xml.etree.ElementTree as ET
+        f = frame(self.ir, self.ir['shots'][0], 0, self.lens)
+        for view in ('top', 'side', 'camera'):
+            for aspect in (16/9, 9/16):
+                f['camera']['output_aspect'] = aspect
+                old = ET.fromstring(svg(f, view, 3.45, label_layout=1))
+                new = ET.fromstring(svg(f, view, 3.45))
+                ns = {'s': 'http://www.w3.org/2000/svg'}
+                self.assertEqual([p.attrib for p in old.findall('s:circle', ns)],
+                                 [p.attrib for p in new.findall('s:circle', ns)])
+                labels = new.findall('s:text', ns)
+                self.assertEqual(len(labels), len(old.findall('s:text', ns)))
+                boxes = [(float(t.attrib['x']), float(t.attrib['y'])-14,
+                          float(t.attrib['x'])+float(t.attrib['textLength']), float(t.attrib['y'])+3)
+                         for t in labels]
+                circles = new.findall('s:circle', ns)
+                for i, (a, b, c, d) in enumerate(boxes):
+                    self.assertGreaterEqual(a, 0); self.assertGreaterEqual(b, 0)
+                    self.assertLessEqual(c, float(new.attrib['viewBox'].split()[2]))
+                    self.assertLessEqual(d, 360)
+                    for circle in circles:
+                        x, y = float(circle.attrib['cx']), float(circle.attrib['cy'])
+                        self.assertTrue(c <= x-7 or x+7 <= a or d <= y-7 or y+7 <= b)
+                    for x, y, z, w in boxes[i+1:]:
+                        self.assertTrue(c <= x or z <= a or d <= y or w <= b)
+
+    def test_legacy_review_layout_still_verifies_without_baseline_changes(self):
+        self.build(); bundle = verify_package(self.out)
+        baseline = digest(bundle['evaluation'])
+        manifest = read(self.out/'package-manifest.json')
+        for name, content in review_files(bundle['frames'], label_layout=1).items():
+            (self.out/name).write_text(content)
+            manifest['files'][name] = sha(self.out/name)
+        write(self.out/'package-manifest.json', manifest)
+        self.assertEqual(digest(verify_package(self.out)['evaluation']), baseline)
+        html = self.out/'review/index.html'
+        html.write_text(html.read_text().replace('<html lang="zh">', '<html lang="zh" data-label-layout="2">'))
+        manifest['files']['review/index.html'] = sha(html); write(self.out/'package-manifest.json', manifest)
+        with self.assertRaisesRegex(ValueError, 'Derived review mismatch'):
+            verify_package(self.out)
 
     def test_flash_rejects_conditioned_video(self):
         self.configured('clay_video_reference')
