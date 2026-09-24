@@ -1,0 +1,135 @@
+{
+  "1": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "wan2.1_vace_1.3B_fp16.safetensors",
+      "weight_dtype": "default"
+    }
+  },
+  "2": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+      "type": "wan",
+      "device": "cpu"
+    }
+  },
+  "3": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "wan_2.1_vae.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "One continuous locked medium shot in a quiet cafe, no extra people. Adult A on the left has short hair and wears a dark blue jacket. Adult B on the right has shoulder-length hair and wears a beige shirt. Both sit across a wooden table. A uses the right hand to carry one blue unmarked paper envelope forward horizontally above the table during 0.5 to 1 second, lowers it flat onto the tabletop from 1 to 1.5 seconds, releases the paper edge only after it is supported by the table from 1.5 to 2 seconds, and withdraws the relaxed right hand from 2 to 2.5 seconds. The envelope remains flat on the table. B watches the envelope with the right hand resting at the table edge, without picking it up. Preserve the supplied scene layout and stationary camera. Soft neutral daylight from the left window, natural textures."
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "2",
+        0
+      ],
+      "text": "text, labels, subtitles, watermark, extra people, extra fingers, deformed hands, floating objects, camera cuts, camera movement, sudden zoom, flickering, cartoon, plastic skin"
+    }
+  },
+  "8": {
+    "class_type": "WanVaceToVideo",
+    "inputs": {
+      "positive": [
+        "4",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ],
+      "width": 512,
+      "height": 288,
+      "length": 1,
+      "batch_size": 1,
+      "strength": 1.0
+    }
+  },
+  "20": {
+    "class_type": "ModelComputeDtype",
+    "inputs": {
+      "model": [
+        "1",
+        0
+      ],
+      "dtype": "fp32"
+    }
+  },
+  "29": {
+    "class_type": "ModelSamplingSD3",
+    "inputs": {
+      "model": [
+        "20",
+        0
+      ],
+      "shift": 5.0
+    }
+  },
+  "30": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "29",
+        0
+      ],
+      "seed": 20260925,
+      "steps": 20,
+      "cfg": 6.0,
+      "sampler_name": "uni_pc",
+      "scheduler": "simple",
+      "positive": [
+        "8",
+        0
+      ],
+      "negative": [
+        "8",
+        1
+      ],
+      "latent_image": [
+        "8",
+        2
+      ],
+      "denoise": 1.0
+    }
+  },
+  "32": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "30",
+        0
+      ],
+      "vae": [
+        "3",
+        0
+      ]
+    }
+  },
+  "33": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "32",
+        0
+      ],
+      "filename_prefix": "vace-cpu-shift5-r1/fp32"
+    }
+  }
+}

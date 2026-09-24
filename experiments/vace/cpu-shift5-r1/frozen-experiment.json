@@ -1,0 +1,10 @@
+{
+  "paired_prompt_id": "86c0aebc-e718-4909-9eeb-e9be36f3a8ef",
+  "purpose": "Single-variable sampling-shift diagnostic: 8 to 5, same CPU/fp32-VAE runtime, original text/seed/weights/dimensions/20 steps and one frame; output prefix changed only for isolation.",
+  "workflow_sha256": "f0002c9b8d06c92ecc4c834cb745e0a193d7d2d7a165f235694684ef08c1b5d4",
+  "source": "https://github.com/huggingface/diffusers/blob/main/docs/source/en/api/pipelines/wan.md",
+  "source_observed": "2026-09-25",
+  "hypothesis": "Lower shift may improve low-resolution texture and style; official general Wan advice is not a validated fix for this VACE run.",
+  "review": "Inspect actual generated people, table, blue paper and natural textures. Cartoon still fails original acceptance. One frame cannot certify action timing, composition at a specific AVIR event or temporal control benefit.",
+  "commercial_api_charge": 0
+}

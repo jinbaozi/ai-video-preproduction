@@ -1,0 +1,48 @@
+{
+  "schema": "vace-comfy-shift-diagnostic/0.1",
+  "paired_evidence": "../cpu-baseline-r1/evidence.json",
+  "prompt_id": "fe9afde7-9c88-4c5b-9cfe-9be51a303b42",
+  "paired_prompt_id": "86c0aebc-e718-4909-9eeb-e9be36f3a8ef",
+  "status": "EXECUTED_QUALITY_FAIL",
+  "actual_job_status": "success",
+  "elapsed_ms": 96254,
+  "cached_nodes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "8",
+    "20"
+  ],
+  "comparison_verified": "Only node 29 shift changed from 8 to 5 and output prefix changed; same still-running CPU/fp32-VAE server. Sampler node 30 was not cached.",
+  "workflow": {
+    "path": "workflow-api.json",
+    "bytes": 3082,
+    "sha256": "f0002c9b8d06c92ecc4c834cb745e0a193d7d2d7a165f235694684ef08c1b5d4"
+  },
+  "frozen_before_submission": {
+    "path": "frozen-experiment.json",
+    "bytes": 901,
+    "sha256": "cc87ac82be74d1db1e26680d95cfd8ad0c8c356832854b8a116bfc27fc8bc8b9"
+  },
+  "history_sha256": "1e50f3fee8d2d80809478bf82c605b7eb519a1320d82aeec367a19a95e76cbc0",
+  "raw_output": {
+    "path": "actual-output.png",
+    "bytes": 150521,
+    "sha256": "6cd7455372b1cac262cf7d0eac2eedff9ebc007a6535500577485e2e1c71c327",
+    "width": 512,
+    "height": 288,
+    "frames": 1
+  },
+  "commercial_api_charge": 0,
+  "review": {
+    "method": "Actually viewed original PNG and fully decoded it; no temporal claim.",
+    "result": "FAIL",
+    "observed": "Clear anime/cartoon illustration. Left short-haired figure in dark blue extends an arm toward upright bright-blue paper; right figure in beige extends an open palm. Wood table and left window. Faces and hands remain simplified; natural photographic texture was not recovered.",
+    "style_recovery": "NOT_OBSERVED",
+    "event_timing_and_trajectory": "NOT_EVALUATED_SINGLE_FRAME",
+    "control_benefit": "NOT_ESTABLISHED_NO_CONTROL_INPUT",
+    "limits": "One seed, one frame, one parameter value. Does not prove that all shifts or normal-length video fail, and is not an event-bound approved keyframe."
+  }
+}
