@@ -1,0 +1,68 @@
+{
+  "schema": "vace-comfy-runtime-lock/0.1",
+  "runner": {
+    "repository": "https://github.com/Comfy-Org/ComfyUI",
+    "revision": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+    "source_sha256": {
+      "comfy_extras/nodes_wan.py": "dcd8b81d1225d84e8b0c6743675d59772449899018e9f50bb27267dbb8962002",
+      "comfy_extras/nodes_video.py": "5879633287808ba2dac6753bcbc90acf8d73c72e8df1d0a9755a4ab70e712a0d",
+      "comfy/ldm/wan/model.py": "611eb3995e8dbce7e44237b29f080f2a79c0bd1abe5d5608c323cb625faf36f1",
+      "comfy/ldm/wan/vae.py": "b18fdd6d95d9c7093fbc8f2c831dfb36322aa1951c2dd17d32733dac53d689e4"
+    }
+  },
+  "weights": {
+    "repository": "Comfy-Org/Wan_2.1_ComfyUI_repackaged",
+    "revision": "123acf1cc74bccbb9bfff8ac1ee72edc08c2341d",
+    "files": [
+      {
+        "rfilename": "split_files/diffusion_models/wan2.1_vace_1.3B_fp16.safetensors",
+        "blobId": "3dc03f8feb4e6b68e5fae7ea1973be49c7da1d47",
+        "size": 4309519800,
+        "lfs": {
+          "sha256": "640ccc0577e6a5d4bb15cd91b11b699ef914fc55f126c5a1c544e152130784f2",
+          "size": 4309519800,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+        "blobId": "f67b8b88cdc897fa83f59bbd36ad54612a534ade",
+        "size": 6735906897,
+        "lfs": {
+          "sha256": "c3355d30191f1f066b26d93fba017ae9809dce6c627dda5f6a66eaa651204f68",
+          "size": 6735906897,
+          "pointerSize": 135
+        }
+      },
+      {
+        "rfilename": "split_files/vae/wan_2.1_vae.safetensors",
+        "blobId": "5ff32b52dac309662138ca42604696d34eaad7b8",
+        "size": 253815318,
+        "lfs": {
+          "sha256": "2fc39d31359a4b0a64f55876d8ff7fa8d780956ae2cb13463b0223e15148976b",
+          "size": 253815318,
+          "pointerSize": 134
+        }
+      }
+    ]
+  },
+  "actual_runtime": {
+    "os": "darwin",
+    "architecture": "arm64",
+    "ram_bytes": 34359738368,
+    "python": "3.13.12",
+    "comfyui": "0.37.0",
+    "torch": "2.12.1",
+    "mps": true,
+    "cuda": false
+  },
+  "isolation": {
+    "listen": "127.0.0.1",
+    "port": 8189,
+    "disable_all_custom_nodes": true,
+    "disable_api_nodes": true,
+    "reserve_vram_gib": 8,
+    "database": "Explicit experiment-only sqlite path; base-directory alone triggers legacy database migration"
+  },
+  "weights_verification": "All three downloaded files matched pinned repository sizes and SHA-256 before submission; download success is not inference success"
+}

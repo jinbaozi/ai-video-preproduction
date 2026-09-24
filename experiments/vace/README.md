@@ -1,8 +1,16 @@
 # VACE 隔离兼容性实验
 
-此目录不进入七个 Skill 的发行包，不安装模型、不执行网络提交，也不改变 AVIR 的时间或摄影机权威。当前只实际运行固定源码的帧选择和像素预处理函数；**尚未完成 VACE 推理适配与质量实验**。
+此目录不进入七个 Skill 的发行包，不改变 AVIR 的时间或摄影机权威。包含原版 CUDA 路径的帧选择／像素预处理检查，以及独立 ComfyUI／MPS 的真实推理实验；**前者发现时间与画幅不兼容，后者已实际执行但画面质量 FAIL**。产品控制注册表的通用 VACE 适配仍未集成。
 
-固定官方仓库 [ali-vilab/VACE](https://github.com/ali-vilab/VACE/tree/48eb44f1c4be87cc65a98bff985a26976841e9f3)，提交、相关源码 SHA-256、Wan 1.3B 预处理参数在 `upstream-lock.json`。检查点名称已选定，权重 revision 仍为 null，未下载或加载，不能当成权重版本已验证。
+原版预处理固定官方仓库 [ali-vilab/VACE](https://github.com/ali-vilab/VACE/tree/48eb44f1c4be87cc65a98bff985a26976841e9f3)，提交、相关源码 SHA-256、Wan 1.3B 参数在 `upstream-lock.json`。该运行器未加载原版权重；不能将另一运行器的权重验证计入它。ComfyUI 路线单独固定在 `comfy-runtime-lock.json`，三份实际权重均已下载并校验。
+
+## ComfyUI 实际推理结果
+
+见 [复跑说明](COMFY-EXPERIMENT.md)、[实际提交工作流](comfy-cafe-workflow.json) 和 [实收证据](comfy-cafe-evidence.json)。固定 AVIR 的 S1 在 Blender 重渲染为 512×288、16 fps；65 帧控制包含 4000 ms 结束边界。真实本地作业成功返回 65 帧 WebM，耗时 1033.494 秒、商业 API 费用为 0；按事前规则移除结束边界帧，得到 64 帧、4 秒 MP4，原始文件同时保留。
+
+实际查看抽帧后，画面为洋红背景和蓝色人形轮廓，没有符合人物／服装／手部动作／光色要求。**执行成功，质量 FAIL，轨迹误差不可确定，未证明控制收益。** 单帧读取与 VAE 编解码对照保持中性灰，仅排除该单帧路径的明显颜色异常；不能据此排除视频解码或生成器问题。去掉白模输入的同参数对照另行运行，不把未返回结果记成已验证。
+
+![实际失败视频的八张抽帧，不是原白模或宣传效果图](comfy-cafe-contact-sheet.jpg)
 
 ## 实际结果
 
@@ -19,7 +27,7 @@
 
 ## 复跑
 
-需要已有 Python 环境含 numpy、torch、torchvision、Pillow，以及 ffmpeg/ffprobe。使用隔离环境，不向现有 ComfyUI 环境安装依赖。本次只读取已有 PyTorch 运行时，没有安装权重或修改用户 ComfyUI。
+原版预处理需要已有 Python 环境含 numpy、torch、torchvision、Pillow，以及 ffmpeg/ffprobe。使用隔离环境，不向现有 ComfyUI 环境安装依赖。该预处理阶段只读取已有 PyTorch 运行时；后续 ComfyUI 实验的模型目录与服务隔离方法另见上文。
 
 ```bash
 git clone https://github.com/ali-vilab/VACE.git outputs/vace-investigation/upstream
@@ -42,4 +50,4 @@ ffmpeg -f lavfi -i testsrc2=size=832x480:rate=16 -frames:v 81 \
 2. 固定实际运行器及权重 revision、预处理器、条件编码；记录遮罩白色为生成区域、黑色为保留区域，与参考图职责分离，依据[固定版本官方指南](https://github.com/ali-vilab/VACE/blob/48eb44f1c4be87cc65a98bff985a26976841e9f3/UserGuide.md)。本实验未验证遮罩或深度/姿态编码。
 3. 在兼容硬件/运行器上执行冻结镜头，保留原始控制输入、实际模型输出、耗时、费用和失败；进行身份、动作、轨迹、光色观察后，才判断质量。
 
-当前权重加载、VAE/生成推理、成片质量和生成费用均未验证；实际预处理耗时不等于模型生成成本。
+以上三项是原版运行器的后续门槛；ComfyUI 的实际权重、推理耗时与质量失败独立记录，不覆盖原版预处理结果，也不把低分辨率实验当作完整方案交付。
