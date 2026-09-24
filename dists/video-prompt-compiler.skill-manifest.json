@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "b3ecb9fd04d2c590d379247fe80991554d917eaf708e3cf0d6847a76389eb1bf",
+  "archive_sha256": "a4acef9219b5eb12a9c90f9a057f4ceed28ab283377e7251723d8bf0db8d73a1",
   "file_count": 114,
   "files": {
     "video-prompt-compiler/SKILL.md": {
       "bytes": 10310,
-      "sha256": "71c4f3ba6e366c02bead1e299acc7e2f3d1cb61b1a67f332f56fcda9affe9c3b"
+      "sha256": "d3caeb8e47ee5cb54c5f6bc2f606dc1a558f961bb39575976000a7a730d77b2e"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -116,8 +116,8 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/shot-control.md": {
-      "bytes": 29602,
-      "sha256": "194b1459e73fc7277da51362b76bf0c1dbcee3ca322bf1a9a9ec216512beddb2"
+      "bytes": 30245,
+      "sha256": "1f8d9442e3d2d576ff1b69ac2ee2de8d7dbf3940205dac0d7e0ef20a619ad9a5"
     },
     "video-prompt-compiler/references/spatial-contract-v52.md": {
       "bytes": 7583,
@@ -340,12 +340,12 @@
       "sha256": "4d8cf449d04ec4bd101bb56ae90d2dd67734b18ca514bda115a51b2c5955f4dc"
     },
     "video-prompt-compiler/scripts/shot_control/media_probe.py": {
-      "bytes": 2862,
-      "sha256": "4270ee8012fdcd5b00f15e2125d1771e89e78cf900388b30e9513b2e9c6ccb61"
+      "bytes": 5063,
+      "sha256": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12"
     },
     "video-prompt-compiler/scripts/shot_control/media_review.py": {
-      "bytes": 6671,
-      "sha256": "00fd707a32b808858ac8f6364793ebe81be29be303d1dd99a5e4de70a24bf139"
+      "bytes": 6752,
+      "sha256": "e0d42beb0a82574fb2a7a0c82c588a49e8660f4290d820946473a7e0ff8d1caa"
     },
     "video-prompt-compiler/scripts/shot_control/package.py": {
       "bytes": 9884,
@@ -412,8 +412,8 @@
       "sha256": "1b6a5140b7a3bd06f1de41a8f2cf1c273ddbdc30d9badf6e84cfaeafcd57714b"
     },
     "video-prompt-compiler/tests/test_control_repair.py": {
-      "bytes": 11461,
-      "sha256": "ddb4cd7cf2b96fabcc6c28793d9d023f090edf00e1257cd68613743ee363c584"
+      "bytes": 15416,
+      "sha256": "8425b134f4c0adbebdf85e526283a2719cfc2699acc1e84bb2146fddf5e34f14"
     },
     "video-prompt-compiler/tests/test_craft.py": {
       "bytes": 8038,
@@ -461,5 +461,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.15.0"
+  "version": "1.16.0"
 }

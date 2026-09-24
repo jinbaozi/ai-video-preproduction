@@ -1,0 +1,215 @@
+{
+  "schema": "shot-control-verification/0.1",
+  "change": "Validate scoped observations against decoded video presentation intervals, independently of audio/container duration",
+  "versions": {
+    "video-prompt-compiler": "1.16.0",
+    "image-prompt-optimizer": "1.14.0",
+    "ai-comic-drama-workflow": "0.7.7"
+  },
+  "full_source_tests": {
+    "tests": 176,
+    "elapsed_seconds": 294.502,
+    "result": "PASS_WITH_TWO_DEFAULT_BLENDER_SKIPS",
+    "log_sha256": "c1280aaa192665ef4d961dea5e6102749af6f30478499cbf836f07c203705687",
+    "scope": "Before final 1 ms MKV endpoint quantization adjustment and added MKV regression; unchanged renderer not rerun on host"
+  },
+  "final_affected_tests": {
+    "tests": 13,
+    "elapsed_seconds": 18.09,
+    "result": "PASS",
+    "log_sha256": "6d2fd41d22a2d95f7c23877b95dbf3cb514c722d345499f8896539624ee8247e",
+    "scope": "Final source; includes actual short-video/long-audio, valid-video/long-audio, delayed stream, missing final frame, truncated pixels, MKV gap and legal timestamp quantization cases"
+  },
+  "independent_auditor_suite_replayed_by_author": {
+    "audited_commit": "bba1e02ce54d7e27145a683e4ae747bfa2637f8a",
+    "original_report": "shot-control-audit-bba1e02.md",
+    "original_report_sha256": "ff01dc1ca2fe6c600f1269374caf134e92e4cc8522b48a0d4d1d4ab694cb8d2c",
+    "original_archive_sha256": "dd14c6feebd7daf6d7c3d509433b68f661f2f11399062e2b48b780234f39e7f8",
+    "original_result": {
+      "total": 42,
+      "passed": 40,
+      "failed": [
+        "N01_container_duration_masks_short_video",
+        "N02_delayed_video"
+      ]
+    },
+    "current_result": {
+      "total": 42,
+      "passed": 42,
+      "failed": []
+    },
+    "current_results_sha256": "172ebc5330909a99d5e514f10a2f2fe6dbe0e58f783c3f90bb9ab05e4539e235",
+    "harness": "Original reviewer run_all.py, native_fixture.py, scoped_fixture.py and run_scoped_tests.py unchanged; its 21-file runtime subset replaced by current actual repository sources, not mocked validators. Native package and media regenerated in a fresh directory.",
+    "current_source_integrity": [
+      {
+        "path": "video-prompt-compiler/schemas/control-package.schema.json",
+        "sha256": "b57ba99448830b3f73be00527a99540a4bcfd74fd9e56198f9c45e344f1b6206"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/avir-1.2.schema.json",
+        "sha256": "c1663f3a19e4b399012ebd6ba586e067db7cc991abd50ac91eab6ddac71c0a46"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/control-artifacts.schema.json",
+        "sha256": "52812b3a025f0b3806a0ad8f0255e86bdced6e608a07278ddb22f93fe7b157a9"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/control-media-review.schema.json",
+        "sha256": "093f7350ff78ca0d33f146d90c4576b105bd16e0f687caf176fbf539874da86d"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/shot-control.schema.json",
+        "sha256": "c73e44c8596c6d73215eaa864cda4147af547b664d15d46f597a7baef9c1dbd2"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/avir-1.1.schema.json",
+        "sha256": "908c9b1057e5e61f13ea373808a09b31a4d4550be9eefcff59517f7c8c18e9ed"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/keyframe-request.schema.json",
+        "sha256": "14ed466aef2ac849f4e56e1ab43faacce4dbac70c7d03867e95c02f5095eeeeb"
+      },
+      {
+        "path": "video-prompt-compiler/schemas/shot-control-config.schema.json",
+        "sha256": "a46998d8d7eb0eef46be7a81f95434b91cbe419ae6df1880ebb2cc35cfcc8899"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/spatial_runtime.py",
+        "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/detail_runtime.py",
+        "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/control_cli.py",
+        "sha256": "0166d12a7d000547f388b4374a0548814f871c28edd34ae8b7fe34a2b099ccd5"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/repair.py",
+        "sha256": "fbe179a46f5026e9cf93331bd5f77158e4c526cc7a4e00b3ed60a986a1435f10"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/package.py",
+        "sha256": "7ee33b2147280d12ead1cd328e453494588c0d3e032171c3309abd49572d1c97"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/control_plan.py",
+        "sha256": "066bc081e1ef828f568466e47ffc3d7937b06debe592b2b32748b707b2215d7c"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/review.html",
+        "sha256": "70b05a2fa1714dc221b8155777d8ff5b1a344d9055d657bbd949b571e33ae3e8"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/__init__.py",
+        "sha256": "8318b051639196ffe22bcb3b08a0db08951630a83d3c663f4acbd6e4745fb798"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/media_probe.py",
+        "sha256": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/common.py",
+        "sha256": "330fd75345b8177b11efdee0e38038722b6ac400c2c6b04ecdfccb5838f02084"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/media_review.py",
+        "sha256": "e0d42beb0a82574fb2a7a0c82c588a49e8660f4290d820946473a7e0ff8d1caa"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/camera_projection.py",
+        "sha256": "789aa7c36d9998631b14c0db690db91abbfa9fa2f267e1014e57279161affe7c"
+      },
+      {
+        "path": "video-prompt-compiler/scripts/shot_control/render_blocking.py",
+        "sha256": "58c9aadbe9f3ad783c36d549447f261db176c5999eec72d636eaac687b3dcf78"
+      }
+    ],
+    "original_media_replay": [
+      {
+        "current_evaluation_plan_sha256": "35815e6f08768aa678d86fbbc534115c907e4ee936a80a0753e748aea264b8cb",
+        "media": "short-video-long-audio.mp4",
+        "original_media_sha256": "b404c650459c8199392b700f48532a7a190abb99c218d747957d282dbbc5877a",
+        "rejected": "Media duration differs from frozen time map",
+        "review_basis": "Unmodified auditor generator rerun against current rebuilt native baseline; only media hash changed to use exact original reviewer MP4. Original old baseline hash is not substituted."
+      },
+      {
+        "current_evaluation_plan_sha256": "35815e6f08768aa678d86fbbc534115c907e4ee936a80a0753e748aea264b8cb",
+        "media": "delayed-video.mp4",
+        "original_media_sha256": "c62bd99c79921892bdc90d5e44405ff14cadb6f4a609b0de8788cb33b34754d4",
+        "rejected": "Video starts outside the frozen zero-based media clock",
+        "review_basis": "Unmodified auditor generator rerun against current rebuilt native baseline; only media hash changed to use exact original reviewer MP4. Original old baseline hash is not substituted."
+      }
+    ],
+    "independent_web_acceptance_of_current_fix": "NOT_YET_RUN"
+  },
+  "final_release": {
+    "status": "PASS",
+    "report": "outputs/shot-control-video-timeline-release-final-r2/report.json",
+    "report_sha256": "86a300a64741225b9bb602ec4d870d1d8196af024a71928d783b3d3f316fa869",
+    "bundled_modules_equal_standalone": true,
+    "packages": [
+      {
+        "name": "ai-comic-drama-workflow",
+        "archive_sha256": "ced37082355a16bb748ffdab7913d0aace5e41bd243e0d7a8244f5d54144973d",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "screenplay-grammar",
+        "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "director-grammar",
+        "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "production-design-grammar",
+        "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "storyboard-grammar",
+        "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "video-prompt-compiler",
+        "archive_sha256": "a4acef9219b5eb12a9c90f9a057f4ceed28ab283377e7251723d8bf0db8d73a1",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "image-prompt-optimizer",
+        "archive_sha256": "810e41809e4a10cc2a48f73d8d9296ce7c83ee6c9738f9ed77faa2f691e67aee",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      }
+    ]
+  },
+  "actual_video_replay": "video-timeline-reproduction.json",
+  "isolated_final_image_skill": {
+    "status": "PASS",
+    "archive_sha256": "810e41809e4a10cc2a48f73d8d9296ce7c83ee6c9738f9ed77faa2f691e67aee",
+    "evaluation_sha256": "857e70456a50dbdbcac2588c02c663a63bfaa23e2dcf5ea8af1e1f18032b79fd",
+    "scope": "Final separately extracted image Skill; actual VACE evaluation equals video-side result, retaining eight FAIL findings."
+  },
+  "source_sha256": {
+    "video-prompt-compiler/scripts/shot_control/media_probe.py": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12",
+    "video-prompt-compiler/scripts/shot_control/media_review.py": "e0d42beb0a82574fb2a7a0c82c588a49e8660f4290d820946473a7e0ff8d1caa",
+    "video-prompt-compiler/tests/test_control_repair.py": "8425b134f4c0adbebdf85e526283a2719cfc2699acc1e84bb2146fddf5e34f14"
+  },
+  "limits": [
+    "Software and independent test replay do not prove generation quality",
+    "The original F01-F03 complete cross-consumer chain has no final independent web acceptance",
+    "Existing VACE actual output and subsequent CPU single frames remain quality FAIL",
+    "A prior incorrect test assertion used event list position; final regression selects the event ID. Its obsolete verification run was stopped; only final-r2 is the final release result."
+  ]
+}

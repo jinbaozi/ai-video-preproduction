@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "c3bf5e0523a3d83b645e07eac320e398c7a98e4e67b3f2c8e77ba272607c1d44",
+  "archive_sha256": "810e41809e4a10cc2a48f73d8d9296ce7c83ee6c9738f9ed77faa2f691e67aee",
   "file_count": 104,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29772,
-      "sha256": "be5cb228e7913b41f394d616c53d4c40496c7f5ae93e244698f32de5739003f3"
+      "sha256": "c192c74a6131ab16b1bf33dd3d6cb592b1005d35eb4db69c931e8bbf1aca92b5"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 29602,
-      "sha256": "194b1459e73fc7277da51362b76bf0c1dbcee3ca322bf1a9a9ec216512beddb2"
+      "bytes": 30245,
+      "sha256": "1f8d9442e3d2d576ff1b69ac2ee2de8d7dbf3940205dac0d7e0ef20a619ad9a5"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -292,12 +292,12 @@
       "sha256": "4d8cf449d04ec4bd101bb56ae90d2dd67734b18ca514bda115a51b2c5955f4dc"
     },
     "image-prompt-optimizer/scripts/shot_control/media_probe.py": {
-      "bytes": 2862,
-      "sha256": "4270ee8012fdcd5b00f15e2125d1771e89e78cf900388b30e9513b2e9c6ccb61"
+      "bytes": 5063,
+      "sha256": "1819be457fe158e63f7e0d4ccdcfb6d9829b911557c9226c84d4ce2e7e39ee12"
     },
     "image-prompt-optimizer/scripts/shot_control/media_review.py": {
-      "bytes": 6671,
-      "sha256": "00fd707a32b808858ac8f6364793ebe81be29be303d1dd99a5e4de70a24bf139"
+      "bytes": 6752,
+      "sha256": "e0d42beb0a82574fb2a7a0c82c588a49e8660f4290d820946473a7e0ff8d1caa"
     },
     "image-prompt-optimizer/scripts/shot_control/package.py": {
       "bytes": 9884,
@@ -421,5 +421,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.13.0"
+  "version": "1.14.0"
 }

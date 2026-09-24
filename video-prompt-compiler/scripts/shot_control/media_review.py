@@ -20,7 +20,7 @@ def evaluation_plan(ir, frames):
 
 def evaluate(review, package, media):
     from .package import verify_package
-    from .media_probe import probe
+    from .media_probe import probe, video_timeline
     bundle = verify_package(package); baseline = bundle['evaluation']
     schema_check(review, 'control-media-review')
     if review['evaluation_plan_sha256'] != digest(baseline):
@@ -31,7 +31,7 @@ def evaluate(review, package, media):
         raise ValueError('Invalid execution range in frozen project time')
     shot_ids = [s['id'] for s in bundle['ir']['shots'] if s['start_ms'] < end and s['end_ms'] > start]
     info = probe(media)
-    if info['detected_kind'] != 'video' or info['duration_ms'] is None or not info['width'] or not info['height']:
+    if info['detected_kind'] != 'video' or not info['width'] or not info['height']:
         raise ValueError('Review requires decodable video')
     if info['sha256'] != review['media_sha256']: raise ValueError('Observed media hash mismatch')
     if info['rotation_deg'] not in (0, 90, 180, 270): raise ValueError('Unsupported display rotation')
@@ -39,7 +39,9 @@ def evaluate(review, package, media):
         raise ValueError('Non-square pixels require an explicit display transform')
     width, height = info['display_width'], info['display_height']
     # No implicit retiming, crop or aspect stretch. A different output needs a new explicit plan.
-    if abs(info['duration_ms']-(end-start)) > max(1, 1000/(info['fps'] or 1)):
+    timeline = video_timeline(media)
+    info['video_timeline'] = timeline
+    if abs(timeline['end_ms']-(end-start)) > 1:
         raise ValueError('Media duration differs from frozen time map')
     if any(abs(width/height-baseline['aspects'][sid]) > 2/max(height, 1) for sid in shot_ids):
         raise ValueError('Media aspect differs from frozen projection')
@@ -51,7 +53,7 @@ def evaluate(review, package, media):
     errors, missing, unresolved = [], [], []
     for k, planned in expected.items():
         actual = observed.get(k)
-        if k[2]-start >= info['duration_ms']: raise ValueError('Sample outside video duration')
+        if k[2]-start >= timeline['end_ms']+1: raise ValueError('Sample outside video duration')
         if planned['status'] != 'IN_FRAME' or planned['xy'] is None:
             unresolved.append({'shot_id': k[0], 'node_id': k[1], 'at_ms': k[2], 'reason': planned['status']})
             continue
@@ -70,7 +72,8 @@ def evaluate(review, package, media):
     if len(actual_events) != len(review['events']) or set(actual_events)-{e['id'] for e in planned_events}:
         raise ValueError('Duplicate or unmatched event')
     events = []
-    media_end = min(end, start+info['duration_ms'])
+    # The decoded endpoint already matches this boundary within 1 ms quantization.
+    media_end = end
     for e in planned_events:
         at = actual_events.get(e['id'], {}).get('observed_ms')
         if at is not None and not start <= at <= media_end: raise ValueError('Event outside video')

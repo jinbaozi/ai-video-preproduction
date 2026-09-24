@@ -143,6 +143,66 @@ class ControlRepairTests(unittest.TestCase):
         self.assertIn('先核对冻结请求',result['tasks'][0]['acceptance'][0])
         self.assertIn('仅有上游设计错误证据时',result['tasks'][0]['acceptance'][2])
 
+    def test_review_uses_video_frames_instead_of_container_audio_duration(self):
+        from shot_control.media_review import evaluate
+        _,_,review,_=self.partial_review()
+        for name,video_seconds,audio_seconds,accepted in [('short-video',1,4,False),('long-audio',4,6,True)]:
+            with self.subTest(name=name):
+                video=Path(self.tmp.name)/(name+'.mp4')
+                subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i',f'color=s=320x180:r=24:d={video_seconds}',
+                  '-f','lavfi','-i',f'anullsrc=r=48000:cl=mono:d={audio_seconds}',
+                  '-c:v','libx264','-pix_fmt','yuv420p','-c:a','aac',str(video)],check=True)
+                review['media_sha256']=sha(video)
+                if accepted:
+                    result=evaluate(review,self.out,video)
+                    self.assertEqual(result['media_probe']['duration_ms'],6000)
+                    self.assertAlmostEqual(result['media_probe']['video_timeline']['end_ms'],4000,places=2)
+                    self.assertEqual(result['media_probe']['video_timeline']['frame_count'],96)
+                else:
+                    with self.assertRaisesRegex(ValueError,'duration differs'):evaluate(review,self.out,video)
+
+    def test_review_rejects_delayed_video_and_missing_end_frame(self):
+        from shot_control.media_review import evaluate
+        _,_,review,_=self.partial_review()
+        for name,filter_graph in [('delayed','trim=duration=3,setpts=PTS+1/TB'),
+                                   ('short-end','trim=end_frame=95')]:
+            with self.subTest(name=name):
+                video=Path(self.tmp.name)/(name+'.mp4')
+                subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','color=s=320x180:r=24:d=4',
+                  '-vf',filter_graph,'-fps_mode','passthrough','-c:v','libx264','-pix_fmt','yuv420p',str(video)],check=True)
+                review['media_sha256']=sha(video)
+                with self.assertRaises(ValueError):evaluate(review,self.out,video)
+
+    def test_review_rejects_truncated_pixels_even_with_intact_movie_metadata(self):
+        from shot_control.media_review import evaluate
+        _,_,review,_=self.partial_review()
+        video=Path(self.tmp.name)/'truncated.mp4'
+        subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','testsrc2=s=320x180:r=24:d=4',
+          '-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',str(video)],check=True)
+        data=video.read_bytes();video.write_bytes(data[:len(data)*2//3])
+        review['media_sha256']=sha(video)
+        with self.assertRaises(ValueError):evaluate(review,self.out,video)
+
+    def test_review_rejects_frame_gap_but_accepts_millisecond_clock_quantization(self):
+        from shot_control.media_review import evaluate
+        _,_,review,_=self.partial_review()
+        review['events']=[{'id':'camera_operations:CAM_S2:end','observed_ms':8000}]
+        for name,gap in [('continuous',False),('gap',True)]:
+            with self.subTest(name=name):
+                video=Path(self.tmp.name)/(name+'.mkv')
+                command=['ffmpeg','-v','error','-f','lavfi','-i','testsrc2=s=320x180:r=24:d=4']
+                if gap:command+=['-vf',r'select=not(eq(n\,24))','-fps_mode','passthrough']
+                subprocess.run(command+['-c:v','ffv1',str(video)],check=True)
+                review['media_sha256']=sha(video)
+                if gap:
+                    with self.assertRaisesRegex(ValueError,'gaps or overlaps'):evaluate(review,self.out,video)
+                else:
+                    result=evaluate(review,self.out,video)
+                    self.assertEqual(result['media_probe']['video_timeline']['frame_count'],96)
+                    self.assertLessEqual(abs(result['media_probe']['video_timeline']['end_ms']-4000),1)
+                    event=next(e for e in result['event_errors'] if e['id']=='camera_operations:CAM_S2:end')
+                    self.assertEqual(event['error_ms'],0)
+
     def test_regenerated_reviewed_content_retires_only_old_invalidation(self):
         config,c=self.configured();old=self.artifact(config,c,content=100);new=self.artifact(config,c,content=200)
         manifest=self.manifest(new);data=read(manifest)

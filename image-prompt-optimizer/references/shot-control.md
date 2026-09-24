@@ -179,6 +179,8 @@ python scripts/control_cli.py repair outputs/control-v001 outputs/control-v002 -
 
 观察只比较范围内的原计划点和镜头画幅，片段时长须与实收相符；范围外的观察和错误事件被拒绝。切点只包含前段事件的 end 与后段事件的 start 各自所属的一侧，避免将 S2 的开始算作 S1 的漏事件。输出同时记录 `execution_range`、`media_time_offset_ms`、`shot_ids`、局部 `expected_count` 与完整 `project_expected_count`；`complete_project_scope=false` 时的覆盖率只属于该片段，不能用于宣称全片通过。声明映射不是提交回执证明，`mapping_evidence` 明确这一边界，宿主须另保留真实请求/实收关联。repair 沿用项目绝对时间创建失败任务，不因局部失败重写或作废正确的原生计划与母版。
 
+时长及覆盖以实际解码的首个视频流为准，不使用可能由音频撑长的容器总时长。审核严格解码该流，核对逐帧原始显示时间和持续时间；首帧必须从媒体零点开始、帧区间连续、末帧结束与执行区间长度相符，仅允许 1 ms 时间戳量化误差。缺失时序、延迟起始、缺帧造成的时长不足或坏像素均拒绝，不自动补帧、平移或拉伸。`media_probe.duration_ms` 仍保留容器信息，新增 `media_probe.video_timeline` 保存实际帧数、起止时间、逐帧时间摘要及完整解码状态；完整解码仍不是视觉审核通过。
+
 
 ## 冻结事件的单张几何关键帧
 

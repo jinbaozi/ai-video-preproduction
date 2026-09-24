@@ -2,8 +2,43 @@
 from fractions import Fraction
 from pathlib import Path
 import json
+import math
 import subprocess
-from .common import sha
+from .common import sha, digest
+
+
+def video_timeline(path):
+    """Decode the selected video stream and retain its original presentation clock."""
+    decoded = subprocess.run(['ffmpeg', '-v', 'error', '-xerror', '-err_detect', 'explode',
+                              '-i', str(path), '-map', '0:v:0', '-fps_mode', 'passthrough', '-f', 'null', '-'],
+                             capture_output=True, text=True, timeout=120)
+    if decoded.returncode or decoded.stderr.strip():
+        raise ValueError('Video decode failed: '+decoded.stderr[:500])
+    result = subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_frames',
+                             '-show_entries', 'frame=best_effort_timestamp_time,duration_time,pkt_duration_time',
+                             '-of', 'json', str(path)], capture_output=True, text=True, timeout=120)
+    if result.returncode or result.stderr.strip():
+        raise ValueError('Video frame probe failed: '+result.stderr[:500])
+    frames = []
+    for frame in json.loads(result.stdout).get('frames', []):
+        try:
+            at = float(frame['best_effort_timestamp_time'])*1000
+            duration = float(frame.get('duration_time', frame.get('pkt_duration_time')))*1000
+        except (KeyError, TypeError, ValueError):
+            raise ValueError('Video frame timing unavailable') from None
+        if not math.isfinite(at) or not math.isfinite(duration) or duration <= 0:
+            raise ValueError('Invalid video frame timing')
+        # Permit only millisecond timestamp quantization, not missing intervals or retiming.
+        if frames and (at <= frames[-1][0] or abs(at-frames[-1][1]) > 1):
+            raise ValueError('Video frame timeline has gaps or overlaps')
+        frames.append([at, at+duration])
+    if not frames:
+        raise ValueError('Video contains no decoded frames')
+    if abs(frames[0][0]) > 1:
+        raise ValueError('Video starts outside the frozen zero-based media clock')
+    return {'start_ms': frames[0][0], 'end_ms': frames[-1][1],
+            'duration_ms': frames[-1][1]-frames[0][0], 'frame_count': len(frames),
+            'frame_timing_sha256': digest(frames), 'decode': 'FULL_SELECTED_VIDEO_STREAM'}
 
 
 def probe(path):

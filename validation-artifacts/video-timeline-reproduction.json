@@ -1,0 +1,73 @@
+{
+  "schema": "video-timeline-reproduction/0.1",
+  "before_commit": "7074c8c27c707611ad812289ad264e1a3eef613b",
+  "method": "Complete native ControlRepairTests.partial_review fixture builds and verifies the same full project baseline; actual FFmpeg encoded MP4s before and after are byte-identical. No mocked probe or timing.",
+  "baseline_sha256": "b5182fff94bef3f37f9e449e39a94fb07a5c11e918a685af9bbc1b16a4e8f4bc",
+  "before": [
+    {
+      "name": "short-video-long-audio",
+      "video_seconds": 1,
+      "audio_seconds": 4,
+      "actual": {
+        "status": "OBSERVATIONS_RECORDED",
+        "expected_count": 308,
+        "duration_ms": 4000
+      }
+    },
+    {
+      "name": "correct-video-long-audio",
+      "video_seconds": 4,
+      "audio_seconds": 6,
+      "actual": {
+        "rejected": "Media duration differs from frozen time map"
+      }
+    }
+  ],
+  "after": [
+    {
+      "name": "short-video-long-audio",
+      "sha256": "e7355518fba3be17433391efddd61973e51c807251a72544396f5057872496a8",
+      "actual": {
+        "rejected": "Media duration differs from frozen time map"
+      }
+    },
+    {
+      "name": "correct-video-long-audio",
+      "sha256": "70ff9d54a4a363089169200ed1f3328e112caaa7ecf0f918c2d0357007b03fa6",
+      "actual": {
+        "status": "OBSERVATIONS_RECORDED",
+        "video_timeline": {
+          "start_ms": 0.0,
+          "end_ms": 4000.0,
+          "duration_ms": 4000.0,
+          "frame_count": 96,
+          "frame_timing_sha256": "4167afe83d318822cfb4ddea46b660646a97e564c3b9d1e3f8d37c9cd201cd61",
+          "decode": "FULL_SELECTED_VIDEO_STREAM"
+        },
+        "container_duration_ms": 6000
+      }
+    }
+  ],
+  "actual_vace_replay": {
+    "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+    "evaluation_plan_sha256": "17ba2cb4cf4c8efaa2328388c59785b25af81a80485f5d4b76c73490fc558416",
+    "execution_range": {
+      "end_ms": 4000,
+      "start_ms": 0
+    },
+    "expected_count": 287,
+    "project_expected_count": 931,
+    "coverage": 0.0,
+    "status": "OBSERVATIONS_RECORDED",
+    "video_timeline": {
+      "decode": "FULL_SELECTED_VIDEO_STREAM",
+      "duration_ms": 4000.0,
+      "end_ms": 4000.0,
+      "frame_count": 64,
+      "frame_timing_sha256": "a4cea9c6029528e6e7f4697315cbe160c9011defbc40956131a8c7c0f5170eff",
+      "start_ms": 0.0
+    },
+    "findings_fail_count": 8,
+    "visual_review": "Retained prior eight exact-frame observations, no new visual review or generation claim"
+  }
+}
