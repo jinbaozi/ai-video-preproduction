@@ -1,0 +1,29 @@
+{
+  "repository": "https://github.com/ali-vilab/VACE",
+  "commit": "48eb44f1c4be87cc65a98bff985a26976841e9f3",
+  "files": {
+    "vace/models/utils/preprocessor.py": "179c1472cdd5b82e7737962b6de910c61f62d5485ddbb29cdac0a67ddc285fcf",
+    "vace/models/wan/wan_vace.py": "13e21d1df81fd78f962d54e4f3ddfa789e50bffc152446d27d405c62511a70f9",
+    "vace/models/wan/configs/shared_config.py": "fa5de5c4a4263b48543b0cf635a65bd510774077c7b88e41a8ca67d76833e57f",
+    "vace/models/wan/configs/wan_t2v_1_3B.py": "741498c9a558777e36f38129dedfd11ec76e4ab82d7abebea93a763c15119bce",
+    "vace/vace_wan_inference.py": "cde0353136d4ee5c7712c8ed4b868638870391dd4c655fef1c3c336817694c08"
+  },
+  "processor": {
+    "downsample": [
+      4,
+      16,
+      16
+    ],
+    "min_area": 399360,
+    "max_area": 399360,
+    "min_fps": 16,
+    "max_fps": 16,
+    "zero_start": true,
+    "seq_len": 32760,
+    "keep_last": true
+  },
+  "inference_save_fps": 16,
+  "checkpoint": "Wan-AI/Wan2.1-VACE-1.3B",
+  "checkpoint_revision": null,
+  "weights_status": "NOT_DOWNLOADED"
+}
