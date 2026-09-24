@@ -1,0 +1,18 @@
+{
+  "evidence": "Actual native image_gen invoked once with exact staged prompt and four staged paths in frozen order. Tool call wall time about 40.0 seconds. Original returned PNG copied unchanged; provider model, execution ID and cost not exposed. Host assertion only, not provider-signed proof.",
+  "execution_id": null,
+  "host": "Codex built-in image_gen",
+  "input_sha256": [
+    "07951e34ce6765e8091edb307ca46d84afc5f3c252c0f68a6efbc449674fd7fa",
+    "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b",
+    "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2",
+    "a196b4a6f33fb8c7e805b63339eb6e1204c9b4005a7aee83831f52959d395135"
+  ],
+  "model": null,
+  "output_filename": "actual-keyframe.png",
+  "output_sha256": "be00f07bde862f6329d96147deb954112c2b732ab67d645f353deb4d6a3ffc05",
+  "prompt_sha256": "86c836e5b0d99cbaebdd1c45724ac9dc11d7394685c4e6f508c57983f0973b5c",
+  "recording_mode": "contemporaneous",
+  "schema": "keyframe-host-result/0.1",
+  "stage_sha256": "64e11a16a5e688e1a10dc089e959debb11afae8666fddba1f531a9524c40c1b4"
+}

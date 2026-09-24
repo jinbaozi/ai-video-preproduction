@@ -1,0 +1,37 @@
+{
+  "error_xy": [
+    0.06721203152006039,
+    -0.10306762938535763
+  ],
+  "expected_xy": [
+    0.37836213115936546,
+    0.7162451001611281
+  ],
+  "image_size": [
+    1672,
+    941
+  ],
+  "manual_center_px": [
+    745,
+    577
+  ],
+  "manual_uncertainty_px": [
+    12,
+    12
+  ],
+  "max_abs_error_xy": [
+    0.02,
+    0.02
+  ],
+  "method": "Manual visual marking from actual full image; no automated segmentation or tracking",
+  "observed_xy": [
+    0.44557416267942584,
+    0.6131774707757705
+  ],
+  "output_sha256": "be00f07bde862f6329d96147deb954112c2b732ab67d645f353deb4d6a3ffc05",
+  "planned_before_generation": true,
+  "result": "FAIL",
+  "schema": "keyframe-composition-observation/0.1",
+  "source_sha256": "3f875084f4fd023ee36900a4420930fd89b49cb152bc1b796dc458730921676f",
+  "stage_sha256": "64e11a16a5e688e1a10dc089e959debb11afae8666fddba1f531a9524c40c1b4"
+}

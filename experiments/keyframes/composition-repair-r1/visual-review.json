@@ -1,0 +1,38 @@
+{
+  "checks": [
+    {
+      "criterion": "保持主身份与场景母版",
+      "evidence": "Actual output and all four inputs viewed: same visible adult faces/hair, navy and beige clothing, wall picture, plants, wood cafe and left window maintained qualitatively; not biometric or pixel identity proof.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "核对本时刻姿态、手别、视线和构图",
+      "evidence": "Envelope center remains above/right of frozen target; hand laterality and all pose details not conclusively established.",
+      "result": "FAIL"
+    },
+    {
+      "criterion": "不得出现箭头、ID、时码或面板",
+      "evidence": "Actual image has no arrows, IDs, timecodes or panels.",
+      "result": "PASS"
+    },
+    {
+      "criterion": "Before generation, freeze envelope visual center at normalized (0.378362,0.716245), top-left origin. Accept this landmark only if absolute x and y errors are each <=0.02, with manual marking uncertainty recorded separately.",
+      "evidence": "Manual estimate (745,577), uncertainty +/-12 pixels; normalized center (0.445574,0.613177), errors about (+0.0672,-0.1031), outside +/-0.02 even with marking uncertainty.",
+      "result": "FAIL"
+    },
+    {
+      "criterion": "A sits left holding exactly one horizontal blue envelope in his own right hand; B sits right looking at the envelope. No extra people or props.",
+      "evidence": "One horizontal envelope and two seated people visible; own-right-hand support and exact physical height are not conclusively established.",
+      "result": "UNDETERMINED"
+    },
+    {
+      "criterion": "No clay geometry remains; retain reference identities and clothes, believable hands, wooden cafe materials and soft left window light.",
+      "evidence": "Photographic people, wood and soft left light retained; full hand anatomy and every material detail not exhaustively validated.",
+      "result": "UNDETERMINED"
+    }
+  ],
+  "reviewer": "Codex actual image inspection with original references and manual landmark estimate",
+  "schema": "keyframe-image-review/0.1",
+  "sha256": "be00f07bde862f6329d96147deb954112c2b732ab67d645f353deb4d6a3ffc05",
+  "stage_sha256": "64e11a16a5e688e1a10dc089e959debb11afae8666fddba1f531a9524c40c1b4"
+}

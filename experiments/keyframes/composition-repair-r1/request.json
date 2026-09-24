@@ -1,0 +1,626 @@
+{
+  "acceptance": [
+    "保持主身份与场景母版",
+    "核对本时刻姿态、手别、视线和构图",
+    "不得出现箭头、ID、时码或面板"
+  ],
+  "at_ms": 0,
+  "base_asset_id": "K001_0",
+  "camera_state": {
+    "crop": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "focus": [],
+    "forward": [
+      0,
+      0.0,
+      2.2
+    ],
+    "fov": 35,
+    "intrinsics_basis": "authored_proxy",
+    "output_aspect": 1.7777777777777777,
+    "position": [
+      0,
+      1.2,
+      -2.2
+    ],
+    "status": "PLANNED_PROJECTION",
+    "zoom": []
+  },
+  "edit_delta": {
+    "acceptance": [
+      "Before generation, freeze envelope visual center at normalized (0.378362,0.716245), top-left origin. Accept this landmark only if absolute x and y errors are each <=0.02, with manual marking uncertainty recorded separately.",
+      "A sits left holding exactly one horizontal blue envelope in his own right hand; B sits right looking at the envelope. No extra people or props.",
+      "No clay geometry remains; retain reference identities and clothes, believable hands, wooden cafe materials and soft left window light."
+    ],
+    "allow_changes": [
+      "/ENVELOPE/position",
+      "/A/right_arm_pose",
+      "/B/forearm_pose",
+      "/scene/table_placement"
+    ],
+    "base_asset_sha256": "07951e34ce6765e8091edb307ca46d84afc5f3c252c0f68a6efbc449674fd7fa",
+    "keyframe_id": "K001_0",
+    "master_anchor_ids": [
+      "ID_A",
+      "ID_B",
+      "SCENE"
+    ],
+    "preserve": [
+      "/camera",
+      "/A/identity",
+      "/B/identity",
+      "/A/wardrobe",
+      "/B/wardrobe",
+      "/ENVELOPE/orientation",
+      "/ENVELOPE/material",
+      "/scene/background",
+      "/scene/materials",
+      "/lighting"
+    ],
+    "schema": "edit-delta/0.1",
+    "source": {
+      "kind": "avir/1.2",
+      "path": "production-specification.json",
+      "sha256": "3f875084f4fd023ee36900a4420930fd89b49cb152bc1b796dc458730921676f"
+    }
+  },
+  "generated": false,
+  "generation_mode": "edit",
+  "id": "K001_0",
+  "master_anchors": [
+    "ID_A",
+    "ID_B",
+    "SCENE"
+  ],
+  "references": [
+    {
+      "asset_id": "ID_A",
+      "id": "BIND_ID_A",
+      "negative_roles": [
+        "motion",
+        "scene",
+        "camera"
+      ],
+      "roles": [
+        "identity"
+      ],
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "DESIGN"
+      ],
+      "target_id": "A"
+    },
+    {
+      "asset_id": "ID_B",
+      "id": "BIND_ID_B",
+      "negative_roles": [
+        "motion",
+        "scene",
+        "camera"
+      ],
+      "roles": [
+        "identity"
+      ],
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "DESIGN"
+      ],
+      "target_id": "B"
+    },
+    {
+      "asset_id": "SCENE",
+      "id": "BIND_SCENE",
+      "negative_roles": [
+        "camera",
+        "motion",
+        "style"
+      ],
+      "roles": [
+        "scene"
+      ],
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "DESIGN"
+      ],
+      "target_id": "CAFE"
+    }
+  ],
+  "schema": "keyframe-request/0.2",
+  "shot_id": "S1",
+  "source": {
+    "kind": "avir/1.2",
+    "path": "production-specification.json",
+    "sha256": "3f875084f4fd023ee36900a4420930fd89b49cb152bc1b796dc458730921676f"
+  },
+  "source_pointers": [
+    "/shots/0",
+    "/timeline"
+  ],
+  "status": "DRAFT_REQUIRES_HOST_REVIEW",
+  "subject_state": {
+    "actions": [],
+    "at_ms": 0,
+    "camera": [
+      {
+        "axis": "negative；same_side；None",
+        "end_framing": "medium；以人物和信封构成稳定注意力三角",
+        "end_ms": 4000,
+        "end_position": "[0,1.2,-2.2]",
+        "focus": "人物与递物区域",
+        "height": "1.2 → 1.2",
+        "id": "CAM_S1",
+        "look_at": "[0,1.2,0]",
+        "operation": "locked",
+        "orientation": "pitch=0,roll=0",
+        "origin": {
+          "kind": "design",
+          "locator": "Legacy source /shots/0; source content retained, detail completeness requires review",
+          "source_refs": [
+            "SRC_SCRIPT",
+            "DESIGN"
+          ]
+        },
+        "path": "固定；相机静止",
+        "precision": "intent",
+        "shot_ids": [
+          "S1"
+        ],
+        "speed": "全程固定机位，无位移、摇摄或变焦；保持观察点与对焦区域。",
+        "start_framing": "medium；以人物和信封构成稳定注意力三角",
+        "start_ms": 0,
+        "start_position": "[0,1.2,-2.2]",
+        "sync_action_ids": []
+      }
+    ],
+    "composition": {
+      "attention_order": [
+        "N_A",
+        "N_B",
+        "N_ENVELOPE"
+      ],
+      "depth_layers": "前景桌沿与信封，中景人物，后景咖啡馆墙面",
+      "end_ms": 4000,
+      "framing": "以人物和信封构成稳定注意力三角",
+      "id": "COMP_S1",
+      "negative_space": "视线前方留白，关键手部不贴边",
+      "origin": {
+        "kind": "design",
+        "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+        "source_refs": [
+          "DESIGN"
+        ]
+      },
+      "safe_area": "左右各5%，上下各8%的演示安全边距；关键脸手道具避开文字区",
+      "shot_ids": [
+        "S1"
+      ],
+      "start_ms": 0,
+      "subjects": [
+        {
+          "box": [
+            0.07,
+            0.12,
+            0.35,
+            0.76
+          ],
+          "depth": "midground",
+          "description": "保持所列主体的画面区域、层次及可见部位",
+          "node_id": "N_A",
+          "occlusion": "所需部位无遮挡",
+          "presence": "inside",
+          "readability": "body",
+          "visible_parts": [
+            "face",
+            "eyes",
+            "mouth",
+            "hands",
+            "body"
+          ]
+        },
+        {
+          "box": [
+            0.58,
+            0.12,
+            0.35,
+            0.76
+          ],
+          "depth": "midground",
+          "description": "保持所列主体的画面区域、层次及可见部位",
+          "node_id": "N_B",
+          "occlusion": "所需部位无遮挡",
+          "presence": "inside",
+          "readability": "body",
+          "visible_parts": [
+            "face",
+            "eyes",
+            "mouth",
+            "hands",
+            "body"
+          ]
+        },
+        {
+          "box": [
+            0.3,
+            0.65,
+            0.32,
+            0.2
+          ],
+          "depth": "foreground",
+          "description": "保持所列主体的画面区域、层次及可见部位",
+          "node_id": "N_ENVELOPE",
+          "occlusion": "所需部位无遮挡",
+          "presence": "inside",
+          "readability": "body",
+          "visible_parts": [
+            "body"
+          ]
+        }
+      ]
+    },
+    "derived_properties": [],
+    "interpolated": false,
+    "motion_values": [
+      {
+        "at_ms": 0,
+        "status": "EXPLICIT",
+        "track_id": "POS_S1_A",
+        "value": {
+          "description": "坐姿，右手持信封",
+          "mode": "numeric",
+          "target_node_id": null,
+          "value": [
+            -0.7,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "at_ms": 0,
+        "status": "EXPLICIT",
+        "track_id": "POS_S1_B",
+        "value": {
+          "description": "坐姿，右手停在桌沿",
+          "mode": "numeric",
+          "target_node_id": null,
+          "value": [
+            0.7,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "at_ms": 0,
+        "status": "EXPLICIT",
+        "track_id": "POS_S1_ENVELOPE",
+        "value": {
+          "description": "纸面水平",
+          "mode": "numeric",
+          "target_node_id": null,
+          "value": [
+            -0.3,
+            0.9,
+            0
+          ]
+        }
+      },
+      {
+        "at_ms": 0,
+        "status": "EXPLICIT",
+        "track_id": "POS_S1_TABLE",
+        "value": {
+          "description": "桌面水平，桌脚接地",
+          "mode": "numeric",
+          "target_node_id": null,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "at_ms": 0,
+        "status": "EXPLICIT",
+        "track_id": "POS_S1_ROOM",
+        "value": {
+          "description": "固定建筑",
+          "mode": "numeric",
+          "target_node_id": null,
+          "value": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "at_ms": 0,
+        "status": "EXPLICIT",
+        "track_id": "CAM_POS_S1",
+        "value": {
+          "description": "固定摄影机位置",
+          "mode": "numeric",
+          "target_node_id": null,
+          "value": [
+            0,
+            1.2,
+            -2.2
+          ]
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "bounds": null,
+        "entity_id": "A",
+        "frame": {
+          "anchor_node_id": null,
+          "kind": "world",
+          "transforms": [],
+          "unit": "m"
+        },
+        "id": "N_A",
+        "kind": "entity",
+        "label": "A",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "parent_id": null,
+        "part": null
+      },
+      {
+        "bounds": null,
+        "entity_id": "B",
+        "frame": {
+          "anchor_node_id": null,
+          "kind": "world",
+          "transforms": [],
+          "unit": "m"
+        },
+        "id": "N_B",
+        "kind": "entity",
+        "label": "B",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "parent_id": null,
+        "part": null
+      },
+      {
+        "bounds": null,
+        "entity_id": "ENVELOPE",
+        "frame": {
+          "anchor_node_id": null,
+          "kind": "world",
+          "transforms": [],
+          "unit": "m"
+        },
+        "id": "N_ENVELOPE",
+        "kind": "entity",
+        "label": "蓝色信封",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "parent_id": null,
+        "part": null
+      },
+      {
+        "bounds": null,
+        "entity_id": "TABLE",
+        "frame": {
+          "anchor_node_id": null,
+          "kind": "world",
+          "transforms": [],
+          "unit": "m"
+        },
+        "id": "N_TABLE",
+        "kind": "entity",
+        "label": "咖啡桌",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "parent_id": null,
+        "part": null
+      },
+      {
+        "bounds": null,
+        "entity_id": "ROOM",
+        "frame": {
+          "anchor_node_id": null,
+          "kind": "world",
+          "transforms": [],
+          "unit": "m"
+        },
+        "id": "N_ROOM",
+        "kind": "entity",
+        "label": "咖啡馆",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "parent_id": null,
+        "part": null
+      },
+      {
+        "bounds": null,
+        "entity_id": null,
+        "frame": {
+          "anchor_node_id": null,
+          "kind": "world",
+          "transforms": [],
+          "unit": "m"
+        },
+        "id": "N_CAMERA",
+        "kind": "camera",
+        "label": "摄影机",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "parent_id": null,
+        "part": null
+      }
+    ],
+    "performance": [],
+    "physical_interpolation": false,
+    "spatial_relations": [
+      {
+        "attachment": null,
+        "criterion": "A世界x坐标始终小于B，反打不改变世界位置",
+        "distance_m": null,
+        "frame": "world",
+        "id": "REL_S1_0",
+        "object_node_id": "N_B",
+        "origin": {
+          "kind": "design",
+          "locator": "V5.2 cafe fixture: authored spatial detail for existing envelope exchange; no generated media claim",
+          "source_refs": [
+            "DESIGN"
+          ]
+        },
+        "predicate": "world_left_of",
+        "scope": {
+          "end_ms": 4000,
+          "kind": "interval",
+          "start_ms": 0
+        },
+        "shot_ids": [
+          "S1"
+        ],
+        "subject_node_id": "N_A"
+      }
+    ],
+    "state": {
+      "A": {
+        "body_facing": "yaw=90",
+        "condition": "保持既有外观与完好状态",
+        "contacts": [],
+        "controllers": [],
+        "gaze": "B",
+        "head_facing": "yaw=90,pitch=0",
+        "pose": "坐姿，右手持信封",
+        "position": [
+          -0.7,
+          0,
+          0
+        ],
+        "supports": [
+          "椅面承托坐骨，双足落地"
+        ],
+        "visible_parts": []
+      },
+      "B": {
+        "body_facing": "yaw=270",
+        "condition": "保持既有外观与完好状态",
+        "contacts": [],
+        "controllers": [],
+        "gaze": "ENVELOPE",
+        "head_facing": "yaw=270,pitch=0",
+        "pose": "坐姿，右手停在桌沿",
+        "position": [
+          0.7,
+          0,
+          0
+        ],
+        "supports": [
+          "椅面承托坐骨，双足落地"
+        ],
+        "visible_parts": []
+      },
+      "ENVELOPE": {
+        "body_facing": "yaw=0",
+        "condition": "保持既有外观与完好状态",
+        "contacts": [
+          "A.right_hand"
+        ],
+        "controllers": [
+          "A.right_hand"
+        ],
+        "gaze": "无指定目标",
+        "head_facing": "yaw=0,pitch=0",
+        "pose": "纸面水平",
+        "position": [
+          -0.3,
+          0.9,
+          0
+        ],
+        "supports": [
+          "A.right_hand"
+        ],
+        "visible_parts": []
+      },
+      "ROOM": {
+        "body_facing": "yaw=0",
+        "condition": "保持既有外观与完好状态",
+        "contacts": [],
+        "controllers": [],
+        "gaze": "无指定目标",
+        "head_facing": "yaw=0,pitch=0",
+        "pose": "固定建筑",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "supports": [
+          "ROOM.floor"
+        ],
+        "visible_parts": []
+      },
+      "TABLE": {
+        "body_facing": "yaw=0",
+        "condition": "保持既有外观与完好状态",
+        "contacts": [],
+        "controllers": [],
+        "gaze": "无指定目标",
+        "head_facing": "yaw=0,pitch=0",
+        "pose": "桌面水平，桌脚接地",
+        "position": [
+          0,
+          0,
+          0
+        ],
+        "supports": [
+          "ROOM.floor"
+        ],
+        "visible_parts": []
+      }
+    },
+    "status": "EXPLICIT"
+  },
+  "visual_review": "NOT_RUN"
+}

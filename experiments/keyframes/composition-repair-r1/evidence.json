@@ -1,0 +1,116 @@
+{
+  "schema": "native-keyframe-composition-repair-result/0.1",
+  "status": "EXECUTED_QUALITY_FAIL",
+  "source_commit": "ffe3e170a9e889772696cb0a01318a46b980595d",
+  "generation_mode": "Codex built-in image_gen edit",
+  "attempts": 1,
+  "tool_wall_time_seconds": 40.0,
+  "provider_model": null,
+  "provider_execution_id": null,
+  "cost": null,
+  "cost_note": "Not exposed by native tool; unknown is not zero.",
+  "files": {
+    "prompt.txt": {
+      "bytes": 1887,
+      "sha256": "86c836e5b0d99cbaebdd1c45724ac9dc11d7394685c4e6f508c57983f0973b5c"
+    },
+    "request.json": {
+      "bytes": 15514,
+      "sha256": "410b1aad82186491a1106c824e816e4ce7c5178c8736785169c45380f376aa91"
+    },
+    "frozen-experiment.json": {
+      "bytes": 679,
+      "sha256": "455c5fef74dc06a055ac65685b525b5fdb5487ae7fc1f63fe1653ea30f15b979"
+    },
+    "host-result.json": {
+      "bytes": 1074,
+      "sha256": "99ff9c3cab43024075f65740f9bd33e6601e7597dd4bf544889085bd8a2f27fe"
+    },
+    "visual-review.json": {
+      "bytes": 2267,
+      "sha256": "b72bc6d1493d851387deae1669517db1578c9cae397012e79e9b955dfada068a"
+    },
+    "composition-observation.json": {
+      "bytes": 870,
+      "sha256": "463b09238169ed221c1dab8c40dbb3006fc83dc08f64b0b879aea22eeffcc80e"
+    },
+    "receipt.json": {
+      "bytes": 905,
+      "sha256": "a55e12e0c418dd6e0f082438f08dac0c72be25ea4a028dac5a85820a1302310a"
+    }
+  },
+  "stage_manifest_sha256": "64e11a16a5e688e1a10dc089e959debb11afae8666fddba1f531a9524c40c1b4",
+  "verification": {
+    "status": "VERIFIED_RECEIVED_KEYFRAME",
+    "visual_review": "FAIL",
+    "provenance": "HOST_ASSERTION_NOT_INDEPENDENT_EXECUTION_PROOF",
+    "submitted": false
+  },
+  "observation": {
+    "error_xy": [
+      0.06721203152006039,
+      -0.10306762938535763
+    ],
+    "expected_xy": [
+      0.37836213115936546,
+      0.7162451001611281
+    ],
+    "image_size": [
+      1672,
+      941
+    ],
+    "manual_center_px": [
+      745,
+      577
+    ],
+    "manual_uncertainty_px": [
+      12,
+      12
+    ],
+    "max_abs_error_xy": [
+      0.02,
+      0.02
+    ],
+    "method": "Manual visual marking from actual full image; no automated segmentation or tracking",
+    "observed_xy": [
+      0.44557416267942584,
+      0.6131774707757705
+    ],
+    "output_sha256": "be00f07bde862f6329d96147deb954112c2b732ab67d645f353deb4d6a3ffc05",
+    "planned_before_generation": true,
+    "result": "FAIL",
+    "schema": "keyframe-composition-observation/0.1",
+    "source_sha256": "3f875084f4fd023ee36900a4420930fd89b49cb152bc1b796dc458730921676f",
+    "stage_sha256": "64e11a16a5e688e1a10dc089e959debb11afae8666fddba1f531a9524c40c1b4"
+  },
+  "lowering": {
+    "status": "BLOCKED",
+    "runnable": false,
+    "submitted": false,
+    "limitations": [
+      "Legacy frozen fixture retains three image_reference channels unsupported by keyframe mode; it was not migrated to keyframe_input.",
+      "First frame visual review fails; upload bindings and last-frame artifact are missing; budget checks also fail.",
+      "This is not an isolated regression proving that visual FAIL alone blocks lowering."
+    ]
+  },
+  "author_assertion_correction": {
+    "initial_receive": "REJECTED_NO_PARTIAL_OUTPUT",
+    "cause": "Author supplied canonical stage data digest instead of stage-manifest.json file SHA.",
+    "correction": "Only authored assertion/review/observation stage_sha256 corrected; frozen stage, inputs, prompt and generated output unchanged.",
+    "product_change": false
+  },
+  "local_only": [
+    "Actual returned PNG",
+    "Full frozen stage with four input images",
+    "Original received package and manifests",
+    "Rejected author assertions",
+    "Complete lowering report"
+  ],
+  "standalone_reproduction_package": false,
+  "local_output": {
+    "bytes": 1862254,
+    "sha256": "be00f07bde862f6329d96147deb954112c2b732ab67d645f353deb4d6a3ffc05",
+    "path": "outputs/host-keyframe-composition-repair-r1/actual-keyframe.png"
+  },
+  "media_in_repository": false
+}

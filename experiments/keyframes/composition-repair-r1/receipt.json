@@ -1,0 +1,29 @@
+{
+  "host_assertion_sha256": "99ff9c3cab43024075f65740f9bd33e6601e7597dd4bf544889085bd8a2f27fe",
+  "media": {
+    "audio": false,
+    "bytes": 1862254,
+    "codec": "png",
+    "detected_kind": "image",
+    "display_height": 941,
+    "display_width": 1672,
+    "duration_ms": null,
+    "format": "png_pipe",
+    "fps": 25.0,
+    "height": 941,
+    "path": "output/actual-keyframe.png",
+    "rotation_deg": 0,
+    "sample_aspect_ratio": null,
+    "sha256": "be00f07bde862f6329d96147deb954112c2b732ab67d645f353deb4d6a3ffc05",
+    "visual_review": "NOT_RUN",
+    "width": 1672
+  },
+  "provenance": "HOST_ASSERTION_NOT_INDEPENDENT_EXECUTION_PROOF",
+  "schema": "keyframe-received/0.1",
+  "stage_sha256": "64e11a16a5e688e1a10dc089e959debb11afae8666fddba1f531a9524c40c1b4",
+  "status": "MEDIA_RECEIVED",
+  "submitted": false,
+  "technical_issues": [],
+  "video_execution": "NOT_RUN",
+  "visual_review": "FAIL"
+}

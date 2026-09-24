@@ -1,0 +1,17 @@
+{
+  "schema": "keyframe-composition-repair/0.1",
+  "parent_result_sha256": "07951e34ce6765e8091edb307ca46d84afc5f3c252c0f68a6efbc449674fd7fa",
+  "source_sha256": "3f875084f4fd023ee36900a4420930fd89b49cb152bc1b796dc458730921676f",
+  "expected_xy": [
+    0.37836213115936546,
+    0.7162451001611281
+  ],
+  "max_abs_error_xy": [
+    0.02,
+    0.02
+  ],
+  "manual_uncertainty": "Record independently after generation, never absorb into acceptance tolerance",
+  "attempts": 1,
+  "purpose": "Target measured envelope offset using existing photographic failure as edit base; table and arm placement may adapt, source camera and AVIR unchanged",
+  "status": "FROZEN_BEFORE_SUBMISSION"
+}
