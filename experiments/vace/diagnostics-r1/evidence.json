@@ -1,0 +1,185 @@
+{
+  "schema": "vace-comfy-diagnostics/0.1",
+  "runner_lock": "../comfy-runtime-lock.json",
+  "paired_control_evidence": "../comfy-cafe-evidence.json",
+  "purpose": "Diagnose actual quality failure; do not promote to product capability or replace original acceptance.",
+  "comparisons_verified": {
+    "ablation": "Only removed LoadVideo/GetVideoComponents and control_video; output prefix changed. All shared model, prompt, seed, sampler, dimensional and frame inputs identical.",
+    "decoder": "Only changed node 12 VAEDecodeTiled to VAEDecode and output prefix. Actual history confirms KSampler node 10 cached.",
+    "precision": "Two one-frame branches share seed, sampler, text, VAE, dimensions and checkpoint; built-in ModelComputeDtype differs fp16/fp32."
+  },
+  "additional_source_lock": {
+    "repository": "https://github.com/Comfy-Org/ComfyUI",
+    "revision": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+    "file": "comfy_extras/nodes_model_advanced.py",
+    "sha256": "59bcf2c72de0f931383b74c9be5b6fc2ced06a315277d34631ae5ac9ac90fa91"
+  },
+  "experiments": [
+    {
+      "id": "ablation",
+      "prompt_id": "8b85a097-14e2-4a6e-80d4-949df89290d8",
+      "status": "EXECUTED_QUALITY_FAIL",
+      "actual_job_status": "success",
+      "elapsed_ms": 1015477,
+      "cached_nodes": [
+        "3"
+      ],
+      "workflow": {
+        "path": "ablation-workflow.json",
+        "bytes": 3286,
+        "sha256": "b5319c928bc464d0be371bf8f6486348551b4a798f44fa08c98945aa25d1786e"
+      },
+      "frozen_before_submission": {
+        "path": "ablation-frozen.json",
+        "bytes": 429,
+        "sha256": "05e668e0fa8c1253f10163a87dceab6a69a5e158516e64cc0c53bef32f1d5d30"
+      },
+      "local_history_sha256": "a131d0e9f6ddefb301849b834b29935a539e8a3647a86fe2588ce916e13535b8",
+      "commercial_api_charge": 0,
+      "raw_output": {
+        "path": "actual-output.webm",
+        "bytes": 142578,
+        "sha256": "2dd192eecfcddf601f160ad38f3beea83858ddc45d24bc43d9b4d3f9d3bbd00c",
+        "retention": "local original; not included in repository",
+        "width": 512,
+        "height": 288,
+        "frames": 65,
+        "fps": "16/1",
+        "container_duration_ms": 4062.9999999999995
+      },
+      "review_image": {
+        "path": "ablation-contact-sheet.jpg",
+        "bytes": 27816,
+        "sha256": "b1f6c33b238387be78b58904fc3ba60c054e95bc570f5dbfba8f0d2f631eff99"
+      },
+      "review": {
+        "method": "Actually viewed eight FFmpeg frames at 2 fps, tiled 4x2. Full 65 frames decoded for probe; no full playback review claimed.",
+        "result": "FAIL",
+        "observed": "Large black silhouettes, yellow background, small magenta regions; adult appearance, clothing, hand action and envelope not identifiable.",
+        "trajectory_error": "UNDETERMINED",
+        "control_benefit": "NOT_ESTABLISHED"
+      },
+      "delivery": {
+        "path": "delivery-4s.mp4",
+        "bytes": 201853,
+        "sha256": "27a76c4a80ca311a809d0f160b29b7a83d2fd4c25c6a6b57eabe6c4052be72ee",
+        "retention": "local original; not included in repository",
+        "frames": 64,
+        "container_duration_ms": 4000.0,
+        "rule": "Keep source frames 0 through 63 at original 16 fps, drop only end guard frame 64 as frozen before original experiment"
+      }
+    },
+    {
+      "id": "standard-decode",
+      "prompt_id": "2b2254b3-46cd-48a9-927e-f14e0151d390",
+      "status": "EXECUTED_QUALITY_FAIL",
+      "actual_job_status": "success",
+      "elapsed_ms": 80481,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "8",
+        "9",
+        "10",
+        "11"
+      ],
+      "workflow": {
+        "path": "standard-decode-workflow.json",
+        "bytes": 3187,
+        "sha256": "be8f0a7c902b580ac61d967ef7851070f1fe5505197c9e7ba411ef15997ce261"
+      },
+      "frozen_before_submission": {
+        "path": "standard-decode-frozen.json",
+        "bytes": 616,
+        "sha256": "62f6a432ef8fd6abd9df6ea16d8cdde4986554c2a869b2ccf2b2924559bb35cf"
+      },
+      "local_history_sha256": "ebc1192f566d7f43fb1f6d8d10849045c5236b98dbf8c1b5668d8af77ed438bd",
+      "commercial_api_charge": 0,
+      "raw_output": {
+        "path": "actual-output.webm",
+        "bytes": 116350,
+        "sha256": "893859c5da35713b9c6bbeb039657d20ccb12967f2550682ea8a66896ff18353",
+        "retention": "local original; not included in repository",
+        "width": 512,
+        "height": 288,
+        "frames": 65,
+        "fps": "16/1",
+        "container_duration_ms": 4062.9999999999995
+      },
+      "review_image": {
+        "path": "standard-decode-contact-sheet.jpg",
+        "bytes": 26886,
+        "sha256": "2a46c9238aaeb591a78b39eed3109f99d4a38a6a9f6608ad27c02ed1f443170c"
+      },
+      "review": {
+        "method": "Actually viewed eight FFmpeg frames at 2 fps, tiled 4x2. Full 65 frames decoded for probe; no full playback review claimed.",
+        "result": "FAIL",
+        "observed": "Large black silhouettes, yellow background, small magenta regions; adult appearance, clothing, hand action and envelope not identifiable.",
+        "trajectory_error": "UNDETERMINED",
+        "control_benefit": "NOT_ESTABLISHED"
+      }
+    },
+    {
+      "id": "precision-pair",
+      "prompt_id": "69a26458-114c-444d-a58c-183f349a6135",
+      "status": "EXECUTED_QUALITY_FAIL",
+      "actual_job_status": "success",
+      "elapsed_ms": 59336,
+      "cached_nodes": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "workflow": {
+        "path": "precision-pair-workflow.json",
+        "bytes": 4135,
+        "sha256": "92b92a4219c69637c6acf6f5e1cf8534556a66632f2329e5aac9c817cf8d5d3c"
+      },
+      "frozen_before_submission": {
+        "path": "precision-pair-frozen.json",
+        "bytes": 834,
+        "sha256": "7924e7ab0d7e891e1a8cb0eeb1bf59b0974212a706f3b7c45d7e62ea95480506"
+      },
+      "local_history_sha256": "7c3ca3e63771690316366396262d4c7cd08d6465c4c90fe1703dcb8973577441",
+      "commercial_api_charge": 0,
+      "outputs": [
+        {
+          "path": "fp16.png",
+          "bytes": 136662,
+          "sha256": "500833d58a00981c070f1a97deb19b2ed39d421b79245785517d22764ba51ea1",
+          "compute_dtype": "fp16",
+          "width": 512,
+          "height": 288,
+          "frames": 1
+        },
+        {
+          "path": "fp32.png",
+          "bytes": 133645,
+          "sha256": "c7c360d0ec3144949938fdd0e6cd1dd58ecce281698b5c9dfaf68f39b8ced693",
+          "compute_dtype": "fp32",
+          "width": 512,
+          "height": 288,
+          "frames": 1
+        }
+      ],
+      "review": {
+        "method": "Actually viewed both original PNGs.",
+        "result": "FAIL",
+        "observed": "Both outputs show saturated black, white, pink and yellow blocks; neither resolves coherent adult figures or the envelope.",
+        "limits": "Single frame and retained fp16 checkpoint weights; this checks the selected compute-dtype change, not temporal behavior or native fp32-trained weights."
+      }
+    }
+  ],
+  "conclusion": {
+    "status": "CAUSE_UNRESOLVED",
+    "control_benefit": "NOT_ESTABLISHED",
+    "tiled_decoder_only_explanation": "NOT_SUPPORTED_BY_MATCHED_DECODE",
+    "compute_fp32_recovery": "NOT_OBSERVED_IN_ONE_FRAME_PAIR",
+    "next_gate": "A coherent generated baseline on a verified compatible runner is required before temporal control comparisons or product integration. These diagnostics do not establish a general MPS incompatibility."
+  }
+}

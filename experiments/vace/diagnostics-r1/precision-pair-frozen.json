@@ -1,0 +1,11 @@
+{
+  "purpose": "Paired one-frame compute precision diagnostic; both branches share original prompt, CPU text encoding, seed 20260925, 20-step sampler, dimensions 512x288 and standard VAE decode. Only model compute dtype differs (fp16/fp32); original downloaded fp16 weights unchanged.",
+  "frozen_before_submission_utc": "2026-09-24T18:49:41.685235+00:00",
+  "workflow_sha256": "92b92a4219c69637c6acf6f5e1cf8534556a66632f2329e5aac9c817cf8d5d3c",
+  "review": "Actually inspect both outputs for coarse recognizable people/table and gross saturated-color corruption. This is not a 65-frame quality test, contact/action validation or a substitute for the original frozen acceptance.",
+  "limits": [
+    "No custom nodes or source patches",
+    "No commercial API",
+    "One frame cannot validate timing, continuity or trajectories"
+  ]
+}

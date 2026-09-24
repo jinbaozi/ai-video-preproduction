@@ -1,0 +1,7 @@
+{
+  "purpose": "Paired no-control ablation after controlled output quality FAIL. Same prompt, seed, weights, dimensions, frames, sampler and steps; only omit control_video and change output filename.",
+  "paired_prompt_id": "715e1f88-b266-4226-8806-4a5ea06e6cc4",
+  "workflow_sha256": "b5319c928bc464d0be371bf8f6486348551b4a798f44fa08c98945aa25d1786e",
+  "quality_review": "NOT_RUN",
+  "control_benefit": "NOT_YET_ESTABLISHED"
+}

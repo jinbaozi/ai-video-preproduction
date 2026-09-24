@@ -1,0 +1,7 @@
+{
+  "purpose": "Decoder-only diagnostic using same no-control graph, fixed seed, weights, 65-frame sampling; change tiled VAE decode to standard VAE decode. Expected cache reuse must be verified in actual history, not assumed.",
+  "paired_prompt_id": "8b85a097-14e2-4a6e-80d4-949df89290d8",
+  "workflow_sha256": "be8f0a7c902b580ac61d967ef7851070f1fe5505197c9e7ba411ef15997ce261",
+  "frozen_before_submission_utc": "2026-09-24T18:47:10.106448+00:00",
+  "review": "Compare eight frames against no-control tiled output for coarse pink/black/yellow corruption; diagnostic only, no original quality acceptance change."
+}
