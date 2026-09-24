@@ -1,0 +1,74 @@
+{
+  "commit": "a7b4072674fdd43d1ae8f12132c45d5d310480fb",
+  "parent": "05e0e4ba88cc51061fb0b787d54a13698ade39ef",
+  "decision": "APPROVE_WITHIN_TESTED_PATCH_SCOPE",
+  "total": 122,
+  "passed": 122,
+  "groups": [
+    {
+      "name": "original42",
+      "path": "run42/evidence/results.json",
+      "total": 42,
+      "passed": 42,
+      "failed": []
+    },
+    {
+      "name": "originalSupplemental21",
+      "path": "supplemental/results.json",
+      "total": 21,
+      "passed": 21,
+      "failed": []
+    },
+    {
+      "name": "numericAndOriginalReplay",
+      "path": "numeric/results.json",
+      "total": 27,
+      "passed": 27,
+      "failed": []
+    },
+    {
+      "name": "exactTimeEdges",
+      "path": "timing-edges/results.json",
+      "total": 6,
+      "passed": 6,
+      "failed": []
+    },
+    {
+      "name": "hostStageReceiveLower",
+      "path": "host/results.json",
+      "total": 22,
+      "passed": 22,
+      "failed": []
+    },
+    {
+      "name": "isolatedImage",
+      "path": "isolation/results.json",
+      "total": 2,
+      "passed": 2,
+      "failed": []
+    },
+    {
+      "name": "previsPreflight",
+      "path": "previs-preflight/results.json",
+      "total": 2,
+      "passed": 2,
+      "failed": []
+    }
+  ],
+  "not_run": [
+    "full_joint_compile",
+    "181_repository_tests",
+    "7_packaged_skills_install_build",
+    "Blender_render",
+    "video_generation",
+    "VACE_experiments",
+    "actual_cross_platform_libm_comparison"
+  ],
+  "quality_claim": false,
+  "download": {
+    "filename": "a7b4072-functional-audit.zip",
+    "bytes": 18422202,
+    "sha256": "7340d98cd66aa799c1c6bb86d4a76100dc49c26152e0f67a5c4b5a5dc2cb37f9"
+  },
+  "report_sha256": "b81b95169b3d4b1952f920e7cf3864cc238b6c4d2d77b12132b947873766dcd3"
+}
