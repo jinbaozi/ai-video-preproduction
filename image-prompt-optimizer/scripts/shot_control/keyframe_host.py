@@ -8,7 +8,7 @@ import tempfile
 from .common import confined, digest, read, schema_check, sha, write
 from .keyframes import check_request
 from .media_probe import probe
-from .package import recipe, verify_package
+from .package import recipe, verify_package, same_json_value
 from .asset_usage import compatible
 
 
@@ -92,7 +92,7 @@ def verify_stage(root):
     if not isinstance(recorded.get('artifact_id'), str) or not recorded['artifact_id'].strip():
         raise ValueError('Output artifact ID required')
     expected = _stage_data(root, recorded['artifact_id'])
-    if expected != recorded: raise ValueError('Frozen host stage differs from source inputs')
+    if not same_json_value(expected, recorded): raise ValueError('Frozen host stage differs from source inputs')
     files = {'stage.json', 'request.json', 'prompt.txt', 'anchors.json', 'control-package/package-manifest.json'}
     files.update('control-package/'+p for p in read(root/'control-package/package-manifest.json')['files'])
     files.update(i['path'] for i in expected['inputs'])
@@ -187,7 +187,7 @@ def _result(root):
 def verify_received(root):
     root = Path(root).resolve()
     receipt, artifacts = _result(root)
-    if read(root/'receipt.json') != receipt or read(root/'artifact-manifest.json') != artifacts:
+    if not same_json_value(read(root/'receipt.json'), receipt) or not same_json_value(read(root/'artifact-manifest.json'), artifacts):
         raise ValueError('Received keyframe derivation differs from frozen inputs or review')
     required = {'host-result.json', 'receipt.json', 'artifact-manifest.json', receipt['media']['path'], 'stage/stage-manifest.json'}
     required.update('stage/'+p for p in read(root/'stage/stage-manifest.json')['files'])

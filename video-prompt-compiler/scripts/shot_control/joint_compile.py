@@ -2,7 +2,7 @@
 from pathlib import Path
 from copy import deepcopy
 from .common import read, write, sha, pointer, schema_check
-from .package import verify_package
+from .package import verify_package, same_json_value
 from .control_lowering import lower
 from .asset_usage import OBLIGATION_TYPES
 
@@ -263,9 +263,9 @@ def verify_export(out):
     for request in result['requests']:
         prefix = ('BLOCKED-' if request['status']=='BLOCKED' else '')+request['id']
         expected.update((prefix+'.json', prefix+'.txt'))
-        if read(confined(out, prefix+'.json')) != request or confined(out, prefix+'.txt').read_text() != request['prompt']+'\n':
+        if not same_json_value(read(confined(out, prefix+'.json')), request) or confined(out, prefix+'.txt').read_text() != request['prompt']+'\n':
             raise ValueError('Joint request differs from verified inputs')
-    if set(manifest['files']) != expected or read(confined(out, 'joint-compile.json')) != result:
+    if set(manifest['files']) != expected or not same_json_value(read(confined(out, 'joint-compile.json')), result):
         raise ValueError('Joint compile data or file set differs from verified inputs')
     for name, expected_hash in manifest['files'].items():
         if sha(confined(out, name)) != expected_hash: raise ValueError('Joint compile file changed: '+name)

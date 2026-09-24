@@ -202,3 +202,5 @@ RENDERED_LOCAL_KEYFRAME / VERIFIED_LOCAL_KEYFRAME 只代表本地中性几何渲
 新建审阅页使用 `data-label-layout="2"`：标签在相邻行避让并用细线连接原点，节点坐标不移动；极密区域放不下的文字只在完整 legend 中保留。旧版页面与 SVG 仍以旧排布逐字节重派生验证；不能只改标记或重封摘要让混合版本通过。
 
 派生 JSON 比较保留 `0` 与 `0.0` 的数值等价，但在所有嵌套字段区分布尔值和数值；`false` 不能替代时间/坐标的 `0`，`true` 不能替代 `1`，重封文件摘要也不能通过。
+
+此类型区分也适用于宿主 stage、实收回执/资产清单及联合编译的逐请求/总表复核。`submitted`、`runnable`、`edit_base`、`complete_project_scope` 等布尔状态不能改成数字别名；文本和文件摘要校验保持独立。

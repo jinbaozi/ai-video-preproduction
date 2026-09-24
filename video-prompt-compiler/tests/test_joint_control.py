@@ -1,5 +1,6 @@
 """Full native build → scoped media lowering → unified prompt/payload → re-verification."""
 from pathlib import Path
+from copy import deepcopy
 import unittest
 import shutil
 import test_shot_control as fixtures
@@ -133,6 +134,36 @@ class JointControlTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'contiguous'):scope_for_shots(self.ir,['S1','S3'])
         with self.assertRaisesRegex(ValueError,'Duplicate'):scope_for_shots(self.ir,['S2','S2'])
         with self.assertRaisesRegex(ValueError,'Unknown'):scope_for_shots(self.ir,['FAKE'])
+
+    def test_export_rejects_resealed_boolean_numeric_aliases(self):
+        self.build(); out=Path(self.tmp.name)/'joint'
+        export(self.out,'agnes-video-2.5','text',self.manifest(),out)
+        originals={name:read(out/name) for name in ('REQUEST_001.json','joint-compile.json','compile-manifest.json')}
+        self.assertEqual(verify_export(out)['status'],'VERIFIED')
+        cases=[('REQUEST_001.json',('submitted',),0),
+               ('REQUEST_001.json',('runnable',),0),
+               ('REQUEST_001.json',('scope','start_ms'),False),
+               ('joint-compile.json',('complete_project_scope',),1),
+               ('joint-compile.json',('submitted',),0),
+               ('joint-compile.json',('scope','start_ms'),False),
+               ('joint-compile.json',('requests',0,'runnable'),0)]
+        for name,keys,value in cases:
+            with self.subTest(file=name,field=keys):
+                for filename,original in originals.items():write(out/filename,original)
+                changed=deepcopy(originals[name]); target=changed
+                for key in keys[:-1]:target=target[key]
+                target[keys[-1]]=value;write(out/name,changed)
+                manifest=read(out/'compile-manifest.json');manifest['files'][name]=sha(out/name)
+                write(out/'compile-manifest.json',manifest)
+                with self.assertRaisesRegex(ValueError,'differs'):verify_export(out)
+        # Numeric representation changes remain legal; original boolean states stay booleans.
+        for filename,original in originals.items():write(out/filename,original)
+        manifest=read(out/'compile-manifest.json')
+        for name in ('REQUEST_001.json','joint-compile.json'):
+            changed=read(out/name);changed['scope']['start_ms']=0.0
+            write(out/name,changed);manifest['files'][name]=sha(out/name)
+        write(out/'compile-manifest.json',manifest)
+        self.assertEqual(verify_export(out)['status'],'VERIFIED')
 
 
 if __name__ == '__main__': unittest.main()

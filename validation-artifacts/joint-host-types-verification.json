@@ -1,0 +1,134 @@
+{
+  "schema": "joint-host-types-verification/0.1",
+  "parent_commit": "6ec63374559d67835c90ab8d9350a308751988fd",
+  "status": "PASS_SCOPED_SOFTWARE_VALIDATION",
+  "source_regressions": {
+    "joint_control": {
+      "tests": 10,
+      "seconds": 21.361
+    },
+    "keyframe_host": {
+      "tests": 12,
+      "seconds": 97.21
+    }
+  },
+  "isolated_video_tests": {
+    "total": 183,
+    "runs": [
+      {
+        "log": "video-prompt-compiler-01.log",
+        "tests": 24,
+        "seconds": 0.201
+      },
+      {
+        "log": "video-prompt-compiler-02.log",
+        "tests": 7,
+        "seconds": 81.336
+      },
+      {
+        "log": "video-prompt-compiler-03.log",
+        "tests": 9,
+        "seconds": 7.569
+      },
+      {
+        "log": "video-prompt-compiler-04.log",
+        "tests": 4,
+        "seconds": 6.076
+      },
+      {
+        "log": "video-prompt-compiler-05.log",
+        "tests": 8,
+        "seconds": 2.636
+      },
+      {
+        "log": "video-prompt-compiler-06.log",
+        "tests": 12,
+        "seconds": 95.722
+      },
+      {
+        "log": "video-prompt-compiler-07.log",
+        "tests": 1,
+        "seconds": 5.142
+      },
+      {
+        "log": "video-prompt-compiler-08.log",
+        "tests": 14,
+        "seconds": 22.977
+      },
+      {
+        "log": "video-prompt-compiler-09.log",
+        "tests": 10,
+        "seconds": 21.898
+      },
+      {
+        "log": "video-prompt-compiler-10.log",
+        "tests": 27,
+        "seconds": 18.288
+      },
+      {
+        "log": "video-prompt-compiler-11.log",
+        "tests": 38,
+        "seconds": 33.88
+      },
+      {
+        "log": "video-prompt-compiler-12.log",
+        "tests": 29,
+        "seconds": 0.84
+      }
+    ],
+    "scope": "Twelve named test modules in suite verifier; not a full source discovery"
+  },
+  "packages": [
+    {
+      "name": "ai-comic-drama-workflow",
+      "archive_sha256": "03aae24e557a1aa8a7cbf8d1fb032f0a7057a9a64ccd2f16353d03c181f7e33c",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "screenplay-grammar",
+      "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "director-grammar",
+      "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "production-design-grammar",
+      "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "storyboard-grammar",
+      "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "video-prompt-compiler",
+      "archive_sha256": "d4046e3ff1b00282977ef6d8bb13d9099b19bd2adca7820b4c60ac54389cdd4f",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "image-prompt-optimizer",
+      "archive_sha256": "29ae8450d57cbb022c7832d511f6be0751c388ab0fd0c9addbcc5ecc05f46be0",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    }
+  ],
+  "bundled_equal": true,
+  "reproduction": "joint-host-boolean-reproduction.json",
+  "existing_actual_keyframe": {
+    "verification": "VERIFIED_RECEIVED_KEYFRAME",
+    "visual_review": "FAIL",
+    "submitted": false
+  },
+  "independent_web_audit": "ffe3e170 still running; current patch not independently approved",
+  "release_report_sha256": "65c8c577ebb48639e82c1b0f38da38e4eb199e6d868f3e3a0d810bbc1067b887"
+}

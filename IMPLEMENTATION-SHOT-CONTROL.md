@@ -232,3 +232,11 @@ GPT‑6 Pro 网页完成 28 分 9 秒审核，给出 APPROVE_WITHIN_TESTED_PATCH
 以原摄影结果为编辑基图，事前冻结四张输入与信封中心 ±0.02 的原验收标准，内置 image_gen 实际执行一次。输出 1672×941；手工中心约 (0.445574,0.613177)，相对目标误差 (+0.0672,-0.1031)，记录 ±12 像素标记不确定性后仍 FAIL。接收及包校验成功，未将技术实收混同构图合格。首次作者误用 stage 数据摘要被正确拒绝，纠正作者回执后接收；冻结输入及实际输出不变。
 
 准确提示、合同、审图与摘要在 experiments/keyframes/composition-repair-r1；原图、完整 stage 与实收包留本地。该旧实验包的降译同时存在旧 image_reference 通道、审图失败、缺上传绑定及尾帧等阻断，不能描述成单一失败原因的回归证据。没有追加采样、商业视频提交或源码改动；PR4 和最终独立联合编译审核仍未闭合。
+
+## 联合编译和宿主回执的类型复核
+
+在 ffe3e170 网页审核仍运行期间，本地独立复现了联合产物的类型漏洞：将零时间替换为 false，或将 submitted/runnable/complete_project_scope 等布尔状态替换为 0/1，重封摘要后旧 verify-compile 仍返回 VERIFIED。宿主 stage 的 edit_base 与实收回执/资产清单的布尔字段也存在同类漏检。当前这些派生数据复核共用 same_json_value，不改变原始输入、参数或正文，合法 0/0.0 等价继续接受。
+
+七个联合编译反例在修复前均未被拒绝，修复后联合编译 10 项、宿主 12 项通过。此前真实图片实收包仍返回 VERIFIED_RECEIVED_KEYFRAME 且质量 FAIL，没有将软件回归变成审图通过。原始 before/after 记录见 validation-artifacts/joint-host-boolean-reproduction.json；独立网页终局结论另行记录。
+
+最终版本 video-prompt-compiler 1.17.3、image-prompt-optimizer 1.15.3、workflow 0.7.11。七包静态验证、隔离安装、内置一致性和重复构建均 PASS，独立视频包十二个指定模块合计 183 项通过。验证摘要见 validation-artifacts/joint-host-types-verification.json，完整本地报告为 outputs/shot-control-joint-types-release/report.json；尚未声称新的独立审核批准或整体交付。

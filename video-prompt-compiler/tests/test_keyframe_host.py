@@ -127,6 +127,32 @@ class KeyframeHostTests(unittest.TestCase):
         self.assertEqual(verify_received(out)['visual_review'],'FAIL')
         self.assertIn('OUTPUT_ASPECT_MISMATCH',read(out/'receipt.json')['technical_issues'])
 
+    def test_resealed_stage_and_receipt_keep_boolean_types(self):
+        self.prepare(edit=True)
+        original=read(self.staged/'stage.json');seal=read(self.staged/'stage-manifest.json')
+        changed=deepcopy(original);changed['inputs'][0]['edit_base']=1
+        write(self.staged/'stage.json',changed)
+        changed_seal=deepcopy(seal);changed_seal['files']['stage.json']=sha(self.staged/'stage.json')
+        write(self.staged/'stage-manifest.json',changed_seal)
+        with self.assertRaisesRegex(ValueError,'stage differs'):verify_stage(self.staged)
+        write(self.staged/'stage.json',original);write(self.staged/'stage-manifest.json',seal)
+        self.assertIs(verify_stage(self.staged)['inputs'][0]['edit_base'],True)
+        out=Path(self.tmp.name)/'received';receive(self.staged,self.media,self.host_path,out)
+        originals={name:read(out/name) for name in ('receipt.json','artifact-manifest.json','received-manifest.json')}
+        for name,keys in [('receipt.json',('submitted',)),('receipt.json',('media','audio')),
+                          ('artifact-manifest.json',('submitted',))]:
+            with self.subTest(file=name,field=keys):
+                for filename,data in originals.items():write(out/filename,data)
+                changed=deepcopy(originals[name]);target=changed
+                for key in keys[:-1]:target=target[key]
+                self.assertIs(target[keys[-1]],False);target[keys[-1]]=0
+                write(out/name,changed)
+                seal=read(out/'received-manifest.json');seal['files'][name]=sha(out/name)
+                write(out/'received-manifest.json',seal)
+                with self.assertRaisesRegex(ValueError,'derivation differs'):verify_received(out)
+        for filename,data in originals.items():write(out/filename,data)
+        self.assertEqual(verify_received(out)['status'],'VERIFIED_RECEIVED_KEYFRAME')
+
     def test_truncated_png_cannot_be_received_with_pass_assertions(self):
         import struct, zlib
         self.prepare()

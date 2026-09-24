@@ -1,0 +1,116 @@
+{
+  "baseline_commit": "6ec63374559d67835c90ab8d9350a308751988fd",
+  "host_receipt_cases": [
+    {
+      "after": "Received keyframe derivation differs from frozen inputs or review",
+      "before": "VERIFIED_RECEIVED_KEYFRAME",
+      "field": [
+        "submitted"
+      ],
+      "file": "receipt.json",
+      "original": false,
+      "replacement": 0
+    },
+    {
+      "after": "Received keyframe derivation differs from frozen inputs or review",
+      "before": "VERIFIED_RECEIVED_KEYFRAME",
+      "field": [
+        "media",
+        "audio"
+      ],
+      "file": "receipt.json",
+      "original": false,
+      "replacement": 0
+    },
+    {
+      "after": "Received keyframe derivation differs from frozen inputs or review",
+      "before": "VERIFIED_RECEIVED_KEYFRAME",
+      "field": [
+        "submitted"
+      ],
+      "file": "artifact-manifest.json",
+      "original": false,
+      "replacement": 0
+    }
+  ],
+  "joint_cases": [
+    {
+      "after": "Joint request differs from verified inputs",
+      "before": "VERIFIED",
+      "field": "submitted",
+      "file": "REQUEST_001.json",
+      "original": false,
+      "replacement": 0
+    },
+    {
+      "after": "Joint request differs from verified inputs",
+      "before": "VERIFIED",
+      "field": "runnable",
+      "file": "REQUEST_001.json",
+      "original": false,
+      "replacement": 0
+    },
+    {
+      "after": "Joint compile data or file set differs from verified inputs",
+      "before": "VERIFIED",
+      "field": "complete_project_scope",
+      "file": "joint-compile.json",
+      "original": true,
+      "replacement": 1
+    },
+    {
+      "after": "Joint compile data or file set differs from verified inputs",
+      "before": "VERIFIED",
+      "field": "submitted",
+      "file": "joint-compile.json",
+      "original": false,
+      "replacement": 0
+    },
+    {
+      "after": "Joint compile data or file set differs from verified inputs",
+      "before": "VERIFIED",
+      "field": "scope",
+      "file": "joint-compile.json",
+      "original": {
+        "end_ms": 12000,
+        "start_ms": 0
+      },
+      "replacement": {
+        "end_ms": 12000,
+        "start_ms": false
+      }
+    }
+  ],
+  "joint_regression_before": "Seven subcases failed to reject boolean/numeric aliasing",
+  "limits": [
+    "No new generated media or quality acceptance",
+    "Independent web audit of ffe3e170 still pending",
+    "Original inputs remain readable; numeric 0/0.0 equivalence retained"
+  ],
+  "method": "Build valid native cafe source package, export/receive, change only derived JSON type, reseal changed file hash, invoke original and fixed verifier. Host media and host assertions are synthetic tests, not model execution.",
+  "schema": "joint-host-boolean-reproduction/0.1",
+  "stage_case": {
+    "after": "Rejected with Frozen host stage differs from source inputs; corrected original stage still accepted",
+    "before": "ACCEPTED; regression failed because ValueError was not raised",
+    "field": "inputs[0].edit_base",
+    "original": true,
+    "replacement": 1
+  },
+  "regressions": {
+    "joint_control": {
+      "tests": 10,
+      "seconds": 21.361,
+      "failures": 0
+    },
+    "keyframe_host": {
+      "tests": 12,
+      "seconds": 97.21,
+      "failures": 0
+    }
+  },
+  "existing_actual_media_package": {
+    "status": "VERIFIED_RECEIVED_KEYFRAME",
+    "visual_review": "FAIL",
+    "submitted": false
+  }
+}
