@@ -2,11 +2,22 @@
 from pathlib import Path
 import sys
 import unittest
+import tempfile
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]/'scripts'))
 from shot_control.control_lowering import validate_delta
 
 
 class ControlContractsTests(unittest.TestCase):
+    def test_native_control_package_without_sibling_runtime(self):
+        from shot_control.control_plan import build
+        from shot_control.package import verify_package
+        root = Path(__file__).resolve().parent
+        with tempfile.TemporaryDirectory() as tmp:
+            build(root/'fixtures/control.avir.json', tmp)
+            result = verify_package(tmp)
+            self.assertEqual(result['plan']['shot_ids'], ['S1', 'S2', 'S3'])
+            self.assertTrue(result['requests'])
+
     def test_standalone_edit_contract_and_conflict(self):
         value = {'schema':'edit-delta/0.1','keyframe_id':'K1',
                  'source':{'kind':'avir/1.2','path':'source.json','sha256':'0'*64},

@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "properties": {
     "schema": {
-      "const": "keyframe-request/0.1"
+      "const": "keyframe-request/0.2"
     },
     "id": {
       "type": "string",
@@ -92,6 +92,18 @@
     },
     "visual_review": {
       "const": "NOT_RUN"
+    },
+    "base_asset_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "edit_delta": {
+      "type": [
+        "object",
+        "null"
+      ]
     }
   },
   "required": [
@@ -109,6 +121,8 @@
     "status",
     "acceptance",
     "generated",
-    "visual_review"
+    "visual_review",
+    "base_asset_id",
+    "edit_delta"
   ]
 }

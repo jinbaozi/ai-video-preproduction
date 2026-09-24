@@ -3,8 +3,22 @@ import json
 from pathlib import Path
 
 
+def _unique(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result: raise ValueError('Duplicate JSON key: '+key)
+        result[key] = value
+    return result
+
+
+def digest(value):
+    return hashlib.sha256(json.dumps(value, sort_keys=True, ensure_ascii=False,
+                         separators=(',', ':'), allow_nan=False).encode()).hexdigest()
+
+
 def read(path):
-    return json.loads(Path(path).read_text(encoding='utf-8'))
+    return json.loads(Path(path).read_text(encoding='utf-8'), object_pairs_hook=_unique,
+                      parse_constant=lambda x: (_ for _ in ()).throw(ValueError('Non-finite JSON: '+x)))
 
 
 def write(path, value):
@@ -27,7 +41,12 @@ def pointer(value, path):
         raise ValueError('Expected JSON pointer')
     for key in path[1:].split('/'):
         key = key.replace('~1', '/').replace('~0', '~')
-        value = value[int(key)] if isinstance(value, list) else value[key]
+        if isinstance(value, list):
+            if not key.isdigit() or (len(key) > 1 and key.startswith('0')):
+                raise ValueError('Invalid array pointer')
+            value = value[int(key)]
+        else:
+            value = value[key]
     return value
 
 

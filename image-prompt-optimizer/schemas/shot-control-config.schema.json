@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "properties": {
     "schema": {
-      "const": "shot-control-config/0.1"
+      "const": "shot-control-config/0.2"
     },
     "lenses": {
       "type": "object",
@@ -68,7 +68,8 @@
               "type": "string",
               "minLength": 1
             },
-            "minItems": 1
+            "minItems": 1,
+            "uniqueItems": true
           },
           "source_pointers": {
             "type": "array",
@@ -76,7 +77,8 @@
               "type": "string",
               "minLength": 1
             },
-            "minItems": 1
+            "minItems": 1,
+            "uniqueItems": true
           },
           "channel": {
             "enum": [
@@ -98,7 +100,8 @@
               "type": "string",
               "minLength": 1
             },
-            "minItems": 0
+            "minItems": 0,
+            "uniqueItems": true
           },
           "hardness": {
             "enum": [
@@ -111,6 +114,9 @@
               "block",
               "report_loss"
             ]
+          },
+          "purpose": {
+            "const": "supplement"
           }
         },
         "required": [
@@ -121,7 +127,8 @@
           "channel",
           "artifact_ids",
           "hardness",
-          "fallback_policy"
+          "fallback_policy",
+          "purpose"
         ]
       },
       "minItems": 0

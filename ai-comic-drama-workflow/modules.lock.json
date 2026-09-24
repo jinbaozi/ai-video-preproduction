@@ -8,8 +8,8 @@
     },
     "image-prompt-optimizer": {
       "archive": "image-prompt-optimizer.skill",
-      "sha256": "431224ab407e840f56b0fa8471c9ee6faedf194794228d94e05f38f4e694ea31",
-      "version": "1.4.0"
+      "sha256": "1536cd6a8a892d71f68f1046e003f042ee50e88e0dac7e8de6d703fbd0c90664",
+      "version": "1.5.0"
     },
     "production-design-grammar": {
       "archive": "production-design-grammar.skill",
@@ -28,8 +28,8 @@
     },
     "video-prompt-compiler": {
       "archive": "video-prompt-compiler.skill",
-      "sha256": "410cc7bbec0fc4c021a89298dcc48dc106f155765f374f05d3b62085f760c915",
-      "version": "1.6.0"
+      "sha256": "82570593ece31a0eb67ff62ea79a53c327d5daf36c80e9d8fb9b03703367e2d0",
+      "version": "1.7.0"
     }
   },
   "schema": "skill-modules/1.0"

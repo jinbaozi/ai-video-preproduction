@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 import sys
 import subprocess
-from shot_control.common import read, write, sha, confined
+from shot_control.common import read, write, sha
 
 
 def main():
@@ -14,11 +14,11 @@ def main():
     p = sub.add_parser('build'); p.add_argument('input'); p.add_argument('--config'); p.add_argument('--out', required=True)
     p = sub.add_parser('probe'); p.add_argument('input')
     p = sub.add_parser('edit-check'); p.add_argument('input')
-    p = sub.add_parser('keyframe-check'); p.add_argument('input')
+    p = sub.add_parser('keyframe-check'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--artifacts', required=True)
     p = sub.add_parser('verify'); p.add_argument('package')
     p = sub.add_parser('segment'); p.add_argument('input'); p.add_argument('--target', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('lower'); p.add_argument('package'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--out', required=True)
-    p = sub.add_parser('review'); p.add_argument('input'); p.add_argument('--media', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('review'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--media', required=True); p.add_argument('--out', required=True)
     args = parser.parse_args()
     try:
         if args.command == 'build':
@@ -31,19 +31,11 @@ def main():
             from shot_control.control_lowering import validate_delta
             result = validate_delta(read(args.input))
         elif args.command == 'keyframe-check':
-            from shot_control.common import schema_check
-            request = read(args.input); schema_check(request, 'keyframe-request')
-            reasons = []
-            if not request['master_anchors']: reasons.append('MASTER_ANCHORS_UNRESOLVED')
-            if request['generation_mode'] == 'UNRESOLVED': reasons.append('GENERATION_MODE_UNRESOLVED')
-            if request['subject_state'].get('status') != 'EXPLICIT': reasons.append('EXPLICIT_POSE_REQUIRED')
-            result = {'status': 'BLOCKED' if reasons else 'DRAFT_REQUIRES_HOST_REVIEW', 'reasons': reasons,
-                      'generated': False, 'visual_review': 'NOT_RUN'}
+            from shot_control.keyframes import check_request
+            result = check_request(read(args.input), args.package, args.artifacts)
         elif args.command == 'verify':
-            manifest = read(Path(args.package)/'package-manifest.json')
-            for name, expected in manifest['files'].items():
-                if sha(confined(args.package, name)) != expected:
-                    raise ValueError('Package changed: '+name)
+            from shot_control.package import verify_package
+            verify_package(args.package)
             result = {'status': 'VERIFIED', 'media_review': 'NOT_RUN'}
         elif args.command == 'lower':
             from shot_control.control_lowering import lower
@@ -66,13 +58,13 @@ def main():
             review = read(args.input)
             if sha(args.media) != review['media_sha256']:
                 raise ValueError('Observed media hash mismatch')
-            result = evaluate(review)
+            result = evaluate(review, args.package, args.media)
             if Path(args.out).exists():
                 raise ValueError('Use a new output file')
             write(args.out, result)
         print(json.dumps(result, ensure_ascii=False, indent=2))
         return 2 if result.get('status') == 'BLOCKED' else 0
-    except (OSError, ValueError, KeyError, TypeError, subprocess.TimeoutExpired) as e:
+    except (OSError, ValueError, KeyError, IndexError, TypeError, subprocess.TimeoutExpired) as e:
         print(json.dumps({'status': 'ERROR', 'message': str(e)}, ensure_ascii=False), file=sys.stderr)
         return 1
 

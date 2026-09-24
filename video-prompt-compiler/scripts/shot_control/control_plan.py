@@ -4,7 +4,7 @@ from pathlib import Path
 import math
 import shutil
 
-from .common import read, write, sha, pointer, schema_check
+from .common import read, write, sha, schema_check
 from .camera_projection import project, sub
 
 
@@ -44,6 +44,9 @@ def frame(ir, shot, at, lens):
         if camera['forward'] is not None and camera['fov'] is not None:
             camera['status'] = 'PLANNED_PROJECTION'
     aspect = lens.get('aspect', 16/9)
+    crop = lens.get('crop', [0, 0, 1, 1])
+    camera['output_aspect'] = aspect*crop[2]/crop[3]
+    camera['crop'] = crop
     points = []
     for nid, pos in positions.items():
         row = {'id': nid, 'label': ns[nid]['label'], 'kind': ns[nid]['kind'], 'position': pos,
@@ -76,37 +79,43 @@ def event_times(ir, shot):
 
 
 def build(source, out, config=None):
-    from vpc_core import validate
+    from .package import validate_source, validate_config
     source, out = Path(source).resolve(), Path(out).resolve()
     ir = read(source)
-    if ir.get('schema') != 'avir/1.2':
-        raise ValueError('shot-control requires AVIR 1.2; migrate explicitly')
-    errors = validate(ir, source.parent)
-    if any(e['severity'] in ('error', 'blocker') for e in errors):
-        raise ValueError('Invalid source AVIR: '+str(errors))
-    config = config or {'schema': 'shot-control-config/0.1', 'lenses': {}, 'controls': []}
-    schema_check(config, 'shot-control-config')
-    shot_ids = {s['id'] for s in ir['shots']}
-    if set(config['lenses'])-shot_ids:
-        raise ValueError('Unknown lens shot')
-    for control in config['controls']:
-        if not set(control['shot_ids']) <= shot_ids:
-            raise ValueError('Unknown control shot')
-        for path in control['source_pointers']:
-            pointer(ir, path)
-    if len({c['id'] for c in config['controls']}) != len(config['controls']):
-        raise ValueError('Duplicate control IDs')
-    unknown = {c['requirement_id'] for c in config['controls']}-{c['id'] for c in ir['contract']}
-    if unknown:
-        raise ValueError('Unknown requirement IDs: '+str(unknown))
+    validate_source(ir, source.parent)
+    config = config or {'schema': 'shot-control-config/0.2', 'lenses': {}, 'controls': []}
+    validate_config(ir, config)
     if out.exists() and any(out.iterdir()):
         raise ValueError('Output directory must be empty')
     out.mkdir(parents=True, exist_ok=True)
     shutil.copyfile(source, out/'production-specification.json')
-    plan = {'schema': 'shot-control/0.1', 'source': {'kind': 'avir/1.2', 'path': 'production-specification.json', 'sha256': sha(source)},
+    plan = {'schema': 'shot-control/0.2', 'source': {'kind': 'avir/1.2', 'path': 'production-specification.json', 'sha256': sha(source)},
             'shot_ids': list(s['id'] for s in ir['shots']), 'controls': [], 'video_generated': False, 'video_qa': 'NOT_RUN'}
     for control in config['controls']:
         plan['controls'].append({**control, 'status': 'PLANNED'})
+    frames, requests = derive(ir, config, plan)
+    write(out/'control-plan.json', plan)
+    write(out/'control-config.json', config)
+    write(out/'keyframe-requests.json', requests)
+    write(out/'review/frames.json', frames)
+    from .media_review import evaluation_plan
+    write(out/'evaluation-plan.json', evaluation_plan(ir, frames))
+    from .render_blocking import export_review
+    export_review(out, frames)
+    coverage = [{'requirement_id': c['id'], 'source_pointers': [x['path'] for x in c['checks']],
+                 'control_ids': [r['id'] for r in plan['controls'] if r['requirement_id'] == c['id']],
+                 'level': c['level'], 'execution_status': 'PLANNED', 'media_review': 'NOT_RUN'} for c in ir['contract']]
+    for request in requests:
+        schema_check(request, 'keyframe-request')
+    write(out/'control-coverage.json', coverage)
+    write(out/'artifact-manifest.json', {'schema': 'control-artifacts/0.2', 'artifacts': [], 'submitted': False})
+    write(out/'package-manifest.json', {'schema': 'control-package/0.2', 'files': {
+        p.relative_to(out).as_posix(): sha(p) for p in sorted(out.rglob('*')) if p.is_file()}})
+    return {'status': 'DERIVED', 'out': str(out), 'keyframe_requests': len(requests), 'video_generated': False,
+            'execution': 'NOT_RUN', 'projection_unresolved_frames': sum(f['camera']['status'] == 'UNDETERMINED' for f in frames)}
+
+
+def derive(ir, config, plan):
     frames, requests = [], []
     for index, shot in enumerate(ir['shots']):
         lens = config['lenses'].get(shot['id'], {})
@@ -117,28 +126,12 @@ def build(source, out, config=None):
         frames.extend(by_time.values())
         for at in events:
             state = by_time[at]
-            requests.append({'schema': 'keyframe-request/0.1', 'id': f'K{index+1:03d}_{at}',
+            requests.append({'schema': 'keyframe-request/0.2', 'id': f'K{index+1:03d}_{at}',
                 'source': plan['source'], 'shot_id': shot['id'], 'at_ms': at,
                 'source_pointers': [f'/shots/{index}', '/timeline'], 'camera_state': state['camera'],
                 'subject_state': state['state'], 'references': [deepcopy(b) for b in ir['bindings'] if shot['id'] in b['shot_ids']],
-                'master_anchors': [], 'generation_mode': 'UNRESOLVED',
+                'master_anchors': [], 'generation_mode': 'UNRESOLVED', 'base_asset_id': None, 'edit_delta': None,
                 'status': 'DRAFT_REQUIRES_HOST_REVIEW',
                 'acceptance': ['保持主身份与场景母版', '核对本时刻姿态、手别、视线和构图', '不得出现箭头、ID、时码或面板'],
                 'generated': False, 'visual_review': 'NOT_RUN'})
-    write(out/'control-plan.json', plan)
-    write(out/'control-config.json', config)
-    write(out/'keyframe-requests.json', requests)
-    write(out/'review/frames.json', frames)
-    from .render_blocking import export_review
-    export_review(out, frames)
-    coverage = [{'requirement_id': c['id'], 'source_pointers': [x['path'] for x in c['checks']],
-                 'control_ids': [r['id'] for r in plan['controls'] if r['requirement_id'] == c['id']],
-                 'level': c['level'], 'execution_status': 'PLANNED', 'media_review': 'NOT_RUN'} for c in ir['contract']]
-    for request in requests:
-        schema_check(request, 'keyframe-request')
-    write(out/'control-coverage.json', coverage)
-    write(out/'artifact-manifest.json', {'schema': 'control-artifacts/0.1', 'artifacts': [], 'submitted': False})
-    write(out/'package-manifest.json', {'schema': 'control-package/0.1', 'files': {
-        p.relative_to(out).as_posix(): sha(p) for p in sorted(out.rglob('*')) if p.is_file()}})
-    return {'status': 'DERIVED', 'out': str(out), 'keyframe_requests': len(requests), 'video_generated': False,
-            'execution': 'NOT_RUN', 'projection_unresolved_frames': sum(f['camera']['status'] == 'UNDETERMINED' for f in frames)}
+    return frames, requests

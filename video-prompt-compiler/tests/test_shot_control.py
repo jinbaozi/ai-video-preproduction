@@ -7,14 +7,19 @@ import tempfile
 import unittest
 import struct
 import zlib
+import subprocess
+import wave
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 from shot_control.camera_projection import project
-from shot_control.common import read, write, sha, schema_check
+from shot_control.common import read, write, sha, schema_check, digest
 from shot_control.control_plan import build, frame
 from shot_control.control_lowering import lower, validate_delta
 from shot_control.media_review import evaluate
+from shot_control.package import verify_package, recipe
+from shot_control.keyframes import check_request
+from shot_control.render_blocking import svg
 
 
 class ShotControlTests(unittest.TestCase):
@@ -26,7 +31,7 @@ class ShotControlTests(unittest.TestCase):
         self.lens = {'vertical_fov_deg': 50, 'aspect': 16/9, 'basis': 'authored_proxy', 'evidence': 'Synthetic test design'}
 
     def build(self):
-        return build(self.source, self.out, {'schema': 'shot-control-config/0.1',
+        return build(self.source, self.out, {'schema': 'shot-control-config/0.2',
                      'lenses': {s['id']: self.lens for s in self.ir['shots']}, 'controls': []})
 
     def test_projection_axes_and_depth(self):
@@ -75,24 +80,133 @@ class ShotControlTests(unittest.TestCase):
         self.build(); (self.out/'production-specification.json').write_text('{}')
         with self.assertRaises(ValueError): lower(self.out, 'agnes-video-2.5', 'reference', self.out/'artifact-manifest.json')
 
-    def test_flash_blocks_video_and_never_submits(self):
-        self.build(); plan = read(self.out/'control-plan.json')
-        plan['controls'] = [{'id':'C1','requirement_id':'REQ_DURATION','shot_ids':['S1'], 'source_pointers':['/shots/0'],
-                             'channel':'clay_video_reference','artifact_ids':['CLAY'],'hardness':'hard','fallback_policy':'block','status':'PLANNED'}]
-        write(self.out/'control-plan.json', plan)
-        result = lower(self.out, 'agnes-video-2.5-flash', 'reference', self.out/'artifact-manifest.json')
-        self.assertIn('C1:UNSUPPORTED_CHANNEL', result['reasons'])
-        self.assertIsNone(result['media_fields_draft']); self.assertFalse(result['submitted'])
+    def configured(self, channel='first_frame', ids=None):
+        c = {'id': 'C1', 'requirement_id': 'REQ_FACE', 'shot_ids': ['S2'],
+             'source_pointers': ['/shots/1/camera/shot_size'], 'channel': channel,
+             'artifact_ids': ids or ['K1'], 'hardness': 'hard', 'fallback_policy': 'block', 'purpose': 'supplement'}
+        config = {'schema': 'shot-control-config/0.2', 'lenses': {s['id']: self.lens for s in self.ir['shots']}, 'controls': [c]}
+        build(self.source, self.out, config)
+        return config, c
+
+    def artifact(self, config, c, ident='K1', role='clean_keyframe', content=128, url=None):
+        def chunk(kind, data):
+            return struct.pack('!I',len(data))+kind+data+struct.pack('!I',zlib.crc32(kind+data)&0xffffffff)
+        png = b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!2I5B',256,256,8,2,0,0,0))+chunk(b'IDAT',zlib.compress((b'\x00'+bytes([content])*768)*256))+chunk(b'IEND',b'')
+        path = Path(self.tmp.name)/(ident+'.png'); path.write_bytes(png)
+        uses = []
+        for sid in c['shot_ids']:
+            shot = next(s for s in self.ir['shots'] if s['id'] == sid)
+            start, end = shot['start_ms'], shot['end_ms']
+            if c['channel'] == 'first_frame': end = start
+            if c['channel'] == 'last_frame': start = end
+            uses.append({'control_id': c['id'], 'shot_id': sid, 'start_ms': start, 'end_ms': end,
+                         'recipe_sha256': recipe(self.ir, config, c, sid, role, start, end)})
+        return {'id': ident, 'path': path.name, 'sha256': sha(path), 'source_sha256': sha(self.source),
+                'kind': 'image', 'role': role, 'uses': uses,
+                'review': {'sha256': sha(path), 'uses_sha256': digest(uses), 'reviewer': 'synthetic fixture', 'result': 'PASS', 'checks': ['Fixture only']},
+                'binding': {'sha256': sha(path), 'url': url or 'https://example.com/'+path.name, 'receipt': 'fixture only'}}
+
+    def manifest(self, *assets):
+        path = Path(self.tmp.name)/'assets.json'
+        write(path, {'schema': 'control-artifacts/0.2', 'artifacts': list(assets), 'submitted': False})
+        return path
 
     def test_review_artifact_rejected(self):
-        self.build(); plan = read(self.out/'control-plan.json')
-        plan['controls'] = [{'id':'C1','requirement_id':'REQ_DURATION','shot_ids':['S1'], 'source_pointers':['/shots/0'],
-                             'channel':'first_frame','artifact_ids':['REVIEW'],'hardness':'hard','fallback_policy':'block','status':'PLANNED'}]
-        write(self.out/'control-plan.json', plan)
-        manifest = {'schema':'control-artifacts/0.1','submitted':False,'artifacts':[{'id':'REVIEW','path':'review/blocking-001.svg',
-                    'sha256':sha(self.out/'review/blocking-001.svg'),'source_sha256':plan['source']['sha256'], 'kind':'image','role':'review','review':None,'binding':None}]}
-        write(self.out/'artifact-manifest.json', manifest)
-        self.assertIn('C1:REVIEW_ARTIFACT_FORBIDDEN:REVIEW', lower(self.out,'agnes-video-2.5','keyframe',self.out/'artifact-manifest.json')['reasons'])
+        config, c = self.configured()
+        a = self.artifact(config, c, role='review')
+        result = lower(self.out, 'agnes-video-2.5', 'keyframe', self.manifest(a))
+        self.assertIn('C1:REVIEW_ARTIFACT_FORBIDDEN:K1', result['reasons'])
+
+    def test_duration_cannot_be_discharged_by_first_frame(self):
+        config = {'schema': 'shot-control-config/0.2', 'lenses': {}, 'controls': [{
+            'id': 'C', 'requirement_id': 'REQ_DURATION', 'shot_ids': ['S1'], 'source_pointers': ['/output'],
+            'channel': 'first_frame', 'artifact_ids': ['K'], 'hardness': 'hard', 'fallback_policy': 'block', 'purpose': 'supplement'}]}
+        with self.assertRaisesRegex(ValueError, 'parameter'): build(self.source, self.out, config)
+
+    def test_empty_partial_and_resealed_semantic_tamper_rejected(self):
+        self.out.mkdir(); write(self.out/'package-manifest.json', {'schema': 'INVALID_SCHEMA', 'files': {}})
+        with self.assertRaises(ValueError): verify_package(self.out)
+        (self.out/'package-manifest.json').unlink(); self.build()
+        manifest = read(self.out/'package-manifest.json'); del manifest['files']['review/index.html']
+        write(self.out/'package-manifest.json', manifest)
+        with self.assertRaisesRegex(ValueError, 'file set'): verify_package(self.out)
+        manifest['files']['review/index.html'] = sha(self.out/'review/index.html')
+        frames = read(self.out/'review/frames.json'); frames[0]['camera']['fov'] = 1
+        write(self.out/'review/frames.json', frames); manifest['files']['review/frames.json'] = sha(self.out/'review/frames.json')
+        write(self.out/'package-manifest.json', manifest)
+        with self.assertRaisesRegex(ValueError, 'Derived data'): verify_package(self.out)
+
+    def test_wrong_pointer_and_shot_scope_rejected(self):
+        config, c = self.configured()
+        from shot_control.package import validate_config
+        c['source_pointers'] = ['/output']
+        with self.assertRaisesRegex(ValueError, 'assertions'): validate_config(self.ir, config)
+        c['source_pointers'] = ['/shots/1/camera/shot_size']; c['shot_ids'] = ['S1']
+        with self.assertRaisesRegex(ValueError, 'scope'): validate_config(self.ir, config)
+
+    def test_asset_scope_recipe_and_current_use_review(self):
+        config, c = self.configured(); a = self.artifact(config, c)
+        for field, value, expected in [('shot_id', 'S1', 'ASSET_SHOT_SCOPE'), ('start_ms', 4500, 'ASSET_TIME_SCOPE'), ('recipe_sha256', '0'*64, 'STALE_ASSET_RECIPE')]:
+            bad = copy.deepcopy(a); bad['uses'][0][field] = value
+            result = lower(self.out, 'agnes-video-2.5', 'keyframe', self.manifest(bad))
+            self.assertTrue(any(expected in r for r in result['reasons']), result)
+            self.assertIn('C1:CURRENT_USE_REVIEW_REQUIRED:K1', result['reasons'])
+        changed = copy.deepcopy(config); changed['lenses']['S2']['vertical_fov_deg'] = 70
+        second = Path(self.tmp.name)/'new-lens'; build(self.source, second, changed)
+        result = lower(second, 'agnes-video-2.5', 'keyframe', self.manifest(a))
+        self.assertIn('C1:STALE_ASSET_RECIPE:K1', result['reasons'])
+
+    def test_url_alias_conflict_and_shared_content_index(self):
+        config, c = self.configured('image_reference', ['A1','A2'])
+        a = self.artifact(config, c, 'A1', 'style', 128, 'https://example.com/same.png')
+        b = self.artifact(config, c, 'A2', 'style', 255, 'https://example.com/same.png')
+        result = lower(self.out, 'agnes-video-2.5', 'reference', self.manifest(a,b))
+        self.assertIn('C1:URL_CONTENT_CONFLICT:A2', result['reasons']); self.assertIsNone(result['media_fields_draft'])
+        b = self.artifact(config, c, 'A2', 'style', 128, 'https://example.com/alias.png')
+        result = lower(self.out, 'agnes-video-2.5', 'reference', self.manifest(a,b))
+        self.assertEqual(len(result['attachment_index']), 1)
+        self.assertEqual(len(result['media_fields_draft']['images']), 1)
+        self.assertEqual(result['attachment_index'][0]['artifact_ids'], ['A1', 'A2'])
+        self.assertEqual({b['label'] for b in result['coverage'][0]['bindings']}, {'<Picture 1>'})
+
+    def test_audio_aggregate_allows_two_one_second_files(self):
+        config, c = self.configured('audio_reference', ['A1','A2'])
+        assets = []
+        for i, ident in enumerate(c['artifact_ids']):
+            a = self.artifact(config, c, ident, 'audio')
+            path = Path(self.tmp.name)/(ident+'.wav')
+            with wave.open(str(path), 'wb') as wav:
+                wav.setnchannels(1); wav.setsampwidth(2); wav.setframerate(8000)
+                wav.writeframes(struct.pack('<h', i+1)*8000)
+            a.update(path=path.name, sha256=sha(path), kind='audio'); a['review']['sha256'] = sha(path); a['binding']['sha256'] = sha(path)
+            assets.append(a)
+        result = lower(self.out, 'agnes-video-2.5', 'reference', self.manifest(*assets))
+        self.assertEqual(result['status'], 'BOUND_DRAFT', result)
+        self.assertEqual(lower(self.out, 'agnes-video-2.5', 'reference', self.manifest(assets[0]))['status'], 'BLOCKED')
+
+    def test_keyframe_fabricated_state_and_missing_edit_block(self):
+        config, c = self.configured(); request = read(self.out/'keyframe-requests.json')[0]
+        request['camera_state'] = {}; request['subject_state'] = {'status': 'EXPLICIT'}
+        with self.assertRaisesRegex(ValueError, 'frozen'): check_request(request, self.out, self.manifest())
+        request = read(self.out/'keyframe-requests.json')[0]; request.update(generation_mode='edit', master_anchors=['MISSING'])
+        result = check_request(request, self.out, self.manifest())
+        self.assertIn('EDIT_BASE_AND_DELTA_REQUIRED', result['reasons']); self.assertIn('MISSING_ANCHOR:MISSING', result['reasons'])
+
+    def test_portrait_camera_canvas_preserves_aspect(self):
+        f = frame(self.ir, self.ir['shots'][0], 0, {**self.lens, 'aspect': 9/16})
+        self.assertIn('viewBox="0 0 202.5 360"', svg(f, 'camera', 10))
+
+    def test_flash_rejects_conditioned_video(self):
+        self.configured('clay_video_reference')
+        result = lower(self.out, 'agnes-video-2.5-flash', 'reference', self.manifest())
+        self.assertIn('C1:UNSUPPORTED_CHANNEL', result['reasons'])
+        self.assertIsNone(result['media_fields_draft'])
+
+    def test_master_recipe_ignores_unrelated_motion_change(self):
+        config, c = self.configured('image_reference')
+        before = recipe(self.ir, config, c, 'S2', 'identity', 4000, 8000)
+        self.ir['timeline']['motion_tracks'][0]['keyframes'][0]['value'] = {'changed': True}
+        self.assertEqual(recipe(self.ir, config, c, 'S2', 'identity', 4000, 8000), before)
 
     def test_edit_delta_overlap_blocks(self):
         delta = {'schema':'edit-delta/0.1','keyframe_id':'K1','source':{'kind':'avir/1.2','path':'source.json','sha256':'0'*64},
@@ -101,43 +215,36 @@ class ShotControlTests(unittest.TestCase):
         delta['preserve'] = ['/A']
         with self.assertRaises(ValueError): validate_delta(delta)
 
-    def test_tracking_reports_missing_and_timing(self):
-        r = {'schema':'control-media-review/0.1','media_sha256':'0'*64,'reviewer':'test','width':100,'height':100,
-             'planned_points':[{'node_id':'A','at_ms':t,'xy':[.5,.5]} for t in (0,100,200)],
-             'observed_points':[{'node_id':'A','at_ms':0,'xy':[.6,.5],'visibility':'visible'},
-                                {'node_id':'A','at_ms':100,'xy':None,'visibility':'occluded'}],
-             'events':[{'id':'stop','planned_ms':100,'observed_ms':150}], 'findings':[]}
-        result = evaluate(r)
-        self.assertEqual(result['coverage'], 1/3); self.assertEqual(len(result['missing']), 2)
-        self.assertEqual(result['event_errors'][0]['error_ms'], 50)
-        r['observed_points'][0]['at_ms'] = 50
-        with self.assertRaises(ValueError): evaluate(r)
+    def test_frozen_tracking_and_actual_video(self):
+        self.build(); baseline = verify_package(self.out)['evaluation']
+        path = Path(self.tmp.name)/'observed.mp4'
+        subprocess.run(['ffmpeg','-v','error','-f','lavfi','-i','color=s=320x180:r=24:d=12','-c:v','libx264','-pix_fmt','yuv420p',str(path)], check=True)
+        planned = next(p for p in baseline['points'] if p['status'] == 'IN_FRAME')
+        point = {k: planned[k] for k in ('shot_id','node_id','at_ms','xy')}; point['visibility'] = 'visible'
+        r = {'schema': 'control-media-review/0.2', 'media_sha256': sha(path), 'reviewer': 'fixture',
+             'evaluation_plan_sha256': digest(baseline), 'observed_points': [point], 'events': [], 'findings': []}
+        result = evaluate(r, self.out, path)
+        self.assertEqual(result['coverage'], 1/len(baseline['points']))
+        self.assertEqual(result['samples'][0]['error'], 0)
+        self.assertEqual(len(result['event_errors']), len(baseline['events']))
+        r['planned_points'] = [point]
+        with self.assertRaises(ValueError): evaluate(r, self.out, path)
+        del r['planned_points']; r['evaluation_plan_sha256'] = '0'*64
+        with self.assertRaisesRegex(ValueError, 'plan mismatch'): evaluate(r, self.out, path)
+        r['evaluation_plan_sha256'] = digest(baseline); r['observed_points'][0]['at_ms'] = 99999
+        with self.assertRaises(ValueError): evaluate(r, self.out, path)
+        text = Path(self.tmp.name)/'fake.txt'; text.write_text('not a video'); r['media_sha256'] = sha(text)
+        with self.assertRaises(ValueError): evaluate(r, self.out, text)
 
-    def test_valid_binding_then_hash_and_mode_failure(self):
-        self.build()
-        # This synthetic package tests one requirement, not a real generated image.
-        ir = read(self.out/'production-specification.json'); ir['contract'] = ir['contract'][:1]
-        write(self.out/'production-specification.json', ir)
-        plan = read(self.out/'control-plan.json'); plan['source']['sha256'] = sha(self.out/'production-specification.json')
-        plan['controls'] = [{'id':'C1','requirement_id':'REQ_DURATION','shot_ids':['S1'], 'source_pointers':['/output'],
-                             'channel':'first_frame','artifact_ids':['K1'],'hardness':'hard','fallback_policy':'block','status':'PLANNED'}]
-        write(self.out/'control-plan.json', plan)
-        def chunk(kind, data):
-            return struct.pack('!I',len(data))+kind+data+struct.pack('!I',zlib.crc32(kind+data)&0xffffffff)
-        png = b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('!2I5B',256,256,8,2,0,0,0))+chunk(b'IDAT',zlib.compress((b'\x00'+b'\x80'*768)*256))+chunk(b'IEND',b'')
-        path = self.out/'synthetic.png'; path.write_bytes(png); digest = sha(path)
-        manifest = {'schema':'control-artifacts/0.1','submitted':False,'artifacts':[{'id':'K1','path':'synthetic.png',
-                    'sha256':digest,'source_sha256':plan['source']['sha256'],'kind':'image','role':'clean_keyframe',
-                    'review':{'sha256':digest,'reviewer':'synthetic fixture','result':'PASS','checks':['Fixture, not real media review']},
-                    'binding':{'sha256':digest,'url':'https://example.com/fixture.png','receipt':'synthetic receipt'}}]}
-        write(self.out/'artifact-manifest.json', manifest)
-        result = lower(self.out,'agnes-video-2.5','keyframe',self.out/'artifact-manifest.json')
-        self.assertEqual(result['status'],'BOUND_DRAFT'); self.assertFalse(result['runnable'])
+    def test_valid_binding_remains_supplementary_and_hash_failure_blocks(self):
+        config, c = self.configured(); a = self.artifact(config, c); manifest = self.manifest(a)
+        result = lower(self.out, 'agnes-video-2.5', 'keyframe', manifest)
+        self.assertEqual(result['status'], 'BOUND_DRAFT'); self.assertFalse(result['runnable'])
+        self.assertTrue(all(x['status'] == 'NOT_COMPILED' for x in result['primary_obligations']))
         self.assertFalse(result['probe_passed']); self.assertFalse(result['quality_validated'])
-        self.assertEqual(result['media_fields_draft']['first_frame'],'https://example.com/fixture.png')
-        self.assertEqual(lower(self.out,'agnes-video-2.5','reference',self.out/'artifact-manifest.json')['status'],'BLOCKED')
-        path.write_bytes(png+b'changed')
-        self.assertIn('C1:MISSING_OR_CHANGED_FILE:K1',lower(self.out,'agnes-video-2.5','keyframe',self.out/'artifact-manifest.json')['reasons'])
+        self.assertEqual(lower(self.out,'agnes-video-2.5','reference',manifest)['status'],'BLOCKED')
+        with (Path(self.tmp.name)/a['path']).open('ab') as stream: stream.write(b'changed')
+        self.assertIn('C1:MISSING_OR_CHANGED_FILE:K1',lower(self.out,'agnes-video-2.5','keyframe',manifest)['reasons'])
 
     def test_event_partition_requires_explicit_states(self):
         import spatial_runtime as spatial

@@ -4,7 +4,7 @@
   "additionalProperties": false,
   "properties": {
     "schema": {
-      "const": "control-media-review/0.1"
+      "const": "control-media-review/0.2"
     },
     "media_sha256": {
       "type": "string",
@@ -13,45 +13,6 @@
     "reviewer": {
       "type": "string",
       "minLength": 1
-    },
-    "width": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "height": {
-      "type": "integer",
-      "minimum": 1
-    },
-    "planned_points": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "node_id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "at_ms": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "xy": {
-            "type": "array",
-            "items": {
-              "type": "number"
-            },
-            "minItems": 2,
-            "maxItems": 2
-          }
-        },
-        "required": [
-          "node_id",
-          "at_ms",
-          "xy"
-        ]
-      },
-      "minItems": 0
     },
     "observed_points": {
       "type": "array",
@@ -88,13 +49,18 @@
               "occluded",
               "tracking_failed"
             ]
+          },
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "required": [
           "node_id",
           "at_ms",
           "xy",
-          "visibility"
+          "visibility",
+          "shot_id"
         ]
       },
       "minItems": 0
@@ -108,10 +74,6 @@
           "id": {
             "type": "string",
             "minLength": 1
-          },
-          "planned_ms": {
-            "type": "integer",
-            "minimum": 0
           },
           "observed_ms": {
             "anyOf": [
@@ -127,7 +89,6 @@
         },
         "required": [
           "id",
-          "planned_ms",
           "observed_ms"
         ]
       },
@@ -200,17 +161,19 @@
         ]
       },
       "minItems": 0
+    },
+    "evaluation_plan_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
     }
   },
   "required": [
     "schema",
     "media_sha256",
     "reviewer",
-    "width",
-    "height",
-    "planned_points",
     "observed_points",
     "events",
-    "findings"
+    "findings",
+    "evaluation_plan_sha256"
   ]
 }

@@ -7,8 +7,9 @@ PALETTE = ('#67d5ff', '#ffa774', '#bba2ff', '#8fe3a0', '#ff83b5')
 
 
 def svg(frame, view, extent, frames=()):
-    parts = ['<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">',
-             '<rect width="640" height="360" fill="#101a2b"/>']
+    width = 360*frame['camera']['output_aspect'] if view == 'camera' else 640
+    parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {width:g} 360">',
+             f'<rect width="{width:g}" height="360" fill="#101a2b"/>', '<g data-tracks=""></g>']
     if view in ('top', 'side'):
         for i, point in enumerate(frame['points']):
             segments = []; run = []
@@ -31,7 +32,7 @@ def svg(frame, view, extent, frames=()):
             projection = point['projection']
             if projection['status'] != 'IN_FRAME' or point['kind'] == 'camera':
                 continue
-            x, y = projection['xy'][0]*640, projection['xy'][1]*360
+            x, y = projection['xy'][0]*width, projection['xy'][1]*360
         else:
             x = 320+p[0]/extent*250
             y = 180+(p[2] if view == 'top' else -p[1])/extent*140
@@ -44,13 +45,20 @@ def svg(frame, view, extent, frames=()):
 
 def export_review(out, frames):
     extent = max([1]+[abs(x) for f in frames for p in f['points'] if p['position'] for x in p['position']])*1.15
-    slides = []
+    slides, trajectories = [], {}
+    for f in frames:
+        if f['shot_id'] not in trajectories:
+            trajectories[f['shot_id']] = {}
+            for view in ('top', 'side'):
+                rendered = svg(f, view, extent, frames)
+                import re
+                trajectories[f['shot_id']][view] = ''.join(re.findall(r'<polyline[^>]*/>', rendered))
     for f in frames:
         slides.append({'shot_id': f['shot_id'], 'at_ms': f['at_ms'],
-                       'top': svg(f, 'top', extent, frames), 'side': svg(f, 'side', extent, frames), 'camera': svg(f, 'camera', extent),
+                       'top': svg(f, 'top', extent), 'side': svg(f, 'side', extent), 'camera': svg(f, 'camera', extent),
                        'details': {'camera': f['camera'], 'state_status': f['state']['status'],
                                    'unknown_nodes': [p['id'] for p in f['points'] if p['position'] is None]}})
-    data = json.dumps(slides, ensure_ascii=False).replace('<', '\\u003c').replace('&', '\\u0026')
+    data = json.dumps({'frames': slides, 'trajectories': trajectories}, ensure_ascii=False).replace('<', '\\u003c').replace('&', '\\u0026')
     template = Path(__file__).with_name('review.html').read_text()
     (out/'review/index.html').write_text(template.replace('__DATA__', data), encoding='utf-8')
     for f in frames:

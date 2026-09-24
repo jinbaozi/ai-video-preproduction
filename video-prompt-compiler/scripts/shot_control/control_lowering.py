@@ -1,7 +1,7 @@
 """Static route validation. No uploads, URL probing, submission or quality claims."""
 from pathlib import Path
 from urllib.parse import urlparse
-from .common import read, sha, confined, schema_check, pointer
+from .common import read, sha, confined, schema_check, pointer, digest
 from .media_probe import probe
 
 CHANNELS = {'first_frame': 'image', 'last_frame': 'image', 'image_reference': 'image',
@@ -22,16 +22,10 @@ def validate_delta(delta):
 
 def lower(package, target, mode, manifest_path):
     package = Path(package).resolve()
-    plan = read(package/'control-plan.json')
-    schema_check(plan, 'shot-control')
-    source = confined(package, plan['source']['path'])
-    if sha(source) != plan['source']['sha256']:
-        raise ValueError('Source changed; regenerate controls')
-    ir = read(source)
+    from .package import verify_package, recipe
+    bundle = verify_package(package)
+    plan, ir, config = bundle['plan'], bundle['ir'], bundle['config']
     controls = plan['controls']
-    for c in controls:
-        for p in c['source_pointers']:
-            pointer(ir, p)
     registry = read(Path(__file__).resolve().parents[2]/'registries/control-capabilities.json')
     route = next((r for r in registry['routes'] if r['model'] == target and r['mode'] == mode), None)
     manifest_path = Path(manifest_path).resolve(); manifest = read(manifest_path)
@@ -40,6 +34,8 @@ def lower(package, target, mode, manifest_path):
     if len(artifacts) != len(manifest['artifacts']):
         raise ValueError('Duplicate artifact ID')
     reasons, rows, media = [], [], {}
+    url_hashes, attachment_index = {}, []
+    shots = {x['id']: x for x in ir['shots']}
     if route is None:
         reasons.append('UNRESOLVED_EXACT_ENTRY')
     for c in controls:
@@ -69,22 +65,46 @@ def lower(package, target, mode, manifest_path):
             review = a['review']
             if review is None or review['sha256'] != a['sha256'] or review['result'] != 'PASS' or not review['reviewer'] or not review['checks']:
                 problems.append('VISUAL_REVIEW_REQUIRED:'+ident)
-            if a['source_sha256'] != plan['source']['sha256']:
-                problems.append('STALE_ASSET_SOURCE:'+ident)
+            # Project revision is provenance, not applicability: unchanged master slices remain reusable.
+            uses = [u for u in a['uses'] if u['control_id'] == c['id']]
+            if {u['shot_id'] for u in uses} != set(c['shot_ids']):
+                problems.append('ASSET_SHOT_SCOPE:'+ident)
+            for u in uses:
+                shot = shots.get(u['shot_id'])
+                if shot is None or not shot['start_ms'] <= u['start_ms'] <= u['end_ms'] <= shot['end_ms']:
+                    problems.append('ASSET_TIME_SCOPE:'+ident); continue
+                if c['channel'] in ('first_frame', 'last_frame'):
+                    at = shot['start_ms'] if c['channel'] == 'first_frame' else shot['end_ms']
+                    if (u['start_ms'], u['end_ms']) != (at, at):
+                        problems.append('KEYFRAME_TIME_SLOT:'+ident)
+                if c['channel'] in ('clay_video_reference', 'audio_reference') and (u['start_ms'], u['end_ms']) != (shot['start_ms'], shot['end_ms']):
+                    problems.append('TEMPORAL_ASSET_SCOPE:'+ident)
+                if u['recipe_sha256'] != recipe(ir, config, c, u['shot_id'], a['role'], u['start_ms'], u['end_ms']):
+                    problems.append('STALE_ASSET_RECIPE:'+ident)
+            if review is None or review['uses_sha256'] != digest(a['uses']):
+                problems.append('CURRENT_USE_REVIEW_REQUIRED:'+ident)
             url = a['binding']
             if url is None or url['sha256'] != a['sha256'] or urlparse(url['url']).scheme != 'https' or not urlparse(url['url']).netloc:
                 problems.append('UNRESOLVED_UPLOAD_BINDING:'+ident)
             else:
+                previous = url_hashes.setdefault(url['url'], a['sha256'])
+                if previous != a['sha256']:
+                    problems.append('URL_CONTENT_CONFLICT:'+ident)
                 bindings.append({'artifact_id': ident, 'sha256': a['sha256'], 'url': url['url'],
                                  'receipt': url['receipt'], 'url_accessibility': 'NOT_PROBED'})
         rows.append({'control_id': c['id'], 'requirement_id': c['requirement_id'], 'channel': c['channel'],
+                     'purpose': 'supplement', 'obligation_type': 'conditioned_media' if c['channel'] == 'clay_video_reference' else 'explicit_trajectory' if c['channel'] == 'camera_trajectory' else 'visual_reference',
                      'status': 'BLOCKED' if problems else 'BOUND', 'bindings': bindings, 'reasons': problems,
                      'submitted': False, 'media_review': 'NOT_RUN'})
         reasons.extend(c['id']+':'+p for p in problems)
+    # Quotas apply to unique submitted media, not the number of responsibilities.
+    unique_media = {}
+    for ident, (a, info) in media.items():
+        unique_media.setdefault((a['kind'], a['sha256']), (a, info))
     if route:
-        counts = {kind: sum(a['kind'] == kind for a, _ in media.values()) for kind in ('image', 'video', 'audio')}
+        counts = {kind: sum(a['kind'] == kind for a, _ in unique_media.values()) for kind in ('image', 'video', 'audio')}
         for kind, maximum in route['max_refs'].items():
-            count = len(media) if kind == 'total' else counts[kind]
+            count = len(unique_media) if kind == 'total' else counts[kind]
             if count > maximum:
                 reasons.append('REFERENCE_BUDGET:'+kind)
         for ident, (a, info) in media.items():
@@ -94,36 +114,46 @@ def lower(package, target, mode, manifest_path):
             elif a['kind'] == 'video':
                 if info['duration_ms'] is None or not 2000 <= info['duration_ms'] <= 12000 or info['fps'] is None or not 24 <= info['fps'] <= 60 or info['bytes'] >= 50_000_000:
                     reasons.append('VIDEO_LIMIT:'+ident)
-            elif info['duration_ms'] is None or not 2000 <= info['duration_ms'] <= 12000 or info['bytes'] >= 15_000_000:
+            elif info['duration_ms'] is None or not 0 < info['duration_ms'] <= 12000 or info['bytes'] >= 15_000_000:
                 reasons.append('AUDIO_LIMIT:'+ident)
         for kind, limit in (('image', 50_000_000), ('audio', 64_000_000)):
-            if sum(info['bytes'] for a, info in media.values() if a['kind'] == kind) >= limit:
+            if sum(info['bytes'] for a, info in unique_media.values() if a['kind'] == kind) >= limit:
                 reasons.append('TOTAL_BYTES:'+kind)
-        if sum(info['duration_ms'] or 0 for a, info in media.values() if a['kind'] == 'audio') > 12000:
+        audio_duration = sum(info['duration_ms'] or 0 for a, info in unique_media.values() if a['kind'] == 'audio')
+        if counts['audio'] and not 2000 <= audio_duration <= 12000:
             reasons.append('TOTAL_AUDIO_DURATION')
     if not controls:
         reasons.append('NO_CONTROL_ROUTE_SELECTED')
-    # Unrouted hard requirements cannot disappear behind a successful subset.
-    covered = {c['requirement_id'] for c in controls}
-    for clause in ir['contract']:
-        if clause['level'] == 'hard' and clause['id'] not in covered:
-            reasons.append('UNROUTED_HARD_REQUIREMENT:'+clause['id'])
+    # Media is supplementary. Native obligations remain explicitly pending the joint compiler.
+    obligations = [{'requirement_id': c['id'], 'type': {'prompt': 'prompt', 'parameter': 'native_parameter', 'post': 'post_production'}[c['channel']],
+                    'shot_ids': c['shot_ids'] or plan['shot_ids'], 'source_pointers': [x['path'] for x in c['checks']],
+                    'status': 'NOT_COMPILED', 'acceptance': c['acceptance']} for c in ir['contract']]
     payload = {'model': target, 'mode': mode}
     slots = {'first_frame': 'first_frame', 'last_frame': 'last_frame', 'image_reference': 'images',
              'clay_video_reference': 'videos', 'audio_reference': 'audios'}
+    indexed = {}
+    counters = {'images': 0, 'videos': 0, 'audios': 0}
     for row in rows:
         for b in row['bindings']:
             slot = slots.get(row['channel'])
-            if slot in ('first_frame', 'last_frame'):
-                if slot in payload and payload[slot] != b['url']:
-                    reasons.append('CONFLICTING_SLOT:'+slot)
-                payload[slot] = b['url']
-            elif slot:
-                value = {'url': b['url']} if slot == 'videos' else b['url']
-                if value not in payload.setdefault(slot, []):
-                    payload[slot].append(value)
-    return {'schema': 'control-lowering/0.1', 'status': 'BLOCKED' if reasons else 'BOUND_DRAFT',
-            'route': route, 'coverage': rows, 'reasons': sorted(set(reasons)),
+            key = (slot, b['sha256'])
+            if key not in indexed:
+                if slot in ('first_frame', 'last_frame'):
+                    if slot in payload and payload[slot] != b['url']:
+                        reasons.append('CONFLICTING_SLOT:'+slot)
+                    payload[slot] = b['url']; label = slot
+                else:
+                    counters[slot] += 1
+                    label = '<'+{'images':'Picture', 'videos':'Video', 'audios':'Audio'}[slot]+' '+str(counters[slot])+'>'
+                    payload.setdefault(slot, []).append({'url': b['url']} if slot == 'videos' else b['url'])
+                item = {'slot': slot, 'label': label, 'sha256': b['sha256'], 'url': b['url'], 'artifact_ids': [], 'control_ids': []}
+                indexed[key] = item; attachment_index.append(item)
+            item = indexed[key]
+            if b['artifact_id'] not in item['artifact_ids']: item['artifact_ids'].append(b['artifact_id'])
+            if row['control_id'] not in item['control_ids']: item['control_ids'].append(row['control_id'])
+            b['label'] = item['label']; b['submission_url'] = item['url']
+    return {'schema': 'control-lowering/0.2', 'status': 'BLOCKED' if reasons else 'BOUND_DRAFT',
+            'route': route, 'coverage': rows, 'primary_obligations': obligations, 'attachment_index': attachment_index, 'reasons': sorted(set(reasons)),
             'media_fields_draft': None if reasons else payload, 'submitted': False, 'runnable': False,
             'probe_passed': False, 'quality_validated': False, 'execution_receipt': None,
-            'note': 'Media fields only; merge with separately validated prompt/parameters. Host must verify URL accessibility.'}
+            'note': 'Supplementary media bindings only. Primary prompt/parameter/post obligations are NOT_COMPILED; use the joint compiler before execution. Host must verify URL accessibility.'}

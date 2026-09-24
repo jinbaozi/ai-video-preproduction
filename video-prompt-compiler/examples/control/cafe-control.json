@@ -1,5 +1,5 @@
 {
-  "schema": "shot-control-config/0.1",
+  "schema": "shot-control-config/0.2",
   "lenses": {
     "S1": {
       "vertical_fov_deg": 50,

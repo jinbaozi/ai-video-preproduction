@@ -11,7 +11,7 @@
       "documented": true,
       "probe_passed": false,
       "quality_validated": false,
-      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5",
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25",
       "channels": [
         "first_frame",
         "last_frame"
@@ -33,7 +33,7 @@
       "documented": true,
       "probe_passed": false,
       "quality_validated": false,
-      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5",
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25",
       "channels": [
         "image_reference",
         "audio_reference",
@@ -56,7 +56,7 @@
       "documented": true,
       "probe_passed": false,
       "quality_validated": false,
-      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5-flash",
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash",
       "channels": [
         "first_frame",
         "last_frame"
@@ -78,7 +78,7 @@
       "documented": true,
       "probe_passed": false,
       "quality_validated": false,
-      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-2.5-flash",
+      "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash",
       "channels": [
         "image_reference",
         "audio_reference"

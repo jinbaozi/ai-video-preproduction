@@ -1,4 +1,4 @@
-# 镜头控制资产 0.1
+# 镜头控制资产 0.2
 
 复杂走位、联合运镜、接触或跨镜连续性任务读取本文件；简单提示词沿用轻量入口。源码在视频编译器 `scripts/shot_control/`，`sync_shot_control.py` 同步图片包所需副本，禁止分别手工修改。AVIR 1.2 继续唯一持有运动、表演和构图，派生包不增加另一套轨迹权威。
 
@@ -23,13 +23,13 @@ python scripts/control_cli.py lower outputs/control-v001 --target agnes-video-2.
 `keyframe-requests.json` 按事件生成请求，保存来源内容摘要、原始指针、镜头状态、主体姿态及可见性与绑定。每条符合 `keyframe-request.schema.json`。Agent 从现有资产登记中补齐真实 `master_anchors`（身份、造型和场景分责），选择 generate/edit，然后在图片优化器独立包运行：
 
 ```bash
-python scripts/control_cli.py keyframe-check request.json
+python scripts/control_cli.py keyframe-check request.json --package outputs/control-v001 --artifacts /absolute/path/to/control-artifacts.json
 python scripts/control_cli.py edit-check edit-delta.json
 ```
 
-图片独立包只使用 keyframe-check、edit-check、probe、review；build/segment 由持有 AVIR 运行时的视频编译器执行。`edit-delta/0.1` 用属性路径区分允许变化和保持项，检测父子路径冲突。不要把普通身份图同时当作衣服、动作、风格权威。每帧依附主身份与场景锚点，相邻帧只作辅助，避免无限串行编辑漂移。
+图片独立包携带同源原生 AVIR 校验运行时，可验证冻结控制包；制作中的 AVIR 编写、build/segment 仍由视频编译器负责。`edit-delta/0.1` 用属性路径区分允许变化和保持项，检测父子路径冲突。不要把普通身份图同时当作衣服、动作、风格权威。每帧依附主身份与场景锚点，相邻帧只作辅助，避免无限串行编辑漂移。
 
-优化器交付请求和提示词；宿主依用户已有授权生成/编辑，实际查看后登记文件和哈希、审核人、具体检查项与 PASS/FAIL。`control-artifacts/0.1` 还需绑定 source_sha256；上游变动必须重新审核适用性。静态校验不会自己填写生成或审图成功。审阅 SVG 禁止放入首尾帧或主体参考；干净帧还需实际检查箭头、标签、时间码污染。未知姿态回分镜补齐，不插值手势和接触。
+优化器交付请求和提示词；宿主依用户已有授权生成/编辑，实际查看后登记文件和哈希、审核人、具体检查项与 PASS/FAIL。`control-artifacts/0.2` 保存来源版本 `source_sha256`，另用 `uses` 绑定控制 ID、镜头、起止和派生配方 `recipe_sha256`。审核还须绑定 `uses_sha256`。镜头素材依赖源断言、镜头时轨、场景和相机配置；身份/外观/风格母版只依赖对应断言切片，不因无关轨迹修改而全部失效。静态校验不会自己填写生成或审图成功。审阅 SVG 禁止放入首尾帧或主体参考；干净帧还需实际检查箭头、标签、时间码污染。未知姿态回分镜补齐，不插值手势和接触。
 
 ## 表演、色彩与所有权
 
@@ -41,22 +41,32 @@ python scripts/control_cli.py edit-check edit-delta.json
 
 能力键为厂商、精确型号、界面、端点、模式、版本。新增 registry 将 documented、probe_passed、quality_validated 分开。目前只实现 Agnes 国际 API 的媒体字段静态降译，依据 [2.5 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25) 和 [Flash 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash)，核验日 2026-09-24。没有账户探测或质量实测。参考视频仅是条件参考，不是专用三维轨迹通道；Flash 白模视频路线阻断。首尾帧与参考数组互斥，附件不能超入口预算。
 
-每个 control 绑定原硬要求、源指针、所选通道、真实资产和 fallback。缺文件、摘要变化、未审图、过期来源、审阅图、槽位冲突、媒体限制、未解析上传绑定均阻断；`report_loss` 不自动批准降级。`media_fields_draft` 只有媒体字段，必须与独立验证的正文和参数合并，由宿主核查 URL 可达性。未选路线的硬要求保持未覆盖，不把“表达在 prompt 中”记成实际控制。
+每个 control 绑定原硬要求、原断言指针、所选通道、真实资产和 fallback，`purpose` 必须为 `supplement`。媒体仅辅助 prompt 类型要求；不能冒领 parameter 或 post 要求。shot_ids 必须落在原合同适用镜头内，hardness 不得降级。缺文件、摘要变化、未审图、过期来源、审阅图、槽位冲突、媒体限制、未解析上传绑定均阻断；`report_loss` 不自动批准降级。`media_fields_draft` 只有媒体字段，必须与独立验证的正文和参数合并，由宿主核查 URL 可达性。`primary_obligations` 将 prompt/native_parameter/post_production 分开保留为 NOT_COMPILED。单独 lower 的 BOUND_DRAFT 仅说明辅助素材静态绑定成立，不是完整合同覆盖。联合编译入口仍待实现。
 
 证据链按计划→真实文件→检查→宿主绑定→提交回执→实收媒体→实际观察推进。当前脚本实现计划派生和绑定草案，始终 `submitted=false`、`runnable=false`、`video_qa=NOT_RUN`；不伪造后三阶段，`COMPILED` 原义不变。执行器网络提交仍属于外部集成。
 
 ## 观察与局部返修
 
-宿主记录实际视频哈希、观察者、原始归一化二维点、可见性及事件时间，使用 `control-media-review/0.1`：
+构建时从 AVIR 和相机配置冻结 `evaluation-plan.json`。宿主只填写其规范化摘要 `evaluation_plan_sha256`、实际视频哈希、观察者、实测归一化二维点、可见性及事件时间；不能提供 planned_points、width/height 或 planned_ms。使用 `control-media-review/0.2`：
 
 ```bash
-python scripts/control_cli.py review observations.json --media actual.mp4 --out evaluation.json
+python scripts/control_cli.py review observations.json --package outputs/control-v001 --media actual.mp4 --out evaluation.json
 ```
 
-误差按像素距离除画面对角线，丢失、遮挡和跟踪失败仍计入覆盖率分母；时间点必须精确匹配，不自动时间拉伸。分别记录事件提前/延后、身份、造型、接触、表情、色彩和叠字问题。FAIL 生成带时段、源指针及责任模块的返修项。该工具整理人工或外部跟踪器观察，未集成 CoTracker，也不自动判断整片通过或推断厘米误差。
+误差按 ffprobe 的实际显示画幅计算像素距离并除以对角线；缺失、遮挡、跟踪失败和源投影未知仍保留在完整采样分母中。检查真实视频类型、时长、旋转、画幅及观察时段；暂不接受非方形像素。计划时轴为恒等映射，不能隐式拉伸。切点终点不冒充该镜头可解码帧。事件漏测保留 null。分别记录事件提前/延后、身份、造型、接触、表情、色彩和叠字问题。FAIL 生成带时段、源指针及责任模块的返修项。该工具整理人工或外部跟踪器观察，未集成 CoTracker，也不自动判断整片通过或推断厘米误差。
 
 ## 阶段边界
 
 已实现：派生合同、三视图/时间轴、事件关键帧请求、编辑冲突检查、事件切点提案、媒体元数据探测、两种 Agnes 模式静态绑定、二维观察与返修、独立包携带资源。
 
 待外部生产条件：真实身份/场景锚点的生成和审图、包含明确几何/骨架的白模渲染器、实际模型提交与效果对照。当前根节点预览不是白模 MP4。VACE/SymphoMotion 专用编码、权重及运行器保持 NOT_INTEGRATED；Seedance 2.5 实际入口保持 ENTRY_UNRESOLVED，不能继承其他型号能力。没有已生成媒体，不得宣称画质、轨迹或情绪控制提升。后续实验保留所有尝试、失败、耗时与费用，先做纯文本/参考/关键帧/白模的小范围对照。
+
+## 0.2 升级与校验边界
+
+0.1 控制包不能直接冒充 0.2：保留原始 AVIR 和配置，补充 control.purpose 后重新 build；旧观察表需重新绑定冻结基线。AVIR 本身不升级。包内文件冻结后不要手改；真实资产清单放在包外，通过 --artifacts 显式传入。
+
+verify/lower/keyframe-check/review 共用严格验证器：核对 schema、完整文件集合、摘要、原生 AVIR、控制 ID/镜头/断言、派生计划、关键帧与评价采样。仅给修改后的文件重算摘要不能让不一致的派生数据通过。该机制检测陈旧或错误的交接，不是数字签名或对恶意作者的身份鉴定。
+
+附件按内容和槽位去重，attachment_index 同时决定提交数组和 `<Picture N>/<Audio N>/<Video N>`。同一 URL 声明不同内容立即阻断；同一内容可以承担多个职责。原始绑定 URL 与统一提交 URL 分列。音频单个文件仍需正时长和大小限制，总时长单独检查 2–12 秒。
+
+离线 HTML 将轨迹按镜头只存一份，帧更新节点。摄影机 SVG 使用配置和 crop 的输出比例，不再固定拉伸到 16:9。尚无浏览器视觉验收或真实生成质量结论。

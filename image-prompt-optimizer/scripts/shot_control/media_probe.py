@@ -23,8 +23,12 @@ def probe(path):
     format_name = data.get('format', {}).get('format_name', '')
     still_formats = {'image2', 'png_pipe', 'jpeg_pipe', 'webp_pipe', 'bmp_pipe', 'tiff_pipe'}
     kind = 'image' if video and format_name in still_formats and duration is None else 'video' if video else 'audio' if audio else 'unknown'
-    return {'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size,
+    rotation = int(next((x.get('rotation', 0) for x in (video or {}).get('side_data_list', []) if 'rotation' in x), (video or {}).get('tags', {}).get('rotate', 0))) % 360
+    width, height = (video or {}).get('width'), (video or {}).get('height')
+    display_width, display_height = (height, width) if rotation in (90, 270) else (width, height)
+    return {'rotation_deg': rotation, 'display_width': display_width, 'display_height': display_height, 'path': str(path), 'sha256': sha(path), 'bytes': path.stat().st_size,
             'detected_kind': kind, 'format': format_name,
+            'sample_aspect_ratio': (video or {}).get('sample_aspect_ratio'),
             'width': video.get('width') if video else None, 'height': video.get('height') if video else None,
             'duration_ms': round(float(duration)*1000) if duration else None, 'fps': fps,
             'codec': video.get('codec_name') if video else None, 'audio': audio, 'visual_review': 'NOT_RUN'}
