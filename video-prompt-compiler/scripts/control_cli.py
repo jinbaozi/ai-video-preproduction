@@ -16,6 +16,8 @@ def main():
     p = sub.add_parser('edit-check'); p.add_argument('input')
     p = sub.add_parser('keyframe-check'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--artifacts', required=True)
     p = sub.add_parser('verify'); p.add_argument('package')
+    p = sub.add_parser('previs'); p.add_argument('package'); p.add_argument('--shot', required=True); p.add_argument('--blender', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-previs'); p.add_argument('package')
     p = sub.add_parser('segment'); p.add_argument('input'); p.add_argument('--target', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('lower'); p.add_argument('package'); p.add_argument('--shot', action='append'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('compile'); p.add_argument('package'); p.add_argument('--target', required=True); p.add_argument('--mode', required=True); p.add_argument('--artifacts', required=True); p.add_argument('--shot', action='append'); p.add_argument('--out', required=True)
@@ -40,6 +42,12 @@ def main():
             from shot_control.package import verify_package
             verify_package(args.package)
             result = {'status': 'VERIFIED', 'media_review': 'NOT_RUN'}
+        elif args.command == 'previs':
+            from shot_control.previs import render
+            result = render(args.package, args.shot, args.out, args.blender)
+        elif args.command == 'verify-previs':
+            from shot_control.previs import verify_render
+            result = verify_render(args.package)
         elif args.command == 'lower':
             from shot_control.control_lowering import lower
             from shot_control.package import verify_package

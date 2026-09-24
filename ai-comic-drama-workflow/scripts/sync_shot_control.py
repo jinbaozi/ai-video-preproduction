@@ -13,7 +13,7 @@ def sync(workspace=ROOT, check=False):
              source/'references/shot-control.md']
     files += list((source/'scripts/shot_control').glob('*.py'))+list((source/'scripts/shot_control').glob('*.html'))
     files += [source/'schemas'/f'{name}.schema.json' for name in
-              ('shot-control', 'shot-control-config', 'keyframe-request', 'edit-delta', 'control-artifacts', 'control-media-review', 'control-package')]
+              ('shot-control', 'shot-control-config', 'keyframe-request', 'edit-delta', 'control-artifacts', 'control-media-review', 'control-package', 'previs-geometry')]
     files += [source/'scripts'/n for n in ('spatial_runtime.py', 'detail_runtime.py')]
     files += [source/'schemas'/n for n in ('avir-1.1.schema.json', 'avir-1.2.schema.json')]
     for path in files:

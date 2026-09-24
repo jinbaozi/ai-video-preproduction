@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "ea69b76a556405637da127ef8096e8269d7b8884606bf9d339328d0d348cea90",
-  "file_count": 98,
+  "archive_sha256": "00db3a08685c48fd83bf97803472c73b6ffbb4bad477dfcfb1b493680afd2ce9",
+  "file_count": 103,
   "files": {
     "video-prompt-compiler/SKILL.md": {
       "bytes": 10309,
-      "sha256": "f195626f6cb3f315f246a5cc9180381776921dbdd705d68b03b94e6abd98d521"
+      "sha256": "a9f528e7281e76ac1e3737c89f974ebbc062834fbb5d5a4c2340250d692c3329"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -112,8 +112,8 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/shot-control.md": {
-      "bytes": 13946,
-      "sha256": "23d90512c7ae27fefd383410a74ebadb26e91599db60a9688900fe74c52a1b3b"
+      "bytes": 16539,
+      "sha256": "0cefca281f564cacce9b5c88897f1726ac77b464f19f66e78f532b83604db643"
     },
     "video-prompt-compiler/references/spatial-contract-v52.md": {
       "bytes": 7583,
@@ -195,17 +195,25 @@
       "bytes": 2273,
       "sha256": "0cb794a29d76321db69965e412eda451ee84781c8c90da59bc16581367bc9a6d"
     },
+    "video-prompt-compiler/schemas/previs-geometry.schema.json": {
+      "bytes": 3819,
+      "sha256": "9d7ffe5c028022fa39b236bb307b18526109886ef589ab973eafd05501a1da68"
+    },
     "video-prompt-compiler/schemas/shot-control-config.schema.json": {
-      "bytes": 3228,
-      "sha256": "f50ce9bca55ea491cccb0d4981b90ecd0cf7f2f94c17dc1a125eb278f315fac7"
+      "bytes": 3279,
+      "sha256": "a8f6d8c550159bac04b1b9f719c27fe0dd2d5dddd30b8846515676f76287b18a"
     },
     "video-prompt-compiler/schemas/shot-control.schema.json": {
       "bytes": 3077,
       "sha256": "46793a2a44f49897969fa9526ef9fb2a5ab916d2250313cb0817995b73345fcc"
     },
+    "video-prompt-compiler/scripts/build_previs_example.py": {
+      "bytes": 3299,
+      "sha256": "bc070b7a7142d4e12a654fa5912b8090b4449f7e99b1f6af6960b3ef3dcb87f3"
+    },
     "video-prompt-compiler/scripts/control_cli.py": {
-      "bytes": 5837,
-      "sha256": "b74719d3abbf3392e95463a22b8488d8409d1299e90fd0c2f5490b6db3d64ec0"
+      "bytes": 6409,
+      "sha256": "826303be9ed44dbfe1c1c796702d072255be8fdb00b888c5cea458074e73db94"
     },
     "video-prompt-compiler/scripts/detail_runtime.py": {
       "bytes": 34347,
@@ -275,6 +283,10 @@
       "bytes": 87,
       "sha256": "8318b051639196ffe22bcb3b08a0db08951630a83d3c663f4acbd6e4745fb798"
     },
+    "video-prompt-compiler/scripts/shot_control/blender_previs.py": {
+      "bytes": 6790,
+      "sha256": "98053e049922eb9eb1ee87bfe4ad1e38cb67a7043d2571342babe6db9c359a1b"
+    },
     "video-prompt-compiler/scripts/shot_control/camera_projection.py": {
       "bytes": 2066,
       "sha256": "789aa7c36d9998631b14c0db690db91abbfa9fa2f267e1014e57279161affe7c"
@@ -308,8 +320,12 @@
       "sha256": "8eaba594add018a1fc9e6f2539e0bb72d7663d436cd27b7207c4ee08c06c09c2"
     },
     "video-prompt-compiler/scripts/shot_control/package.py": {
-      "bytes": 5896,
-      "sha256": "65df60ecb681c7ff75a8f69dd0fcb517c6415384e0250de6dc138cb1d85d6635"
+      "bytes": 6183,
+      "sha256": "140453c352055eb0939412ed9797fcb304f889a508fee4ba47f0f0aa6aa7d768"
+    },
+    "video-prompt-compiler/scripts/shot_control/previs.py": {
+      "bytes": 14570,
+      "sha256": "040b2b29611dfb23c1c6b2fa3f1f371622a53dafd2de8eed543f06d166425f7c"
     },
     "video-prompt-compiler/scripts/shot_control/render_blocking.py": {
       "bytes": 3706,
@@ -371,9 +387,13 @@
       "bytes": 3471,
       "sha256": "0ce3016a960894aabb9223922547476a160a0f3f12c6fa0612a6f1ef165c1ea6"
     },
+    "video-prompt-compiler/tests/test_previs.py": {
+      "bytes": 5742,
+      "sha256": "876c5bd2c903aa14b0d8263eedf4d1b1ceee7232ee764563066f1d74027e9b97"
+    },
     "video-prompt-compiler/tests/test_prompt_projection.py": {
       "bytes": 6611,
-      "sha256": "37ae4f2319722fceb10a0d9c0333de4eec01a258867de45a031212e9fa00062d"
+      "sha256": "27074152087d6490506a6a4f7dc9a6d4a093bce61db1b864631c4b30ffc7b671"
     },
     "video-prompt-compiler/tests/test_segment_delivery.py": {
       "bytes": 4989,
@@ -397,5 +417,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.8.0"
+  "version": "1.9.0"
 }

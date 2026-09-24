@@ -42,7 +42,7 @@ def verify(packages,out,quick_validator=None):
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52.py','-v'])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_shot_control.py','-v'])
             if name=='video-prompt-compiler':
-                for pattern in ('test_joint_control.py','test_control_repair.py','test_keyframe_handoff.py'):
+                for pattern in ('test_joint_control.py','test_control_repair.py','test_keyframe_handoff.py','test_previs.py'):
                     commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p',pattern,'-v'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'scripts/control_cli.py','--help'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])

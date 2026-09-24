@@ -16,6 +16,9 @@ def validate_source(ir, base=None):
 
 def validate_config(ir, config):
     schema_check(config, 'shot-control-config')
+    if 'proxy_scene' in config:
+        from .previs import validate_geometry
+        validate_geometry(ir, config['proxy_scene'])
     shots = {s['id'] for s in ir['shots']}
     if set(config['lenses'])-shots:
         raise ValueError('Unknown lens shot')
@@ -95,4 +98,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms):
                      scene=next(x for x in ir['scenes'] if x['id'] == shot['scene_id']),
                      shot_id=shot_id, start_ms=start_ms, end_ms=end_ms, lens=lens,
                      states=[frame(ir, shot, t, lens) for t in times])
+        if 'proxy_scene' in config:
+            from .previs import geometry_for_shot
+            value['proxy_scene'] = geometry_for_shot(config, shot_id)
     return digest(value)

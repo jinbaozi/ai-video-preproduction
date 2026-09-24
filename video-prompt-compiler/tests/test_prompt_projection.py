@@ -95,7 +95,7 @@ class PromptProjectionTests(unittest.TestCase):
             self.assertEqual(json.loads((out / 'prompt-review.json').read_text()), artifact['prompt_review'])
             self.assertEqual(artifact['prompt_review']['status'], 'PENDING_AGENT_REVIEW')
             self.assertEqual((out / 'prompt.txt').read_text(), artifact['prompt'] + '\n')
-            self.assertEqual(verify(out)['compiler'], 'video-prompt-compiler@1.8.0')
+            self.assertEqual(verify(out)['compiler'], 'video-prompt-compiler@1.9.0')
 
     def test_segment_draft_uses_local_chronological_projection(self):
         self.ir['timeline']['segments'] = [{

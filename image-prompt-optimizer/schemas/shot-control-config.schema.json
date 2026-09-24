@@ -132,6 +132,9 @@
         ]
       },
       "minItems": 0
+    },
+    "proxy_scene": {
+      "type": "object"
     }
   },
   "required": [

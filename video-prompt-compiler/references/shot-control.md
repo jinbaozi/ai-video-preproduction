@@ -59,7 +59,7 @@ python scripts/control_cli.py review observations.json --package outputs/control
 
 已实现：派生合同、三视图/时间轴、事件关键帧请求、编辑冲突检查、事件切点提案、媒体元数据探测、Agnes 三模式联合编译及静态绑定、二维观察、依赖失效与返修文件、独立包携带资源。
 
-待外部生产条件：真实身份/场景锚点的生成和审图、包含明确几何/骨架的白模渲染器、实际模型提交与效果对照。当前根节点预览不是白模 MP4。VACE/SymphoMotion 专用编码、权重及运行器保持 NOT_INTEGRATED；Seedance 2.5 实际入口保持 ENTRY_UNRESOLVED，不能继承其他型号能力。没有已生成媒体，不得宣称画质、轨迹或情绪控制提升。后续实验保留所有尝试、失败、耗时与费用，先做纯文本/参考/关键帧/白模的小范围对照。
+待外部生产条件：真实身份/场景锚点的生成和审图、足够表达动作的几何和关键姿态、实际模型提交与效果对照。下述 Blender 入口可生成本地几何白模；根节点三视图本身仍不是白模 MP4。VACE/SymphoMotion 专用编码、权重及运行器保持 NOT_INTEGRATED；Seedance 2.5 实际入口保持 ENTRY_UNRESOLVED，不能继承其他型号能力。没有实际模型输出，不得宣称画质、轨迹或情绪控制提升。后续实验保留所有尝试、失败、耗时与费用，先做纯文本/参考/关键帧/白模的小范围对照。
 
 ## 0.2 升级与校验边界
 
@@ -68,6 +68,24 @@ python scripts/control_cli.py review observations.json --package outputs/control
 verify/lower/keyframe-check/review 共用严格验证器：核对 schema、完整文件集合、摘要、原生 AVIR、控制 ID/镜头/断言、派生计划、关键帧与评价采样。仅给修改后的文件重算摘要不能让不一致的派生数据通过。该机制检测陈旧或错误的交接，不是数字签名或对恶意作者的身份鉴定。
 
 附件按内容和槽位去重，attachment_index 同时决定提交数组和 `<Picture N>/<Audio N>/<Video N>`。同一 URL 声明不同内容立即阻断；同一内容可以承担多个职责。原始绑定 URL 与统一提交 URL 分列。音频单个文件仍需正时长和大小限制，总时长单独检查 2–12 秒。
+
+## 显式几何白模
+
+`control-config.proxy_scene` 可选扩展由 `previs-geometry.schema.json` 严格校验。Agent 明确写出每个几何体的设计依据、节点 ID、镜头范围、尺寸、静态世界偏移和姿态来源；不能加入独立的轨迹或关键帧。box/ellipsoid 可绑定数值 node_direction 或明确的 world_axes；bone 两端分别来自两个 AVIR 节点。未提供的关节、朝向、身体姿态和中间位置不推断，逐帧缺值在启动渲染器之前阻断。人物根节点的几何轮廓仅用于走位，不能作为已完成步态、接触或面部表演。
+
+安装 Blender 与 ffmpeg/ffprobe 后，视频包可以构建和实际渲染合成演示：
+
+```bash
+python scripts/build_previs_example.py --out outputs/previs-example
+python scripts/control_cli.py previs outputs/previs-example/package --shot S1 --blender /absolute/path/to/blender --out outputs/previs-example/render
+python scripts/control_cli.py verify-previs outputs/previs-example/render
+```
+
+演示显式补充信封关键位置之间的线性代理移动，并保留设计来源；不偷偷改变已有 cafe 示例。输出包括干净 PNG 帧、事件帧索引、clay.mp4、scene.blend、逐帧计划、真实 Blender 读回和实际媒体回执。影片采用 `[start,end)` 的真实帧序列，终点单独保留为事件图；禁止为凑帧数而拉伸时间。分辨率必须匹配镜头和 crop 的输出比例。
+
+渲染器从出厂空场景构建、保存后重新打开场景，使用 Blender 实际摄影机投影、网格中心/尺寸/方向和骨段端点验证转换；再探测最终视频的帧率、尺寸与时长。只使用中性白模 studio lighting，不将其解释为生产照明、材质色或调色。未知 zoom 或有焦点轨的浅景深任务需光学扩展，当前阻断。当前本机验证 Blender 5.2.1；其他版本须运行真实集成测试：`BLENDER_EXECUTABLE=/absolute/path/to/blender python -m unittest discover -s tests -p test_previs.py -v`。
+
+几何按镜头进入临时资产的派生指纹；修改相应几何会使其失效，无关镜头几何和身份母版不会因此全部作废。artifact-manifest 仅为已有单素材 clay 控制项自动登记实物，review/binding 初始均为 null；多素材控制项由宿主显式登记。渲染成功是 RENDERED_LOCAL，验包是 VERIFIED_LOCAL_RENDER，均不等于视觉审核、模型提交或生成服从度通过。Agent 必须看实际帧并按用途审阅，随后由宿主绑定实际可访问素材。
 
 离线 HTML 将轨迹按镜头只存一份，帧更新节点。摄影机 SVG 使用配置和 crop 的输出比例，不再固定拉伸到 16:9。尚无浏览器视觉验收或真实生成质量结论。
 
