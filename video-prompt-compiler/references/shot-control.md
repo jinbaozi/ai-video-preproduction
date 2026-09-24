@@ -168,3 +168,17 @@ python scripts/control_cli.py repair outputs/control-v001 outputs/control-v002 -
 失效记录同时绑定资产字节摘要与用途摘要。仅变更用途 ID 或删掉旧记录不是审核；新的图片/视频须重新登记文件哈希、当前配方、用途审核和上传绑定。重新生成并审过的新字节可保留旧失败历史，旧内容的失效标记不会永久封锁新内容。身份/造型/风格/场景母版依赖其职责切片，无关运镜变化不使全部母版失效。
 
 观察输入必须连同实际视频一起重新经过冻结基线验证；FAIL 为该实收媒体的精确时段创建失效记录和责任模块任务。失败视频本身不证明上游身份母版有错，因此不自动废弃所有母版。要修改上游设计，由责任模块修订原生来源，再派生受影响资产和片段。上述命令创建任务和执行阻断，不自动宣称生成、审图或返修质量通过。
+
+
+## 冻结事件的单张几何关键帧
+
+当某一事件的状态明确、事件之间的运动尚未定义时，可只渲染这个事件，不补造插值：
+
+```bash
+python scripts/control_cli.py previs-frame outputs/control-v001 --keyframe K001_0 --artifact PROXY_K0 --blender /absolute/path/to/blender --out outputs/proxy-K001_0
+python scripts/control_cli.py verify-previs-frame outputs/proxy-K001_0
+```
+
+配置须有明确 proxy_scene，指定 artifact 必须属于当前事件的单时刻控制用途，且不得替换原生身份/场景资产。输出单张 keyframe.png、scene.blend、计划、实际 Blender 读回、文件摘要和待审资产清单；不产生 MP4。复验重新派生来源、用途、摄影机及几何，重封摘要不能放行被改写的用途映射。完整预演仍要求每一帧都有明确运动依据。
+
+RENDERED_LOCAL_KEYFRAME / VERIFIED_LOCAL_KEYFRAME 只代表本地中性几何渲染。无手脚或表情的代理图不得直接作为表演与身份验收通过的关键帧；需实际审图后作为限定用途编辑基图，经 keyframe-stage 冻结输入并由宿主生成、keyframe-receive 收回。普通多图输入不能保证冻结投影得到保留；必须按事前目标测量，失败结果继续保持 FAIL。

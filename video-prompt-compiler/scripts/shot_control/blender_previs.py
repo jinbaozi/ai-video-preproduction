@@ -43,7 +43,7 @@ def run(plan_path, out):
     scene.display.shading.show_shadows = True; scene.display.shading.show_cavity = True
     scene.display.shading.background_type = 'WORLD'; scene.world.color = (.12,.12,.12)
     scene.view_settings.view_transform = 'Standard'
-    scene.frame_start = 1; scene.frame_end = len(plan['video_samples'])
+    scene.frame_start = 1; scene.frame_end = max(1, len(plan['video_samples']))
     camera_data = bpy.data.cameras.new('AVIR_CAMERA'); camera = bpy.data.objects.new('AVIR_CAMERA', camera_data)
     scene.collection.objects.link(camera); scene.camera = camera
     camera_data.sensor_fit = 'VERTICAL'; camera_data.sensor_height = 36

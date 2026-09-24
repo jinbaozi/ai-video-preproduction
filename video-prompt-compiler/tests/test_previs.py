@@ -9,7 +9,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'scripts'))
 from build_previs_example import fixture
-from shot_control.common import read, write, digest
+from shot_control.common import read, write, digest, sha
 from shot_control.control_plan import build
 from shot_control.package import verify_package, recipe
 from shot_control.previs import derive, render, verify_render, validate_geometry
@@ -58,6 +58,36 @@ class PrevisTests(unittest.TestCase):
         self.assertEqual(plan['samples'][plan['video_samples'][-1]]['at_ms'],3500)
         bundle['ir']['shots'][0]['end_ms']=4000.5
         with self.assertRaisesRegex(ValueError,'whole number of frames'): derive(bundle,'S1')
+
+    def test_known_keyframe_does_not_invent_intermediate_motion(self):
+        self.ir=read(ROOT/'examples/v52/cafe.avir.json')
+        bundle=verify_package(self.package())
+        with self.assertRaisesRegex(ValueError,'Unknown position'): derive(bundle,'S1')
+        plan=derive(bundle,'S1','K001_0')
+        self.assertEqual([s['at_ms'] for s in plan['samples']],[0])
+        self.assertEqual(plan['video_samples'],[])
+        self.assertEqual(plan['event_samples'],[0])
+        self.assertEqual(plan['start_ms'],plan['end_ms'])
+        with self.assertRaisesRegex(ValueError,'Unknown keyframe'):derive(bundle,'S1','K002_4000')
+
+    @unittest.skipUnless(os.environ.get('BLENDER_EXECUTABLE'),'Requires explicit local Blender integration runtime')
+    def test_actual_single_frame_and_resealed_mapping_tamper(self):
+        from shot_control.previs_frame import render as render_frame, verify
+        self.ir=read(ROOT/'examples/v52/cafe.avir.json')
+        self.config['controls'][0].update(channel='first_frame',artifact_ids=['PROXY_K0'])
+        package=self.package();out=self.root/'still'
+        result=render_frame(package,'K001_0','PROXY_K0',out,os.environ['BLENDER_EXECUTABLE'])
+        self.assertEqual(result['status'],'RENDERED_LOCAL_KEYFRAME')
+        self.assertFalse((out/'clay.mp4').exists())
+        self.assertEqual(verify(out)['projection_check']['samples'],1)
+        manifest=read(out/'artifact-manifest.json')
+        self.assertIsNone(manifest['artifacts'][0]['review'])
+        self.assertEqual(manifest['artifacts'][0]['uses'][0]['end_ms'],0)
+        manifest['artifacts'][0]['uses'][0]['end_ms']=1
+        write(out/'artifact-manifest.json',manifest)
+        seal=read(out/'render-manifest.json');seal['files']['artifact-manifest.json']=sha(out/'artifact-manifest.json')
+        write(out/'render-manifest.json',seal)
+        with self.assertRaisesRegex(ValueError,'artifact mapping'):verify(out)
 
     def test_unresolved_orientation_and_incorrect_aspect_block(self):
         bundle=verify_package(self.package())

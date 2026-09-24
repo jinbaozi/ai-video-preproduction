@@ -1,0 +1,156 @@
+{
+  "design_revision": {
+    "changes": [
+      "S1 camera position/look-at and explicit position track",
+      "S1 authored lens FOV 35 degrees",
+      "S1 envelope composition region spans existing path"
+    ],
+    "previous_source_sha256": "1b0b55b26799311ca2d3f6583b73bb7854dd281c4c2dd68caeae445d328b0cd5",
+    "reason": "New prospective composition experiment; does not change prior generation acceptance or convert earlier failures into passes.",
+    "schema": "experiment-design-revision/0.1",
+    "unchanged": [
+      "all actor/envelope world motion",
+      "dialogue",
+      "identity/scene master files"
+    ]
+  },
+  "frozen_stage_sha256": "034778e1ca6ce3621c1d68e668cb623b7abd3a45ec56e9c88932efcecc420f65",
+  "host_result": {
+    "evidence": "Actual native image_gen call with the frozen prompt and four staged image paths in order; returned PNG copied unchanged. Tool elapsed 91.6 seconds; provider model, execution ID and cost not exposed. This is a host assertion, not provider-signed execution proof.",
+    "execution_id": null,
+    "host": "Codex built-in image_gen",
+    "input_sha256": [
+      "53d7499ea846b971eb4a8a72d0b76b18e1dba291a29e3386a507f1288b5f49e8",
+      "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b",
+      "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2",
+      "a196b4a6f33fb8c7e805b63339eb6e1204c9b4005a7aee83831f52959d395135"
+    ],
+    "model": null,
+    "output_filename": "actual-keyframe.png",
+    "output_sha256": "07951e34ce6765e8091edb307ca46d84afc5f3c252c0f68a6efbc449674fd7fa",
+    "prompt_sha256": "051ca8f9f914dc8a3aef34e218ff30ac3bd4f4083c7d8f50f8a8a346a7291766",
+    "recording_mode": "contemporaneous",
+    "schema": "keyframe-host-result/0.1",
+    "stage_sha256": "034778e1ca6ce3621c1d68e668cb623b7abd3a45ec56e9c88932efcecc420f65"
+  },
+  "limitations": [
+    "Manual estimate, not an automated tracker or hidden-pixel measurement",
+    "New prospective camera design, not a controlled comparison with earlier attempts",
+    "Native multi-reference image input did not satisfy frozen composition; no precise control success claim"
+  ],
+  "local_artifacts": "outputs/host-keyframe-clay-r2/",
+  "media_in_repository": false,
+  "observation": {
+    "automated_tracking": false,
+    "error_xy": [
+      0.054652222907620174,
+      -0.13919940409311538
+    ],
+    "expected_xy": [
+      0.37836213115936546,
+      0.7162451001611281
+    ],
+    "image_size": [
+      1672,
+      941
+    ],
+    "landmark": "center of rendered envelope mesh, offset_world=[0,0,0]",
+    "manual_center_px": [
+      724,
+      543
+    ],
+    "manual_uncertainty_px": [
+      10,
+      10
+    ],
+    "max_abs_error_xy": [
+      0.02,
+      0.02
+    ],
+    "method": "manual visual marking; record pixel uncertainty independently",
+    "observed_xy": [
+      0.43301435406698563,
+      0.5770456960680127
+    ],
+    "output_sha256": "07951e34ce6765e8091edb307ca46d84afc5f3c252c0f68a6efbc449674fd7fa",
+    "plan_file_sha256": "212b40b840589c6a64656b22df38b9b29137c0861cceb7f20cdb3fe01a4a7de6",
+    "planned_before_generation": true,
+    "render_plan_sha256": "50ee52cecfafbeb0754d18aa404444a3071c7f5088a5368e4a7a32aabb8d683c",
+    "result": "FAIL",
+    "schema": "keyframe-composition-observation/0.1",
+    "scope": "one revised synthetic shot, no controlled comparison or video quality claim",
+    "source_sha256": "3f875084f4fd023ee36900a4420930fd89b49cb152bc1b796dc458730921676f"
+  },
+  "ordered_inputs": [
+    {
+      "asset_id": "K001_0",
+      "edit_base": true,
+      "role": "clean_keyframe",
+      "sha256": "53d7499ea846b971eb4a8a72d0b76b18e1dba291a29e3386a507f1288b5f49e8"
+    },
+    {
+      "asset_id": "ID_A",
+      "edit_base": false,
+      "role": "identity",
+      "sha256": "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b"
+    },
+    {
+      "asset_id": "ID_B",
+      "edit_base": false,
+      "role": "identity",
+      "sha256": "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2"
+    },
+    {
+      "asset_id": "SCENE",
+      "edit_base": false,
+      "role": "scene",
+      "sha256": "a196b4a6f33fb8c7e805b63339eb6e1204c9b4005a7aee83831f52959d395135"
+    }
+  ],
+  "prompt_sha256": "051ca8f9f914dc8a3aef34e218ff30ac3bd4f4083c7d8f50f8a8a346a7291766",
+  "received_manifest_sha256": "6f9e129cb0e9b7c7963abf12787ab69b5d3f953e9a550e1eb270f0f9b55af5ff",
+  "recording_mode": "contemporaneous",
+  "request_sha256": "f972cf8ededf0cde8298c554cac1eb73d2fb039e4c6f7f9bc225d1f54f56bbbf",
+  "review": {
+    "checks": [
+      {
+        "criterion": "保持主身份与场景母版",
+        "evidence": "Clothing and broad appearance are consistent; exact identity and all scene details not independently measured.",
+        "result": "UNDETERMINED"
+      },
+      {
+        "criterion": "核对本时刻姿态、手别、视线和构图",
+        "evidence": "Envelope center is visibly above and right of the frozen geometry target; composition fails.",
+        "result": "FAIL"
+      },
+      {
+        "criterion": "不得出现箭头、ID、时码或面板",
+        "evidence": "Actual image inspected: no arrows, IDs, timecodes or panels visible.",
+        "result": "PASS"
+      },
+      {
+        "criterion": "Before generation, freeze envelope visual center at normalized (0.378362,0.716245), top-left origin. Accept this landmark only if absolute x and y errors are each <=0.02, with manual marking uncertainty recorded separately.",
+        "evidence": "Manual center estimate (724,543) in 1672x941 pixels, uncertainty +/-10 pixels per axis. Normalized error about (+0.055,-0.139), outside +/-0.02 even with uncertainty.",
+        "result": "FAIL"
+      },
+      {
+        "criterion": "A sits left holding exactly one horizontal blue envelope in his own right hand; B sits right looking at the envelope. No extra people or props.",
+        "evidence": "Actual image shows A seated left holding one horizontal blue envelope in his right hand, B seated right looking down toward it, no extra people.",
+        "result": "PASS"
+      },
+      {
+        "criterion": "No clay geometry remains; retain reference identities and clothes, believable hands, wooden cafe materials and soft left window light.",
+        "evidence": "Photographic cafe and soft window light visible; full identity, hand anatomy and all material details not exhaustively verified.",
+        "result": "UNDETERMINED"
+      }
+    ],
+    "reviewer": "Codex actual-image visual inspection and manual landmark estimate",
+    "schema": "keyframe-image-review/0.1",
+    "sha256": "07951e34ce6765e8091edb307ca46d84afc5f3c252c0f68a6efbc449674fd7fa",
+    "stage_sha256": "034778e1ca6ce3621c1d68e668cb623b7abd3a45ec56e9c88932efcecc420f65"
+  },
+  "schema": "host-keyframe-clay-experiment/0.1",
+  "scope": "one revised synthetic shot, no controlled comparison or video quality claim",
+  "submitted": false,
+  "video_execution": "NOT_RUN"
+}

@@ -35,7 +35,7 @@ def geometry_for_shot(config, shot_id):
     return {**geometry, 'objects': [o for o in geometry['objects'] if shot_id in o['shot_ids']]}
 
 
-def derive(bundle, shot_id):
+def derive(bundle, shot_id, keyframe_id=None):
     """Evaluate all frames before starting Blender; gaps never become interpolation."""
     import spatial_runtime as spatial
     ir, config = bundle['ir'], bundle['config']
@@ -47,11 +47,15 @@ def derive(bundle, shot_id):
     geometry = {**geometry, 'fps':int(geometry['fps']), 'resolution':[int(v) for v in geometry['resolution']]}
     fps = geometry['fps']
     start, end = Fraction(str(shot['start_ms'])), Fraction(str(shot['end_ms']))
-    frame_count = (end-start)*fps/1000
-    if frame_count.denominator != 1: raise ValueError('Shot duration must contain a whole number of frames; no retiming')
-    count = frame_count.numerator
-    movie_times = [start + Fraction(i*1000, fps) for i in range(count)]
-    event_ms = event_times(ir, shot)
+    if keyframe_id is None:
+        frame_count = (end-start)*fps/1000
+        if frame_count.denominator != 1: raise ValueError('Shot duration must contain a whole number of frames; no retiming')
+        movie_times = [start + Fraction(i*1000, fps) for i in range(frame_count.numerator)]
+        event_ms = event_times(ir, shot)
+    else:
+        request = next((r for r in bundle['requests'] if r['id']==keyframe_id and r['shot_id']==shot_id), None)
+        if request is None: raise ValueError('Unknown keyframe in this shot')
+        movie_times = []; event_ms = [request['at_ms']]
     all_times = sorted(set(movie_times) | {Fraction(str(t)) for t in event_ms})
     view = shot_view(ir, shot_id)
     nodes = {n['id']: n for n in ir['timeline']['spatial_nodes']}
@@ -93,7 +97,7 @@ def derive(bundle, shot_id):
                                     for p in state['points'] if p['position'] is not None]}
         samples.append(sample)
     index = {at: i for i,at in enumerate(all_times)}
-    return {'schema': 'previs-render-plan/0.1', 'shot_id': shot_id, 'source_sha256': bundle['plan']['source']['sha256'],
+    plan = {'schema': 'previs-render-plan/0.1', 'shot_id': shot_id, 'source_sha256': bundle['plan']['source']['sha256'],
             'geometry': geometry, 'start_ms': shot['start_ms'], 'end_ms': shot['end_ms'], 'fps': fps,
             'samples': samples, 'video_samples': [index[t] for t in movie_times],
             'event_samples': [index[Fraction(str(t))] for t in event_ms],
@@ -101,6 +105,9 @@ def derive(bundle, shot_id):
             'limitations': ['No invented gait, anatomy, facial performance or contact solving',
                             'No depth of field, material palette, or production lighting',
                             'Proxy geometry and projection do not prove model compliance']}
+    if keyframe_id is not None:
+        plan.update(keyframe_id=keyframe_id, render_kind='keyframe', start_ms=request['at_ms'], end_ms=request['at_ms'])
+    return plan
 
 
 def validate_readback(plan, data):
@@ -138,9 +145,7 @@ def validate_readback(plan, data):
     return {'status': 'PASS', 'samples': len(plan['samples']), 'max_normalized_projection_error': error}
 
 
-def render(package, shot_id, out, blender):
-    from .media_probe import probe
-    bundle = verify_package(package); plan = derive(bundle, shot_id)
+def _render_plan(plan, out, blender):
     out = Path(out).resolve()
     if out.exists() and any(out.iterdir()): raise ValueError('Output directory must be empty')
     executable = shutil.which(blender)
@@ -154,6 +159,14 @@ def render(package, shot_id, out, blender):
         run = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT, timeout=1800)
     if run.returncode: raise ValueError('Blender rendering failed: '+(out/'blender.log').read_text()[-1800:])
     readback = read(out/'blender-readback.json'); checks = validate_readback(plan, readback)
+    return checks, readback, script
+
+
+def render(package, shot_id, out, blender):
+    from .media_probe import probe
+    bundle = verify_package(package); plan = derive(bundle, shot_id)
+    out = Path(out).resolve()
+    checks, readback, script = _render_plan(plan, out, blender)
     (out/'video-frames').mkdir()
     for index, sample_id in enumerate(plan['video_samples']):
         shutil.copyfile(out/f'frames/{sample_id:06d}.png', out/f'video-frames/{index:06d}.png')

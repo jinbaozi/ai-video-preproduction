@@ -22,6 +22,8 @@ def main():
     p = sub.add_parser('verify'); p.add_argument('package')
     p = sub.add_parser('previs'); p.add_argument('package'); p.add_argument('--shot', required=True); p.add_argument('--blender', required=True); p.add_argument('--out', required=True)
     p = sub.add_parser('verify-previs'); p.add_argument('package')
+    p = sub.add_parser('previs-frame'); p.add_argument('package'); p.add_argument('--keyframe', required=True); p.add_argument('--artifact', required=True); p.add_argument('--blender', required=True); p.add_argument('--out', required=True)
+    p = sub.add_parser('verify-previs-frame'); p.add_argument('package')
     p = sub.add_parser('craft'); p.add_argument('package'); p.add_argument('--out', required=True)
     p = sub.add_parser('verify-craft'); p.add_argument('package')
     p = sub.add_parser('grade'); p.add_argument('package'); p.add_argument('--shot', required=True); p.add_argument('--media', required=True); p.add_argument('--out', required=True)
@@ -69,6 +71,12 @@ def main():
         elif args.command == 'verify-previs':
             from shot_control.previs import verify_render
             result = verify_render(args.package)
+        elif args.command == 'previs-frame':
+            from shot_control.previs_frame import render
+            result = render(args.package, args.keyframe, args.artifact, args.out, args.blender)
+        elif args.command == 'verify-previs-frame':
+            from shot_control.previs_frame import verify
+            result = verify(args.package)
         elif args.command == 'craft':
             from shot_control.craft import export
             result = export(args.package, args.out)

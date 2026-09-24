@@ -117,3 +117,18 @@ GPT-6 Pro 第二轮审核已终结，针对 93c10e7 给出 Request changes，原
 宿主交接增量后的全量 162 项无失败（1 项默认 Blender 跳过）；随后上述预演修复按受影响范围复测，没有把新增用例倒算成先前全量运行。图片独立包的 keyframe-stage → keyframe-receive 命令行也已实际完成历史实物接收，并保持 FAIL。中间发行检查通过后又补齐整数值浮点表示，最终发行验收另行记录，不能引用中间摘要冒充最终包。
 
 最终七个 Skill 静态检查、隔离安装（含新交接及预演回归）、内置一致性和重复构建均 PASS，报告为 `outputs/shot-control-host-receive-release-final2/report.json`；release-check 和 release-final 是中间版本。当前发行 video-prompt-compiler 1.12.0、image-prompt-optimizer 1.10.0、workflow 0.7.3。带原始请求摘要比对的历史回放在 `outputs/host-keyframe-receive-r2/` 再次成功，实收摘要与 r1 相同。完整生成质量、真实视频入口/实收观察、表演光色收益与专用控制实验继续未完成。
+
+
+## 单事件几何关键帧及实际生成失败记录
+
+新增 previs-frame / verify-previs-frame，在事件状态明确但中间运动未知时只渲染一个冻结事件。沿用 AVIR 和 proxy_scene，无平行轨迹权威；完整视频预演继续拒绝未知插值。产物包含实际 Blender 场景、单帧 PNG、读回投影及待审用途映射；不会把本地几何图记为模型生成、身份或表演通过。
+
+8 项预演专项已在实际 Blender 环境全部通过，覆盖旧视频路径、新单帧路径、事件归属、禁止未知插值及重封用途篡改。本地真实单帧 1280×720，读回最大归一化投影误差约 2.68e-7。版本 video-prompt-compiler 1.13.0、image-prompt-optimizer 1.11.0、workflow 0.7.4。
+
+实际尝试位于 outputs/host-keyframe-clay-r2/，公开摘要 validation-artifacts/host-keyframe-clay-evidence.json。在生成前独立修订并冻结测试设计的机位/构图，旧尝试及旧标准保留；不是事后改验收标准，也不是与旧机位的受控对照。按几何基图、A 身份、B 身份、场景四张图的固定顺序执行了一次内置 image_gen，耗时 91.6 秒，实收 1672×941；型号、执行 ID 和费用未暴露。
+
+生成前信封中心目标为 (0.378362,0.716245)，每轴容差 0.02。看实际图片后手工估计中心约像素 (724,543)，每轴估计误差 ±10 像素；归一化位置约 (0.433,0.577)，明显偏高、偏右。纸面水平已满足，但构图 FAIL；输入冻结、宿主断言、原始图片、实收清单和失败审核完整留存。不能据此宣称普通多图输入可精确执行机位、或已实现生成视频闭环。
+
+本次编译器全量 165 项无失败，默认跳过 2 项 Blender 集成；这两项已在显式本机 Blender 环境实际执行，8 项预演专项全通过。图片独立运行时复验实际几何单帧与实收图片成功，实收审核保持 FAIL。第三轮网页审核针对 886e931 最后显示“无法显示此内容”，未给出可用最终报告，因此既不计审核通过，也不把页面提示推断为仓库具体缺陷。
+
+最终七个 Skill 静态检查、隔离安装、内置模块一致性与确定性重复构建全部 PASS，报告为 outputs/shot-control-single-frame-release-final/report.json。真实视频执行、已满足构图的生成关键帧和整体方案交付仍未完成。

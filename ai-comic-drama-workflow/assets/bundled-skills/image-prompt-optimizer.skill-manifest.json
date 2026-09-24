@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "959e8a95c7151d8447324c3bea97a007660c69c5478f24ab0a02a3cc0cda1d51",
-  "file_count": 103,
+  "archive_sha256": "3b10594d418254e896b805ba263dfb65e86f799fb1d69d520bdc1555322f55fa",
+  "file_count": 104,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29772,
-      "sha256": "fe19f75410f7c2e71f11b60f5c90b6383064dae70cd29154fc72a1ae06814ec0"
+      "sha256": "768ee458a2a8e5bffa7b348417e90ff27948a0e82b8a6f8b9a525ab7cb54c70b"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 25272,
-      "sha256": "7401f7d8934a8d3c1f27d1663f16cb6b5589d13ae7ef59704e7df87a14d2659c"
+      "bytes": 26545,
+      "sha256": "9d630abc5ed7453ae5fbddedd17e3e86625580c51179c8b0ff2a130491081672"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -236,8 +236,8 @@
       "sha256": "46793a2a44f49897969fa9526ef9fb2a5ab916d2250313cb0817995b73345fcc"
     },
     "image-prompt-optimizer/scripts/control_cli.py": {
-      "bytes": 8989,
-      "sha256": "1f1356d4bfb0c064deb376efb7f81679721499c2130c5625b3bb5711b84ca892"
+      "bytes": 9651,
+      "sha256": "0166d12a7d000547f388b4374a0548814f871c28edd34ae8b7fe34a2b099ccd5"
     },
     "image-prompt-optimizer/scripts/detail_runtime.py": {
       "bytes": 34347,
@@ -256,8 +256,8 @@
       "sha256": "7dae081d188313ec42ec0fa2a52917387f1ff897e7bb7eaf7180522d5ffae015"
     },
     "image-prompt-optimizer/scripts/shot_control/blender_previs.py": {
-      "bytes": 6790,
-      "sha256": "98053e049922eb9eb1ee87bfe4ad1e38cb67a7043d2571342babe6db9c359a1b"
+      "bytes": 6798,
+      "sha256": "013e03ff54f94e64d43815061e8c6501be349e59b2d3dad64b5dd3202810bac7"
     },
     "image-prompt-optimizer/scripts/shot_control/camera_projection.py": {
       "bytes": 2066,
@@ -304,8 +304,12 @@
       "sha256": "6448aeae22f924d9bf7568bd7bc1c3df22238107fcb961e2064f636dc1201506"
     },
     "image-prompt-optimizer/scripts/shot_control/previs.py": {
-      "bytes": 14846,
-      "sha256": "a3cf3c7e66a9be16a9bc99df76fb76c7b50d72b5cd1d2e59940b325fb9fcf8a4"
+      "bytes": 15485,
+      "sha256": "8987c7c78c743e5cdf8616db861825166d34765e28cd07fa79c67945e4fdd4b5"
+    },
+    "image-prompt-optimizer/scripts/shot_control/previs_frame.py": {
+      "bytes": 5073,
+      "sha256": "fc418db33504221027b3193efab282ca0d6959eb5e6d37727b31aef5660c5755"
     },
     "image-prompt-optimizer/scripts/shot_control/render_blocking.py": {
       "bytes": 4440,
@@ -417,5 +421,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.10.0"
+  "version": "1.11.0"
 }
