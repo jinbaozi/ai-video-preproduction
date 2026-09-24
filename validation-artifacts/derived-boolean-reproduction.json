@@ -1,0 +1,26 @@
+{
+  "schema": "derived-boolean-reproduction/0.1",
+  "before_commit": "7fdb6b90112c6a1af59f37c8435751aef26e1bb0",
+  "before": [
+    {
+      "case": "frame_time_false",
+      "result": "INCORRECTLY_ACCEPTED"
+    },
+    {
+      "case": "evaluation_time_false",
+      "result": "INCORRECTLY_ACCEPTED"
+    }
+  ],
+  "after": [
+    {
+      "case": "frame_time_false",
+      "result": "Derived data mismatch: review/frames.json"
+    },
+    {
+      "case": "evaluation_time_false",
+      "result": "Derived data mismatch: evaluation-plan.json"
+    }
+  ],
+  "method": "Copy a valid native cafe package, replace zero at_ms with JSON false in frozen frames or evaluation plan, reseal file hashes; frame-time case also rerenders consistent HTML/SVG. Same mutated packages verified before and after code fix.",
+  "limits": "Local software-contract adversarial fixture, not generated-media measurement or final independent web verdict."
+}

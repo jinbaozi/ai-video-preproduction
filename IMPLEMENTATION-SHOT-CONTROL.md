@@ -208,3 +208,9 @@ F03：事件 at_ms 不改成整段时长。普通参考输出须事前在控制�
 整体交付仍未通过：PR4 的真实首尾帧执行以及最终独立功能审核尚未闭合。真实生成失败保留原验收标准和证据；新的付费入口执行须有明确入口与预算授权。已有局部成功与失败均不替代该缺项。
 
 标签修复最终发行：video-prompt-compiler 1.17.1、image-prompt-optimizer 1.15.1、workflow 0.7.9。七个 Skill 隔离安装、完整发行检查、内置模块一致性及重复构建均 PASS，最终报告在 outputs/shot-control-label-release/report.json，并摘要到浏览器检查记录。独立网页审核仍针对父提交 a7b4072 运行，不能将其结果自动覆盖本次显示层变更。
+
+## 派生 JSON 的布尔值与数值边界
+
+网页对 a7b4072 的审核中途提示布尔值可能漏检。本机独立构造原生 cafe 制作包，将派生帧或评价计划中的零时间改为 JSON false，并重封文件摘要；帧案例同时重派生 HTML/SVG。7fdb6b9 均错误接受。共享 verifier 现递归区分 JSON 布尔值与数值，仍保留 0/0.0 的合法数值等价；同一批原篡改包均在派生检查处拒绝。复现记录见 validation-artifacts/derived-boolean-reproduction.json。网页尚未终局，本地修复不冒充独立审核通过。
+
+布尔值修复最终发行 video-prompt-compiler 1.17.2、image-prompt-optimizer 1.15.2、workflow 0.7.10；27 项源码专项通过，七包隔离安装、嵌入一致性与重复构建均 PASS。独立视频包中十二个指定测试模块合计 181 项通过，未将其写成新一轮全源码 discover。最终验证摘要见 validation-artifacts/derived-boolean-verification.json。

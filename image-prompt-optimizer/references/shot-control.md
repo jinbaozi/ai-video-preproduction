@@ -200,3 +200,5 @@ python scripts/control_cli.py verify-previs-frame outputs/proxy-K001_0
 RENDERED_LOCAL_KEYFRAME / VERIFIED_LOCAL_KEYFRAME 只代表本地中性几何渲染。无手脚或表情的代理图不得直接作为表演与身份验收通过的关键帧；需实际审图后作为限定用途编辑基图，经 keyframe-stage 冻结输入并由宿主生成、keyframe-receive 收回。普通多图输入不能保证冻结投影得到保留；必须按事前目标测量，失败结果继续保持 FAIL。
 
 新建审阅页使用 `data-label-layout="2"`：标签在相邻行避让并用细线连接原点，节点坐标不移动；极密区域放不下的文字只在完整 legend 中保留。旧版页面与 SVG 仍以旧排布逐字节重派生验证；不能只改标记或重封摘要让混合版本通过。
+
+派生 JSON 比较保留 `0` 与 `0.0` 的数值等价，但在所有嵌套字段区分布尔值和数值；`false` 不能替代时间/坐标的 `0`，`true` 不能替代 `1`，重封文件摘要也不能通过。

@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "a4bf9e3b9d0c078e883745cb7bc601d59648bcf99d261db4bf8f6917e15f1aff",
+  "archive_sha256": "569443509730e56cec868a5d71460b031448ca6b32fcc8b797b0f5f0edebbd35",
   "file_count": 114,
   "files": {
     "video-prompt-compiler/SKILL.md": {
       "bytes": 10310,
-      "sha256": "5507f55754f2e9705c6893e029427b2c78d73144d62ee02975504cc7170a42b8"
+      "sha256": "8107a528fcfffffcd0df039a47c07307ad0d58f09aeefef279ac55ca8aff4d0d"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -116,8 +116,8 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/shot-control.md": {
-      "bytes": 31788,
-      "sha256": "1260589a0354d9a033d264c17710643042901e034198bc6e3c698b420396b0c5"
+      "bytes": 32003,
+      "sha256": "f5c7be28a4b6f636ee031f10500e526c2099673d315f559d2e018c61509d9c2a"
     },
     "video-prompt-compiler/references/spatial-contract-v52.md": {
       "bytes": 7583,
@@ -348,8 +348,8 @@
       "sha256": "039728a92cabecaa7ab85b8a5dfb9b4299aea6c4694b224a5ca82f5bf84dd2f7"
     },
     "video-prompt-compiler/scripts/shot_control/package.py": {
-      "bytes": 12419,
-      "sha256": "468d6755cab44419f0f6535b2f6903ad95d6ce8805781666d1339d991f2dccde"
+      "bytes": 13112,
+      "sha256": "c48e7c1fc1dce905eccedb6ee77d375420ce9d36679d7c7eb63cbfc78b39a952"
     },
     "video-prompt-compiler/scripts/shot_control/previs.py": {
       "bytes": 15510,
@@ -444,8 +444,8 @@
       "sha256": "3ae7931e5929d992d99f0a757dc217dc7acf628cefd0faef3c847de453e819cc"
     },
     "video-prompt-compiler/tests/test_shot_control.py": {
-      "bytes": 22002,
-      "sha256": "5e2a5fa75e18b9dcd6efde29fdb4118e02aff608574571d645948a78131a44aa"
+      "bytes": 23196,
+      "sha256": "bbaf2bdbe3239f495467d7e729e71bfd16c7775d636ea92d9eb7670fae498adb"
     },
     "video-prompt-compiler/tests/test_v51.py": {
       "bytes": 8015,
@@ -461,5 +461,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.17.1"
+  "version": "1.17.2"
 }

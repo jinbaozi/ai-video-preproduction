@@ -7,6 +7,19 @@ from .common import read, sha, digest, schema_check, pointer, confined
 ROOT = Path(__file__).resolve().parents[2]
 
 
+def same_json_value(actual, expected):
+    """Retain numeric equivalence, but JSON booleans are never numbers."""
+    if type(actual) is bool or type(expected) is bool:
+        return type(actual) is type(expected) and actual == expected
+    if isinstance(expected, dict):
+        return (isinstance(actual, dict) and actual.keys() == expected.keys()
+                and all(same_json_value(actual[k], v) for k, v in expected.items()))
+    if isinstance(expected, list):
+        return (isinstance(actual, list) and len(actual) == len(expected)
+                and all(same_json_value(a, b) for a, b in zip(actual, expected)))
+    return actual == expected
+
+
 def projection_frames_match(frozen, derived):
     """Permit libm roundoff only in calculated projection xy/depth, never source/time/status."""
     def scalar(a, b):
@@ -27,7 +40,7 @@ def projection_frames_match(frozen, derived):
                 if not isinstance(x.get('xy'), list) or len(x['xy']) != 2: return False
                 if not all(scalar(v, w) for v, w in zip(x['xy'], y['xy'])): return False
                 x['xy'] = y['xy']
-    return actual == derived
+    return same_json_value(actual, derived)
 
 
 def frozen_values_in_derived_order(frozen, derived):
@@ -126,7 +139,7 @@ def verify_package(package):
                     'control_ids': [r['id'] for r in plan['controls'] if r['requirement_id'] == c['id']],
                     'level': c['level'], 'execution_status': 'PLANNED', 'media_review': 'NOT_RUN'} for c in ir['contract']]}
     for name, value in expected.items():
-        if read(package/name) != value: raise ValueError('Derived data mismatch: '+name)
+        if not same_json_value(read(package/name), value): raise ValueError('Derived data mismatch: '+name)
     from .render_blocking import review_files
     review_html = (package/'review/index.html').read_text(encoding='utf-8')
     layout = 2 if review_html.startswith('<!doctype html><html lang="zh" data-label-layout="2">') else 1

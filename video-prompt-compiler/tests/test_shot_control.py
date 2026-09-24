@@ -22,7 +22,7 @@ from shot_control.control_lowering import lower as raw_lower, validate_delta
 def lower(package, target, mode, manifest):
     return raw_lower(package, target, mode, manifest, {"start_ms":4000,"end_ms":8000})
 from shot_control.media_review import evaluate
-from shot_control.package import verify_package, recipe
+from shot_control.package import verify_package, recipe, same_json_value
 from shot_control.keyframes import check_request
 from shot_control.render_blocking import svg, review_files
 
@@ -279,6 +279,24 @@ class ShotControlTests(unittest.TestCase):
         manifest['files']['review/index.html'] = sha(html); write(self.out/'package-manifest.json', manifest)
         with self.assertRaisesRegex(ValueError, 'Derived review mismatch'):
             verify_package(self.out)
+
+    def test_resealed_boolean_cannot_replace_derived_number(self):
+        self.build()
+        for name, change in (
+                ('review/frames.json', lambda v: v[0].update(at_ms=False)),
+                ('review/frames.json', lambda v: v[0]['points'][0]['position'].__setitem__(2, False)),
+                ('evaluation-plan.json', lambda v: v['points'][0].update(at_ms=False))):
+            with self.subTest(name=name):
+                path = self.out/name; original = path.read_bytes()
+                data = read(path); change(data); write(path, data)
+                manifest = read(self.out/'package-manifest.json')
+                manifest['files'][name] = sha(path); write(self.out/'package-manifest.json', manifest)
+                with self.assertRaisesRegex(ValueError, 'Derived data mismatch'):
+                    verify_package(self.out)
+                path.write_bytes(original)
+                manifest['files'][name] = sha(path); write(self.out/'package-manifest.json', manifest)
+        self.assertTrue(same_json_value({'value':[0,1.0,True]}, {'value':[0.0,1,True]}))
+        self.assertFalse(same_json_value({'value':[0,1]}, {'value':[False,True]}))
 
     def test_flash_rejects_conditioned_video(self):
         self.configured('clay_video_reference')

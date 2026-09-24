@@ -1,0 +1,124 @@
+{
+  "schema": "derived-boolean-verification/0.1",
+  "parent_commit": "7fdb6b90112c6a1af59f37c8435751aef26e1bb0",
+  "status": "PASS_SCOPED_SOFTWARE_VALIDATION",
+  "source_tests": {
+    "total": 27,
+    "failures": 0,
+    "seconds": 21.306,
+    "command": "python -m unittest discover -s video-prompt-compiler/tests -p test_shot_control.py -v"
+  },
+  "isolated_video_tests": {
+    "total": 181,
+    "runs": [
+      {
+        "log": "video-prompt-compiler-01.log",
+        "tests": 24,
+        "seconds": 0.233
+      },
+      {
+        "log": "video-prompt-compiler-02.log",
+        "tests": 7,
+        "seconds": 91.377
+      },
+      {
+        "log": "video-prompt-compiler-03.log",
+        "tests": 9,
+        "seconds": 9.152
+      },
+      {
+        "log": "video-prompt-compiler-04.log",
+        "tests": 4,
+        "seconds": 7.137
+      },
+      {
+        "log": "video-prompt-compiler-05.log",
+        "tests": 8,
+        "seconds": 3.07
+      },
+      {
+        "log": "video-prompt-compiler-06.log",
+        "tests": 11,
+        "seconds": 103.618
+      },
+      {
+        "log": "video-prompt-compiler-07.log",
+        "tests": 1,
+        "seconds": 6.031
+      },
+      {
+        "log": "video-prompt-compiler-08.log",
+        "tests": 14,
+        "seconds": 24.73
+      },
+      {
+        "log": "video-prompt-compiler-09.log",
+        "tests": 9,
+        "seconds": 13.265
+      },
+      {
+        "log": "video-prompt-compiler-10.log",
+        "tests": 27,
+        "seconds": 18.332
+      },
+      {
+        "log": "video-prompt-compiler-11.log",
+        "tests": 38,
+        "seconds": 33.571
+      },
+      {
+        "log": "video-prompt-compiler-12.log",
+        "tests": 29,
+        "seconds": 0.827
+      }
+    ],
+    "scope": "Twelve named test modules in release verifier, not a new full source discovery; unchanged test_segment_delivery.py is outside that release list."
+  },
+  "packages": [
+    {
+      "name": "ai-comic-drama-workflow",
+      "archive_sha256": "cd68815f2c2353ea403428d03d8aabf86a0b3f4a43d9eba24bbcfb523d807459",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "screenplay-grammar",
+      "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "director-grammar",
+      "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "production-design-grammar",
+      "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "storyboard-grammar",
+      "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "video-prompt-compiler",
+      "archive_sha256": "569443509730e56cec868a5d71460b031448ca6b32fcc8b797b0f5f0edebbd35",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "image-prompt-optimizer",
+      "archive_sha256": "a0cf99ae7bb7f64c32deb592d8435aa19871c09e1a37c05bf6b47f8aa10ef741",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    }
+  ],
+  "bundled_equal": true,
+  "reproduction": "derived-boolean-reproduction.json",
+  "independent_web_audit": "Parent a7b4072 still running; no final verdict for this change"
+}
