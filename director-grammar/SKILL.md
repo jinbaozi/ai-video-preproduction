@@ -6,7 +6,7 @@ description: >
   执行计划与验收条件。适用于单镜头、短片、短剧、动作展示、商品演示和镜头修订；
   不把提示词编译当作实际视频生成或成片验收。
 metadata:
-  version: "1.4.0"
+  version: "1.4.1"
 ---
 
 # Director Grammar

@@ -373,7 +373,7 @@ def panel_state(ir,shot_id,at_ms):
  if len(compositions)>1:compositions=[c for c in compositions if c['start_ms']==at_ms] or compositions[-1:]
  tracks=[tr for tr in t['motion_tracks'] if shot_id in tr['shot_ids'] and active(tr,at_ms,end)]
  values=[evaluate_track(tr,at_ms) for tr in tracks]
- relations=[r for r in t['spatial_relations'] if (scope_bounds(r['scope'])[0]==at_ms if r['scope']['kind']=='point' else scope_bounds(r['scope'])[0]<=at_ms<scope_bounds(r['scope'])[1])]
+ relations=[r for r in t['spatial_relations'] if shot_id in r['shot_ids'] and (scope_bounds(r['scope'])[0]==at_ms if r['scope']['kind']=='point' else scope_bounds(r['scope'])[0]<=at_ms<scope_bounds(r['scope'])[1] or (end and at_ms==scope_bounds(r['scope'])[1]))]
  result.update(composition=deepcopy(compositions[0]) if compositions else None,motion_values=values,spatial_relations=deepcopy(relations),nodes=[deepcopy(n) for n in t['spatial_nodes'] if any(tr['node_id']==n['id'] for tr in tracks)],derived_properties=[v['track_id'] for v in values if v['status'].startswith('DERIVED')],physical_interpolation=False)
  if not compositions or any(v['status']=='NEEDS_KEY_STATE' for v in values):result['status']='NEEDS_KEY_POSE'
  return result

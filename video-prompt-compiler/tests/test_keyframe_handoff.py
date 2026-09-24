@@ -19,8 +19,12 @@ class KeyframeHandoffTests(unittest.TestCase):
             controls.append({'id':'C_'+ident,'requirement_id':requirement,'source_pointers':[pointer],'shot_ids':['S2'],
                              'channel':'image_reference','artifact_ids':[ident],'hardness':'hard','fallback_policy':'block','purpose':'supplement'})
         config={'schema':'shot-control-config/0.2','lenses':{s['id']:self.lens for s in self.ir['shots']},'controls':controls}
+        controls.append({'id':'C_BASE','requirement_id':'REQ_FACE','source_pointers':['/shots/1/camera/shot_size'],'shot_ids':['S2'],
+                         'channel':'first_frame','artifact_ids':['BASE'],'hardness':'hard','fallback_policy':'block','purpose':'supplement'})
         identity=self.artifact(config,controls[0],'ID_B',role='identity',content=100)
         scene=self.artifact(config,controls[1],'SCENE',role='scene',content=200)
+        base=self.artifact(config,controls[2],'BASE',role='clean_keyframe',content=50)
+        base['review'].update(result='FAIL',checks=['Wrong eyeline; explicit edit required'])
         self.ir['assets']=[];self.ir['bindings']=[]
         for a,target,role in [(identity,'B','identity'),(scene,'CAFE','scene')]:
             self.ir['assets'].append({'id':a['id'],'kind':'image','filename':a['path'],'path':a['path'],'sha256':a['sha256'],
@@ -30,7 +34,7 @@ class KeyframeHandoffTests(unittest.TestCase):
         self.ir['timeline']['semantic_review']['input_sha256']=spatial.content_hash(self.ir)
         source=Path(self.tmp.name)/'source.json';write(source,self.ir)
         shutil.copyfile(self.source.parent/'cafe.source.txt',source.parent/'cafe.source.txt')
-        build(source,self.out,config);manifest=self.manifest(identity,scene)
+        build(source,self.out,config);manifest=self.manifest(identity,scene,base)
         request=next(r for r in read(self.out/'keyframe-requests.json') if r['shot_id']=='S2' and r['at_ms']==4000)
         request.update(master_anchors=['ID_B','SCENE'],generation_mode='generate')
         result=check_request(request,self.out,manifest)
@@ -46,6 +50,17 @@ class KeyframeHandoffTests(unittest.TestCase):
         self.assertEqual(check_request(request,self.out,manifest)['reasons'],[])
         request['edit_delta']['base_asset_sha256']='0'*64
         self.assertIn('EDIT_DELTA_BINDING_MISMATCH',check_request(request,self.out,manifest)['reasons'])
+        request.update(base_asset_id='BASE')
+        request['edit_delta']['base_asset_sha256']=base['sha256']
+        self.assertEqual(check_request(request,self.out,manifest)['reasons'],[])
+        base['review']['uses_sha256']='0'*64;self.manifest(identity,scene,base)
+        self.assertIn('ANCHOR_REVIEW_REQUIRED:BASE',check_request(request,self.out,manifest)['reasons'])
+        base['review']=None;self.manifest(identity,scene,base)
+        self.assertIn('ANCHOR_REVIEW_REQUIRED:BASE',check_request(request,self.out,manifest)['reasons'])
+        request['edit_delta']=None
+        self.assertIn('EDIT_BASE_AND_DELTA_REQUIRED',check_request(request,self.out,manifest)['reasons'])
+        identity['review']['result']='FAIL';self.manifest(identity,scene,base)
+        self.assertIn('ANCHOR_REVIEW_REQUIRED:ID_B',check_request(request,self.out,manifest)['reasons'])
 
 
 if __name__=='__main__':unittest.main()

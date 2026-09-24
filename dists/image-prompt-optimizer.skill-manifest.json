@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "0d9e7da0278a356cda3b60f8fe285df04bef4f1b55a8b071592b8d0d28ddce01",
+  "archive_sha256": "4ac1fe68f2d900871b2f82ad11ab5f27a5cec246a15707cf4ce86981850519ec",
   "file_count": 99,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29771,
-      "sha256": "568bb0eb741d06d9ffc3e6dc58d02c49634e936938a505232a5dabe4a973502c"
+      "sha256": "dee6b58ea6bee556f5f735325ba40ee5b8c2f15657b1c9b0e1de9caea6b485a9"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 19823,
-      "sha256": "e9ac895980e9f09c952f7e0d902343944f2fb0ee244b6fa825c0ec01d1f5a3e0"
+      "bytes": 20662,
+      "sha256": "e702c9c4894293169763f6455eac71230ee3a2b1bc13a9233724c3fb41bd296d"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -272,8 +272,8 @@
       "sha256": "d61194d7696b04d5874afbdab425e5025e3fec595e16efd5657a1e87b13e38be"
     },
     "image-prompt-optimizer/scripts/shot_control/keyframes.py": {
-      "bytes": 6431,
-      "sha256": "f8f4985f8cebe6546089a115162a3fcafb352994edaccccd2d0f895fd78ae97c"
+      "bytes": 6652,
+      "sha256": "d6888bf9311cfb5041cdce2361fcc2d2755b6a0e5735e4ac63bc91e61d335c95"
     },
     "image-prompt-optimizer/scripts/shot_control/media_probe.py": {
       "bytes": 2229,
@@ -308,8 +308,8 @@
       "sha256": "d3e980cf9ee842e63c8dc602a7ad985c116cb90089b4dc3a3263328c6f757e00"
     },
     "image-prompt-optimizer/scripts/spatial_runtime.py": {
-      "bytes": 37370,
-      "sha256": "f0a090a787b96915fb3b067e2d021c75fed7b9dcd37534eb7f6daa3c04dd1579"
+      "bytes": 37447,
+      "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549"
     },
     "image-prompt-optimizer/scripts/validate_gpt_image_2_size.py": {
       "bytes": 3114,
@@ -401,5 +401,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.8.0"
+  "version": "1.8.1"
 }

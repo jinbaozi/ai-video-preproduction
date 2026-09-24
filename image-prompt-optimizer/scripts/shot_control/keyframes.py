@@ -50,7 +50,9 @@ def check_request(request, package, manifest_path):
             reasons.append('MISSING_OR_CHANGED_ANCHOR:'+ident); continue
         if probe(path)['detected_kind'] != 'image': reasons.append('ANCHOR_MUST_BE_IMAGE:'+ident)
         review = a['review']
-        if review is None or review['result'] != 'PASS' or review['sha256'] != a['sha256'] or review['uses_sha256'] != digest(a['uses']):
+        repair_base = (request['generation_mode'] == 'edit' and ident == request['base_asset_id']
+                       and ident not in request['master_anchors'] and a['role'] == 'clean_keyframe')
+        if review is None or (review['result'] != 'PASS' and not repair_base) or review['sha256'] != a['sha256'] or review['uses_sha256'] != digest(a['uses']):
             reasons.append('ANCHOR_REVIEW_REQUIRED:'+ident)
         uses = [u for u in a['uses'] if u['shot_id'] == request['shot_id']]
         if not uses: reasons.append('ANCHOR_SHOT_SCOPE:'+ident)

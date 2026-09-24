@@ -1,0 +1,148 @@
+{
+  "billing": "No cost amount exposed by built-in tool; not estimated",
+  "calls": [
+    {
+      "elapsed_tool_seconds": 47.0,
+      "input_order": [
+        "A-identity.png",
+        "B-identity.png",
+        "CAFE-scene.png"
+      ],
+      "output": "K001_0.attempt-1.png",
+      "prompt_file": "K001_0.prompt.txt",
+      "prompt_sha256": "7d2f38930914705abfc23e9b942df0d94f22d179b92e1c3dc683b7c22bcfa6eb",
+      "result": "MEDIA_RECEIVED",
+      "review": "FAIL_ENVELOPE_PLANE"
+    },
+    {
+      "elapsed_tool_seconds": 81.8,
+      "input_order": [
+        "K001_0.attempt-1.png",
+        "A-identity.png",
+        "B-identity.png",
+        "CAFE-scene.png"
+      ],
+      "output": "K001_0.attempt-2.png",
+      "prompt_file": "K001_0.edit.prompt.txt",
+      "prompt_sha256": "6e4c2ba821b8118e732c84367605ad4237babb615a21c1cb2b5d3da5e60571c3",
+      "result": "MEDIA_RECEIVED",
+      "review": "LOCAL_ENVELOPE_PLANE_FIXED_FULL_FRAME_NOT_ACCEPTED"
+    }
+  ],
+  "edit_request_sha256": "cb2628448ac5f2c6f5098b6894f143cfde6bf96ba52fe1822f874daab8842141",
+  "files": {
+    "A-identity.png": {
+      "audio": false,
+      "bytes": 2170212,
+      "codec": "png",
+      "detected_kind": "image",
+      "display_height": 1254,
+      "display_width": 1254,
+      "duration_ms": null,
+      "format": "png_pipe",
+      "fps": 25.0,
+      "height": 1254,
+      "rotation_deg": 0,
+      "sample_aspect_ratio": null,
+      "sha256": "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b",
+      "visual_review": "NOT_RUN",
+      "width": 1254
+    },
+    "B-identity.png": {
+      "audio": false,
+      "bytes": 2005375,
+      "codec": "png",
+      "detected_kind": "image",
+      "display_height": 1254,
+      "display_width": 1254,
+      "duration_ms": null,
+      "format": "png_pipe",
+      "fps": 25.0,
+      "height": 1254,
+      "rotation_deg": 0,
+      "sample_aspect_ratio": null,
+      "sha256": "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2",
+      "visual_review": "NOT_RUN",
+      "width": 1254
+    },
+    "CAFE-scene.png": {
+      "audio": false,
+      "bytes": 2043574,
+      "codec": "png",
+      "detected_kind": "image",
+      "display_height": 941,
+      "display_width": 1672,
+      "duration_ms": null,
+      "format": "png_pipe",
+      "fps": 25.0,
+      "height": 941,
+      "rotation_deg": 0,
+      "sample_aspect_ratio": null,
+      "sha256": "a196b4a6f33fb8c7e805b63339eb6e1204c9b4005a7aee83831f52959d395135",
+      "visual_review": "NOT_RUN",
+      "width": 1672
+    },
+    "K001_0.attempt-1.png": {
+      "audio": false,
+      "bytes": 1999102,
+      "codec": "png",
+      "detected_kind": "image",
+      "display_height": 941,
+      "display_width": 1672,
+      "duration_ms": null,
+      "format": "png_pipe",
+      "fps": 25.0,
+      "height": 941,
+      "rotation_deg": 0,
+      "sample_aspect_ratio": null,
+      "sha256": "43c441c07b4acdaca2260de213fed3ea73c5b606e9450a0566ca9d17a244d0fa",
+      "visual_review": "NOT_RUN",
+      "width": 1672
+    },
+    "K001_0.attempt-2.png": {
+      "audio": false,
+      "bytes": 1896629,
+      "codec": "png",
+      "detected_kind": "image",
+      "display_height": 941,
+      "display_width": 1672,
+      "duration_ms": null,
+      "format": "png_pipe",
+      "fps": 25.0,
+      "height": 941,
+      "rotation_deg": 0,
+      "sample_aspect_ratio": null,
+      "sha256": "ba87d989c530236655f0ed195d9a50c4d940c67f90311bf9d84207586f6f56cc",
+      "visual_review": "NOT_RUN",
+      "width": 1672
+    }
+  },
+  "mode": "native host tool; no API fallback",
+  "observation": {
+    "envelope_plane_after_edit": "Visibly horizontal and approximately parallel to tabletop; A right-hand support retained",
+    "frozen_expected_envelope_center_normalized": [
+      0.4396857428606687,
+      0.6429671280339706
+    ],
+    "normalized_error_approx": 0.15573336776693741,
+    "observation_method": "manual visual estimate on 1672x941 output, approximately +/- 8 px; not tracker output",
+    "observed_attempt2_center_approx_pixels": [
+      832,
+      469
+    ],
+    "preservation": "Visible facial/wardrobe cues, two seated people and cafe layout substantially retained; no pixel-exact preservation claim",
+    "result": "FAIL_PROJECTION_ALIGNMENT",
+    "reviewer": "Codex visual inspection of tool-displayed actual outputs",
+    "unverified": [
+      "exact focal geometry",
+      "foot-floor support outside frame",
+      "full frozen composition acceptance"
+    ],
+    "video_generated": false
+  },
+  "provider_model_id": "NOT_EXPOSED",
+  "request_sha256": "fb6d06ef1e09091cbfb429a000dd94070510cf896c5d0958003ec26fe5379d3e",
+  "schema": "host-image-experiment/0.1",
+  "source_sha256": "1b0b55b26799311ca2d3f6583b73bb7854dd281c4c2dd68caeae445d328b0cd5",
+  "tool": "built-in image_gen"
+}

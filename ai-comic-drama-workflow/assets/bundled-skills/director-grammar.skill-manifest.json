@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "8bab1e5413f934b91bfa0240d4236d6fc5a6e6b8ac55220dbee3111e6f980210",
+  "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
   "file_count": 62,
   "files": {
     "director-grammar/SKILL.md": {
       "bytes": 8961,
-      "sha256": "18d132753990ff92b9703c23ac2a0d9f741c71889fd14a73858aed14ee79031e"
+      "sha256": "cd986747c1564cfd0359debb9d3aff48b1916f9e38bb6b5440ab92c8a2e848d6"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -216,8 +216,8 @@
       "sha256": "a7c0b715871bf4f4aacf3d2c1360fb25d89aace60c851e483190fff12eb7f5e5"
     },
     "director-grammar/scripts/spatial_runtime.py": {
-      "bytes": 37370,
-      "sha256": "f0a090a787b96915fb3b067e2d021c75fed7b9dcd37534eb7f6daa3c04dd1579"
+      "bytes": 37447,
+      "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549"
     },
     "director-grammar/scripts/upgrade_detail.py": {
       "bytes": 7792,
@@ -253,5 +253,5 @@
     }
   },
   "name": "director-grammar",
-  "version": "1.4.0"
+  "version": "1.4.1"
 }

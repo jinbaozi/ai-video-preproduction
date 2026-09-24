@@ -55,6 +55,9 @@ class ShotControlTests(unittest.TestCase):
         b = frame(self.ir, self.ir['shots'][1], 4000, self.lens)
         self.assertEqual(a['camera']['position'], [0,1.3,-3])
         self.assertEqual(b['camera']['position'], [.2,1.3,-1.1])
+        self.assertTrue(a['state']['spatial_relations'])
+        self.assertTrue(all('S1' in r['shot_ids'] for r in a['state']['spatial_relations']))
+        self.assertTrue(all('S2' in r['shot_ids'] for r in b['state']['spatial_relations']))
 
     def test_unknown_intrinsics_remain_unknown(self):
         f = frame(self.ir, self.ir['shots'][0], 0, {})

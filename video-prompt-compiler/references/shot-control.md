@@ -67,6 +67,10 @@ python scripts/control_cli.py review observations.json --package outputs/control
 
 verify/lower/keyframe-check/review 共用严格验证器：核对 schema、完整文件集合、摘要、原生 AVIR、控制 ID/镜头/断言、派生计划、关键帧与评价采样。仅给修改后的文件重算摘要不能让不一致的派生数据通过。该机制检测陈旧或错误的交接，不是数字签名或对恶意作者的身份鉴定。
 
+切点的关键帧状态按请求所属镜头取空间关系：S1 尾帧保留 S1 的结束关系，不能混入同一时刻 S2 的开始关系；镜头内部仍按半开区间求值。修复前导出的包应从原始 AVIR/config 重新 build，不重封旧派生文件摘要。
+
+编辑修复允许使用已有 FAIL 审图的 clean_keyframe 作为 base_asset_id，前提是它不兼任 master_anchor，实际文件/用途/配方/审核摘要仍有效，且提供匹配基图与目标请求的 edit_delta 和验收条件。缺审核或失效用途仍阻断；身份/场景母版必须 PASS。允许修复不等于图片通过审图，lower/compile 仍拒绝失败素材。宿主保留每次实际调用提示词、输入顺序与文件摘要、实收文件和审图结果；不得用一次局部修复通过冒领整帧或成片验收。
+
 附件按内容和槽位去重，attachment_index 同时决定提交数组和 `<Picture N>/<Audio N>/<Video N>`。同一 URL 声明不同内容立即阻断；同一内容可以承担多个职责。原始绑定 URL 与统一提交 URL 分列。音频单个文件仍需正时长和大小限制，总时长单独检查 2–12 秒。
 
 ## 显式几何白模

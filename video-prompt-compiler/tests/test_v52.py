@@ -83,6 +83,14 @@ class SpatialTests(unittest.TestCase):
   state=sp.panel_state(self.ir,'S1',777);self.assertEqual(state['status'],'NEEDS_KEY_POSE');self.assertFalse(state['physical_interpolation'])
  def test_panel_half_open_composition(self):
   c=self.t['composition_tracks'][0];late=copy.deepcopy(c);late.update(id='COMP_LATE',start_ms=500);c['end_ms']=500;self.t['composition_tracks'].insert(1,late);self.assertEqual(sp.panel_state(self.ir,'S1',500)['composition']['id'],'COMP_LATE')
+ def test_panel_cut_relations_keep_own_shot_and_endpoint(self):
+  self.relation(predicate='near',scope={'kind':'point','at_ms':4000})['shot_ids']=['S2']
+  left=sp.panel_state(self.ir,'S1',4000)['spatial_relations'];right=sp.panel_state(self.ir,'S2',4000)['spatial_relations']
+  self.assertTrue(left);self.assertTrue(all('S1' in r['shot_ids'] for r in left));self.assertNotIn('TEST_REL',[r['id'] for r in left])
+  self.assertTrue(all('S2' in r['shot_ids'] for r in right));self.assertIn('TEST_REL',[r['id'] for r in right])
+  r=self.relation(scope={'kind':'interval','start_ms':0,'end_ms':500})
+  self.assertIn(r['id'],[x['id'] for x in sp.panel_state(self.ir,'S1',499)['spatial_relations']])
+  self.assertNotIn(r['id'],[x['id'] for x in sp.panel_state(self.ir,'S1',500)['spatial_relations']])
  def test_single_hand_track_scope(self):
   tr=next(t for t in self.t['motion_tracks'] if t['id']=='HAND_EV_GRASP');result=sp.affected(self.ir,track_id=tr['id']);self.assertEqual(result['shot_ids'],['S3']);self.assertNotIn('N_A',result['node_ids'])
  def test_composition_only_node_dependency(self):

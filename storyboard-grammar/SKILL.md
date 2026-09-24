@@ -5,7 +5,7 @@ description: >
   镜头与画格、可见表演、声画时序和连续性合同，并离线校验、编译为StoryboardIR交接包。
   用于专业分镜制作、分镜修订和一致性审查；具体模型提示词适配与媒体生成交由执行层。
 metadata:
-  version: "1.3.0"
+  version: "1.3.1"
 ---
 
 # Storyboard Grammar

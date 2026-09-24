@@ -16,13 +16,13 @@
     "modules": {
       "director-grammar": {
         "archive": "director-grammar.skill",
-        "sha256": "8bab1e5413f934b91bfa0240d4236d6fc5a6e6b8ac55220dbee3111e6f980210",
-        "version": "1.4.0"
+        "sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+        "version": "1.4.1"
       },
       "image-prompt-optimizer": {
         "archive": "image-prompt-optimizer.skill",
-        "sha256": "0d9e7da0278a356cda3b60f8fe285df04bef4f1b55a8b071592b8d0d28ddce01",
-        "version": "1.8.0"
+        "sha256": "4ac1fe68f2d900871b2f82ad11ab5f27a5cec246a15707cf4ce86981850519ec",
+        "version": "1.8.1"
       },
       "production-design-grammar": {
         "archive": "production-design-grammar.skill",
@@ -36,13 +36,13 @@
       },
       "storyboard-grammar": {
         "archive": "storyboard-grammar.skill",
-        "sha256": "0d4ccf9ac9acd08b740df4fba4f54352bfea1698825b6fb21e363114439baf36",
-        "version": "1.3.0"
+        "sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+        "version": "1.3.1"
       },
       "video-prompt-compiler": {
         "archive": "video-prompt-compiler.skill",
-        "sha256": "97036a2e48325d6367aa36ff7e02f20b74ae818e1ac00930cead2fc525189189",
-        "version": "1.10.0"
+        "sha256": "9b61342fed4386fe97e5e5390922be437c07873eb5fb973de98af4b93e9f3f1c",
+        "version": "1.10.1"
       }
     },
     "schema": "skill-modules/1.0"
@@ -57,7 +57,7 @@
     {
       "archive": "director-grammar.skill",
       "files": 62,
-      "sha256": "8bab1e5413f934b91bfa0240d4236d6fc5a6e6b8ac55220dbee3111e6f980210",
+      "sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
       "status": "VERIFIED"
     },
     {
@@ -69,25 +69,25 @@
     {
       "archive": "storyboard-grammar.skill",
       "files": 57,
-      "sha256": "0d4ccf9ac9acd08b740df4fba4f54352bfea1698825b6fb21e363114439baf36",
+      "sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
       "status": "VERIFIED"
     },
     {
       "archive": "video-prompt-compiler.skill",
       "files": 107,
-      "sha256": "97036a2e48325d6367aa36ff7e02f20b74ae818e1ac00930cead2fc525189189",
+      "sha256": "9b61342fed4386fe97e5e5390922be437c07873eb5fb973de98af4b93e9f3f1c",
       "status": "VERIFIED"
     },
     {
       "archive": "image-prompt-optimizer.skill",
       "files": 99,
-      "sha256": "0d9e7da0278a356cda3b60f8fe285df04bef4f1b55a8b071592b8d0d28ddce01",
+      "sha256": "4ac1fe68f2d900871b2f82ad11ab5f27a5cec246a15707cf4ce86981850519ec",
       "status": "VERIFIED"
     },
     {
       "archive": "ai-comic-drama-workflow.skill",
       "files": 205,
-      "sha256": "f31d25896e1a0ef55950abc7627aa517ae71acb45e324d6e1dc5b4a718067ffd",
+      "sha256": "a6aa653f88482cf0b4d61952584f80a6cceb6d117b11e39bead9ffc6d8e5eacc",
       "status": "VERIFIED"
     }
   ],

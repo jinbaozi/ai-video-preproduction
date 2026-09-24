@@ -6,7 +6,7 @@ description: >
   模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.10.0"
+  version: "1.10.1"
 ---
 
 # Video Prompt Compiler

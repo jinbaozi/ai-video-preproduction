@@ -8,7 +8,7 @@
 |---|---|---|
 | PR1 基线/能力 | 独立 control-capabilities，型号/端点/模式/日期及三种证据状态；合成咖啡馆样例 | 官方文档核验不等于账户探测 |
 | PR2 调度/投影 | 同源 X–Z 俯视、X–Y 侧视、摄影机点投影、轨迹与时间轴；SVG/离线 HTML；镜头切点隔离 | 根节点几何，无完整人体/碰撞/遮挡；页面浏览器验收未完成 |
-| PR3 图片闭环合同 | 事件关键帧请求、主锚点要求、编辑差量、路径冲突检查、源哈希及实际图审核记录 | 宿主生成/审图未执行，不能将请求当成图片 |
+| PR3 图片闭环合同 | 事件关键帧请求、主锚点要求、编辑差量、路径冲突检查、源哈希及实际图审核记录；已有内置宿主真实生图和局部修复实验 | 首帧信封朝向修复成功，但投影/整帧验收未通过；尚未进入模型视频执行 |
 | PR4 后端交接 | 显式几何 Blender 白模、Agnes 2.5/Flash 正文/参数/附件联合编译，实际 ffprobe、文件哈希、来源、审核、绑定、预算与模式阻断 | 没有上传/模型提交；白模不是完整身体表演，草案 runnable=false |
 | PR5 生成后验收工具 | 二维轨迹误差、有效观测率、事件误差、按内容依赖局部失效和按模块/时段返修任务 | 外部或人工观察输入，无自动身份评分/三维距离推断 |
 | PR6 专用实验 | 保留隔离接入边界和所需证据 | VACE/SymphoMotion NOT_INTEGRATED，无模型安装或运行 |
@@ -17,7 +17,7 @@
 
 ## 使用与验收
 
-视频包 `scripts/vpc.py control --help`，图片包 `scripts/control_cli.py --help`。完整说明见 [控制合同](video-prompt-compiler/references/shot-control.md)。本地演示位于 `outputs/shot-control-demo/review/index.html`，含 26 个事件关键帧请求；未创建真实图片或视频。
+视频包 `scripts/vpc.py control --help`，图片包 `scripts/control_cli.py --help`。完整说明见 [控制合同](video-prompt-compiler/references/shot-control.md)。最初的本地演示位于 `outputs/shot-control-demo/review/index.html`，含 26 个事件关键帧请求；后续真实白模、生图和调色实验分别记录在下文，不能将最初静态演示视为媒体执行证据。
 
 新增测试覆盖摄影机轴向/裁切/退化、剪辑边界、未知插值、确定性派生、源内容篡改、Flash 禁用视频、审阅图误投、模式冲突、真实媒体探测及哈希、编辑范围冲突、事件切点、缺失观测和时间偏差。真实媒体夹具与回执只用于静态测试，不记为账户探测或效果验收。
 
@@ -73,3 +73,16 @@ c26f7a1 的网页端审核结论为 Request changes。此前工具层完成不�
 本地 `outputs/craft-cafe-r2/` 含三份表演请求、排练卡、色板、光源交接、LUT 及合成色条视频的实际调色回执。排练卡和关键帧保留原台词、声音路由、放置及口型要求，不把后期对白改作原生声音。这不是已拍摄的表演参考、生成模型风格锚点或实拍质量验收；真实人物表情驱动、逐区域颜色观察和模型效果对照仍需继续。网页端第二轮对抗性审核尚未返回终局结论。
 
 验证：全量 147 项无失败（1 项 Blender 默认跳过，前轮已有实际运行证据）；声音交接增补后 4 项 craft 专项再次通过。最终七包隔离安装、内置一致性及重复构建全部 PASS，报告为 `outputs/shot-control-craft-release-final/report.json`；之前的 release-check 为中间版本。Skill 静态检查和最终实际 grade/verify-grade 通过。发行版本 video-prompt-compiler 1.10.0、image-prompt-optimizer 1.8.0。
+
+
+## 实际宿主生图与返修验证
+
+使用内置 image_gen 实际生成 A/B 身份母版、咖啡馆场景母版和首帧，并完成一次局部编辑。原始生成文件保留；项目副本、准确提示词、源 AVIR、冻结请求、输入顺序与内容摘要、实际尺寸及审图记录位于本地 `outputs/host-keyframe-cafe-r2/`。可分享的实验摘要为 `validation-artifacts/host-keyframe-cafe-evidence.json`，不含媒体本身，不能据摘要替代看图。身份图实收 1254×1254，场景/首帧 1672×941；未将请求比例冒称为精确原生尺寸。
+
+首帧第一次生成将信封画成竖直；明确编辑差量后，纸面已 目视恢复水平且人物和背景基本保持。但手工估计信封中心约 (0.498,0.498)，冻结投影要求 (0.440,0.643)，所以整帧仍为 FAIL，没有改写计划来制造通过，也未绑定上传地址或提交视频。当前证据证明实际宿主生成和一次局部修复路径，尚不证明数值摄影机控制成功。
+
+实际交接同时发现并修复两个代码问题：关键帧切点混入下一镜头空间关系；审图失败的干净关键帧无法用作返修基图。切点关系现按镜头归属与镜头内部半开区间求值；失败基图仅允许在独立 edit base、有效来源/用途/审核及明确 edit_delta 下进入修复，母版仍须 PASS，失败素材仍不能作为已验收生成输入。修复前派生包必须重建，不能只重新封装摘要。
+
+GPT-6 Pro 第二轮审核已终结，针对 93c10e7 给出 Request changes，原文保存在 `validation-artifacts/shot-control-audit-round2.md`。它新增 A01–A10；当前代码需逐项复现，不能把后续功能增量当作缺陷已消除。
+
+验证：38 项空间专项通过；返修基图回归覆盖 FAIL 基图、失败母版、缺失审核及过期用途审核。最终七包隔离安装、内置模块一致性和重复构建 PASS，报告 `outputs/shot-control-host-repair-release-check/report.json`。本轮版本 video-prompt-compiler 1.10.1、image-prompt-optimizer 1.8.1；共享运行时变动同步发布 director 1.4.1、storyboard 1.3.1、workflow 0.7.1。
