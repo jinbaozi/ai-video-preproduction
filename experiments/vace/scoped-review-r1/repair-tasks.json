@@ -1,0 +1,226 @@
+[
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_b73c86f19e797e72e3c5",
+    "issue": "实际第 0 帧（项目 0 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 0,
+      "start_ms": 0
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_1e0353f45c252edeff15",
+    "issue": "实际第 8 帧（项目 500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 500,
+      "start_ms": 500
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_3ab3a0fb51e9c166de19",
+    "issue": "实际第 16 帧（项目 1000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 1000,
+      "start_ms": 1000
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_e34d309f3dc458d11182",
+    "issue": "实际第 24 帧（项目 1500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 1500,
+      "start_ms": 1500
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_18ae21d6d543e30edac3",
+    "issue": "实际第 32 帧（项目 2000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 2000,
+      "start_ms": 2000
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_596abe3d5482f9e263dd",
+    "issue": "实际第 40 帧（项目 2500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 2500,
+      "start_ms": 2500
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_52207a208e6db7019a64",
+    "issue": "实际第 48 帧（项目 3000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 3000,
+      "start_ms": 3000
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  },
+  {
+    "acceptance": [
+      "保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体",
+      "修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过",
+      "仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求",
+      "实际生成后重跑冻结基线观察，不用静态通过代替媒体质量"
+    ],
+    "after_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "before_source_sha256": "2435ba76f22881184d364ff414bddaef3374dd26a7e6d843e36e2b9063616a03",
+    "execution": "CURRENT_AGENT_REQUIRED",
+    "id": "REPAIR_1eb92adafdb7b2fca8fe",
+    "issue": "实际第 56 帧（项目 3500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+    "module": null,
+    "owner": "external-runner",
+    "project_id": "CAFE_DEMO",
+    "schema": "shot-control-repair-task/0.1",
+    "scope": {
+      "end_ms": 3500,
+      "start_ms": 3500
+    },
+    "source_pointers": [
+      "/scenes/0/lighting"
+    ],
+    "status": "OPEN",
+    "targets": [
+      "observed-media:4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa"
+    ]
+  }
+]

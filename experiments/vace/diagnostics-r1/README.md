@@ -25,3 +25,5 @@
 复跑沿用上级 [独立服务启动说明](../COMFY-EXPERIMENT.md)，提交本目录相应图到本地 `/prompt`，每次保留新的真实编号和输出，不在超时后重交。同采样解码对照须在无控制组之后、缓存仍保留时运行，并检查历史中的 `execution_cached` 包含节点 10；缓存未命中时不得声称复用了同一采样结果。
 
 结论保持 **CAUSE_UNRESOLVED / CONTROL_BENEFIT_NOT_ESTABLISHED**。这些结果不能推出 VACE 或 MPS 普遍不兼容，也不能证明控制收益。下一项门槛是在已核验运行器上取得可辨识的生成基线，再做同一冻结镜头的时序控制对照；产品通用 VACE 适配继续未集成。
+
+2026-09-25 补查到 ComfyUI 上游 [issue #15793](https://github.com/Comfy-Org/ComfyUI/issues/15793)：报告者在不同 Apple 芯片上观察到 Wan 输出失真，切换精度和标准／分块解码未解决其复现。其具体对照主要使用 Wan2.2 5B，与本次 VACE 1.3B、单帧也失败的条件不同；这是后续跨设备／CPU 基线诊断的线索，不是本实验的原因证明或已验证修复。未据此修改用户的 ComfyUI／PyTorch 环境。

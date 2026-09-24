@@ -21,8 +21,8 @@
       },
       "image-prompt-optimizer": {
         "archive": "image-prompt-optimizer.skill",
-        "sha256": "7d1d754f9beb77cf31168990e31002f8daa71dc116204c7f9e9876cde946c9ef",
-        "version": "1.12.0"
+        "sha256": "c3bf5e0523a3d83b645e07eac320e398c7a98e4e67b3f2c8e77ba272607c1d44",
+        "version": "1.13.0"
       },
       "production-design-grammar": {
         "archive": "production-design-grammar.skill",
@@ -41,8 +41,8 @@
       },
       "video-prompt-compiler": {
         "archive": "video-prompt-compiler.skill",
-        "sha256": "518b917b2bc61cc271c5248b04863cd57ebc50132b435158a0810a558dd5a2a4",
-        "version": "1.14.0"
+        "sha256": "b3ecb9fd04d2c590d379247fe80991554d917eaf708e3cf0d6847a76389eb1bf",
+        "version": "1.15.0"
       }
     },
     "schema": "skill-modules/1.0"
@@ -75,19 +75,19 @@
     {
       "archive": "video-prompt-compiler.skill",
       "files": 114,
-      "sha256": "518b917b2bc61cc271c5248b04863cd57ebc50132b435158a0810a558dd5a2a4",
+      "sha256": "b3ecb9fd04d2c590d379247fe80991554d917eaf708e3cf0d6847a76389eb1bf",
       "status": "VERIFIED"
     },
     {
       "archive": "image-prompt-optimizer.skill",
       "files": 104,
-      "sha256": "7d1d754f9beb77cf31168990e31002f8daa71dc116204c7f9e9876cde946c9ef",
+      "sha256": "c3bf5e0523a3d83b645e07eac320e398c7a98e4e67b3f2c8e77ba272607c1d44",
       "status": "VERIFIED"
     },
     {
       "archive": "ai-comic-drama-workflow.skill",
       "files": 205,
-      "sha256": "353325e20c4bfbcd9d3b071bbe6735a313dcf0513ef083806ceb0c2f3e06517f",
+      "sha256": "cb835f8b97d16cb16f53790dc804efa9810b14e876040e0d5c08c331ca2dd921",
       "status": "VERIFIED"
     }
   ],

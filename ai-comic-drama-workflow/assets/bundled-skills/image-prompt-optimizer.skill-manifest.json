@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "7d1d754f9beb77cf31168990e31002f8daa71dc116204c7f9e9876cde946c9ef",
+  "archive_sha256": "c3bf5e0523a3d83b645e07eac320e398c7a98e4e67b3f2c8e77ba272607c1d44",
   "file_count": 104,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29772,
-      "sha256": "179596c62eeea41dbe719516a8cb6764fcb8d5a6e73005ad4112843cf10aa9c9"
+      "sha256": "be5cb228e7913b41f394d616c53d4c40496c7f5ae93e244698f32de5739003f3"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -144,8 +144,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 28320,
-      "sha256": "eaf1a98ea2eb5d0f0f8dac3b6e0850685f8e27b55d37142effbce922baeb4353"
+      "bytes": 29602,
+      "sha256": "194b1459e73fc7277da51362b76bf0c1dbcee3ca322bf1a9a9ec216512beddb2"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -192,8 +192,8 @@
       "sha256": "52812b3a025f0b3806a0ad8f0255e86bdced6e608a07278ddb22f93fe7b157a9"
     },
     "image-prompt-optimizer/schemas/control-media-review.schema.json": {
-      "bytes": 3824,
-      "sha256": "cf9cf33a3567ff0a8894621e15d1ee5dea641dee0f0ca13e3344792513c338e4"
+      "bytes": 4094,
+      "sha256": "093f7350ff78ca0d33f146d90c4576b105bd16e0f687caf176fbf539874da86d"
     },
     "image-prompt-optimizer/schemas/control-package.schema.json": {
       "bytes": 420,
@@ -296,8 +296,8 @@
       "sha256": "4270ee8012fdcd5b00f15e2125d1771e89e78cf900388b30e9513b2e9c6ccb61"
     },
     "image-prompt-optimizer/scripts/shot_control/media_review.py": {
-      "bytes": 5513,
-      "sha256": "8eaba594add018a1fc9e6f2539e0bb72d7663d436cd27b7207c4ee08c06c09c2"
+      "bytes": 6671,
+      "sha256": "00fd707a32b808858ac8f6364793ebe81be29be303d1dd99a5e4de70a24bf139"
     },
     "image-prompt-optimizer/scripts/shot_control/package.py": {
       "bytes": 9884,
@@ -316,8 +316,8 @@
       "sha256": "58c9aadbe9f3ad783c36d549447f261db176c5999eec72d636eaac687b3dcf78"
     },
     "image-prompt-optimizer/scripts/shot_control/repair.py": {
-      "bytes": 11894,
-      "sha256": "772a295095edb119f17dd5c69f78ede04f547cd96acff4161319ae70275541a3"
+      "bytes": 12437,
+      "sha256": "fbe179a46f5026e9cf93331bd5f77158e4c526cc7a4e00b3ed60a986a1435f10"
     },
     "image-prompt-optimizer/scripts/shot_control/review.html": {
       "bytes": 2697,
@@ -421,5 +421,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.12.0"
+  "version": "1.13.0"
 }

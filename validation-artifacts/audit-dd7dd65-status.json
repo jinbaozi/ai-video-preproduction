@@ -1,0 +1,10 @@
+{
+  "schema": "external-review-status/0.1",
+  "target_commit": "dd7dd65c4019ebda74929226299d7da85f673673",
+  "reviewer": "ChatGPT GPT-6 Pro web UI",
+  "conversation": "https://chatgpt.com/c/6ab50ebc-57e0-83e8-8a89-2af362c5f4b6",
+  "attempts": 2,
+  "final_status": "NO_FINAL_REVIEW",
+  "observed_terminal_ui": "无法思考; stop button no longer present",
+  "boundary": "Interim reasoning/status messages are not a final review. No independent PASS or new reproducible repository defect inferred. Older unrelated unable-to-display banner is not used as this terminal signal."
+}

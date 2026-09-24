@@ -1,0 +1,102 @@
+{
+  "evaluation_plan_sha256": "17ba2cb4cf4c8efaa2328388c59785b25af81a80485f5d4b76c73490fc558416",
+  "events": [],
+  "execution_range": {
+    "end_ms": 4000,
+    "start_ms": 0
+  },
+  "findings": [
+    {
+      "dimension": "color",
+      "end_ms": 0,
+      "issue": "实际第 0 帧（项目 0 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 0
+    },
+    {
+      "dimension": "color",
+      "end_ms": 500,
+      "issue": "实际第 8 帧（项目 500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 500
+    },
+    {
+      "dimension": "color",
+      "end_ms": 1000,
+      "issue": "实际第 16 帧（项目 1000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 1000
+    },
+    {
+      "dimension": "color",
+      "end_ms": 1500,
+      "issue": "实际第 24 帧（项目 1500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 1500
+    },
+    {
+      "dimension": "color",
+      "end_ms": 2000,
+      "issue": "实际第 32 帧（项目 2000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 2000
+    },
+    {
+      "dimension": "color",
+      "end_ms": 2500,
+      "issue": "实际第 40 帧（项目 2500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 2500
+    },
+    {
+      "dimension": "color",
+      "end_ms": 3000,
+      "issue": "实际第 48 帧（项目 3000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 3000
+    },
+    {
+      "dimension": "color",
+      "end_ms": 3500,
+      "issue": "实际第 56 帧（项目 3500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+      "owner": "external-runner",
+      "result": "FAIL",
+      "source_pointers": [
+        "/scenes/0/lighting"
+      ],
+      "start_ms": 3500
+    }
+  ],
+  "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+  "observed_points": [],
+  "reviewer": "Codex: actually inspected exact selected frame indices 0,8,16,24,32,40,48,56; no full playback or identity tracking claim",
+  "schema": "control-media-review/0.2"
+}

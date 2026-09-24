@@ -30,13 +30,20 @@ def plan_repairs(before_package, after_package, manifest_path, observations=None
     new_controls = {c['id']:c for c in after['plan']['controls']}
     old_shots = {s['id']:s for s in before['ir']['shots']}
     new_shots = {s['id']:s for s in after['ir']['shots']}
-    def task(owner, issue, source_pointers, scope, targets):
+    def task(owner, issue, source_pointers, scope, targets, observed_output=False):
+        acceptance = (['保留当前原生来源及未受影响输入，先核对冻结请求、执行回执与失败媒体',
+                       '修复或重试实际执行并保留新旧输出、耗时和回执，不将原输出失败改为通过',
+                       '仅有上游设计错误证据时，另交所属模块修订原生来源并重建受影响请求']
+                      if observed_output else
+                      ['修订由所属模块写回原生来源，再重新 build',
+                       '重新生成或审核受影响用途，重新记录配方与文件摘要',
+                       '重编受影响请求并验证；保留未受影响资产'])
+        acceptance.append('实际生成后重跑冻结基线观察，不用静态通过代替媒体质量')
         value = {'schema':'shot-control-repair-task/0.1', 'project_id':after['ir']['project_id'],
                  'before_source_sha256':before['plan']['source']['sha256'], 'after_source_sha256':after['plan']['source']['sha256'],
                  'owner':owner, 'module':MODULES[owner], 'issue':issue, 'source_pointers':source_pointers,
                  'scope':scope, 'targets':targets, 'status':'OPEN', 'execution':'CURRENT_AGENT_REQUIRED',
-                 'acceptance':['修订由所属模块写回原生来源，再重新 build', '重新生成或审核受影响用途，重新记录配方与文件摘要',
-                               '重编受影响请求并验证；保留未受影响资产', '实际生成后重跑冻结基线观察，不用静态通过代替媒体质量']}
+                 'acceptance':acceptance}
         value['id'] = 'REPAIR_'+digest(value)[:20]; tasks.append(value)
         return value['id']
     for asset in manifest['artifacts']:
@@ -116,7 +123,7 @@ def plan_repairs(before_package, after_package, manifest_path, observations=None
             if finding['result'] != 'FAIL': continue
             target = 'observed-media:'+evaluation['media_sha256']
             task_id = task(finding['owner'],finding['issue'],finding['source_pointers'],
-                           {'start_ms':finding['start_ms'],'end_ms':finding['end_ms']},[target])
+                           {'start_ms':finding['start_ms'],'end_ms':finding['end_ms']},[target],observed_output=True)
             output_invalidations.append({'media_sha256':evaluation['media_sha256'],'start_ms':finding['start_ms'],
                 'end_ms':finding['end_ms'],'reason':finding['issue'],'task_id':task_id,'status':'INVALIDATED'})
         # A failed output does not prove a correct master reference is defective.

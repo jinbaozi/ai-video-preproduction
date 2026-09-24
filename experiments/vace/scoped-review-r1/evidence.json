@@ -1,0 +1,173 @@
+{
+  "after": {
+    "complete_project_scope": false,
+    "coverage": 0.0,
+    "evaluation_plan_sha256": "17ba2cb4cf4c8efaa2328388c59785b25af81a80485f5d4b76c73490fc558416",
+    "execution_range": {
+      "end_ms": 4000,
+      "start_ms": 0
+    },
+    "expected_count": 287,
+    "mapping_evidence": "OBSERVER_DECLARED_NOT_SUBMISSION_PROOF",
+    "max_error": null,
+    "mean_error": null,
+    "media_time_offset_ms": 0,
+    "project_expected_count": 931,
+    "shot_ids": [
+      "S1"
+    ],
+    "status": "OBSERVATIONS_RECORDED"
+  },
+  "before": {
+    "actual_error": "Media duration differs from frozen time map",
+    "case": "Actual four-second S1 against unchanged twelve-second full project baseline; old accepted review fields, no execution_range",
+    "commit": "b83f6ac5dec08ac9f261928157fcedfdbc50337c",
+    "source": "Original media_review.py and review schema from git; current verify_package/probe used with unchanged package, evaluation plan and video bytes"
+  },
+  "frozen_experiment_sha256": "512577897cfe560189f928684a2c02578a59770847814edcd4ae1d43f2bad272",
+  "full_project_duration_ms": 12000,
+  "image_skill_independent_replay": {
+    "archive_sha256": "c3bf5e0523a3d83b645e07eac320e398c7a98e4e67b3f2c8e77ba272607c1d44",
+    "evaluation_sha256": "34131ab3d7ea295f37d9c06f31d11467e2151bd27780164413197cf7bb8d885d",
+    "installation": "Extracted dists/image-prompt-optimizer.skill alone, with no sibling video Skill",
+    "result": "Entire evaluation and repair-plan JSON equal final video-side results; new observed-output acceptance guidance included",
+    "status": "PASS"
+  },
+  "local_evaluation_sha256": "34131ab3d7ea295f37d9c06f31d11467e2151bd27780164413197cf7bb8d885d",
+  "local_repair_manifest_sha256": "5fe2f51b41ba7696351186b6abf268beca83867af28fd6abfba343c1c5839950",
+  "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+  "new_generation_calls": 0,
+  "public_files": {
+    "observations.json": "4663e21f089eec981d93d3c058009c24ba33066bfc83b7d234994208c0f95e58",
+    "repair-tasks.json": "ddb2d63a5c198b1f491dfc65ab8215eed9306e39121417d6b672c9cb6f60df2d",
+    "selected-frames.jpg": "11c03fed982916f939127c63d9208b070fa8874d77a6c482737a23eb327af4e5"
+  },
+  "repair": {
+    "actual_v5_project_handoff": "NOT_RUN",
+    "clay_input": "RETAINED",
+    "guidance": "Preserve frozen source and unaffected inputs; investigate execution first, revise upstream only with design-error evidence",
+    "invalidated_input_uses": 0,
+    "open_tasks": 8,
+    "output_invalidations": [
+      {
+        "end_ms": 0,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 0 帧（项目 0 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 0,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_b73c86f19e797e72e3c5"
+      },
+      {
+        "end_ms": 500,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 8 帧（项目 500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 500,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_1e0353f45c252edeff15"
+      },
+      {
+        "end_ms": 1000,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 16 帧（项目 1000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 1000,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_3ab3a0fb51e9c166de19"
+      },
+      {
+        "end_ms": 1500,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 24 帧（项目 1500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 1500,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_e34d309f3dc458d11182"
+      },
+      {
+        "end_ms": 2000,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 32 帧（项目 2000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 2000,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_18ae21d6d543e30edac3"
+      },
+      {
+        "end_ms": 2500,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 40 帧（项目 2500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 2500,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_596abe3d5482f9e263dd"
+      },
+      {
+        "end_ms": 3000,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 48 帧（项目 3000 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 3000,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_52207a208e6db7019a64"
+      },
+      {
+        "end_ms": 3500,
+        "media_sha256": "4c48a84570a4e90e5623e7bc9b1c254189e6ead61de4bbbda5962cdc273721fa",
+        "reason": "实际第 56 帧（项目 3500 ms）为洋红背景和蓝色简化轮廓，不符合源场景中性日光；失真原因未确定。仅记录本帧观察，不扩大为连续时段或身份跟踪结论。",
+        "start_ms": 3500,
+        "status": "INVALIDATED",
+        "task_id": "REPAIR_1eb92adafdb7b2fca8fe"
+      }
+    ],
+    "owner": "external-runner",
+    "repair_quality": "NOT_ACHIEVED",
+    "status": "REPAIR_REQUIRED",
+    "upstream_modified": false
+  },
+  "review": {
+    "findings": "Eight instantaneous color FAIL findings; no continuous-time visual proof, no tracked point coordinates, no measured event times",
+    "frames": [
+      {
+        "index": 0,
+        "png_sha256": "dfb507a408dbbe496db1de3014edfd6d6a0d76cd443b5f66e5a4c6248e23f3c7",
+        "project_ms": 0
+      },
+      {
+        "index": 8,
+        "png_sha256": "fd10c3241fe785585a968780498aaa41dd11acfcf4393fd028d51beb89ab5051",
+        "project_ms": 500
+      },
+      {
+        "index": 16,
+        "png_sha256": "2b26ac461bc18725e40977ac72ff0857b10af8ff7a745ea5be9645c2029262ac",
+        "project_ms": 1000
+      },
+      {
+        "index": 24,
+        "png_sha256": "49d6f01b2a63497967773513a9ca1075325c20911079e7ca348670910ed84795",
+        "project_ms": 1500
+      },
+      {
+        "index": 32,
+        "png_sha256": "2be8159a7efa48ba804b2264f810c4c0c2a33144721764912f9b3a6750ebd2a9",
+        "project_ms": 2000
+      },
+      {
+        "index": 40,
+        "png_sha256": "7a1037494dd662b2e772bc63cefe03cf75a3a5042e8034b21d364fe2aff49944",
+        "project_ms": 2500
+      },
+      {
+        "index": 48,
+        "png_sha256": "20ff3293b5082edffb1e6ac28f8c432d0a693e64e143358060c30d57ce867d0e",
+        "project_ms": 3000
+      },
+      {
+        "index": 56,
+        "png_sha256": "3a5818432eae0bc9e777c49ffcd2ba511e98f1426dbd13c19327a7b3e33a9ebd",
+        "project_ms": 3500
+      }
+    ],
+    "method": "Actually viewed newly extracted exact frame indices 0,8,16,24,32,40,48,56 from the 64-frame delivery; no FPS-filter rounding or timestamp inference",
+    "missing_points": 205,
+    "unresolved_planned_points": 82
+  },
+  "schema": "vace-scoped-review-evidence/0.1",
+  "scope_provenance": "Original experiment froze S1 and 65 input frames at 0..4000 ms; delivery retained frames 0..63 at 16 fps. Original source and acceptance unchanged.",
+  "source_package_sha256": "1d2cd97f55780933f6f051d45af85e7462f0d22ef6f4354560f2b65392595f3f"
+}

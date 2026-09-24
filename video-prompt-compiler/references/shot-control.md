@@ -175,6 +175,10 @@ python scripts/control_cli.py repair outputs/control-v001 outputs/control-v002 -
 
 观察输入必须连同实际视频一起重新经过冻结基线验证；FAIL 为该实收媒体的精确时段创建失效记录和责任模块任务。失败视频本身不证明上游身份母版有错，因此不自动废弃所有母版。要修改上游设计，由责任模块修订原生来源，再派生受影响资产和片段。上述命令创建任务和执行阻断，不自动宣称生成、审图或返修质量通过。
 
+单镜头或分段实收视频可在 `control-media-review/0.2` 显式声明 `execution_range: {"start_ms": 4000, "end_ms": 8000}`。它必须与实际请求的项目时间范围一致；本地文件第 0 ms 对应项目第 4000 ms，只允许平移时间原点，不允许拉伸、裁切重映射或改写 AVIR。`evaluation_plan_sha256` 仍绑定原来的完整项目基线，观察点、事件和 finding 的时间全部使用项目绝对毫秒。缺省范围仍表示全片，不能把四秒实收隐式当成十二秒全片。
+
+观察只比较范围内的原计划点和镜头画幅，片段时长须与实收相符；范围外的观察和错误事件被拒绝。切点只包含前段事件的 end 与后段事件的 start 各自所属的一侧，避免将 S2 的开始算作 S1 的漏事件。输出同时记录 `execution_range`、`media_time_offset_ms`、`shot_ids`、局部 `expected_count` 与完整 `project_expected_count`；`complete_project_scope=false` 时的覆盖率只属于该片段，不能用于宣称全片通过。声明映射不是提交回执证明，`mapping_evidence` 明确这一边界，宿主须另保留真实请求/实收关联。repair 沿用项目绝对时间创建失败任务，不因局部失败重写或作废正确的原生计划与母版。
+
 
 ## 冻结事件的单张几何关键帧
 

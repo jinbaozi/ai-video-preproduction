@@ -1,0 +1,86 @@
+{
+  "schema": "shot-control-verification/0.1",
+  "change": "Scoped actual-video observations and evidence-led output repair tasks",
+  "versions": {
+    "video-prompt-compiler": "1.15.0",
+    "image-prompt-optimizer": "1.13.0",
+    "ai-comic-drama-workflow": "0.7.6"
+  },
+  "full_source_tests": {
+    "tests": 173,
+    "result": "PASS_WITH_TWO_DEFAULT_BLENDER_SKIPS",
+    "elapsed_seconds": 270.582,
+    "log_sha256": "6d7c8c9fc2d44a4fa078fa20fb24422c9614ab92a5ba5ee3cfc6cec1b0bde2cd",
+    "scope": "Before final observed-output task guidance adjustment; no Blender runtime rerun in this change"
+  },
+  "affected_final_tests": {
+    "tests": 9,
+    "result": "PASS",
+    "elapsed_seconds": 13.492,
+    "log_sha256": "0bd2f63b2a746f16d89d32b497b643ce1301a940433a0afd8c8234788b1cae29",
+    "scope": "After final observed-output guidance adjustment; both scoped evaluation and repair regressions"
+  },
+  "final_release": {
+    "status": "PASS",
+    "report": "outputs/shot-control-scoped-review-release-final/report.json",
+    "report_sha256": "b3bd3e2fa0c88de810dbdf01de95886c3ac80e9d9b15781dfe1487607630ac66",
+    "bundled_modules_equal_standalone": true,
+    "packages": [
+      {
+        "name": "ai-comic-drama-workflow",
+        "archive_sha256": "cb835f8b97d16cb16f53790dc804efa9810b14e876040e0d5c08c331ca2dd921",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "screenplay-grammar",
+        "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "director-grammar",
+        "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "production-design-grammar",
+        "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "storyboard-grammar",
+        "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "video-prompt-compiler",
+        "archive_sha256": "b3ecb9fd04d2c590d379247fe80991554d917eaf708e3cf0d6847a76389eb1bf",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      },
+      {
+        "name": "image-prompt-optimizer",
+        "archive_sha256": "c3bf5e0523a3d83b645e07eac320e398c7a98e4e67b3f2c8e77ba272607c1d44",
+        "single_install": "PASS",
+        "repeat_build": "IDENTICAL"
+      }
+    ]
+  },
+  "source_sha256": {
+    "video-prompt-compiler/scripts/shot_control/media_review.py": "00fd707a32b808858ac8f6364793ebe81be29be303d1dd99a5e4de70a24bf139",
+    "video-prompt-compiler/scripts/shot_control/repair.py": "fbe179a46f5026e9cf93331bd5f77158e4c526cc7a4e00b3ed60a986a1435f10",
+    "video-prompt-compiler/schemas/control-media-review.schema.json": "093f7350ff78ca0d33f146d90c4576b105bd16e0f687caf176fbf539874da86d",
+    "video-prompt-compiler/tests/test_control_repair.py": "ddb4cd7cf2b96fabcc6c28793d9d023f090edf00e1257cd68613743ee363c584"
+  },
+  "actual_media_replay": "experiments/vace/scoped-review-r1/evidence.json",
+  "limits": [
+    "Software acceptance is separate from generation quality",
+    "Actual VACE output remains FAIL",
+    "Two default Blender tests skipped; unchanged renderer has prior host evidence, no new host claim",
+    "Independent GPT-6 Pro dd7dd65 review attempts ended without final conclusions"
+  ]
+}

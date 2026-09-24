@@ -25,6 +25,11 @@ def evaluate(review, package, media):
     schema_check(review, 'control-media-review')
     if review['evaluation_plan_sha256'] != digest(baseline):
         raise ValueError('Evaluation plan mismatch')
+    scope = review.get('execution_range', {'start_ms': 0, 'end_ms': baseline['duration_ms']})
+    start, end = scope['start_ms'], scope['end_ms']
+    if not all(math.isfinite(v) for v in (start, end)) or not 0 <= start < end <= baseline['duration_ms']:
+        raise ValueError('Invalid execution range in frozen project time')
+    shot_ids = [s['id'] for s in bundle['ir']['shots'] if s['start_ms'] < end and s['end_ms'] > start]
     info = probe(media)
     if info['detected_kind'] != 'video' or info['duration_ms'] is None or not info['width'] or not info['height']:
         raise ValueError('Review requires decodable video')
@@ -34,19 +39,19 @@ def evaluate(review, package, media):
         raise ValueError('Non-square pixels require an explicit display transform')
     width, height = info['display_width'], info['display_height']
     # No implicit retiming, crop or aspect stretch. A different output needs a new explicit plan.
-    if abs(info['duration_ms']-baseline['duration_ms']) > max(1, 1000/(info['fps'] or 1)):
+    if abs(info['duration_ms']-(end-start)) > max(1, 1000/(info['fps'] or 1)):
         raise ValueError('Media duration differs from frozen time map')
-    if any(abs(width/height-a) > 2/max(height, 1) for a in baseline['aspects'].values()):
+    if any(abs(width/height-baseline['aspects'][sid]) > 2/max(height, 1) for sid in shot_ids):
         raise ValueError('Media aspect differs from frozen projection')
     def key(p): return (p['shot_id'], p['node_id'], p['at_ms'])
-    expected = {key(p): p for p in baseline['points']}
+    expected = {key(p): p for p in baseline['points'] if start <= p['at_ms'] < end}
     observed = {key(p): p for p in review['observed_points']}
     if len(observed) != len(review['observed_points']) or set(observed)-set(expected):
         raise ValueError('Duplicate or unmatched observation; time warping is not allowed')
     errors, missing, unresolved = [], [], []
     for k, planned in expected.items():
         actual = observed.get(k)
-        if k[2] >= info['duration_ms']: raise ValueError('Sample outside video duration')
+        if k[2]-start >= info['duration_ms']: raise ValueError('Sample outside video duration')
         if planned['status'] != 'IN_FRAME' or planned['xy'] is None:
             unresolved.append({'shot_id': k[0], 'node_id': k[1], 'at_ms': k[2], 'reason': planned['status']})
             continue
@@ -56,19 +61,29 @@ def evaluate(review, package, media):
         if not all(math.isfinite(v) and 0 <= v <= 1 for v in actual['xy']): raise ValueError('Invalid normalized observation')
         dx, dy = [(a-b)*size for a, b, size in zip(actual['xy'], planned['xy'], (width, height))]
         errors.append({'shot_id': k[0], 'node_id': k[1], 'at_ms': k[2], 'error': math.hypot(dx, dy)/math.hypot(width, height)})
+    # A cut belongs to the outgoing event's end and incoming event's start,
+    # not both neighboring clips. Keep original event IDs and absolute times.
+    planned_events = [e for e in baseline['events'] if
+                      (start <= e['planned_ms'] < end if e['id'].endswith(':start')
+                       else start < e['planned_ms'] <= end)]
     actual_events = {e['id']: e for e in review['events']}
-    if len(actual_events) != len(review['events']) or set(actual_events)-{e['id'] for e in baseline['events']}:
+    if len(actual_events) != len(review['events']) or set(actual_events)-{e['id'] for e in planned_events}:
         raise ValueError('Duplicate or unmatched event')
     events = []
-    for e in baseline['events']:
+    media_end = min(end, start+info['duration_ms'])
+    for e in planned_events:
         at = actual_events.get(e['id'], {}).get('observed_ms')
-        if at is not None and not 0 <= at <= info['duration_ms']: raise ValueError('Event outside video')
+        if at is not None and not start <= at <= media_end: raise ValueError('Event outside video')
         events.append({'id': e['id'], 'error_ms': None if at is None else at-e['planned_ms']})
     for f in review['findings']:
-        if not 0 <= f['start_ms'] <= f['end_ms'] <= info['duration_ms']: raise ValueError('Finding outside video')
+        if not start <= f['start_ms'] <= f['end_ms'] <= media_end: raise ValueError('Finding outside video')
         for p in f['source_pointers']: pointer(bundle['ir'], p)
     return {'schema': 'control-media-evaluation/0.2', 'media_sha256': info['sha256'],
             'evaluation_plan_sha256': digest(baseline), 'media_probe': info,
+            'execution_range': scope, 'media_time_offset_ms': start, 'shot_ids': shot_ids,
+            'complete_project_scope': start == 0 and end == baseline['duration_ms'],
+            'mapping_evidence': 'OBSERVER_DECLARED_NOT_SUBMISSION_PROOF',
+            'project_expected_count': len(baseline['points']),
             'coverage': len(errors)/len(expected) if expected else 0, 'expected_count': len(expected),
             'missing': missing, 'unresolved': unresolved, 'samples': errors,
             'mean_error': sum(e['error'] for e in errors)/len(errors) if errors else None,
