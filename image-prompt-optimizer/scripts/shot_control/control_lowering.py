@@ -1,8 +1,10 @@
 """Static route validation. No uploads, URL probing, submission or quality claims."""
 from pathlib import Path
+import math
 from urllib.parse import urlparse
 from .common import read, sha, confined, schema_check, digest
 from .media_probe import probe
+from .asset_usage import OBLIGATION_TYPES, compatible
 
 CHANNELS = {'first_frame': 'image', 'last_frame': 'image', 'image_reference': 'image',
             'clay_video_reference': 'video', 'audio_reference': 'audio'}
@@ -27,7 +29,7 @@ def lower(package, target, mode, manifest_path, scope=None):
     bundle = verify_package(package)
     plan, ir, config = bundle['plan'], bundle['ir'], bundle['config']
     scope = scope or {'start_ms': 0, 'end_ms': ir['output']['duration_ms']}
-    if set(scope) != {'start_ms', 'end_ms'} or any(type(v) is not int for v in scope.values()) or not 0 <= scope['start_ms'] < scope['end_ms'] <= ir['output']['duration_ms']:
+    if set(scope) != {'start_ms', 'end_ms'} or any(type(v) not in (int, float) or not math.isfinite(v) for v in scope.values()) or not 0 <= scope['start_ms'] < scope['end_ms'] <= ir['output']['duration_ms']:
         raise ValueError('Invalid execution scope')
     active_shots = {s['id'] for s in ir['shots'] if s['start_ms'] < scope['end_ms'] and s['end_ms'] > scope['start_ms']}
     controls = [c for c in plan['controls'] if active_shots.intersection(c['shot_ids'])]
@@ -89,6 +91,8 @@ def lower(package, target, mode, manifest_path, scope=None):
                 problems.append('MEDIA_KIND_MISMATCH:'+ident); continue
             if c['channel'] in ('first_frame', 'last_frame') and a['role'] != 'clean_keyframe':
                 problems.append('CLEAN_KEYFRAME_REQUIRED:'+ident)
+            if not compatible(a, c):
+                problems.append('ASSET_ROLE_CHANNEL_MISMATCH:'+ident)
             path = confined(manifest_path.parent, a['path'])
             if not path.is_file() or sha(path) != a['sha256']:
                 problems.append('MISSING_OR_CHANGED_FILE:'+ident); continue
@@ -105,7 +109,7 @@ def lower(package, target, mode, manifest_path, scope=None):
             if review is None or review['uses_sha256'] != digest(a['uses']):
                 problems.append('CURRENT_USE_REVIEW_REQUIRED:'+ident)
             url = a['binding']
-            if url is None or url['sha256'] != a['sha256'] or urlparse(url['url']).scheme != 'https' or not urlparse(url['url']).netloc:
+            if url is None or url['sha256'] != a['sha256'] or urlparse(url['url']).scheme != 'https' or not urlparse(url['url']).netloc or '#' in url['url']:
                 problems.append('UNRESOLVED_UPLOAD_BINDING:'+ident)
             else:
                 previous = url_hashes.setdefault(url['url'], a['sha256'])
@@ -149,7 +153,7 @@ def lower(package, target, mode, manifest_path, scope=None):
     if not controls and mode != 'text':
         reasons.append('NO_CONTROL_ROUTE_SELECTED')
     # Media is supplementary. Native obligations remain explicitly pending the joint compiler.
-    obligations = [{'requirement_id': c['id'], 'type': {'prompt': 'prompt', 'parameter': 'native_parameter', 'post': 'post_production'}[c['channel']],
+    obligations = [{'requirement_id': c['id'], 'type': OBLIGATION_TYPES[c['channel']],
                     'shot_ids': c['shot_ids'] or plan['shot_ids'], 'source_pointers': [x['path'] for x in c['checks']],
                     'status': 'NOT_COMPILED', 'acceptance': c['acceptance']} for c in ir['contract']]
     payload = {'model': target, 'mode': mode}

@@ -1,0 +1,118 @@
+{
+  "schema": "external-audit-replay/0.1",
+  "original_bundle_sha256": "df443b0e7da2453fa56596b32225c66aa4495b0e4c83a65dc57ef4b01f9934fb",
+  "original_audited_commit": "93c10e700e28a1bd3b2dbd3d4c7bcea37f55bc15",
+  "tested_parent_commit": "3bb6da02a117c8cf3c525be08815a03ebcfafcf6",
+  "scope": "13 selected original probes and controls, not original 71-assertion suite",
+  "tests": [
+    {
+      "id": "N01_native_reference",
+      "pass": true
+    },
+    {
+      "id": "N09_url_fragment_alias",
+      "pass": true
+    },
+    {
+      "id": "P15_distinct_query_resources",
+      "pass": true
+    },
+    {
+      "id": "N02_temporal_role_clay",
+      "pass": true
+    },
+    {
+      "id": "N02_temporal_role_identity",
+      "pass": true
+    },
+    {
+      "id": "N03_review_reseal_html",
+      "pass": true
+    },
+    {
+      "id": "N03_review_reseal_svg",
+      "pass": true
+    },
+    {
+      "id": "N04_anchor_time_scope",
+      "pass": true
+    },
+    {
+      "id": "N05_false_stale_unused_entity",
+      "pass": true
+    },
+    {
+      "id": "N05_false_stale_future_action",
+      "pass": true
+    },
+    {
+      "id": "N07_fractional_event",
+      "pass": true
+    },
+    {
+      "id": "N08_camera_degenerate",
+      "pass": true
+    },
+    {
+      "id": "N06_aspect_conflict",
+      "pass": true
+    }
+  ],
+  "harness_files": {
+    "native_fixture.py": "9c43b185cb712caa555ab17de101cc4122f310825d2159c3a5d68140d15e91b2",
+    "support.py": "59c66f30eb7dea57f659c782c84522bf4037b19b2191e9f50a0e327015c77d20",
+    "run_current_probes.py": "428c15daee6ee025ddca444dff340c62ed58b685b42065d11ab3f7e0659a98f3"
+  },
+  "target_files": {
+    "video-prompt-compiler/scripts/shot_control/__init__.py": "8318b051639196ffe22bcb3b08a0db08951630a83d3c663f4acbd6e4745fb798",
+    "video-prompt-compiler/scripts/shot_control/asset_usage.py": "7dae081d188313ec42ec0fa2a52917387f1ff897e7bb7eaf7180522d5ffae015",
+    "video-prompt-compiler/scripts/shot_control/blender_previs.py": "98053e049922eb9eb1ee87bfe4ad1e38cb67a7043d2571342babe6db9c359a1b",
+    "video-prompt-compiler/scripts/shot_control/camera_projection.py": "789aa7c36d9998631b14c0db690db91abbfa9fa2f267e1014e57279161affe7c",
+    "video-prompt-compiler/scripts/shot_control/common.py": "330fd75345b8177b11efdee0e38038722b6ac400c2c6b04ecdfccb5838f02084",
+    "video-prompt-compiler/scripts/shot_control/control_lowering.py": "e83c2cf452750eab99e1c811bb0df890de2a5e8a9d95417ecc05931896771b0d",
+    "video-prompt-compiler/scripts/shot_control/control_plan.py": "066bc081e1ef828f568466e47ffc3d7937b06debe592b2b32748b707b2215d7c",
+    "video-prompt-compiler/scripts/shot_control/craft.py": "b0c2454507739f049a89af01d3afb2f3fbe24ccb851d87efb005f5df0412eff7",
+    "video-prompt-compiler/scripts/shot_control/joint_compile.py": "00440c60dd4f0ef14b6fb5c8e0b54185e72534aa7b7a64319828d1c0b4be0323",
+    "video-prompt-compiler/scripts/shot_control/keyframes.py": "48589f63c1440ea2578f6ed2cddb86aa94f7b34e2453baaacb81b87c88365e1c",
+    "video-prompt-compiler/scripts/shot_control/media_probe.py": "6d4248be6d6e1f410c77d5df5f46f817cb14d030afc789767e0b8f90af95a3c1",
+    "video-prompt-compiler/scripts/shot_control/media_review.py": "8eaba594add018a1fc9e6f2539e0bb72d7663d436cd27b7207c4ee08c06c09c2",
+    "video-prompt-compiler/scripts/shot_control/package.py": "6448aeae22f924d9bf7568bd7bc1c3df22238107fcb961e2064f636dc1201506",
+    "video-prompt-compiler/scripts/shot_control/previs.py": "040b2b29611dfb23c1c6b2fa3f1f371622a53dafd2de8eed543f06d166425f7c",
+    "video-prompt-compiler/scripts/shot_control/render_blocking.py": "58c9aadbe9f3ad783c36d549447f261db176c5999eec72d636eaac687b3dcf78",
+    "video-prompt-compiler/scripts/shot_control/repair.py": "3379aef8034fe0fcd7d9fb09685858dfd17b0185420dc0dec13df76394e556b6",
+    "video-prompt-compiler/scripts/shot_control/review.html": "70b05a2fa1714dc221b8155777d8ff5b1a344d9055d657bbd949b571e33ae3e8",
+    "video-prompt-compiler/scripts/shot_control/segment_candidates.py": "d3e980cf9ee842e63c8dc602a7ad985c116cb90089b4dc3a3263328c6f757e00",
+    "video-prompt-compiler/schemas/look-design.schema.json": "6e1a7ffd674fef93572fa57c81febedcdb3ea77fc24944376e319ef20023ab4a",
+    "video-prompt-compiler/schemas/control-package.schema.json": "b57ba99448830b3f73be00527a99540a4bcfd74fd9e56198f9c45e344f1b6206",
+    "video-prompt-compiler/schemas/avir-1.2.schema.json": "c1663f3a19e4b399012ebd6ba586e067db7cc991abd50ac91eab6ddac71c0a46",
+    "video-prompt-compiler/schemas/compile-artifact-1.3.schema.json": "e36519a352cee84616114da45ecbbbfc5187daade439e3bec81cb04f33d6b3cd",
+    "video-prompt-compiler/schemas/control-artifacts.schema.json": "3dc3f82e77f8d422863b18db48c2002ba8205c46c3bbe067e6901d26a1a91289",
+    "video-prompt-compiler/schemas/control-media-review.schema.json": "cf9cf33a3567ff0a8894621e15d1ee5dea641dee0f0ca13e3344792513c338e4",
+    "video-prompt-compiler/schemas/shot-control.schema.json": "46793a2a44f49897969fa9526ef9fb2a5ab916d2250313cb0817995b73345fcc",
+    "video-prompt-compiler/schemas/previs-geometry.schema.json": "9d7ffe5c028022fa39b236bb307b18526109886ef589ab973eafd05501a1da68",
+    "video-prompt-compiler/schemas/avir.schema.json": "85dcc86243f5bc4ff72c4a094d492c8ecaa2d458c31c4b63f83277697f46b660",
+    "video-prompt-compiler/schemas/avir-1.1.schema.json": "908c9b1057e5e61f13ea373808a09b31a4d4550be9eefcff59517f7c8c18e9ed",
+    "video-prompt-compiler/schemas/keyframe-request.schema.json": "14ed466aef2ac849f4e56e1ab43faacce4dbac70c7d03867e95c02f5095eeeeb",
+    "video-prompt-compiler/schemas/shot-control-config.schema.json": "21677fb052a194bd5062a01aa6bbdab5ec5bd7b8b2c3220f79ffbe68579d0c0d",
+    "video-prompt-compiler/schemas/compile-artifact-1.2.schema.json": "45ba24b01a85b265c17a1ade12468fdff4df29051ebd1c28bd354fffa3c1b154",
+    "video-prompt-compiler/schemas/capability.schema.json": "ee75129ec8766627857661ce6a9d4bb7898fd16b6f4964b2797c773b237b9ebf",
+    "video-prompt-compiler/schemas/edit-delta.schema.json": "3ea8a161e9861fa8fc5c0762f3b403129576e981c51740a3fe7908d38cc6bfa5",
+    "video-prompt-compiler/schemas/compile-artifact.schema.json": "010675744c96982745e5f5faba0dc861ccbd2c9ccc3167bc593c942e2bed3e5a",
+    "video-prompt-compiler/schemas/compile-artifact-1.1.schema.json": "23cc0c1cd81542fc80c1055b7c4638f7c031679bdef13809e20254e07ad4bbd0",
+    "video-prompt-compiler/scripts/spatial_runtime.py": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+    "video-prompt-compiler/scripts/detail_runtime.py": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+    "video-prompt-compiler/registries/control-capabilities.json": "4915f01d51c05455093bd1025e5486ad44ac93134084facdf8b9e8856b2bba0a"
+  },
+  "browser_check": "NOT_RUN",
+  "media": "Synthetic software fixtures only",
+  "release_archives": {
+    "video-prompt-compiler": "ea322e4fa2a55fc30e1dab4db7542d8833871bcc09e76038090de3061d0a0b29",
+    "image-prompt-optimizer": "5d8a1153d5700758233783508ffba78f02d7f1077ec9e1f26d3215ff064db554"
+  },
+  "harness_adaptations": [
+    "Current workspace import replaces old snapshot import",
+    "Old-SHA-only hash guard removed; current source hashes recorded here",
+    "Aspect conflict may reject during build",
+    "Successful Path return values serialized only in result logging"
+  ]
+}

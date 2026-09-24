@@ -39,6 +39,16 @@ class KeyframeHandoffTests(unittest.TestCase):
         request.update(master_anchors=['ID_B','SCENE'],generation_mode='generate')
         result=check_request(request,self.out,manifest)
         self.assertEqual(result['reasons'],[])
+        from shot_control.common import digest
+        from shot_control.package import recipe
+        from copy import deepcopy
+        original=deepcopy(identity)
+        for start,end in [(9000,10000),(5000,4000)]:
+            identity['uses'][0].update(start_ms=start,end_ms=end,
+                recipe_sha256=recipe(self.ir,config,controls[0],'S2','identity',start,end))
+            identity['review']['uses_sha256']=digest(identity['uses']);self.manifest(identity,scene,base)
+            self.assertIn('ANCHOR_TIME_SCOPE:ID_B',check_request(request,self.out,manifest)['reasons'])
+        identity=original;self.manifest(identity,scene,base)
         request['master_anchors']=['SCENE']
         self.assertIn('IDENTITY_MASTER_REQUIRED:B',check_request(request,self.out,manifest)['reasons'])
         request['master_anchors']=['ID_B']

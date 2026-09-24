@@ -71,6 +71,12 @@ verify/lower/keyframe-check/review 共用严格验证器：核对 schema、完�
 
 编辑修复允许使用已有 FAIL 审图的 clean_keyframe 作为 base_asset_id，前提是它不兼任 master_anchor，实际文件/用途/配方/审核摘要仍有效，且提供匹配基图与目标请求的 edit_delta 和验收条件。缺审核或失效用途仍阻断；身份/场景母版必须 PASS。允许修复不等于图片通过审图，lower/compile 仍拒绝失败素材。宿主保留每次实际调用提示词、输入顺序与文件摘要、实收文件和审图结果；不得用一次局部修复通过冒领整帧或成片验收。
 
+第二轮审核后的输入规则：原生 reference 合同保留独立 visual_reference 义务，lower 仍为 NOT_COMPILED；联合编译对指向 assets/bindings 的断言映射同一附件索引，未知的参考断言返回 BLOCKED。媒体职责必须符合消费通道：首尾帧为 clean_keyframe 图片，视频参考为 clay/performance 视频，音频参考为 audio，静态参考通道仅接收图片。时序通道不能因 identity/style 标签跳过机位或动作依赖。素材 HTTPS URL 禁止 fragment，query 原样保留。
+
+冻结包会重派生并核对审阅 HTML/SVG。lens.aspect × crop.width / crop.height 必须等于原生输出画幅；没有 lens 时使用交付画幅展示未知投影。摄影机基退化保持 UNDETERMINED，不放行到关键帧生成。扩展时刻与原生 number 毫秒一致，不隐式舍入；构建先在临时目录完整校验，再原子发布，失败不留下半包。目标视频 API 的时长步进限制仍独立检查。
+
+单时刻 clean_keyframe 的适用性由该时刻求值状态、参与实体、摄影机、场景与光色/几何设计决定；未来动作反馈和无轨道、无状态、未参与构图的实体外观不再使首帧失效。持续视频参考仍保守依赖整镜；当前有位置/状态的画外实体保留依赖，因为尚无完整遮挡与反射求解。图内长名称缩写并在边缘避让，完整标签在 HTML legend 中保留，圆点坐标不变。
+
 附件按内容和槽位去重，attachment_index 同时决定提交数组和 `<Picture N>/<Audio N>/<Video N>`。同一 URL 声明不同内容立即阻断；同一内容可以承担多个职责。原始绑定 URL 与统一提交 URL 分列。音频单个文件仍需正时长和大小限制，总时长单独检查 2–12 秒。
 
 ## 显式几何白模

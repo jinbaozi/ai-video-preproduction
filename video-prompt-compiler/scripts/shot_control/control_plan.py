@@ -3,6 +3,8 @@ from copy import deepcopy
 from pathlib import Path
 import math
 import shutil
+import os
+import tempfile
 
 from .common import read, write, sha, schema_check
 from .camera_projection import project, sub
@@ -42,8 +44,15 @@ def frame(ir, shot, at, lens):
         if camera['zoom']:
             camera['fov'] = None
         if camera['forward'] is not None and camera['fov'] is not None:
-            camera['status'] = 'PLANNED_PROJECTION'
-    aspect = lens.get('aspect', 16/9)
+            try:
+                # Basis validation precedes readiness, even if there are no visible points.
+                project(camera['position'], camera['position'], camera['forward'], camera['fov'],
+                        lens['aspect'], shot['camera'].get('roll_deg', 0), lens.get('crop'))
+                camera['status'] = 'PLANNED_PROJECTION'
+            except ValueError as e:
+                camera['reason'] = str(e)
+    width, height = map(int, ir['output']['aspect_ratio'].split(':'))
+    aspect = lens.get('aspect', width/height)
     crop = lens.get('crop', [0, 0, 1, 1])
     camera['output_aspect'] = aspect*crop[2]/crop[3]
     camera['crop'] = crop
@@ -79,6 +88,19 @@ def event_times(ir, shot):
 
 
 def build(source, out, config=None):
+    out = Path(out).resolve()
+    if out.exists() and (not out.is_dir() or any(out.iterdir())):
+        raise ValueError('Output directory must be empty')
+    out.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='.control-build-', dir=out.parent) as temporary:
+        staged = Path(temporary)/'package'
+        result = _build_into(source, staged, config)
+        if out.exists(): out.rmdir()
+        os.replace(staged, out)
+    return {**result, 'out': str(out)}
+
+
+def _build_into(source, out, config=None):
     from .package import validate_source, validate_config
     source, out = Path(source).resolve(), Path(out).resolve()
     ir = read(source)
@@ -121,7 +143,8 @@ def derive(ir, config, plan):
         lens = config['lenses'].get(shot['id'], {})
         events = event_times(ir, shot)
         # Uniform review samples supplement event boundaries; no interpolated poses are invented.
-        times = sorted(set(events)|set(range(shot['start_ms'], shot['end_ms'], 100)))
+        count = math.ceil((shot['end_ms']-shot['start_ms'])/100)
+        times = sorted(set(events)|{shot['start_ms']+i*100 for i in range(count)})
         by_time = {at: frame(ir, shot, at, lens) for at in times}
         frames.extend(by_time.values())
         for at in events:

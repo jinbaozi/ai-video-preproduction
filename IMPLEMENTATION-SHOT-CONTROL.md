@@ -86,3 +86,18 @@ c26f7a1 的网页端审核结论为 Request changes。此前工具层完成不�
 GPT-6 Pro 第二轮审核已终结，针对 93c10e7 给出 Request changes，原文保存在 `validation-artifacts/shot-control-audit-round2.md`。它新增 A01–A10；当前代码需逐项复现，不能把后续功能增量当作缺陷已消除。
 
 验证：38 项空间专项通过；返修基图回归覆盖 FAIL 基图、失败母版、缺失审核及过期用途审核。最终七包隔离安装、内置模块一致性和重复构建 PASS，报告 `outputs/shot-control-host-repair-release-check/report.json`。本轮版本 video-prompt-compiler 1.10.1、image-prompt-optimizer 1.8.1；共享运行时变动同步发布 director 1.4.1、storyboard 1.3.1、workflow 0.7.1。
+
+
+## 第二轮对抗性审核 A01–A10 修订
+
+以下载的审核原文和原生复现夹具对照当前实现，补齐原生 reference 义务及联合附件映射；消费通道与媒体类型/职责联合检查，时序通道不能用身份标签降低配方依赖；HTTPS 素材 URL 拒绝 fragment，保留 query。
+
+关键帧越界用途已有阻断，增补有效母版基线上的越界/倒序回归。审阅 HTML/SVG 现在与 JSON 一并重派生验证；裁切后画幅须匹配原生交付；正上/正下的退化摄影机基明确保持 UNDETERMINED。原生非整数毫秒在请求、用途、观察和事件中保留，构建使用临时目录原子发布，异常不留半包。
+
+单时刻干净关键帧采用当前求值状态与参与实体依赖，未参与的实体外观和未来动作反馈不使首帧失效；实际位置、当前运动意图、摄影机及光色/几何变化仍失效。持续视频仍保守依赖整镜，未声称所有时段都已最小化。边缘标签避让不移动投影点；长名称在图内缩写、在可换行 legend 保留全文。浏览器视觉复核尚未完成，几何测试不能替代该项。
+
+复跑证据位于 `validation-artifacts/audit-round2-replay/`：原审核者的完整原生夹具和选定代码经明确环境适配后，13 个探测/对照全部达到预期，包含 A01–A09；不是原始 71 项全套复跑。复现代码、原附件摘要、当前目标源码摘要和运行结果已留存。
+
+首轮全量 157 项发现一个新增夹具合同未同步及一个旧版本号写死的测试失败；修复后受影响 10 项复测通过。实际 Blender 竖屏、裁切、roll、重新打开场景后的投影与交接测试通过。最终全量和七包发行结果待本节后续记录。
+
+最终验证：编译器全量 157 项无失败（默认跳过 1 项 Blender；该项已显式实际运行通过），七个 Skill 静态检查、隔离安装、内置一致性及重复构建全部 PASS。发行报告为 `outputs/shot-control-audit-r2-release-final/report.json`，此前 release-check 是中间版本。版本 video-prompt-compiler 1.11.0、image-prompt-optimizer 1.9.0、workflow 0.7.2。真实视频执行、数值摄影机成片效果、完整表演与专用控制后端实验仍未完成。

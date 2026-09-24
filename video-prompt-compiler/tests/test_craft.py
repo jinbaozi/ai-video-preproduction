@@ -76,11 +76,12 @@ class CraftTests(unittest.TestCase):
         c={'source_pointers':['/entities/0/appearance']}
         a=recipe(self.ir,self.config,c,'S1','clean_keyframe',0,0)
         b=recipe(self.ir,self.config,c,'S2','clean_keyframe',4000,4000)
-        master=recipe(self.ir,self.config,c,'S1','identity',0,4000)
+        master_control={**c,'channel':'image_reference'}
+        master=recipe(self.ir,self.config,master_control,'S1','identity',0,4000)
         grade['exposure_stops']=.5
         self.assertNotEqual(recipe(self.ir,self.config,c,'S1','clean_keyframe',0,0),a)
         self.assertEqual(recipe(self.ir,self.config,c,'S2','clean_keyframe',4000,4000),b)
-        self.assertEqual(recipe(self.ir,self.config,c,'S1','identity',0,4000),master)
+        self.assertEqual(recipe(self.ir,self.config,master_control,'S1','identity',0,4000),master)
 
     def video(self,path,tagged=True):
         cmd=['ffmpeg','-v','error','-f','lavfi','-i','color=c=0x426A8F:s=320x180:r=24:d=4',

@@ -4,6 +4,7 @@ from copy import deepcopy
 from .common import read, write, sha, pointer, schema_check
 from .package import verify_package
 from .control_lowering import lower
+from .asset_usage import OBLIGATION_TYPES
 
 
 def scope_for_shots(ir, shot_ids=None):
@@ -63,13 +64,13 @@ def _source_bindings(ir, manifest, media, active_shots):
     return rows, errors
 
 
-def _obligations(ir, prompt_coverage, parameters, span, active_shots):
+def _obligations(ir, prompt_coverage, parameters, span, active_shots, media):
     paths = {r['source_path'] for r in prompt_coverage}
     rows = []
     parameter_map = {'/output/duration_ms': '/seconds', '/output/aspect_ratio': '/aspect_ratio', '/output/resolution': '/size'}
     for clause in ir['contract']:
         relevant = not clause['shot_ids'] or bool(set(clause['shot_ids']) & active_shots)
-        row = {'requirement_id': clause['id'], 'type': {'prompt':'prompt','parameter':'native_parameter','post':'post_production'}[clause['channel']],
+        row = {'requirement_id': clause['id'], 'type': OBLIGATION_TYPES[clause['channel']],
                'source_pointers': [c['path'] for c in clause['checks']], 'source_checks': deepcopy(clause['checks']),
                'shot_ids': clause['shot_ids'], 'requirement': clause['requirement'], 'acceptance': clause['acceptance'],
                'static_assertions': 'PASS', 'media_acceptance': 'NOT_RUN', 'evidence': [], 'status': 'OUTSIDE_REQUEST_SCOPE'}
@@ -101,6 +102,31 @@ def _obligations(ir, prompt_coverage, parameters, span, active_shots):
             row['semantic_acceptance'] = 'REQUIRES_REVIEW_OF_REQUIREMENT_TEXT'
         elif relevant and clause['channel'] == 'post':
             row.update(status='POST_TASK_PLANNED', evidence=[clause['execution']])
+        elif relevant and clause['channel'] == 'reference':
+            index = {aid:item for item in media['attachment_index'] for aid in item['artifact_ids']}
+            mapped = True
+            for check in clause['checks']:
+                keys = check['path'].split('/')[1:]
+                if not keys or keys[0] not in ('assets', 'bindings'):
+                    row['evidence'].append({'source_pointer':check['path'], 'status':'UNSUPPORTED_REFERENCE_ASSERTION'})
+                    mapped = False; continue
+                collection = ir[keys[0]]
+                try:
+                    selected = collection if len(keys)==1 else [pointer(ir, '/'+ '/'.join(keys[:2]))]
+                except (KeyError, IndexError, ValueError, TypeError):
+                    row['evidence'].append({'source_pointer':check['path'], 'status':'UNSUPPORTED_REFERENCE_ASSERTION'})
+                    mapped = False; continue
+                if keys[0]=='bindings':
+                    selected = [x for x in selected if set(x['shot_ids']) & active_shots]
+                if not selected: mapped = False
+                for ref in selected:
+                    ident = ref['asset_id'] if keys[0]=='bindings' else ref['id']
+                    item = index.get(ident)
+                    row['evidence'].append({'source_pointer':check['path'], 'artifact_id':ident,
+                        'label':item['label'] if item else None, 'sha256':item['sha256'] if item else None,
+                        'status':'ATTACHMENT_MAPPED' if item else 'UNMAPPED_REFERENCE'})
+                    mapped = mapped and item is not None
+            row['status'] = 'REFERENCES_MAPPED' if mapped and media['status']=='BOUND_DRAFT' else 'BLOCKED'
         if relevant and row['static_assertions']=='FAIL' and clause['level']=='hard': row['status']='BLOCKED'
         rows.append(row)
     return rows
@@ -156,12 +182,12 @@ def compile_package(package, target, mode, manifest_path, shot_ids=None):
             prompt += f"\n\n本请求仅制作项目 {span['start_ms']/1000:g}–{span['end_ms']/1000:g} 秒。全片时长和其他片段约束用于总装验收，不延长本段。"
         if cap['max_prompt_chars'] and len(prompt) > cap['max_prompt_chars']: errors.append('PROMPT_CHAR_BUDGET')
         if ir['policy']['max_canonical_units'] and canonical_count(prompt) > ir['policy']['max_canonical_units']: errors.append('PROMPT_CANONICAL_BUDGET')
-        parameters = {'model': cap['model'], 'mode': mode, 'seconds': str((span['end_ms']-span['start_ms'])//1000),
+        parameters = {'model': cap['model'], 'mode': mode, 'seconds': str(int((span['end_ms']-span['start_ms'])/1000)),
                       'aspect_ratio': ir['output']['aspect_ratio'], 'n': 1}
         if ir['output']['resolution'] is not None: parameters['size'] = ir['output']['resolution']
         # Flash has one documented resolution; freeze it explicitly instead of depending on a service default.
         elif target == 'agnes-video-2.5-flash': parameters['size'] = '720P'
-        obligations = _obligations(ir, coverage, parameters, span, active)
+        obligations = _obligations(ir, coverage, parameters, span, active, media)
         errors += ['UNMAPPED_OBLIGATION:'+r['requirement_id'] for r in obligations if r['status']=='BLOCKED']
         post = [{'id': c['id'], 'owner': 'external-runner', 'instruction': c['execution'], 'requirement': c['requirement'],
                  'source_pointers': [x['path'] for x in c['checks']], 'status': 'PLANNED'} for c in ir['contract']

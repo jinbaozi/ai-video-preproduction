@@ -140,11 +140,11 @@
                   "minLength": 1
                 },
                 "start_ms": {
-                  "type": "integer",
+                  "type": "number",
                   "minimum": 0
                 },
                 "end_ms": {
-                  "type": "integer",
+                  "type": "number",
                   "minimum": 0
                 },
                 "recipe_sha256": {

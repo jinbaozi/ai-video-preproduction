@@ -67,7 +67,7 @@ def plan_repairs(before_package, after_package, manifest_path, observations=None
                     'status':'INVALIDATED' if reasons else 'RETAINED', 'reasons':reasons}
             nodes.append(node)
             selectors = list(old['source_pointers'])
-            if asset['role'] not in ('identity','appearance','style','scene'):
+            if asset['role'] not in ('identity','appearance','style','scene') or old['channel'] != 'image_reference':
                 selectors += ['/shots/'+str(before['ir']['shots'].index(old_shot)), '/timeline', '/entities', '/scenes']
                 edges.append({'from':'config:/lenses/'+use['shot_id'], 'to':ident, 'selector':'camera recipe'})
                 for field in ('proxy_scene','look_design'):

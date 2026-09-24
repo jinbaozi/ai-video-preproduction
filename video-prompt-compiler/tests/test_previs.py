@@ -58,17 +58,21 @@ class PrevisTests(unittest.TestCase):
     def test_geometry_change_invalidates_clay_but_preserves_master(self):
         c=self.config['controls'][0]
         clay=recipe(self.ir,self.config,c,'S1','clay',0,4000)
-        master=recipe(self.ir,self.config,c,'S1','identity',0,4000)
+        master_control={**c,'channel':'image_reference'}
+        master=recipe(self.ir,self.config,master_control,'S1','identity',0,4000)
         other=recipe(self.ir,self.config,c,'S2','clay',4000,8000)
         self.config['proxy_scene']['objects'][0]['dimensions'][1]+=.1
         self.assertNotEqual(recipe(self.ir,self.config,c,'S1','clay',0,4000),clay)
-        self.assertEqual(recipe(self.ir,self.config,c,'S1','identity',0,4000),master)
+        self.assertEqual(recipe(self.ir,self.config,master_control,'S1','identity',0,4000),master)
         self.assertEqual(recipe(self.ir,self.config,c,'S2','clay',4000,8000),other)
 
     @unittest.skipUnless(os.environ.get('BLENDER_EXECUTABLE'),'Requires explicit local Blender integration runtime')
     def test_actual_blender_reopened_scene_render_and_pending_handoff(self):
         # Exercise portrait, off-centre crop and roll through Blender's real projection.
-        self.config['lenses']['S1'].update(aspect=9/16,crop=[.1,.2,.8,.8])
+        self.ir['output']['aspect_ratio']='9:16'
+        for lens in self.config['lenses'].values():lens.update(aspect=9/16)
+        self.config['lenses']['S1'].update(crop=[.1,.2,.8,.8])
+        next(c for c in self.ir['contract'] if c['id']=='REQ_DURATION')['checks'][0]['value']['aspect_ratio']='9:16'
         self.config['proxy_scene']['resolution']=[180,320]
         self.ir['shots'][0]['camera']['roll_deg']=12
         self.config['proxy_scene']['objects'].append({'id':'TEST_LINK','shape':'bone','node_id':'N_A','end_node_id':'N_B',
