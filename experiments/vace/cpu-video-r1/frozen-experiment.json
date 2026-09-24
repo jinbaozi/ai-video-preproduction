@@ -1,0 +1,24 @@
+{
+  "schema": "vace-comfy-cpu-video-experiment/0.1",
+  "workflow_sha256": "a5b9c556f0d5321067ef1b9148850beda389e20d4a005eb6cc66506d1f0335df",
+  "source_code_revision": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+  "paired_single_frame_prompt_id": "86c0aebc-e718-4909-9eeb-e9be36f3a8ef",
+  "prior_mps_video_prompt_id": "8b85a097-14e2-4a6e-80d4-949df89290d8",
+  "purpose": "Test normal-length generation on the same isolated CPU/fp32-VAE service after single-frame outputs failed style. Same seed, prompt, weights, dimensions, shift 8 and 20 steps; expand to 65 frames, use built-in zero-reference latent trim and WebM encoding. No control video supplied.",
+  "comparison_limits": "Frame count changes latent noise shape; comparison is not identical noise samples. Relative to prior MPS video, device, model compute precision and VAE precision also differ; no one-factor root-cause claim.",
+  "execution_range": {
+    "start_ms": 0,
+    "end_ms": 4000
+  },
+  "raw_frames": 65,
+  "fps": 16,
+  "width": 512,
+  "height": 288,
+  "delivery_rule": "Retain raw output. Keep decoded frames 0 through 63 at original 16 fps; drop only end guard frame 64 to deliver 4000 ms. No retiming or unrecorded cropping.",
+  "source_package": "../comfy-cafe-r1/package",
+  "evaluation_plan_sha256": "17ba2cb4cf4c8efaa2328388c59785b25af81a80485f5d4b76c73490fc558416",
+  "review": "First confirm real frame times, size and full decode; inspect actual frames and temporal playback for natural textures, coherent two adults, dark-blue left and beige right clothing, one blue envelope, table contact/release/withdrawal sequence and stationary camera. Unknown tracking must remain unmeasured. No control benefit claim without paired controlled execution.",
+  "status": "FROZEN_BEFORE_SUBMISSION",
+  "commercial_api_charge": 0,
+  "environment_changes": "None; current isolated CPU service, separate database, custom/API nodes disabled"
+}

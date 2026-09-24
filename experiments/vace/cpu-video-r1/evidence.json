@@ -1,0 +1,245 @@
+{
+  "schema": "vace-comfy-cpu-video-result/0.1",
+  "status": "EXECUTED_QUALITY_FAIL",
+  "prompt_id": "46740a13-1ea6-472e-bf23-85c3a13bb406",
+  "job_status": "success",
+  "elapsed_ms": 2902964,
+  "cached_nodes": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "20"
+  ],
+  "sampler_node": "30",
+  "sampler_cached": false,
+  "workflow": {
+    "path": "workflow-api.json",
+    "bytes": 3326,
+    "sha256": "a5b9c556f0d5321067ef1b9148850beda389e20d4a005eb6cc66506d1f0335df"
+  },
+  "frozen_before_submission": {
+    "path": "frozen-experiment.json",
+    "bytes": 1908,
+    "sha256": "94a842b543b17fd008cc999dedc54bc0102d532e830fdb986def74f3ecb9dbde"
+  },
+  "history_sha256": "4f19d46ba2830a285e35703378a135057d0d63edcbc8c15bbc6bb1b74ae3e311",
+  "media": {
+    "raw-output.webm": {
+      "rotation_deg": 0,
+      "display_width": 512,
+      "display_height": 288,
+      "path": "raw-output.webm",
+      "sha256": "140450d1cbf1026b60233c2255fe46933515f7049586519d8471c7fe01306bab",
+      "bytes": 145431,
+      "detected_kind": "video",
+      "format": "matroska,webm",
+      "sample_aspect_ratio": "1:1",
+      "width": 512,
+      "height": 288,
+      "duration_ms": 4063,
+      "fps": 16.0,
+      "codec": "vp9",
+      "audio": false,
+      "visual_review": "NOT_RUN",
+      "video_timeline": {
+        "start_ms": 0.0,
+        "end_ms": 4062.0,
+        "start_ms_exact": "0",
+        "end_ms_exact": "4062",
+        "duration_ms": 4062.0,
+        "frame_count": 65,
+        "time_base": "1/1000",
+        "frame_timing_format": "integer_pts_and_duration_ticks",
+        "frame_timing_sha256": "34b36f482b2849553be55130b36ffda5007267469831c53eb4d997202244f481",
+        "decode": "FULL_SELECTED_VIDEO_STREAM"
+      },
+      "storage": "Local outputs/vace-investigation/comfy-cpu-video-r1/raw-output.webm"
+    },
+    "delivery-4s.mp4": {
+      "rotation_deg": 0,
+      "display_width": 512,
+      "display_height": 288,
+      "path": "delivery-4s.mp4",
+      "sha256": "452e7dc7bd5976f3edec542277c23da8cb654ead96d4e99df48ead0b5ed9f2ff",
+      "bytes": 127238,
+      "detected_kind": "video",
+      "format": "mov,mp4,m4a,3gp,3g2,mj2",
+      "sample_aspect_ratio": "1:1",
+      "width": 512,
+      "height": 288,
+      "duration_ms": 4000,
+      "fps": 16.0,
+      "codec": "h264",
+      "audio": false,
+      "visual_review": "NOT_RUN",
+      "video_timeline": {
+        "start_ms": 0.0,
+        "end_ms": 4000.0,
+        "start_ms_exact": "0",
+        "end_ms_exact": "4000",
+        "duration_ms": 4000.0,
+        "frame_count": 64,
+        "time_base": "1/16384",
+        "frame_timing_format": "integer_pts_and_duration_ticks",
+        "frame_timing_sha256": "efe7f71d13a03060da1ac8a57a89509346b66bad298750bd1cec2f26dd0cf9ab",
+        "decode": "FULL_SELECTED_VIDEO_STREAM"
+      },
+      "storage": "Local outputs/vace-investigation/comfy-cpu-video-r1/delivery-4s.mp4"
+    }
+  },
+  "published_video": {
+    "path": "actual-output.mp4",
+    "bytes": 127238,
+    "sha256": "452e7dc7bd5976f3edec542277c23da8cb654ead96d4e99df48ead0b5ed9f2ff"
+  },
+  "published_selection": {
+    "path": "selected-frames.jpg",
+    "bytes": 206955,
+    "sha256": "c0ee70c8a8d27439ef60ce98a78773ae1abc39ad08d0a79bc49e88566d2b38ff"
+  },
+  "all_frame_sheets": [
+    {
+      "path": "all-frames-01.jpg",
+      "bytes": 202162,
+      "sha256": "eb610db531d8e7c6b524a086f8d25a98dd8e479934a9cdaaebe1dc8b0869a87a",
+      "frame_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "path": "all-frames-02.jpg",
+      "bytes": 203273,
+      "sha256": "69a9a6bebeb94ce8c83ce7a10baed7cbea3b2cbc1ae688575102ee134e50665a",
+      "frame_indices": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "path": "all-frames-03.jpg",
+      "bytes": 208284,
+      "sha256": "d78d3d363d4e8c063176dca89f83898a5f520106e3ee48d9b0d3f3e4f430fe58",
+      "frame_indices": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23
+      ]
+    },
+    {
+      "path": "all-frames-04.jpg",
+      "bytes": 208786,
+      "sha256": "532247ad5b6fc68a0700e9a1aadbc7a1cf191673da176ba8badfc7e7263b5927",
+      "frame_indices": [
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ]
+    },
+    {
+      "path": "all-frames-05.jpg",
+      "bytes": 208928,
+      "sha256": "a31eebff66bfd415d60641a96cd0ecf7f7668d45b60ce71ab4af10f480d0d1a3",
+      "frame_indices": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    {
+      "path": "all-frames-06.jpg",
+      "bytes": 208692,
+      "sha256": "843ecd3e7171c3ab23a9230120f5d2be1349a46ae943a6edfd4c95ba6123fe8c",
+      "frame_indices": [
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47
+      ]
+    },
+    {
+      "path": "all-frames-07.jpg",
+      "bytes": 208799,
+      "sha256": "0ca4219a5d3c123d64718bcb36dd1ef23d997e8d71a85dc53995c5aaf771ec3e",
+      "frame_indices": [
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ]
+    },
+    {
+      "path": "all-frames-08.jpg",
+      "bytes": 208785,
+      "sha256": "c9fb26030f6bcd1d1fa8331e94538a451c0b0fba556a8c8ce796e0e3270d8f19",
+      "frame_indices": [
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ]
+    }
+  ],
+  "delivery_rule_executed": "Original 65-frame VP9 WebM retained locally. H.264 derivative encodes frames 0..63 at original nominal 16 fps; only guard frame 64 dropped, no spatial crop. Raw millisecond Matroska quantization replaced by exact MP4 16 fps cadence.",
+  "review": {
+    "method": "Actually viewed every delivered frame in eight sequential 4x2 contact sheets, plus selected indices 0,8,...,56. Chrome playback observed starting at 0.004 s and ending at 4.000 s, with start/end screenshots; not a claim of continuous live watching.",
+    "result": "FAIL",
+    "observed": "Two recognizable cartoon figures across a table, left dark-blue clothing and right beige clothing; left window and stable background. Large bright-blue folded paper lowers during early frames, then remains on table. Faces and hands use flat illustrated shapes; final paper is still folded rather than a clearly flat envelope. Natural photographic texture was not recovered.",
+    "identity_tracking": "NOT_MEASURED; visible figures did not visibly exchange places in reviewed frames",
+    "event_timing": "UNDETERMINED; no claimed numerical contact, release or withdrawal times",
+    "trajectory_error": null,
+    "control_benefit": "NOT_ESTABLISHED_NO_CONTROL_INPUT",
+    "limits": "One seed and one 65-frame CPU run; cannot infer all possible settings fail. No calibrated identity, camera or 3D contact analysis."
+  },
+  "comparison_limits": "Relative to MPS video, device/model compute/VAE precision differ. Relative to CPU single frame, frame count changes noise shape; not identical noise samples.",
+  "commercial_api_charge": 0,
+  "environment": {
+    "source_revision": "73c9bad4d21e7addbe1d13bc92eee0f1431b017d",
+    "source_and_weights_lock": "../comfy-runtime-lock.json",
+    "server": "Isolated CPU service; custom and API nodes disabled; source/dependencies/weights unchanged",
+    "original_user_database_sha256": "c465db79b92e16bd9f6bf203cf48c2c18ead0e566b0af71484c09dbf2df667e4",
+    "cleanup": "Queue running/pending both empty, then own CPU service and temporary playback server stopped successfully"
+  },
+  "all_frame_sheets_location": "Local outputs/vace-investigation/comfy-cpu-video-r1/; full sheets are not published in this directory"
+}
