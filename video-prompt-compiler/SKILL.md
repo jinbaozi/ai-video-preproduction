@@ -6,10 +6,12 @@ description: >
   模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.3.0"
+  version: "1.5.0"
 ---
 
 # Video Prompt Compiler
+
+AVIR 1.2 保留独立的来源、镜头、动作、空间、声音与状态合同。完整项目 `prompt.txt` 是审阅用的全长模型正文；实际逐次投喂选用按目标时长生成的 `prompt-序号_起止ms.txt`。每份独立文件重述本段所需真实图片文件名、引用职责、场景、身份及逐镜/逐时段细节；跨段后期声音另附对应 `post-序号_起止ms.txt`。`production-specification.json`、`detail_blocks` 与 `detail-coverage.json` 是完整审计依据；`prompt-coverage.json` 指向全长正文，`segment-delivery.json` 记录逐段状态。字节覆盖不等于语义等价或模型已执行。
 
 ## V5.2 运动与动态空间入口
 
@@ -30,7 +32,7 @@ AVIR与本地Context-IR是本技能的项目协议，不是厂商协议或行业
 ## 按任务尺度工作
 
 - 单条提示词：当前Agent读取输入和实际参考，做语义检查，直接给可复制正文；不强制用户填写JSON或创建项目包。
-- 完整编译包：Agent将输入整理为`avir/1.1`（旧包保留 `avir/1.0` 分支），CLI负责确定性检查、Context投影、后端转换与合同输出。
+- 完整编译包：Agent将输入整理为`avir/1.2`（旧包保留 `avir/1.0`、`avir/1.1` 分支），CLI负责确定性检查、Context投影、后端转换与合同输出。
 - 已有导演/美术方案：读取原文件和版本，按[集成映射](references/integration.md)导入；不重新决定已锁定身份、剧情、美术或镜头。
 - 修订：定位失败字段、时间码或素材，更新AVIR revision后重编译，保留旧构建对比和回放。
 
@@ -42,8 +44,8 @@ CLI不提供任意自然语言自动解析器；语义前端由使用本Skill的
 2. **建立AVIR。** 从[字段指南](references/avir-and-contract.md)及`examples/teahouse.avir.json`改写。相关内容各有归属：主体、场景、构图、三维空间、相对位置、空间人物对应、镜头表达、表情与微表情、动作细节、连贯性、音乐、台词、心理活动、旁白。不相关内容允许空数组/null，不为填表新增剧情。
 3. **中端整理。** 校验权威Core，按镜头筛选角色/参考，核验时间、部位可见性、视线、轴侧、道具归属与相邻起止状态；只去除完全相同的风格词。扩写与Core分开，见[中端优化](references/passes-and-optimization.md)。
 4. **选择后端。** 尊重指定模型；未指定时按硬要求提供候选与理由。只读对应[模型参考](references/models/index.md)。API、网页、第三方渠道分开；未知槽位用`UNRESOLVED`，不猜Seedance/Kling上传语法。
-5. **编译。** 冻结AVIR，生成prompt、参数/意图、参考清单、Context、条款覆盖、损失报告和清单。重要表演/空间细节进入正文；后期配音仍保留画内人物原台词与口型时点。旁白、静默心理不能变成画内人物台词。
-6. **验收交接。** 运行受影响检查，并检查可复制正文。无媒体时QA为`NOT_RUN`；宿主沿用既有授权执行，按[验收流程](references/evaluation-and-runtime.md)回收证据。只在新增必要决定时询问。
+5. **编译。** 冻结AVIR，分别生成完整审计投影与按镜头/时间排列的模型正文，再按目标 profile 的单次最大时长、最小时长和离散时长规则生成独立提示词文件。每段重新投影其全部执行细节与参考，不从全长文件截字；逐项动作与运镜不合并。边界缺关键姿态或穿过未拆分动作时保留正文但标 `BLOCKED`，不得当作可投喂片段。后期声音另附本段交接，不改成原生对白。模型布局与交付判定见[正文投影](references/model-prompt-projection.md)。
+6. **验收交接。** 运行受影响检查，并由当前Agent逐项对照来源、AVIR与每个 `prompt-*.txt`，复核真实图片名与职责、手别、持物、可见性、否定、声音归属和跨镜连续性；记录输入与成稿指纹及发现，不能用覆盖表代替语义判断。无媒体时QA为`NOT_RUN`；宿主沿用既有授权执行，按[验收流程](references/evaluation-and-runtime.md)回收证据。只在新增必要决定时询问。
 
 ## 保留的语义
 
@@ -71,7 +73,7 @@ python3 -m venv .venv
 .venv/bin/python -m unittest discover -s tests -v
 ```
 
-输出目录必须为空。退出码0=静态操作成功；2=INVALID/BLOCKED；1=输入或工具错误。
+输出目录必须为空。AVIR 1.2 的 `segment-delivery.json` 列出逐段文件、参考清单、哈希与阻塞原因；`BLOCKED-prompt-*.txt` 是保真草案，不能作为已通过切点检查的提示词投喂。全长项目超目标单次时长时，顶层 `prompt.txt` 仍保留供审计，不能直接复制给模型。退出码0=静态操作成功；2=INVALID/BLOCKED；1=输入或工具错误。
 `COMPILED`表示提示词编译完成；所有执行回执固定`submitted=false`、`runnable=false`。
 Agnes可生成API字段草案；其余已核验模型生成提示词计划与独立制作参数意图，不是已验证API载荷。
 
@@ -83,6 +85,7 @@ Agnes可生成API字段草案；其余已核验模型生成提示词计划与独
 | 构图、空间、表情、动作、镜头、声音 | [视听语法](references/audiovisual-grammar.md) |
 | Context、RAG、预算、扩写、版本 | [中端优化](references/passes-and-optimization.md) |
 | 模型与渠道 | [模型索引](references/models/index.md)，再读当前目标 |
+| 模型正文布局与字段覆盖 | [正文投影](references/model-prompt-projection.md) |
 | 导演、美术与旧分镜 | [集成映射](references/integration.md) |
 | 生成交接、QA、A/B、局部修复 | [验收与执行](references/evaluation-and-runtime.md) |
 | 原报告、来源及实现取舍 | [研究映射](references/research-and-scope.md) |

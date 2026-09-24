@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import sys
 
-from vpc_core import ROOT, VERSION, compile_ir, digest, encoded, profile, read, validate
+from vpc_core import ROOT, VERSION, canonical_count, compile_ir, digest, encoded, profile, read, validate
 
 
 def emit(path, value):
@@ -32,6 +32,7 @@ def run_compile(ir, target, mode, base, out):
     cap=profile(target)
     artifact, context=compile_ir(ir,cap,mode,base)
     out=prepare(out)
+    delivery=None
     emit(out/'avir.json',ir)
     emit(out/'capability-snapshot.json',cap)
     if artifact is None:
@@ -40,13 +41,35 @@ def run_compile(ir, target, mode, base, out):
     emit(out/'artifact.json',artifact)
     if ir.get('schema') in ('avir/1.1','avir/1.2'):
         emit(out/'detail-coverage.json', artifact['detail_coverage'])
+        if ir['schema']=='avir/1.2':
+            emit(out/'prompt-coverage.json', artifact['prompt_coverage'])
+            emit(out/'prompt-review.json', artifact['prompt_review'])
         emit(out/'segment-proposals.json', artifact['segment_proposals'])
         if ir['schema']=='avir/1.2':
-            from spatial_runtime import segment_plan
+            import spatial_runtime as spatial
+            from prompt_projection import render as render_prompt
+            from prompt_projection import verify as verify_prompt
+            from segment_delivery import build as build_delivery
             emit(out/'spatial-checks.json', artifact['spatial_checks'])
+            segments=spatial.segment_plan(ir)
+            for segment in segments:
+                start,end=segment['project_start_ms'],segment['project_end_ms']
+                blocks,coverage=spatial.render(ir,start,end)
+                segment['prompt'],segment['prompt_coverage'],_,gaps=render_prompt(
+                    ir,artifact['asset_bindings'],'unbound',mode,spatial,blocks,coverage,start,end)
+                if gaps:
+                    segment['status']='BLOCKED'
+                    segment['reasons'] += ['PROMPT_COVERAGE:'+path for path in gaps]
+            layout=read(ROOT/'templates/backends.json')['projection_v12'][cap['template']]['layout']
+            delivery,prompt_files=build_delivery(ir,cap,mode,artifact,spatial,render_prompt,verify_prompt,
+                                                 canonical_count,layout)
+            emit(out/'segment-delivery.json',delivery)
+            for name,content in prompt_files.items():
+                (out/name).write_text(content,encoding='utf-8')
         else:
             from detail_runtime import segment_plan
-        emit(out/'segment-plan.json', segment_plan(ir))
+            segments=segment_plan(ir)
+        emit(out/'segment-plan.json', segments)
         emit(out/'production-specification.json', ir)
     emit(out/'context-ir.json',context)
     emit(out/'constraint-coverage.json',artifact['coverage'])
@@ -73,8 +96,12 @@ def run_compile(ir, target, mode, base, out):
               'files':{p.name:sha256(p.read_bytes()).hexdigest() for p in sorted(out.iterdir()) if p.is_file()}}
     manifest['build_id']=digest({k:v for k,v in manifest.items() if k!='asset_base'})
     emit(out/'compile-manifest.json',manifest)
-    return {'status':artifact['status'],'target':target,'out':str(out.resolve()),'canonical_count':artifact['counts']['canonical_count'],
-            'diagnostics':artifact['diagnostics'],'submitted':False},0 if artifact['status']=='COMPILED' else 2
+    result={'status':artifact['status'],'target':target,'out':str(out.resolve()),'canonical_count':artifact['counts']['canonical_count'],
+            'diagnostics':artifact['diagnostics'],'submitted':False}
+    if delivery is not None:
+        result['delivery_status']=delivery['status']
+        result['prompt_files']=[str((out/part['prompt_file']).resolve()) for part in delivery['parts']]
+    return result,0 if artifact['status']=='COMPILED' else 2
 
 
 def verify(package):
@@ -87,6 +114,34 @@ def verify(package):
             failures.append(name)
     if digest(read(package/'avir.json'))!=m['input_hash'] or digest(read(package/'artifact.json'))!=m['artifact_hash']:
         failures.append('semantic_hash')
+    if read(package/'artifact.json').get('schema')=='compiled-artifact/1.3':
+        from prompt_projection import verify as verify_prompt
+        import spatial_runtime as spatial
+        ir,artifact=read(package/'avir.json'),read(package/'artifact.json')
+        if (package/'prompt.txt').read_text(encoding='utf-8')!=artifact['prompt']+'\n':
+            failures.append('prompt.txt')
+        if read(package/'prompt-coverage.json')!=artifact['prompt_coverage']:
+            failures.append('prompt-coverage.json')
+        if read(package/'prompt-review.json')!=artifact['prompt_review']:
+            failures.append('prompt-review.json')
+        if sha256(artifact['prompt'].encode('utf-8')).hexdigest()!=artifact['prompt_review']['prompt_sha256']:
+            failures.append('prompt_review_hash')
+        if '\n\n'.join(row['text'] for row in artifact['trace'])!=artifact['prompt']:
+            failures.append('trace')
+        if verify_prompt(ir,artifact['prompt'],artifact['prompt_coverage'],spatial):
+            failures.append('prompt_coverage')
+        if (package/'segment-delivery.json').is_file():
+            from prompt_projection import render as render_prompt
+            from segment_delivery import build as build_delivery
+            cap=read(package/'capability-snapshot.json')
+            layout=read(ROOT/'templates/backends.json')['projection_v12'][cap['template']]['layout']
+            expected,files=build_delivery(ir,cap,m['mode'],artifact,spatial,render_prompt,verify_prompt,
+                                          canonical_count,layout)
+            if read(package/'segment-delivery.json')!=expected:
+                failures.append('segment-delivery.json')
+            for name,content in files.items():
+                if not (package/name).is_file() or (package/name).read_text(encoding='utf-8')!=content:
+                    failures.append(name)
     if digest({k:v for k,v in m.items() if k not in ('asset_base','build_id')})!=m['build_id']:
         failures.append('build_id')
     if failures:

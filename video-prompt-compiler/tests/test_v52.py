@@ -21,7 +21,7 @@ class SpatialTests(unittest.TestCase):
   n=copy.deepcopy(self.t['spatial_nodes'][0]);n.update(id='LOCAL',kind='part',parent_id='N_A',label='A右腕',part='人物自身右腕');pos=sp.position_at(self.ir,'N_A',0);n['frame']={'kind':'local','anchor_node_id':'N_A','unit':'m','transforms':[{'at_ms':0,'origin':pos,'basis':[[1,0,0],[0,1,0],[0,0,1]]}]};self.t['spatial_nodes'].append(n)
   self.track(node='LOCAL',prop='position',mode='numeric',values=([.1,0,0],[.2,0,0]));return n
  def test_full_native_compile(self):
-  self.assertEqual(self.codes(),[]);a=self.compile();self.assertEqual(a['status'],'COMPILED');self.assertFalse(a['execution']['submitted']);self.assertEqual(a['schema'],'compiled-artifact/1.2')
+  self.assertEqual(self.codes(),[]);a=self.compile();self.assertEqual(a['status'],'COMPILED');self.assertFalse(a['execution']['submitted']);self.assertEqual(a['schema'],'compiled-artifact/1.3')
  def test_action_not_duplicated_by_motion(self):
   blocks,rows=sp.render(self.ir);self.assertEqual(len([b for b in blocks if b['id']=='EV_REACH']),1);self.assertIn('右手','\n'.join(b['text'] for b in blocks));self.assertNotIn('HAND_EV_REACH','\n'.join(b['text'] for b in blocks))
  def test_deleted_hand_detail_blocks_stale_review(self):

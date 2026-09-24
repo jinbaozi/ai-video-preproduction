@@ -1,5 +1,16 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
+  "projection_v12": {
+    "seedance20": {"layout": "shot_timeline"},
+    "seedance25": {"layout": "shot_timeline"},
+    "agnes": {"layout": "single_prompt_timeline"},
+    "kling": {"layout": "kling_multi_shot_plan"},
+    "kling_omni": {"layout": "kling_multi_shot_plan"},
+    "h3": {"layout": "h3_fields"},
+    "veo": {"layout": "shot_timeline"},
+    "wan": {"layout": "shot_timeline"},
+    "runway": {"layout": "shot_timeline"}
+  },
   "templates": {
     "seedance20": {
       "guidance": "参考职责明确；按时间段表达动作、摄影机与音画关系。",
