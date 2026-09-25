@@ -1,0 +1,28 @@
+{
+  "schema": "keyframe-composition-guided-edit-experiment/0.1",
+  "status": "FROZEN_BEFORE_SUBMISSION",
+  "parent_experiment": "experiments/keyframes/composition-guide-r2",
+  "method_change": "Edit the actual r2 photograph using its frozen flat composition guide; omit the conflicting empty-room scene reference",
+  "input_roles": [
+    "outputs/host-keyframe-guide-r2/actual-keyframe.png: photographic edit base, faces, clothing, scene and light",
+    "experiments/keyframes/composition-guide-r2/guide.png: camera-space tabletop and envelope positions only",
+    "outputs/host-keyframe-cafe-r2/A-identity.png: left actor identity",
+    "outputs/host-keyframe-cafe-r2/B-identity.png: right actor identity"
+  ],
+  "input_sha256_in_order": [
+    "f326481d7525679ac872f64df19a0258bec60586bbb5d346c644d62c48d24b03",
+    "0efd1a2c1cf8819bdee186d18b9b1d5df9680ed11803cfd20b120de1ade41182",
+    "895f4c183387384dadf23defa2322eea5ce7c3a5802cddd0bcf1f6cfb31b923b",
+    "3b702377009bdc17b7dd50c9efd2b5763b3c737f24a2a215d979a67a39fde9e2"
+  ],
+  "prompt_sha256": "95b2c5be9a2e7a8cd8fc939a0abdd70187960c641ff996d025e4744a42f80201",
+  "expected_canvas": [1672, 941],
+  "expected_envelope_xy": [0.37836213115936546, 0.7162451001611281],
+  "max_abs_error_envelope_xy": [0.02, 0.02],
+  "expected_table_back_edge_y": 0.775,
+  "max_abs_error_table_back_edge_y": 0.02,
+  "expected_table_front_edge_y": 0.897,
+  "max_abs_error_table_front_edge_y": 0.02,
+  "attempts": 1,
+  "quality_review": "Inspect actual pixels for framing, target geometry, identity, anatomy, one envelope, realistic table, and artifacts; mark ambiguous measurements UNDETERMINED, never infer PASS from generation"
+}
