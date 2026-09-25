@@ -257,4 +257,6 @@ GPT‑6 Pro 网页针对精确提交 71a2f65 完成增量对抗性审核：原 C
 
 本地从有效原生请求另行复现 `camera_state.crop` 中的 0→false、1→true，以及 `subject_state.physical_interpolation` 的 false→0；修复前数字 1→true 的 stage 确实成功，修复后上述三种变更均在冻结入口被拒绝且不产生半包，合法数值 0→0.0 仍可冻结。视频与图片 Skill 的共享 `keyframes.py` 已同步改用 `same_json_value`，四个可编辑字段白名单不变。最终发行 video-prompt-compiler 1.17.5、image-prompt-optimizer 1.15.5、workflow 0.7.13；源码宿主及联合编译 24 项、独立视频包十二个指定模块 185 项、七包静态检查、隔离安装、内置一致性及重复构建均通过。验证摘要为 validation-artifacts/shot-control-request-types-verification.json，完整本地日志在 outputs/shot-control-request-types-release/report.json。
 
-当前修复尚待新提交的独立复审；图片构图、实际首尾帧视频平台运行和控制收益仍不得由软件测试推定为通过。
+GPT‑6 Pro 网页随后对精确提交 ac65dd8 完成独立复审并给出 Approve，仅针对 C02 软件补丁及受测链路。其核对了 45 个运行依赖的 Git blob，重放原 E01/E04、嵌套类型、数值等价、编辑白名单及完整联合链：14 项宿主、10 项联合测试和 69 项独立检查符合预期，未发现新的阻断缺陷。审核原文归档于 validation-artifacts/shot-control-audit-ac65dd8.md；正式发行的 185 项和七包检查仍是本地发行验证，未冒称由网页审核重跑。
+
+该批准不代表完整制作方案已经交付。PR1–PR2 的软件合同与调度实现有现有证据；PR3 实际关键帧构图仍 FAIL；PR4 实际首尾帧商业平台入口、预算、上传、请求与实收均未落实；PR5 真实媒体返修后的质量闭环未验；PR6 已有固定环境的失败实验及成本记录，但质量 FAIL 且无控制收益。保持这些状态，直到有相应实际媒体与验收证据。
