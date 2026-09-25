@@ -12,6 +12,7 @@ def sync(workspace=ROOT, check=False):
     files = [source/'scripts/control_cli.py', source/'registries/control-capabilities.json',
              source/'references/shot-control.md']
     files += list((source/'scripts/shot_control').glob('*.py'))+list((source/'scripts/shot_control').glob('*.html'))
+    files += list((source/'scripts/shot_control/lowerers').glob('*.py'))
     files += [source/'schemas'/f'{name}.schema.json' for name in
               ('shot-control', 'shot-control-config', 'keyframe-request', 'keyframe-host-result', 'keyframe-image-review', 'edit-delta', 'control-artifacts', 'control-media-review', 'control-package', 'previs-geometry', 'look-design')]
     files += [source/'scripts'/n for n in ('spatial_runtime.py', 'detail_runtime.py')]

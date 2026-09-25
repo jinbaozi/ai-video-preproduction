@@ -1,0 +1,28 @@
+{
+  "active_decision": null,
+  "active_task": null,
+  "approvals": {},
+  "artifacts": {},
+  "build": null,
+  "completed_tasks": {},
+  "decisions": [],
+  "host": {
+    "evidence": null,
+    "image_capability": "unknown"
+  },
+  "inflight": null,
+  "media": {},
+  "prompts": {},
+  "provided_jobs": [],
+  "revision_scope": {},
+  "schema_version": "5.0",
+  "sources": [
+    {
+      "id": "SRC_82e3a86844be",
+      "original": "user-text",
+      "sha256": "82e3a86844be2e2463567c54ddb55414b3b46abe22b629fa635ed19b24fbe551",
+      "uri": "sources/SRC_82e3a86844be/source.txt"
+    }
+  ],
+  "status": "RUNNING"
+}

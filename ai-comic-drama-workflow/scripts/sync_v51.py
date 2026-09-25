@@ -34,7 +34,7 @@ def sync(workspace=ROOT,check=False):
    if dest.read_bytes()!=p.read_bytes():raise ValueError('Workflow source drift')
   else:dest.write_bytes(p.read_bytes())
  for name in ('ai-comic-drama-workflow',*targets,'production-design-grammar','image-prompt-optimizer'):
-  dest=workspace/name/'references/detail-contract-v51.md';data=(src/'detail-contract-v51.md').read_bytes()
+  dest=workspace/name/'references/history/detail-contract-v51.md';data=(src/'detail-contract-v51.md').read_bytes()
   if check:
    if not dest.exists() or dest.read_bytes()!=data:raise ValueError('Detail contract drift: '+name)
   else:dest.parent.mkdir(parents=True,exist_ok=True);dest.write_bytes(data)

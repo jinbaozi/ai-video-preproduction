@@ -6,7 +6,7 @@
 - 五个专业技能适用测试分别为：导演29、美术52、分镜86、视频编译24、图片尺寸校验6，已在源码环境通过。
 - 三镜头静态示例从项目事实到视频提示词完成，保留对白、身份、信封持有、坐标与时序；输出是text-only，实际视频与媒体效果NOT_RUN。
 - 总包单独安装、逐包隔离解压、适用测试、quick_validate、同源内置包校验与逐包重复构建由`scripts/verify_suite.py`验证；实际发行记录在工作区outputs/v5-implementation/release-verification/report.json，记录对应的六个归档哈希。
-- 历史全量回归与实施前基线仍是同一组V4的3个失败、1个错误。它们与旧graph/阶段假设有关，未改写用户已有workflow-graph.json；V5不调用旧运行路径。基线与复测日志在工作区outputs/v5-implementation。
+- V2 到 V4 运行路径已从本包删除。旧项目复制仍由 V5 回归覆盖，不依赖已删除的 V4 内核。历史基线日志在工作区 outputs/v5-implementation。
 
 ## 真实图片
 

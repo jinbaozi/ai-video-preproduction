@@ -59,7 +59,7 @@ python scripts/control_cli.py verify-keyframe-received outputs/keyframe-received
 
 ## 入口和执行覆盖
 
-能力键为厂商、精确型号、界面、端点、模式、版本。新增 registry 将 documented、probe_passed、quality_validated 分开。目前只实现 Agnes 国际 API 的媒体字段静态降译，依据 [2.5 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25) 和 [Flash 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash)，核验日 2026-09-24。没有账户探测或质量实测。参考视频仅是条件参考，不是专用三维轨迹通道；Flash 白模视频路线阻断。首尾帧与参考数组互斥，附件不能超入口预算。
+能力键为厂商、精确型号、界面、端点、模式、版本。新增 registry 将 documented、probe_passed、quality_validated 分开。媒体字段静态降译依据 [2.5 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25) 和 [Flash 文档](https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash)。2026-09-25 用环境变量 `AGNES_BASE_URL`（`api.agnes-ai.cn`）对 `agnes-video-2.5-flash` 的 text / API 提交一次并回收了可解码文件，该路由 `probe_passed` 为 true；注册表入口仍写国际站文档地址，这次调用没有打到 `apihub.agnes-ai.com`。keyframe、reference 和 `agnes-video-2.5` 未探测。`quality_validated` 全部仍为 false。参考视频仅是条件参考，不是专用三维轨迹通道；Flash 白模视频路线阻断。首尾帧与参考数组互斥，附件不能超入口预算。
 
 每个 control 绑定原硬要求、原断言指针、所选通道、真实资产和 fallback，`purpose` 必须为 `supplement`。媒体仅辅助 prompt 类型要求；不能冒领 parameter 或 post 要求。shot_ids 必须落在原合同适用镜头内，hardness 不得降级。缺文件、摘要变化、未审图、过期来源、审阅图、槽位冲突、媒体限制、未解析上传绑定均阻断；`report_loss` 不自动批准降级。`media_fields_draft` 只有辅助媒体字段；使用 control compile 统一编译正文、参数、附件与职责，由宿主核查 URL 可达性。`primary_obligations` 将 prompt/native_parameter/post_production 分开保留为 NOT_COMPILED。单独 lower 的 BOUND_DRAFT 仅说明辅助素材静态绑定成立，不是完整合同覆盖。通过下述显式 compile 入口继续编译主执行义务。
 

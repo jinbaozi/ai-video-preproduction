@@ -1,0 +1,16 @@
+{
+  "schema": "production-experiment-protocol/1.0",
+  "status": "PREREGISTERED",
+  "results": "NOT_RUN",
+  "entry": "agnes-video-2.5-flash",
+  "surface": "API",
+  "attempts_per_cell": 3,
+  "comparisons": [
+    {"id": "prompt", "question": "精简表达是否保留要求并改善执行", "arms": ["full", "lean"]},
+    {"id": "control", "question": "已审核事件关键帧是否改善动作、构图或身份", "arms": ["ordinary-reference", "event-keyframe"]},
+    {"id": "repair", "question": "定位失败原因的局部返修是否减少无关重生成", "arms": ["regenerate-all", "localized"]}
+  ],
+  "metrics": ["硬要求达成", "跨镜问题数", "可用视频时长", "返修次数", "总耗时与实际成本"],
+  "quality_gate": {"hard_requirements": "all_pass", "cross_shot_issues_max": 0},
+  "registry_rule": "probe_passed 只在一次真实提交并回收原始文件后改为 true。quality_validated 只在本协议三组对照都达到 quality_gate 后改为 true。失败不放宽阈值。"
+}

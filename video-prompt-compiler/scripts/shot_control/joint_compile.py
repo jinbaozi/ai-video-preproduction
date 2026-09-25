@@ -141,7 +141,31 @@ def _obligations(ir, prompt_coverage, parameters, span, active_shots, media):
     return rows
 
 
-def compile_package(package, target, mode, manifest_path, shot_ids=None):
+def _lean_channels(ir, bindings):
+    bound = {b['asset_id']: b for b in bindings}
+    rows = []
+    for clause in ir['contract']:
+        if clause['channel'] == 'prompt':
+            continue
+        referent = clause.get('requirement')
+        if clause['channel'] == 'reference':
+            names = [bound[b['asset_id']]['filename'] for b in ir['bindings'] if b['asset_id'] in bound and (not clause['shot_ids'] or set(clause['shot_ids']) & set(b['shot_ids']))]
+            referent = (clause.get('requirement') or '见图') + ('：' + '、'.join(names) if names else '')
+        verified = clause['channel'] != 'reference' or bool(names if clause['channel'] == 'reference' else True)
+        for check in clause['checks']:
+            rows.append({'source_path': check['path'], 'channel': clause['channel'], 'capability_basis': True,
+                         'asset_duty': clause['channel'], 'binding_verified': verified, 'result_check': bool(clause.get('acceptance')),
+                         'referent': referent})
+    return rows
+
+
+def build_control_request(ir, target, mode, cap):
+    """Backend-neutral obligations. Execution payload is filled only by an adapter."""
+    return {'target': target, 'mode': mode, 'backend': cap.get('backend'), 'execution_payload': None,
+            'obligations': [{'id': c['id'], 'channel': c['channel'], 'acceptance': c.get('acceptance')} for c in ir['contract']]}
+
+
+def compile_package(package, target, mode, manifest_path, shot_ids=None, projection_profile='full'):
     # This entry belongs to the video compiler; the independent image package validates assets only.
     import spatial_runtime as spatial
     from vpc_core import profile, target_errors, canonical_count
@@ -150,7 +174,11 @@ def compile_package(package, target, mode, manifest_path, shot_ids=None):
     ir, config = bundle['ir'], bundle['config']
     scope = scope_for_shots(ir, shot_ids)
     cap = profile(target)
-    if cap['backend'] != 'agnes_api_draft': raise ValueError('Joint API lowering is not integrated for this exact target')
+    if cap['backend'] != 'agnes_api_draft':
+        from .lowerers.text_adapter import text_adapter_package
+        return text_adapter_package(bundle, target, mode, cap, scope)
+    from .lowerers.agnes_api import require_agnes
+    require_agnes(cap)
     manifest = read(manifest_path); schema_check(manifest, 'control-artifacts')
     if len({a['id'] for a in manifest['artifacts']}) != len(manifest['artifacts']): raise ValueError('Duplicate artifact ID')
     parts, reasons = partitions(ir, config, cap, scope)
@@ -174,10 +202,12 @@ def compile_package(package, target, mode, manifest_path, shot_ids=None):
                 errors.append('NATIVE_AUDIO_UNVERIFIED:'+a['id'])
         blocks, audit = spatial.render(ir, span['start_ms'], span['end_ms'])
         errors += [e['code'] for e in spatial.verify_coverage(ir, blocks, audit, span['start_ms'], span['end_ms'])]
+        channel_coverage = _lean_channels(ir, bindings) if projection_profile == 'lean' else None
         prompt, coverage, trace, gaps = render(ir, bindings, target, mode, spatial, blocks, audit,
-                                               span['start_ms'], span['end_ms'], layout=layout)
+                                               span['start_ms'], span['end_ms'], layout=layout,
+                                               projection_profile=projection_profile, channel_coverage=channel_coverage)
         errors += ['PROMPT_COVERAGE:'+p for p in gaps]
-        errors += ['PROMPT_COVERAGE:'+e['path'] for e in verify(ir, prompt, coverage, spatial)]
+        errors += ['PROMPT_COVERAGE:'+e['path'] for e in verify(ir, prompt, coverage, spatial, channel_coverage if projection_profile == 'lean' else None)]
         annex = []
         for row in media['coverage']:
             c = controls[row['control_id']]

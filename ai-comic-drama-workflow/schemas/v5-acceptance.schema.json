@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-acceptance",
+  "type": "object",
+  "required": ["schema_version", "id", "level", "plan_sha256", "items", "status"],
+  "properties": {
+    "schema_version": {"const": "v5-acceptance/1.0"},
+    "id": {"type": "string"},
+    "level": {"enum": ["shot", "adjacent", "sequence"]},
+    "plan_sha256": {"type": "string"},
+    "items": {"type": "array"},
+    "status": {"enum": ["PASS", "FAIL", "INCOMPLETE"]}
+  },
+  "additionalProperties": true
+}

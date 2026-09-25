@@ -1,0 +1,9 @@
+{
+  "schema": "envelope-3shot-verification/1.0",
+  "video_execution": "NOT_RUN",
+  "audio_review": "NOT_RUN",
+  "reason": "三镜信封交接没有公开图片地址，这次没有提交。另一次文生视频探测已完成，见 experiments/production-envelope-r1/text-probe/evidence.json。",
+  "inputs_frozen": false,
+  "takes": [],
+  "picture": "NOT_VIEWED"
+}

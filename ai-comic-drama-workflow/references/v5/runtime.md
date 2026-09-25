@@ -5,9 +5,10 @@ Python 3.12+，依赖 jsonschema；图片登记另外需要 ffmpeg/ffprobe。模
 
 ## 命令
 
-- `init <资料文件或文本...> --project <空目录> [--project-id PROJECT] [--delivery full|text-only] [--target 目标ID] [--mode text|reference|keyframe|edit|extend] [--no-run]`
+- `init <资料文件或文本...> --project <空目录> [--project-id PROJECT] [--delivery full|text-only] [--production-target none|video] [--target 目标ID] [--mode text|reference|keyframe|edit|extend] [--no-run]`
+- `production <项目> plan|execute|receive-take|review-take|check-adjacent|assemble|status`：成片台账。`execute` 需要 `AGNES_API_KEY`。编译包 `submitted` 不被改写。
 - `run <项目>`、`status <项目>`：返回当前任务/决定/阻塞；当前 Agent 自动执行可继续的任务。
-- `host <项目> --capabilities <JSON>`：`image_capability` 为 available/unavailable/unknown；`evidence` 是真实宿主工具清单证据。
+- `host <项目> --capabilities <JSON>`：`image_capability` 为 available/unavailable/unknown；`evidence` 是真实宿主工具清单证据。可选 `video_capabilities` 只能登记控制注册表里已有的模型、模式和入口。
 - `submit <项目> --result <JSON>`：提交下述结果记录；相同结果重复提交返回 ALREADY_ACCEPTED，冲突重复被拒绝。
 - `begin-image <项目> --task-id TASK_...`：调用图片工具前登记；中断后的 run 返回待回收状态。
 - `recover-image <项目> --evidence <明确重试决定的来源>`：确认需要重试后解除不确定调用；不能凭等待超时重复调用。

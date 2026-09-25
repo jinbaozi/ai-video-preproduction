@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-generation-job",
+  "type": "object",
+  "required": ["schema_version", "id", "request_id", "compile_sha256", "payload_sha256", "payload", "attachments", "shot_ids", "state", "budget"],
+  "properties": {
+    "schema_version": {"const": "v5-generation-job/1.0"},
+    "id": {"type": "string", "minLength": 1},
+    "request_id": {"type": "string"},
+    "compile_sha256": {"type": "string"},
+    "payload_sha256": {"type": "string"},
+    "payload": {"type": "object"},
+    "attachments": {"type": "array"},
+    "shot_ids": {"type": "array"},
+    "state": {"const": "FROZEN"},
+    "budget": {"type": "object"}
+  },
+  "additionalProperties": true
+}

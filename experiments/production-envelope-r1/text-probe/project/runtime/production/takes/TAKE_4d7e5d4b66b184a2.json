@@ -1,0 +1,17 @@
+{
+  "schema_version": "v5-take/1.0",
+  "id": "TAKE_4d7e5d4b66b184a2",
+  "job_id": "JOB_b0e517dfd3824d32",
+  "record_id": "EXE_e54b0dcf2718fba6",
+  "sha256": "4d7e5d4b66b184a2e7bd7ce84c5a820a687fdd679a069f3dcaf5bd74cbe14825",
+  "uri": "runtime/production/media/TAKE_4d7e5d4b66b184a2.mp4",
+  "automatic": true,
+  "probe": {
+    "width": 1280,
+    "height": 720,
+    "fps": 24.0,
+    "duration_ms": 4458,
+    "aspect": "1280:720"
+  },
+  "accepted": false
+}

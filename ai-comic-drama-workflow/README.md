@@ -55,10 +55,10 @@ python scripts/package_skill.py --out /绝对路径/单包发行
 
 样例使用固定原文和已编写的原生制作包，证明静态交接和编译可运行，不伪装实时创作或图片生成。完整流程还需要宿主真实生图/导入、实际看图和身份决定。ffmpeg/ffprobe只在真实图片登记时需要。
 
-V5使用独立的project/state/任务协议，默认CLI只进入V5。V4项目与旧全流程只读复制后迁移；原“通过”状态不沿用为V5验收。旧实现及[原V4说明](references/v4/README-frozen.md)保留历史用途。新项目不继承V4固定模型、十阶段或5参考上限。
+V5使用独立的project/state/任务协议，默认CLI只进入V5。V4项目与旧全流程只读复制后迁移；原“通过”状态不沿用为V5验收。V2 到 V4 运行代码已移除，历史在 git。新项目不继承V4固定模型、十阶段或5参考上限。
 
 ## V5.2 运动与空间
 
 新完整制作采用 DirectorIR / StoryboardIR / AVIR 1.2，支持部位轨迹、动态构图、时刻画格与 `revise storyboard --node-id ID` / `--track-id ID`。工作流 Skill 0.7.0、视频提示词编译器 1.5.0、转换器 1.2.0；其他专业模块版本以 `modules.lock.json` 为准，项目存储仍 5.0。编译器将完整制作合同保留在审计附件，向模型交付按镜头与时间展开的正文及其字段覆盖，并按模型单次时长生成自包含的分段提示词；每段包含该段所需完整图片引用和细节，阻塞片段保留阻塞状态。既有项目模块锁不自动迁移。
 
-[空间合同](references/spatial-contract-v52.md)说明明确相对描述、数值依据、无损正文及几何判定边界。旧项目模块锁保持，旧包升级只生成新草案。运行 `python scripts/run_v5_example.py --version v52 --out NEW_DIR` 验证内置模块三镜文本链。
+[当前执行合同](references/current-contract.md)说明明确相对描述、数值依据、无损正文及几何判定边界。旧项目模块锁保持，旧包升级只生成新草案。运行 `python scripts/run_v5_example.py --version v52 --out NEW_DIR` 验证内置模块三镜文本链。

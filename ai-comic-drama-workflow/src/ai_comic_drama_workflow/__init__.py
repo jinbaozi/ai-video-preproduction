@@ -1,6 +1,6 @@
-"""Schema-governed local runtime for AI comic-drama workflows."""
+"""V5 current-agent workflow runtime."""
 
-from .v4 import V4Kernel as WorkflowKernel
+from .v5 import V5Kernel
 
-__all__ = ["WorkflowKernel"]
-__version__ = "0.4.0"
+__all__ = ["V5Kernel"]
+__version__ = "0.8.0"

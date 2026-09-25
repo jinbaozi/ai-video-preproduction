@@ -15,14 +15,8 @@ def package_suite(workspace,out):
     spec=importlib.util.spec_from_file_location('suite_archiver',ROOT/'scripts/skill_archive.py')
     pkg=importlib.util.module_from_spec(spec);spec.loader.exec_module(pkg)
     lock={'schema':'skill-modules/1.0','adapter_version':'1.2.0','modules':{}}
-    from sync_v51 import sync
-    sync(workspace, check=True)
-    from sync_v52 import sync as sync_spatial
-    sync_spatial(workspace, check=True)
-    from sync_screenplay import sync as sync_screenplay
-    sync_screenplay(workspace, check=True)
-    from sync_shot_control import sync as sync_controls
-    sync_controls(workspace, check=True)
+    from sync_shared import sync as sync_all
+    sync_all(workspace, check=True)
     bundles=ROOT/'assets/bundled-skills';bundles.mkdir(parents=True,exist_ok=True)
     records=[]
     for name in MODULES:

@@ -1,11 +1,11 @@
 {
   "archive": "production-design-grammar.skill",
-  "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
-  "file_count": 35,
+  "archive_sha256": "b53b8b48c8a5eba6d8fa90bc02cfd956aed46c6d0977d35eb34089ac65c4f7ea",
+  "file_count": 36,
   "files": {
     "production-design-grammar/SKILL.md": {
-      "bytes": 7903,
-      "sha256": "963c9a56db45652582d3b34d590a249c168bee89a67630da2d8edc983e44c2f5"
+      "bytes": 6780,
+      "sha256": "3f1c31097ea050c7980cc0f071be2cd77e346c7a46f5084d16fb4ac9dd02619d"
     },
     "production-design-grammar/agents/openai.yaml": {
       "bytes": 426,
@@ -43,9 +43,17 @@
       "bytes": 2294,
       "sha256": "b2c0e8827a10af7263c90ed3b159660df13483154d9d983d5b82ce1339f9cafb"
     },
-    "production-design-grammar/references/detail-contract-v51.md": {
+    "production-design-grammar/references/current-contract.md": {
+      "bytes": 2877,
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    "production-design-grammar/references/history/detail-contract-v51.md": {
       "bytes": 8138,
       "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "production-design-grammar/references/history/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "production-design-grammar/references/ownership-and-integration.md": {
       "bytes": 3790,
@@ -66,10 +74,6 @@
     "production-design-grammar/references/spatial-and-screen-support.md": {
       "bytes": 3513,
       "sha256": "bf5c51f24e704cfe1ccdb5b289c1810d404653907acd2608eb32bc3e9121f793"
-    },
-    "production-design-grammar/references/spatial-contract-v52.md": {
-      "bytes": 7583,
-      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "production-design-grammar/references/style-routing.md": {
       "bytes": 1540,
@@ -128,8 +132,8 @@
       "sha256": "ef2c666dd3b3aa09f4e56faea7d2f600cc2279b3ef6630622958b18c3b3eab6f"
     },
     "production-design-grammar/scripts/package_skill.py": {
-      "bytes": 4764,
-      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+      "bytes": 4659,
+      "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
     },
     "production-design-grammar/templates/production-contract.md": {
       "bytes": 882,

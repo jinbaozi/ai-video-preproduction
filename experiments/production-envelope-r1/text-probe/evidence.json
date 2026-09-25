@@ -1,0 +1,32 @@
+{
+  "schema": "agnes-text-probe/1.0",
+  "status": "SUCCEEDED",
+  "model": "agnes-video-2.5-flash",
+  "mode": "text",
+  "surface": "API",
+  "host": "api.agnes-ai.cn",
+  "registered_entry": "https://apihub.agnes-ai.com/v1/videos",
+  "registered_entry_called": false,
+  "seconds_requested": "4",
+  "size": "720P",
+  "aspect_ratio": "16:9",
+  "task_id": "task_vfYx45VCB6HQ4g9hAv1oEiYSSC1BFiaG",
+  "record_id": "EXE_e54b0dcf2718fba6",
+  "take_id": "TAKE_4d7e5d4b66b184a2",
+  "sha256": "4d7e5d4b66b184a2e7bd7ce84c5a820a687fdd679a069f3dcaf5bd74cbe14825",
+  "file": "take.mp4",
+  "ffprobe": {
+    "codec": "h264",
+    "audio": "aac",
+    "width": 1280,
+    "height": 720,
+    "fps": 24,
+    "duration_s": 4.458333,
+    "frames": 107
+  },
+  "doc_pixel_note": "Flash 文档将 16:9 / 720P 记为 1280x704。这次文件是 1280x720。",
+  "poll": "第一次查询返回 HTTP 429。同一 task_id 继续轮询后下载，没有第二次提交。",
+  "frame_1_5s": "木桌、蓝色信封、自然光、无人物。信封封口有一枚红色火漆，提示词没有要求火漆。",
+  "quality_validated": false,
+  "envelope_3shot": "NOT_RUN"
+}

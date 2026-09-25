@@ -1,0 +1,17 @@
+{
+  "status": "SUCCEEDED",
+  "record_id": "EXE_e54b0dcf2718fba6",
+  "take": {
+    "id": "TAKE_4d7e5d4b66b184a2",
+    "sha256": "4d7e5d4b66b184a2e7bd7ce84c5a820a687fdd679a069f3dcaf5bd74cbe14825",
+    "automatic": true,
+    "probe": {
+      "width": 1280,
+      "height": 720,
+      "fps": 24.0,
+      "duration_ms": 4458,
+      "aspect": "1280:720"
+    },
+    "uri": "runtime/production/media/TAKE_4d7e5d4b66b184a2.mp4"
+  }
+}

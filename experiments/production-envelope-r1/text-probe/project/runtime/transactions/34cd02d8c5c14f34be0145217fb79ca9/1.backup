@@ -1,0 +1,21 @@
+{
+  "active_decision": null,
+  "active_task": null,
+  "approvals": {},
+  "artifacts": {},
+  "build": null,
+  "completed_tasks": {},
+  "decisions": [],
+  "host": {
+    "evidence": null,
+    "image_capability": "unknown"
+  },
+  "inflight": null,
+  "media": {},
+  "prompts": {},
+  "provided_jobs": [],
+  "revision_scope": {},
+  "schema_version": "5.0",
+  "sources": [],
+  "status": "RUNNING"
+}

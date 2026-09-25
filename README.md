@@ -1,4 +1,4 @@
-# 七技能套装 V5.3
+# 七技能套装 V5.4
 
 七个入口各自可用，总工作流另外携带六个专业模块的锁定包。`hypit-ai`保持原状，实际视频生成与剪辑不在本套装终点内。
 
@@ -33,6 +33,22 @@
 发行目录为[dists](dists/)，包含7个`.skill`、各自的manifest与SHA-256，以及suite-manifest。安装时选择需要的入口即可；总工作流无需安装相邻专业目录。活动技能默认发现保持启用；新增独立编剧入口。
 
 
+## 两个交付终点
+
+`full` 与 `text-only` 的含义不变：前者前期包包含实际参考图，后者只做文本。旧项目没有 `production_target` 时按 `none`，前期 `export` 成功仍是 `DELIVERED`。
+
+`production_target=video` 才进入成片链：冻结输入、Agnes API 或人工回收、镜头/相邻/整段验收、ffmpeg 总装。通过后状态是 `VIDEO_DELIVERED`。编译产物里的 `submitted=false` 保持原样，执行状态写在生产台账。
+
+能力以注册表生成的 [能力矩阵](video-prompt-compiler/references/capability-matrix.md) 为准。文本适配不等于该模型已能执行或已通过质量验证。
+
+当前规则见 [当前执行合同](video-prompt-compiler/references/current-contract.md)。V5.1 至 V5.3 的增量说明在 [迁移](ai-comic-drama-workflow/references/v5/migration.md)。
+
+三镜样板：`ai-comic-drama-workflow/examples/production/envelope-3shot/`。没有 `AGNES_API_KEY` 和可访问附件时，真实视频保持 NOT_RUN。
+
+## 历史增量
+
+以下段落保留给旧项目重放，不是新任务的默认阅读路径。
+
 ## V5.2 使用与边界
 
 新完整制作使用 ScriptIR 1.0 → DirectorIR 1.2 → ArtIR 1.0 → StoryboardIR 1.2 → AVIR 1.2。ArtIR 不重复维护动作时间轨；保留导演原文件绑定和空间/服化道约束。轻量独立任务不强制结构化包。
@@ -57,7 +73,7 @@
 
 有视频来源的新项目在资料阶段返回 `NEEDS_REFERENCE_OBSERVATION`。用锁定模块自带助手提帧，实际查看后生成 review.json，然后 `ai-comic-drama import-observation PROJECT OBSERVATION_DIR` 登记。登记只证明所列范围有观察记录，未观看范围及未听审声音仍是未验证。
 
-详见各包自带 [V5.1 细节合同](video-prompt-compiler/references/detail-contract-v51.md)。老项目不自动升级模块锁；旧协议读取、原版本重放和新标准达成是三种不同状态。当前结构性检查不能替代语义复核和真实媒体验收。
+详见各包自带 [V5.1 细节合同](video-prompt-compiler/references/history/detail-contract-v51.md)。老项目不自动升级模块锁；旧协议读取、原版本重放和新标准达成是三种不同状态。当前结构性检查不能替代语义复核和真实媒体验收。
 
 ## V5.2 运动与空间使用
 
@@ -73,7 +89,7 @@
 分别交付正文、附件表、覆盖/空间检查和真实媒体状态。
 ```
 
-详见 [V5.2 空间合同](video-prompt-compiler/references/spatial-contract-v52.md)。原生包升级使用各原生技能内 `scripts/upgrade_spatial.py`，输出新目录中的原件、草案和缺项报告。工作流局部修订增加 `--node-id`、`--track-id`，与既有动作/镜头范围互斥。旧模块锁不会静默更新。
+详见 [V5.2 空间合同](video-prompt-compiler/references/history/spatial-contract-v52.md)。原生包升级使用各原生技能内 `scripts/upgrade_spatial.py`，输出新目录中的原件、草案和缺项报告。工作流局部修订增加 `--node-id`、`--track-id`，与既有动作/镜头范围互斥。旧模块锁不会静默更新。
 
 ## V5.3 独立编剧接入
 

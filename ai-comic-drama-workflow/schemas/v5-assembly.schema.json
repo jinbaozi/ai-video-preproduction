@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-assembly",
+  "type": "object",
+  "required": ["schema_version", "id", "project_timeline", "media_timeline", "post_timeline", "edl", "tool", "status"],
+  "properties": {
+    "schema_version": {"const": "v5-assembly/1.0"},
+    "id": {"type": "string"},
+    "project_timeline": {"type": "object"},
+    "media_timeline": {"type": "object"},
+    "post_timeline": {"type": "object"},
+    "edl": {"type": "array"},
+    "tool": {"enum": ["ffmpeg", "jianying", "hypit"]},
+    "status": {"type": "string"}
+  },
+  "additionalProperties": true
+}

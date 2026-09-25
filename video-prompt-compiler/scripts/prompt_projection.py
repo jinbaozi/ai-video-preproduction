@@ -72,8 +72,22 @@ def _event_position(ir, path, detail):
     return collection, item, at_ms
 
 
+def _lean_eligible(channel_coverage):
+    eligible, referents = set(), {}
+    for item in channel_coverage or []:
+        if item.get('channel') == 'prompt':
+            continue
+        if not (item.get('capability_basis') and item.get('asset_duty') and item.get('binding_verified') and item.get('result_check')):
+            continue
+        if not item.get('referent'):
+            continue
+        eligible.add(item['source_path'])
+        referents[item['source_path']] = item['referent']
+    return eligible, referents
+
+
 def render(ir, bindings, target, mode, detail, audit_blocks, audit_coverage,
-           start_ms=0, end_ms=None, layout=None):
+           start_ms=0, end_ms=None, layout=None, projection_profile='full', channel_coverage=None):
     """Return prompt, field-span coverage, prompt trace and unresolved gaps."""
     end_ms = ir['output']['duration_ms'] if end_ms is None else end_ms
     shots = [(i, shot, *detail.bounds(ir)[shot['id']]) for i, shot in enumerate(ir['shots'])
@@ -84,11 +98,15 @@ def render(ir, bindings, target, mode, detail, audit_blocks, audit_coverage,
         for track in ir['timeline']['composition_tracks']:
             if shot['id'] in track['shot_ids'] and detail.overlap((a, b), (track['start_ms'], track['end_ms'])):
                 visible_people.update(_visible_entities(ir, shot['id'], max(a, track['start_ms'], start_ms), detail))
+    if projection_profile not in ('full', 'lean'):
+        raise ValueError('projection_profile must be full or lean')
+    eligible, referents = _lean_eligible(channel_coverage) if projection_profile == 'lean' else (set(), {})
     rows_by_block = defaultdict(list)
     required = set()
     for row in audit_coverage:
         if row['channel'] == 'prompt' and row['disposition'] in EXECUTED:
-            required.add(row['source_path'])
+            if row['source_path'] not in eligible:
+                required.add(row['source_path'])
             if row['block'] is not None:
                 rows_by_block[row['block']].append(row['source_path'])
 
@@ -98,6 +116,8 @@ def render(ir, bindings, target, mode, detail, audit_blocks, audit_coverage,
         if not text:
             return None
         paths = list(dict.fromkeys(paths))
+        if projection_profile == 'lean' and paths and set(paths) <= eligible:
+            text = '；'.join(dict.fromkeys(referents[p] for p in paths))
         chunks.append({'text': text, 'paths': paths, 'object_id': object_id,
                        'shot_id': shot_id, 'rule': rule})
         return len(chunks) - 1
@@ -375,7 +395,7 @@ def render(ir, bindings, target, mode, detail, audit_blocks, audit_coverage,
     return prompt, coverage, trace, gaps
 
 
-def verify(ir, prompt, coverage, detail):
+def verify(ir, prompt, coverage, detail, channel_owners=None):
     """Check source and exact prompt spans; semantic equivalence is Agent-reviewed."""
     errors = []
     for row in coverage:
@@ -388,4 +408,8 @@ def verify(ir, prompt, coverage, detail):
         except (KeyError, IndexError, TypeError, ValueError):
             errors.append(detail.issue('E_PROMPT_COVERAGE', row['source_path'],
                                        '正文片段或来源指纹变化，需重编译并复核'))
+    for item in channel_owners or []:
+        if not (item.get('capability_basis') and item.get('asset_duty') and item.get('binding_verified') and item.get('result_check')):
+            errors.append(detail.issue('E_PROMPT_COVERAGE', item.get('source_path', ''),
+                                       '通道承担缺少能力依据、素材职责、已核验绑定或结果检查'))
     return errors

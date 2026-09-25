@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
-  "file_count": 62,
+  "archive_sha256": "73607770967a5c4b8b69305a32d6793af4ed418faa7763a651d8dcd3dbef594d",
+  "file_count": 63,
   "files": {
     "director-grammar/SKILL.md": {
-      "bytes": 8961,
-      "sha256": "cd986747c1564cfd0359debb9d3aff48b1916f9e38bb6b5440ab92c8a2e848d6"
+      "bytes": 7974,
+      "sha256": "d611b4eb8ebf5a24a45c59e3f6a990df4838f78b58c34ea17cc32dcd4946c8ff"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -67,9 +67,17 @@
       "bytes": 2506,
       "sha256": "d9fc2a489343bb2917b023916e65c182d22128d8c2f2f50c09acf0ca482a8da7"
     },
-    "director-grammar/references/detail-contract-v51.md": {
+    "director-grammar/references/current-contract.md": {
+      "bytes": 2877,
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    "director-grammar/references/history/detail-contract-v51.md": {
       "bytes": 8138,
       "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "director-grammar/references/history/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "director-grammar/references/hypit.md": {
       "bytes": 2352,
@@ -106,10 +114,6 @@
     "director-grammar/references/spatial-composition.md": {
       "bytes": 3466,
       "sha256": "24427cc131e31c4375b81b0f46a49b413485a9056a4dadd563ee10eafa61d94c"
-    },
-    "director-grammar/references/spatial-contract-v52.md": {
-      "bytes": 7583,
-      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "director-grammar/references/style-and-camera.md": {
       "bytes": 3066,
@@ -208,8 +212,8 @@
       "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
     },
     "director-grammar/scripts/package_skill.py": {
-      "bytes": 4764,
-      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+      "bytes": 4659,
+      "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
     },
     "director-grammar/scripts/screenplay_protocol.py": {
       "bytes": 15694,

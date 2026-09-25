@@ -22,7 +22,7 @@ def sync(workspace=ROOT,check=False):
  for file in ('spatial_runtime.py',):
   if (src/file).exists():put(workspace/'ai-comic-drama-workflow/src/ai_comic_drama_workflow'/('v52_'+file),(src/file).read_bytes())
  for name in ('ai-comic-drama-workflow','director-grammar','production-design-grammar','storyboard-grammar','video-prompt-compiler','image-prompt-optimizer'):
-  if (src/'spatial-contract-v52.md').exists():put(workspace/name/'references/spatial-contract-v52.md',(src/'spatial-contract-v52.md').read_bytes())
+  if (src/'spatial-contract-v52.md').exists():put(workspace/name/'references/history/spatial-contract-v52.md',(src/'spatial-contract-v52.md').read_bytes())
  return records
 if __name__=='__main__':
  import argparse

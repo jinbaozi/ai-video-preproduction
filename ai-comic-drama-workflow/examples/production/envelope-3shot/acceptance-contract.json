@@ -1,0 +1,7 @@
+{
+  "contract": [
+    {"id": "S1_HAND", "level": "hard", "channel": "prompt", "requirement": "甲用右手把信封推向乙，结束时仍压着一角", "acceptance": "右手与信封一角同时可见", "shot_ids": ["S1"], "checks": []},
+    {"id": "S2_TRANSFER", "level": "hard", "channel": "prompt", "requirement": "乙左手接住另一端后甲才松开", "acceptance": "先接触，再放手，再离桌", "shot_ids": ["S2"], "checks": []},
+    {"id": "S3_NOTICE", "level": "hard", "channel": "prompt", "requirement": "乙保持左手持信，看见标记后停顿，再看甲", "acceptance": "表情变化发生在看见标记之后", "shot_ids": ["S3"], "checks": []}
+  ]
+}

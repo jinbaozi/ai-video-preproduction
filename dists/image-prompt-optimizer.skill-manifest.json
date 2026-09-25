@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "b1ad905e2d0bf8fe46ad195d7c2f7b7e1171c46337668fe2f70fff4bf1ecf54c",
-  "file_count": 104,
+  "archive_sha256": "f8122fec4a989284f474cb97bdb6227d13a13248892e8b73252e7e6ae134146b",
+  "file_count": 108,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 29772,
-      "sha256": "7803f84ec9cdbfc5515ac44cb4b79c8875e0306ff1c07ebb645e0c4c6c17113b"
+      "bytes": 28670,
+      "sha256": "42e35a22b97f8c01914524ad070504ebedefdc584752de9978fcd49e7e0823ad"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -87,9 +87,9 @@
       "bytes": 2705,
       "sha256": "8e74b3a9687124c3be11adb47b0b858c1493264d48e60b6fb0d0d2c4d391985e"
     },
-    "image-prompt-optimizer/references/detail-contract-v51.md": {
-      "bytes": 8138,
-      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    "image-prompt-optimizer/references/current-contract.md": {
+      "bytes": 2877,
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
     },
     "image-prompt-optimizer/references/gpt-image-2-4k.md": {
       "bytes": 4746,
@@ -98,6 +98,14 @@
     "image-prompt-optimizer/references/gpt-image-2.md": {
       "bytes": 19497,
       "sha256": "c837535e0881572f3d7757b0d35417dc77ce8a4c24c1c99ae3948c2eb45edd26"
+    },
+    "image-prompt-optimizer/references/history/detail-contract-v51.md": {
+      "bytes": 8138,
+      "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "image-prompt-optimizer/references/history/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "image-prompt-optimizer/references/image-finish-contract.md": {
       "bytes": 3727,
@@ -150,10 +158,6 @@
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
       "sha256": "371103ff61cd48a816c8233f05dc42dfe2d145ed7f0cbcba2a8172f7da680e95"
-    },
-    "image-prompt-optimizer/references/spatial-contract-v52.md": {
-      "bytes": 7583,
-      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "image-prompt-optimizer/references/spatial-performance.md": {
       "bytes": 5492,
@@ -244,8 +248,8 @@
       "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
     },
     "image-prompt-optimizer/scripts/package_skill.py": {
-      "bytes": 4764,
-      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+      "bytes": 4659,
+      "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
     },
     "image-prompt-optimizer/scripts/shot_control/__init__.py": {
       "bytes": 87,
@@ -280,8 +284,8 @@
       "sha256": "b0c2454507739f049a89af01d3afb2f3fbe24ccb851d87efb005f5df0412eff7"
     },
     "image-prompt-optimizer/scripts/shot_control/joint_compile.py": {
-      "bytes": 19996,
-      "sha256": "3c7e4d92137440e20333910255eaabdb871440e9930f3c52d360e25da432f96d"
+      "bytes": 21842,
+      "sha256": "830e999c8871e814e00d1a38dfe2361ae5a0d970b87f422efa581e04f0e8bbc5"
     },
     "image-prompt-optimizer/scripts/shot_control/keyframe_host.py": {
       "bytes": 12545,
@@ -290,6 +294,18 @@
     "image-prompt-optimizer/scripts/shot_control/keyframes.py": {
       "bytes": 6975,
       "sha256": "ed05954876f94b8d4f306f6d1229e5f50695f631ea76a88ecb3edadbf80d996f"
+    },
+    "image-prompt-optimizer/scripts/shot_control/lowerers/__init__.py": {
+      "bytes": 68,
+      "sha256": "2d5eab63aad096aa5506c93dc9a717476b88ba05171377dddd65e127a2093937"
+    },
+    "image-prompt-optimizer/scripts/shot_control/lowerers/agnes_api.py": {
+      "bytes": 269,
+      "sha256": "ba128cc0a9dcf8aa5312a6bc1483f9fcc03e6f84d323252d185bbfd0c42284e8"
+    },
+    "image-prompt-optimizer/scripts/shot_control/lowerers/text_adapter.py": {
+      "bytes": 1223,
+      "sha256": "244fc557e872a5f87ff3751c68f852315fa9533c8c0cbbe42f06d05baa910ea8"
     },
     "image-prompt-optimizer/scripts/shot_control/media_probe.py": {
       "bytes": 5726,

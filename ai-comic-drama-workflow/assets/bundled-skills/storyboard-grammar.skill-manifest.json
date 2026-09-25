@@ -1,11 +1,11 @@
 {
   "archive": "storyboard-grammar.skill",
-  "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
-  "file_count": 57,
+  "archive_sha256": "e1b7b6a932d2870e726ffaf53687b38a7c50573e01f979912dc680d1115a8310",
+  "file_count": 58,
   "files": {
     "storyboard-grammar/SKILL.md": {
-      "bytes": 7426,
-      "sha256": "462ce721e1bbe56fbdf52ad2da4c52b1c33edc0892fdb0979f06aacdd754b1b4"
+      "bytes": 6300,
+      "sha256": "9308d0ebc03bab13a2c6605d68a58c76edbeb55073b66415223638598c2176b2"
     },
     "storyboard-grammar/agents/openai.yaml": {
       "bytes": 390,
@@ -67,9 +67,17 @@
       "bytes": 2279,
       "sha256": "019134c7af9de7da115c680397878e9f6835a2db6cc819e37ebf353dd57c8866"
     },
-    "storyboard-grammar/references/detail-contract-v51.md": {
+    "storyboard-grammar/references/current-contract.md": {
+      "bytes": 2877,
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    "storyboard-grammar/references/history/detail-contract-v51.md": {
       "bytes": 8138,
       "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
+    },
+    "storyboard-grammar/references/history/spatial-contract-v52.md": {
+      "bytes": 7583,
+      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "storyboard-grammar/references/ir-guide.md": {
       "bytes": 4200,
@@ -102,10 +110,6 @@
     "storyboard-grammar/references/spatial-composition.md": {
       "bytes": 3584,
       "sha256": "ae2e5b82c183faad0f3842d6ab15a18daa9b9d2124632090b91f96c71e56d1d8"
-    },
-    "storyboard-grammar/references/spatial-contract-v52.md": {
-      "bytes": 7583,
-      "sha256": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f"
     },
     "storyboard-grammar/references/verification.md": {
       "bytes": 2209,
@@ -160,8 +164,8 @@
       "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
     },
     "storyboard-grammar/scripts/package_skill.py": {
-      "bytes": 4764,
-      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+      "bytes": 4659,
+      "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
     },
     "storyboard-grammar/scripts/spatial_runtime.py": {
       "bytes": 37447,

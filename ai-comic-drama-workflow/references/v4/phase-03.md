@@ -1,5 +1,0 @@
-# 阶段3
-
-修订大纲：自动进行一轮审查与修订，修正节奏、因果和人物动机；保留修改理由及推断项。无问题可以保留原文并说明复用。改变核心结果必须提交blocking findings。
-
-严格使用当前TaskEnvelope内的output_schema，只加载当前列出的上游资料。source_refs引用来源ID或上游正式产物路径。低风险补充写入inferences；自动QA不可冒充用户批准。

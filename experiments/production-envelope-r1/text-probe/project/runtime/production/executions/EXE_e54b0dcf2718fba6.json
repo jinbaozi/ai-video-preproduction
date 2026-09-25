@@ -1,0 +1,10 @@
+{
+  "schema_version": "v5-execution-record/1.0",
+  "id": "EXE_e54b0dcf2718fba6",
+  "job_id": "JOB_b0e517dfd3824d32",
+  "state": "SUCCEEDED",
+  "task_id": "task_vfYx45VCB6HQ4g9hAv1oEiYSSC1BFiaG",
+  "automatic": true,
+  "take_id": "TAKE_4d7e5d4b66b184a2",
+  "poll_note": "First status query returned HTTP 429. The same task_id was polled again and the file was downloaded. No second submit."
+}

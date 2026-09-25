@@ -1,6 +1,6 @@
 {
   "archive": "screenplay-grammar.skill",
-  "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+  "archive_sha256": "427185d66d3354cf404c6ff29fce8acc12f9f4294f3dac88b73026f3c0ffde3a",
   "file_count": 55,
   "files": {
     "screenplay-grammar/SKILL.md": {
@@ -208,8 +208,8 @@
       "sha256": "849d192b7807643c74fc7593b8c406aa1192b51c75ed4e3bd2207de64889589e"
     },
     "screenplay-grammar/scripts/package_skill.py": {
-      "bytes": 4764,
-      "sha256": "db71da6e95c751aefbbaf2b6d08f400c2b208a06eff5d1e1d44c8ac4fb75c3bf"
+      "bytes": 4659,
+      "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
     },
     "screenplay-grammar/scripts/screenplay_protocol.py": {
       "bytes": 15694,

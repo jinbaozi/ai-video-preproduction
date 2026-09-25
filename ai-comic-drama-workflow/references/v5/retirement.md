@@ -11,8 +11,7 @@
 | 图片版本、身份批准、局部失效与恢复 | 总工作流 | media、approvals、input_bindings、image task/inflight与hash依赖 |
 
 旧video-storyboard-prompter-zh的SKILL入口改为历史说明并关闭其隐式发现。六个活跃入口的默认发现继续启用。
-旧脚本、Schema、参考资料和dists仍在原目录；原SKILL及完整源码/发行包另以固定元数据ZIP冻结在工作区archive，附逐文件清单和SHA-256。本次没有删除旧项目，没有重新打包旧技能发行物。
 
-V4源实现和workflow-graph.json保留，V5单独使用workflow-v5.json与v5-*协议。旧总工作流编译器不参与V5运行。导演原独立compile/export兼容保留；组合流程的新平台适配只走video-prompt-compiler。
+V2 到 V4 的总工作流运行代码、旧 schema、workflow-graph 和 references/v4 已从本包移除，历史只留在 git。旧项目只通过 copy-project 按原字节迁入 V5，不在原地运行。组合流程的平台适配只走 video-prompt-compiler。
 
 迁移是保留原件、检查来源、复用内容并建立新交接记录，不是把旧字段机械改名后宣称语义或媒体已经通过。V4和旧YAML项目的复制迁移已由回归测试覆盖；历史APPROVED字符串不会生成新批准。

@@ -1,0 +1,23 @@
+{
+  "schema_version": "v5-generation-job/1.0",
+  "id": "JOB_b0e517dfd3824d32",
+  "request_id": "REQUEST_001",
+  "compile_sha256": "64ce7885322b2676e127f2ddb1c5f7e3275a2926338533a7ec90743c302f500a",
+  "payload_sha256": "064bf0c6f5ad3f01764aa2414f1f4da2cc28a4e1aa105dac6c48289d2e3ac51d",
+  "payload": {
+    "model": "agnes-video-2.5-flash",
+    "mode": "text",
+    "seconds": "4",
+    "size": "720P",
+    "aspect_ratio": "16:9",
+    "n": 1,
+    "prompt": "一张木桌，一只蓝色信封静置在桌面中央，固定机位，无人物，自然光。"
+  },
+  "attachments": [],
+  "shot_ids": [],
+  "state": "FROZEN",
+  "budget": {
+    "max_attempts": 1,
+    "project_cap": 1
+  }
+}

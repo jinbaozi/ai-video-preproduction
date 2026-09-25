@@ -117,7 +117,7 @@
       "mode": "text",
       "version": "2026-09-24",
       "documented": true,
-      "probe_passed": false,
+      "probe_passed": true,
       "quality_validated": false,
       "evidence_url": "https://www.agnes-ai.com/zh-Hans/docs/agnes-video-25-flash",
       "channels": [],

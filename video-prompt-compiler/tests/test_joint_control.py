@@ -166,4 +166,32 @@ class JointControlTests(unittest.TestCase):
         self.assertEqual(verify_export(out)['status'],'VERIFIED')
 
 
+class BackendAgnosticTests(unittest.TestCase):
+    setUp = fixtures.ShotControlTests.setUp
+    build = fixtures.ShotControlTests.build
+    configured = fixtures.ShotControlTests.configured
+    artifact = fixtures.ShotControlTests.artifact
+    manifest = fixtures.ShotControlTests.manifest
+    def test_non_agnes_returns_text_adapter_without_payload(self):
+        self.build()
+        result = compile_package(self.out, 'seedance2.0', 'text', self.manifest())
+        self.assertEqual(result['status'], 'TEXT_ADAPTER_ONLY')
+        self.assertIsNone(result['execution_payload'])
+        self.assertIsNone(result['requests'][0]['payload_draft'])
+        self.assertFalse(result['submitted'])
+
+    def test_lean_profile_keeps_explicit_referent_for_covered_channels(self):
+        self.build()
+        full = compile_package(self.out, 'agnes-video-2.5', 'text', self.manifest())
+        lean = compile_package(self.out, 'agnes-video-2.5', 'text', self.manifest(), projection_profile='lean')
+        self.assertEqual(full['requests'][0]['payload_draft']['seconds'], lean['requests'][0]['payload_draft']['seconds'])
+        self.assertIn('payload_draft', lean['requests'][0])
+
+    def test_agnes_payload_still_compiles(self):
+        self.build()
+        result = compile_package(self.out, 'agnes-video-2.5', 'text', self.manifest())
+        self.assertEqual(result['requests'][0]['payload_draft']['seconds'], '12')
+        self.assertEqual(result['requests'][0]['payload_draft']['prompt'], result['requests'][0]['prompt'])
+
+
 if __name__ == '__main__': unittest.main()

@@ -42,6 +42,13 @@
     },
     "max_shots_per_task": {
       "const": 5
+    },
+    "production_target": {
+      "enum": [
+        "none",
+        "video"
+      ],
+      "description": "none keeps the preproduction endpoint. video adds a separate VIDEO_DELIVERED endpoint. Omitted values mean none."
     }
   },
   "additionalProperties": true

@@ -1,0 +1,13 @@
+{
+  "adapter_version": "1.2.0",
+  "delivery": "text-only",
+  "execution_mode": "current-agent",
+  "legacy_constraints": {},
+  "max_shots_per_task": 5,
+  "mode": "text",
+  "production_target": "video",
+  "project_id": "PROJECT",
+  "schema_version": "5.0",
+  "target": "agnes-video-2.5-flash",
+  "workflow_id": "ai-comic-drama-v5"
+}

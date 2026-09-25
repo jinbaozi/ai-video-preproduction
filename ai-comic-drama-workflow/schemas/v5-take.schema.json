@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-take",
+  "type": "object",
+  "required": ["schema_version", "id", "job_id", "sha256", "automatic", "probe"],
+  "properties": {
+    "schema_version": {"const": "v5-take/1.0"},
+    "id": {"type": "string"},
+    "job_id": {"type": "string"},
+    "sha256": {"type": "string"},
+    "automatic": {"type": "boolean"},
+    "probe": {"type": "object"}
+  },
+  "additionalProperties": true
+}

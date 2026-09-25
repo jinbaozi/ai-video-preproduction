@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v5-execution-record",
+  "type": "object",
+  "required": ["schema_version", "id", "job_id", "state", "automatic"],
+  "properties": {
+    "schema_version": {"const": "v5-execution-record/1.0"},
+    "id": {"type": "string"},
+    "job_id": {"type": "string"},
+    "state": {"enum": ["FROZEN", "SUBMITTING", "SUBMITTED", "SUCCEEDED", "FAILED", "UNKNOWN"]},
+    "task_id": {"type": ["string", "null"]},
+    "automatic": {"type": "boolean"}
+  },
+  "additionalProperties": true
+}

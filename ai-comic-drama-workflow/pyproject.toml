@@ -4,14 +4,10 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ai-comic-drama-workflow"
-version = "0.6.0"
+version = "0.8.0"
 description = "Schema-governed local runtime for AI comic-drama projects"
 requires-python = ">=3.12"
 dependencies = ["jsonschema==4.26.0"]
-
-[project.optional-dependencies]
-documents = ["python-docx>=1.1", "pypdf>=5"]
-media = ["Pillow>=10"]
 
 [project.scripts]
 ai-comic-drama = "ai_comic_drama_workflow.cli:main"
@@ -26,12 +22,9 @@ where = ["src"]
 ai_comic_drama_workflow = ["py.typed"]
 
 [tool.setuptools.data-files]
-"share/ai-comic-drama-workflow" = ["workflow-graph.json", "legacy-workflow-graph.json", "resource-catalog.json", "SKILL.md", "modules.lock.json", "suite.json", "workflow-v5.json"]
-"share/ai-comic-drama-workflow/adapters" = ["adapters/*.json"]
-"share/ai-comic-drama-workflow/references" = ["references/*.md"]
-"share/ai-comic-drama-workflow/references/phases" = ["references/phases/*.md"]
-"share/ai-comic-drama-workflow/references/v4" = ["references/v4/*.md"]
-"share/ai-comic-drama-workflow/schemas" = ["schemas/*.json"]
-
+"share/ai-comic-drama-workflow" = ["SKILL.md", "modules.lock.json", "suite.json", "workflow-v5.json"]
+"share/ai-comic-drama-workflow/references" = ["references/current-contract.md"]
+"share/ai-comic-drama-workflow/references/history" = ["references/history/*"]
 "share/ai-comic-drama-workflow/references/v5" = ["references/v5/*.md"]
+"share/ai-comic-drama-workflow/schemas" = ["schemas/v5-*.json"]
 "share/ai-comic-drama-workflow/assets/bundled-skills" = ["assets/bundled-skills/*"]

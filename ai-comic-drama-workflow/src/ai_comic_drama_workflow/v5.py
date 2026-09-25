@@ -87,16 +87,18 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none'):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
+        if production_target not in ('none','video'):raise ValueError('production_target must be none or video')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
         kernel.project={'schema_version':'5.0','workflow_id':'ai-comic-drama-v5','project_id':project_id,
             'execution_mode':'current-agent','delivery':delivery,'target':target,'mode':mode or ('reference' if delivery=='full' else 'text'),
-            'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION}
+            'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
+            'production_target':production_target}
         validate_protocol('project',kernel.project,kernel.skill_root)
         kernel.write('project.json',kernel.project)
         lock=default_lock(skill_root);kernel.write('modules.lock.json',lock)
@@ -253,11 +255,18 @@ class V5Kernel:
         self.save(state)
         return {'status':state['status'],'decision':request}
 
+    def production_target(self):
+        return self.project.get('production_target') or 'none'
+
     @mutate
-    def host(self,image_capability,evidence):
+    def host(self,image_capability,evidence,video_capabilities=None):
         if image_capability not in ('available','unavailable','unknown') or not evidence:
             raise ValueError('Host capability and evidence are required')
-        state=self.state;state['host']={'image_capability':image_capability,'evidence':evidence}
+        state=self.state
+        state['host']={'image_capability':image_capability,'evidence':evidence}
+        if video_capabilities is not None:
+            from .production import normalize_video_capabilities
+            state['host']['video_capabilities']=normalize_video_capabilities(video_capabilities, skill_root=self.skill_root)
         if image_capability=='available' and (state['active_decision'] or {}).get('key')=='image-capability':
             state['active_decision']=None
         self.save(state)
@@ -988,7 +997,9 @@ class V5Kernel:
             build=state['build']
             if not build or build['input_fingerprint']!=self.build_fingerprint():errors.append('Current compiled build is missing')
             elif any(not self.path(p).is_file() or digest_file(self.path(p))!=h for p,h in build['files'].items()):errors.append('Compiled files were modified')
-        return {'valid':not errors,'errors':errors,'delivery':self.project['delivery'],'video_generated':False,'video_qa':'NOT_RUN'}
+        return {'valid':not errors,'errors':errors,'delivery':self.project['delivery'],
+                'production_target':self.production_target(),'preproduction_complete':False,
+                'video_generated':False,'video_qa':'NOT_RUN'}
 
     @mutate
     def export(self,draft=False):
@@ -1000,7 +1011,8 @@ class V5Kernel:
             'scope':self.project['delivery'],'validation':report,'artifacts':state['artifacts'],'media':state['media'],
             'reference_observations':self.observation_status(),'build':state['build'],'modules':read(self.root/'modules.lock.json'),'submitted':False,'video_qa':'NOT_RUN'}
         self.write('delivery/index.json',index)
-        lines=[f"# {self.project['project_id']} · {status}",f"交付范围：{self.project['delivery']}。视频未生成，视频验收 NOT_RUN。"]
+        video_note='前期交付完成。' if self.production_target()=='video' else '视频未生成，视频验收 NOT_RUN。'
+        lines=[f"# {self.project['project_id']} · {status}",f"交付范围：{self.project['delivery']}。生产目标：{self.production_target()}。{video_note}"]
         if state['build']:lines.append('[视频提示词](../'+state['build']['uri']+'/compiled/prompt.txt) · [附件表](../'+state['build']['uri']+'/attachments.json)')
         for m in state['media'].values():lines.append(f"- {m['key']}：[ {m['filename']} ](../{m['uri']})；SHA-256 {m['sha256']}")
         if report['errors']:lines+=['待解决：']+report['errors']
@@ -1016,7 +1028,10 @@ class V5Kernel:
         return {'status':state['status'],'project':str(self.root),'execution_mode':'current-agent',
             'artifacts':{k:('READY' if self.valid(k,state) else 'STALE') for k in state['artifacts']},
             'media':{k:('READY' if self.media_valid(v,state) else 'STALE') for k,v in state['media'].items()},
-            'active_task':state['active_task'],'decision':state['active_decision'],'video_generated':False}
+            'active_task':state['active_task'],'decision':state['active_decision'],
+            'delivery':self.project['delivery'],'production_target':self.production_target(),
+            'preproduction_complete':state['status'] in ('DELIVERED','VIDEO_DELIVERED'),
+            'video_complete':state['status']=='VIDEO_DELIVERED','video_generated':False}
 
     @classmethod
     def copy_project(cls,source,destination,*,skill_root=ROOT):
