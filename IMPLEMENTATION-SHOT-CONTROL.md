@@ -250,3 +250,11 @@ GPT‑6 Pro 网页针对 ffe3e17 最终给出 Request changes。该轮核对了�
 本轮另补三份图片宿主母版的完整合成测试：冻结来源→stage→receive→联合 compile→verify-compile，检查三份母版仅留来源、不占视频附件，实收 K 是唯一首帧附件，正文、参数、来源绑定与原生义务一致。参考用途另从有效联合导出开始，改变已冻结时段后 lower/compile 均阻断；verify-compile 现在先检查当前重派生文件集合，返回明确失效错误。此测试使用合成图片与模拟上传绑定，只证明软件合同，不能证明模型画质、真实上传或 PR4 视频执行。
 
 本轮最终版本 video-prompt-compiler 1.17.4、image-prompt-optimizer 1.15.4、workflow 0.7.12。源码宿主 13 项、联合编译 10 项通过；七包隔离安装、内置一致性、重复构建均 PASS，独立视频包十二个指定模块合计 184 项通过。摘要在 validation-artifacts/shot-control-audit-closure-verification.json；完整日志在本地 outputs/shot-control-audit-closure-release/report.json。独立网页尚未审过本次新提交，真实首尾帧平台执行仍缺明确入口和预算。
+
+## 71a2f65 独立复审与冻结请求类型修复
+
+GPT‑6 Pro 网页针对精确提交 71a2f65 完成增量对抗性审核：原 C01 的有效联合导出重封反例被拒绝，三份母版的 stage→receive→compile→verify-compile 已独立跑通；另发现 C02/P2：`check_request` 对不可变请求字段使用普通 Python 相等比较，使嵌套的数字 0 与 false、布尔 false 与数字 0 可以互相冒充，错误请求可在冻结前进入宿主链。审核的 10 项联合、13 项宿主与 33 项额外检查中，只有对应 C02 的两项漏放；独立报告原文归档在 validation-artifacts/shot-control-audit-71a2f65.md。该审核使用合成宿主回执，并未执行真实模型。
+
+本地从有效原生请求另行复现 `camera_state.crop` 中的 0→false、1→true，以及 `subject_state.physical_interpolation` 的 false→0；修复前数字 1→true 的 stage 确实成功，修复后上述三种变更均在冻结入口被拒绝且不产生半包，合法数值 0→0.0 仍可冻结。视频与图片 Skill 的共享 `keyframes.py` 已同步改用 `same_json_value`，四个可编辑字段白名单不变。最终发行 video-prompt-compiler 1.17.5、image-prompt-optimizer 1.15.5、workflow 0.7.13；源码宿主及联合编译 24 项、独立视频包十二个指定模块 185 项、七包静态检查、隔离安装、内置一致性及重复构建均通过。验证摘要为 validation-artifacts/shot-control-request-types-verification.json，完整本地日志在 outputs/shot-control-request-types-release/report.json。
+
+当前修复尚待新提交的独立复审；图片构图、实际首尾帧视频平台运行和控制收益仍不得由软件测试推定为通过。

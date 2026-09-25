@@ -1,0 +1,128 @@
+{
+  "schema": "shot-control-request-types-verification/0.1",
+  "audit_target": "71a2f65094b3395b4074d726cd6d4bf4fc278ea3",
+  "audit_conclusion": "REQUEST_CHANGES_C02_P2",
+  "audit_report": "validation-artifacts/shot-control-audit-71a2f65.md",
+  "fix": "Immutable host request fields use same_json_value before stage; four mutable fields unchanged",
+  "regression": "Native request: crop 0->false, crop 1->true, physical_interpolation false->0 rejected before output; numeric 0->0.0 accepted",
+  "source_host_and_joint_tests": {
+    "tests": 24,
+    "failures": 0
+  },
+  "isolated_video_tests": {
+    "tests": 185,
+    "modules": 12,
+    "runs": [
+      {
+        "log": "video-prompt-compiler-00.log",
+        "tests": 24,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-01.log",
+        "tests": 7,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-02.log",
+        "tests": 9,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-03.log",
+        "tests": 4,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-04.log",
+        "tests": 8,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-05.log",
+        "tests": 14,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-06.log",
+        "tests": 1,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-07.log",
+        "tests": 14,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-08.log",
+        "tests": 10,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-09.log",
+        "tests": 27,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-10.log",
+        "tests": 38,
+        "exit_code": 0
+      },
+      {
+        "log": "video-prompt-compiler-11.log",
+        "tests": 29,
+        "exit_code": 0
+      }
+    ]
+  },
+  "packages": [
+    {
+      "name": "ai-comic-drama-workflow",
+      "archive_sha256": "bc4293fec27ccaaac7c9fa07f0428fb2013b43677b23f9f36fd80c5a3aff76ff",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "screenplay-grammar",
+      "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "director-grammar",
+      "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "production-design-grammar",
+      "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "storyboard-grammar",
+      "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "video-prompt-compiler",
+      "archive_sha256": "04a2650a46246bb87d7804653b3cafa38c7fd43b2b2a9804014ef1fc82b3b5d3",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "image-prompt-optimizer",
+      "archive_sha256": "b1ad905e2d0bf8fe46ad195d7c2f7b7e1171c46337668fe2f70fff4bf1ecf54c",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    }
+  ],
+  "bundled_equal": true,
+  "skill_static_validation": "PASS_7_OF_7",
+  "release_report": "outputs/shot-control-request-types-release/report.json",
+  "release_report_sha256": "32cc54aeb0eb758841dd050deaab1b259a5435e5a8026fea930a2fd1e4ea5d26",
+  "media_quality": "NOT_VALIDATED",
+  "actual_video_backend_submission": "NOT_RUN"
+}

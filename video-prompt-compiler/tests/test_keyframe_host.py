@@ -160,6 +160,28 @@ class KeyframeHostTests(unittest.TestCase):
         for filename,data in originals.items():write(out/filename,data)
         self.assertEqual(verify_received(out)['status'],'VERIFIED_RECEIVED_KEYFRAME')
 
+    def test_host_request_rejects_boolean_aliases_before_freeze(self):
+        self.prepare()
+        original=read(self.staged/'request.json')
+        self.assertIs(type(original['camera_state']['crop'][0]),int)
+        self.assertIs(type(original['camera_state']['crop'][2]),int)
+        self.assertIs(original['subject_state']['physical_interpolation'],False)
+        for name,change in [('zero-to-false',lambda r:r['camera_state']['crop'].__setitem__(0,False)),
+                            ('one-to-true',lambda r:r['camera_state']['crop'].__setitem__(2,True)),
+                            ('false-to-zero',lambda r:r['subject_state'].__setitem__('physical_interpolation',0))]:
+            with self.subTest(name=name):
+                request=deepcopy(original);change(request)
+                path=Path(self.tmp.name)/(name+'.json');write(path,request)
+                out=Path(self.tmp.name)/(name+'-stage')
+                with self.assertRaisesRegex(ValueError,'frozen source'):
+                    stage(self.out,path,self.staged/'anchors.json',Path(self.tmp.name)/'prompt.txt','K',out)
+                self.assertFalse(out.exists())
+        equivalent=deepcopy(original);equivalent['camera_state']['crop'][0]=0.0
+        path=Path(self.tmp.name)/'numeric-equivalent.json';write(path,equivalent)
+        out=Path(self.tmp.name)/'numeric-equivalent-stage'
+        stage(self.out,path,self.staged/'anchors.json',Path(self.tmp.name)/'prompt.txt','K',out)
+        self.assertEqual(verify_stage(out)['status'],'HOST_INPUTS_FROZEN')
+
     def test_truncated_png_cannot_be_received_with_pass_assertions(self):
         import struct, zlib
         self.prepare()

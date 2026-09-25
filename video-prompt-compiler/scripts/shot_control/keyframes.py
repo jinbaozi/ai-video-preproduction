@@ -1,7 +1,7 @@
 """Validate a host-prepared request against immutable package state and real anchors."""
 from pathlib import Path
 from .common import read, schema_check, sha, digest, confined
-from .package import verify_package, recipe
+from .package import verify_package, recipe, same_json_value
 from .media_probe import probe
 from .asset_usage import compatible, reference_scope_matches
 
@@ -14,7 +14,7 @@ def check_request(request, package, manifest_path):
     original = next((r for r in bundle['requests'] if r['id'] == request['id']), None)
     if original is None: raise ValueError('Unknown keyframe request')
     mutable = {'generation_mode', 'master_anchors', 'base_asset_id', 'edit_delta'}
-    if any(request[k] != v for k, v in original.items() if k not in mutable):
+    if any(not same_json_value(request[k], v) for k, v in original.items() if k not in mutable):
         raise ValueError('Keyframe state differs from frozen source')
     manifest_path = Path(manifest_path).resolve()
     manifest = read(manifest_path); schema_check(manifest, 'control-artifacts')
