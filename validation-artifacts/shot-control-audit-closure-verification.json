@@ -1,0 +1,137 @@
+{
+  "schema": "shot-control-audit-closure-verification/0.1",
+  "auditor_target": "ffe3e170a9e889772696cb0a01318a46b980595d",
+  "auditor_conclusion": "REQUEST_CHANGES_SOURCE_INFERENCE_WITHOUT_RUNTIME_EVIDENCE",
+  "local_auditor_case": "validation-artifacts/joint-compile-n-boolean-audit-replay.json",
+  "local_auditor_case_result": "REJECTED_ON_POST_FIX_SOURCE",
+  "source_tests": [
+    {
+      "module": "full-host-after-audit",
+      "tests": 13,
+      "seconds": 112.003,
+      "failures": 0
+    },
+    {
+      "module": "full-joint-after-audit",
+      "tests": 10,
+      "seconds": 22.539,
+      "failures": 0
+    }
+  ],
+  "isolated_video_tests": {
+    "total": 184,
+    "runs": [
+      {
+        "log": "video-prompt-compiler-01.log",
+        "tests": 24,
+        "seconds": 0.207
+      },
+      {
+        "log": "video-prompt-compiler-02.log",
+        "tests": 7,
+        "seconds": 82.391
+      },
+      {
+        "log": "video-prompt-compiler-03.log",
+        "tests": 9,
+        "seconds": 7.831
+      },
+      {
+        "log": "video-prompt-compiler-04.log",
+        "tests": 4,
+        "seconds": 7.122
+      },
+      {
+        "log": "video-prompt-compiler-05.log",
+        "tests": 8,
+        "seconds": 2.657
+      },
+      {
+        "log": "video-prompt-compiler-06.log",
+        "tests": 13,
+        "seconds": 112.735
+      },
+      {
+        "log": "video-prompt-compiler-07.log",
+        "tests": 1,
+        "seconds": 5.433
+      },
+      {
+        "log": "video-prompt-compiler-08.log",
+        "tests": 14,
+        "seconds": 23.665
+      },
+      {
+        "log": "video-prompt-compiler-09.log",
+        "tests": 10,
+        "seconds": 22.618
+      },
+      {
+        "log": "video-prompt-compiler-10.log",
+        "tests": 27,
+        "seconds": 18.601
+      },
+      {
+        "log": "video-prompt-compiler-11.log",
+        "tests": 38,
+        "seconds": 33.868
+      },
+      {
+        "log": "video-prompt-compiler-12.log",
+        "tests": 29,
+        "seconds": 0.844
+      }
+    ],
+    "scope": "Twelve named modules in release verifier, not all source tests"
+  },
+  "packages": [
+    {
+      "name": "ai-comic-drama-workflow",
+      "archive_sha256": "32d40269cfbb9f3fa5a3cc188dfd868f44e15ba02a8c60588755cdb6f52021f7",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "screenplay-grammar",
+      "archive_sha256": "af37db46a63a4f3e4b77d94740b6eb2846d6fad6be5fb0d3ab42480b003cec12",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "director-grammar",
+      "archive_sha256": "9659d75dc21b636ddaaa5ace62f6f55a3c8a6d2aa3d4bad2b68efc12d4140dbc",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "production-design-grammar",
+      "archive_sha256": "93133dc0cda7fb080fecb8b2a1aae798e32fe3003470488b39183f9c727ef826",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "storyboard-grammar",
+      "archive_sha256": "cedf4b2aaf620beaf50cd1b9bf07e1d5413427fa4e61fec2b1aae8ada03f0101",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "video-prompt-compiler",
+      "archive_sha256": "3bd9ae4472ffa896d8b70c21a2d0f395288f1e5fa429c7c1c1e9b1aa2b423d42",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    },
+    {
+      "name": "image-prompt-optimizer",
+      "archive_sha256": "ffbe43747fedb35a7b7075ffdb939ba0b891663cf3ce56f9ecc9a1c775c614f1",
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL"
+    }
+  ],
+  "bundled_equal": true,
+  "full_joint_fixture": "Three synthetic image-host masters -> stage -> receive -> compile -> verify-compile; checked prompt, parameters, attachment index, source bindings and obligations",
+  "negative_scope_fixture": "Valid reference joint export -> widen frozen scope -> lower and compile BLOCKED -> verify-compile rejects changed file set",
+  "media_quality": "NOT_VALIDATED",
+  "actual_video_backend_submission": "NOT_RUN",
+  "report_sha256": "f7988644571e50ea1a642d207b48ee7a2ce1a704b5d6dd49bcf1a6300a0f04eb"
+}

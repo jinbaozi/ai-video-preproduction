@@ -1,0 +1,18 @@
+{
+  "schema": "joint-compile-n-boolean-audit-replay/0.1",
+  "auditor_target": "ffe3e170a9e889772696cb0a01318a46b980595d",
+  "current_commit": "6a195d86a947491587f31678d4ceff06349e06a4",
+  "valid_original": {
+    "status": "VERIFIED",
+    "compile_status": "COMPILED_DRAFT",
+    "submitted": false,
+    "media_acceptance": "NOT_RUN"
+  },
+  "mutation": "parameters.n and payload_draft.n 1 to true in both REQUEST_001.json and aggregate requests[0], reseal manifest file hashes",
+  "result": {
+    "result": "REJECTED",
+    "reason": "Joint request differs from verified inputs"
+  },
+  "source_unchanged": true,
+  "media_or_model_execution": "NOT_RUN"
+}

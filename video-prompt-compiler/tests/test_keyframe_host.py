@@ -9,7 +9,7 @@ from unittest.mock import patch
 import test_shot_control as fixtures
 from shot_control.common import read, sha, write, digest
 from shot_control.control_lowering import lower
-from shot_control.joint_compile import compile_package
+from shot_control.joint_compile import compile_package, export, verify_export
 from shot_control.control_plan import build
 from shot_control.keyframe_host import stage, receive, verify_stage, verify_received
 
@@ -19,7 +19,7 @@ class KeyframeHostTests(unittest.TestCase):
     artifact = fixtures.ShotControlTests.artifact
     manifest = fixtures.ShotControlTests.manifest
 
-    def prepare(self, edit=False, anchor_channel='image_reference', output_channel='first_frame'):
+    def prepare(self, edit=False, anchor_channel='image_reference', output_channel='first_frame', three_masters=False):
         import spatial_runtime as spatial
         root = Path(self.tmp.name)
         controls = []
@@ -28,15 +28,22 @@ class KeyframeHostTests(unittest.TestCase):
                 ('K','REQ_FACE','/shots/1/camera/shot_size',output_channel)]:
             controls.append({'id':'C_'+ident, 'requirement_id':req, 'source_pointers':[pointer], 'shot_ids':['S2'],
                              'channel':channel, 'artifact_ids':[ident], 'hardness':'hard', 'fallback_policy':'block', 'purpose':'supplement'})
+        if three_masters:
+            controls.append({'id':'C_ID_A','requirement_id':'REQ_CAST','source_pointers':['/entities'],
+                             'shot_ids':['S2'],'channel':anchor_channel,'artifact_ids':['ID_A'],
+                             'hardness':'hard','fallback_policy':'block','purpose':'supplement'})
         config = {'schema':'shot-control-config/0.2', 'lenses':{s['id']:self.lens for s in self.ir['shots']}, 'controls':controls}
         if output_channel == 'image_reference':
-            controls[-1]['reference_scopes']={'S2':{'start_ms':4000,'end_ms':8000}}
+            controls[2]['reference_scopes']={'S2':{'start_ms':4000,'end_ms':8000}}
         identity = self.artifact(config, controls[0], 'ID_B', role='identity', content=50)
         scene = self.artifact(config, controls[1], 'SCENE', role='scene', content=100)
         base = self.artifact(config, controls[2], 'K', content=200)
+        additional = self.artifact(config, controls[3], 'ID_A', role='identity', content=150) if three_masters else None
         base['review']['result'] = 'FAIL'
         self.ir['assets'] = []; self.ir['bindings'] = []
-        for a, target, role in [(identity,'B','identity'), (scene,'CAFE','scene')]:
+        masters = [(identity,'B','identity'), (scene,'CAFE','scene')]
+        if additional: masters.append((additional,'A','identity'))
+        for a, target, role in masters:
             self.ir['assets'].append({'id':a['id'], 'kind':'image', 'filename':a['path'], 'path':a['path'],
                 'sha256':a['sha256'], 'public_url':None, 'inspection':'observed', 'source_refs':['DESIGN']})
             self.ir['bindings'].append({'id':'B_'+a['id'], 'asset_id':a['id'], 'target_id':target, 'shot_ids':['S2'],
@@ -45,9 +52,9 @@ class KeyframeHostTests(unittest.TestCase):
         write(root/'source.json', self.ir)
         shutil.copyfile(self.source.parent/'cafe.source.txt', root/'cafe.source.txt')
         build(root/'source.json', self.out, config)
-        manifest = self.manifest(identity, scene, base)
+        manifest = self.manifest(*([identity, scene, base, additional] if additional else [identity, scene, base]))
         request = next(r for r in read(self.out/'keyframe-requests.json') if r['shot_id']=='S2' and r['at_ms']==4000)
-        request.update(master_anchors=['ID_B','SCENE'], generation_mode='generate')
+        request.update(master_anchors=['ID_A','ID_B','SCENE'] if additional else ['ID_B','SCENE'], generation_mode='generate')
         if edit:
             request.update(generation_mode='edit', base_asset_id='K', edit_delta={'schema':'edit-delta/0.1',
                 'keyframe_id':request['id'], 'source':request['source'], 'base_asset_sha256':base['sha256'],
@@ -204,6 +211,27 @@ class KeyframeHostTests(unittest.TestCase):
         self.assertIn('ID_B.png（未作为本请求附件提供）',req['prompt'])
         self.assertNotIn('参考 ID_B.png',req['prompt'])
 
+    def test_three_masters_stage_receive_compile_and_verify_without_video_slot_leak(self):
+        self.prepare(anchor_channel='keyframe_input', three_masters=True)
+        self.assertEqual([i['asset_id'] for i in verify_stage(self.staged)['inputs']],
+                         ['ID_A','ID_B','SCENE'])
+        bound=self.received_binding()
+        out=Path(self.tmp.name)/'compiled'
+        self.assertEqual(export(self.out,'agnes-video-2.5','keyframe',bound,out,['S2'])['status'],'COMPILED_DRAFT')
+        self.assertEqual(verify_export(out)['compile_status'],'COMPILED_DRAFT')
+        request=read(out/'REQUEST_001.json')
+        self.assertEqual([i['artifact_ids'] for i in request['attachment_index']],[['K']])
+        self.assertEqual(request['payload_draft']['first_frame'],'https://example.com/generated.png')
+        self.assertNotIn('images',request['payload_draft'])
+        self.assertEqual({b['id'] for b in request['source_bindings'] if b['consumer']=='image_host'},
+                         {'ID_A','ID_B','SCENE'})
+        self.assertIn('ID_A.png（未作为本请求附件提供）',request['prompt'])
+        self.assertIn('ID_B.png（未作为本请求附件提供）',request['prompt'])
+        self.assertIn('SCENE.png（未作为本请求附件提供）',request['prompt'])
+        self.assertTrue(all(r['status']!='BLOCKED' for r in request['primary_obligations']))
+        self.assertEqual(request['parameters']['seconds'],'4')
+        self.assertFalse(request['submitted'])
+
     def test_staged_keyframe_survives_projection_roundoff_through_receive_and_compile(self):
         self.prepare(anchor_channel='keyframe_input')
         seal=sha(self.staged/'stage-manifest.json')
@@ -217,6 +245,10 @@ class KeyframeHostTests(unittest.TestCase):
     def test_received_event_can_be_a_reference_without_widening_its_use(self):
         self.prepare(output_channel='image_reference')
         bound=self.received_binding()
+        compiled_out=Path(self.tmp.name)/'reference-compiled'
+        self.assertEqual(export(self.out,'agnes-video-2.5','reference',bound,compiled_out,['S2'])['status'],
+                         'COMPILED_DRAFT')
+        self.assertEqual(verify_export(compiled_out)['status'],'VERIFIED')
         result=lower(self.out,'agnes-video-2.5','reference',bound,{'start_ms':4000,'end_ms':8000})
         self.assertEqual(result['status'],'BOUND_DRAFT',result['reasons'])
         row=next(r for r in result['coverage'] if r['control_id']=='C_K')
@@ -229,6 +261,10 @@ class KeyframeHostTests(unittest.TestCase):
         outside=lower(self.out,'agnes-video-2.5','reference',bound,{'start_ms':4000,'end_ms':8000})
         self.assertEqual(outside['status'],'BLOCKED')
         self.assertIn('C_K:EXPLICIT_REFERENCE_SCOPE_REQUIRED:K',outside['reasons'])
+        compiled=compile_package(self.out,'agnes-video-2.5','reference',bound,['S2'])
+        self.assertEqual(compiled['status'],'BLOCKED')
+        self.assertIn('REQUEST_001:C_K:EXPLICIT_REFERENCE_SCOPE_REQUIRED:K',compiled['reasons'])
+        with self.assertRaisesRegex(ValueError,'file set differs'):verify_export(compiled_out)
         from shot_control.keyframes import check_request
         request=read(Path(self.tmp.name)/'request.json')
         request.update(generation_mode='edit',base_asset_id='K',edit_delta={'schema':'edit-delta/0.1',

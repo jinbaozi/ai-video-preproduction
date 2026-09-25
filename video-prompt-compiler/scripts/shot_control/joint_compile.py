@@ -260,13 +260,17 @@ def verify_export(out):
     if set(inputs) != {'package', 'target', 'mode', 'artifacts', 'shot_ids'}: raise ValueError('Invalid joint compile inputs')
     result = compile_package(inputs['package'], inputs['target'], inputs['mode'], inputs['artifacts'], inputs['shot_ids'])
     expected = {'joint-compile.json'}
-    for request in result['requests']:
-        prefix = ('BLOCKED-' if request['status']=='BLOCKED' else '')+request['id']
+    request_files = [(('BLOCKED-' if request['status']=='BLOCKED' else '')+request['id'], request)
+                     for request in result['requests']]
+    for prefix, request in request_files:
         expected.update((prefix+'.json', prefix+'.txt'))
+    if set(manifest['files']) != expected:
+        raise ValueError('Joint compile file set differs from verified inputs')
+    for prefix, request in request_files:
         if not same_json_value(read(confined(out, prefix+'.json')), request) or confined(out, prefix+'.txt').read_text() != request['prompt']+'\n':
             raise ValueError('Joint request differs from verified inputs')
-    if set(manifest['files']) != expected or not same_json_value(read(confined(out, 'joint-compile.json')), result):
-        raise ValueError('Joint compile data or file set differs from verified inputs')
+    if not same_json_value(read(confined(out, 'joint-compile.json')), result):
+        raise ValueError('Joint compile data differs from verified inputs')
     for name, expected_hash in manifest['files'].items():
         if sha(confined(out, name)) != expected_hash: raise ValueError('Joint compile file changed: '+name)
     return {'status': 'VERIFIED', 'compile_status': result['status'], 'submitted': False, 'media_acceptance': 'NOT_RUN'}

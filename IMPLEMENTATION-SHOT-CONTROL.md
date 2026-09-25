@@ -240,3 +240,13 @@ GPT‑6 Pro 网页完成 28 分 9 秒审核，给出 APPROVE_WITHIN_TESTED_PATCH
 七个联合编译反例在修复前均未被拒绝，修复后联合编译 10 项、宿主 12 项通过。此前真实图片实收包仍返回 VERIFIED_RECEIVED_KEYFRAME 且质量 FAIL，没有将软件回归变成审图通过。原始 before/after 记录见 validation-artifacts/joint-host-boolean-reproduction.json；独立网页终局结论另行记录。
 
 最终版本 video-prompt-compiler 1.17.3、image-prompt-optimizer 1.15.3、workflow 0.7.11。七包静态验证、隔离安装、内置一致性和重复构建均 PASS，独立视频包十二个指定模块合计 183 项通过。验证摘要见 validation-artifacts/joint-host-types-verification.json，完整本地报告为 outputs/shot-control-joint-types-release/report.json；尚未声称新的独立审核批准或整体交付。
+
+## ffe3e17 独立审核与联合链路补验
+
+GPT‑6 Pro 网页针对 ffe3e17 最终给出 Request changes。该轮核对了精确提交与 joint_compile.py blob，提出 C01/P1：verify-compile 在目标提交使用普通 Python 相等比较，可能让 `parameters.n` 和 `payload_draft.n` 中的 1 被 true 冒充。其执行工具未返回可读结果，因而报告明确将此列为源码推导，而非已实跑通过的反例；完整 stage→receive→compile→verify-compile、旧布局边界和正式 Skill 安装也未独立运行。原文归档在 validation-artifacts/shot-control-audit-ffe3e17.md。
+
+后续 6a195d8 已将单请求与总联合产物比较改为类型敏感的 same_json_value。本机在有效、原本可复验的 COMPILED_DRAFT 上同步将两个文件中的 n=1 改成 true 并重封摘要，当前复验以 Joint request differs 拒绝；原始包保持不变，证据见 validation-artifacts/joint-compile-n-boolean-audit-replay.json。这仅关闭已复现的类型漏洞，不冒充该网页审核对新提交的批准。
+
+本轮另补三份图片宿主母版的完整合成测试：冻结来源→stage→receive→联合 compile→verify-compile，检查三份母版仅留来源、不占视频附件，实收 K 是唯一首帧附件，正文、参数、来源绑定与原生义务一致。参考用途另从有效联合导出开始，改变已冻结时段后 lower/compile 均阻断；verify-compile 现在先检查当前重派生文件集合，返回明确失效错误。此测试使用合成图片与模拟上传绑定，只证明软件合同，不能证明模型画质、真实上传或 PR4 视频执行。
+
+本轮最终版本 video-prompt-compiler 1.17.4、image-prompt-optimizer 1.15.4、workflow 0.7.12。源码宿主 13 项、联合编译 10 项通过；七包隔离安装、内置一致性、重复构建均 PASS，独立视频包十二个指定模块合计 184 项通过。摘要在 validation-artifacts/shot-control-audit-closure-verification.json；完整日志在本地 outputs/shot-control-audit-closure-release/report.json。独立网页尚未审过本次新提交，真实首尾帧平台执行仍缺明确入口和预算。

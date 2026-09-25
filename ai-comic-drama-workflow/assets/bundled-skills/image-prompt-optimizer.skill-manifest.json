@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "29ae8450d57cbb022c7832d511f6be0751c388ab0fd0c9addbcc5ecc05f46be0",
+  "archive_sha256": "ffbe43747fedb35a7b7075ffdb939ba0b891663cf3ce56f9ecc9a1c775c614f1",
   "file_count": 104,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29772,
-      "sha256": "abf7f2f8bd27af580a57492270b6e1ec561750999b735ecb93bd1a1a9371f01e"
+      "sha256": "f3c20a8548f5acfcf53c9a807abb2d7e98bde96b065cbf05b7ba37aa53125fed"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -280,8 +280,8 @@
       "sha256": "b0c2454507739f049a89af01d3afb2f3fbe24ccb851d87efb005f5df0412eff7"
     },
     "image-prompt-optimizer/scripts/shot_control/joint_compile.py": {
-      "bytes": 19807,
-      "sha256": "9cc0cbe4f7a9c9c258fc4df979660e83d5e633c16aa90de508ba8471d51371bc"
+      "bytes": 19996,
+      "sha256": "3c7e4d92137440e20333910255eaabdb871440e9930f3c52d360e25da432f96d"
     },
     "image-prompt-optimizer/scripts/shot_control/keyframe_host.py": {
       "bytes": 12545,
@@ -421,5 +421,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.15.3"
+  "version": "1.15.4"
 }
