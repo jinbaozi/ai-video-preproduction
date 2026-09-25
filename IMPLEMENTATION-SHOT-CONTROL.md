@@ -263,6 +263,8 @@ GPT‑6 Pro 网页随后对精确提交 ac65dd8 完成独立复审并给出 Appr
 
 软件批准后又进行一次不同方法的 PR3 定向实验：将冻结的相机画面目标绘成扁平构图参考图，与身份/材质母版一起用于新生图，而非继续文字编辑旧摄影图。输入、提示和 ±0.02 信封中心阈值事前冻结；实际图片可辨但信封横向仍在边界外，桌面后沿明显低于目标，整体仍 FAIL。公开记录在 experiments/keyframes/composition-guide-r2；实际图片仅留本地 outputs/host-keyframe-guide-r2/actual-keyframe.png。这是一个新的图像输入条件，未走产品宿主 stage/receipt，不据此改判 PR3 或推论模型有精确几何控制。
 
-再以该摄影结果为基图，连同扁平构图图和两份身份母版做一次事前冻结的图片编辑，且移除桌面几何冲突的空景母版。输出图片仍清楚偏离目标：信封横向误差 +0.075585，桌面前后沿误差 +0.051780/+0.065806，均超过预设 0.02 阈值与手工标记不确定性。公开实验记录在 experiments/keyframes/composition-guided-edit-r3，照片只在本地 outputs/host-keyframe-guided-edit-r3/actual-keyframe.png；未走产品宿主 stage/receipt，更未提交视频。这次独立方法也没有把 PR3 构图由 FAIL 改为 PASS。
+再以该摄影结果为基图，连同扁平构图图和两份身份母版做一次事前冻结的图片编辑，且移除桌面几何冲突的空景母版。输出图片仍清楚偏离目标：信封横向误差 +0.075585，桌面后沿误差 +0.051780、前沿误差 +0.065806，均超过预设 0.02 阈值与手工标记不确定性。公开实验记录在 experiments/keyframes/composition-guided-edit-r3，照片只在本地 outputs/host-keyframe-guided-edit-r3/actual-keyframe.png；未走产品宿主 stage/receipt，更未提交视频。这次独立方法也没有把 PR3 构图由 FAIL 改为 PASS。
 
 GPT‑6 Pro 对公开提交 1f27afe 的增量审查意见为 Approve，限定为失败实验记录；原文见 validation-artifacts/shot-control-audit-1f27afe.md。它独立核对公开文件、重画像素和坐标算术，但没有取得私人摄影输出，故没有独立确认其视觉质量。唯一 P3 是 Pillow 环境变化使相同像素的 PNG 压缩字节不同；原冻结输入摘要保持不变，补充的本机版本与 RGB 摘要只用于解释复现边界。
+
+GPT‑6 Pro 对 602ebb5 的增量审查同样给出限定范围 Approve，原文归档于 validation-artifacts/shot-control-audit-602ebb5.md。其 D01/P3 指出上述摘要将“后沿、前沿”写反，本次只纠正边名与数字对应；原冻结表、结构化观测与 FAIL 结论不变。网页审核复算了公开记录和算术，仍未取得私人摄影图，因而没有独立确认像素质量或实际调用顺序。
