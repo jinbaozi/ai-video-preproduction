@@ -920,7 +920,9 @@ class V6TaskKernel:
         for task_id, item in state["tasks"].items():
             if task_id == excluding:
                 continue
-            if item["state"] in ("DISPATCHING", "RUNNING"):
+            # UNKNOWN is not terminal: the host may still be running or charging.
+            # Keep its slot until reconciliation establishes a terminal outcome.
+            if item["state"] in ("DISPATCHING", "RUNNING", "UNKNOWN"):
                 if item["envelope"]["execution_class"] == "professional":
                     specialists += 1
                 elif item["envelope"]["execution_class"] == "review":
@@ -938,6 +940,14 @@ class V6TaskKernel:
             _fail("OBJECT_VERSION", "Task version or source state changed")
         if new not in MAIN_PATH[old]:
             _fail("ILLEGAL_TRANSITION", f"{old} -> {new} is not allowed")
+        # Recheck at each forward gate, not only when PENDING becomes READY.
+        # RUNNING/UNKNOWN receipts and failure/cancellation remain recordable so
+        # an already-issued external action can be reconciled, never blindly retried.
+        if new in ("READY", "DISPATCHING", "RESULT_SUBMITTED", "VALIDATING",
+                   "REVIEW_REQUIRED", "ACCEPTED"):
+            for dep in envelope["dependencies"]:
+                if self._task(state, dep["task_id"])["state"] not in ("ACCEPTED", "NOT_APPLICABLE"):
+                    _fail("DEPENDENCY_UNREADY", dep["task_id"])
         error_record = event.get("error")
         if new in ("FAILED", "BLOCKED", "UNKNOWN"):
             if (not isinstance(error_record, dict) or error_record["owner_node"] != envelope["node_id"]
