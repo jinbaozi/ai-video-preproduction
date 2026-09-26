@@ -79,12 +79,60 @@ def event_times(ir, shot):
             if shot['id'] in item['shot_ids']:
                 times.update(t for t in (item['start_ms'], item['end_ms']) if shot['start_ms'] <= t <= shot['end_ms'])
     for sample in ir['timeline']['state_samples']:
-        if sample['shot_id'] == shot['id']:
+        if sample['shot_id'] == shot['id'] and shot['start_ms'] <= sample['at_ms'] <= shot['end_ms']:
             times.add(sample['at_ms'])
     for track in ir['timeline']['motion_tracks']:
         if shot['id'] in track['shot_ids']:
+            # Track onsets/offsets are events even for relative/held values.
+            # This samples declared intent; it does not invent intermediate poses.
+            times.update(t for t in (track['start_ms'], track['end_ms'])
+                         if shot['start_ms'] <= t <= shot['end_ms'])
             times.update(k['at_ms'] for k in track['keyframes'] if shot['start_ms'] <= k['at_ms'] <= shot['end_ms'])
     return sorted(times)
+
+
+def keyframe_acceptance(ir, shot, at, config):
+    """Read-only, source-scoped review obligations; not model API parameters.
+
+    A still image can validate a focus state, not prove a temporal rack focus.
+    Final temporal/color acceptance still requires observations of real media.
+    """
+    checks = ['保持主身份与场景母版', '核对本时刻姿态、手别、视线和构图', '不得出现箭头、ID、时码或面板']
+    focus, color = [], []
+    for index, track in enumerate(ir['timeline']['motion_tracks']):
+        if shot['id'] not in track['shot_ids'] or not track['start_ms'] <= at <= track['end_ms']:
+            continue
+        source = f'/timeline/motion_tracks/{index}'
+        if track['property'] == 'focus':
+            focus.append(source)
+        elif track['property'] in ('light', 'color', 'material', 'atmosphere'):
+            color.append(source)
+    if focus:
+        checks += [
+            '焦点依据 '+', '.join(focus)+'：核对本时刻主体清晰层次和构图可读性；目标不明则记 UNDETERMINED，不补造焦点对象。',
+            '单帧不证明转焦成功；实收视频另验原轨道规定的交接顺序、起止与停留，不以切镜、变焦或换脸替代转焦。',
+        ]
+    look = config.get('look_design') or {}
+    for index, item in enumerate(look.get('material_palette', [])):
+        if shot['id'] in item['shot_ids']:
+            color.append('control-config.json:/look_design/material_palette/'+str(index))
+    for index, item in enumerate(look.get('grading_plan', [])):
+        if shot['id'] == item['shot_id']:
+            color.append('control-config.json:/look_design/grading_plan/'+str(index))
+    if color:
+        checks += [
+            '光色依据 '+', '.join(color)+'：核对已冻结的光色来源；静态色板不自动产生情绪目标，不能把计划当作实收画面的证据。',
+            '分开核对肤色、服装固有色、背景受光；不得用情绪调色改写身份或服装。后期调色仍为 POST_PRODUCTION_NOT_MODEL_PARAMETER，不能用首帧代替成片调色验收。',
+        ]
+        performances = [f'/timeline/performances/{index}'
+                        for index, performance in enumerate(ir['timeline']['performances'])
+                        if shot['id'] in performance['shot_ids']
+                        and performance['start_ms'] <= at <= performance['end_ms']]
+        if performances:
+            checks.append('光色与表演依据 '+', '.join(performances)+
+                          '：按已冻结的触发与反应核对情绪表达，不额外增加情绪转折；'
+                          '没有明确情绪意图时只核对来源，不追加情绪目标，必要依据缺失则记 UNDETERMINED。')
+    return checks
 
 
 def build(source, out, config=None):
@@ -155,7 +203,7 @@ def derive(ir, config, plan):
                 'subject_state': state['state'], 'references': [deepcopy(b) for b in ir['bindings'] if shot['id'] in b['shot_ids']],
                 'master_anchors': [], 'generation_mode': 'UNRESOLVED', 'base_asset_id': None, 'edit_delta': None,
                 'status': 'DRAFT_REQUIRES_HOST_REVIEW',
-                'acceptance': ['保持主身份与场景母版', '核对本时刻姿态、手别、视线和构图', '不得出现箭头、ID、时码或面板'],
+                'acceptance': keyframe_acceptance(ir, shot, at, config),
                 'generated': False, 'visual_review': 'NOT_RUN'})
             if 'look_design' in config:
                 from .craft import look_for_shot

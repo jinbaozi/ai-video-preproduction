@@ -1,0 +1,58 @@
+{
+  "contract": [
+    {
+      "id": "CONTINUITY",
+      "level": "hard",
+      "channel": "prompt",
+      "shot_ids": [],
+      "checks": [],
+      "requirement": "本示例中人物甲、乙的身份、服装、信封持有者、房间拓扑与动作因果保持来源一致。",
+      "acceptance": "逐镜及相邻镜记录实收视频哈希和观察时间码；未经触发不得换脸、换手、换衣、换位置。"
+    },
+    {
+      "id": "FOCUS_HOLD_A",
+      "level": "hard",
+      "channel": "prompt",
+      "shot_ids": ["S1"],
+      "checks": [],
+      "requirement": "示例S1为0—4秒固定机位：0—1.5秒焦点在前景甲，后景乙处于虚焦但仍在原构图内。",
+      "acceptance": "观察起始稳定段，确认前后景清晰层次、主体身份和画幅位置；单张参考图不得代表整段通过。"
+    },
+    {
+      "id": "FOCUS_TRANSFER",
+      "level": "hard",
+      "channel": "prompt",
+      "shot_ids": ["S1"],
+      "checks": [],
+      "requirement": "示例S1在1.5—2.5秒按已编写的揭示动作触发连续转焦，焦点从甲交给乙；本段不授权切镜或变焦。",
+      "acceptance": "在实收视频分别记录触发、开始、交接和完成时间；核对顺序、平滑性与事先冻结的时间容差，禁止以切镜、变焦、换脸替代转焦。"
+    },
+    {
+      "id": "FOCUS_HOLD_B",
+      "level": "hard",
+      "channel": "prompt",
+      "shot_ids": ["S1"],
+      "checks": [],
+      "requirement": "示例S1在2.5—4秒保持后景乙清晰，前景甲转为虚焦；主体不因焦点变化移动或换身份。",
+      "acceptance": "完成后的连续停留段中乙的反应可读，甲保持前景原位；不能只核对转焦终点的一帧。"
+    },
+    {
+      "id": "COLOR_EMOTION",
+      "level": "hard",
+      "channel": "prompt",
+      "shot_ids": ["S2", "S3"],
+      "checks": [],
+      "requirement": "本示例采用已授权的情绪设计：由信任转为疑虑；以有来源的背景冷光与暖实景灯对比表达，肤色和服装固有色不被统一染蓝。",
+      "acceptance": "分别对照美术固有色、照明方向和后期调色计划；结合角色可见反应审阅表达，不能把冷色自动等同悲伤，不能无来源新增情绪。"
+    },
+    {
+      "id": "COLOR_JOIN",
+      "level": "hard",
+      "channel": "prompt",
+      "shot_ids": ["S2", "S3"],
+      "checks": [],
+      "requirement": "示例S2到S3的色彩和情绪必须承接，允许变化仅来自冻结的镜头或光源设计。",
+      "acceptance": "检查相邻切点两侧的肤色、服装、背景曝光及人物情绪；变化须指向已冻结的源设计。后期执行证明另按实际义务登记，不由提示词宣称完成。"
+    }
+  ]
+}

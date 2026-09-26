@@ -11,7 +11,8 @@ def _sha(value):
 
 def verify_plan(plan, frozen_sha256):
     if (not isinstance(plan, dict) or set(plan) != {'schema', 'items', 'sha256'} or
-        plan.get('schema') != 'acceptance-plan/1.0' or not isinstance(plan.get('items'), list)):
+        plan.get('schema') != 'acceptance-plan/1.0' or not isinstance(plan.get('items'), list)
+        or not plan['items']):
         raise ValueError('Invalid acceptance plan')
     for item in plan['items']:
         if (not isinstance(item, dict) or set(item) != {'id', 'requirement', 'acceptance',
@@ -56,7 +57,11 @@ def decide(plan, observations, *, frozen_sha256):
     verify_plan(plan, frozen_sha256)
     if not isinstance(observations, list):
         raise ValueError('Observations must be a list')
-    observed_ids = [item.get('id') for item in observations]
+    if any(not isinstance(item, dict) or not isinstance(item.get('id'), str)
+           or not item['id'] or item.get('result') not in ('PASS', 'FAIL', 'UNDETERMINED')
+           for item in observations):
+        raise ValueError('Observation needs a nonempty ID and a valid result')
+    observed_ids = [item['id'] for item in observations]
     if len(set(observed_ids)) != len(observed_ids):
         raise ValueError('Duplicate observation IDs')
     expected_ids = {item['id'] for item in plan['items']}
@@ -90,7 +95,11 @@ def decide(plan, observations, *, frozen_sha256):
 
 def shot_decision(plan, observations, shot_id, frozen_sha256):
     verify_plan(plan, frozen_sha256)
+    if not isinstance(shot_id, str) or not shot_id:
+        raise ValueError('Shot ID must be a nonempty string')
     scoped_items = [i for i in plan['items'] if not i['shot_ids'] or shot_id in i['shot_ids']]
+    if not scoped_items:
+        raise ValueError('Shot acceptance scope has no frozen checks')
     decision = decide(plan, observations, frozen_sha256=frozen_sha256)
     decision['items'] = [r for r in decision['items'] if r['id'] in {i['id'] for i in scoped_items}]
     hard_fail = any(r['hard'] and r['result'] == 'FAIL' for r in decision['items'])
@@ -124,6 +133,14 @@ def adjacent_decision(plan, observations, left_id, right_id, frozen_sha256):
 
 
 def sequence_blocks(decisions):
+    if not isinstance(decisions, list) or not decisions:
+        return ['Sequence requires nonempty shot and adjacent decisions']
+    if any(not isinstance(d, dict) or not isinstance(d.get('items'), list)
+           or not d['items'] or d.get('status') not in ('PASS', 'FAIL', 'INCOMPLETE')
+           or any(not isinstance(i, dict) or i.get('result') not in
+                  ('PASS', 'FAIL', 'UNDETERMINED') for i in d['items'])
+           for d in decisions):
+        return ['Sequence contains an invalid or empty decision']
     if any(d['status'] != 'PASS' for d in decisions):
         return ['Sequence requires every shot and adjacent check to pass']
     if any(i['result'] == 'UNDETERMINED' for d in decisions for i in d['items']):
