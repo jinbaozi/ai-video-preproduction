@@ -1,0 +1,31 @@
+{
+  "check": "native_validator",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T11:25:08.975Z",
+  "method": "Validated V6 envelope and candidate schemas, independently reran the locked sg.py validate --final read-only, recomputed the ScriptIR semantic content fingerprint and every compiled manifest file size and SHA-256.",
+  "v6_task_schema": "PASS",
+  "v6_candidate_schema": "PASS",
+  "native_final_report": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED"
+  },
+  "script_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json",
+  "script_sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+  "content_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463",
+  "compiled_manifest_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/compiled/compile-manifest.json",
+  "compiled_manifest_sha256": "dd4f9cfed3489ae88a66348d1a8e11176c65dae7f1aba0ab1029d208bfcb977a",
+  "compiled_files_verified": 13,
+  "compiled_status": "READY",
+  "director_handoff_ready": true,
+  "compiled_script_ref_hash_matches": true,
+  "static_contract_assertions": {
+    "RAIN_STATIC": true,
+    "LETTER_STATIC": true,
+    "ORDER_STATIC": true
+  },
+  "professional_blind_review": "NOT_RUN",
+  "media": "NOT_RUN",
+  "creator_evidence_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/native-validator.json",
+  "finding": "Native final validation has no errors; reviewed content and the READY compiled handoff remain bound. Current-agent semantic attestation, professional blind review and media status are stated separately."
+}

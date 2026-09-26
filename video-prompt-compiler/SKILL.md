@@ -6,10 +6,14 @@ description: >
   模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.17.5"
+  version: "1.17.7"
 ---
 
 # Video Prompt Compiler
+
+## V6 总工作流协作
+
+编译子智能体只消费已接受的冻结 AVIR、附件与目标入口能力，在自己的候选目录交编译包、文件哈希、覆盖检查和逐项交接。正文复核由独立节点完成；编译成功不等于已提交模型，也不等于视频 QA。缺关键姿态、附件或能力时发结构化阻塞消息，由相应原责任节点修订。内核核对审阅与依赖后才接受候选。具体交接见 [协作契约](references/cooperation-v5.md)。
 
 AVIR 1.2 保留独立的来源、镜头、动作、空间、声音与状态合同。完整项目 `prompt.txt` 是审阅用的全长模型正文；实际逐次投喂选用按目标时长生成的 `prompt-序号_起止ms.txt`。每份独立文件重述本段所需真实图片文件名、引用职责、场景、身份及逐镜/逐时段细节；跨段后期声音另附对应 `post-序号_起止ms.txt`。`production-specification.json`、`detail_blocks` 与 `detail-coverage.json` 是完整审计依据；`prompt-coverage.json` 指向全长正文，`segment-delivery.json` 记录逐段状态。字节覆盖不等于语义等价或模型已执行。
 

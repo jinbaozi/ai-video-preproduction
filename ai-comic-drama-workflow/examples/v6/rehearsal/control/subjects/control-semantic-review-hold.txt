@@ -1,0 +1,1 @@
+内核负责人新增明确门：已接受 StoryboardIR 的 `timeline.semantic_review.input_sha256` 与当前内容摘要疑似不符，adapter owner 正追踪是否 V5 导入改写字节/路径。你可继续同批静态重建/诊断，但暂缓最终 RESULT 与独审；即便锁定 AVIR validate=VALID，如 `semantic_review=PENDING` 也不能宣称语义门通过。待确认旧审阅绑定仍有效或走正式上游返修后再推进。

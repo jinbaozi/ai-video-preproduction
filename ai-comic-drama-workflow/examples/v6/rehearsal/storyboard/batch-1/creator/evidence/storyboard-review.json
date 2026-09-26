@@ -1,0 +1,40 @@
+{
+  "art_fields": [
+    "无可指认地点后景",
+    "一封无字、无印章、封口完整的信",
+    "同一背包",
+    "手部、封口和包口不被雨迹、袖口、发丝或包边遮挡"
+  ],
+  "artifact_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+  "authored_fields": [
+    "七个镜内画格",
+    "可见性区间",
+    "实际灯位未锁定的可读性预演锚点"
+  ],
+  "fixed_director_fields": [
+    "S1 单镜",
+    "288 帧 / 24 fps",
+    "负轴侧固定机位",
+    "甲右手交信，乙右手接信，甲后松手",
+    "乙右手验封并入包，左手撑包口"
+  ],
+  "media": [
+    "image_generation=NOT_APPLICABLE",
+    "video_generation=NOT_APPLICABLE",
+    "visual_qa=NOT_RUN",
+    "media_qa=NOT_RUN"
+  ],
+  "remaining_real_media_checks": [
+    "封口是否在固定双人中近景实际可读",
+    "两只右手交接与左手撑包的接触/控制权是否真实成立",
+    "雨夜与不指认地点的画面是否成立",
+    "实际光源和衣装参考由美术/宿主绑定后审查"
+  ],
+  "source_fact_chain": [
+    "雨夜",
+    "甲交给乙一封未拆信",
+    "乙确认完整封口",
+    "乙收进同一背包"
+  ],
+  "status": "AUTHOR_SEMANTIC_REVIEW_PASS"
+}

@@ -1,0 +1,1 @@
+新锁 screenplay batch 1 可只读参考原 screenplay TASK_20dbe9991f545d5fe05e55e7 的内容与失败历史，但必须按当前冻结 Canon 和当前正式 V5 Canon 的实际哈希、版本、审阅 stamp 重新建立 ScriptIR 与 RoleResult。旧 screenplay batch 1 曾因把候选 Canon SHA 当正式 Canon SHA 而被 V5 拒绝；请勿复制旧候选或旧 ACCEPTED 状态。你是当前唯一创作者，不要另派辅助智能体以保留独立审阅容量。请把新锁模块校验、字段绑定和交接证据写到本批目录。

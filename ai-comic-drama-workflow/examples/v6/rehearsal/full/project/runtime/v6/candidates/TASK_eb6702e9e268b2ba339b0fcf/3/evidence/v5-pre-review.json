@@ -1,0 +1,27 @@
+{
+  "candidate_state_at_readonly_check": "RUNNING",
+  "formal_submit": "NOT_RUN_BY_CREATOR",
+  "method": "Read-only native V5 validate_handoff plus V6Runtime._validate_v5_candidate, followed by source inspection of V5Kernel.submit -> import_artifact -> validate_handoff; no workflow state mutation.",
+  "native_handoff_rows": 6,
+  "native_review_stamp": {
+    "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+    "findings": [
+      "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+      "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+    ],
+    "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+    "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+  },
+  "reason": "Only the host may advance formal workflow state.",
+  "schema": "native-v5-pre-review/1.0",
+  "source_paths": [
+    "src/ai_comic_drama_workflow/v5_handoff.py:73",
+    "src/ai_comic_drama_workflow/v5.py:877",
+    "src/ai_comic_drama_workflow/v5.py:936",
+    "src/ai_comic_drama_workflow/v6_runtime.py:1033"
+  ],
+  "status": "PASS",
+  "v6_artifact_handoffs": 2,
+  "v6_candidate_binding": "PASS",
+  "v6_candidate_schema": "PASS"
+}

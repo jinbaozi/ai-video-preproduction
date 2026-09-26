@@ -1,0 +1,21 @@
+{
+  "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+  "candidate_digest": "2d8f14c9ad3d5c749b6c1e1c2a4c1c62043ba14c6692d921666eded0f6cd7192",
+  "failure_owner_node": "compile",
+  "finding": "AVIR /shots/0/end_state/4/visible_parts retains body and prop at shot end although its own 12000 ms timeline, source StoryboardIR timeline, and compiled prompt specify that the letter is hidden inside the backpack after 10500 ms. The two authoritative AVIR fields conflict; the compiler adapter must be corrected and a new build reviewed.",
+  "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+  "project_id": "LETTER_DEMO",
+  "result": {
+    "sha256": "d87842981b0d84f7e2011fc8b6384a07cf0bab6d1662c2d08f3e365ef3055e2d",
+    "uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/role-result.json"
+  },
+  "review_artifact": {
+    "sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60",
+    "uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json"
+  },
+  "route_id": "CSF_74831a102e205da1d82b7605",
+  "schema": "compile-semantic-failure/6.0",
+  "source_agent_id": "/root/host_bridge/v6_42abfe0c85c46ba290a73be2",
+  "source_batch": 1,
+  "source_task_id": "TASK_ede3a3425d547d3569e53ec4"
+}

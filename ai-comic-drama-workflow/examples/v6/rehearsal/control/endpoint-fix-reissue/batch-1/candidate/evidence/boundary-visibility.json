@@ -1,0 +1,20 @@
+{
+  "adapter_rule": "STATE_SAMPLE.BOUNDARY_VISIBILITY.1.1",
+  "adapter_source_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "adapter_target_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+  "at_ms": 12000,
+  "entity_id": "PROP_LETTER",
+  "generated_media": "NOT_RUN",
+  "result": "CONSISTENT",
+  "schema": "control-boundary-visibility/1.0",
+  "shot_id": "S1",
+  "source_pointer": "/timeline/state_samples/5/entities/PROP_LETTER/visible_parts",
+  "source_storyboard_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "source_value": [],
+  "target_avir_pointer": "/shots/0/end_state/4/visible_parts",
+  "target_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "target_avir_value": [],
+  "target_pack_pointer": "/shots/0/end_state/4/visible_parts",
+  "target_pack_value": [],
+  "task_id": "TASK_92a2f36e9b05a414fec43209"
+}

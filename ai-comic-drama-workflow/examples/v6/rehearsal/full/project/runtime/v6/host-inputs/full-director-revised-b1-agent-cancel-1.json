@@ -1,0 +1,6 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_AGENT_CANCEL_1",
+  "expected_revision": 135,
+  "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+  "ack_message_id": "FULL_DIRECTOR_REVISED_B1_CANCEL_ACK_1"
+}

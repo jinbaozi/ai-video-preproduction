@@ -1,0 +1,45 @@
+{
+  "inputs": [
+    {
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json"
+    },
+    {
+      "sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+      "slot": "screenplay:project:project:ScriptIR",
+      "uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json"
+    },
+    {
+      "sha256": "7a838c5a39714a38f6bd1f8a93bb3a3bc3fc4c52ba0649dccfa895715e9ff710",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_eb6702e9e268b2ba339b0fcf.json"
+    }
+  ],
+  "meaning": "只证明冻结输入与模块资源的字节完整性。",
+  "module": {
+    "name": "director-grammar",
+    "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "skill_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+    "version": "1.4.2"
+  },
+  "reads": [
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md",
+      "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md",
+      "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+      "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+    }
+  ],
+  "status": "PASS"
+}

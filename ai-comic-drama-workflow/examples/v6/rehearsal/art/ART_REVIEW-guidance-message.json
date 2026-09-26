@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REVIEW_GUIDANCE_COMMAND_1",
+  "expected_revision": 101,
+  "message": {
+    "at": "2026-09-25T12:33:48.661477Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "ART_REVIEW_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "7d6c3937742f01ed9939ef937c1ce0be7a5b5c1088b45b7549a4b1c7d35c7ed0",
+    "subject_uri": "runtime/v6/host-inputs/art-review-brief.json",
+    "summary": "Actual independent Art reviewer dispatch carried frozen scene candidate, full validator set, ArtIR events/continuity focus, and media NOT_RUN boundary.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "HANDOFF"
+  }
+}

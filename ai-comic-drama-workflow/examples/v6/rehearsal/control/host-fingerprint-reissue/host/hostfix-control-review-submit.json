@@ -1,0 +1,37 @@
+{
+  "command_id": "HOSTFIX-CONTROL-REVIEW_SUBMIT_1",
+  "expected_revision": 649,
+  "review": {
+    "at": "2026-09-25T17:24:10.915118+00:00",
+    "batch": 1,
+    "candidate_digest": "b297108233a8e1f71ba11a91b10acf9d36f40893f46f7e5f87c0c268c3fb4d96",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_f2d0f9805f575ed23ebfdb6d/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_f2d0f9805f575ed23ebfdb6d/1/control-verify.review.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_f2d0f9805f575ed23ebfdb6d/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_92b84faa63ee0c7816752382",
+    "reviewer_dispatch_id": "review-5d0ef8d940c1a4f3bc57622c",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_f2d0f9805f575ed23ebfdb6d"
+  }
+}

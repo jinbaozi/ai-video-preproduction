@@ -1,0 +1,20 @@
+{
+  "camera_status_counts": {
+    "PLANNED_PROJECTION": 121
+  },
+  "command": "locked scripts/control_cli.py verify control-pack",
+  "coverage_items": 17,
+  "file_count": 10,
+  "frame_count": 121,
+  "keyframe_requests": 14,
+  "letter_12000ms_control_frame_visible_parts": [],
+  "letter_12000ms_shot_end_visible_parts": [],
+  "letter_12000ms_timeline_visible_parts": [],
+  "manifest_sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+  "media_review": "NOT_RUN",
+  "model_submitted": false,
+  "production_specification_bytes_match_native_avir": true,
+  "production_specification_equals_current_storyboard_conversion": true,
+  "status": "VERIFIED",
+  "visual_review": "NOT_RUN"
+}

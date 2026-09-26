@@ -1,0 +1,18 @@
+{
+  "input_hash": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "ir_file": "storyboard.ir.json",
+  "project_id": "LETTER_DEMO",
+  "schema_version": "storyboard-handoff/1.2",
+  "source_ids": [
+    "SRC_69a71adcfaca",
+    "CANON_INPUT",
+    "SCRIPT_INPUT",
+    "DIRECTOR_INPUT",
+    "ART_INPUT",
+    "DIRECTOR_DESIGN",
+    "STORYBOARD_DESIGN"
+  ],
+  "submitted": false,
+  "target": "avir/1.2",
+  "temporal_hash": "a80ea3cb40813f54af5f1aea86974f0f986aa6ff9a98904a5fa1ed73546a91f5"
+}

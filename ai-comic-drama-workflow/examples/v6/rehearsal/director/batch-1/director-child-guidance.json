@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_CHILD_GUIDANCE_COMMAND_1",
+  "expected_revision": 36,
+  "message": {
+    "at": "2026-09-25T10:45:50.082519Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRECTOR_CHILD_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "b06e25e17c71f95fbb888b6a2f27d15164334bab66fee7ac09a30af60a81ac24",
+    "subject_uri": "runtime/v6/messages/b06e25e17c71f95fbb888b6a2f27d15164334bab66fee7ac09a30af60a81ac24.json",
+    "summary": "Host instructed Director creator to keep contracts subagent read-only, record its advice and retain sole candidate authorship.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "PROGRESS"
+  }
+}

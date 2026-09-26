@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "candidate_result_sha256": "cc6d359f811e6db94b3e4129b7c8ba47db4761d8789d7ea9f129d5488fbb22b7",
+  "role_result_sha256": "1976aeaa05c1cc0fce1689e937b853a38fac81bd611b2307264a48389bde1a38",
+  "visual_artifact_sha256": "18252d14a5feaba69c3798764e8393248fb4d86585bc05513b0348c6a3fee615",
+  "frozen_input_sha256": {
+    "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+    "runtime/tasks/TASK_7aabf77f33bdc18e71193c47.json": "4d6415c7bc7d3e0e876577b8458211924a1a3629c0d710b86831b9aac3d8c156"
+  },
+  "resource_sha256": {
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/character-appearance.md": "b3cb6fafc16e207b8ee64cfc4d50d797c73eebdd1c8728d5d5e6cff4cd151631",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/templates/production-contract.md": "8f156b9ccf183bbeda62260fc5fb94bcb50d4d6e731c51bd2407bca253c0a8d0",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+  },
+  "module": {
+    "name": "image-prompt-optimizer",
+    "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+    "version": "1.15.7"
+  }
+}

@@ -1,0 +1,259 @@
+[
+  {
+    "artifacts_digest": "03577b9c9f8217683ee84c032c7c10837cc07ae73c9d63cd1531c77caa960bc3",
+    "commands_digest": "b4617f9d0d84c31db5c7d99055dd89bf7c9cf62f2fbd56b12a743c0904d43717",
+    "hash": "f4087856e00d440b9b1075539165176a8119d1ab2115bc960c0c6aa4d0add8ee",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_3240f8bc6a9896032b95d091"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "ShotControlPack",
+          "slot": "control:project:project:ShotControlPack",
+          "uri_prefix": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_3d86c759b2ec7ceb80ac168c",
+          "source_slot": "storyboard:project:project:StoryboardIR",
+          "source_version": 15,
+          "target_pointer": "",
+          "target_slot": "control:project:project:ShotControlPack"
+        }
+      ],
+      "input_digest": "58f28c5c8c27244b9ef6085cae27341117fdf58489bd7af7584d9161ee486194",
+      "input_revision": 158,
+      "inputs": [
+        {
+          "sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+          "slot": "storyboard:project:project:StoryboardIR",
+          "uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/storyboard-ir.json",
+          "version": 15
+        },
+        {
+          "sha256": "a12a02186d34e102ce38bb1c4e29965f65e69c361dcae0b44904570dcd597809",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_60ca76854c7350d8a40f1c72.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      },
+      "node_id": "control",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+        },
+        {
+          "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+        }
+      ],
+      "role": "control",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "control_verify",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "7ed4f022113f0212c11533ce5df281cac9f901867c9226aef761b65520b78e49",
+    "revision": 159,
+    "state_digest": "6f765a0fc74fbf89a7ab869a1d9538363cc3496233a3ce42a7a32de2c02759be"
+  },
+  {
+    "artifacts_digest": "03577b9c9f8217683ee84c032c7c10837cc07ae73c9d63cd1531c77caa960bc3",
+    "commands_digest": "46b5745665a77008ec8e2e00d7bb01c1b08ec48a5ec3f3244df981f8d28a2471",
+    "hash": "5c9ea72ed88a2abb0f43ca7f608460a4e929c9b17e0a4b66d8437f83951ccc6e",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T13:08:55.147837Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-TASK_60ca76854c7350d8a40f1c72-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_60ca76854c7350d8a40f1c72.json"
+        ],
+        "expected_revision": 159,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_60ca76854c7350d8a40f1c72",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "f4087856e00d440b9b1075539165176a8119d1ab2115bc960c0c6aa4d0add8ee",
+    "revision": 160,
+    "state_digest": "586b0d8af686b349a9ef004333107911690d1d302805e7c25deafb202d67a112"
+  },
+  {
+    "artifacts_digest": "03577b9c9f8217683ee84c032c7c10837cc07ae73c9d63cd1531c77caa960bc3",
+    "commands_digest": "55645f7df97b71b29e8622c9ba927f39ba9354a2b09b15d8b9cf971d22d8e945",
+    "hash": "dafc8d9cad3edfc6e16e7c580cd18f375c77bea002ac3bd51f2d2353e34e311c",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T13:08:55.262602Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-TASK_60ca76854c7350d8a40f1c72-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_60ca76854c7350d8a40f1c72.json"
+        ],
+        "expected_revision": 160,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_60ca76854c7350d8a40f1c72",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "5c9ea72ed88a2abb0f43ca7f608460a4e929c9b17e0a4b66d8437f83951ccc6e",
+    "revision": 161,
+    "state_digest": "78f674350e32103dd19e322d943cea9869484b8692f62839e2a45eae078c1c96"
+  },
+  {
+    "artifacts_digest": "03577b9c9f8217683ee84c032c7c10837cc07ae73c9d63cd1531c77caa960bc3",
+    "commands_digest": "04fe33102db3ae7bb095575ab63f55c7ebbea5356286139a10eeff6a2663c694",
+    "hash": "806e7f7394300b8b9e98e1ae5f2dde673b4c30fd6d675bf3fc11735a9cd7d44c",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T13:09:47.925119Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-e4b0c6da80911dcda638f633",
+              "host-file:cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "CONTROL_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-e4b0c6da80911dcda638f633",
+          "host-file:cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650"
+        ],
+        "expected_revision": 161,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_60ca76854c7350d8a40f1c72",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-e4b0c6da80911dcda638f633",
+        "agent_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+        "batch": 1,
+        "dispatch_id": "dispatch-e4b0c6da80911dcda638f633",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T13:09:47.925119Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T13:09:47.925119Z",
+        "status": "RUNNING",
+        "task_digest": "4eef48c55cdb0454daf1251e2c7655222025fd8e0859adc0fd7145b93e642c60",
+        "task_id": "TASK_60ca76854c7350d8a40f1c72",
+        "tool_result_sha256": "cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650",
+        "tool_result_uri": "runtime/v6/host-evidence/cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650.json"
+      },
+      "review": null
+    },
+    "previous_hash": "dafc8d9cad3edfc6e16e7c580cd18f375c77bea002ac3bd51f2d2353e34e311c",
+    "revision": 162,
+    "state_digest": "b5bc7c99b13058801c4c870e2096742e29010fba66a2c7f4eded97f9fd96d064"
+  },
+  {
+    "artifacts_digest": "03577b9c9f8217683ee84c032c7c10837cc07ae73c9d63cd1531c77caa960bc3",
+    "commands_digest": "ee6a32ee6cc47f2aee85d3559746e73077c809f48d1c022abab2c104cdf8db95",
+    "hash": "c58859698ec8e60a98f140f63151b61f58a2ca3f5cfb077a9564335a15165286",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex-host",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T13:39:29.537049Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "CONTROL_CANCEL_1",
+        "evidence": [
+          "runtime/v6/cancellations/6bbe0515d66071476d493e2fde7c8280a26e82565c6e3ca3166aecb1c1991cca.json"
+        ],
+        "expected_revision": 187,
+        "from_state": "RUNNING",
+        "object_version": 28,
+        "reason": "CANCEL_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_60ca76854c7350d8a40f1c72",
+        "to_state": "CANCELLED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "359af725b5309bee47a04484956fb09ac1c6d8db14e4196a6f0764d155969d50",
+    "revision": 188,
+    "state_digest": "b39d1f2688d9701674d1c63a2a52d05705fe71372325a53c4e8d2b9c306da458"
+  }
+]

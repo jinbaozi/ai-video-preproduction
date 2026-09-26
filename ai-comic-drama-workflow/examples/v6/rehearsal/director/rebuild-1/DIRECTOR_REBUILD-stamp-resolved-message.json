@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_STAMP_RESOLVED_COMMAND_1",
+  "expected_revision": 208,
+  "message": {
+    "at": "2026-09-25T13:47:09.136402Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-stamp-resolved.txt"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_STAMP_HOLD_1",
+    "message_id": "DIRECTOR_REBUILD_STAMP_RESOLVED_1",
+    "recipient_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "c9f35cbf7e4632f3c6cf77c93092af22082cf4a6bfd7ee3e7e72e75148aa1dfa",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-stamp-resolved.txt",
+    "summary": "Kernel owner fixed V5 snapshot handoff review stamp rebinding with fresh promoted IR validation; host released same Director creator to finish candidate.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "HANDOFF"
+  }
+}

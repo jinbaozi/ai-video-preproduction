@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_REVIEW_PROGRESS_QUESTION_1",
+  "expected_revision": 29,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_REVIEW_PROGRESS_QUESTION_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_85f01703433be9e02caabf7d",
+    "in_reply_to": null,
+    "type": "QUESTION",
+    "summary": "Host requests screenplay review progress or blocker",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-review-progress-request.txt"
+    ],
+    "at": "2026-09-25T11:09:14.190999Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-review-progress-request.txt",
+    "subject_sha256": "e67fa2386807de46c3d5246fd379f8a307f47bd07d2865a42933a0f4a4fd7d35"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "command": "locked scripts/vpc.py validate frozen avir.json",
+  "exit_code": 0,
+  "input_sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+  "result": {
+    "diagnostics": [],
+    "status": "VALID"
+  },
+  "status": "PASS"
+}

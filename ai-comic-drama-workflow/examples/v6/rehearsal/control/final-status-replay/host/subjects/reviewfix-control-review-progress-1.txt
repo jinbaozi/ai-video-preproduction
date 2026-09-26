@@ -1,0 +1,1 @@
+PROGRESS: frozen envelope and candidate are registered at REVIEW_REQUIRED. Candidate evidence reports locked AVIR VALID, control pack VERIFIED, PROP_LETTER visibility [] at 10.5/12 s, with media NOT_RUN. I am now rerunning the locked validators and independently comparing regenerated AVIR/control package and registered hashes before deciding the review.

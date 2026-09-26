@@ -1,0 +1,67 @@
+{
+  "actual_3d_geometry_collision_review": "NOT_RUN",
+  "actual_media_review": "NOT_RUN",
+  "actual_model_camera_trajectory_validation": "NOT_RUN",
+  "adapter_losses": [],
+  "adapter_status": "MAPPED",
+  "camera_frame_count": 121,
+  "camera_position_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "camera_status_counts": {
+    "PLANNED_PROJECTION": 121
+  },
+  "candidate_digest": "b7ee9c05d68d344a2c59c7ff47c743909dacfd30a4e465d457338dd354087187",
+  "config_bytes_match_pack": true,
+  "controls": [],
+  "coverage_count": 17,
+  "coverage_status": "PLANNED",
+  "finding": "Zero UNDETERMINED applies only to camera projection; N_ENV remains UNDETERMINED in all 121 frames. Four subject/prop root points project IN_FRAME, but no body geometry, occlusion, collision, contact or media outcome is established.",
+  "frame_step_ms": 100,
+  "generated_images": false,
+  "generated_video": false,
+  "geometry": "ROOT_POINTS_ONLY",
+  "independent_locked_control_verify": {
+    "media_review": "NOT_RUN",
+    "status": "VERIFIED"
+  },
+  "independent_native_validation": {
+    "diagnostics": [],
+    "status": "VALID"
+  },
+  "independent_rebuild_matches_all_candidate_files": true,
+  "keyframe_request_count": 14,
+  "keyframe_status": "DRAFT_REQUIRES_HOST_REVIEW",
+  "lens_basis": "authored_proxy",
+  "manifest_file_count": 10,
+  "manifest_member_hashes_match": true,
+  "occlusion": "NOT_EVALUATED",
+  "package_file_count": 11,
+  "physical_interpolation": false,
+  "point_status_counts": {
+    "N_BACKPACK": {
+      "IN_FRAME": 121
+    },
+    "N_CAMERA": {
+      "BEHIND_CAMERA": 121
+    },
+    "N_ENV": {
+      "UNDETERMINED": 121
+    },
+    "N_JIA": {
+      "IN_FRAME": 121
+    },
+    "N_LETTER": {
+      "IN_FRAME": 121
+    },
+    "N_YI": {
+      "IN_FRAME": 121
+    }
+  },
+  "production_specification_matches_current_promoted_storyboard_conversion": true,
+  "result": "PASS",
+  "schema": "control-verification-review/1.0",
+  "semantic_review": "INHERITED_DETERMINISTICALLY"
+}

@@ -1,0 +1,33 @@
+{
+  "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "build_uri": "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175",
+  "compile_semantic_failure": "runtime/v6/compile-semantic-failures/CSF_74831a102e205da1d82b7605.json",
+  "files": {
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/attachments.json": "5d7e757f1b79ef1ae7e3b2e5cd233e280542cadfea91c4b5347e99c596d4173e",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/avir.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/artifact.json": "5cfd141e07964f5a6977c6472d3b72b6d6cfd288c346a1ed23e6c649c3b85148",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/avir.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/capability-snapshot.json": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/compile-manifest.json": "cf3a13eeed1c9374a86dc08f3864fb492d0a6e7a97b109855d4a4f81cbaf9fb3",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/constraint-coverage.json": "72e1ae71f01a18ac18489852df0f71d45f57e124df97cef61c7b9f8052cf418b",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/context-ir.json": "7d2e2717d80727f9c197c1bfaee7bfe177a47732208109de833ed68dc2110264",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/detail-coverage.json": "9c3894fb04f392595517a0dd0bc79beb86e017be480ae012a4da363aa09c0104",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/loss-report.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/post-001_000000-012000ms.txt": "8597c2855d9fa678266666317470f66210ee5ee65293214cbbf90801d2b6a404",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/post-production.json": "5ff6d16237c98f2c2ffd3ddc0b65af1a5e74f584b6695090ae124f40e9b3c988",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/production-contract.md": "c8cca586c8f9c9c380740a596e2c57add777491420becca584ba7430f1a27d0a",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/production-specification.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-coverage-001_000000-012000ms.json": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-coverage.json": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-review.json": "b7c8d0c6d30bb7b9b9863a7025fb803dc336cd4305a310fd736ead5e6192ea5b",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt.txt": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/segment-delivery.json": "47c9315135d89a896d56770234e9df6aa39c7d7e887ee5c8a7f1791569ecf8f2",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/segment-plan.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/segment-proposals.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/spatial-checks.json": "da56881aaf5af87ec77c66b52d9b7b8c6aebaec1c10305659c3c1b5fef144d60",
+    "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/mapping.json": "e99cd86c4063bfe5c1178ed977919613f4b6fc74d4a9321cc9305cf87b4a0972"
+  },
+  "instruction": "Inspect the locked compiler and the frozen compiled package. Copy the exact AVIR and compile manifest into the candidate directory, report every graph check and source handoff; do not change the compiled creative content. Resolve the hash-bound compile_semantic_failure record against its cited frozen build and evidence; the new output must pass a fresh independent compiler review.",
+  "node_id": "compile"
+}

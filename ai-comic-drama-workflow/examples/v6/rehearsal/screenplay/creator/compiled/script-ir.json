@@ -1,0 +1,418 @@
+{
+  "canon": {
+    "facts": [],
+    "proposals": [],
+    "ref": {
+      "sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "uri": "sources/cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade-canon.json"
+    }
+  },
+  "characters": [
+    {
+      "goal": "把一封未拆的信交给乙",
+      "id": "CHAR_JIA",
+      "name": "甲",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ],
+      "voice": "来源没有对白；本稿不设对白"
+    },
+    {
+      "goal": "确认信封口完整后收进背包",
+      "id": "CHAR_YI",
+      "name": "乙",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ],
+      "voice": "来源没有对白；本稿不设对白"
+    }
+  ],
+  "contract": {
+    "checks": [
+      {
+        "assertions": [
+          {
+            "op": "equals",
+            "path": "/scenes/0/blocks/0/text",
+            "value": "雨夜。"
+          }
+        ],
+        "blocking": true,
+        "evidence_required": "正文首块及 Canon FACT_RAIN_NIGHT",
+        "id": "CHECK_RAIN",
+        "method": "static",
+        "predicate": "事件保留雨夜，不限定具体地点或室内外。"
+      },
+      {
+        "assertions": [
+          {
+            "op": "equals",
+            "path": "/scenes/0/blocks/1/text",
+            "value": "甲把一封未拆的信交给乙。"
+          },
+          {
+            "op": "equals",
+            "path": "/scenes/0/blocks/2/text",
+            "value": "乙确认这封信的封口完整。"
+          },
+          {
+            "op": "equals",
+            "path": "/scenes/0/blocks/3/text",
+            "value": "乙将同一封信收进背包。"
+          }
+        ],
+        "blocking": true,
+        "evidence_required": "三个动作块与 Canon PROP_LETTER/PROP_BACKPACK",
+        "id": "CHECK_LETTER",
+        "method": "static",
+        "predicate": "一封未拆的信在交付、查封口和收存中保持同一对象。"
+      },
+      {
+        "assertions": [
+          {
+            "op": "equals",
+            "path": "/narrative/reveal_order",
+            "value": [
+              "EVT_HANDOFF",
+              "EVT_SEAL_CHECK",
+              "EVT_STOW"
+            ]
+          },
+          {
+            "op": "equals",
+            "path": "/narrative/events/2/causes",
+            "value": [
+              "EVT_SEAL_CHECK"
+            ]
+          },
+          {
+            "op": "equals",
+            "path": "/narrative/events/2/preconditions/0/state",
+            "value": "knows"
+          }
+        ],
+        "blocking": true,
+        "evidence_required": "事件序列、因果引用和乙的知识状态",
+        "id": "CHECK_ORDER",
+        "method": "static",
+        "predicate": "交信、确认、收存依次发生，收存前乙已确认封口。"
+      },
+      {
+        "assertions": [],
+        "blocking": true,
+        "evidence_required": "当前版本逐块与原文、Canon 对读的具体结论",
+        "id": "CHECK_SOURCE_BOUNDARY",
+        "method": "semantic",
+        "predicate": "正文是否只陈述来源给出的雨夜、交信、验封和收存，而没有新增人物、动机、信件内容、对白或后续？"
+      }
+    ],
+    "clauses": [
+      {
+        "change_policy": "preserve",
+        "check_ids": [
+          "CHECK_RAIN",
+          "CHECK_SOURCE_BOUNDARY"
+        ],
+        "id": "REQ_RAIN_NIGHT",
+        "owner": "screenplay",
+        "paths": [
+          "/scenes/0/blocks/0/text"
+        ],
+        "priority": "hard",
+        "realization": "action",
+        "requirement": "保留雨夜这一时空事实，不补写具体地点。",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      },
+      {
+        "change_policy": "preserve",
+        "check_ids": [
+          "CHECK_LETTER",
+          "CHECK_SOURCE_BOUNDARY"
+        ],
+        "id": "REQ_SINGLE_LETTER",
+        "owner": "screenplay",
+        "paths": [
+          "/scenes/0/blocks/1/text",
+          "/scenes/0/blocks/2/text",
+          "/scenes/0/blocks/3/text"
+        ],
+        "priority": "hard",
+        "realization": "action",
+        "requirement": "交接一封未拆的信，后续封口检查与收存指向同一封信。",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      },
+      {
+        "change_policy": "preserve",
+        "check_ids": [
+          "CHECK_ORDER",
+          "CHECK_SOURCE_BOUNDARY"
+        ],
+        "id": "REQ_ACTION_ORDER",
+        "owner": "screenplay",
+        "paths": [
+          "/narrative/events",
+          "/narrative/reveal_order",
+          "/scenes/0/blocks/1/text",
+          "/scenes/0/blocks/2/text",
+          "/scenes/0/blocks/3/text"
+        ],
+        "priority": "hard",
+        "realization": "narrative",
+        "requirement": "甲交给乙；乙确认封口完整；确认后乙把信收进背包。",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "steps": [
+          "agent_write",
+          "static_validate",
+          "semantic_review",
+          "text_compile",
+          "director_realize"
+        ]
+      }
+    ],
+    "deliverables": [
+      "screenplay"
+    ],
+    "scope": "仅改写原文的雨夜交信事件；不补写地点、人物关系、动机、信件内容、对白或后续。"
+  },
+  "culture": {
+    "claims": [],
+    "mode": "invented",
+    "overlays": []
+  },
+  "language": "zh-CN",
+  "locks": [],
+  "narrative": {
+    "ending": "乙把同一封信收进背包；来源没有交代后续。",
+    "events": [
+      {
+        "block_ids": [
+          "B_HANDOFF"
+        ],
+        "causes": [],
+        "description": "甲把一封未拆的信交给乙。",
+        "id": "EVT_HANDOFF",
+        "preconditions": [],
+        "scene_id": "SC_RAIN_NIGHT",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "updates": []
+      },
+      {
+        "block_ids": [
+          "B_SEAL"
+        ],
+        "causes": [
+          "EVT_HANDOFF"
+        ],
+        "description": "乙确认该信封口完整。",
+        "id": "EVT_SEAL_CHECK",
+        "preconditions": [],
+        "scene_id": "SC_RAIN_NIGHT",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "updates": [
+          {
+            "actor": "CHAR_YI",
+            "proposition": "PROP_SEAL_INTACT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "state": "knows"
+          }
+        ]
+      },
+      {
+        "block_ids": [
+          "B_STOW"
+        ],
+        "causes": [
+          "EVT_SEAL_CHECK"
+        ],
+        "description": "乙在确认后把同一封信收进背包。",
+        "id": "EVT_STOW",
+        "preconditions": [
+          {
+            "actor": "CHAR_YI",
+            "proposition": "PROP_SEAL_INTACT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "state": "knows"
+          }
+        ],
+        "scene_id": "SC_RAIN_NIGHT",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "updates": []
+      }
+    ],
+    "initial_knowledge": [],
+    "premise": "雨夜，甲交给乙一封未拆的信；乙确认封口完整后将同一封信收进背包。",
+    "promises": [],
+    "reveal_order": [
+      "EVT_HANDOFF",
+      "EVT_SEAL_CHECK",
+      "EVT_STOW"
+    ]
+  },
+  "open_issues": [],
+  "project_id": "LETTER_DEMO",
+  "propositions": [
+    {
+      "id": "PROP_SEAL_INTACT",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ],
+      "statement": "这封信在乙确认时封口完整。",
+      "truth": "true"
+    }
+  ],
+  "review": {
+    "content_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14",
+    "findings": [
+      "逐块核对原文和冻结 Canon：雨夜、甲交未拆信、乙确认同一封信封口完整、乙随后将信收进背包，顺序一致。",
+      "甲乙之外没有人物；未补写地点与室内外、动机、信件内容、对白、时长或后续。"
+    ],
+    "reviewer": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21 / source-bound semantic review",
+    "status": "PASS"
+  },
+  "revision": 1,
+  "rewrite_scope": {
+    "allow_new_events": false,
+    "allowed_paths": [
+      "/scenes",
+      "/narrative",
+      "/characters",
+      "/propositions"
+    ],
+    "level": "structure",
+    "preserve_paths": []
+  },
+  "scenes": [
+    {
+      "blocks": [
+        {
+          "id": "B_RAIN",
+          "kind": "action",
+          "source_refs": [
+            "SRC_69a71adcfaca",
+            "CANON_INPUT"
+          ],
+          "speaker": null,
+          "text": "雨夜。"
+        },
+        {
+          "id": "B_HANDOFF",
+          "kind": "action",
+          "source_refs": [
+            "SRC_69a71adcfaca",
+            "CANON_INPUT"
+          ],
+          "speaker": null,
+          "text": "甲把一封未拆的信交给乙。"
+        },
+        {
+          "id": "B_SEAL",
+          "kind": "action",
+          "source_refs": [
+            "SRC_69a71adcfaca",
+            "CANON_INPUT"
+          ],
+          "speaker": null,
+          "text": "乙确认这封信的封口完整。"
+        },
+        {
+          "id": "B_STOW",
+          "kind": "action",
+          "source_refs": [
+            "SRC_69a71adcfaca",
+            "CANON_INPUT"
+          ],
+          "speaker": null,
+          "text": "乙将同一封信收进背包。"
+        }
+      ],
+      "heading": "雨夜",
+      "id": "SC_RAIN_NIGHT",
+      "purpose": "呈现交信、验封口、收存的来源事件顺序",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ]
+    }
+  ],
+  "schema": "script-ir/1.0",
+  "source_refs": [
+    "SRC_69a71adcfaca",
+    "CANON_INPUT"
+  ],
+  "sources": [
+    {
+      "excerpt": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+      "id": "SRC_69a71adcfaca",
+      "kind": "user",
+      "locator": "原始 user-text 全文",
+      "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+      "uri": "sources/69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054-source.txt",
+      "verification": "read"
+    },
+    {
+      "excerpt": "雨夜，甲将一封未拆的信交给乙；乙先确认该信封口完整，再把信收进背包。",
+      "id": "CANON_INPUT",
+      "kind": "canon",
+      "locator": "/content 及 source_facts、entities、event_order、source_requirements",
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "uri": "sources/befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c-canon.json",
+      "verification": "read"
+    }
+  ],
+  "status": "READY",
+  "task": {
+    "forbidden_techniques": [],
+    "operation": "adapt",
+    "output": "screenplay",
+    "style_request": null,
+    "tags": []
+  },
+  "timing": {
+    "estimated_range_seconds": null,
+    "evidence": null,
+    "measured_seconds": null,
+    "target_seconds": null
+  },
+  "title": "雨夜交信"
+}

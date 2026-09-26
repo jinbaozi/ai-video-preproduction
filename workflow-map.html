@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>七技能套装 V5.4 历史流程图</title>
+<style>
+  :root {
+    --bay: #10181c;
+    --panel: #18262c;
+    --panel-2: #20323a;
+    --ink: #e7f0ea;
+    --muted: #93a79f;
+    --line: #31454c;
+    --tungsten: #e4b15a;
+    --mint: #7dcea0;
+    --clay: #e07a5f;
+    --cyan: #8ec4d4;
+    --display: "Songti SC", "STSong", "Noto Serif SC", serif;
+    --body: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", sans-serif;
+    --mono: "SF Mono", "Menlo", ui-monospace, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(1200px 500px at 10% -10%, #1c3338 0%, transparent 55%),
+      var(--bay);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  a { color: var(--cyan); }
+  :focus-visible { outline: 2px solid var(--tungsten); outline-offset: 3px; }
+  .wrap { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+  header.mast { padding: 48px 0 20px; }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--tungsten);
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.15;
+    margin: 10px 0 12px;
+  }
+  .thesis { max-width: 68ch; color: var(--muted); font-size: 18px; }
+  .doors { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 28px; }
+  .door {
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 18px 18px 16px;
+    min-height: 132px;
+  }
+  .door strong { display: block; font-family: var(--display); font-size: 28px; font-weight: 600; }
+  .door span { color: var(--muted); display: block; margin-top: 6px; }
+  .door.done { box-shadow: inset 4px 0 0 var(--mint); }
+  .door.film { box-shadow: inset 4px 0 0 var(--tungsten); }
+  nav.jump { display: flex; gap: 18px; padding: 8px 0 18px; font-family: var(--mono); font-size: 13px; }
+  .strip-wrap { position: sticky; top: 0; z-index: 4; background: color-mix(in srgb, var(--bay) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .strip { display: flex; gap: 8px; overflow-x: auto; padding: 12px 0 14px; }
+  .frame {
+    flex: 0 0 auto;
+    width: 168px;
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    padding: 10px 10px 8px;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+    position: relative;
+  }
+  .frame::before, .frame::after {
+    content: "";
+    position: absolute;
+    top: 6px; bottom: 6px; width: 6px;
+    background: repeating-linear-gradient(var(--bay) 0 5px, transparent 5px 11px);
+  }
+  .frame::before { left: 3px; }
+  .frame::after { right: 3px; }
+  .frame b { display: block; font-family: var(--mono); font-size: 11px; color: var(--tungsten); font-weight: 500; }
+  .frame em { display: block; font-style: normal; font-size: 14px; line-height: 1.3; margin-top: 4px; padding: 0 8px; }
+  .frame[aria-current="true"] { border-color: var(--tungsten); background: var(--panel-2); }
+  .frame.video b { color: var(--cyan); }
+  main { padding: 28px 0 72px; }
+  section { margin-top: 42px; }
+  h2 { font-family: var(--display); font-size: 32px; font-weight: 600; margin: 0 0 8px; }
+  .lead { color: var(--muted); max-width: 72ch; margin: 0 0 18px; }
+  .dossier {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 16px;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 22px;
+  }
+  .dossier h3 { font-family: var(--display); font-size: 30px; margin: 6px 0 8px; }
+  .kicker { font-family: var(--mono); font-size: 12px; color: var(--cyan); }
+  .dossier p { margin: 0 0 10px; }
+  ul.clean { margin: 8px 0 0; padding-left: 1.1em; }
+  ul.clean li { margin: 6px 0; }
+  .side { background: #121e23; border: 1px solid var(--line); padding: 14px; }
+  .side h4 { margin: 0 0 8px; font-size: 14px; letter-spacing: 0.06em; color: var(--tungsten); }
+  .stamp { display: flex; justify-content: space-between; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .stamp:last-child { border-bottom: 0; }
+  .ok { color: var(--mint); }
+  .no { color: var(--clay); }
+  .mid { color: var(--tungsten); }
+  .lanes { display: grid; gap: 18px; }
+  .lane { border: 1px solid var(--line); background: var(--panel); padding: 14px; }
+  .lane h3 { margin: 0 0 10px; font-size: 16px; font-family: var(--mono); font-weight: 500; color: var(--tungsten); }
+  .chain { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .node {
+    background: #121e23;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    font: inherit;
+    padding: 8px 10px;
+    cursor: pointer;
+    text-align: left;
+  }
+  .node small { display: block; color: var(--muted); font-family: var(--mono); font-size: 11px; }
+  .node[aria-current="true"] { border-color: var(--tungsten); }
+  .arrow { color: var(--muted); font-family: var(--mono); }
+  .returns { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .returns p { margin: 0; background: #121e23; border: 1px dashed var(--line); padding: 10px 12px; color: var(--muted); }
+  .methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .method { background: var(--panel); border: 1px solid var(--line); padding: 14px; }
+  .method b { display: block; font-family: var(--display); font-size: 20px; margin-bottom: 6px; }
+  .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+  .filters button {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    font: inherit;
+    padding: 6px 10px;
+    cursor: pointer;
+  }
+  .filters button[aria-pressed="true"] { border-color: var(--tungsten); color: var(--tungsten); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-family: var(--mono); font-size: 12px; color: var(--muted); font-weight: 500; }
+  tr.hit td:nth-child(4) { color: var(--mint); }
+  caption { text-align: left; color: var(--muted); margin-bottom: 8px; }
+  footer { color: var(--muted); font-size: 13px; padding-bottom: 40px; }
+  @media (max-width: 860px) {
+    .doors, .dossier, .methods, .returns { grid-template-columns: 1fr; }
+    h1 { font-size: 36px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<header class="mast wrap">
+  <div class="eyebrow">ai-video-preproduction · V5.4 历史协议</div>
+  <p class="thesis"><strong>此页只记录 V5.4 旧流程。</strong>新项目 V6 的唯一阶段定义请查看 <a href="ai-comic-drama-workflow/workflow-v6.json">workflow-v6.json</a>；此页的静态阶段表不用于 V6 调度或验收。</p>
+  <h1>前期可以交货。<br>成片要另开一本账。</h1>
+  <p class="thesis">七个技能没有合成一个大提示词。总工作流拿着事实、锁和版本，专业技能各写各的中间稿。编译器只把冻结的分镜变成可复制提示词，不负责生成。要视频，得在 <span class="mid">DELIVERED</span> 之后走进生产台账，交到 <span class="mid">VIDEO_DELIVERED</span> 才算成片。</p>
+  <div class="doors">
+    <div class="door done">
+      <strong>DELIVERED</strong>
+      <span>前期包。full 含实际参考图，text-only 只有文本。旧项目没有 production_target 时按 none，走到这里就结束。</span>
+    </div>
+    <div class="door film">
+      <strong>VIDEO_DELIVERED</strong>
+      <span>只有 production_target=video，并且镜头、相邻、整段验收都是 PASS，总装状态是 CHECKED，才进这扇门。</span>
+    </div>
+  </div>
+</header>
+<nav class="jump wrap" aria-label="页内">
+  <a href="#flow">V5 历史流程图</a>
+  <a href="#stage">阶段在做什么</a>
+  <a href="#means">质量靠什么卡住</a>
+  <a href="#matrix">能力四层</a>
+</nav>
+<div class="strip-wrap">
+  <div class="wrap strip" id="strip" role="tablist" aria-label="阶段"></div>
+</div>
+<main class="wrap">
+  <section id="stage">
+    <h2>点一格，看这一阶段交什么、卡什么</h2>
+    <p class="lead">片孔条上的顺序就是执行顺序。不是每次都走完：text-only 不生图；没有视频目标就不进成片账。轻量任务可以直接写正文，不必铺开整套 JSON。</p>
+    <article class="dossier" id="dossier"></article>
+  </section>
+
+  <section id="flow">
+    <h2>完整流程图</h2>
+    <p class="lead">上排是前期九步，下排是成片账。箭头只表示允许的下一站。虚线框是回路：改语义必须回到原所有者，失败的成片不能写回事实库。</p>
+    <div class="lanes">
+      <div class="lane">
+        <h3>前期 · 终点 DELIVERED</h3>
+        <div class="chain" id="lane-pre"></div>
+      </div>
+      <div class="lane">
+        <h3>成片 · 仅 production_target=video · 终点 VIDEO_DELIVERED</h3>
+        <div class="chain" id="lane-video"></div>
+      </div>
+    </div>
+    <div class="returns">
+      <p>语义冲突、锁冲突、实体对不上：交回原所有者改一版，再编译。编译器不能改合同渠道，也不能把 supplement 改成主渠道。</p>
+      <p>生图中断：先 recover 原结果。提交结果不明：记 UNKNOWN，禁止自动再提交。验收阈值冻结后不能放宽。失败 Take 不写回 Canon。</p>
+      <p>硬要求过不了入口：标 BLOCKED，留下完整草案。不能截断提示词、缩短时长或悄悄换模型来假装通过。</p>
+      <p>预算用尽：BLOCKED_BUDGET。补救只有四条：换执行通道、补资产、调整允许变化的镜头设计、交由后期完成。</p>
+    </div>
+  </section>
+
+  <section id="means">
+    <h2>质量不是一句“检查通过”</h2>
+    <p class="lead">每一阶段用的是同一套纪律，落点不同。静态结构通过、看过图、听过声、真正跑过模型、达到预注册质量门，五件事分开记账。</p>
+    <div class="methods">
+      <article class="method"><b>所有权</b>编剧管因果和台词，导演管怎么被看见，美术管世界和服化，分镜只细化没锁的部分，编译器不改创作决定。矛盾退回字段级修订。</article>
+      <article class="method"><b>协议与指纹</b>完整制作走 ScriptIR 1.0、DirectorIR 1.2、ArtIR 1.0、StoryboardIR 1.2、AVIR 1.2。提交绑定内容指纹。改稿之后，旧复核失效。</article>
+      <article class="method"><b>冻结后不再润色</b>IR 冻结之后由脚本做确定性转换。模型不能静默改编译结果。新语义必须新 revision，输出写到新目录。</article>
+      <article class="method"><b>硬要求不降级</b>风格、字数、平台限制都不能悄悄丢掉硬要求。缺关键姿态就 BLOCKED。未知槽位写 UNRESOLVED，不猜上传语法。</article>
+      <article class="method"><b>媒体要有原件</b>图片登记真实路径、SHA-256、实际送入的参考绑定和看图结论。工具返回了文件，不等于视觉通过。没看过的范围保持 NOT_VIEWED。</article>
+      <article class="method"><b>执行与质量分开</b>文本适配、素材绑定、实际执行、质量验证是四层。probe_passed 只表示收回了可解码文件。quality_validated 仍全部为 false。</article>
+    </div>
+  </section>
+
+  <section id="matrix">
+    <h2>能力四层</h2>
+    <p class="lead">表从注册表生成，这里按同一份矩阵展示。文本适配表示能写出该入口的提示词计划。只有 Agnes 有素材绑定草案。实际执行目前只有 Flash 文生视频在 <code>api.agnes-ai.cn</code> 上收回过一条片子。注册表里的国际站地址这次没有调用。没有任何路线通过质量门。</p>
+    <div class="filters" role="group" aria-label="筛选">
+      <button type="button" data-filter="all" aria-pressed="true">全部</button>
+      <button type="button" data-filter="bound">素材已绑定</button>
+      <button type="button" data-filter="ran">实际执行过</button>
+      <button type="button" data-filter="open">质量仍未验证</button>
+    </div>
+    <table>
+      <caption>点表头不能排序。筛选只隐藏行，不改变结论。</caption>
+      <thead>
+        <tr><th>入口</th><th>模式</th><th>文本适配</th><th>素材绑定</th><th>实际执行</th><th>质量验证</th></tr>
+      </thead>
+      <tbody id="matrix-body"></tbody>
+    </table>
+  </section>
+  <footer>
+    这张图描述仓库里的 V5.4 工作流，不描述 hypit-ai 独立产品。剪映草稿和 Hypit 导出排在 ffmpeg 确定性拼接之后，它们不是验收门。
+  </footer>
+</main>
+<script>
+const stages = [
+  {
+    id: "canon", lane: "pre", no: "01", title: "资料与项目事实", module: "总工作流 · Canon",
+    does: "把用户原文、已有图片、旧决定收成项目事实。实体用稳定 ID，锁记录哪些字段不能被下游改。来源、设计补充和未核验项分开写。有参考视频时，只登记实际看过的时段和实际听过的声音。",
+    out: "project.json、来源登记、实体与锁。这是后面所有技能的事实底稿。",
+    controls: ["旧项目只读。要续作必须 copy-project，原件按字节保留。", "路径不能逃出项目目录。写入走事务，中断可以回滚。", "观察记录只覆盖列出的范围。没看的画面、没听的声音保持未验证。", "模块锁按哈希绑定六个专业包。不随别的目录升级而偷偷换包。"]
+  },
+  {
+    id: "screenplay", lane: "pre", no: "02", title: "故事与剧本", module: "screenplay-grammar · ScriptIR 1.0",
+    does: "决定因果、人物选择、结局、台词、潜台词，以及谁在什么时候知道什么。剧情必要动作归编剧，比如藏钥匙、拒绝归还。手指怎么发力、景别和机位不在这里决定。",
+    out: "可交接的剧本主稿。单场任务可以直接给正文；长期项目才建立机器包。",
+    controls: ["编译前 validate。复核绑定内容指纹，改稿后旧复核作废。", "未审稿可以导出，但必须带着 DRAFT。不能当成已通过的制作剧本交给导演。", "台词、怀疑、误信和事实不能混成同一种句子。心理活动不能自动改成画内对白。", "导演若把怀疑写成识破、把承诺写成讽刺，退回编剧修订。"]
+  },
+  {
+    id: "director", lane: "pre", no: "03", title: "导演方案", module: "director-grammar · DirectorIR 1.2",
+    does: "把剧本落成观众必须看见的证据：行为、空间、表演和已经锁定的镜头原则。每个镜头要有用途、触发、行动、反馈和可见终态。摄影机、人物、道具各写各的轨迹。",
+    out: "导演 IR。冻结之后才允许编译，不在这一步生成视频。",
+    controls: ["先记事实、用户锁、设计补充、未核验项。推断不能写成已观察。", "硬要求不能被风格、平台限制或自动修复盖掉。保不住就列出阻塞和影响。", "同一镜头、同一实体、同一参考维度只有一个胜出来源。未知槽位是 UNRESOLVED。", "数值焦距、坐标、FPS 是制作意图。入口没有可验证控制时，不能写成已经执行。"]
+  },
+  {
+    id: "art", lane: "pre", no: "04", title: "美术方案", module: "production-design-grammar · ArtIR 1.0",
+    does: "持有建筑、陈设、材料、色彩、服化外观、画内光源和资产状态。画面上怎么摆可供拍摄的世界，归美术。机位、情绪和表演时点不在这里重选。ArtIR 不另维护一套动作时间轨。",
+    out: "美术 IR 与资产约束。没有导演数据也可以做美术，但视频交接会标出缺的镜头，不伪造。",
+    controls: ["反打继承世界里的光源方向，不把画面左右机械抄过去。", "状态变化要有事件、初态、末态和所在镜头。关键帧只画当前状态。", "每张参考要有真实文件名、哈希、用途，以及可以继承和禁止继承的信息。没读过图不能说视觉合格。", "硬要求不因平台限制静默降级。冻结后只做确定性编译。"]
+  },
+  {
+    id: "visual", lane: "pre", no: "05", title: "视觉资产", module: "image-prompt-optimizer · 宿主生图",
+    does: "为角色、场景、道具写可执行的图片提示词和约束检查。优化器自己不调用生图。full 交付才由宿主的真实图像工具出图；text-only 跳过这一步的实际像素。",
+    out: "提示词、检查结论；full 时还有图片原件、调用记录和看图结论。",
+    controls: ["先 begin-image 再调用。中断后回收原结果，不能因为等太久就再生成一张。", "input_bindings 必须是真正送进工具的文件和哈希，不能只在句子里提到。", "visual_review 要有看图发现。返回了文件不等于视觉 PASS。", "身份第一次定稿只展示实际图片，由用户选择。选定后记录，不反复追问。"]
+  },
+  {
+    id: "storyboard", lane: "pre", no: "06", title: "分镜制作", module: "storyboard-grammar · StoryboardIR 1.2",
+    does: "把导演意图和美术世界写成可剪、可执行、可验收的镜头、画格和时间。只细化还没锁定的部分。每镜回答跟谁看、观众得到什么、谁行动谁反应、为什么移动、为什么在这里切。",
+    out: "分镜 IR、画格说明、制作合同和时序。静态包的 execution_ready 与 submitted 仍是 false。",
+    controls: ["世界左右、画面左右、人物自身左右分开。换景别不等于人物瞬移。", "手别、接触、支撑、视线、持物要能回放。看不到的眼睑变化不能承担关键剧情。", "台词保持「说话人：“台词内容”」。静默心理不能变成旁白，旁白不能变成口型。", "结构检查 PASS 和画格、媒体、人工 NOT_RUN 分开。测试通过不能代替出图或成片。"]
+  },
+  {
+    id: "boards", lane: "pre", no: "07", title: "分镜图片", module: "image-prompt-optimizer · 宿主生图",
+    does: "按画格的明确时刻做分镜图提示词，再由宿主出图。每张图只依赖它真正消费的资产、世界、机位和事件。无关镜头备注不会让已经看过的图失效。",
+    out: "画格图、用途和进入视频提示词的硬合同。同一文件给多个实体时，物理文件按哈希复用，逻辑用途分开记。",
+    controls: ["一次创作提交最多新增或改 5 个镜头。已有完整包用导入或 reused，并做真实审核。", "画格按时刻和依赖指纹复用。没变的图不重做，换模型也不自动重做角色图。", "附件数量超过目标能力就阻塞，不丢图。", "看图结论仍然单独记录。提示词检查通过不等于这张分镜图可用。"]
+  },
+  {
+    id: "compile", lane: "pre", no: "08", title: "视频提示词", module: "video-prompt-compiler · AVIR 1.2",
+    does: "这是整条链唯一的模型编译出口。冻结分镜映射成 AVIR，再投影成按镜头和时间排列的正文、参数草案和附件表。默认是完整审阅视图。lean 只在实验里省略已经由别的通道承担的复述，而且正文里还得留着指代。",
+    out: "可复制提示词、审计覆盖、分段文件。编译回执固定 submitted=false、runnable=false。",
+    controls: ["Agnes 才有 API 字段草案，而且草案本身不是已提交任务。其他模型得到 TEXT_ADAPTER_ONLY，执行载荷为空。", "超长保留完整稿。缺关键姿态的切片标 BLOCKED，不能当可投喂文件。", "编译器不改 supplement，也不改合同渠道。要换主渠道，先由原所有者修订。", "verify 会对照原包重编译。只重算被改文件的摘要过不了校验。"]
+  },
+  {
+    id: "qa", lane: "pre", no: "09", title: "前期验收与交付", module: "总工作流 · export",
+    does: "validate --final 和 export 检查依赖、锁、模块和构建是否齐。齐了才是 DELIVERED：实际参考图（full）、可复制提示词、附件表和验收记录。缺依赖只能叫草稿。",
+    out: "前期交付。若目标是 video，导出说明写「前期交付完成」，成片仍未生成。",
+    controls: ["阶段 9 的 QA 记录绑定当前 build_id。换了构建，旧通过不能沿用。", "静态映射和合同检查仍要当前 Agent 做语义复核。Python 断言不能证明未来画面。", "对白、身份、手别、持物、可见性和跨镜连续性要逐项对照来源，不能用覆盖表代替判断。", "这里的通过不是视频质量通过。视频执行在下一本账。"]
+  },
+  {
+    id: "plan", lane: "video", no: "V1", title: "冻结生成任务", module: "production plan",
+    does: "从已编译请求建立生成任务。请求里的 submitted 必须仍是 false。同时冻结预算：单任务次数和项目总次数。附件清单和镜头范围一起写下。",
+    out: "状态 FROZEN 的 job。还没有网络请求。",
+    controls: ["未注册的模型、模式或入口不能写进 video_capabilities。", "预算用尽直接 BLOCKED_BUDGET，并给出四条补救，不自动改设计。", "任务引用的是编译产物的哈希。编译稿一变，旧任务不能假装还有效。"]
+  },
+  {
+    id: "execute", lane: "video", no: "V2", title: "提交或人工回收", module: "Agnes API / 人工 Take",
+    does: "自动路径在发 POST 之前先把执行记成 SUBMITTING。成功后记下 task_id，轮询，下载，再用 ffprobe 记录宽高、帧率和时长。没有密钥或不走 API 时，用人工回收已有文件。",
+    out: "Take：文件、SHA-256、探针。automatic 标明是不是 API 自己下回来的。",
+    controls: ["提交抛错或没有任务号：记 UNKNOWN，禁止自动重提。", "查询限流只继续轮询同一个任务，不再开第二次生成。", "下载前核对附件 URL 的字节哈希。对不上就不提交。", "人工 Take 的 automatic 为 false，不能冒充自动执行证据。"]
+  },
+  {
+    id: "shot", lane: "video", no: "V3", title: "镜头验收", module: "acceptance · shot",
+    does: "开跑之前把验收条款冻成计划，并记下 sha256。每条结果只能是 PASS、FAIL 或 UNDETERMINED。缺观察就是 UNDETERMINED。",
+    out: "镜头级决定。硬失败或任何 UNDETERMINED 都不能进入成片完成。",
+    controls: ["计划哈希变了就拒绝。失败之后不能把阈值改松。", "看图记录的状态是 OBSERVATIONS_RECORDED。记下观察不等于质量通过。", "修复任务指向失败条款。失败成片不写回 Canon。"]
+  },
+  {
+    id: "adjacent", lane: "video", no: "V4", title: "相邻与整段", module: "acceptance · adjacent / sequence",
+    does: "相邻镜检查手别、朝向、道具归属、台词是否被重复说了一遍、情绪有没有无来源地跳变。整段再看这些镜头连起来是否仍满足冻结条款。",
+    out: "相邻决定和整段决定。三层都要 PASS。",
+    controls: ["一条台词跨镜只登记一次。每个镜头再演一遍会被相邻检查抓住。", "允许的变化要有触发，例如递出之后持有者改变。没有来源的变化要消除。", "整段不通过时，不能用单镜 PASS 宣布成片完成。"]
+  },
+  {
+    id: "assemble", lane: "video", no: "V5", title: "总装", module: "ffmpeg，然后才是剪映 / Hypit",
+    does: "用明确的入点出点把 Take 接成一条。时间有三套：项目毫秒、媒体帧、后期毫秒，不能混用。拼接本身不负责修演技。",
+    out: "总装记录。状态 CHECKED 且三层验收都过，才可以 mark_video_delivered。",
+    controls: ["EDL 里速度必须是 1。setpts、scale、crop、stretch、atempo、fps 当作成片手段会被拒绝。", "ffmpeg 只在明确裁掉帧之后用 setpts 把时码归零，这不是变速。", "剪映草稿和 Hypit 导出是拼接之后的交付格式，不是质量门。", "三条时间轴对不齐就不能当成已经剪完。"]
+  }
+];
+
+const matrix = [
+  ["seedance2.0","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.0","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.0","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.5","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.5","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.5","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.5","edit","已支持","无控制路由","无控制路由","无控制路由"],
+  ["seedance2.5","extend","已支持","无控制路由","无控制路由","无控制路由"],
+  ["agnes-video-2.5","text","已支持","已支持","未探测","未验证"],
+  ["agnes-video-2.5","keyframe","已支持","已支持","未探测","未验证"],
+  ["agnes-video-2.5","reference","已支持","已支持","未探测","未验证"],
+  ["agnes-video-2.5-flash","text","已支持","已支持","已收回文件","未验证"],
+  ["agnes-video-2.5-flash","keyframe","已支持","已支持","未探测","未验证"],
+  ["agnes-video-2.5-flash","reference","已支持","已支持","未探测","未验证"],
+  ["kling-v3","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["kling-v3","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["kling-v3","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["kling-v3-omni","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["kling-v3-omni","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["kling-v3-omni","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["minimax-h3","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["minimax-h3","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["minimax-h3","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["veo3.1","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["veo3.1","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["veo3.1","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["wan3.0","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["wan3.0","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["wan3.0","reference","已支持","无控制路由","无控制路由","无控制路由"],
+  ["runway-gen4.5","text","已支持","无控制路由","无控制路由","无控制路由"],
+  ["runway-gen4.5","keyframe","已支持","无控制路由","无控制路由","无控制路由"],
+  ["runway-gen4.5","reference","已支持","无控制路由","无控制路由","无控制路由"]
+];
+
+const strip = document.querySelector("#strip");
+const dossier = document.querySelector("#dossier");
+let current = "canon";
+
+function stamp(label, kind, text) {
+  const cls = kind === "ok" ? "ok" : kind === "no" ? "no" : "mid";
+  return `<div class="stamp"><span>${label}</span><span class="${cls}">${text}</span></div>`;
+}
+
+function honesty(stage) {
+  if (stage.lane === "pre" && stage.id !== "qa") {
+    return stamp("这一阶段的产物", "mid", "设计或文本合同")
+      + stamp("实际像素 / 视频", "no", "默认还没有")
+      + stamp("能否当成成片", "no", "不能");
+  }
+  if (stage.id === "qa") {
+    return stamp("前期包", "ok", "依赖齐才是 DELIVERED")
+      + stamp("视频", "no", "仍是 NOT_RUN")
+      + stamp("质量门", "no", "不在这扇门里");
+  }
+  if (stage.id === "execute") {
+    return stamp("Flash 文生视频", "ok", "收回过一条可解码文件")
+      + stamp("首尾帧 / 参考图", "no", "还没探测")
+      + stamp("质量验证", "no", "quality_validated 仍为 false");
+  }
+  return stamp("是否改写事实库", "no", "不写 Canon")
+    + stamp("阈值", "mid", "冻结后不可放宽")
+    + stamp("完成成片", "no", "三层 PASS 加总装才行");
+}
+
+function render() {
+  const stage = stages.find((s) => s.id === current);
+  document.querySelectorAll(".frame, .node").forEach((el) => {
+    if (el.dataset.id === current) el.setAttribute("aria-current", "true");
+    else el.removeAttribute("aria-current");
+  });
+  dossier.innerHTML = `
+    <div>
+      <div class="kicker">${stage.module}</div>
+      <h3>${stage.title}</h3>
+      <p>${stage.does}</p>
+      <p><b>交出：</b>${stage.out}</p>
+      <ul class="clean">${stage.controls.map((c) => `<li>${c}</li>`).join("")}</ul>
+    </div>
+    <aside class="side">
+      <h4>这一格现在能声称什么</h4>
+      ${honesty(stage)}
+    </aside>`;
+}
+
+function button(stage, className) {
+  const el = document.createElement("button");
+  el.type = "button";
+  el.className = className + (stage.lane === "video" ? " video" : "");
+  el.dataset.id = stage.id;
+  el.setAttribute("role", "tab");
+  el.innerHTML = `<b>${stage.no}</b><em>${stage.title}</em>`;
+  if (className === "node") el.innerHTML = `${stage.title}<small>${stage.no} · ${stage.module.split("·")[0].trim()}</small>`;
+  el.addEventListener("click", () => {
+    current = stage.id;
+    render();
+    if (className === "node") document.getElementById("stage").scrollIntoView({ block: "start" });
+  });
+  return el;
+}
+
+const pre = document.querySelector("#lane-pre");
+const video = document.querySelector("#lane-video");
+stages.forEach((stage, index) => {
+  strip.appendChild(button(stage, "frame"));
+  const lane = stage.lane === "pre" ? pre : video;
+  if (index > 0 && stages[index - 1].lane === stage.lane) {
+    const arrow = document.createElement("span");
+    arrow.className = "arrow";
+    arrow.textContent = "→";
+    lane.appendChild(arrow);
+  }
+  lane.appendChild(button(stage, "node"));
+});
+
+function cell(text) {
+  if (text === "已支持" || text === "已收回文件") return `<span class="ok">${text}</span>`;
+  if (text === "未验证" || text === "未探测" || text === "无控制路由") return `<span class="no">${text}</span>`;
+  return text;
+}
+
+function drawMatrix(filter) {
+  const body = document.querySelector("#matrix-body");
+  body.innerHTML = "";
+  matrix.forEach((row) => {
+    const bound = row[3] === "已支持";
+    const ran = row[4] === "已收回文件";
+    const open = row[5] !== "已验证";
+    if (filter === "bound" && !bound) return;
+    if (filter === "ran" && !ran) return;
+    if (filter === "open" && !open) return;
+    const tr = document.createElement("tr");
+    if (ran) tr.className = "hit";
+    tr.innerHTML = `<td>${row[0]}</td><td>${row[1]}</td><td>${cell(row[2])}</td><td>${cell(row[3])}</td><td>${cell(row[4])}</td><td>${cell(row[5])}</td>`;
+    body.appendChild(tr);
+  });
+}
+
+document.querySelectorAll(".filters button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filters button").forEach((b) => b.setAttribute("aria-pressed", "false"));
+    btn.setAttribute("aria-pressed", "true");
+    drawMatrix(btn.dataset.filter);
+  });
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+  const index = stages.findIndex((s) => s.id === current);
+  const next = event.key === "ArrowRight" ? index + 1 : index - 1;
+  if (next < 0 || next >= stages.length) return;
+  current = stages[next].id;
+  render();
+});
+
+render();
+drawMatrix("all");
+</script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/compile-review.json",
+  "artifact_sha256": "39918409ba98e131b8befbbee30613188c976190f7eacfc968feaefd88919fab",
+  "checks": [
+    {
+      "finding": "冻结输入与锁定资源的 SHA-256 全部匹配。",
+      "id": "module_receipt"
+    },
+    {
+      "finding": "17 项硬条款逐项核对，当前静态语义一致，历史可见性冲突已关闭。",
+      "id": "compile_semantics"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "6cac2b25585760d16bce096d0c48382f815e5f8b69c841215d691c7968fdfc94",
+  "module_receipt": {
+    "name": "video-prompt-compiler",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md",
+        "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md",
+        "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md",
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+      }
+    ],
+    "skill_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "version": "1.17.6"
+  },
+  "schema": "role-result/5.1",
+  "semantic_review": {
+    "blocked": [],
+    "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+    "clauses": [
+      {
+        "finding": "源文雨夜进入场景与正文；未指定具体地点、年代或室内外。",
+        "id": "SB_A_RAIN"
+      },
+      {
+        "finding": "AVIR 唯一 PROP_LETTER；正文锁定同一封未拆且完整封口的信。",
+        "id": "SB_A_SINGLE_LETTER"
+      },
+      {
+        "finding": "交接在 0.5–4 秒，验封在 4.5–7.5 秒，收存从 8 秒开始。",
+        "id": "SB_A_ORDER"
+      },
+      {
+        "finding": "10.5 秒信入同一背包，12 秒仅保持结果；无后续剧情。",
+        "id": "SB_A_ENDING"
+      },
+      {
+        "finding": "P_GRIP、P_SEAL、P_STOWED 均有相应动作和计划画格。",
+        "id": "SB_A_EVENTS"
+      },
+      {
+        "finding": "交接控制权、完整封口、入包证据按 84、144、252 帧展开。",
+        "id": "SB_A_REVEAL"
+      },
+      {
+        "finding": "甲乙、唯一信、同一背包和雨夜连续性作为制作约束；参考未生成或审图。",
+        "id": "SB_A_ASSET_LOCKS"
+      },
+      {
+        "finding": "正文保留雨夜且未增补具体地点或室内外事实。",
+        "id": "SB_D_RAIN"
+      },
+      {
+        "finding": "同一信从甲右手转乙右手，最终进入同一背包；封口未拆。",
+        "id": "SB_D_SINGLE_LETTER"
+      },
+      {
+        "finding": "ACT_RELEASE 在 ACT_CONFIRM_SEAL 前，后者在 ACT_STOW 前。",
+        "id": "SB_D_ACTION_ORDER"
+      },
+      {
+        "finding": "终态为信在背包内，镜头只保持结果。",
+        "id": "SB_D_ENDING"
+      },
+      {
+        "finding": "三项原故事事件各有动作和反馈；未增加对白或后续事件。",
+        "id": "SB_D_EVENTS"
+      },
+      {
+        "finding": "P_RELEASE 84 帧、P_SEAL 144 帧、P_STOWED 252 帧与正文顺序相同。",
+        "id": "SB_D_REVEAL_ORDER"
+      },
+      {
+        "finding": "固定机位 [0,1.2,-2.8] 与正文起止机位一致，位于负 Z 同侧。",
+        "id": "SB_FIXED_AXIS"
+      },
+      {
+        "finding": "2.5 秒双右手共同接触而甲仍控制；3.5 秒乙独占，早于验封。",
+        "id": "SB_CONTACT_CONTROL"
+      },
+      {
+        "finding": "验封时封口、乙眼部和右手规划为可读；真实媒体尚未验证。",
+        "id": "SB_SEAL_VISIBILITY"
+      },
+      {
+        "finding": "无真实参考或媒体执行；雨声和媒体义务仍为后期 PLANNED。",
+        "id": "SB_MEDIA_BOUNDARY"
+      }
+    ],
+    "equivalent": true,
+    "evidence": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/compile-review.json"
+  },
+  "task_id": "TASK_6cac2b25585760d16bce096d",
+  "unresolved": [],
+  "validator": {
+    "diagnostics": [],
+    "evidence": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/avir-validator.stdout.json",
+    "status": "VALID"
+  }
+}

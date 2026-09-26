@@ -1,0 +1,61 @@
+{
+  "actual_contact_review": "NOT_RUN",
+  "actual_media_review": "NOT_RUN",
+  "actual_model_camera_trajectory_validation": "NOT_RUN",
+  "adapter_losses": [],
+  "adapter_status": "MAPPED",
+  "camera_position_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "camera_status_counts": {
+    "PLANNED_PROJECTION": 121
+  },
+  "candidate_digest": "b297108233a8e1f71ba11a91b10acf9d36f40893f46f7e5f87c0c268c3fb4d96",
+  "coverage_count": 17,
+  "current_end_visible_parts": [],
+  "frame_count": 121,
+  "generated_images": false,
+  "generated_video": false,
+  "independent_locked_control_rebuild": {
+    "execution": "NOT_RUN",
+    "keyframe_requests": 14,
+    "out": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/reviews/TASK_f2d0f9805f575ed23ebfdb6d/1/independent-control-build",
+    "projection_unresolved_frames": 0,
+    "status": "DERIVED",
+    "video_generated": false
+  },
+  "independent_locked_control_verify": {
+    "media_review": "NOT_RUN",
+    "status": "VERIFIED"
+  },
+  "independent_native_validation": {
+    "diagnostics": [],
+    "status": "VALID"
+  },
+  "independent_rebuild_matches_all_candidate_files": true,
+  "independent_rebuild_verify": {
+    "media_review": "NOT_RUN",
+    "status": "VERIFIED"
+  },
+  "keyframe_request_count": 14,
+  "lens_basis": "authored_proxy",
+  "letter_boundary_visible_parts": {
+    "avir_shot_end": [],
+    "avir_timeline_12000ms": [],
+    "control_frame_12000ms": [],
+    "storyboard_10500ms": [],
+    "storyboard_12000ms": []
+  },
+  "manifest_file_count": 10,
+  "manifest_member_hashes_match": true,
+  "prior_defect": "AVIR_END_VISIBILITY_CONFLICT",
+  "prior_wrong_end_visible_parts": [
+    "body",
+    "prop"
+  ],
+  "result": "PASS",
+  "schema": "control-verification-review/1.0",
+  "semantic_review": "INHERITED_DETERMINISTICALLY"
+}

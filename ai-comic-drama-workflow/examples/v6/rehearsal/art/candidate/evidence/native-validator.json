@@ -1,0 +1,45 @@
+{
+  "art_file_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+  "art_object_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+  "attempts": [
+    {
+      "exit_code": 1,
+      "interpreter": "/opt/homebrew/opt/python@3.12/libexec/bin/python3",
+      "result": "ModuleNotFoundError: No module named jsonschema",
+      "stage": "dependency_import"
+    },
+    {
+      "exit_code": 2,
+      "interpreter": "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+      "result": "INVALID: Contract does not bind visible shot/asset: S1 /shots/0",
+      "stage": "initial_candidate"
+    },
+    {
+      "command": [
+        "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+        "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py",
+        "validate",
+        "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json"
+      ],
+      "exit_code": 0,
+      "interpreter": "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+      "stage": "final_candidate",
+      "stderr": "",
+      "stdout": "{\n  \"art_sha256\": \"2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be\",\n  \"status\": \"STATIC_VALID\"\n}\n"
+    }
+  ],
+  "compiled_package": {
+    "blockers": [],
+    "media_acceptance": "NOT_RUN",
+    "receipt_sha256": "992cdea949081d9881d7c0cc659188d21b0653ca121947d6fc6c4512ecc35dec",
+    "status": "PLANNED",
+    "submitted": false,
+    "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/compiled-generic-video"
+  },
+  "limitations": [
+    "STATIC_VALID validates structure and specified bindings; it does not observe images or video.",
+    "The native ArtIR event schema requires DirectorIR shot phases; none exist, so DirectorIR timeline remains the sole action authority."
+  ],
+  "module_version": "1.3.1",
+  "status": "PASS"
+}

@@ -1,0 +1,150 @@
+{
+  "status": "PASS",
+  "source_task_uri": "runtime/tasks/TASK_71abb1f14640b94809ef3db2.json",
+  "director_v6_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "requirement_count": 6,
+  "handoffs": [
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_RAIN",
+      "source_fingerprint": "92f7859ad2ae44a0836a040b4f3718c6ce1259c0bee5ccd84a294aea4105dd73",
+      "source_paths": [
+        "/scenes/0/space",
+        "/shots/0/sound/ambience",
+        "/shots/0/lighting/color_purpose"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/set/atmosphere",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/world/region",
+          "value": "室内外"
+        }
+      ],
+      "target_clause": "A_RAIN"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_SINGLE_LETTER",
+      "source_fingerprint": "5987c8f2db8f22a35f572bd2a70887fcc8ade48b1c3a320a33a81a6c9ed1256c",
+      "source_paths": [
+        "/entities/2",
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2",
+        "/timeline/actions/3",
+        "/timeline/actions/4",
+        "/shots/0/end_state/2"
+      ],
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/assets/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/assets/2/identity_locks/0",
+          "value": "只有 PROP_LETTER"
+        }
+      ],
+      "target_clause": "A_SINGLE_LETTER"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_ACTION_ORDER",
+      "source_fingerprint": "3c1489e110fb4b4c2e340cf5b7f79b1136ae755301daa837654f1b821cad9e49",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/2/requirement",
+          "value": "交信完成后乙确认完整封口，确认后才收进"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/id",
+          "value": "S1"
+        }
+      ],
+      "target_clause": "A_ORDER"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_ENDING",
+      "source_fingerprint": "58c516797253809f3f45d68280c6a9a2895201fbbcbfdf0df5e387bd9a17cc20",
+      "source_paths": [
+        "/shots/0/narrative/audience_after/2",
+        "/timeline/actions/4/settle",
+        "/shots/0/end_state/2"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/3/requirement",
+          "value": "收进乙背包即结束"
+        },
+        {
+          "op": "contains",
+          "path": "/assets/2/design",
+          "value": "无字"
+        }
+      ],
+      "target_clause": "A_ENDING"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_EVENTS",
+      "source_fingerprint": "3d655be9bdb95627a6900099877831f3bf3364a3a7b132083ea7ec09a55d49b4",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/4/requirement",
+          "value": "三项来源事件"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/director_pointer",
+          "value": "/shots/0"
+        }
+      ],
+      "target_clause": "A_EVENTS"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_REVEAL_ORDER",
+      "source_fingerprint": "78290042e04dd7a3f3ad3ad1e612c753ad4b9ed4ecaf60f12ffdc0e7e0ffa6ee",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative/audience_after"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/5/requirement",
+          "value": "先见交接，再见封口完整，最后见"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/occlusion",
+          "value": "关键时间点"
+        }
+      ],
+      "target_clause": "A_REVEAL"
+    }
+  ],
+  "semantic_boundary": "ArtIR owns world, set, costume, material and light design only; DirectorIR owns actions, performance, camera and timing."
+}

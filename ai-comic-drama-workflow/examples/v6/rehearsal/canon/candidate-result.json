@@ -1,0 +1,55 @@
+{
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+  "batch": 1,
+  "agent_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+  "input_digest": "d1a6b95f79b7ee05c1722f3ba83b4b3f04fbec424d81d8ad4b9d848825636d1b",
+  "result_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/role-result.json",
+  "result_sha256": "a53bbb9a8273a3faaaf033b4bc8d61a4257b21ac2957f271ae2247cba6517d3d",
+  "artifacts": [
+    {
+      "slot": "canon:project:project:Canon",
+      "kind": "Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c"
+    }
+  ],
+  "module_receipts": [],
+  "checks": [
+    {
+      "id": "source_integrity",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/source-integrity.json"
+      ]
+    },
+    {
+      "id": "canon_contract",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/canon-contract.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_02899a994552add4610374b6",
+      "source_slot": "sources:project:project:SourceRegistry",
+      "source_version": 1,
+      "target_pointer": "",
+      "target_slot": "canon:project:project:Canon",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "unresolved": []
+}

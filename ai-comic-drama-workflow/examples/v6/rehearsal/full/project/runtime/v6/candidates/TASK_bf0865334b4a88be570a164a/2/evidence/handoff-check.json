@@ -1,0 +1,33 @@
+{
+  "art_event_pointer_compatibility": {
+    "director_schema_version": "1.2",
+    "note": "原生动作位于 timeline.actions；美术事件需引用这一组有效指针而不是空 phases。",
+    "shot_ids": [
+      "S_HANDOFF",
+      "S_SEAL",
+      "S_STOW"
+    ],
+    "supported_pointer_examples": [
+      "/timeline/actions/0",
+      "/timeline/actions/1",
+      "/timeline/actions/2"
+    ]
+  },
+  "canon_source_requirements": 3,
+  "director_semantic_review_sha256": "74c56424e2573d20f6aada65d9d28e7fcdd881e531c548691dc26bfb1be4a606",
+  "media": "NOT_RUN",
+  "native_hard_clauses": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER",
+    "REQ_ENDING",
+    "REQ_SCRIPT_EVENTS",
+    "REQ_REVEAL_ORDER"
+  ],
+  "native_screenplay_binding": "REVIEW_ATTESTED",
+  "screenplay_mapped_handoffs": 6,
+  "screenplay_required_handoffs": 6,
+  "script_review_content_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809",
+  "script_review_status": "PASS",
+  "status": "PASS"
+}

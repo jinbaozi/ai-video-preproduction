@@ -1,0 +1,23 @@
+{
+  "command_id": "ARTREPAIR_DISPATCH_1",
+  "expected_revision": 386,
+  "receipt": {
+    "action_id": "dispatch-ae36c50928a68e33a352bda0",
+    "agent_id": "/root/host_bridge/v6_45ee8a42c29a42e91b5d05e0",
+    "batch": 1,
+    "dispatch_id": "dispatch-ae36c50928a68e33a352bda0",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:23:49.155178Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:23:49.155178Z",
+    "status": "RUNNING",
+    "task_digest": "f033e95835bd069b69f09f0d27f0cce7b9534d01bdb3b974f535db2c2de641a5",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+    "tool_result_sha256": "48eec9e26d254d329641739195068f130877f95034c3bdde6d8a21a796a5e36e",
+    "tool_result_uri": "runtime/v6/host-evidence/48eec9e26d254d329641739195068f130877f95034c3bdde6d8a21a796a5e36e.json"
+  }
+}

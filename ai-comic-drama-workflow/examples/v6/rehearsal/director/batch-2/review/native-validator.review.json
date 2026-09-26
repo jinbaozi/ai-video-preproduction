@@ -1,0 +1,78 @@
+{
+  "action_time_ranges": [
+    {
+      "depends_on": [],
+      "end_ms": 1800,
+      "id": "ACT_EXTEND",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 500
+    },
+    {
+      "depends_on": [
+        "ACT_EXTEND"
+      ],
+      "end_ms": 2800,
+      "id": "ACT_GRIP",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2000
+    },
+    {
+      "depends_on": [
+        "ACT_GRIP"
+      ],
+      "end_ms": 4000,
+      "id": "ACT_RELEASE",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2800
+    },
+    {
+      "depends_on": [
+        "ACT_RELEASE"
+      ],
+      "end_ms": 7500,
+      "id": "ACT_CONFIRM_SEAL",
+      "semantic_id": "EVT_SEAL_CHECK",
+      "start_ms": 4500
+    },
+    {
+      "depends_on": [
+        "ACT_CONFIRM_SEAL"
+      ],
+      "end_ms": 11000,
+      "id": "ACT_STOW",
+      "semantic_id": "EVT_STOW",
+      "start_ms": 8000
+    }
+  ],
+  "artifact_sha256": "d7fc28b7d3207d0beadb14f286e9bffd302a2fdab918dfd54190f515f1355364",
+  "artifact_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/director-ir.json",
+  "candidate_digest": "4bbd44daaa6de55d06e15bd9341aee4ee91643a534624b733b09ffb85657ebf6",
+  "check": "native_validator",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/screenplay-map.json"
+  ],
+  "finding": "Locked dg.py independently returned STATIC_VALID, REVIEW_ATTESTED screenplay binding and zero errors; it does not cross-check character contact prose against prop contacts.",
+  "media_status": "NOT_RUN",
+  "returncode": 0,
+  "reviewed_at": "2026-09-25T11:20:14.028690Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+  "status": "PASS",
+  "stderr": "",
+  "stdout": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "71b77c0dc1abec804d8e7cfa987b70f3865742ce2bd6d58673d9f042b0966380",
+      "handoff_sha256": "716373601911cbf6bcd4274098162556c84e5b5cfa5202a9a40ac8f88576e11c",
+      "mapping_sha256": "e90cdda319decdee215ce9c80b19eb41e8c1629d2486d935df4f123dc5ea8f3e",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  }
+}

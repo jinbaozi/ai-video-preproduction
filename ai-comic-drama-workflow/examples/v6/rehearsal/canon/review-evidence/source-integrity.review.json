@@ -1,0 +1,82 @@
+{
+  "check": "source_integrity",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T10:25:46.367942Z",
+  "method": "Independently recomputed SHA-256 of frozen inputs, original source, Canon, and RoleResult; recomputed V6 task, input, and candidate digests; compared every quoted Unicode character span with the source file.",
+  "frozen_task_digest": "9db0e3e36f98ed562311b841a590e27630a5c6580664206e40ce87d3d4708187",
+  "input_digest": "d1a6b95f79b7ee05c1722f3ba83b4b3f04fbec424d81d8ad4b9d848825636d1b",
+  "candidate_digest": "a41333f9bb29d2016c5e1bd9b05f0c1816de681e7191c656b9a6b16ce91df173",
+  "input_hashes": {
+    "sources:project:project:SourceRegistry": {
+      "uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+      "declared_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a",
+      "actual_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a"
+    },
+    "frozen_task": {
+      "uri": "runtime/tasks/TASK_0e0c8a4ca94c8ffdbb7e14ae.json",
+      "declared_sha256": "5a788db27a53f9200ec78547ed4cd7967f27f3bdf1d1ed9bfff5a6401e1e809c",
+      "actual_sha256": "5a788db27a53f9200ec78547ed4cd7967f27f3bdf1d1ed9bfff5a6401e1e809c"
+    }
+  },
+  "source": {
+    "uri": "sources/SRC_69a71adcfaca/source.txt",
+    "declared_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "actual_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。"
+  },
+  "canon": {
+    "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+    "declared_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+    "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c"
+  },
+  "role_result": {
+    "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/role-result.json",
+    "declared_sha256": "a53bbb9a8273a3faaaf033b4bc8d61a4257b21ac2957f271ae2247cba6517d3d",
+    "actual_sha256": "a53bbb9a8273a3faaaf033b4bc8d61a4257b21ac2957f271ae2247cba6517d3d"
+  },
+  "quote_spans": [
+    {
+      "fact_id": "FACT_RAIN_NIGHT",
+      "char_span": [
+        0,
+        2
+      ],
+      "quote": "雨夜",
+      "matches_source": true
+    },
+    {
+      "fact_id": "FACT_HANDOFF",
+      "char_span": [
+        3,
+        14
+      ],
+      "quote": "甲把一封未拆的信交给乙",
+      "matches_source": true
+    },
+    {
+      "fact_id": "FACT_SEAL",
+      "char_span": [
+        15,
+        22
+      ],
+      "quote": "乙确认封口完整",
+      "matches_source": true
+    },
+    {
+      "fact_id": "FACT_STOW",
+      "char_span": [
+        22,
+        27
+      ],
+      "quote": "后收进背包",
+      "matches_source": true
+    }
+  ],
+  "creator_evidence_read": [
+    {
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/source-integrity.json",
+      "sha256": "d117b4459e2788068d6d7a740c7fadec1761d9689347f1a99a04b015d2d1f50f"
+    }
+  ],
+  "finding": "All frozen inputs and candidate files match their declared hashes. All four quoted spans exactly match the registered original source."
+}

@@ -1,0 +1,32 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T13:59:49.879Z",
+  "method": "Compared the frozen handoff tuple with CandidateResult and RoleResult, verified SourceRegistry/Canon hashes and source mapping, and read dependency states.",
+  "requirement_id": "UP_02899a994552add4610374b6",
+  "source_slot": "sources:project:project:SourceRegistry",
+  "source_version": 1,
+  "target_slot": "canon:project:project:Canon",
+  "target_pointer": "",
+  "source_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "source_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a",
+  "target_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+  "target_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "mapping_pointers": [
+    "/source_refs/0",
+    "/source_facts",
+    "/entities",
+    "/event_order",
+    "/source_requirements"
+  ],
+  "source_dependency_state": "ACCEPTED",
+  "observation_dependency_state": "NOT_APPLICABLE",
+  "creator_evidence_read": [
+    {
+      "check": "handoff",
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/handoff.json",
+      "sha256": "1cf64a7b52ef5413b861f56dcd47df210065cb6566b8141f146e65a33ac891d5"
+    }
+  ],
+  "finding": "The accepted registered source maps to the complete Canon artifact; every source fact and entity refers to its registered source ID."
+}

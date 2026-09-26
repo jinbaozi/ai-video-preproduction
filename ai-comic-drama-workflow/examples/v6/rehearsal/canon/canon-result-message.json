@@ -1,0 +1,21 @@
+{
+  "command_id": "CANON_RESULT_MESSAGE_1",
+  "expected_revision": 9,
+  "message": {
+    "at": "2026-09-25T10:20:06.250700Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/candidate-result.json"
+    ],
+    "in_reply_to": "CANON_ACK_1",
+    "message_id": "CANON_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+    "subject_sha256": "a65393aa6125cd9ce984a61fcf07e087059e914e165df8f3e8b5728f0687d3a7",
+    "subject_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/candidate-result.json",
+    "summary": "Creator completed a source-bound Canon with native JSON, RoleResult, checks and handoff evidence.",
+    "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+    "type": "RESULT"
+  }
+}

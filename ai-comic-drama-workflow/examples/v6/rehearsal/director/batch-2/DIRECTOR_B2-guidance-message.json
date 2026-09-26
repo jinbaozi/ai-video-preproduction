@@ -1,0 +1,22 @@
+{
+  "command_id": "DIRECTOR_B2_GUIDANCE_COMMAND_1",
+  "expected_revision": 52,
+  "message": {
+    "at": "2026-09-25T11:08:32.604911Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRECTOR_B2_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "13449ab70c464f1b69766c6e7c61a89691b6b3571d22147d2b89765a1856d224",
+    "subject_uri": "runtime/v6/host-inputs/director-b2-spawn-brief.json",
+    "summary": "Batch-2 frozen task and targeted repair guidance delivered through real host dispatch; see linked failed independent review.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "HANDOFF"
+  }
+}

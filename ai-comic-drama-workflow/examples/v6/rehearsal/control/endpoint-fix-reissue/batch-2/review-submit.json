@@ -1,0 +1,40 @@
+{
+  "command_id": "CONTROLSEMANTIC-REISSUE-REVIEWER-RESULT_SUBMIT_1",
+  "expected_revision": 547,
+  "review": {
+    "at": "2026-09-25T16:42:20.546182+00:00",
+    "batch": 2,
+    "candidate_digest": "529377afbf6660b19d512e5b79dff3952cfc2df6de536ba693f07f9a5acfbba8",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_92a2f36e9b05a414fec43209/2/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_92a2f36e9b05a414fec43209/2/control-semantics.review.json",
+          "runtime/v6/reviews/TASK_92a2f36e9b05a414fec43209/2/native-av-validation.review.json",
+          "runtime/v6/reviews/TASK_92a2f36e9b05a414fec43209/2/control-verify.review.json",
+          "runtime/v6/reviews/TASK_92a2f36e9b05a414fec43209/2/control-build.review.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_92a2f36e9b05a414fec43209/2/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_beb7d005b2240400272486ee",
+    "reviewer_dispatch_id": "review-4e1a29bc8bda43f08bb508a8",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_92a2f36e9b05a414fec43209"
+  }
+}

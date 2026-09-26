@@ -1,0 +1,211 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+  "context_fingerprint": "536f58cce58a7823bdf4a3f30ad68add6e84306f37ef7536dbc6c8e1090600ad",
+  "artifact": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json",
+  "artifact_sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "finding": "三个冻结输入、四份锁定资源及两份 V5 正式依赖字节哈希一致；Director 晋升后的来源 URI 与语义复核摘要重绑已明确记录。",
+      "evidence": [
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/module-receipt.json"
+      ]
+    },
+    {
+      "id": "native_validator",
+      "status": "PASS",
+      "finding": "本次锁定 ArtIR 校验器返回 STATIC_VALID；离线包 PLANNED、submitted=false，真实媒体 QA NOT_RUN。",
+      "evidence": [
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "finding": "六条原生 Director 硬要求通过目标字段检查；两条 V6 上游按冻结 slot、version、SHA 和候选 ArtIR 映射。",
+      "evidence": [
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v6-handoffs.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+      ]
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "unresolved": [],
+  "module_receipt": {
+    "name": "production-design-grammar",
+    "version": "1.3.1",
+    "skill_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md",
+        "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md",
+        "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md",
+        "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901"
+      }
+    ]
+  },
+  "handoff": [
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_RAIN",
+      "source_fingerprint": "92f7859ad2ae44a0836a040b4f3718c6ce1259c0bee5ccd84a294aea4105dd73",
+      "source_paths": [
+        "/scenes/0/space",
+        "/shots/0/sound/ambience",
+        "/shots/0/lighting/color_purpose"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/set/atmosphere",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/world/region",
+          "value": "室内外"
+        }
+      ],
+      "target_clause": "A_RAIN"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_SINGLE_LETTER",
+      "source_fingerprint": "5987c8f2db8f22a35f572bd2a70887fcc8ade48b1c3a320a33a81a6c9ed1256c",
+      "source_paths": [
+        "/entities/2",
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2",
+        "/timeline/actions/3",
+        "/timeline/actions/4",
+        "/shots/0/end_state/2"
+      ],
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/assets/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/assets/2/identity_locks/0",
+          "value": "只有 PROP_LETTER"
+        }
+      ],
+      "target_clause": "A_SINGLE_LETTER"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_ACTION_ORDER",
+      "source_fingerprint": "3c1489e110fb4b4c2e340cf5b7f79b1136ae755301daa837654f1b821cad9e49",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/2/requirement",
+          "value": "交信完成后乙确认完整封口，确认后才收进"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/id",
+          "value": "S1"
+        }
+      ],
+      "target_clause": "A_ORDER"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_ENDING",
+      "source_fingerprint": "58c516797253809f3f45d68280c6a9a2895201fbbcbfdf0df5e387bd9a17cc20",
+      "source_paths": [
+        "/shots/0/narrative/audience_after/2",
+        "/timeline/actions/4/settle",
+        "/shots/0/end_state/2"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/3/requirement",
+          "value": "收进乙背包即结束"
+        },
+        {
+          "op": "contains",
+          "path": "/assets/2/design",
+          "value": "无字"
+        }
+      ],
+      "target_clause": "A_ENDING"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_EVENTS",
+      "source_fingerprint": "3d655be9bdb95627a6900099877831f3bf3364a3a7b132083ea7ec09a55d49b4",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/4/requirement",
+          "value": "三项来源事件"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/director_pointer",
+          "value": "/shots/0"
+        }
+      ],
+      "target_clause": "A_EVENTS"
+    },
+    {
+      "reason": "在原生 ArtIR 合同与资产/场景/逐镜支持字段保留导演硬要求；动作时点、控制权与结果继续以只读绑定的 DirectorIR /timeline/actions 为准。",
+      "requirement_id": "director:D_REVEAL_ORDER",
+      "source_fingerprint": "78290042e04dd7a3f3ad3ad1e612c753ad4b9ed4ecaf60f12ffdc0e7e0ffa6ee",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative/audience_after"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/5/requirement",
+          "value": "先见交接，再见封口完整，最后见"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/occlusion",
+          "value": "关键时间点"
+        }
+      ],
+      "target_clause": "A_REVEAL"
+    }
+  ],
+  "validator": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "media": "NOT_RUN",
+    "professional_blind_review": "NOT_RUN"
+  }
+}

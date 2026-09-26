@@ -1,0 +1,56 @@
+{
+  "check": "canon_contract",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T13:59:49.879Z",
+  "method": "Validated current V6 task/candidate and V5 RoleResult schemas; ran V5Kernel.check_content for Canon; independently checked IDs, references, source semantics and event ordering.",
+  "schema_validation": {
+    "v6_task_envelope": "PASS",
+    "v6_candidate_result": "PASS",
+    "v5_role_result": "PASS",
+    "canon_standalone_schema": "not_declared"
+  },
+  "native_contract": {
+    "project_id_matches": true,
+    "content_equals_source": true,
+    "source_refs_registered": true,
+    "entity_ids_unique_safe": true,
+    "all_fact_quotes_exact": true,
+    "event_entity_and_fact_refs_resolve": true,
+    "event_order_valid": true,
+    "source_requirement_fact_refs_resolve": true
+  },
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "entity_ids": [
+    "CHAR_JIA",
+    "CHAR_YI",
+    "ENV_RAIN_NIGHT",
+    "PROP_BACKPACK",
+    "PROP_LETTER"
+  ],
+  "fact_ids": [
+    "FACT_HANDOFF",
+    "FACT_RAIN_NIGHT",
+    "FACT_SEAL",
+    "FACT_STOW"
+  ],
+  "source_bound_semantics": {
+    "setting": "Rainy night preserved without choosing a location.",
+    "handoff": "Jia gives Yi one unopened letter.",
+    "seal_check": "Yi confirms the same letter seal is intact.",
+    "stow": "Yi then places the same letter into the backpack.",
+    "invented_dialogue_or_motive": false,
+    "unbound_media_claim": false
+  },
+  "creator_evidence_read": [
+    {
+      "check": "canon_contract",
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/canon-contract.json",
+      "sha256": "fa18f31de59ff583a9596ef5aa748c41ae2af4b5b13e12849fbe7273a66ef6d5"
+    }
+  ],
+  "finding": "Canon preserves the original setting, one unopened letter, seal check and stow sequence; IDs and references resolve and unspecified details remain open."
+}

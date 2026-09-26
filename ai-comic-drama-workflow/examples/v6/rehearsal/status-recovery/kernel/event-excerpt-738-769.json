@@ -1,0 +1,1184 @@
+[
+  {
+    "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+    "commands_digest": "b3003c1699df2eb713a9b9e99b6a16e7f559136ed31ef385b75b5980e21ae11a",
+    "hash": "8ac3b36038074a60156d58f61dacd9803922ec4b86eff6ef6f9015201faac01b",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [
+          "VideoDelivery"
+        ],
+        "at": "2026-09-25T17:45:59.730965Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "skip-V6_skip_d648e2e8383da8cf62584eae",
+        "evidence": [
+          "project.json"
+        ],
+        "expected_revision": 737,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "TARGET_NOT_VIDEO",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_d648e2e8383da8cf62584eae",
+        "to_state": "NOT_APPLICABLE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "639ab73fb0a540c1da783948a742b8dcabafc4a51e10c5819175db898841861e",
+    "revision": 738,
+    "state_digest": "0cea7fcd94c130ed5adbec390dfb62c2b59cc9155339f6f23f1e853562529f39"
+  },
+  {
+    "artifacts_digest": "2ac2d71f5963e815cddda94368064846ec21027b34df79fc7e4d8d551b0d1096",
+    "commands_digest": "21573d0384f5b67b22ee6233bdf5e5c36769ce95b987648064b0c6244bad605f",
+    "hash": "c395f8d8941f563f96bd6401f212378f9c8347622fa4068b932d3461b2bf3aa6",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:47.035383Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "input-stale-TASK_f2d0f9805f575ed23ebfdb6d-19",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 738,
+        "from_state": "ACCEPTED",
+        "object_version": 19,
+        "reason": "INPUT_CHANGED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_f2d0f9805f575ed23ebfdb6d",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "8ac3b36038074a60156d58f61dacd9803922ec4b86eff6ef6f9015201faac01b",
+    "revision": 739,
+    "state_digest": "4b99debcab3d968de2eca637e88e6218b8c25f3e41d126cacd40e93351806506"
+  },
+  {
+    "artifacts_digest": "6b5704ab7f848733ab167c62e2bc01b0597e0623afdd3005fcc29c3f1fadd619",
+    "commands_digest": "e49f20c11dee6414587da26434a9673cd3cfcd5056b63a0742e52d96e80948fa",
+    "hash": "e087a90e7a38f20b02044c276a0924d1fa6b6367745a54fc38c3df4464383585",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:49.181782Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "input-stale-V6_compile_ee07749c72a2525a571b-16",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 739,
+        "from_state": "ACCEPTED",
+        "object_version": 16,
+        "reason": "INPUT_CHANGED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "c395f8d8941f563f96bd6401f212378f9c8347622fa4068b932d3461b2bf3aa6",
+    "revision": 740,
+    "state_digest": "e281d60fec4b5e0c27ae025b8708983729a1a2c11043fb1df98f03f6204edf95"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "11a5e030185e37fe05df21f3d30a37d38fb3c8ad10594205ccb7f36d50239e39",
+    "hash": "6920ecd2fc41604de8a016fe1dca3c652143ae0fa7adcde4c0a54ff4ee9cb0ef",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:49.626984Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "input-stale-TASK_01b83d9bf3bd9032fd655d18-11",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 740,
+        "from_state": "ACCEPTED",
+        "object_version": 11,
+        "reason": "INPUT_CHANGED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "e087a90e7a38f20b02044c276a0924d1fa6b6367745a54fc38c3df4464383585",
+    "revision": 741,
+    "state_digest": "49ea0895238329f37dc872c8b9f3681053f2210622a5d7d9efc18a52c31da4d7"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "19143b1f4765ab8df79623c02f70cd11ffe7e962d570de54c7670dce4fbc5f05",
+    "hash": "da1eac4e813c7d016501d05f4ffeef9fc1bffde9ddcfd9c206965eafcdc8bad6",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:51.718842Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_0e51f1e2c2db2fd92b23a126-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 741,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_0e51f1e2c2db2fd92b23a126",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "6920ecd2fc41604de8a016fe1dca3c652143ae0fa7adcde4c0a54ff4ee9cb0ef",
+    "revision": 742,
+    "state_digest": "bcdd169397c99eeb4c1295d25a4da6bb584b5c33fce09ed5cf69ae6341cdc6fc"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "6f737b083ab24b8f2a5e626aec7eb8b91aa5ec3f4f27d9b42b692a9f7a583298",
+    "hash": "c9684f78e63ec34c823753f303245c6c93c904fd034c42cf62814d2bc5867eda",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:51.894468Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_5f4b7493f22d9a87e4efb3f0-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 742,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_5f4b7493f22d9a87e4efb3f0",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "da1eac4e813c7d016501d05f4ffeef9fc1bffde9ddcfd9c206965eafcdc8bad6",
+    "revision": 743,
+    "state_digest": "8dd5db58caca84d0486c34c0d1e2077ba6a276a1b823576d6b38246a43ca84a9"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "c11f68e43df307615938920c99526763f7a3f216ac7fc19da7e5c1d407308db6",
+    "hash": "95ff3988e368a1869a0ea5113aa991847592846891a6aed72e76760aac5d385a",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:52.069287Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_6689c2b19a7605ff75bdf951-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 743,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_6689c2b19a7605ff75bdf951",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "c9684f78e63ec34c823753f303245c6c93c904fd034c42cf62814d2bc5867eda",
+    "revision": 744,
+    "state_digest": "e608dfd5f1d2f21e6509b45c8993c2745650371072f2d828e21dd446fb8f8d1a"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "b26537bc071dc351511a70f0a5b16b3690d7812a2a8123a1187041d832c26c04",
+    "hash": "64f0935a68fb18ad58b3c9839a85cd30af969fedf12f0f04cbd242726a602a7e",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:52.243991Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_89fef2c6b9daaff1a5eb249f-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 744,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_89fef2c6b9daaff1a5eb249f",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "95ff3988e368a1869a0ea5113aa991847592846891a6aed72e76760aac5d385a",
+    "revision": 745,
+    "state_digest": "81f7e8fda57e97ce37354ac3a3ad090454b8daa0191c8e90a134845621fa2b95"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "71f88004438a98f989e3508fd569cbb11b5e105e1c0c7be6a90509e1fae02593",
+    "hash": "7b455735f8adf562e7a411d6f0b4f86898603bd171bedaba6f1e0b5b8a91878c",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:52.417298Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_c16ee44e87d1ee551e7a8961-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 745,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_c16ee44e87d1ee551e7a8961",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "64f0935a68fb18ad58b3c9839a85cd30af969fedf12f0f04cbd242726a602a7e",
+    "revision": 746,
+    "state_digest": "348c73e9e241fe24f68acea1da0c08be277cc22538867969ed7d216a1d08e656"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "1566863cf1e4ca119af6ec8a5c16123bbfcc6984ae5ca71b4fe44430cb40c9e8",
+    "hash": "9b83d5f22b2e34324b506cf8ed53938354472173243821414cf66db84cbdbbd0",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:52.592044Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_e4d6b6c3d712a5f31dd78a10-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 746,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_e4d6b6c3d712a5f31dd78a10",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "7b455735f8adf562e7a411d6f0b4f86898603bd171bedaba6f1e0b5b8a91878c",
+    "revision": 747,
+    "state_digest": "e709c7389a9065a77b6cfb0542e26723c2cfe8eaac969b31671eb078fe6e1de5"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "adf24a27e19ca6b8188d71e019761060b230f1abee51bc55cd7da0c2d7ad8302",
+    "hash": "e664eaec21344f8e853cfeb96122d490a3848e9e5302f1235af2dfe27f0537f3",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:52.764688Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_f5f24f073e7f4c69801130d3-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 747,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_f5f24f073e7f4c69801130d3",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "9b83d5f22b2e34324b506cf8ed53938354472173243821414cf66db84cbdbbd0",
+    "revision": 748,
+    "state_digest": "08cc487fbe856d05012679468f20aed3e354736f76d989d543bf989879e436b9"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "ad9fa17f59ae84fe7bafd7669384762fd47b85ed22502935a5e5a9033d24fa9e",
+    "hash": "ed3765fdd404b04956fec6e3859ed78d12ef965b60b47911a031e1b809071b98",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:52.989351Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_1373031d665928b731765892-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 748,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_1373031d665928b731765892",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "e664eaec21344f8e853cfeb96122d490a3848e9e5302f1235af2dfe27f0537f3",
+    "revision": 749,
+    "state_digest": "f913cf162c1b520373c5b821454569ff459349040f7688f54205ac38174e6dfc"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "0373998ad129e84558afeb6ebcd8ee2ba315b5b40b4e754cc64e19b918e1511b",
+    "hash": "97ec4f2619be07b8af25d2752e514ba1db750d2288c4cdcccdafaeba0592aca0",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:53.165759Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_43938b45853e13a18995521d-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 749,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_43938b45853e13a18995521d",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "ed3765fdd404b04956fec6e3859ed78d12ef965b60b47911a031e1b809071b98",
+    "revision": 750,
+    "state_digest": "633f9d0d791aa2c12defa751d67bf578451b3fa9df699ce301d4fd095c23c690"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "0b1f9729b1082ac5da224236a0462464724a19e80bbe11d1c031412c9a2fb70e",
+    "hash": "390a5d1300a6b82df9ba1033a52f80caa7085aca92d496c3cd66fc675bf74130",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:53.338580Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_8761de96eae9289c0e191a13-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 750,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_8761de96eae9289c0e191a13",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "97ec4f2619be07b8af25d2752e514ba1db750d2288c4cdcccdafaeba0592aca0",
+    "revision": 751,
+    "state_digest": "66a3c9e513643e723f5e6ba022dd30752b819b1b0c99a525115910d1768e4a84"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "5bb50999c63eb9277c9001b828f084ee3b69b8aab466381a2fd4706d72228dfe",
+    "hash": "d6de4e45cd11854bb37f92d9311c95ecf96ee266e9db7d47f397a23e095047d4",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:53.512309Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_927c205e6ee2d8411ce0f7c3-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 751,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_927c205e6ee2d8411ce0f7c3",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "390a5d1300a6b82df9ba1033a52f80caa7085aca92d496c3cd66fc675bf74130",
+    "revision": 752,
+    "state_digest": "97e8b4b84691f12b8db63d81a883fe5b823cc6c91aafab567ae14ff7ce7413c1"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "8c21c74f3394487c466442e1d12aebe16f7ea190e7587de0b3af875cd16a6e8f",
+    "hash": "5b055a1e2cef0b7eaf6d9c187c2c5afc6a377f402d4ac938bb3bd5890f232e87",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:53.686638Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_a8b7a0fb2cba8859780e91ba-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 752,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_a8b7a0fb2cba8859780e91ba",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "d6de4e45cd11854bb37f92d9311c95ecf96ee266e9db7d47f397a23e095047d4",
+    "revision": 753,
+    "state_digest": "85a34021a9b0bc8fd147cf1a09002219c3bd08c9c3332efffbeed2363753d5ee"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "108e96aacd50552099247f57902d651ee817e81025170c718df3c790e9facb85",
+    "hash": "2d64e937f2421f7704819d3409027dd0cd8a9d1cde3be5ab8c1f5d2d83516b74",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:53.862136Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_aadd1c81f3cf22d7427541b3-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 753,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_aadd1c81f3cf22d7427541b3",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "5b055a1e2cef0b7eaf6d9c187c2c5afc6a377f402d4ac938bb3bd5890f232e87",
+    "revision": 754,
+    "state_digest": "7aace1446fcd1cb2f40c0bff578f965f941a604dbd2de71c6932d2333c051015"
+  },
+  {
+    "artifacts_digest": "5a1a6d6a7a98cd5767a9a7f867c92b4ec57d6e808c01f30db3f89858cf4176a9",
+    "commands_digest": "a812292cbc436c190666fe38b13a516a610899bd9643250c5eed005b5b09d19b",
+    "hash": "ddd7bf853c12c898575f985650417061bce2da89be734a21a493a5976b00dc91",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:54.039810Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_fc2813cbb3786e08c01d7b04-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 754,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_fc2813cbb3786e08c01d7b04",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "2d64e937f2421f7704819d3409027dd0cd8a9d1cde3be5ab8c1f5d2d83516b74",
+    "revision": 755,
+    "state_digest": "110ff0450e08d20d312d76c7605fea4a65e9ae6ce0ee80839caa8b574080afef"
+  },
+  {
+    "artifacts_digest": "20294b72e20dcc47fce7f3f9aeff4385b624f69fc5149c31a50b16ca4a1c11f2",
+    "commands_digest": "c79f3d61d80efb903e58c6e088411a30f3125782fbedac71a682b3c671bc9b09",
+    "hash": "eee1496d411f79e812f9f5d124d6fb4f7aa4d8035fd2e7894eeb9c84497a797c",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:54.362406Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-TASK_5940525a2a35543b33e08b18-10",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 755,
+        "from_state": "ACCEPTED",
+        "object_version": 10,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_5940525a2a35543b33e08b18",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "ddd7bf853c12c898575f985650417061bce2da89be734a21a493a5976b00dc91",
+    "revision": 756,
+    "state_digest": "980e9e508d2964db0effe744b7079a99e17103246bd1d04e224de84b0cb9c25c"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "51711f1d9956118e0d8652ea61ec4aee5d2b09943d9a2b37f6c1bcec0c5a5307",
+    "hash": "81bab006fd9e27538f48433bd3395d93eec5a31765f405d8b0478f6fa1372d87",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:54.584354Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_preproduction_13e89f5eb81bc5856bc8-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 756,
+        "from_state": "ACCEPTED",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_preproduction_13e89f5eb81bc5856bc8",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "eee1496d411f79e812f9f5d124d6fb4f7aa4d8035fd2e7894eeb9c84497a797c",
+    "revision": 757,
+    "state_digest": "c12b0fbf3f0053c8dbdb94cee8f2924c8c8444577c21e33e31a38348e753a012"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "83b6d8dd8e8150e49a67da7f327cbcd0306139b886071cf86ed7627664327540",
+    "hash": "f6a701dc1cac3f1f1bec4daade94e4eeca7cde872563a37e50925318a43ef805",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:54.806137Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_bda1f83a5199e74831fa50a7-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 757,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_bda1f83a5199e74831fa50a7",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "81bab006fd9e27538f48433bd3395d93eec5a31765f405d8b0478f6fa1372d87",
+    "revision": 758,
+    "state_digest": "33a6f7ae85260c20774b39b02800f8562b4844c9e90e7144b081486da02fa4a2"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "43aa7375d80d3fbe9906cd3d1296323d7bc788f90966c73207744b9cc0f2eb44",
+    "hash": "db54a0829eaa75e1af554003cdcf805b6fddd68f40f57c3c8e2e2b986324373e",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:55.029542Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_a81ab5ffd457c0e43664375d-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 758,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_a81ab5ffd457c0e43664375d",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "f6a701dc1cac3f1f1bec4daade94e4eeca7cde872563a37e50925318a43ef805",
+    "revision": 759,
+    "state_digest": "0d15ae92fec1b45f4f95a0c46bc140e0df6ee92d7c37fdb765035615f7054626"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "64a562aa5d3be13cda300418b6b574e75b05bcabf905b333f08956263636997b",
+    "hash": "dd1ab6a581a63b79f5aacd0c5e22d51963d5683340078345bb891a91fcacebc0",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:55.252831Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_ae09b2d083ad33abcb18f59f-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 759,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_ae09b2d083ad33abcb18f59f",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "db54a0829eaa75e1af554003cdcf805b6fddd68f40f57c3c8e2e2b986324373e",
+    "revision": 760,
+    "state_digest": "d191959b4b730d8e8b5116c55b8a40d67ccbf8f2c6eb1ee1e39f83d33caaafad"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "c9453f0cb2d65102253e34a6c789ecddc3befdd0d178e470c4ba3df29bd5b9cd",
+    "hash": "092bf104daefaca84f541801b71ff6eea0ffb503811fc3581431ba7835305cee",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:55.476147Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_b33bc581d277b293aed79e47-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 760,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_b33bc581d277b293aed79e47",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "dd1ab6a581a63b79f5aacd0c5e22d51963d5683340078345bb891a91fcacebc0",
+    "revision": 761,
+    "state_digest": "b9d182c640b51222c0052b2d9558e36da42882a485345ef53a79d2fd0551f810"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "2ea4b13ee7a113e51cc2b01864917cac07dcda4124972e7ac3543b35fc69f9c8",
+    "hash": "8f8e5557edc7bc34e42a95e419064184623b3aad1505a43d8369e26660617747",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:55.697614Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_59c2adc68c7c8d9ca114a7d6-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 761,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_59c2adc68c7c8d9ca114a7d6",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "092bf104daefaca84f541801b71ff6eea0ffb503811fc3581431ba7835305cee",
+    "revision": 762,
+    "state_digest": "b7f9156e9317c84c3686342a7916d643822d6880f861b89cf28f9ed8cc13ba7a"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "51ef6af43c663a841b7d7821e5de99a35cc0a59cc4b027fc6e4487fedd1ab147",
+    "hash": "1a0affd819c7695001b79c5a469feeacc9b20bd6c82bd7019ff77e7a27af364f",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:55.920631Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_41e77664632fd57cd287fca6-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 762,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_41e77664632fd57cd287fca6",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "8f8e5557edc7bc34e42a95e419064184623b3aad1505a43d8369e26660617747",
+    "revision": 763,
+    "state_digest": "ff13685cfd406b563e9c909910107ed16f0492d3b95962dc6b841c3377be5815"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "27e033d4b0c78f5719d0aa0571a4b3a87ebd7f86e5a4becf064bc5b83379d691",
+    "hash": "07a4306efe96e52f72e94b0088aab4cfe7d8dc69f87f9afb9f63bb2ac3e61fb0",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:56.144643Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_99ec3e03afe91188cf84925a-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 763,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_99ec3e03afe91188cf84925a",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "1a0affd819c7695001b79c5a469feeacc9b20bd6c82bd7019ff77e7a27af364f",
+    "revision": 764,
+    "state_digest": "beb7259d8a1a783b9b0e1f5deb81ae8c5dbd3b3fbf4c5e9acd36938f382f6dd7"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "3a0c0ebeba601dd2d556b76251514cb32e978a3c9657e34e4c446f814b013dfb",
+    "hash": "a3ebff443d3157506090e1cfdb5f4537f604865a25b21587e22d7c9cbc871452",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:56.368072Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_51b9636f85c3325bac7d09ac-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 764,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_51b9636f85c3325bac7d09ac",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "07a4306efe96e52f72e94b0088aab4cfe7d8dc69f87f9afb9f63bb2ac3e61fb0",
+    "revision": 765,
+    "state_digest": "8ddd769376ac7a9b343cd461c3ddc2eede65310c837767251f3b2fbbcb409b79"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "226b0a0e1080e20ab29d014568769d5cf4e27add8f23958cab0fa2ba8837fa75",
+    "hash": "69a15ca44796b3f2a937b5ad5ccfaa1031813b64ac0a2213598a0751702b3c9c",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:58:56.589146Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dependency-stale-V6_skip_d648e2e8383da8cf62584eae-1",
+        "evidence": [
+          "runtime/v6/state.json"
+        ],
+        "expected_revision": 765,
+        "from_state": "NOT_APPLICABLE",
+        "object_version": 1,
+        "reason": "DEPENDENCY_STALE",
+        "schema": "state-event/6.0",
+        "task_id": "V6_skip_d648e2e8383da8cf62584eae",
+        "to_state": "STALE"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "a3ebff443d3157506090e1cfdb5f4537f604865a25b21587e22d7c9cbc871452",
+    "revision": 766,
+    "state_digest": "7f7c2f48b70854f0510c5ada67a41d050a61201661f596c17a1cdad57c5ed754"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "9f46b0234b82572c3a2cc1e4b2cebaf116cdb4389ffbd98c734c18b958c4ca36",
+    "hash": "1625eaf097bb0f89b938880816e64fa017052e7c51634861d9ac8825f104f8f5",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_4f81cc62bc1b268a8f8be7b0"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "ShotControlPack",
+          "slot": "control:project:project:ShotControlPack",
+          "uri_prefix": "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_8c4b696799e85db8db8972c4",
+          "source_slot": "storyboard:project:project:StoryboardIR",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "control:project:project:ShotControlPack"
+        }
+      ],
+      "input_digest": "c6ca61de7fdcaea995e35fae48f53d1305b808b1a1747afab05c961038d68d12",
+      "input_revision": 766,
+      "inputs": [
+        {
+          "sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+          "slot": "storyboard:project:project:StoryboardIR",
+          "uri": "runtime/v6/candidates/TASK_4f81cc62bc1b268a8f8be7b0/1/storyboard-ir.json",
+          "version": 12
+        },
+        {
+          "sha256": "e960b1bc34276428d3a21c93a8f9b0609c67e6183bef4532fdf5ea02298956f3",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_4c69e10662f9834bb335155d.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      },
+      "node_id": "control",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+        },
+        {
+          "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+        },
+        {
+          "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc",
+          "uri": "runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py"
+        },
+        {
+          "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2",
+          "uri": "runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py"
+        },
+        {
+          "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0",
+          "uri": "runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py"
+        },
+        {
+          "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae",
+          "uri": "runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py"
+        },
+        {
+          "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+          "uri": "runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py"
+        },
+        {
+          "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+          "uri": "runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py"
+        },
+        {
+          "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343",
+          "uri": "runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py"
+        },
+        {
+          "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0",
+          "uri": "runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py"
+        },
+        {
+          "sha256": "cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be",
+          "uri": "runtime/v6/runtime-resources/cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be/v6_runtime.py"
+        },
+        {
+          "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2",
+          "uri": "runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py"
+        },
+        {
+          "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b",
+          "uri": "runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py"
+        },
+        {
+          "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11",
+          "uri": "runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py"
+        },
+        {
+          "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da",
+          "uri": "runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py"
+        },
+        {
+          "sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+          "uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py"
+        },
+        {
+          "sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+          "uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py"
+        }
+      ],
+      "role": "control",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "control_verify",
+          "kind": "evidence"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "69a15ca44796b3f2a937b5ad5ccfaa1031813b64ac0a2213598a0751702b3c9c",
+    "revision": 767,
+    "state_digest": "8e88d9295e63199f107c0279bf6984141bdf2a06aad1cf5ffbe280633c9db7d7"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "170a4f72b82f13774413768a9a20fdc89523ef589a65c4054ddf8a10d9d93968",
+    "hash": "a79a7304a8c06e6708f7436175d0178fb8ce6bcb6e6a436bd2c33becd811db17",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:59:28.089945Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-TASK_4c69e10662f9834bb335155d-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_4c69e10662f9834bb335155d.json"
+        ],
+        "expected_revision": 767,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "1625eaf097bb0f89b938880816e64fa017052e7c51634861d9ac8825f104f8f5",
+    "revision": 768,
+    "state_digest": "19220125123ca789e3b3e24ac5d5473e7b16688ef6b9a842f5cb3d9f3d2602e5"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "bbba302cd4429a5991ded8206616813bffc06f712e4b73f13b7ba1646aae0fbd",
+    "hash": "a736b6e8f4d7570e68efceb16ed4162b21f2a4aac4619bca037107633f311bae",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:59:28.348165Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-TASK_4c69e10662f9834bb335155d-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_4c69e10662f9834bb335155d.json"
+        ],
+        "expected_revision": 768,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "a79a7304a8c06e6708f7436175d0178fb8ce6bcb6e6a436bd2c33becd811db17",
+    "revision": 769,
+    "state_digest": "875741b45a907256950064e6fc2c3cff35287e3aa7db61638d7de79ca64eb632"
+  }
+]

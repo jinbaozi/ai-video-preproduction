@@ -1,0 +1,1 @@
+内核负责人确认当前包不能宣称完整摄影机轨迹/关键帧能力；adapter owner 正只读判断冻结 `start_m=end_m` 是否足以保真派生 camera track。请维持原 Control RUNNING，保留 121/121 UNDETERMINED 的 PROGRESS/BLOCKER 与真实构建包，不提交最终 PASS。若必须回分镜责任修订，将走显式 cancel→revise。

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-source.json"
+  ],
+  "exit_code": 2,
+  "interpretation": "BLOCKED: diagnostic only; no control package exists and no native PASS is claimed",
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"INVALID\",\n  \"diagnostics\": [\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/beats/0/id\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/beats/1/id\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/beats/2/id\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/shots/0/camera/axis_side\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/shots/0/camera/end_m\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/shots/0/panels/1/id\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/shots/0/panels/2/id\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    },\n    {\n      \"code\": \"E_CONTRACT\",\n      \"path\": \"/shots/0/panels/3/id\",\n      \"message\": \"合同断言失败\",\n      \"severity\": \"error\"\n    }\n  ]\n}\n"
+}

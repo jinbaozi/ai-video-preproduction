@@ -1,0 +1,19 @@
+{
+  "command_id": "ART_PROGRESS_REQUEST_COMMAND_1",
+  "expected_revision": 92,
+  "message": {
+    "at": "2026-09-25T12:29:00.208335Z",
+    "batch": 1,
+    "evidence": [],
+    "in_reply_to": "ART_ACK_1",
+    "message_id": "ART_PROGRESS_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_2dea6a2a9ca676085285dc07",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "0a10b8b88102b36fdf3d479c98f42cf083467382211ca3e1a6594abdb911e80a",
+    "subject_uri": "runtime/v6/host-inputs/art-progress-request.txt",
+    "summary": "Host requested art candidate progress or exact blocker while retaining text-only scope without image generation or asset-review claim.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "QUESTION"
+  }
+}

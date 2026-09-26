@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_VISUAL_CHAR_JIA_B1_RESULT_1",
+  "expected_revision": 229,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_CHAR_JIA_B1_RESULT_1",
+    "task_id": "TASK_7aabf77f33bdc18e71193c47",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_80ad43e1f6f3130e637feb61",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_VISUAL_CHAR_JIA_NATIVE_CONTRACT_1",
+    "type": "RESULT",
+    "summary": "CHAR_JIA visual prompt candidate; original creator final text is bound as host evidence.",
+    "evidence": [
+      "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/candidate-result.json",
+      "runtime/v6/host-messages/full-visual-char-jia-b1-result-pending.txt"
+    ],
+    "at": "2026-09-25T15:11:46.632932Z",
+    "subject_uri": "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/candidate-result.json",
+    "subject_sha256": "cc6d359f811e6db94b3e4129b7c8ba47db4761d8789d7ea9f129d5488fbb22b7"
+  }
+}

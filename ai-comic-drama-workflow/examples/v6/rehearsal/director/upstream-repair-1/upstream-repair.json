@@ -1,0 +1,26 @@
+{
+  "candidate_digest": "8d48867f50c8c59460fd33a3cd71b73b3d1a1202cc6a25fe898d75c95084d18c",
+  "failed_checks": [
+    {
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/compile-manifest.review.json"
+      ],
+      "id": "compile_manifest"
+    }
+  ],
+  "instruction": "Resolve every failed review check against its evidence in this new owner task. Preserve the frozen unaffected inputs, state the correction and its target fields in the candidate, and return unresolved if the check cannot be corrected from the supplied source.",
+  "owner_node_id": "director",
+  "owner_task_id": "TASK_19a3cd14f25bf90e50215d4d",
+  "project_id": "LETTER_DEMO",
+  "review": {
+    "reviewer_agent_id": "/root/host_bridge/v6_d3bca74dcb23c2e155eb4d64",
+    "reviewer_dispatch_id": "review-26ffdd35b09ae4968faef34c",
+    "sha256": "e1f58c8bff362bd6e61c885be553dddc6fc444ae6d87740855cdeadba728d66d",
+    "uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json"
+  },
+  "route_id": "UPR_7aacd89414612ed785a0480b",
+  "schema": "upstream-repair-brief/6.0",
+  "source_batch": 1,
+  "source_node_id": "compile",
+  "source_task_id": "V6_compile_8cb5698095d1a70e0b6b"
+}

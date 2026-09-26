@@ -1,0 +1,19 @@
+{
+  "all_native_hard_clauses_pass": true,
+  "all_source_fingerprints_match": true,
+  "all_target_checks_pass": true,
+  "artifact_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+  "exact_detail_count": 1424,
+  "hard_semantic_count": 13,
+  "mapping_sha256": "e2c4fb6e45f12097562e6bde7d48576ce300df8196f1b6aace93d3df31435b28",
+  "requirement_count": 1437,
+  "role_result_handoff_path": "/handoff",
+  "status": "PASS",
+  "task_id": "TASK_afc04f54b23b01071a0b14e3",
+  "visibility_addition": {
+    "added_intervals": 6,
+    "original": [],
+    "preserved_path": "/upstreams/1/locks/3/source_value",
+    "source_path": "/timeline/visibility"
+  }
+}

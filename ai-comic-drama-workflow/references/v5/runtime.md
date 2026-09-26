@@ -1,4 +1,6 @@
-# V5 当前 Agent 执行接口
+# V5 当前 Agent 执行接口（旧协议）
+
+本页只用于原有 V5 项目及显式 `init ... --orchestration current-agent` 的项目。新项目默认 V6，实际 Codex 子智能体派发、独立审阅和结构化状态事件见 [V6 执行接口](../v6/runtime.md)。不要将这里的 `role-result/5.1` 直接提交给 V6 项目。
 
 在 Skill 根目录运行 `PYTHONPATH=src python -m ai_comic_drama_workflow`，或安装后的 `ai-comic-drama`。
 Python 3.12+，依赖 jsonschema；图片登记另外需要 ffmpeg/ffprobe。模型、图片工具均由真实宿主提供，不由 Python 模拟。
@@ -33,13 +35,13 @@ Python 3.12+，依赖 jsonschema；图片登记另外需要 ffmpeg/ffprobe。模
 4. 输出角色结果后submit，再run。complete=false允许分批续写；每个创作提交最多新增/修改5镜，既有完整包用import或reused=true并真实审核。
 5. 只有必要用户决定才暂停依赖工作。缺图片能力不阻止独立文本设计；不要把缺媒体伪装为已完成。
 
-## RoleResult 5.0
+## RoleResult 5.1
 
-规范结果：
+`workflow_release` 为 0.9.0 或 0.10.0 的项目，凡任务信封带 `module` 的提交使用 5.1。5.0 仍是无模块任务和更早项目的结果格式；更早项目接受 5.0，并记为未审计。0.10.0 的必读清单来自锁定模块的 `references/v5-reads.json`。收据只证明用了哪份锁定资料，不证明理解质量。
 
 ```json
 {
-  "schema": "role-result/5.0",
+  "schema": "role-result/5.1",
   "task_id": "从当前任务复制",
   "context_fingerprint": "从当前任务复制",
   "artifact": "/绝对路径/原生IR.json",
@@ -48,14 +50,36 @@ Python 3.12+，依赖 jsonschema；图片登记另外需要 ffmpeg/ffprobe。模
   "handoff": [],
   "complete": true,
   "conflicts": [],
-  "unresolved": []
+  "unresolved": [],
+  "module_receipt": {
+    "name": "与任务模块一致",
+    "version": "与锁文件一致",
+    "skill_sha256": "与任务信封 module.skill_sha256 一致",
+    "reads": [{"path": "任务 required_reads 中的路径", "sha256": "该文件实际哈希"}]
+  }
 }
 ```
 
-image-prompt任务用 `prompt`（完整正文）与 `checks`（实际约束检查列表）替代artifact。
-image任务用media：path、sha256、provider（image_gen或provided）、call_evidence、input_bindings、visual_review。
-input_bindings逐项复制真实送入工具的job.references之key/sha256，并实际附带这些图片；不能只在文字中提及。
-visual_review包含status=PASS、该图片sha256、findings（实际看图发现）。工具调用返回文件不等于视觉通过。
+`module_receipt.reads` 必须覆盖任务信封 `module.required_reads` 的每一项，路径和哈希都要一致。缺收据、版本不符或哈希不符会被拒收。
+
+image-prompt 任务用 `understanding`、`prompt`、`params`、`quality_check` 与 `checks` 替代 artifact。每条 `checks` 是 `{ref, finding}`，`ref` 必须是该 job 的锁定项或资产字段 ID，未覆盖的锁定项会被拒收。与其他 slot 完全相同的 `checks` 视为模板套用，拒收。身份参考图另交 `production_contract` 路径，内核运行锁定模块里的 `validate_production_contract.py`。
+
+image 任务用 media：path、sha256、provider（image_gen 或 provided）、call_evidence、input_bindings、visual_review。
+input_bindings 逐项复制真实送入工具的 job.references 之 key/sha256，并实际附带这些图片；不能只在文字中提及。
+visual_review 包含 status=PASS、该图片 sha256、findings。每条 finding 是 `{ref, observation}`，`ref` 对应 job 的锁定项。工具调用返回文件不等于视觉通过。
+`provider` 必须在 `host.providers` 中。`provider=image_gen` 时，`call_evidence` 必须包含 `host.image_tools` 里的工具名。
+
+## 宿主能力登记
+
+模型与图像工具由真实宿主提供，不由 Python 模拟。所有宿主用同一份 JSON 登记：
+
+```json
+{"image_capability": "available", "image_tools": ["宿主实际提供的图像工具名"], "evidence": "该工具确实存在的证据"}
+```
+
+`image_tools` 由宿主自报，内核不内置任何平台的工具名。生成的图片用 `provider=image_gen`，`call_evidence` 必须写出其中一个已登记的工具名；用户提供的现成图片用 `provider=provided`。
+
+指定模型不在已登记工具中时，停止生图并用 `request-decision` 让用户选择。不要使用其他应用的凭证、私有接口或任何未登记入口。
 图片身份定稿使用resume提交实际用户决定。阶段9的QA原生JSON包含project_id、passed、build_id和checks，绑定当前构建。
 
 独立导入的制作包保留原字节，已存在依赖被复制并显式重定位；原生校验前后各运行一次。草稿和完整制作包的限制不能互换。

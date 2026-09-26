@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "method": "Independently checked SHA-256 of frozen inputs, locked resources, artifact, RoleResult and module receipts.",
+  "inputs": [
+    {
+      "slot": "canon",
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+      "expected_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "actual_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9"
+    },
+    {
+      "slot": "screenplay",
+      "uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+      "expected_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+      "actual_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93"
+    },
+    {
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_bf0865334b4a88be570a164a.json",
+      "expected_sha256": "a435e4354848649326798f614c5af4748f081481623597804228cde9892970ec",
+      "actual_sha256": "a435e4354848649326798f614c5af4748f081481623597804228cde9892970ec"
+    }
+  ],
+  "resources": [
+    {
+      "uri": "runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/SKILL.md",
+      "expected_sha256": "ca22158b6ca4c0e654e1df66f25cc02bdfa689869df124bb9ae0b201f1ad2f6f",
+      "actual_sha256": "ca22158b6ca4c0e654e1df66f25cc02bdfa689869df124bb9ae0b201f1ad2f6f"
+    },
+    {
+      "uri": "runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/references/current-contract.md",
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    {
+      "uri": "runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/references/cooperation-v5.md",
+      "expected_sha256": "28fb0672d9920bb60bb2800da33cc9ac1d9cd6884d30ceb993fa51672b65bb28",
+      "actual_sha256": "28fb0672d9920bb60bb2800da33cc9ac1d9cd6884d30ceb993fa51672b65bb28"
+    },
+    {
+      "uri": "runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/references/screenplay-handoff.md",
+      "expected_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "actual_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+    }
+  ],
+  "candidate_file_sha256": "db40f7a2c97b0a47fa54895ad34358959fb13c30c1467c1ffc876c69c44aa48e",
+  "candidate_digest": "758eb105a3cc11bd3c80240d92bf59e73f656ba3650d93a4afaa4d5e759d3f87",
+  "director_sha256": "2e9a0d53be46b56dfbcb9dcf9b5965c23c99f2b20510c7567415b08896297177",
+  "role_result_sha256": "647085faf2f15b86645b8b9bb693c28f87c48897b020511990ebb2c681818ba0"
+}

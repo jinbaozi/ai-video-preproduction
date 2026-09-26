@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_PHASE_REPAIR_ACK_1",
+  "expected_revision": 127,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_PHASE_REPAIR_ACK_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_PHASE_REPAIR_1",
+    "type": "ACK",
+    "summary": "Creator acknowledges Director phase repair and preserved blocker evidence",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-phase-repair-ack.txt"
+    ],
+    "at": "2026-09-25T13:27:58.323795Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-phase-repair-ack.txt",
+    "subject_sha256": "2eb2e8ba2794d82eb90be7c453cfa74dc91115833f5142b86a2aca89468441ec"
+  }
+}

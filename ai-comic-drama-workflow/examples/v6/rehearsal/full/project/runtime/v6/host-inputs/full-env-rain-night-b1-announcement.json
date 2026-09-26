@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ENV_RAIN_NIGHT_B1_ANNOUNCEMENT",
+  "expected_revision": 265,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ENV_RAIN_NIGHT_B1_ANNOUNCEMENT",
+    "task_id": "TASK_77a39e38115fc23984108917",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_1e8bce88416377cfc2d8315e",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "PROGRESS",
+    "summary": "Creator announced initial candidate SHA aea261; superseded before formal RESULT.",
+    "evidence": [
+      "runtime/v6/host-messages/full-env-rain-night-b1-candidate-announcement.txt"
+    ],
+    "at": "2026-09-25T15:29:40.118541Z",
+    "subject_uri": "runtime/v6/host-messages/full-env-rain-night-b1-candidate-announcement.txt",
+    "subject_sha256": "f49d5e34c83f847da128b4145c66c196dfa466422f0b4d4d23a22332a3b6c2c7"
+  }
+}

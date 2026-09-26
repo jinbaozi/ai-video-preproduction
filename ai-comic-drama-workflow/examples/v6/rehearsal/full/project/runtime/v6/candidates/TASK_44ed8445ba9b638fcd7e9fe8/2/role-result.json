@@ -1,0 +1,50 @@
+{
+  "schema": "role-result/5.0",
+  "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+  "context_fingerprint": "44ed8445ba9b638fcd7e9fe88d9654db775bcf56c5da67040b6fc3f35f2218b3",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+  "artifact_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "complete": true,
+  "reused": false,
+  "checks": [
+    {
+      "id": "source_integrity",
+      "status": "PASS",
+      "finding": "Current registered source and frozen task match exact bytes; four quote spans were rechecked. This result claims no migration reuse.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/source-integrity.json"
+      ]
+    },
+    {
+      "id": "canon_contract",
+      "status": "PASS",
+      "finding": "Current source facts and handoff, seal check, and stow order are preserved; unknown design details remain unspecified.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/canon-contract.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "finding": "The single registered source maps to this current Canon candidate and all ordered source requirements.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/handoff.json"
+      ]
+    }
+  ],
+  "handoff": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_02899a994552add4610374b6",
+      "source_slot": "sources:project:project:SourceRegistry",
+      "source_version": 1,
+      "target_pointer": "",
+      "target_slot": "canon:project:project:Canon",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/handoff.json"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolved": []
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B2_REPAIR_1",
+  "expected_revision": 195,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B2_REPAIR_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 2,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_ae88af1ac4163d4e37222aa4",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Repair reviewer FAIL in terminal end_framing with current-lock native evidence",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-director-b2-repair.txt"
+    ],
+    "at": "2026-09-25T14:34:51.482555Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-director-b2-repair.txt",
+    "subject_sha256": "697cfef90857902fd8195f37110edaf6c7a6424b7eddc61f6603a36a1b07cf31"
+  }
+}

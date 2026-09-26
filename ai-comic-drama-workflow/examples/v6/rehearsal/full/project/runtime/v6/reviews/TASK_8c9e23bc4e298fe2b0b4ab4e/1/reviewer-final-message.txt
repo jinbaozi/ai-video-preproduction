@@ -1,0 +1,3 @@
+PROP_LETTER 独立审阅完成：`module_receipt`、`image_prompt_contract`、`handoff` 均为 PASS。原生合同校验为 `STATIC_VALID`；媒体生成和视觉审阅仍为 `NOT_RUN`。
+
+[审阅记录](/private/tmp/ai-video-v6-full-demo/project/runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/review-record.json) SHA-256：`03be1109f57194f6fad4fcd05322fbbd3afc7fd216184660c7a820d33f0ecc9c`。供宿主登记的[原始结果消息](/private/tmp/ai-video-v6-full-demo/project/runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/reviewer-result-message.txt)已保存。

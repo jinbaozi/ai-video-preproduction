@@ -1,0 +1,253 @@
+{
+  "artifact_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+  "axis": {
+    "end_m": [
+      0.65,
+      0,
+      0
+    ],
+    "id": "AXIS_JIA_YI",
+    "start_m": [
+      -0.65,
+      0,
+      0
+    ]
+  },
+  "camera_axis_side": "negative",
+  "camera_static_world_xyz": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "camera_track_id": "CAM_LOCKED",
+  "control_limit": "这些是分镜声明和离线状态一致性检查；不证明三维碰撞、实际摄影投影或生成媒体已符合。",
+  "coordinate_rule": "director static [X-right,Y-depth,Z-up] -> storyboard [x-right,y-up,z-depth]; director timeline already uses storyboard basis",
+  "motion_track_ids": [
+    "TRACK_JIA",
+    "TRACK_YI",
+    "TRACK_LETTER",
+    "TRACK_BACKPACK"
+  ],
+  "panel_ids_and_frames": [
+    {
+      "frame": 0,
+      "id": "P_OPEN"
+    },
+    {
+      "frame": 60,
+      "id": "P_GRIP"
+    },
+    {
+      "frame": 84,
+      "id": "P_RELEASE"
+    },
+    {
+      "frame": 144,
+      "id": "P_SEAL"
+    },
+    {
+      "frame": 204,
+      "id": "P_BAG_OPEN"
+    },
+    {
+      "frame": 252,
+      "id": "P_STOWED"
+    },
+    {
+      "frame": 287,
+      "id": "P_END"
+    }
+  ],
+  "state_samples": [
+    {
+      "at_ms": 0,
+      "bag_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_position_x": -0.65,
+      "letter_contacts": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_position_world_xyz": [
+        -0.2,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_JIA.right_hand"
+      ],
+      "state_id": "STATE_0",
+      "yi_contacts": [
+        "PROP_BACKPACK.body"
+      ],
+      "yi_position_x": 0.65
+    },
+    {
+      "at_ms": 2500,
+      "bag_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_position_x": -0.65,
+      "letter_contacts": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_position_world_xyz": [
+        0,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "state_id": "STATE_2500",
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_LETTER.body"
+      ],
+      "yi_position_x": 0.65
+    },
+    {
+      "at_ms": 4000,
+      "bag_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_position_x": -0.65,
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_position_world_xyz": [
+        0.2,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "state_id": "STATE_4000",
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_LETTER.body"
+      ],
+      "yi_position_x": 0.65
+    },
+    {
+      "at_ms": 7500,
+      "bag_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_position_x": -0.65,
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_position_world_xyz": [
+        0.2,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "state_id": "STATE_7500",
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_LETTER.body"
+      ],
+      "yi_position_x": 0.65
+    },
+    {
+      "at_ms": 10500,
+      "bag_contacts": [
+        "CHAR_YI.body",
+        "CHAR_YI.left_hand",
+        "PROP_LETTER.body"
+      ],
+      "jia_position_x": -0.65,
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_position_world_xyz": [
+        0.7,
+        0.75,
+        0
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "state_id": "STATE_10500",
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_BACKPACK.opening"
+      ],
+      "yi_position_x": 0.65
+    },
+    {
+      "at_ms": 12000,
+      "bag_contacts": [
+        "CHAR_YI.body",
+        "CHAR_YI.left_hand",
+        "PROP_LETTER.body"
+      ],
+      "jia_position_x": -0.65,
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_position_world_xyz": [
+        0.7,
+        0.75,
+        0
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "state_id": "STATE_12000",
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_BACKPACK.opening"
+      ],
+      "yi_position_x": 0.65
+    }
+  ],
+  "status": "PASS_FOR_DECLARED_STATES",
+  "subject_screen_boxes": {
+    "CHAR_JIA": [
+      0.04,
+      0.1,
+      0.36,
+      0.82
+    ],
+    "CHAR_YI": [
+      0.56,
+      0.1,
+      0.4,
+      0.82
+    ],
+    "PROP_BACKPACK": [
+      0.67,
+      0.62,
+      0.19,
+      0.28
+    ],
+    "PROP_LETTER": [
+      0.4,
+      0.42,
+      0.16,
+      0.12
+    ]
+  }
+}

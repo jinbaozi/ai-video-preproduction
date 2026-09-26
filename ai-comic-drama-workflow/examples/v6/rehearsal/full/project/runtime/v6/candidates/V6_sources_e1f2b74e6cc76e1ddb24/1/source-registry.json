@@ -1,0 +1,11 @@
+{
+  "schema_version": "6.0",
+  "sources": [
+    {
+      "id": "SRC_69a71adcfaca",
+      "original": "user-text",
+      "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+      "uri": "sources/SRC_69a71adcfaca/source.txt"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "archive_sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+  "archive_uri": "runtime/module-archives/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf.skill",
+  "candidate_digest": "b61389db441eae4ccb64acfe730a970e52b21b0a07119e84bbc34bebf8893e07",
+  "check": "module_receipt",
+  "creator_evidence_read": {
+    "sha256": "9ff9ae8bcd30045a6dacbb959bb8690a3aac9d61c2420786520978c756d3218b",
+    "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/module-receipt.json"
+  },
+  "finding": "Frozen module archive, four required resources, both inputs, RoleResult and ScriptIR bytes match their declared hashes and task bindings.",
+  "frozen_inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "expected_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+    },
+    {
+      "actual_sha256": "76b182288731618c7dd5c1c393e5dcb57f5abc6a71e919a338ba98d97ecdfc56",
+      "expected_sha256": "76b182288731618c7dd5c1c393e5dcb57f5abc6a71e919a338ba98d97ecdfc56",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+    }
+  ],
+  "input_digest": "dc3b75fc54c999fd1cf7051ca76148cc636e207b17f56ae7ceb384ce62306a9d",
+  "method": "Independently validated V6 task and candidate schemas, recomputed compact canonical JSON digests and file SHA-256 values, and compared RoleResult 5.1 module receipt with the frozen module and required resources.",
+  "module": {
+    "name": "screenplay-grammar",
+    "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+    "version": "1.0.1"
+  },
+  "required_resources": [
+    {
+      "actual_sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+      "expected_sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md"
+    },
+    {
+      "actual_sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7",
+      "expected_sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md"
+    },
+    {
+      "actual_sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392",
+      "expected_sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md"
+    },
+    {
+      "actual_sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef",
+      "expected_sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md"
+    }
+  ],
+  "reviewed_at": "2026-09-25T10:42:19.667253Z",
+  "role_result": {
+    "actual_sha256": "1a8b22fe90372365430cb6a374926392388289ed8e51501ec00a814d1dbb5a05",
+    "context_fingerprint_matches_frozen_task": true,
+    "expected_sha256": "1a8b22fe90372365430cb6a374926392388289ed8e51501ec00a814d1dbb5a05",
+    "schema": "role-result/5.1",
+    "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/role-result.json"
+  },
+  "schema_validation": {
+    "v5_role_result": "PASS",
+    "v6_candidate_result": "PASS",
+    "v6_task_envelope": "PASS"
+  },
+  "script_artifact": {
+    "actual_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+    "expected_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+    "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+  },
+  "status": "PASS",
+  "task_digest": "57896c897db7fca0bfd6b99929b4a4f56fddf4d09a65c3c334dbb08cda1400cd"
+}

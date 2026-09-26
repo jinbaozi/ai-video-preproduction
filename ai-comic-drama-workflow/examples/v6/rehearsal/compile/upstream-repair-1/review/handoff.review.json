@@ -1,0 +1,38 @@
+{
+  "accepted_sources": [
+    {
+      "sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+      "slot": "storyboard:project:project:StoryboardIR",
+      "version": 12
+    },
+    {
+      "sha256": "90c832f57a6753f5be33fe5132fe749101519eeaaae4e009ff4a15edac75d31e",
+      "slot": "control:project:project:ShotControlPack",
+      "version": 15
+    }
+  ],
+  "adapter_losses": 0,
+  "adapter_sidecar_matches_promoted_storyboard": true,
+  "adapter_status": "MAPPED",
+  "control_package_files_verified": 10,
+  "control_production_specification_equals_compiler_avir": true,
+  "requirements_verified": [
+    "UP_87d3c1dee16c7cb8201ea8b6",
+    "UP_b5d9d335a4af8d78a0f82cd2"
+  ],
+  "status": "PASS",
+  "storyboard_candidate_to_promoted_difference_paths": [
+    "/sources/0/uri",
+    "/sources/1/uri",
+    "/sources/2/uri",
+    "/sources/3/uri",
+    "/sources/4/uri",
+    "/timeline/semantic_review/input_sha256",
+    "/upstreams/0/sha256",
+    "/upstreams/0/uri",
+    "/upstreams/1/sha256",
+    "/upstreams/1/uri",
+    "/upstreams/2/sha256",
+    "/upstreams/2/uri"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "command_id": "FULL_DIRECTOR_B2_REVIEW_SUBMIT_1",
+  "expected_revision": 86,
+  "review": {
+    "schema": "review-record/6.0",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 2,
+    "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_cd6e26e1cbeafb65a9918960",
+    "reviewer_dispatch_id": "review-e539e2f5ae9c5a8ccbaa9e5b",
+    "candidate_digest": "76abaac9eea56bc4f53170ab008923506355365e79319e0749f329eef69e5f74",
+    "checks": [
+      {
+        "id": "module_receipt",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/2/module-receipt.review.json"
+        ]
+      },
+      {
+        "id": "native_validator",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/2/native-validator.review.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/2/handoff.review.json"
+        ]
+      }
+    ],
+    "failure_owner": null,
+    "at": "2026-09-25T12:48:39.905Z"
+  }
+}

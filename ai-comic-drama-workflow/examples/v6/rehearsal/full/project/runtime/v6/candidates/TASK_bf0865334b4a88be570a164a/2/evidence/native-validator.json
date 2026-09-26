@@ -1,0 +1,16 @@
+{
+  "command_argv": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/screenplay-map.json"
+  ],
+  "exit_code": 0,
+  "module": "runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/scripts/dg.py",
+  "stderr": "",
+  "stdout": "{\n  \"errors\": [],\n  \"screenplay_binding\": {\n    \"director_content_sha256\": \"b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea\",\n    \"handoff_sha256\": \"4db00070e002faaf1ba1adef6db77f612b4ed17cb41f53dfe4b1ae096f6a7685\",\n    \"mapping_sha256\": \"35c81a73c6c0cfdcad513232cf3659c264431f6d5491b15b4a76d028d666fbcf\",\n    \"status\": \"REVIEW_ATTESTED\"\n  },\n  \"status\": \"STATIC_VALID\"\n}\n\n"
+}

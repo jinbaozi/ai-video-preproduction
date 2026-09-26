@@ -1,0 +1,9 @@
+{
+  "error": null,
+  "failed_check": "handoff",
+  "node_id": "director",
+  "recovery_action": "REVISE",
+  "revision": 64,
+  "status": "REPAIR_REQUIRED",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

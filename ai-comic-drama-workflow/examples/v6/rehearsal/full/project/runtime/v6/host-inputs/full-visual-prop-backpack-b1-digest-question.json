@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_VISUAL_PROP_BACKPACK_B1_DIGEST_QUESTION",
+  "expected_revision": 250,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_PROP_BACKPACK_B1_DIGEST_QUESTION",
+    "task_id": "TASK_5975d46bd5020b778eaa0b5b",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_3c5f6f0a507eea0657f20785",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "BLOCKER",
+    "summary": "Creator suspected frozen input_digest length mismatch; read-only host check pending.",
+    "evidence": [
+      "runtime/v6/host-messages/full-visual-prop-backpack-b1-digest-question.txt"
+    ],
+    "at": "2026-09-25T15:20:37.447468Z",
+    "subject_uri": "runtime/v6/host-messages/full-visual-prop-backpack-b1-digest-question.txt",
+    "subject_sha256": "928cff367c28a8c63f98ab2b64e1e795c6555762b8a2d3068203c538bf89481d"
+  }
+}

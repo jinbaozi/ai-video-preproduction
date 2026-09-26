@@ -1,0 +1,164 @@
+{
+  "actual_media": "NOT_RUN",
+  "artifact_sha256": "d7fc28b7d3207d0beadb14f286e9bffd302a2fdab918dfd54190f515f1355364",
+  "artifact_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/director-ir.json",
+  "batch_1_issue_recheck": {
+    "finding": "At 2500 ms both hands contact the letter with Jia controlling it; at 4000 and 7500 ms Yi alone holds it; at 10500 and 12000 ms the letter is in the backpack, Jia no longer holds it and Yi no longer awaits receipt. Shot end_state matches.",
+    "status": "PASS"
+  },
+  "blockers": [
+    {
+      "id": "INITIAL_CONTACT_DENIAL",
+      "paths": [
+        "/shots/0/start_state/0/pose",
+        "/shots/0/start_state/0/contact",
+        "/shots/0/start_state/2/contact",
+        "/timeline/state_samples/0/entities/CHAR_JIA/contacts",
+        "/timeline/state_samples/0/entities/PROP_LETTER/contacts"
+      ],
+      "reason": "The same initial state says Jia holds the letter in the right hand and the letter contacts Jia.right_hand, while Jia explicitly has no contact. The character-side contact array is empty too. Locked dg.py renders both contradictory shot contact statements into its execution view.",
+      "values": {
+        "jia_contact": "无接触",
+        "jia_pose": "站立；右手持同一封未拆信",
+        "letter_contact": "CHAR_JIA.right_hand",
+        "sample_0_jia_contacts": [],
+        "sample_0_letter_contacts": [
+          "CHAR_JIA.right_hand"
+        ]
+      }
+    },
+    {
+      "id": "UNMIRRORED_CHARACTER_CONTACTS",
+      "paths": [
+        "/timeline/state_samples/1/entities/CHAR_JIA/contacts",
+        "/timeline/state_samples/1/entities/CHAR_YI/contacts",
+        "/timeline/state_samples/2/entities/CHAR_YI/contacts",
+        "/timeline/state_samples/3/entities/CHAR_YI/contacts"
+      ],
+      "reason": "At dual grip and Yi-held checkpoints the prop has right-hand contacts while corresponding character contact arrays remain empty. Align directionality in the native character states with the prop contact graph."
+    }
+  ],
+  "candidate_digest": "4bbd44daaa6de55d06e15bd9341aee4ee91643a534624b733b09ffb85657ebf6",
+  "canon_requirements": [
+    {
+      "id": "REQ_RAIN_NIGHT",
+      "statement": "保留雨夜这一时空事实。"
+    },
+    {
+      "id": "REQ_SINGLE_LETTER",
+      "statement": "交接对象是一封未拆的信，后续封口检查与收存指向同一封信。"
+    },
+    {
+      "id": "REQ_ACTION_ORDER",
+      "statement": "甲交给乙；乙确认封口完整；确认后乙将信收进背包，顺序不可颠倒。"
+    }
+  ],
+  "check": "handoff",
+  "checkpoints": [
+    {
+      "at_ms": 0,
+      "jia_contacts": [],
+      "jia_pose": "站立；右手持同一封未拆信",
+      "letter_contacts": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "yi_contacts": [],
+      "yi_pose": "站立；右手准备接信；背包可及"
+    },
+    {
+      "at_ms": 2500,
+      "jia_contacts": [],
+      "jia_pose": "站立；右手仍持同一封未拆信，乙右手已握住另一侧纸边",
+      "letter_contacts": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "yi_contacts": [],
+      "yi_pose": "站立；右手已握住同一封信的另一侧纸边，等待甲松手"
+    },
+    {
+      "at_ms": 4000,
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "yi_contacts": [],
+      "yi_pose": "站立；右手独自持有同一封未拆信"
+    },
+    {
+      "at_ms": 7500,
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝乙且完整可见",
+      "yi_contacts": [],
+      "yi_pose": "站立；右手持同一封未拆信，正查看完整封口"
+    },
+    {
+      "at_ms": 10500,
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "yi_contacts": [],
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    },
+    {
+      "at_ms": 12000,
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "yi_contacts": [],
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    }
+  ],
+  "creator_evidence_limit": "V5 map assertions and locked dg.py pass, but neither checks the contradictory contact fields.",
+  "positive_semantics": "Rainy night, one unopened letter, seal check before stow, and stopping at the stow result otherwise agree with source, Canon and ScriptIR. Fixed camera, handedness, geometry and 12 seconds are marked Director design. No added dialogue, motive, letter content or later event is asserted.",
+  "repair_owner": "director",
+  "repair_required": "Revise shot start contact prose and character contact arrays to agree with letter contacts; add matching action changes so native state replay remains valid, then resubmit a new candidate for independent review.",
+  "reviewed_at": "2026-09-25T11:20:14.028690Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+  "script_reveal_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "source_text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+  "status": "FAIL",
+  "v5_mapping_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SINGLE_LETTER",
+    "screenplay:REQ_ACTION_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "v5_required_mapping_count": 6,
+  "v5_target_clauses_all_hard": true,
+  "v6_frozen_handoff_tuples_match": true
+}

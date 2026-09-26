@@ -1,0 +1,23 @@
+{
+  "command_id": "DIRECTOR_B3_REVIEW_GUIDANCE_COMMAND_1",
+  "expected_revision": 78,
+  "message": {
+    "at": "2026-09-25T12:14:40.063090Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+      "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+      "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRECTOR_B3_REVIEW_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "d111d53d22389aeef1ff61986ea43ac77dc2c9a30c2a3de41562b5645f61c669",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-review-brief.json",
+    "summary": "Real independent reviewer dispatch carried frozen candidate, repair evidence, four prior defect checks and full declared validator set.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "HANDOFF"
+  }
+}

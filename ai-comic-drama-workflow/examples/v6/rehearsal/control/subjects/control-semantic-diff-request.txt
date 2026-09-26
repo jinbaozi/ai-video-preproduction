@@ -1,0 +1,1 @@
+请把你刚做的 V6 accepted vs V5 promoted StoryboardIR 深度比较冻结为候选 evidence JSON：两个文件 URI/SHA、原 content_hash、promoted content_hash、11 个差异路径与各自值/哈希、确认叙事/时间线/合同不变，以及 `semantic_status`/AVIR PENDING 的实际命令结果。保持原文件与正式状态不变；我会将该证据作为 PROGRESS subject 登记，供 owner 判断保真重定位或返修。

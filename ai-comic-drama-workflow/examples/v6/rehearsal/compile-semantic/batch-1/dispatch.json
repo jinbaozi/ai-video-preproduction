@@ -1,0 +1,23 @@
+{
+  "command_id": "COMPILEQA_DISPATCH_1",
+  "expected_revision": 493,
+  "receipt": {
+    "action_id": "dispatch-a880111379b4fd71d779591d",
+    "agent_id": "/root/host_bridge/v6_42abfe0c85c46ba290a73be2",
+    "batch": 1,
+    "dispatch_id": "dispatch-a880111379b4fd71d779591d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T16:00:47.293687Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T16:00:47.293687Z",
+    "status": "RUNNING",
+    "task_digest": "4e2e660f3c01f0be24d9737d587d0e08bfbe2016d6bcf2a3c2de1f594cecabc4",
+    "task_id": "TASK_ede3a3425d547d3569e53ec4",
+    "tool_result_sha256": "2c40fa4f2ed4e63c02a8ff4ea6a2e59e4d950f7ef8ca6edfb3380230e5e54c8b",
+    "tool_result_uri": "runtime/v6/host-evidence/2c40fa4f2ed4e63c02a8ff4ea6a2e59e4d950f7ef8ca6edfb3380230e5e54c8b.json"
+  }
+}

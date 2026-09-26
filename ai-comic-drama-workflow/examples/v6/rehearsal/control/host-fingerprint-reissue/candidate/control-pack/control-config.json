@@ -1,0 +1,12 @@
+{
+  "controls": [],
+  "lenses": {
+    "S1": {
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Accepted StoryboardIR S1 fixes start_m=end_m=[0,1.2,-2.8] in timeline x-right/y-up/z-depth coordinates, look_at_m=[0,1.0,0], locked operation CAM_LOCKED, and 1280x720 output. Director scene X-right/Y-depth/Z-up point [0,-2.8,1.2] maps to the same physical camera point. 50-degree vertical FOV is an authored review proxy, not a calibrated focal length or model trajectory control.",
+      "vertical_fov_deg": 50
+    }
+  },
+  "schema": "shot-control-config/0.2"
+}

@@ -24,6 +24,31 @@ class ArtTests(unittest.TestCase):
     def linked(self):
         return art.read(self.base / "teahouse-linked.art.json")
 
+    def linked_v12_actions(self):
+        a = self.linked()
+        director = art.read(self.base / a["director"]["uri"])
+        director["schema_version"] = "1.2"
+        for shot in director["shots"]:
+            shot["phases"] = []
+        director["timeline"] = {"actions": []}
+        for index, event in enumerate(a["events"]):
+            entity_id = next(asset["entity_id"] for asset in a["assets"]
+                             if asset["id"] == event["asset_id"])
+            director["timeline"]["actions"].append({
+                "shot_ids": [event["shot_id"]],
+                "changes": [{"entity_id": entity_id, "field": event["field"],
+                             "before": event["before"], "after": event["after"]}],
+            })
+            event["director_pointer"] = f"/timeline/actions/{index}"
+        self.bind_test_director(a, director)
+        return a, director
+
+    def bind_test_director(self, a, director):
+        path = self.tmp / "director-v12-for-art-pointer.json"
+        path.write_text(art.dumps(director))
+        a["director"]["uri"] = str(path)
+        a["director"]["sha256"] = art.digest(path.read_bytes())
+
     def invalid(self, fragment, data=None, base=None):
         with self.assertRaisesRegex(ValueError, fragment):
             art.validate(data or self.a, base or self.base)
@@ -156,6 +181,47 @@ class ArtTests(unittest.TestCase):
         a = self.linked()
         a["events"][0]["director_pointer"] = "/shots/2/phases/1"
         self.invalid("its director phase", a)
+
+    def test_director_v12_action_event_binding(self):
+        a, _ = self.linked_v12_actions()
+        self.assertEqual(art.validate(a, self.base)["status"], "STATIC_VALID")
+        _, out = self.compile(a, "generic-video")
+        handoff = art.read(out / "handoff.json")
+        self.assertEqual(handoff["shots"][0]["events"][0]["director_pointer"],
+                         "/timeline/actions/0")
+
+    def test_director_v11_action_event_binding(self):
+        a, director = self.linked_v12_actions()
+        director["schema_version"] = "1.1"
+        self.bind_test_director(a, director)
+        self.assertEqual(art.validate(a, self.base)["status"], "STATIC_VALID")
+
+    def test_director_v12_action_must_match_shot(self):
+        a, _ = self.linked_v12_actions()
+        a["events"][0]["director_pointer"] = "/timeline/actions/1"
+        self.invalid("outside its shot", a)
+
+    def test_director_v12_action_must_match_state_change(self):
+        a, director = self.linked_v12_actions()
+        director["timeline"]["actions"][0]["changes"][0]["after"] = "unrelated"
+        self.bind_test_director(a, director)
+        self.invalid("must match a Director action state change", a)
+
+    def test_director_v12_action_must_match_entity(self):
+        a, director = self.linked_v12_actions()
+        director["timeline"]["actions"][0]["changes"][0]["entity_id"] = "A"
+        self.bind_test_director(a, director)
+        self.invalid("must match a Director action state change", a)
+
+    def test_director_v12_rejects_phase_pointer(self):
+        a, _ = self.linked_v12_actions()
+        a["events"][0]["director_pointer"] = "/shots/0/phases/0"
+        self.invalid("Director timeline action", a)
+
+    def test_director_event_pointer_shape(self):
+        a, _ = self.linked_v12_actions()
+        a["events"][0]["director_pointer"] = "/timeline/actions/0/changes/0"
+        self.invalid("Schema", a)
 
     def test_director_context_preserved(self):
         a = self.linked()

@@ -1,0 +1,41 @@
+{
+  "channel": "artifact",
+  "finding": "三项 Canon 硬要求进入原生 DirectorIR 的合同、动作和关键状态。",
+  "mapping": [
+    {
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/space",
+        "/timeline/audio_events/0/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/entities/2",
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/beats",
+        "/timeline/actions"
+      ]
+    }
+  ],
+  "requirement_id": "UP_45d4c22d9b47d4c769367b04",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "source_slot": "canon:project:project:Canon",
+  "source_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+  "source_version": 12,
+  "target_pointer": "",
+  "target_sha256": "2e9a0d53be46b56dfbcb9dcf9b5965c23c99f2b20510c7567415b08896297177",
+  "target_slot": "director:project:project:DirectorIR",
+  "target_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/director-ir.json"
+}

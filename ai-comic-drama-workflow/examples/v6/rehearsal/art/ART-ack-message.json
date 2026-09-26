@@ -1,0 +1,19 @@
+{
+  "command_id": "ART_ACK_COMMAND_1",
+  "expected_revision": 91,
+  "message": {
+    "at": "2026-09-25T12:23:17.421529Z",
+    "batch": 1,
+    "evidence": [],
+    "in_reply_to": "ART_GUIDANCE_1",
+    "message_id": "ART_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_2dea6a2a9ca676085285dc07",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Creator acknowledged frozen art action, scene scope, inputs and scene-painter contract; will write only assigned candidate directory and report result path/SHA.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "ACK"
+  }
+}

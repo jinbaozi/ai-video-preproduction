@@ -1,0 +1,14 @@
+{
+  "batch": 2,
+  "candidate_digest": null,
+  "check_evidence": [
+    "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/2/module-receipt.review.json"
+  ],
+  "code": "VALUEERROR",
+  "failed_check": "module_receipt",
+  "message": "Inconsistent screenplay review binding",
+  "node_id": "director",
+  "reviewer_failure_owner": null,
+  "submission_digest": "571723287d39239834c02e3bca0e2e4eb88c6b8f6f59238a2207e7330921e294",
+  "task_id": "TASK_eb6702e9e268b2ba339b0fcf"
+}

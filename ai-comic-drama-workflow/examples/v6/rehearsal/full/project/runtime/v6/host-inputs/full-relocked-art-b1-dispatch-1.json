@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_RELOCKED_ART_B1_DISPATCH_1",
+  "expected_revision": 208,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_4de99276d376cc50c61527d6",
+    "batch": 1,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "dispatch-8b49e46109d2353ee8cc5b63",
+    "action_id": "dispatch-8b49e46109d2353ee8cc5b63",
+    "tool_result_uri": "runtime/v6/host-evidence/f6f56851224f4adfc73e3226185fa2df1afc601b1b6aeedd1089daaa3178dd1e.json",
+    "tool_result_sha256": "f6f56851224f4adfc73e3226185fa2df1afc601b1b6aeedd1089daaa3178dd1e",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_ef7e68da05761cf96b9008e1",
+    "task_digest": "4254b7cd4f126eaba69348ad3a1f6bdc2636f131398754903615ce1462b39066",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T14:47:48.832303Z",
+    "observed_at": "2026-09-25T14:47:48.832303Z",
+    "result_uri": null,
+    "error": null
+  }
+}

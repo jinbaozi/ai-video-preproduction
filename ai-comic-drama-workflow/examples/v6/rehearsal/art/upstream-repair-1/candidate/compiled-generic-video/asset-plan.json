@@ -1,0 +1,207 @@
+{
+  "assets": [
+    {
+      "design": "中性、无年代和职业标识的外观建议；袖口不遮握信的右手。",
+      "entity_id": "CHAR_JIA",
+      "graphic_text": null,
+      "id": "CHAR_JIA",
+      "identity_locks": [
+        "沿用 CHAR_JIA 身份；不发明年龄、性别、关系或表情",
+        "本镜衣装外观连续；不遮甲右手与信纸边接触"
+      ],
+      "initial_state": {
+        "appearance": "unapproved_stable_design"
+      },
+      "kind": "character",
+      "material_ids": [
+        "MAT_CLOTH"
+      ],
+      "name": "甲",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "中性、无年代和职业标识的外观建议；袖口和发丝不遮右手验封、左手在背包开口的动作。",
+      "entity_id": "CHAR_YI",
+      "graphic_text": null,
+      "id": "CHAR_YI",
+      "identity_locks": [
+        "沿用 CHAR_YI 身份；不发明年龄、性别、关系或动机",
+        "本镜衣装连续；右手、左手、眼部按导演可见范围保持清楚"
+      ],
+      "initial_state": {
+        "appearance": "unapproved_stable_design"
+      },
+      "kind": "character",
+      "material_ids": [
+        "MAT_CLOTH"
+      ],
+      "name": "乙",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "单件哑光浅纸色信件；封口折线完整且能被乙检查，外观无字、印章或特殊来历线索。",
+      "entity_id": "PROP_LETTER",
+      "graphic_text": null,
+      "id": "PROP_LETTER",
+      "identity_locks": [
+        "全程只有 PROP_LETTER 这一封信",
+        "封口在交接、确认、入包过程中保持未拆且完整",
+        "不得增加文字、印章、撕裂或信件内容；控制权和位置变化只读 DirectorIR 时间线"
+      ],
+      "initial_state": {
+        "identity": "single_letter",
+        "seal": "intact_unopened"
+      },
+      "kind": "prop",
+      "material_ids": [
+        "MAT_PAPER"
+      ],
+      "name": "同一封未拆信",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "乙身上的同一背包；开口能由左手撑持，包腔可容纳同一封信，开口边缘与信形成明度差。",
+      "entity_id": "PROP_BACKPACK",
+      "graphic_text": null,
+      "id": "PROP_BACKPACK",
+      "identity_locks": [
+        "始终为 PROP_BACKPACK，归乙使用",
+        "不增加品牌、图案或来源未给的独特形制；收存动作以 DirectorIR 为准"
+      ],
+      "initial_state": {
+        "access": "reachable",
+        "identity": "same_backpack"
+      },
+      "kind": "prop",
+      "material_ids": [
+        "MAT_BAG"
+      ],
+      "name": "乙的背包",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "无具体地点标识的低频雨夜后景；雨的可见线索与导演雨声计划兼容，不推定室内或室外。",
+      "entity_id": "ENV_RAIN_NIGHT",
+      "graphic_text": null,
+      "id": "ENV_RAIN_NIGHT",
+      "identity_locks": [
+        "雨夜事实稳定",
+        "地点、室内外、年代均未指定；不可加入门窗、街牌或地标作为事实"
+      ],
+      "initial_state": {
+        "time": "night",
+        "weather": "rain"
+      },
+      "kind": "set",
+      "material_ids": [
+        "MAT_RAIN"
+      ],
+      "name": "雨夜环境",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    }
+  ],
+  "references": [
+    {
+      "asset_id": "CHAR_JIA",
+      "exclude": [
+        "背景、无关道具、未经批准的年龄职业设定"
+      ],
+      "file": null,
+      "id": "REF_JIA",
+      "inherit": [
+        "仅待核身份与当次衣装轮廓"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "identity",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "CHAR_YI",
+      "exclude": [
+        "背景、无关道具、未经批准的关系动机"
+      ],
+      "file": null,
+      "id": "REF_YI",
+      "inherit": [
+        "仅待核身份与当次衣装轮廓"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "identity",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "PROP_LETTER",
+      "exclude": [
+        "文字、印章、信内内容、第二封信"
+      ],
+      "file": null,
+      "id": "REF_LETTER",
+      "inherit": [
+        "唯一信件外观、完整封口和纸边"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "prop",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "PROP_BACKPACK",
+      "exclude": [
+        "品牌、无关物件、未经批准的持有人变更"
+      ],
+      "file": null,
+      "id": "REF_BAG",
+      "inherit": [
+        "乙的同一背包及可收信的开口"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "prop",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    }
+  ]
+}

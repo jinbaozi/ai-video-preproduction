@@ -2,18 +2,23 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "v5-generation-job",
   "type": "object",
-  "required": ["schema_version", "id", "request_id", "compile_sha256", "payload_sha256", "payload", "attachments", "shot_ids", "state", "budget"],
+  "required": ["schema_version", "id", "request_id", "compile_sha256", "request_sha256", "payload_sha256", "payload", "attachments", "shot_ids", "state", "budget", "compile_uri", "compile_verified", "route"],
   "properties": {
     "schema_version": {"const": "v5-generation-job/1.0"},
-    "id": {"type": "string", "minLength": 1},
-    "request_id": {"type": "string"},
-    "compile_sha256": {"type": "string"},
-    "payload_sha256": {"type": "string"},
-    "payload": {"type": "object"},
-    "attachments": {"type": "array"},
-    "shot_ids": {"type": "array"},
+    "id": {"type": "string", "pattern": "^JOB_[A-Za-z0-9_-]+$"},
+    "request_id": {"type": "string", "minLength": 1},
+    "compile_sha256": {"type": "string", "minLength": 1},
+    "request_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "payload_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "payload": {"type": "object", "minProperties": 1, "properties": {"model": {"type": "string"}, "mode": {"enum": ["text", "keyframe", "reference"]}, "seconds": {"type": ["string", "integer"]}, "size": {"type": "string"}, "aspect_ratio": {"type": "string"}, "n": {"type": "integer", "minimum": 1}, "prompt": {"type": "string", "minLength": 1}, "first_frame": {"type": "string"}, "last_frame": {"type": "string"}, "images": {"type": "array", "items": {"type": "string"}}, "videos": {"type": "array", "items": {"type": "object", "required": ["url"], "properties": {"url": {"type": "string"}}, "additionalProperties": false}}, "audios": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": false},
+    "attachments": {"type": "array", "items": {"type": "object", "required": ["url", "sha256"], "properties": {"url": {"type": "string", "minLength": 1}, "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "kind": {"enum": ["image", "video", "audio"]}, "slot": {"enum": ["first_frame", "last_frame", "images", "videos", "audios"]}, "label": {"type": "string"}, "artifact_ids": {"type": "array", "items": {"type": "string"}}, "control_ids": {"type": "array", "items": {"type": "string"}}}, "additionalProperties": false}},
+    "shot_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "scope": {"type": "object", "properties": {"shot_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}}, "start_ms": {"type": "integer", "minimum": 0}, "end_ms": {"type": "integer", "minimum": 1}}, "additionalProperties": false},
     "state": {"const": "FROZEN"},
-    "budget": {"type": "object"}
+    "budget": {"type": "object", "required": ["max_attempts", "project_cap"], "properties": {"max_attempts": {"type": "integer", "minimum": 1}, "project_cap": {"type": "integer", "minimum": 1}, "authorization": {"type": "string", "minLength": 1}, "authorization_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}}, "dependentRequired": {"authorization": ["authorization_sha256"], "authorization_sha256": ["authorization"]}, "additionalProperties": false},
+    "compile_uri": {"type": ["string", "null"]},
+    "compile_verified": {"type": "boolean"},
+    "route": {"type": "string", "minLength": 1}
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

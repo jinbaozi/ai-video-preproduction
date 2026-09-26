@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REBUILD_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 228,
+  "message": {
+    "at": "2026-09-25T14:09:04.737076Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/candidate-result.json"
+    ],
+    "in_reply_to": "ART_REBUILD_HANDOFF_HANDOFF_1",
+    "message_id": "ART_REBUILD_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+    "subject_sha256": "8c057b0b6ef1aa5cd84e2c67863ff171c42906024cfb6b95dbd28f8d870617be",
+    "subject_uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/candidate-result.json",
+    "summary": "Art candidate-result/6.0 已提交；ArtIR、RoleResult 和逐项证据在冻结候选目录，媒体 NOT_RUN。",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "type": "RESULT"
+  }
+}

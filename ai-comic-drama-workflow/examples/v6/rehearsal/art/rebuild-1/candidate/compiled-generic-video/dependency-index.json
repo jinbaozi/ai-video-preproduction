@@ -1,0 +1,23 @@
+{
+  "acceptance_invalidation": "Any ArtIR/compiler/registry/director/reference byte change requires recompilation and new QA; local reuse needs host review",
+  "art_sha256": "83cd1d4f2fe21137618e3e015bdee04314fd513f66e1260d155a91f74d74d115",
+  "director": {
+    "project_id": "LETTER_DEMO",
+    "revision": 4,
+    "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+    "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json"
+  },
+  "shots": {
+    "S1": {
+      "asset_ids": [
+        "CHAR_JIA",
+        "CHAR_YI",
+        "PROP_LETTER",
+        "PROP_BACKPACK",
+        "ENV_RAIN_NIGHT"
+      ],
+      "director_pointer": "/shots/0",
+      "reference_ids": []
+    }
+  }
+}

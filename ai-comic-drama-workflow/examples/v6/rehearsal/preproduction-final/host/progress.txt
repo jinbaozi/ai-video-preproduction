@@ -1,0 +1,1 @@
+PROGRESS: Frozen CompileReview hash and build ID match the task envelope. I read the native QA task plus locked compiler Skill and all five required resources. The current build reports one 0–12 s text-only draft, execution NOT_RUN, and two post obligations PLANNED. I am checking the accepted chain and native final gate before submitting a candidate.

@@ -1,11 +1,11 @@
 {
   "archive": "screenplay-grammar.skill",
-  "archive_sha256": "427185d66d3354cf404c6ff29fce8acc12f9f4294f3dac88b73026f3c0ffde3a",
-  "file_count": 55,
+  "archive_sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
+  "file_count": 56,
   "files": {
     "screenplay-grammar/SKILL.md": {
-      "bytes": 5740,
-      "sha256": "2e048ced4a5c8a08b1da62b9914da9a5344c48c8287940b2defd6eff4b2e4d8f"
+      "bytes": 6356,
+      "sha256": "04f9f9b6fbb66c097bb9f5c520270d701a8f0bc5d0d00cf0b102f5221db6368e"
     },
     "screenplay-grammar/agents/openai.yaml": {
       "bytes": 392,
@@ -60,8 +60,8 @@
       "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
     },
     "screenplay-grammar/references/cooperation.md": {
-      "bytes": 1855,
-      "sha256": "22316e5014235c1e6a2f12c499a568b405c56618e7ec3b3d5a33c5588e5eb4fe"
+      "bytes": 2759,
+      "sha256": "284750ee9f1a18d6647067e08dbcea74fe68e44d259e031cfaaeaa3b4c194e36"
     },
     "screenplay-grammar/references/long-form.md": {
       "bytes": 1246,
@@ -163,6 +163,10 @@
       "bytes": 416,
       "sha256": "45bbc4b736d647bce06551b6c391eb9785634c8d34cf8631ccb4a67573561f29"
     },
+    "screenplay-grammar/references/v5-reads.json": {
+      "bytes": 205,
+      "sha256": "dfed636c0980c40ad5ac364192795478dc8f75fe4fd20ca1f9abf8d69f9c3d9c"
+    },
     "screenplay-grammar/references/verification.md": {
       "bytes": 593,
       "sha256": "73239dce5e169abc94694da1b721bfff88fe1367de9634f60eaff802214fd7f0"
@@ -225,5 +229,5 @@
     }
   },
   "name": "screenplay-grammar",
-  "version": "1.0.0"
+  "version": "1.0.2"
 }

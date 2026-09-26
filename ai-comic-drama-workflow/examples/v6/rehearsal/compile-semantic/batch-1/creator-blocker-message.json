@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILEQA_CREATOR_BLOCKER_BLOCKER_COMMAND_1",
+  "expected_revision": 496,
+  "message": {
+    "at": "2026-09-25T16:02:30.187950Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/compileqa-creator-blocker.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "COMPILEQA_CREATOR_BLOCKER_BLOCKER_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_42abfe0c85c46ba290a73be2",
+    "subject_sha256": "f088febf34c4ecfe493d7dcdd5c4ac9ede0768faf7b30eaa91efaf6eb0a11280",
+    "subject_uri": "runtime/v6/host-inputs/compileqa-creator-blocker.txt",
+    "summary": "锁定 V5 adapter 将 shot composition visible_parts 原样复制到 end_state，致信入包后仍可见；语义等价受阻。",
+    "task_id": "TASK_ede3a3425d547d3569e53ec4",
+    "type": "BLOCKER"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_RESOURCE_ACK_REQUEST_1",
+  "expected_revision": 92,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_RESOURCE_ACK_REQUEST_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_19f7d0afd51ff59e575a24ec",
+    "in_reply_to": "FULL_DIRECTOR_B3_REPAIR_INSTRUCTION_1",
+    "type": "QUESTION",
+    "summary": "Request exact corrected resource hash and native mapping proof before candidate submission",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-b3-resource-ack-request.txt"
+    ],
+    "at": "2026-09-25T12:54:20.564593Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-b3-resource-ack-request.txt",
+    "subject_sha256": "987c221d72f30ce8ee6cd5eb7598e09a961b622d0610149f2b7f684b19f2d33d"
+  }
+}

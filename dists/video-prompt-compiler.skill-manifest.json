@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "30ed6aec9860cf5852057a8ce9a46f5bf9739722056d6ba0759b72e431c3c17d",
-  "file_count": 122,
+  "archive_sha256": "a1794915e5ddcc4962c699af3f07cfe238954524c99be3b6f4cc3c33a4d68237",
+  "file_count": 123,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 9342,
-      "sha256": "26ed71c62ad894c82cdc128f4471b00cf71d577d1d7ade538e11512cde1190b3"
+      "bytes": 9843,
+      "sha256": "c5fa51d3c46caf43e9956d019b7274fdf8dc98ed82b556c97c8acabde328d224"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -64,12 +64,12 @@
       "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14"
     },
     "video-prompt-compiler/references/capability-matrix.md": {
-      "bytes": 4518,
-      "sha256": "05dc6a078bd1a7c0f5b729292b3588d1302c75cb5d9f6bad2a990ba84c828d2e"
+      "bytes": 4494,
+      "sha256": "6ed0b1324810f0daf8bcb3d5af6f67978254718ab81419db9fc74760bc4d69b6"
     },
     "video-prompt-compiler/references/cooperation-v5.md": {
-      "bytes": 2272,
-      "sha256": "efb5f262021768a32c316463038f9fa104d4618c94de0599fe79b93a0f4f24f5"
+      "bytes": 3913,
+      "sha256": "d5b3a03022634923cf0cb2cf13c91a4634e2b02baaf631dfa39b4e461183fbea"
     },
     "video-prompt-compiler/references/current-contract.md": {
       "bytes": 2877,
@@ -128,8 +128,12 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/shot-control.md": {
-      "bytes": 32265,
-      "sha256": "99992563303662316ac726dd7655c99e512d718c0dd8b8e4374d2a13a131975c"
+      "bytes": 32544,
+      "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+    },
+    "video-prompt-compiler/references/v5-reads.json": {
+      "bytes": 461,
+      "sha256": "78d48ab212ed2d6d4be4e60b359d6c1c057b88e93d617123654f38a6ed50d3fd"
     },
     "video-prompt-compiler/references/verification.md": {
       "bytes": 4078,
@@ -140,8 +144,8 @@
       "sha256": "cf3f9936dab51e9e406319698f0a9d4defcc79bcdcfc41eb1affad30a948b0d2"
     },
     "video-prompt-compiler/registries/control-capabilities.json": {
-      "bytes": 3516,
-      "sha256": "4915f01d51c05455093bd1025e5486ad44ac93134084facdf8b9e8856b2bba0a"
+      "bytes": 3515,
+      "sha256": "f4a719b75c1225c9c001f4bc9e53f96a45f9c81e3f5160505d02d05f48b7731d"
     },
     "video-prompt-compiler/registries/rules.json": {
       "bytes": 1208,
@@ -493,5 +497,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.17.5"
+  "version": "1.17.7"
 }

@@ -1,0 +1,1 @@
+请回一条当前进度、QUESTION 或 BLOCKER；如果 17 条硬要求和后期义务已审完，请给 candidate-result.json、RoleResult 路径及 SHA 和结论。保持同一已登记任务与候选目录。

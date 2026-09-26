@@ -1,0 +1,12 @@
+{
+  "status": "AWAITING_USER_DECISION",
+  "decision": {
+    "id": "DEC_cd46a5dc674b263cede67788",
+    "key": "target",
+    "question": "请指定视频提示词的目标模型/入口。",
+    "context": {},
+    "options": [
+      "set-target"
+    ]
+  }
+}

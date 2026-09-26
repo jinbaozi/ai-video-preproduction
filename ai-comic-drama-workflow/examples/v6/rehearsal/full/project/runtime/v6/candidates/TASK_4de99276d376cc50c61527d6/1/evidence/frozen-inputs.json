@@ -1,0 +1,55 @@
+{
+  "module_receipt": {
+    "name": "production-design-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/SKILL.md",
+        "sha256": "43a4f38ebf9271892d6c489f57e31408ad655b01fdecda4700b9018f105a2b10"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/cooperation-v5.md",
+        "sha256": "029d4196062a8794b515a85c337f592f5d5b447ec0bcf7b002486c08af4dc863"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/world-and-assets.md",
+        "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901"
+      }
+    ],
+    "skill_sha256": "43a4f38ebf9271892d6c489f57e31408ad655b01fdecda4700b9018f105a2b10",
+    "version": "1.3.3"
+  },
+  "status": "PASS",
+  "v5_inputs": [
+    {
+      "sha256": "dfecb1f9209f45a485e88329340f1e085a39868780b5b18a824a254cf017e112",
+      "slot": "director",
+      "uri": "/private/tmp/ai-video-v6-full-demo/project/artifacts/director/4ea63624ed26dfd7d8867d4c82dafc445b02da357580a60a7ea847f650cfed55/native/f9a0f95fcffdb914_director-ir.json"
+    },
+    {
+      "sha256": "ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5",
+      "slot": "canon",
+      "uri": "/private/tmp/ai-video-v6-full-demo/project/artifacts/canon/f3c90f6c20dd218a854fa67548b296692d71fd08bc62e2ca5076a27667809b18/native/0cc4aebffda6a714_canon.json"
+    }
+  ],
+  "v6_inputs": [
+    {
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json"
+    },
+    {
+      "sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json"
+    },
+    {
+      "sha256": "b116baafc9318be8878e219f4f7c99079a34113a4ee805081f304108a42c5282",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_4de99276d376cc50c61527d6.json"
+    }
+  ]
+}

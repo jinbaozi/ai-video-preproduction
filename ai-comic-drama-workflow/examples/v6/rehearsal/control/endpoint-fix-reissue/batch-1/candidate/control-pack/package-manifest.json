@@ -1,0 +1,15 @@
+{
+  "files": {
+    "artifact-manifest.json": "d049667a30b21964ff38b10151b34042772ea1d8d6c3dee40fe72ad4762ebf90",
+    "control-config.json": "200f4f1287b09cfa3009d625f59578ef8107920130825f9c8de482b0f959c266",
+    "control-coverage.json": "8b6ab8eb8aa4c642ce016b1d6f530f23047d84a2ed009ab24fa4af8c510ab0fa",
+    "control-plan.json": "7ddad931d2ca763c093563c638cc2f5a5ded18a3c38b7a5e8d513a04adf41206",
+    "evaluation-plan.json": "5650a0a69700a88a597319c18ce7b417310cb4a9216054f1baf170ffabacf946",
+    "keyframe-requests.json": "f2070e255c1f4082cdc488a2f17afd4c1205c3b77177a174a075ca7df8cff6e4",
+    "production-specification.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "review/blocking-001.svg": "af21149321e95cd390f3a74c1c76ab34e23ee851af8509816009ddccc6c14e8a",
+    "review/frames.json": "f3c5294bdb70816c87f07e1dc830c9bc96f2149c9ec826b5f55d77e3c675dd8a",
+    "review/index.html": "6a62b5d9ccc5fdd5298a1497cd3982435675ba62a76cdddf8c3c61cf9f2df0b4"
+  },
+  "schema": "control-package/0.2"
+}

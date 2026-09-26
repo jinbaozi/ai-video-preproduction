@@ -1,0 +1,1 @@
+Art 模块原生校验器要求每个 ArtIR.events[*].director_pointer 指向 /shots/N/phases/K；当前冻结 DirectorIR 1.2 的三镜 phases 都是空数组，动作实际位于 /timeline/actions。为保证原生 STATIC_VALID，我将不伪造不存在的 phase 指针，ArtIR.events 置空，并在资产规则、逐镜支持和合同里明确 handoff→验封→入包状态及 Director timeline 原字段。此契约错位会列为交接限制供独立审核。

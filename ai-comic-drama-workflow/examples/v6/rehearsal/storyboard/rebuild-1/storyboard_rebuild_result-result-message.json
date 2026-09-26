@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_REBUILD_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 266,
+  "message": {
+    "at": "2026-09-25T14:23:45.177910Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/candidate-result.json"
+    ],
+    "in_reply_to": "STORYBOARD_REBUILD_HANDOFF_HANDOFF_1",
+    "message_id": "STORYBOARD_REBUILD_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+    "subject_sha256": "c7a9bafe17bfb2f06d2b04817dcff893da5b19e082841e78c3ff168012ae1ff7",
+    "subject_uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/candidate-result.json",
+    "summary": "Storyboard candidate-result/6.0 已提交并绑定当前冻结输入；真实媒体与视觉 QA NOT_RUN。",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "type": "RESULT"
+  }
+}

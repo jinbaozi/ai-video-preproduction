@@ -1,0 +1,1 @@
+Art batch 1 RUNNING receipt verified. I read all frozen V6 inputs/resources and original source, confirmed current DirectorIR differs from stale history only in provenance/review rebinding; six V5 hard handoff fingerprints remain current. I’m authoring a new ArtIR candidate bound to Director revision 4/SHA 4f30… and will run the locked validator before reporting.

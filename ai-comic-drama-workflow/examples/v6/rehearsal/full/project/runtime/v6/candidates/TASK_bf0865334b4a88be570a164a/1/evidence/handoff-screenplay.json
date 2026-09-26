@@ -1,0 +1,150 @@
+{
+  "channel": "artifact",
+  "finding": "六条 ScriptIR 交接逐项对应原生 hard clause 与实际视听字段。",
+  "mapping": [
+    {
+      "reason": "雨夜由场景与声画氛围承载，具体地点保持开放。",
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "source_fingerprint": "1c01089dff949f1e66af960811afb8d7605819a62c9aba9bfdb0b27440ce8201",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/space",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/sound/ambience",
+          "value": "雨夜"
+        }
+      ],
+      "target_clause": "REQ_RAIN_NIGHT"
+    },
+    {
+      "reason": "同一实体 ID 从交接延续至入包，验封过程不拆信。",
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "source_fingerprint": "97eb18b237c8758344de34386e927d754490d1dd7c80a8a26d360a6401465ffb",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/entities/2/description",
+          "value": "同一封未拆的信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/1/operation",
+          "value": "不拆信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/condition",
+          "value": "未拆"
+        }
+      ],
+      "target_clause": "REQ_SAME_UNOPENED_LETTER"
+    },
+    {
+      "reason": "三个动作的开始时间与前件依赖按剧本顺序排列。",
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "source_fingerprint": "8f40a21ba4c3e07fe35295a99ada60e873b0491b1c238d3b4cb0a7b4460cf1e6",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        }
+      ],
+      "target_clause": "REQ_EVENT_ORDER"
+    },
+    {
+      "reason": "最终关键姿态与观众所得信息均为同一封信入包。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "source_fingerprint": "4f54859522a816a31f24e21d40a7a673c05cd2996bab23c54fa385511e4214ef",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/contacts",
+          "value": "PROP_BACKPACK.interior"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/narrative/audience_after",
+          "value": "同一封未拆的信已经收进背包"
+        }
+      ],
+      "target_clause": "REQ_ENDING"
+    },
+    {
+      "reason": "每一剧本事件均有独立动作、可见反馈和认知更新。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "source_fingerprint": "9044de0a13ef70378170d21d51fdf0e0b57a6db67b226f5e2b17e4780e65d5f7",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/narrative/character_knows",
+          "value": "乙在本镜确认封口完整"
+        }
+      ],
+      "target_clause": "REQ_SCRIPT_EVENTS"
+    },
+    {
+      "reason": "镜头和动作顺序均与剧本 reveal_order 对齐。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/story_order",
+          "value": 1
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/story_order",
+          "value": 2
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/story_order",
+          "value": 3
+        }
+      ],
+      "target_clause": "REQ_REVEAL_ORDER"
+    }
+  ],
+  "requirement_id": "UP_beaf9e05cc9e0aa9e036f59b",
+  "screenplay_map_sha256": "e20946f9abbaaae9be82bdc916a7fe4460380175216278d4bebde735dfecbf72",
+  "screenplay_map_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/screenplay-map.json",
+  "source_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "source_slot": "screenplay:project:project:ScriptIR",
+  "source_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+  "source_version": 15,
+  "target_pointer": "",
+  "target_sha256": "2e9a0d53be46b56dfbcb9dcf9b5965c23c99f2b20510c7567415b08896297177",
+  "target_slot": "director:project:project:DirectorIR",
+  "target_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/director-ir.json"
+}

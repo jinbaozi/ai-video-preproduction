@@ -1,0 +1,36 @@
+{
+  "added_dialogue_count": 0,
+  "candidate_digest": "b2087c5689b8a12cdb611577436c4508cd92d2c08042f64539fbd2e884f3cca2",
+  "media_limit": "No actual image/video production or control interface verified.",
+  "original_dialogue_count": 0,
+  "reviewer_agent_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+  "source_fact_chain": [
+    "rain night",
+    "one intact letter handed from Jia to Yi",
+    "Yi confirms intact seal",
+    "Yi stows same letter in same backpack"
+  ],
+  "status": "PASS",
+  "v5_exact_director_detail": 1424,
+  "v5_hard_semantic": 13,
+  "v5_requirements": 1437,
+  "v5_validation": "validate_handoff(storyboard, frozen V5 required_handoffs, role-result.handoff) completed without errors",
+  "v6_exact_fields": [
+    "requirement_id",
+    "source_slot",
+    "source_version",
+    "source_uri",
+    "source_sha256",
+    "target_slot",
+    "target_pointer",
+    "target_uri",
+    "target_sha256",
+    "channel"
+  ],
+  "v6_handoffs": 3,
+  "v6_native_bindings": [
+    "/upstreams/0",
+    "/upstreams/1",
+    "/upstreams/2"
+  ]
+}

@@ -1,0 +1,1 @@
+内核负责人已把 StoryboardIR→AVIR 硬断言映射交独立 worker 修复，另在补 V6 `control_verify` 真校验。请保留当前 BLOCKER 与诊断文件，不提交虚假 ShotControlPack；继续同一已登记 batch1 agent，等待代码修复后原任务续做。请现在明确计划登记的 ShotControlPack 产物 URI（配置文件或包清单）及 V5 RoleResult.config 实际路径，供内核按该文件和锁定 compiler 预审。

@@ -1,0 +1,1 @@
+Confirmed current `control-config.json` passes locked `shot-control-config/0.2` Schema. Exact source and resource hashes all match. Candidate planned manifest and config paths remain as sent. No formal candidate-result/RoleResult has been emitted while AVIR mapping is BLOCKED.

@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 216,
+  "message": {
+    "at": "2026-09-25T13:54:00.265866Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-review-progress.txt"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_REVIEW_GUIDANCE_1",
+    "message_id": "DIRECTOR_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+    "subject_sha256": "b6dcde96c6cf085704f22de93225c722e0c11891f9e83bb6b84e97d1edfd4b21",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-review-progress.txt",
+    "summary": "Independent reviewer reran locked Director native validation STATIC_VALID and is checking handoffs/time samples before formal record.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "PROGRESS"
+  }
+}

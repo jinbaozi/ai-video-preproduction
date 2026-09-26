@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B1_CANDIDATE_HANDOFF_1",
+  "expected_revision": 146,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_CANON_B1_CANDIDATE_HANDOFF_1",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_9d397fb30b8b5c68c296b7ef",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_CANON_B1_PRIOR_REFERENCE_1",
+    "type": "HANDOFF",
+    "summary": "Relocked Canon candidate verified against current source and task",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-canon-b1-candidate-ready.txt"
+    ],
+    "at": "2026-09-25T13:49:06.948360Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-canon-b1-candidate-ready.txt",
+    "subject_sha256": "310dd92b91d6ae8427dc44f241fef38d12da40ebff2c0ae5ecaa183423cf9e35"
+  }
+}

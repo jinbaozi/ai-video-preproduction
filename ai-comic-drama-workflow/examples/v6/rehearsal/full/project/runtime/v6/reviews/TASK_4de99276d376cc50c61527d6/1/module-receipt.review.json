@@ -1,0 +1,25 @@
+{
+  "check": "module_receipt",
+  "status": "PASS",
+  "module": {
+    "name": "production-design-grammar",
+    "sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+    "version": "1.3.3"
+  },
+  "candidate_digest": "88eba274dbdbff36e3091dce4763e7218aaca9eaae9ad585ac9049481f0b1feb",
+  "frozen_inputs_verified": [
+    "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+    "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json",
+    "runtime/tasks/TASK_4de99276d376cc50c61527d6.json"
+  ],
+  "resource_files_verified": [
+    "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/SKILL.md",
+    "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/current-contract.md",
+    "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/cooperation-v5.md",
+    "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/world-and-assets.md"
+  ],
+  "creator_result_sha256": "2374210266ac65def3d87097bbc46c242802d2af34a8302e9aac250cf9613e95",
+  "art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "finding": "Frozen Canon, DirectorIR, V5 task and four locked Art resources match the declared hashes; the creator receipt and candidate/result/artifact bindings agree.",
+  "reviewed_at": "2026-09-25T14:55:11.836Z"
+}

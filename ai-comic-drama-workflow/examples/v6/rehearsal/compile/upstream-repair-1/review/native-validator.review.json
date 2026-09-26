@@ -1,0 +1,15 @@
+{
+  "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+  "command_evidence": [
+    "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/validate-command.json",
+    "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/verify-command.json",
+    "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/replay-command.json"
+  ],
+  "compiled_files_verified": 20,
+  "frozen_build_files_verified": 24,
+  "replay_files_exact_match": 20,
+  "replay_status": "COMPILED",
+  "status": "PASS",
+  "validate_status": "VALID",
+  "verify_status": "VERIFIED"
+}

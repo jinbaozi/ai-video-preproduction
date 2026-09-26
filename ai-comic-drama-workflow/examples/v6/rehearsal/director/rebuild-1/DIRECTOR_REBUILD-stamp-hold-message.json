@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_STAMP_HOLD_COMMAND_1",
+  "expected_revision": 207,
+  "message": {
+    "at": "2026-09-25T13:46:14.907954Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-stamp-hold.txt"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_BINDING_PROGRESS_1",
+    "message_id": "DIRECTOR_REBUILD_STAMP_HOLD_1",
+    "recipient_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "81f3e1cb193f346669a0a68b99c4811dc3a3d20560c21f5fcddd80862543a7f1",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-stamp-hold.txt",
+    "summary": "Kernel owner is repairing synchronized V5 semantic and native handoff stamp rebinding; host held formal candidate submission while creator prepares current-input evidence.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "HANDOFF"
+  }
+}

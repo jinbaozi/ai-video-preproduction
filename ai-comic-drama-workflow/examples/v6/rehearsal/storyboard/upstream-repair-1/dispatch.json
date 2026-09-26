@@ -1,0 +1,23 @@
+{
+  "command_id": "STORYREPAIR_DISPATCH_1",
+  "expected_revision": 422,
+  "receipt": {
+    "action_id": "dispatch-0713b3b7c55f8e89a886f0b7",
+    "agent_id": "/root/host_bridge/v6_47406a68b592393955a28d31",
+    "batch": 1,
+    "dispatch_id": "dispatch-0713b3b7c55f8e89a886f0b7",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:31:31.888006Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:31:31.888006Z",
+    "status": "RUNNING",
+    "task_digest": "472e96cde9d28798d7052662b8f46f0f065f3a41f2ad00f727a0cebed57c2ddd",
+    "task_id": "TASK_4f81cc62bc1b268a8f8be7b0",
+    "tool_result_sha256": "263b05ae9dae08b4b83174a71e05d38925bea9f1f3109abbbaecfde61757bff8",
+    "tool_result_uri": "runtime/v6/host-evidence/263b05ae9dae08b4b83174a71e05d38925bea9f1f3109abbbaecfde61757bff8.json"
+  }
+}

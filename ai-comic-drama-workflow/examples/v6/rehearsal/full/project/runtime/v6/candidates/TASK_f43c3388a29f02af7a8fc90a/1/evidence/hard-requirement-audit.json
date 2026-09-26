@@ -1,0 +1,109 @@
+{
+  "art_computed_state_after": {
+    "S_HANDOFF": {
+      "PROP_BACKPACK": {
+        "condition": "待收纳同一封信"
+      }
+    },
+    "S_SEAL": {
+      "PROP_BACKPACK": {
+        "condition": "待收纳同一封信"
+      }
+    },
+    "S_STOW": {
+      "PROP_BACKPACK": {
+        "condition": "待收纳同一封信"
+      }
+    }
+  },
+  "contract_paths": {
+    "art_compile_event_pointer": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py:256-261",
+    "art_compile_state_recursion": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py:134-151",
+    "art_ir_schema": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/schemas/art-ir.schema.json#/properties/events/minItems = 0",
+    "art_state_paths": [
+      "/assets/3/initial_state/condition",
+      "/events",
+      "/shots/2/composition_support/background",
+      "/shots/2/composition_support/occlusion"
+    ],
+    "director_action_paths": [
+      "/timeline/actions/0",
+      "/timeline/actions/1",
+      "/timeline/actions/2"
+    ],
+    "director_end_state_paths": [
+      "/timeline/state_samples/5",
+      "/timeline/state_samples/6"
+    ],
+    "director_phase_paths": [
+      "/shots/0/phases",
+      "/shots/1/phases",
+      "/shots/2/phases"
+    ],
+    "world_assets_state_contract": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md#状态演算"
+  },
+  "frozen_director_end_samples": [
+    {
+      "at_ms": 8500,
+      "backpack_condition": "收纳同一封信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "path": "/timeline/state_samples/5"
+    },
+    {
+      "at_ms": 9000,
+      "backpack_condition": "收纳同一封信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "path": "/timeline/state_samples/6"
+    }
+  ],
+  "frozen_director_phase_counts": {
+    "S_HANDOFF": 0,
+    "S_SEAL": 0,
+    "S_STOW": 0
+  },
+  "hard_requirements": [
+    {
+      "finding": "PASS: ArtIR world/set/shot fields preserve rainy night and leave location and indoor/outdoor unspecified.",
+      "id": "director:REQ_RAIN_NIGHT"
+    },
+    {
+      "finding": "PASS for invariant: one PROP_LETTER card and all shot fields retain unopened intact seal.",
+      "id": "director:REQ_SAME_UNOPENED_LETTER"
+    },
+    {
+      "finding": "PARTIAL: shot order and prose map handoff, seal check and stow, but native ArtIR.events cannot represent transitions without Director phase pointers.",
+      "id": "director:REQ_EVENT_ORDER"
+    },
+    {
+      "finding": "FAIL: shot prose says the letter is inside the backpack at 8500/9000 ms, but compiled Art asset state_after for S_STOW still says backpack awaits the letter.",
+      "id": "director:REQ_ENDING"
+    },
+    {
+      "finding": "PARTIAL: three Director timeline action IDs occur in native Art shot support but ArtIR.events is empty.",
+      "id": "director:REQ_SCRIPT_EVENTS"
+    },
+    {
+      "finding": "PASS: ordered shots and per-shot visibility text defer seal and stow information until the appropriate shot.",
+      "id": "director:REQ_REVEAL_ORDER"
+    }
+  ],
+  "media_review": "NOT_RUN",
+  "module_static_status": "STATIC_VALID",
+  "owner": "director",
+  "prior_candidate_sha256": "eb8cf0ba51aa0217dd71cf875647edd94b34a07965f245d07e7b766e912a2d74",
+  "required_owner_repair": "Director owner must supply a source-preserving, valid way to cite the existing timeline actions through /shots/N/phases/K or the locked Art module contract must be revised by its owner; this creator cannot edit frozen inputs or module.",
+  "revision_decision": "RETAIN_UNRESOLVED_BLOCKED",
+  "schema": "art-hard-requirement-audit/1.0",
+  "semantic_handoff_status": "FAIL",
+  "task_id": "TASK_f43c3388a29f02af7a8fc90a"
+}

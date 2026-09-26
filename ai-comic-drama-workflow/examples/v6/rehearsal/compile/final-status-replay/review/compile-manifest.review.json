@@ -1,0 +1,59 @@
+{
+  "all_static_assertions_pass": true,
+  "candidate_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "compiled_manifest_sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+  "compiled_prompt_sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+  "exact_source_build_copies": true,
+  "hard_clause_ids": [
+    "SB_A_ASSET_LOCKS",
+    "SB_A_ENDING",
+    "SB_A_EVENTS",
+    "SB_A_ORDER",
+    "SB_A_RAIN",
+    "SB_A_REVEAL",
+    "SB_A_SINGLE_LETTER",
+    "SB_CONTACT_CONTROL",
+    "SB_D_ACTION_ORDER",
+    "SB_D_ENDING",
+    "SB_D_EVENTS",
+    "SB_D_RAIN",
+    "SB_D_REVEAL_ORDER",
+    "SB_D_SINGLE_LETTER",
+    "SB_FIXED_AXIS",
+    "SB_MEDIA_BOUNDARY",
+    "SB_SEAL_VISIBILITY"
+  ],
+  "media_execution": "NOT_RUN",
+  "new_end_visible_parts": [],
+  "old_end_visible_parts": [
+    "body",
+    "prop"
+  ],
+  "old_failure_code": "AVIR_END_VISIBILITY_CONFLICT",
+  "old_failure_id": "CSF_74831a102e205da1d82b7605",
+  "post_statuses": [
+    "PLANNED"
+  ],
+  "timeline_visibility": [
+    {
+      "at_ms": 10500,
+      "source": "StoryboardIR",
+      "visible_parts": []
+    },
+    {
+      "at_ms": 10500,
+      "source": "AVIR",
+      "visible_parts": []
+    },
+    {
+      "at_ms": 12000,
+      "source": "StoryboardIR",
+      "visible_parts": []
+    },
+    {
+      "at_ms": 12000,
+      "source": "AVIR",
+      "visible_parts": []
+    }
+  ]
+}

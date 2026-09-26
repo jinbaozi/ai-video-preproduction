@@ -1,0 +1,441 @@
+[
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "b79f008b2a73263910b7563cce705c0acde3791182e8f484cda1594052532e5e",
+    "hash": "4444df88cb6727723f6f115f40df1c9d4fde01090f6a1698d96fb7ab4509878e",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+        },
+        {
+          "task_id": "TASK_1b94794070565f70c7f697a7"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "DirectorIR",
+          "slot": "director:project:project:DirectorIR",
+          "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+          "source_slot": "canon:project:project:Canon",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "director:project:project:DirectorIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+          "source_slot": "screenplay:project:project:ScriptIR",
+          "source_version": 14,
+          "target_pointer": "",
+          "target_slot": "director:project:project:DirectorIR"
+        }
+      ],
+      "input_digest": "67cfef6783874f9f62f4eb63022caeb08b31bef38ffefbb2d4bbab5cda6d9c42",
+      "input_revision": 32,
+      "inputs": [
+        {
+          "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+          "slot": "canon:project:project:Canon",
+          "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+          "version": 12
+        },
+        {
+          "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+          "slot": "screenplay:project:project:ScriptIR",
+          "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+          "version": 14
+        },
+        {
+          "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "director-grammar",
+        "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+        "version": "1.4.2"
+      },
+      "node_id": "director",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+        },
+        {
+          "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+        }
+      ],
+      "role": "director",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "f0b978c150c1c4a5dc2e393802884dd95848afffe0abf6029553a098dbc7f1db",
+    "revision": 33,
+    "state_digest": "dc90ceea07f27d1f6e14e33578f35fadfe08f9bc65dfa0cef47583a649aa3fdd"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "ffe6bf600991f2a337ad2cf0fe27a74279f2f616671293fbdaf751e9d16b8686",
+    "hash": "7b6ea8860527cc83223848e514196bf42d9446dbe9efff61d989e6838f7f331a",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:45:50.082519Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_CHILD_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "b06e25e17c71f95fbb888b6a2f27d15164334bab66fee7ac09a30af60a81ac24",
+      "subject_uri": "runtime/v6/messages/b06e25e17c71f95fbb888b6a2f27d15164334bab66fee7ac09a30af60a81ac24.json",
+      "summary": "Host instructed Director creator to keep contracts subagent read-only, record its advice and retain sole candidate authorship.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "05c840bd63c680e88f390e98ee256239f1bd79431d5ca6bb33353bc353c95d2f",
+    "revision": 37,
+    "state_digest": "9d67bc3259c3e08e24baca89745d47c25a4716452ab9a611d495b2c5df7b570a"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "84aea1f48f45092475d2b12322fe6ef0b292be7a1ba04df448d49d0950ad8f27",
+    "hash": "7ef3853544b482a6db799d8aca2a6e4a719e2d23bfe2e34f6391250a15c5ab81",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:46:07.938608Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+      ],
+      "in_reply_to": "DIRECTOR_CHILD_GUIDANCE_1",
+      "message_id": "DIRECTOR_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+      "subject_sha256": "8aa240367a5cea37dae96952766df8729da950a7ee4b335122d68acd9e2350d8",
+      "subject_uri": "runtime/v6/messages/8aa240367a5cea37dae96952766df8729da950a7ee4b335122d68acd9e2350d8.json",
+      "summary": "Director verified four locked Skill resources and input hashes; retained sole candidate authorship and read-only contract assistance.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    "previous_hash": "7b6ea8860527cc83223848e514196bf42d9446dbe9efff61d989e6838f7f331a",
+    "revision": 38,
+    "state_digest": "1f6b018f46032842dd8814cf956d5c14fed30f0f9aaf15f8588309704339976a"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "013e10c0e3cd11c618095e012e16a08e298e44595c1f3d72611325c38d238939",
+    "hash": "1f27d551fb1bff26892a291fcb1166f334c78969dc79e2588103300bcc719b44",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:47:19.086544Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+      ],
+      "in_reply_to": "DIRECTOR_ACK_1",
+      "message_id": "DIRECTOR_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+      "subject_sha256": "3005dcb098c59736c14922a2c4ea66e40e7469b05658dcaac1055075fda83d4e",
+      "subject_uri": "runtime/v6/messages/3005dcb098c59736c14922a2c4ea66e40e7469b05658dcaac1055075fda83d4e.json",
+      "summary": "Director distinguished V5 semantic handoffs from two frozen V6 predecessor handoffs and will cite read-only contract assistance.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "7ef3853544b482a6db799d8aca2a6e4a719e2d23bfe2e34f6391250a15c5ab81",
+    "revision": 39,
+    "state_digest": "62ac53890732871edd76252741b8564398e89b8ef101ab6a02279bd580355fd9"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "c1a9d2eb661bc953e598577a77e70320e9affc6e108f143aee4e8914bde790b4",
+    "hash": "7ef7021d76fb10610331ea4ed82f3181d807dc779f2deb3f560041d1103e3af8",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:59:42.125832Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+      ],
+      "in_reply_to": "DIRECTOR_PROGRESS_1",
+      "message_id": "DIRECTOR_PROGRESS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "e42329a1922deb60a7597e3785968bb89e2b104fa45a49cab89f76e13966bf5e",
+      "subject_uri": "runtime/v6/messages/e42329a1922deb60a7597e3785968bb89e2b104fa45a49cab89f76e13966bf5e.json",
+      "summary": "Host requested a verifiable minimal Director candidate or a precise frozen-input/native-check blocker and retained contract-assistance trace.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    "previous_hash": "1f27d551fb1bff26892a291fcb1166f334c78969dc79e2588103300bcc719b44",
+    "revision": 40,
+    "state_digest": "391f3969f11808b5499896d631f8f7f9920f9ba2b57e0be216e1b76136a4f30d"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "02d8828a63587f01f057ae38d64c66612f7e66a9c545448e5674b849b60522e7",
+    "hash": "4a8b9639703ba604b2a0805eaad2415e95855c8598fa0b30a97410d52ed27e17",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:00:07.089043Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/candidate-result.json"
+      ],
+      "in_reply_to": "DIRECTOR_PROGRESS_REQUEST_1",
+      "message_id": "DIRECTOR_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+      "subject_sha256": "3a25fc100c48cd80ab9c7d16fae9aa99fdc67df28784c8a0aa9b2a4321d562a4",
+      "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/candidate-result.json",
+      "summary": "Director completed native DirectorIR, RoleResult, V6 candidate, checks and frozen handoffs; read-only contract assistance was independently checked and cited.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    },
+    "previous_hash": "7ef7021d76fb10610331ea4ed82f3181d807dc779f2deb3f560041d1103e3af8",
+    "revision": 41,
+    "state_digest": "0bc2ddf0bdde3899e1d3dd52d0928d6a166136de2b104b0bcb30c13baa1776cd"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "8cbede81d9060ea3e37ffdaacf078aab4b845e2fd1d6c9b46d11fa84f8e0a043",
+    "hash": "d65b6351b16129f4614af0ca132f9b381a6caec1304cec07ccea8ffcb666e2e8",
+    "op": "review_dispatch",
+    "payload": {
+      "evidence": [],
+      "receipt": {
+        "action_id": "review-8b0fde433baf3035921f61b9",
+        "agent_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+        "batch": 1,
+        "dispatch_id": "review-8b0fde433baf3035921f61b9",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T11:00:50.950565Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T11:00:50.950565Z",
+        "status": "RUNNING",
+        "task_digest": "ea1933fcbc7fcff4e691eccbb7e99ed7c9c8f20b72bbeeddeb809eb7546117ac",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "885af13ae21fc04cf37d5c43dd4b1384f4ac18379f31b03f0adfa7bb2a60d41e",
+        "tool_result_uri": "runtime/v6/host-evidence/885af13ae21fc04cf37d5c43dd4b1384f4ac18379f31b03f0adfa7bb2a60d41e.json"
+      }
+    },
+    "previous_hash": "60c93b45c3d3d0ecfe8ef91407fb9a9d4c01222dd24bca319ababe098f744d4e",
+    "revision": 45,
+    "state_digest": "c916a557d5c320aa052c7819e33103921d2d466a752e1be52139ae5834e718bd"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "0abcfcf6e345b32ca4ce4e22075b80ef7c3d70670f46f2fe0faca477c5044b4b",
+    "hash": "dd0c0d90052ac9d9444735ddb3ff0304e3aa19cdde5069b1029091ae9af887d7",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:01:00.501902Z",
+      "batch": 1,
+      "evidence": [],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_REVIEW_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer accepted the frozen Director review and will compare source, Canon, ScriptIR, DirectorIR, and cited evidence while writing only in review_dir.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    "previous_hash": "d65b6351b16129f4614af0ca132f9b381a6caec1304cec07ccea8ffcb666e2e8",
+    "revision": 46,
+    "state_digest": "be1561d6baf53968c4e2064c48ef74adfdbb1f2930793ab662f0246efe024a38"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "97fde9c4fb4754f826c9468a82021d09d5272ad527d152fc6d0b6f308b44a60c",
+    "hash": "c8042a55685490dc97162063f9f2d932d18633234ae4ea7c4d664f077be0076e",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:06:43.301234Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_REVIEW_ACK_1",
+      "message_id": "DIRECTOR_REVIEW_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+      "subject_sha256": "db5f23e4d9ea756a748013263d4998119a438705752fc32494e3d62d2773c65c",
+      "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+      "summary": "Independent Director review: module receipt and native validator pass; handoff continuity fails because final states still show Jia holding the letter after Yi put it in the bag.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    },
+    "previous_hash": "dd0c0d90052ac9d9444735ddb3ff0304e3aa19cdde5069b1029091ae9af887d7",
+    "revision": 47,
+    "state_digest": "b132afd645cced2d20b799e3e441eab0c5184ae2451e20570b2c4980173f5162"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "48e16784d635189bb86ddc0ef4dc1a7b66043a368112a861da38f4faead070c6",
+    "hash": "e167c3027bc165bb7742e449676de08b47d6975265d7870649742e47c31b8642",
+    "op": "create_task",
+    "payload": {
+      "batch": 2,
+      "dependencies": [
+        {
+          "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+        },
+        {
+          "task_id": "TASK_1b94794070565f70c7f697a7"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "DirectorIR",
+          "slot": "director:project:project:DirectorIR",
+          "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+          "source_slot": "canon:project:project:Canon",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "director:project:project:DirectorIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+          "source_slot": "screenplay:project:project:ScriptIR",
+          "source_version": 14,
+          "target_pointer": "",
+          "target_slot": "director:project:project:DirectorIR"
+        }
+      ],
+      "input_digest": "c63833dc17ae7712fcf477b56e2c9efb9a131451db6d099e558be9a6e4dedd4a",
+      "input_revision": 48,
+      "inputs": [
+        {
+          "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+          "slot": "canon:project:project:Canon",
+          "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+          "version": 12
+        },
+        {
+          "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+          "slot": "screenplay:project:project:ScriptIR",
+          "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+          "version": 14
+        },
+        {
+          "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "director-grammar",
+        "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+        "version": "1.4.2"
+      },
+      "node_id": "director",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+        },
+        {
+          "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+        }
+      ],
+      "role": "director",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "86d1fe20df4808885de40bdd4ab5ca9b0d03319d5cb36c8d9b9c830353ca5fe1",
+    "revision": 49,
+    "state_digest": "25fc514edf8ff6ec2636270d856191a6e89c1a75d7030732b2ed7f538aaa147b"
+  }
+]

@@ -1,0 +1,1 @@
+审阅时请留意 `/scenes/0/lighting/position_m`：StoryboardIR 1.2 Schema 要求数值三元组，而 ArtIR 尚未锁定任何实际灯位。我把它明确标为仅供可读性预演的设计锚点，`world_source` 与审阅证据均写明不可当作真实光源/模型控制；真实灯位与媒体效果仍待美术和宿主核验。其余空间位置/机位由已接受 DirectorIR 与 ArtIR 转轴或原轨继承。

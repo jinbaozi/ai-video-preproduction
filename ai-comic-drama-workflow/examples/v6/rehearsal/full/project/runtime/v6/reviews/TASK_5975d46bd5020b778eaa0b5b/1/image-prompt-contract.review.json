@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "native_validator": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "scope": "schema, references, locks, coverage and state; not semantic or visual proof"
+  },
+  "production_contract_sha256": "2abff580348088d358935ae10496fe8ea803f560594c024dac1dc590ab602c58",
+  "prompt_document_sha256": "0e483664b4828e104fef27668abb3bad20f2048ce5bee195cd2da07280c9ea71",
+  "verified_semantic_phrases": [
+    "同一只乙收信所用背包",
+    "深色无标识软质织物",
+    "低反光哑面",
+    "包体形状和包口位置清楚",
+    "中性平整承托面",
+    "乙右手能够触及",
+    "可容纳一封普通纸质信的内腔",
+    "尚待收纳信件",
+    "不出现人物、手或信",
+    "不拼接入包前后两个时刻",
+    "后续 EVENT_STOW",
+    "同一背包外观与同一包口位置",
+    "信由包内承托且完全不外露",
+    "终帧不留信纸在包口",
+    "低饱和蓝灰雨夜",
+    "不表现可识别城市、建筑或具体室内外",
+    "不增加品牌、贴章、可读文字、明显破损"
+  ],
+  "reference_binding": "PLAN_PROP_BACKPACK planned; no file, hash, or attachment slot",
+  "temporal_reading": "The single still is pre-stow; enclosed letter and no exposure apply to later EVENT_STOW.",
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN",
+  "scope": "Independent static review; no actual image or video inspected"
+}

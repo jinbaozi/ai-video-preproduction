@@ -1,0 +1,23 @@
+{
+  "command_id": "COMPILE-SEMANTIC-FIX_DISPATCH_1",
+  "expected_revision": 598,
+  "receipt": {
+    "action_id": "dispatch-f61909cdb1ca9afa0047f19d",
+    "agent_id": "/root/host_bridge/v6_fb8dfae8c3b131fa26afba79",
+    "batch": 1,
+    "dispatch_id": "dispatch-f61909cdb1ca9afa0047f19d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T16:57:21.470081Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T16:57:21.470081Z",
+    "status": "RUNNING",
+    "task_digest": "5e9b1f351fa1ad6c283f797e3389432044e6b2166b972e6f1e5aaf9925648be0",
+    "task_id": "V6_compile_6d907d52041427c68f2a",
+    "tool_result_sha256": "972f415f165fc82a323ef7512cfdfb56f63c3362355c308effdf1da86462a280",
+    "tool_result_uri": "runtime/v6/host-evidence/972f415f165fc82a323ef7512cfdfb56f63c3362355c308effdf1da86462a280.json"
+  }
+}

@@ -1,0 +1,680 @@
+[
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "61be782f3f8f923ecf78880d86fd201845a393519950b367e83e784731899ad7",
+    "hash": "f2324d455e3f8aa224d54756157859545de4d6f89fabe2061521e742cf68fa3c",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "ScriptIR",
+          "slot": "screenplay:project:project:ScriptIR",
+          "uri_prefix": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_814da7eff2542914498c917f",
+          "source_slot": "canon:project:project:Canon",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "screenplay:project:project:ScriptIR"
+        }
+      ],
+      "input_digest": "dc3b75fc54c999fd1cf7051ca76148cc636e207b17f56ae7ceb384ce62306a9d",
+      "input_revision": 17,
+      "inputs": [
+        {
+          "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+          "slot": "canon:project:project:Canon",
+          "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+          "version": 12
+        },
+        {
+          "sha256": "76b182288731618c7dd5c1c393e5dcb57f5abc6a71e919a338ba98d97ecdfc56",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_1b94794070565f70c7f697a7.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "screenplay-grammar",
+        "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+        "version": "1.0.1"
+      },
+      "node_id": "screenplay",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+          "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md"
+        },
+        {
+          "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7",
+          "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md"
+        },
+        {
+          "sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392",
+          "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md"
+        },
+        {
+          "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef",
+          "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md"
+        }
+      ],
+      "role": "screenplay",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "a899e23340ee11c3b75f2d3f1c1eb7e08067a0fef95aeb458d6a0f43c2ae2a32",
+    "revision": 18,
+    "state_digest": "3fb11080bee467cee89274d219f1740c9e12ca75a36f6af451fdbf590bc90319"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "dce23f79bcc3bd9fb3b3057571f2b64c7a0e2d0494dd6cfd9f36d667fd5bda3d",
+    "hash": "404e6d804689a5d5a2ffa9856483ba43209ac45208bd299df3abb9117c4bd6cb",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:26:57.000427Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-TASK_1b94794070565f70c7f697a7-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+        ],
+        "expected_revision": 18,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "f2324d455e3f8aa224d54756157859545de4d6f89fabe2061521e742cf68fa3c",
+    "revision": 19,
+    "state_digest": "56e4acaaed0af76827635a30758cf0ac284a99a7ebff868f59c3fb6e2965b4a6"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "97e028af4d4c38d205240660ca22dc314d49663568dd5a81d3613ddb2e13730f",
+    "hash": "afd319bdb12d6d2282f45aaca75b0749cb99610701084264667b584eaef97b57",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:26:57.005509Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-TASK_1b94794070565f70c7f697a7-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+        ],
+        "expected_revision": 19,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "404e6d804689a5d5a2ffa9856483ba43209ac45208bd299df3abb9117c4bd6cb",
+    "revision": 20,
+    "state_digest": "c22a9b8af2c029bbbd8666d231041e0777b857816d51404a1b7b6d6530377ca6"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "7c3060c46375e12b6471c01d81f1037963eb9329b3bff98c17bca4c07f16bd6d",
+    "hash": "b349fa9d78e39224893319b525fbad08e33971ac466f6b165792a2eb1b1c4d5a",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:28:02.380379Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-32fe23325011a1e01de014c5",
+              "host-file:fa2290be35e9cf2b51006fe6e418576063d0c9cc3a0e31fd45e05fa386f6e2b1"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "SCREENPLAY_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-32fe23325011a1e01de014c5",
+          "host-file:fa2290be35e9cf2b51006fe6e418576063d0c9cc3a0e31fd45e05fa386f6e2b1"
+        ],
+        "expected_revision": 20,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-32fe23325011a1e01de014c5",
+        "agent_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+        "batch": 1,
+        "dispatch_id": "dispatch-32fe23325011a1e01de014c5",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T10:28:02.380379Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T10:28:02.380379Z",
+        "status": "RUNNING",
+        "task_digest": "57896c897db7fca0bfd6b99929b4a4f56fddf4d09a65c3c334dbb08cda1400cd",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "tool_result_sha256": "fa2290be35e9cf2b51006fe6e418576063d0c9cc3a0e31fd45e05fa386f6e2b1",
+        "tool_result_uri": "runtime/v6/host-evidence/fa2290be35e9cf2b51006fe6e418576063d0c9cc3a0e31fd45e05fa386f6e2b1.json"
+      },
+      "review": null
+    },
+    "previous_hash": "afd319bdb12d6d2282f45aaca75b0749cb99610701084264667b584eaef97b57",
+    "revision": 21,
+    "state_digest": "d54dd6afbaed2f65c3b56cc25f7b296934b4f66179fd2b7e96cc006964e410bc"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "0da6455676d7408d2187f5474aa48fc44cb249dc9ad3aa5cf1e0a3717ce038d1",
+    "hash": "31310fe512540fc9311c3d903d4ef64a56a4bebcc73354deacb36feb5792734c",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:28:14.209659Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "SCREENPLAY_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator read the frozen screenplay task and candidate directory and is checking inputs and Skill hashes before producing ScriptIR.",
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "type": "ACK"
+    },
+    "previous_hash": "b349fa9d78e39224893319b525fbad08e33971ac466f6b165792a2eb1b1c4d5a",
+    "revision": 22,
+    "state_digest": "0c491f6a85705bbd0a760d68e2bbf584a15428be69095c76b6980eaf4547b068"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "297cc928fbd2639068beb246e053f3d5fb29ea86dc20271273d87e126e5ed7f6",
+    "hash": "d7ee82c9a7ec1a302291e351e6fb810d905e0f036bc877b0b915dbdc6bf4bd26",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:35:28.535055Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+      ],
+      "in_reply_to": "SCREENPLAY_ACK_1",
+      "message_id": "SCREENPLAY_VERSION_REPORT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+      "subject_sha256": "a380fe1f749231efcf926d5daa195678958e6619086629520ccd2fa0cd4fadfb",
+      "subject_uri": "runtime/v6/messages/a380fe1f749231efcf926d5daa195678958e6619086629520ccd2fa0cd4fadfb.json",
+      "summary": "Creator reported that frozen V5 task requires RoleResult 5.1 and module receipt; asked whether a 5.0 copy is needed.",
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "type": "QUESTION"
+    },
+    "previous_hash": "31310fe512540fc9311c3d903d4ef64a56a4bebcc73354deacb36feb5792734c",
+    "revision": 23,
+    "state_digest": "a2667f609c318e796e8dcbd89c2a722fd16dbb4c852fc921ef54247355016348"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "96b83c83f77e5eaaae23de9c515e7cfd04c6403281d5b0c9c5254ea8d447fbd8",
+    "hash": "b7ca6718aa6226567f67401f9862c5293a6b56cb692af544715a6eadd044d497",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:35:48.683877Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+      ],
+      "in_reply_to": "SCREENPLAY_VERSION_REPORT_1",
+      "message_id": "SCREENPLAY_VERSION_REPLY_1",
+      "recipient_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "a1bf7c5e9682766dcaf73a082a5ad16104095c0b10798479a42158c79c129511",
+      "subject_uri": "runtime/v6/messages/a1bf7c5e9682766dcaf73a082a5ad16104095c0b10798479a42158c79c129511.json",
+      "summary": "Host relayed that the frozen V5 task and module receipt require RoleResult 5.1; no 5.0 copy is needed. Frozen task remains authoritative.",
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "d7ee82c9a7ec1a302291e351e6fb810d905e0f036bc877b0b915dbdc6bf4bd26",
+    "revision": 24,
+    "state_digest": "48380bdb24e18deec150436127f6f79542c6143eba7742d77b8f8fd4ccaba870"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "9cf9aa3dd2f419133e7e8508bba92452f57eccf5efab1bf1cf9f1ceeda8bad0d",
+    "hash": "49c3daa98ee3f285ed107efc58e44a64b0f8347076da6d1a81524a06680db571",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:36:37.446631Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/candidate-result.json"
+      ],
+      "in_reply_to": "SCREENPLAY_VERSION_REPLY_1",
+      "message_id": "SCREENPLAY_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+      "subject_sha256": "fe6fb69e27c683c2739177051eb9f54504616fa3fc23c5ad5c4fe510ba62a284",
+      "subject_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/candidate-result.json",
+      "summary": "Creator completed source-bound ScriptIR, RoleResult 5.1, module receipt, checks and handoff.",
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "type": "RESULT"
+    },
+    "previous_hash": "b7ca6718aa6226567f67401f9862c5293a6b56cb692af544715a6eadd044d497",
+    "revision": 25,
+    "state_digest": "c664f1280e728a8bc1a5bf5574df513f24a8f98802e4e508d59f90fb8c094d29"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "26f2918e58436e93fea074bfad7b11be23a17409166bfc3f2d4b4b4647b5e01a",
+    "hash": "fba84326c5a50fcfc03cb01f16588e92207fcd59a2b2f77fafb1341603303c20",
+    "op": "transition",
+    "payload": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+        "artifacts": [
+          {
+            "kind": "ScriptIR",
+            "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+            "slot": "screenplay:project:project:ScriptIR",
+            "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/module-receipt.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/native-validator.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff.json",
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff-check.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff.json",
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff-check.json"
+            ],
+            "requirement_id": "UP_814da7eff2542914498c917f",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "screenplay:project:project:ScriptIR"
+          }
+        ],
+        "input_digest": "dc3b75fc54c999fd1cf7051ca76148cc636e207b17f56ae7ceb384ce62306a9d",
+        "module_receipts": [
+          {
+            "name": "screenplay-grammar",
+            "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+            "version": "1.0.1"
+          }
+        ],
+        "result_sha256": "1a8b22fe90372365430cb6a374926392388289ed8e51501ec00a814d1dbb5a05",
+        "result_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "unresolved": []
+      },
+      "event": {
+        "actor_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:36:48.011988Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "SCREENPLAY_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/role-result.json"
+        ],
+        "expected_revision": 25,
+        "from_state": "RUNNING",
+        "object_version": 7,
+        "reason": "RESULT_RECEIVED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "RESULT_SUBMITTED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "49c3daa98ee3f285ed107efc58e44a64b0f8347076da6d1a81524a06680db571",
+    "revision": 26,
+    "state_digest": "a460a95c39583a36aaf61ca4c3c6172d4156411d817644b174301c33e7593d66"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "100befa93af0e65ef063ee25f2757031e54067a8cca5cb80cbcff516e52795ac",
+    "hash": "000394233b0b6235717f0010378b5df4b819080d3a4930ea7e0f6e7f17d87905",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:36:48.022300Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "SCREENPLAY_SUBMIT_1-validate",
+        "evidence": [],
+        "expected_revision": 26,
+        "from_state": "RESULT_SUBMITTED",
+        "object_version": 8,
+        "reason": "VALIDATION_STARTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "VALIDATING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "fba84326c5a50fcfc03cb01f16588e92207fcd59a2b2f77fafb1341603303c20",
+    "revision": 27,
+    "state_digest": "cd7794ce7ac2b903dad9583c0b51005ddc009158c43a60af29610a89b9f20f6a"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "099f2c93160a2ea81e64db00a7b646d68c01f079c3a320971a4fab616ee19261",
+    "hash": "f182219b74039c4e2d0c398949b17ee9fd25efbaa75e6d4b2626af9fb2fcb6f6",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:36:48.030582Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/module-receipt.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/native-validator.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff.json",
+              "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff-check.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "SCREENPLAY_SUBMIT_1-validation",
+        "evidence": [
+          "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/role-result.json"
+        ],
+        "expected_revision": 27,
+        "from_state": "VALIDATING",
+        "object_version": 9,
+        "reason": "VALIDATION_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "REVIEW_REQUIRED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "000394233b0b6235717f0010378b5df4b819080d3a4930ea7e0f6e7f17d87905",
+    "revision": 28,
+    "state_digest": "f3ccd8d8458ec9c63eecf3676dbc96a838cf80d68697777d36ae82d583c82b3c"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "ad88ae89be9576963ae6ce87e74bcad50561c70a7b70d13b45fcebb800df0afd",
+    "hash": "60fe79eb850db2b7951da0bd756f819c0b113d194050e9e774c537cbfbae327f",
+    "op": "review_dispatch",
+    "payload": {
+      "evidence": [],
+      "receipt": {
+        "action_id": "review-32fe23325011a1e01de014c5",
+        "agent_id": "/root/host_bridge/v6_e0f12f0efac55ace2c0387d7",
+        "batch": 1,
+        "dispatch_id": "review-32fe23325011a1e01de014c5",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T10:37:20.194114Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T10:37:20.194114Z",
+        "status": "RUNNING",
+        "task_digest": "57896c897db7fca0bfd6b99929b4a4f56fddf4d09a65c3c334dbb08cda1400cd",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "tool_result_sha256": "5581f82ee520618ccd71f044f2d1b00a60f33bfb7b6d8f5cd36340107f54ed47",
+        "tool_result_uri": "runtime/v6/host-evidence/5581f82ee520618ccd71f044f2d1b00a60f33bfb7b6d8f5cd36340107f54ed47.json"
+      }
+    },
+    "previous_hash": "f182219b74039c4e2d0c398949b17ee9fd25efbaa75e6d4b2626af9fb2fcb6f6",
+    "revision": 29,
+    "state_digest": "c16189c7c7f2bdd172a6c8354f993c67bf85b304c37d8141493df92d7a7c5e0e"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "712030a9ab8ad84108525e693cde7125fdec3a41e0671d48d65441e9c4cb662f",
+    "hash": "839f235c6456cf378ff5dc3c63f40cb5f881b47f5b7e75153852bb6d2804507b",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:37:29.978507Z",
+      "batch": 1,
+      "evidence": [],
+      "in_reply_to": null,
+      "message_id": "SCREENPLAY_REVIEW_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0f12f0efac55ace2c0387d7",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer received the independent screenplay task and will read the frozen submission and source evidence; will write only in the assigned review directory.",
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "type": "ACK"
+    },
+    "previous_hash": "60fe79eb850db2b7951da0bd756f819c0b113d194050e9e774c537cbfbae327f",
+    "revision": 30,
+    "state_digest": "a1e0fdae13777f44b7d7196188a93330804e30acce369d970c80e82ed32ed298"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "6924177f6e66c5a7ba76d303df53d391d44324c09622edee8e011070b1153c6b",
+    "hash": "e619624447659db7844bd7f56f739b88bd8f5e9239b37f90ab4176768bf9ef60",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:42:48.247551Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/review-record.json"
+      ],
+      "in_reply_to": "SCREENPLAY_REVIEW_ACK_1",
+      "message_id": "SCREENPLAY_REVIEW_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0f12f0efac55ace2c0387d7",
+      "subject_sha256": "b5f824abe4532d0865a0d505f237d67c13276c6fbc9d83ab17979bac28acc19b",
+      "subject_uri": "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/review-record.json",
+      "summary": "Independent screenplay review completed module receipt, native validator and handoff checks against current candidate; all PASS.",
+      "task_id": "TASK_1b94794070565f70c7f697a7",
+      "type": "RESULT"
+    },
+    "previous_hash": "839f235c6456cf378ff5dc3c63f40cb5f881b47f5b7e75153852bb6d2804507b",
+    "revision": 31,
+    "state_digest": "0701b059a23b711f97a298f3aea24e05c99ff1dafb8f71de557e765c415307fe"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "782712eaa2023dc39708e9345f9e57a522eaa25a6df35d94dc7f94b0a691f2c0",
+    "hash": "f0b978c150c1c4a5dc2e393802884dd95848afffe0abf6029553a098dbc7f1db",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:42:58.633020Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "SCREENPLAY_REVIEW_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+        ],
+        "expected_revision": 31,
+        "from_state": "REVIEW_REQUIRED",
+        "object_version": 13,
+        "reason": "REVIEW_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7",
+        "to_state": "ACCEPTED"
+      },
+      "receipt": null,
+      "review": {
+        "at": "2026-09-25T10:42:19.667253Z",
+        "batch": 1,
+        "candidate_digest": "b61389db441eae4ccb64acfe730a970e52b21b0a07119e84bbc34bebf8893e07",
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "failure_owner": null,
+        "reviewer_agent_id": "/root/host_bridge/v6_e0f12f0efac55ace2c0387d7",
+        "reviewer_dispatch_id": "review-32fe23325011a1e01de014c5",
+        "schema": "review-record/6.0",
+        "task_id": "TASK_1b94794070565f70c7f697a7"
+      }
+    },
+    "previous_hash": "e619624447659db7844bd7f56f739b88bd8f5e9239b37f90ab4176768bf9ef60",
+    "revision": 32,
+    "state_digest": "e94a8a1b5a1da0aadacb2ad17476646ae74f8942b63843d2efbc041e2b1cc4a8"
+  }
+]

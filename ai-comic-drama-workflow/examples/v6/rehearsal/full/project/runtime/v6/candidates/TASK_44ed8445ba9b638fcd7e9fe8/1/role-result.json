@@ -1,0 +1,50 @@
+{
+  "schema": "role-result/5.0",
+  "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+  "context_fingerprint": "44ed8445ba9b638fcd7e9fe88d9654db775bcf56c5da67040b6fc3f35f2218b3",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/canon.json",
+  "artifact_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "complete": true,
+  "reused": true,
+  "checks": [
+    {
+      "id": "source_integrity",
+      "status": "PASS",
+      "finding": "Current @sources source registry, frozen task, source bytes, and four quote spans match.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/evidence/source-integrity.json"
+      ]
+    },
+    {
+      "id": "canon_contract",
+      "status": "PASS",
+      "finding": "Fresh Canon native content check passed; current source facts, stable IDs, ordered handoff/check/stow actions, and unspecified fields were independently rechecked. Canon has no locked native module validator.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/evidence/canon-contract.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "finding": "Current SourceRegistry version 1 maps to the complete Canon candidate and its current hash.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "handoff": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_02899a994552add4610374b6",
+      "source_slot": "sources:project:project:SourceRegistry",
+      "source_version": 1,
+      "target_pointer": "",
+      "target_slot": "canon:project:project:Canon",
+      "evidence": [
+        "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolved": []
+}

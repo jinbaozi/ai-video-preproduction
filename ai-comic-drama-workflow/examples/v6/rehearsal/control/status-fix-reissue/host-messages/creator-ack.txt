@@ -1,0 +1,1 @@
+ACK: I read the frozen Control action at `runtime/v6/host-inputs/statusfix-control-action.json`; task `TASK_4c69e10662f9834bb335155d`, batch 1, current StoryboardIR v12. I am validating all frozen inputs/resources and will write only my candidate directory.

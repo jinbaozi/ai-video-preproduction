@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_REBUILD_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 272,
+  "message": {
+    "at": "2026-09-25T14:26:22.155089Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-rebuild-review-progress.txt"
+    ],
+    "in_reply_to": "STORYBOARD_REBUILD_REVIEW_GUIDANCE_1",
+    "message_id": "STORYBOARD_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+    "subject_sha256": "18584a37de7f1b39d59b050306d8266ee2b9a1fad87d8950dc29c4b30a7325e8",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-review-progress.txt",
+    "summary": "独立重跑 storyboard inspect=VALID、verify=VERIFIED（8 files），RoleResult 同值；正在核对 1437 V5 与 3 V6 handoff 和语义摘要。",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "type": "PROGRESS"
+  }
+}

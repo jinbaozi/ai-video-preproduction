@@ -1,0 +1,25 @@
+{
+  "closure": "BOUNDARY_FIELDS_NOW_MATCH_AUTHORITATIVE_SAMPLES",
+  "current_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "current_control_frame_12000ms_visible_parts": [],
+  "current_shot_end_visible_parts": [],
+  "current_timeline_12000ms_visible_parts": [],
+  "exact_changed_fields": [
+    "/shots/0/start_state/3/visible_parts",
+    "/shots/0/start_state/4/visible_parts",
+    "/shots/0/end_state/3/visible_parts",
+    "/shots/0/end_state/4/visible_parts"
+  ],
+  "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+  "mapping_rule": "STATE_SAMPLE.BOUNDARY_VISIBILITY.1.1",
+  "media_review": "NOT_RUN",
+  "new_compiled_prompt_review": "NOT_RUN",
+  "old_avir_sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33",
+  "old_shot_end_visible_parts": [
+    "body",
+    "prop"
+  ],
+  "prior_compile_review_sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60",
+  "prior_compile_review_uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json",
+  "schema": "control-defect-closure/1.0"
+}

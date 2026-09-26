@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v6-upstream-repair-brief",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "route_id", "project_id", "source_task_id", "source_batch", "source_node_id", "candidate_digest", "owner_node_id", "owner_task_id", "review", "failed_checks", "instruction"],
+  "properties": {
+    "schema": {"const": "upstream-repair-brief/6.0"},
+    "route_id": {"type": "string", "pattern": "^UPR_[0-9a-f]{24}$"},
+    "project_id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+    "source_task_id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+    "source_batch": {"type": "integer", "minimum": 1},
+    "source_node_id": {"type": "string", "minLength": 1},
+    "candidate_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "owner_node_id": {"type": "string", "minLength": 1},
+    "owner_task_id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["uri", "sha256", "reviewer_agent_id", "reviewer_dispatch_id"],
+      "properties": {
+        "uri": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "reviewer_agent_id": {"type": "string", "minLength": 1},
+        "reviewer_dispatch_id": {"type": "string", "minLength": 1}
+      }
+    },
+    "failed_checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "evidence"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {"type": "string", "minLength": 1}
+          }
+        }
+      }
+    },
+    "instruction": {"type": "string", "minLength": 1}
+  }
+}

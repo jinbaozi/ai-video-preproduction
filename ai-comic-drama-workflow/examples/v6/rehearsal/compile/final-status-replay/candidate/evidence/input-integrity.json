@@ -1,0 +1,212 @@
+{
+  "all_brief_files_verified": true,
+  "all_build_manifest_files_verified": true,
+  "all_control_package_files_verified": true,
+  "all_inputs_verified": true,
+  "batch": 1,
+  "brief_file_count": 24,
+  "build_manifest_file_count": 20,
+  "control_package_file_count": 10,
+  "input_count": 28,
+  "input_digest": "882882ec764d48e49a75762358efaa6239d4928e5c4c37b404164061fd9c3566",
+  "input_revision": 827,
+  "inputs": [
+    {
+      "sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+      "slot": "storyboard:project:project:StoryboardIR",
+      "uri": "runtime/v6/candidates/TASK_4f81cc62bc1b268a8f8be7b0/1/storyboard-ir.json",
+      "verified": true,
+      "version": 12
+    },
+    {
+      "sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+      "slot": "control:project:project:ShotControlPack",
+      "uri": "runtime/v6/candidates/TASK_4064ef49778d32687a4dde42/1/control-pack/package-manifest.json",
+      "verified": true,
+      "version": 15
+    },
+    {
+      "sha256": "8641aec6661529965af4424824367af5a35dd355162b45fd28e99fa9c7b95742",
+      "slot": "compile_brief",
+      "uri": "runtime/v6/task-briefs/V6_compile_297e4d54680b970deaed.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "5d7e757f1b79ef1ae7e3b2e5cd233e280542cadfea91c4b5347e99c596d4173e",
+      "slot": "build_1",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/attachments.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "slot": "build_2",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/avir.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "5cfd141e07964f5a6977c6472d3b72b6d6cfd288c346a1ed23e6c649c3b85148",
+      "slot": "build_3",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/artifact.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "slot": "build_4",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/avir.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+      "slot": "build_5",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/capability-snapshot.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+      "slot": "build_6",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/compile-manifest.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "72e1ae71f01a18ac18489852df0f71d45f57e124df97cef61c7b9f8052cf418b",
+      "slot": "build_7",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/constraint-coverage.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "7d2e2717d80727f9c197c1bfaee7bfe177a47732208109de833ed68dc2110264",
+      "slot": "build_8",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/context-ir.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "9c3894fb04f392595517a0dd0bc79beb86e017be480ae012a4da363aa09c0104",
+      "slot": "build_9",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/detail-coverage.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "slot": "build_10",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/loss-report.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "8597c2855d9fa678266666317470f66210ee5ee65293214cbbf90801d2b6a404",
+      "slot": "build_11",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/post-001_000000-012000ms.txt",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "5ff6d16237c98f2c2ffd3ddc0b65af1a5e74f584b6695090ae124f40e9b3c988",
+      "slot": "build_12",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/post-production.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "c8cca586c8f9c9c380740a596e2c57add777491420becca584ba7430f1a27d0a",
+      "slot": "build_13",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/production-contract.md",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "slot": "build_14",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/production-specification.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+      "slot": "build_15",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-001_000000-012000ms.txt",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+      "slot": "build_16",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-coverage-001_000000-012000ms.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+      "slot": "build_17",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-coverage.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "b7c8d0c6d30bb7b9b9863a7025fb803dc336cd4305a310fd736ead5e6192ea5b",
+      "slot": "build_18",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-review.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+      "slot": "build_19",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt.txt",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "47c9315135d89a896d56770234e9df6aa39c7d7e887ee5c8a7f1791569ecf8f2",
+      "slot": "build_20",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-delivery.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "slot": "build_21",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-plan.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "slot": "build_22",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-proposals.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "da56881aaf5af87ec77c66b52d9b7b8c6aebaec1c10305659c3c1b5fef144d60",
+      "slot": "build_23",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/spatial-checks.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "e99cd86c4063bfe5c1178ed977919613f4b6fc74d4a9321cc9305cf87b4a0972",
+      "slot": "build_24",
+      "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/mapping.json",
+      "verified": true,
+      "version": 0
+    },
+    {
+      "sha256": "6b2e4a247daa078eb3159032f47fa8ecfe4bfc29d220315b9d78c2a63c73669b",
+      "slot": "compile_semantic_failure",
+      "uri": "runtime/v6/compile-semantic-failures/CSF_74831a102e205da1d82b7605.json",
+      "verified": true,
+      "version": 1
+    }
+  ],
+  "task_id": "V6_compile_297e4d54680b970deaed"
+}

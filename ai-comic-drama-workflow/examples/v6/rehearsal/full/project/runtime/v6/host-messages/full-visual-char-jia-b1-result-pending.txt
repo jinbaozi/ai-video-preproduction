@@ -1,0 +1,3 @@
+已完成甲的视觉提示词候选：[candidate-result.json](/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/candidate-result.json)，SHA-256 `cc6d359f811e6db94b3e4129b7c8ba47db4761d8789d7ea9f129d5488fbb22b7`。
+
+锁定制作合同校验为 `STATIC_VALID`；V5 提示词入口与模块收据的只读预检通过。候选保留 ArtIR 的衣装、右手和封口约束。`PLAN_CHAR_JIA` 仍无实际参考文件；图片生成及视觉审阅均为 `NOT_RUN`。尚待宿主提交及独立审阅。

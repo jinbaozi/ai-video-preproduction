@@ -1,0 +1,63 @@
+{
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_e9426daa6bca9213754e68ed",
+  "artifacts": [
+    {
+      "kind": "ScriptIR",
+      "sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+      "slot": "screenplay:project:project:ScriptIR",
+      "uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json"
+    }
+  ],
+  "batch": 2,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/native-validator.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff-check.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "screenplay:project:project:ScriptIR"
+    }
+  ],
+  "input_digest": "a1e553422ead1ab4d5ddb57a62f9ed522e0649e542461d709f3ccdb7e68e4333",
+  "module_receipts": [
+    {
+      "name": "screenplay-grammar",
+      "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+      "version": "1.0.1"
+    }
+  ],
+  "result_sha256": "62d2e1537405a63d6f489f5caf3a4525c8c0c5bb7029c5ff995723a0e8624ac2",
+  "result_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+  "unresolved": []
+}

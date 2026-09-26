@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_BINDING_PROGRESS_COMMAND_1",
+  "expected_revision": 206,
+  "message": {
+    "at": "2026-09-25T13:45:31.633905Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-binding-finding.txt"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_GUIDANCE_1",
+    "message_id": "DIRECTOR_REBUILD_BINDING_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "subject_sha256": "5423b46f68ab954d656f99314cc3de96531fb795b5254215caeb94b8fc41c70e",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-binding-finding.txt",
+    "summary": "Creator verified frozen hashes and identified V5 rebase mismatch between Director semantic input hash and screenplay handoff review director SHA.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "PROGRESS"
+  }
+}

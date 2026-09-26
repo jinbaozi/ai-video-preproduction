@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REVIEW_RESULT_COMMAND_1",
+  "expected_revision": 107,
+  "message": {
+    "at": "2026-09-25T12:40:34.605386Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/TASK_0560d46ecc764c68ee9a590e/1/review-record.json"
+    ],
+    "in_reply_to": "ART_REVIEW_READY_PROGRESS_1",
+    "message_id": "ART_REVIEW_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "subject_sha256": "6d0d740536ec2810b6b5637fbdafee170d3af039bd6a8eac1847981d06dd0d27",
+    "subject_uri": "runtime/v6/reviews/TASK_0560d46ecc764c68ee9a590e/1/review-record.json",
+    "summary": "Independent Art review strict schema/identity/digest validated; module receipt, native validator and handoff PASS, zero Director shot phases justify empty ArtIR events; media remains NOT_RUN.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "RESULT"
+  }
+}

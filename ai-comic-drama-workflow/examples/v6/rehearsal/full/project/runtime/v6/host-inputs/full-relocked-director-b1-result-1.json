@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_RESULT_1",
+  "expected_revision": 183,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B1_RESULT_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_6cd3cfdd715fd5aa4f9956a2",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_DIRECTOR_B1_PRIOR_REFERENCE_1",
+    "type": "RESULT",
+    "summary": "Director 1.4.4 candidate with six V5 and two V6 handoffs",
+    "evidence": [
+      "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/candidate-result.json",
+      "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/messages/result.txt"
+    ],
+    "at": "2026-09-25T14:24:15.686785Z",
+    "subject_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/candidate-result.json",
+    "subject_sha256": "db40f7a2c97b0a47fa54895ad34358959fb13c30c1467c1ffc876c69c44aa48e"
+  }
+}

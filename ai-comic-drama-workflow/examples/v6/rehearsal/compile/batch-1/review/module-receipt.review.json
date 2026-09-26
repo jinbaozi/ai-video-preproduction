@@ -1,0 +1,14 @@
+{
+  "all_sha256_match": true,
+  "candidate_module_receipt_matches": true,
+  "input_digest": "190df47fbcae9912618be99925fc2b345aa519ebc59f5ee409942b9abb96e9d7",
+  "inputs_checked": 27,
+  "locked_module": {
+    "name": "video-prompt-compiler",
+    "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+    "version": "1.17.6"
+  },
+  "note": "Frozen 1.17.6 resource used; later working-tree version excluded.",
+  "resources_checked": 5,
+  "status": "PASS"
+}

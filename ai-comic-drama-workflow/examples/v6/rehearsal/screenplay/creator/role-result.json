@@ -1,0 +1,79 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+  "artifact_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/module-receipt.json"
+      ],
+      "finding": "锁定模块归档、四份必读资源和两项输入的实际字节哈希均吻合。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/native-validator.json"
+      ],
+      "finding": "原生 screenplay-grammar 终验返回 STATIC_VALID，且编译包各文件哈希吻合；语义复核为本执行者声明。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff-check.json"
+      ],
+      "finding": "Canon 三项硬要求、实体 ID 与交接至收存的顺序映射到 ScriptIR，V6 handoff 字段与冻结信封一致。",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "1b94794070565f70c7f697a7f16149a137c8397f369eb0c528e83882a1c7acfd",
+  "handoff": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_814da7eff2542914498c917f",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "screenplay:project:project:ScriptIR"
+    }
+  ],
+  "module_receipt": {
+    "name": "screenplay-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md",
+        "sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md",
+        "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md",
+        "sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md",
+        "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef"
+      }
+    ],
+    "skill_sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+    "version": "1.0.1"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_1b94794070565f70c7f697a7",
+  "unresolved": [],
+  "validator": {
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  }
+}

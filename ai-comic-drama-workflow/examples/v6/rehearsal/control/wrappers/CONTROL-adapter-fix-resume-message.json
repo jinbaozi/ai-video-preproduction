@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_ADAPTER_FIX_RESUME_COMMAND_1",
+  "expected_revision": 174,
+  "message": {
+    "at": "2026-09-25T13:25:12.622198Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-adapter-fix-resume.txt"
+    ],
+    "in_reply_to": "CONTROL_NATIVE_BRANCH_RESOLVED_1",
+    "message_id": "CONTROL_ADAPTER_FIX_RESUME_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "b254ec939017e8293c6a307992e1882c31cdd53cdbcf1300b0e4d0d0d81323d7",
+    "subject_uri": "runtime/v6/host-inputs/control-adapter-fix-resume.txt",
+    "summary": "Host resumed the same registered Control creator after adapter and V6 native-gate repair; requested fresh locked build/verify and candidate with media NOT_RUN.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

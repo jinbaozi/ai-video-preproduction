@@ -1,0 +1,1 @@
+Art 独立审阅进行中：冻结 V6 Canon 与 V5 晋升 Canon 字节哈希不同，但解析 JSON 对象相等；ArtIR 采用 DirectorIR.canon_ref 的准确 URI，当前锁定 art_compile.py 新跑返回 STATIC_VALID。正在逐项核对六条 V5 断言与两条 V6 来源绑定，然后写 review-record。

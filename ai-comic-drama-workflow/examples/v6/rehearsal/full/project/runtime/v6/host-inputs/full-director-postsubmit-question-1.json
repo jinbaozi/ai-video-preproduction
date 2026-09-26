@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_POSTSUBMIT_QUESTION_1",
+  "expected_revision": 65,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_POSTSUBMIT_QUESTION_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_83a899880d2e84fbf7f0a5a4",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_RESULT_1",
+    "type": "QUESTION",
+    "summary": "Creator flags post-submit final shot letter visibility concern",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-postsubmit-refinement.txt"
+    ],
+    "at": "2026-09-25T12:26:31.486316Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-postsubmit-refinement.txt",
+    "subject_sha256": "a155600bf75db91d2a7a75798c94ee370dba4898ae2c597b0f80fb363fe4d5f4"
+  }
+}

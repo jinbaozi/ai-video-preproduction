@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_SCHEMA_PROGRESS_COMMAND_1",
+  "expected_revision": 138,
+  "message": {
+    "at": "2026-09-25T12:50:15.264293Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-schema-progress.txt"
+    ],
+    "in_reply_to": "STORYBOARD_EVIDENCE_GUIDANCE_1",
+    "message_id": "STORYBOARD_SCHEMA_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "subject_sha256": "2913effba19ba881884421dde2cd6d78ddc7fd615f70d2a51e62d41860979ba3",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-schema-progress.txt",
+    "summary": "Storyboard creator confirmed nonempty existing evidence for checks and three handoffs; first native inspect found schema shape errors in style ID, resolution type, gaze ID and audio empty object, now correcting against locked 1.2 schema.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "PROGRESS"
+  }
+}

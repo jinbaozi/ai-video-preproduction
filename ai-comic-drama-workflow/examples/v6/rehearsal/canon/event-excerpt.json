@@ -1,0 +1,458 @@
+[
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "4da70590a07191bd121b774827e3cbcb73db9a2d8598deec3c2f615cf0f6af27",
+    "hash": "dd9bbd7f4ea2db280c8df97dd05902c7efce9dd567b8f8418385bac130c07278",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:12:43.510562Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-0ef4d4d5c63274b982c620a4",
+              "host-file:4f0a25168750a723a9ec9dfcb1bfafce424beaa6c408b0182b9e69454e2fecc6"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "CANON_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-0ef4d4d5c63274b982c620a4",
+          "host-file:4f0a25168750a723a9ec9dfcb1bfafce424beaa6c408b0182b9e69454e2fecc6"
+        ],
+        "expected_revision": 7,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-0ef4d4d5c63274b982c620a4",
+        "agent_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+        "batch": 1,
+        "dispatch_id": "dispatch-0ef4d4d5c63274b982c620a4",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T10:12:43.510562Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T10:12:43.510562Z",
+        "status": "RUNNING",
+        "task_digest": "9db0e3e36f98ed562311b841a590e27630a5c6580664206e40ce87d3d4708187",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "tool_result_sha256": "4f0a25168750a723a9ec9dfcb1bfafce424beaa6c408b0182b9e69454e2fecc6",
+        "tool_result_uri": "runtime/v6/host-evidence/4f0a25168750a723a9ec9dfcb1bfafce424beaa6c408b0182b9e69454e2fecc6.json"
+      },
+      "review": null
+    },
+    "previous_hash": "05c7745a2481d1719ceb3d07b3a6f1bafe856a8f68bd0bf436b7b68f2fb4302b",
+    "revision": 8,
+    "state_digest": "3ee7785fe1158e2f8f03380a2bd350c6959c17b9af154551ea53763b4982ee3e"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "bfda492d41a4bce66a35e5a7df1eff02c1db487da8948052a45008404a6d6b9f",
+    "hash": "80a62c83524cfd8dcb86c791a16168ca2908da33325b2cd7ee48430d2770f92c",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:14:10.446838Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/tasks/TASK_0e0c8a4ca94c8ffdbb7e14ae.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "CANON_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator reported reading the frozen envelope and source and began a source-bound Canon.",
+      "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+      "type": "ACK"
+    },
+    "previous_hash": "dd9bbd7f4ea2db280c8df97dd05902c7efce9dd567b8f8418385bac130c07278",
+    "revision": 9,
+    "state_digest": "201688e703ba63248eca0550420a5a583f7cbec1f7ef99ad92b68a004fa39b97"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "19872d4ff500b68431119c3e147689e5959ca19b94ea751f28042a5e223b02a5",
+    "hash": "33ab7ae04c56fb4326b89bd0168e31fa48ed0022a0d2183438728d7ea744790d",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:20:06.250700Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/candidate-result.json"
+      ],
+      "in_reply_to": "CANON_ACK_1",
+      "message_id": "CANON_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+      "subject_sha256": "a65393aa6125cd9ce984a61fcf07e087059e914e165df8f3e8b5728f0687d3a7",
+      "subject_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/candidate-result.json",
+      "summary": "Creator completed a source-bound Canon with native JSON, RoleResult, checks and handoff evidence.",
+      "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+      "type": "RESULT"
+    },
+    "previous_hash": "80a62c83524cfd8dcb86c791a16168ca2908da33325b2cd7ee48430d2770f92c",
+    "revision": 10,
+    "state_digest": "3c2373b027a9d89f60809abfea0bed98ea9d666f317579e69072d898ec897845"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "0ba3890d331a0909d53efa9de3cb1840b5bd5deb903ddc7c447d67ef874acc13",
+    "hash": "93ad0d81230755cf99144d174702a74fd2046cd0e13fc96c6ae088a6bc7aec5f",
+    "op": "transition",
+    "payload": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+        "artifacts": [
+          {
+            "kind": "Canon",
+            "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+            "slot": "canon:project:project:Canon",
+            "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/source-integrity.json"
+            ],
+            "id": "source_integrity",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/canon-contract.json"
+            ],
+            "id": "canon_contract",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+            ],
+            "requirement_id": "UP_02899a994552add4610374b6",
+            "source_slot": "sources:project:project:SourceRegistry",
+            "source_version": 1,
+            "target_pointer": "",
+            "target_slot": "canon:project:project:Canon"
+          }
+        ],
+        "input_digest": "d1a6b95f79b7ee05c1722f3ba83b4b3f04fbec424d81d8ad4b9d848825636d1b",
+        "module_receipts": [],
+        "result_sha256": "a53bbb9a8273a3faaaf033b4bc8d61a4257b21ac2957f271ae2247cba6517d3d",
+        "result_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "unresolved": []
+      },
+      "event": {
+        "actor_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:20:21.187272Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "CANON_CANDIDATE_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/role-result.json"
+        ],
+        "expected_revision": 10,
+        "from_state": "RUNNING",
+        "object_version": 5,
+        "reason": "RESULT_RECEIVED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "to_state": "RESULT_SUBMITTED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "33ab7ae04c56fb4326b89bd0168e31fa48ed0022a0d2183438728d7ea744790d",
+    "revision": 11,
+    "state_digest": "fb8aea387da87105edcae2e02b7c5dcd327263db5736500674222348af3d02c9"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "88365ecae396909830345f4d76e14c533d762444243c24814e922088e4425e4c",
+    "hash": "c5ca0bfe8aad06f351f8082fe1349bfa314ebd15cc3c69d334947a26926c7352",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:20:21.192656Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "CANON_CANDIDATE_1-validate",
+        "evidence": [],
+        "expected_revision": 11,
+        "from_state": "RESULT_SUBMITTED",
+        "object_version": 6,
+        "reason": "VALIDATION_STARTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "to_state": "VALIDATING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "93ad0d81230755cf99144d174702a74fd2046cd0e13fc96c6ae088a6bc7aec5f",
+    "revision": 12,
+    "state_digest": "546e43e850f12f200a79584cf1c607e3b77ee89c6e6d2c3f6505ea225aa9da40"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "98177f72b1043ba6a9f944b37e1b1ff0253bf755a49cfbfab8cfa3dffc557238",
+    "hash": "628197387af2f5be84788dabedfec3e0ffa17bb4e193567e517d2361df426399",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:20:21.196016Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/source-integrity.json"
+            ],
+            "id": "source_integrity",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/canon-contract.json"
+            ],
+            "id": "canon_contract",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "CANON_CANDIDATE_1-validation",
+        "evidence": [
+          "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/role-result.json"
+        ],
+        "expected_revision": 12,
+        "from_state": "VALIDATING",
+        "object_version": 7,
+        "reason": "VALIDATION_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "to_state": "REVIEW_REQUIRED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "c5ca0bfe8aad06f351f8082fe1349bfa314ebd15cc3c69d334947a26926c7352",
+    "revision": 13,
+    "state_digest": "1e52668a42260f8345082cc5053b9c3057c415007d6713625d4bb9e7f7eb6dcd"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "e82c7b10b84595776f2dde4aa1ab7d25b11582feeffd481a20e68cea0d072db3",
+    "hash": "7274c2b21b4daf787ef0a234b246dea59522e1b3008d3fe6ec1dbac2ebd9fd53",
+    "op": "review_dispatch",
+    "payload": {
+      "evidence": [],
+      "receipt": {
+        "action_id": "review-0ef4d4d5c63274b982c620a4",
+        "agent_id": "/root/host_bridge/v6_e184a8b19af38523257bb812",
+        "batch": 1,
+        "dispatch_id": "review-0ef4d4d5c63274b982c620a4",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T10:21:06.645844Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T10:21:06.645844Z",
+        "status": "RUNNING",
+        "task_digest": "9db0e3e36f98ed562311b841a590e27630a5c6580664206e40ce87d3d4708187",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "tool_result_sha256": "61f75bb0ffcdc9943cf8c2dc00a2187a6230686c41cf7028c9e34866f585aa23",
+        "tool_result_uri": "runtime/v6/host-evidence/61f75bb0ffcdc9943cf8c2dc00a2187a6230686c41cf7028c9e34866f585aa23.json"
+      }
+    },
+    "previous_hash": "628197387af2f5be84788dabedfec3e0ffa17bb4e193567e517d2361df426399",
+    "revision": 14,
+    "state_digest": "b409dcda2748d5ecd0e87b6e5b71b388fc89bda4efdea0d9f2744251c56fe76f"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "bfa688865e8d6ef72e5a6c05ade167bae76bada9060313ca87cd1e3be4128bce",
+    "hash": "d3723ba72dbe561833ffc58f2e679841fe208bc83304d3f28ac42dbe6e4ffc32",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:21:42.177619Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/candidate-result.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "CANON_REVIEW_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e184a8b19af38523257bb812",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer read frozen envelope, candidate, Canon and three evidence records; independently checking source integrity, Canon contract, handoff, hashes and V5/V6 contracts.",
+      "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+      "type": "ACK"
+    },
+    "previous_hash": "7274c2b21b4daf787ef0a234b246dea59522e1b3008d3fe6ec1dbac2ebd9fd53",
+    "revision": 15,
+    "state_digest": "512f47089eec1bf4cb2989ba0eba31efa8c100bf7eb2fbc3c012e75487515451"
+  },
+  {
+    "artifacts_digest": "bf7aa458921563fed4443fe7df8a0a3ab2c4ecb40e16727371f9d6a65f0e3808",
+    "commands_digest": "0f5c2868498624d92d27de9d02212d4dae50b9a2acf2f5bd16e2da50b83b2892",
+    "hash": "420581ad3806814f4407d8e41ab0acfa246c776b7f8880792784e7f2b7898c2b",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T10:26:19.152151Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/review-record.json"
+      ],
+      "in_reply_to": "CANON_REVIEW_ACK_1",
+      "message_id": "CANON_REVIEW_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e184a8b19af38523257bb812",
+      "subject_sha256": "ef962c3cbfa950914a92367443f4dae2873c74b98312215ef4d471ab21967333",
+      "subject_uri": "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/review-record.json",
+      "summary": "Independent reviewer completed source integrity, Canon contract, and handoff checks against the frozen candidate and source.",
+      "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+      "type": "RESULT"
+    },
+    "previous_hash": "d3723ba72dbe561833ffc58f2e679841fe208bc83304d3f28ac42dbe6e4ffc32",
+    "revision": 16,
+    "state_digest": "fa8e6f950fc0f9e02fafd2a8718b7125bcd1f08bf2ae877ec735ededadad17d8"
+  },
+  {
+    "artifacts_digest": "18b6993ebcd32ee32201066e3ccdcdc624bf593d962bbe5e3e0119a46e896732",
+    "commands_digest": "eb0e13d214bb9a71290c084f33d6350a1b91157f924d6399e0e58b0b4e42130a",
+    "hash": "a899e23340ee11c3b75f2d3f1c1eb7e08067a0fef95aeb458d6a0f43c2ae2a32",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T10:26:56.969309Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/source-integrity.review.json"
+            ],
+            "id": "source_integrity",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon-contract.review.json"
+            ],
+            "id": "canon_contract",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "CANON_REVIEW_ACCEPT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+        ],
+        "expected_revision": 16,
+        "from_state": "REVIEW_REQUIRED",
+        "object_version": 11,
+        "reason": "REVIEW_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+        "to_state": "ACCEPTED"
+      },
+      "receipt": null,
+      "review": {
+        "at": "2026-09-25T10:25:46.367942Z",
+        "batch": 1,
+        "candidate_digest": "a41333f9bb29d2016c5e1bd9b05f0c1816de681e7191c656b9a6b16ce91df173",
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/source-integrity.review.json"
+            ],
+            "id": "source_integrity",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon-contract.review.json"
+            ],
+            "id": "canon_contract",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "failure_owner": null,
+        "reviewer_agent_id": "/root/host_bridge/v6_e184a8b19af38523257bb812",
+        "reviewer_dispatch_id": "review-0ef4d4d5c63274b982c620a4",
+        "schema": "review-record/6.0",
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      }
+    },
+    "previous_hash": "420581ad3806814f4407d8e41ab0acfa246c776b7f8880792784e7f2b7898c2b",
+    "revision": 17,
+    "state_digest": "3afb7b0b48f0b2b739441202a26425d5f25ff12c7c4d5adac1418480a151b9b4"
+  }
+]

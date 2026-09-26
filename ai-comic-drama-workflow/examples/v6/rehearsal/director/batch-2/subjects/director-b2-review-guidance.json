@@ -1,0 +1,10 @@
+{
+  "batch": 2,
+  "candidate_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+  "delivered_via": "collaboration.spawn_agent",
+  "prior_failure_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json",
+  "review_action_id": "review-170f01b0b05c6d53096de3b2",
+  "schema": "host-message-subject/1.0",
+  "summary": "Independently review batch-2 Director candidate and exact declared validators, including whether batch-1 failed end-state/state-sample letter custody conflict is fixed at every relevant point. Keep candidate unchanged and write only review dir. Truthful PASS/FAIL with evidence and failure owner.",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

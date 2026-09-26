@@ -1,0 +1,84 @@
+{
+  "status": "FAIL",
+  "method": "Independently reran the frozen validator and compared timed camera, composition and state fields at the stow ending.",
+  "native_command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/screenplay-map.json"
+  ],
+  "native_exit_code": 0,
+  "native_report": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "a4603b7b8db50f4e39994247202f3bd303d67b3b151eeaf1fd3933c6f1c60784",
+      "handoff_sha256": "4db00070e002faaf1ba1adef6db77f612b4ed17cb41f53dfe4b1ae096f6a7685",
+      "mapping_sha256": "e20946f9abbaaae9be82bdc916a7fe4460380175216278d4bebde735dfecbf72",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  },
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "stow_samples": [
+    {
+      "at_ms": 6000,
+      "sample_id": "STATE_S_STOW_START",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "bag_condition": "待收纳信"
+    },
+    {
+      "at_ms": 8500,
+      "sample_id": "STATE_S_STOW_SETTLED",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "bag_condition": "收纳同一封信"
+    },
+    {
+      "at_ms": 9000,
+      "sample_id": "STATE_S_STOW_END",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "bag_condition": "收纳同一封信"
+    }
+  ],
+  "terminal_composition_interval_ms": [
+    8500,
+    9000
+  ],
+  "terminal_composition_subjects": [
+    "N_CHAR_YI",
+    "N_PROP_BACKPACK"
+  ],
+  "shot_camera_framing_end": "乙手退出包口，信已完全在包内；终帧只见乙与背包口",
+  "timeline_camera_end_ms": 9000,
+  "timeline_camera_end_framing": "乙手、信和背包口同框的中近景",
+  "finding": "At 9000 ms /timeline/camera_operations/2/end_framing still asks for 乙手、信和背包口同框. The 8500-9000 ms settled composition omits the letter, and explicit state samples put it inside the backpack. Native schema validation misses this semantic conflict.",
+  "repair": "Change only /timeline/camera_operations/2/end_framing to show the settled frame: 乙手与背包口可见，信已完全在包内且不外露. Rerun the locked validator and independent review.",
+  "media": "NOT_RUN"
+}

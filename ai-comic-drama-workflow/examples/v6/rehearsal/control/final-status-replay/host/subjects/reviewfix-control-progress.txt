@@ -1,0 +1,1 @@
+PROGRESS `TASK_4064ef49778d32687a4dde42` batch 1: all 2 frozen inputs and all 17 locked resources exist and match SHA-256; read compiler Skill and shot-control contract. Inspecting StoryboardIR and current native Control conversion before build. Evidence: `/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/host-inputs/reviewfix-control-action.json`.

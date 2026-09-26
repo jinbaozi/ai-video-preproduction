@@ -1,0 +1,73 @@
+{
+  "artifact_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+  "candidate_digest": "b2087c5689b8a12cdb611577436c4508cd92d2c08042f64539fbd2e884f3cca2",
+  "continuity": {
+    "art_entity_ids_preserved": true,
+    "beat_order": [
+      "BEAT_HANDOFF",
+      "BEAT_CONFIRM",
+      "BEAT_STOW"
+    ],
+    "camera_axis_side": "negative",
+    "camera_static_world_xyz": [
+      0,
+      1.2,
+      -2.8
+    ],
+    "director_timeline_equal_keys": [
+      "action_groups",
+      "actions",
+      "performances",
+      "camera_operations",
+      "audio_events",
+      "state_samples"
+    ],
+    "director_visibility_source_preserved": true,
+    "fps": 24,
+    "one_shot_frames": 288,
+    "panel_frames": [
+      0,
+      60,
+      84,
+      144,
+      204,
+      252,
+      287
+    ],
+    "visibility_intervals_authored": 6
+  },
+  "lighting_position_limit": "ArtIR has no practical lamp; numeric position in StoryboardIR is expressly a readability previsualization anchor, not a locked physical light or model control.",
+  "locked_inspect": {
+    "contract_results": [],
+    "diagnostics": [],
+    "execution_ready": false,
+    "manual_checks": [
+      "原文事件、潜台词与观众知情顺序：对照原文及导演决定逐镜审阅。",
+      "三维碰撞、摄影投影、遮挡、视线和手部接触：检查预演或真实画格。",
+      "表情幅度、重心、动作惯性、接动作剪点：查看连续媒体，不能只看首尾帧。",
+      "身份、服化道、场景拓扑、光源和道具：逐镜核对实际参考及资产版本。",
+      "台词声音归属、口型、停顿、旁白与音乐混音：实听实看并标时间码。",
+      "执行入口、模型版本、模式、附件、时长和返回素材：由宿主核验并另存真实回执。"
+    ],
+    "media": "NOT_RUN",
+    "schema_version": "storyboard-qa/1.0",
+    "status": "VALID",
+    "structure": "PASS",
+    "submitted": false,
+    "visual": "NOT_RUN"
+  },
+  "locked_verify": {
+    "build_id": "c51cae7ea461fe92ed69cbb482628a6f2e10c59c23217b3657cb4dc488ee7b9f",
+    "files": 8,
+    "media": "NOT_RUN",
+    "status": "VERIFIED"
+  },
+  "real_media": "NOT_RUN",
+  "recomputed_semantic_content_sha256": "46bbcd5b764ba4c9742228f1f833f92d48bf6d4ceef38c7958839ad8cc951065",
+  "reviewer_agent_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+  "role_result_validator_status": "VALID",
+  "scope_limit": "Static native validation and source consistency only; no evidence of actual 3D collision, camera projection, image or video output, or visual/audio QA.",
+  "semantic_review_bound": true,
+  "semantic_review_input_sha256": "46bbcd5b764ba4c9742228f1f833f92d48bf6d4ceef38c7958839ad8cc951065",
+  "status": "PASS"
+}

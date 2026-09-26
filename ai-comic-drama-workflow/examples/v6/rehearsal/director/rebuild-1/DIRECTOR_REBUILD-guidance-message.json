@@ -1,0 +1,22 @@
+{
+  "command_id": "DIRECTOR_REBUILD_GUIDANCE_COMMAND_1",
+  "expected_revision": 205,
+  "message": {
+    "at": "2026-09-25T13:43:05.702303Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-spawn-actual-message.txt",
+      "runtime/v6/host-inputs/director-rebuild-pending-action.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRECTOR_REBUILD_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "68e40486070d7d20cb57a18a412417bdbc2c6151a31c899234e68c740a36bcce",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-spawn-actual-message.txt",
+    "summary": "Host sent exact new Director task identity and frozen action; prior candidate may be source material but new semantic/handoff validation is required.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "HANDOFF"
+  }
+}

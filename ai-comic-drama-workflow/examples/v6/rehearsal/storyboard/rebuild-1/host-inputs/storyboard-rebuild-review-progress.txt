@@ -1,0 +1,1 @@
+Storyboard rebuild reviewer 已读取冻结 envelope、四份锁定资源和候选证据；锁定 storyboard.py 独立重跑 inspect=VALID、verify=VERIFIED（8 files），RoleResult.validator.status=VALID。正在复核 1437 条 V5 handoff、3 条 V6 绑定及语义审阅内容哈希，然后写独立 review-record。

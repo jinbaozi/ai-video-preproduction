@@ -1,0 +1,11 @@
+{
+  "command": "locked video-prompt-compiler/scripts/vpc.py validate candidate avir.json",
+  "exit_code": 0,
+  "input_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "result": {
+    "diagnostics": [],
+    "status": "VALID"
+  },
+  "status": "PASS",
+  "stdout_uri": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/validate-stdout.json"
+}

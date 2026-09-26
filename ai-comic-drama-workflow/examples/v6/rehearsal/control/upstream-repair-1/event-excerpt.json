@@ -1,0 +1,273 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+    "artifacts": [
+      {
+        "kind": "ShotControlPack",
+        "sha256": "90c832f57a6753f5be33fe5132fe749101519eeaaae4e009ff4a15edac75d31e",
+        "slot": "control:project:project:ShotControlPack",
+        "uri": "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/control-pack/package-manifest.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/module-receipt.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/promotion-diff.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/coordinate-consistency.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/adapter-report.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/native-av-validation.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/control-build.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/control-verify.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/projection-limit.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/handoff.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/promotion-diff.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/coordinate-consistency.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/handoff.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/promotion-diff.json",
+          "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/evidence/coordinate-consistency.json"
+        ],
+        "requirement_id": "UP_8c4b696799e85db8db8972c4",
+        "source_slot": "storyboard:project:project:StoryboardIR",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "control:project:project:ShotControlPack"
+      }
+    ],
+    "input_digest": "02a1ee8a07e3b5c94404e08bc1993d3a21bc06740e2f5095d285312c6c504efc",
+    "module_receipts": [
+      {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      }
+    ],
+    "result_sha256": "6f91c45f80126132d6f9e2faa4da504028698e6161ef078a6d356f6b7c9c6bd8",
+    "result_uri": "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+    "unresolved": []
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T15:40:18.814529Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/controlrepair-spawn-brief.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROLREPAIR_HOST_BRIEF_1",
+      "recipient_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "6e3f9cb5129704387d21ed56f0b38891f17ee93622e5dcdc485732472e6a0048",
+      "subject_uri": "runtime/v6/host-inputs/controlrepair-spawn-brief.txt",
+      "summary": "\u771f\u5b9e Control \u91cd\u5efa\u6d3e\u53d1\u8bf4\u660e\uff1b\u9501\u5b9a AVIR/control verify \u4e0e\u9759\u6001\u8f68\u8ff9\u8fb9\u754c\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:40:39.521874Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/controlrepair-creator-progress.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROLREPAIR_CREATOR_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+      "subject_sha256": "01326b9deb0d0fd76802a410981822da5887a73afcd078f086ae2a94dd2eb70d",
+      "subject_uri": "runtime/v6/host-inputs/controlrepair-creator-progress.txt",
+      "summary": "Control creator \u5df2\u6838\u9a8c\u4e24\u9879\u51bb\u7ed3\u8f93\u5165\u548c\u56db\u9879\u8d44\u6e90\uff0c\u6b63\u68c0\u67e5\u5f53\u524d StoryboardIR/AVIR \u63a7\u5236\u5305\u8bed\u4e49\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:43:30.877097Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/controlrepair-creator-progress-2.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROLREPAIR_CREATOR_PROGRESS2_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+      "subject_sha256": "8f36fc3aa9d6b4afd8241f7131ab6800645d06a31bf3470433a9963836d8782a",
+      "subject_uri": "runtime/v6/host-inputs/controlrepair-creator-progress-2.txt",
+      "summary": "Control creator \u5df2 fresh AVIR MAPPED/loss0\u3001native VALID\u3001build DERIVED\u3001verify VERIFIED\uff0c\u6b63\u5c01\u88c5\u5019\u9009\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:44:34.315839Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/candidate-result.json",
+        "runtime/v6/host-inputs/controlrepair-creator-result.txt"
+      ],
+      "in_reply_to": "CONTROLREPAIR_HOST_BRIEF_1",
+      "message_id": "CONTROLREPAIR_CREATOR_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+      "subject_sha256": "5ca720ac7e7ba5c90216c15e39f568be4619a9164c53def0a26db69f5ae3e7c4",
+      "subject_uri": "runtime/v6/candidates/TASK_ddd2a77146e2ddd7866420cb/1/candidate-result.json",
+      "summary": "Control pack \u5019\u9009\u63d0\u4ea4\uff1blocked AVIR VALID\u3001control verify VERIFIED\uff0c121 projection frames\uff0c\u5a92\u4f53 NOT_RUN\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T15:45:05.105071Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/controlrepair-creator-nuance.txt"
+      ],
+      "in_reply_to": "CONTROLREPAIR_CREATOR_RESULT_1",
+      "message_id": "CONTROLREPAIR_CREATOR_NUANCE_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+      "subject_sha256": "e45d0f1581adc39f7bd1d476c6c616e66f4fee47865e991f5142c9c0646114a9",
+      "subject_uri": "runtime/v6/host-inputs/controlrepair-creator-nuance.txt",
+      "summary": "\u660e\u786e 0 UNDETERMINED \u4ec5\u6307\u6444\u5f71\u673a\uff1b\u73af\u5883 N_ENV \u65e0\u6570\u503c\u6839\u70b9\u4ecd\u672a\u786e\u5b9a\uff0c\u5019\u9009\u4e0d\u5ba3\u79f0\u6a21\u578b\u63a7\u5236\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:45:31.773627Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/controlrepair-review-brief.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROLREPAIR_REVIEW_HOST_BRIEF_1",
+      "recipient_id": "/root/host_bridge/v6_5861d46d84247d608cff43ee",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "1c1380803c0561e9bcbd15aee16a55fdd91516463fa8ee8ed65ba619d8789896",
+      "subject_uri": "runtime/v6/host-inputs/controlrepair-review-brief.txt",
+      "summary": "\u771f\u5b9e Control \u72ec\u5ba1\u6d3e\u53d1\u8bf4\u660e\uff1b\u6838\u5bf9 locked AVIR/\u63a7\u5236\u5305\u53ca\u6444\u5f71\u673a\u6295\u5f71\u8303\u56f4\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:48:14.694521Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_ddd2a77146e2ddd7866420cb/1/review-record.json",
+        "runtime/v6/host-inputs/controlrepair-reviewer-result.txt"
+      ],
+      "in_reply_to": "CONTROLREPAIR_REVIEW_HOST_BRIEF_1",
+      "message_id": "CONTROLREPAIR_REVIEWER_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_5861d46d84247d608cff43ee",
+      "subject_sha256": "d033aa41f1e971538ed964952d0ed490e7e4c65960ecf46d8fa6bb99c3b29285",
+      "subject_uri": "runtime/v6/reviews/TASK_ddd2a77146e2ddd7866420cb/1/review-record.json",
+      "summary": "Control \u72ec\u5ba1\u4e09\u9879 PASS\uff1blocked build/verify \u91cd\u5efa\u4e00\u81f4\uff0c\u6444\u5f71\u673a\u9759\u6001\u6295\u5f71\u5df2\u89c4\u5212\uff0c\u73af\u5883\u70b9\u548c\u771f\u5b9e\u5a92\u4f53\u4ecd\u672a\u786e\u5b9a\u3002",
+      "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-057c4fc5b64592148d83276d",
+    "agent_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+    "batch": 1,
+    "dispatch_id": "dispatch-057c4fc5b64592148d83276d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:40:06.852243Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:40:06.852243Z",
+    "status": "RUNNING",
+    "task_digest": "7e546e33eefee703f947f030eac72067fcfd3a8c19e0fb89de83d108224fe528",
+    "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+    "tool_result_sha256": "bc1566cf224c0d97a286ac00377b84c743d3cc03d28321f8188e9ccb90f15403",
+    "tool_result_uri": "runtime/v6/host-evidence/bc1566cf224c0d97a286ac00377b84c743d3cc03d28321f8188e9ccb90f15403.json"
+  },
+  "review": {
+    "at": "2026-09-25T15:47:46.486617+00:00",
+    "batch": 1,
+    "candidate_digest": "b7ee9c05d68d344a2c59c7ff47c743909dacfd30a4e465d457338dd354087187",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_ddd2a77146e2ddd7866420cb/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_ddd2a77146e2ddd7866420cb/1/control-verify.review.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_ddd2a77146e2ddd7866420cb/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_5861d46d84247d608cff43ee",
+    "reviewer_dispatch_id": "review-057c4fc5b64592148d83276d",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_ddd2a77146e2ddd7866420cb"
+  },
+  "review_dispatch": {
+    "action_id": "review-057c4fc5b64592148d83276d",
+    "agent_id": "/root/host_bridge/v6_5861d46d84247d608cff43ee",
+    "batch": 1,
+    "dispatch_id": "review-057c4fc5b64592148d83276d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:45:19.203321Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:45:19.203321Z",
+    "status": "RUNNING",
+    "task_digest": "7e546e33eefee703f947f030eac72067fcfd3a8c19e0fb89de83d108224fe528",
+    "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+    "tool_result_sha256": "3d045b2d96b22abec62aa2cffbda92ec15caa718c8aac995a8e7af3cda685fe4",
+    "tool_result_uri": "runtime/v6/host-evidence/3d045b2d96b22abec62aa2cffbda92ec15caa718c8aac995a8e7af3cda685fe4.json"
+  },
+  "revision_at_archive": 481,
+  "state": "ACCEPTED",
+  "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+  "version": 15
+}

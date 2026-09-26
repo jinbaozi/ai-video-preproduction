@@ -1,0 +1,1 @@
+内核现要求 candidate.checks 每项 evidence 非空且文件实际存在，candidate.handoffs 每项 evidence 亦非空/存在；请在正式候选里逐项附当前批次真实证据，提交前复验其字节与引用，不要填占位 URI。

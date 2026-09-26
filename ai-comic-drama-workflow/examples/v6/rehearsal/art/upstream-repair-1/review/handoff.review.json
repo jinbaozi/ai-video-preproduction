@@ -1,0 +1,250 @@
+{
+  "art_canon_ref_equals_director_canon_ref": true,
+  "candidate_digest": "64ea5bf23363b4c7656efa806c0c7049095b2ec6ed7953537c58bbd3e1e4fa83",
+  "coordinate_basis": {
+    "art_set_basis": "right-handed:X-right,Y-depth,Z-up;meters",
+    "camera_numbers_rewritten_by_art": false,
+    "compiled_prompt_line": 7,
+    "compiled_prompt_line_text": "场景坐标：right-handed:X-right,Y-depth,Z-up;meters；原点：按当前 DirectorIR /scenes/0 的交接中心和示意世界坐标留空操作区域；数值为设计包络而非实景测量。",
+    "compiled_prompt_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/compiled-generic-video/prompts/S1.txt",
+    "conclusion": "The two Director arrays are equivalent in separately declared bases; Art uses the static scene basis and does not introduce a camera coordinate triple.",
+    "director_static_camera_end_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "director_static_camera_start_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "director_static_scene_basis": "right-handed:X-right,Y-depth,Z-up;meters",
+    "director_timeline_basis": "x-right,y-up,z-depth; screen and anatomical directions are separate",
+    "director_timeline_camera_end_position": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+    "director_timeline_camera_start_position": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+    "transform_static_to_timeline": "[x,y,z] -> [x,z,y]"
+  },
+  "media_review": "NOT_RUN",
+  "status": "PASS",
+  "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+  "v5_director_rebase_only_paths": [
+    "/sources/0/uri",
+    "/sources/1/uri",
+    "/sources/2/uri",
+    "/timeline/semantic_review/input_sha256"
+  ],
+  "v5_handoffs": [
+    {
+      "all_target_checks_pass": true,
+      "requirement_id": "director:D_RAIN",
+      "source_fingerprint": "92f7859ad2ae44a0836a040b4f3718c6ce1259c0bee5ccd84a294aea4105dd73",
+      "source_paths": [
+        "/scenes/0/space",
+        "/shots/0/sound/ambience",
+        "/shots/0/lighting/color_purpose"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/set/atmosphere",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/world/region",
+          "value": "室内外"
+        }
+      ],
+      "target_clause": "A_RAIN"
+    },
+    {
+      "all_target_checks_pass": true,
+      "requirement_id": "director:D_SINGLE_LETTER",
+      "source_fingerprint": "5987c8f2db8f22a35f572bd2a70887fcc8ade48b1c3a320a33a81a6c9ed1256c",
+      "source_paths": [
+        "/entities/2",
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2",
+        "/timeline/actions/3",
+        "/timeline/actions/4",
+        "/shots/0/end_state/2"
+      ],
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/assets/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/assets/2/identity_locks/0",
+          "value": "只有 PROP_LETTER"
+        }
+      ],
+      "target_clause": "A_SINGLE_LETTER"
+    },
+    {
+      "all_target_checks_pass": true,
+      "requirement_id": "director:D_ACTION_ORDER",
+      "source_fingerprint": "3c1489e110fb4b4c2e340cf5b7f79b1136ae755301daa837654f1b821cad9e49",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/2/requirement",
+          "value": "交信完成后乙确认完整封口，确认后才收进"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/id",
+          "value": "S1"
+        }
+      ],
+      "target_clause": "A_ORDER"
+    },
+    {
+      "all_target_checks_pass": true,
+      "requirement_id": "director:D_ENDING",
+      "source_fingerprint": "58c516797253809f3f45d68280c6a9a2895201fbbcbfdf0df5e387bd9a17cc20",
+      "source_paths": [
+        "/shots/0/narrative/audience_after/2",
+        "/timeline/actions/4/settle",
+        "/shots/0/end_state/2"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/3/requirement",
+          "value": "收进乙背包即结束"
+        },
+        {
+          "op": "contains",
+          "path": "/assets/2/design",
+          "value": "无字"
+        }
+      ],
+      "target_clause": "A_ENDING"
+    },
+    {
+      "all_target_checks_pass": true,
+      "requirement_id": "director:D_EVENTS",
+      "source_fingerprint": "3d655be9bdb95627a6900099877831f3bf3364a3a7b132083ea7ec09a55d49b4",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/4/requirement",
+          "value": "三项来源事件"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/director_pointer",
+          "value": "/shots/0"
+        }
+      ],
+      "target_clause": "A_EVENTS"
+    },
+    {
+      "all_target_checks_pass": true,
+      "requirement_id": "director:D_REVEAL_ORDER",
+      "source_fingerprint": "78290042e04dd7a3f3ad3ad1e612c753ad4b9ed4ecaf60f12ffdc0e7e0ffa6ee",
+      "source_paths": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative/audience_after"
+      ],
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/contract/clauses/5/requirement",
+          "value": "先见交接，再见封口完整，最后见"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/occlusion",
+          "value": "关键时间点"
+        }
+      ],
+      "target_clause": "A_REVEAL"
+    }
+  ],
+  "v6_canon_to_v5_promoted_canon_json_object_equal": true,
+  "v6_handoffs": [
+    {
+      "channel": "artifact",
+      "mapping": [
+        {
+          "source_pointer": "/content",
+          "target_pointers": [
+            "/sources/1",
+            "/contract/clauses/0"
+          ]
+        },
+        {
+          "source_pointer": "/entities/2/id",
+          "target_pointers": [
+            "/assets/2/entity_id",
+            "/contract/clauses/1"
+          ]
+        },
+        {
+          "source_pointer": "/event_order",
+          "target_pointers": [
+            "/contract/clauses/2",
+            "/contract/clauses/5"
+          ]
+        }
+      ],
+      "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_slot": "canon:project:project:Canon",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "source_version": 12,
+      "target_sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+      "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "target_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json"
+    },
+    {
+      "channel": "artifact",
+      "mapping": [
+        {
+          "source_pointer": "/scenes/0",
+          "target_pointers": [
+            "/set",
+            "/shots/0"
+          ]
+        },
+        {
+          "source_pointer": "/shots/0",
+          "target_pointers": [
+            "/shots/0"
+          ]
+        },
+        {
+          "source_pointer": "/timeline/actions",
+          "target_pointers": [
+            "/contract/clauses/2",
+            "/contract/clauses/4",
+            "/contract/clauses/5"
+          ]
+        }
+      ],
+      "requirement_id": "UP_671ea8754cf2e57a5e495051",
+      "source_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+      "source_version": 14,
+      "target_sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+      "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "target_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json"
+    }
+  ]
+}

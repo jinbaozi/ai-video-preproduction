@@ -1,0 +1,480 @@
+{
+  "batch": 1,
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+    "artifacts": [
+      {
+        "kind": "StoryboardIR",
+        "sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/native-validator.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/topdown-control.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/storyboard-review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/topdown-control.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/topdown-control.json"
+        ],
+        "requirement_id": "UP_14ccecf60174e51512f867f2",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/topdown-control.json"
+        ],
+        "requirement_id": "UP_e37b0cb2e9d1248a942637bf",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 18,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/evidence/topdown-control.json"
+        ],
+        "requirement_id": "UP_3def006c4a06342fc38a9a7b",
+        "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "source_version": 17,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      }
+    ],
+    "input_digest": "5c74881f3c75fdee55e551d1a134197df25d39c25e0a43fa9e32d3453dc09100",
+    "module_receipts": [
+      {
+        "name": "storyboard-grammar",
+        "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+        "version": "1.3.2"
+      }
+    ],
+    "result_sha256": "c1b691cd823ec5a9d4bfd7b7c1a80ee2153928ef4947d255522800a1fc9326a1",
+    "result_uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "unresolved": []
+  },
+  "captured_revision": 281,
+  "dispatch_receipt": {
+    "action_id": "dispatch-5dbb503b9d53527179e37e01",
+    "agent_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+    "batch": 1,
+    "dispatch_id": "dispatch-5dbb503b9d53527179e37e01",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:17:30.022007Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:17:30.022007Z",
+    "status": "RUNNING",
+    "task_digest": "8c4847c72053fc08eb7750855da4febbf3b9b4d0e6e797707445792a4d4ef2d7",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "tool_result_sha256": "a10e7c77eed356741935bf5e0763700935a21c25476044b27d81cdf6f48ceca3",
+    "tool_result_uri": "runtime/v6/host-evidence/a10e7c77eed356741935bf5e0763700935a21c25476044b27d81cdf6f48ceca3.json"
+  },
+  "envelope": {
+    "batch": 1,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_ae94f4322a77ebd18dbb635d"
+      },
+      {
+        "task_id": "TASK_71abb1f14640b94809ef3db2"
+      },
+      {
+        "task_id": "V6_skip_3be37d0355be9e3c221d2ca3"
+      },
+      {
+        "task_id": "V6_skip_770fa1f1e8dceea0650056c9"
+      },
+      {
+        "task_id": "V6_skip_b010cf93c8a8cdcb06a49567"
+      },
+      {
+        "task_id": "V6_skip_b0c8d697bf41888dec94455f"
+      },
+      {
+        "task_id": "V6_skip_90db23cef7404681cdd3ddb2"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "StoryboardIR",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_14ccecf60174e51512f867f2",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_e37b0cb2e9d1248a942637bf",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 18,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_3def006c4a06342fc38a9a7b",
+        "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "source_version": 17,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      }
+    ],
+    "input_digest": "5c74881f3c75fdee55e551d1a134197df25d39c25e0a43fa9e32d3453dc09100",
+    "input_revision": 258,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+        "version": 18
+      },
+      {
+        "sha256": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+        "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+        "version": 17
+      },
+      {
+        "sha256": "a371ebf0e7812a741950e4c1a72313aecb1a05915eaaba057bac3e2b52d746c2",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_afc04f54b23b01071a0b14e3.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "storyboard-grammar",
+      "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+      "version": "1.3.2"
+    },
+    "node_id": "storyboard",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md"
+      }
+    ],
+    "role": "storyboard",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T14:17:54.178111Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-spawn-brief.json",
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+        "runtime/tasks/TASK_afc04f54b23b01071a0b14e3.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "STORYBOARD_REBUILD_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "f6d26865d31245f4b5d6fc448c0212f7ff69ab9fe025b7ce9807db6777a4482a",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-spawn-brief.json",
+      "summary": "Actual Storyboard creator spawn delivered frozen inputs/resources, current Director/Art ownership, fresh native validator status and semantic/control obligations.",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:21:14.809398Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-validator-reminder.txt"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_GUIDANCE_1",
+      "message_id": "STORYBOARD_REBUILD_VALIDATOR_REMINDER_1",
+      "recipient_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "4dfbc9e872dd7361473a1ea2215e7d7bce8701dfcb99c26117e610d7be48f01a",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-validator-reminder.txt",
+      "summary": "Host follow-up reiterated exact fresh native validator status, semantic digest binding and concrete blocker reporting before candidate RESULT.",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:22:08.498011Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-progress.txt"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_VALIDATOR_REMINDER_1",
+      "message_id": "STORYBOARD_REBUILD_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+      "subject_sha256": "e17e0983c9e26c512fd2523103ad9398ead91fc7a6ed9da67fe0802b9c4a7398",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-progress.txt",
+      "summary": "新 StoryboardIR fresh locked inspect status=VALID、structure=PASS、semantic_review 摘要绑定；媒体 NOT_RUN，V5/V6 映射尚在制作。",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:23:34.005249Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-creator-report.txt"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_PROGRESS_PROGRESS_1",
+      "message_id": "STORYBOARD_REBUILD_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+      "subject_sha256": "15a33ae0ca811281682258c81e1b08dc80f75b3294ead22461cccec5d8d8bb79",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-creator-report.txt",
+      "summary": "新 StoryboardIR 候选完成：fresh native VALID、semantic_review 当前摘要绑定、V5 1437/1437 与 V6 3/3 交接通过，媒体 NOT_RUN。",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:23:45.177910Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/candidate-result.json"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_HANDOFF_HANDOFF_1",
+      "message_id": "STORYBOARD_REBUILD_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+      "subject_sha256": "c7a9bafe17bfb2f06d2b04817dcff893da5b19e082841e78c3ff168012ae1ff7",
+      "subject_uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/candidate-result.json",
+      "summary": "Storyboard candidate-result/6.0 已提交并绑定当前冻结输入；真实媒体与视觉 QA NOT_RUN。",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T14:24:46.426483Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-review-guidance.json",
+        "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/candidate-result.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "STORYBOARD_REBUILD_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "8b8cc50505e50631edf3492170a3225b1c7cf5792e153e08ccd5c03a7772fba1",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-review-guidance.json",
+      "summary": "Actual independent Storyboard reviewer dispatched with frozen inputs, candidate, fresh validator status, semantic digest, V5/V6 handoffs and media NOT_RUN boundary.",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:26:22.155089Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-review-progress.txt"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_REVIEW_GUIDANCE_1",
+      "message_id": "STORYBOARD_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+      "subject_sha256": "18584a37de7f1b39d59b050306d8266ee2b9a1fad87d8950dc29c4b30a7325e8",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-review-progress.txt",
+      "summary": "独立重跑 storyboard inspect=VALID、verify=VERIFIED（8 files），RoleResult 同值；正在核对 1437 V5 与 3 V6 handoff 和语义摘要。",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:29:32.356699Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-rebuild-reviewer-report.txt"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "message_id": "STORYBOARD_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+      "subject_sha256": "40c6c30991cfd8fe582156048aabe5ae63330d04eb07c34747c278291d21d79a",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-reviewer-report.txt",
+      "summary": "独审三项 PASS；fresh storyboard VALID、包 VERIFIED，V5 1437/1437、V6 3/3、语义摘要当前绑定；真实媒体/三维投影 NOT_RUN。",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:29:44.401575Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_afc04f54b23b01071a0b14e3/1/review-record.json"
+      ],
+      "in_reply_to": "STORYBOARD_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "message_id": "STORYBOARD_REBUILD_REVIEW_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+      "subject_sha256": "e1d08bbb2acbd5d3071904c99b8b0f2244f7e3d2fec7f6022bd359debab10a4d",
+      "subject_uri": "runtime/v6/reviews/TASK_afc04f54b23b01071a0b14e3/1/review-record.json",
+      "summary": "独立 Storyboard review-record/6.0 已完成，三项 PASS，媒体/三维投影 NOT_RUN。",
+      "task_id": "TASK_afc04f54b23b01071a0b14e3",
+      "type": "RESULT"
+    }
+  ],
+  "project_id": "LETTER_DEMO",
+  "project_root_at_rehearsal": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "published_artifact": {
+    "batch": 1,
+    "candidate_digest": "b2087c5689b8a12cdb611577436c4508cd92d2c08042f64539fbd2e884f3cca2",
+    "kind": "StoryboardIR",
+    "sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+    "slot": "storyboard:project:project:StoryboardIR",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json"
+  },
+  "review": {
+    "at": "2026-09-25T14:29:01.191699Z",
+    "batch": 1,
+    "candidate_digest": "b2087c5689b8a12cdb611577436c4508cd92d2c08042f64539fbd2e884f3cca2",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_afc04f54b23b01071a0b14e3/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_afc04f54b23b01071a0b14e3/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_afc04f54b23b01071a0b14e3/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+    "reviewer_dispatch_id": "review-5dbb503b9d53527179e37e01",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3"
+  },
+  "review_dispatch": {
+    "action_id": "review-5dbb503b9d53527179e37e01",
+    "agent_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+    "batch": 1,
+    "dispatch_id": "review-5dbb503b9d53527179e37e01",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:24:22.182206Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:24:22.182206Z",
+    "status": "RUNNING",
+    "task_digest": "8c4847c72053fc08eb7750855da4febbf3b9b4d0e6e797707445792a4d4ef2d7",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "tool_result_sha256": "353fbf61ec6cde6cdaf832e8a466e6216887f1b42480908ab532371905e846a5",
+    "tool_result_uri": "runtime/v6/host-evidence/353fbf61ec6cde6cdaf832e8a466e6216887f1b42480908ab532371905e846a5.json"
+  },
+  "state": "ACCEPTED",
+  "task_id": "TASK_afc04f54b23b01071a0b14e3"
+}

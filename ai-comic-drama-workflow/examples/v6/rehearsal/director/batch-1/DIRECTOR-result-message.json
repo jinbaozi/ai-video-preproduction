@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_RESULT_COMMAND_1",
+  "expected_revision": 40,
+  "message": {
+    "at": "2026-09-25T11:00:07.089043Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/candidate-result.json"
+    ],
+    "in_reply_to": "DIRECTOR_PROGRESS_REQUEST_1",
+    "message_id": "DIRECTOR_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+    "subject_sha256": "3a25fc100c48cd80ab9c7d16fae9aa99fdc67df28784c8a0aa9b2a4321d562a4",
+    "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/candidate-result.json",
+    "summary": "Director completed native DirectorIR, RoleResult, V6 candidate, checks and frozen handoffs; read-only contract assistance was independently checked and cited.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "RESULT"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_SEMANTIC_REBASE_EVIDENCE_COMMAND_1",
+  "expected_revision": 184,
+  "message": {
+    "at": "2026-09-25T13:36:46.191775Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json"
+    ],
+    "in_reply_to": "CONTROL_SEMANTIC_DIFF_REQUEST_1",
+    "message_id": "CONTROL_SEMANTIC_REBASE_EVIDENCE_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "bdd4ecfe340996088a3d17c0c1752084da435e4e7607f6054563170d6b839a95",
+    "subject_uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json",
+    "summary": "Creator froze exact 11-leaf V6-to-V5 Storyboard URI/hash rebase diff proving semantic review passes on accepted bytes but fails on promoted copy; adapter remains PENDING.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "BLOCKER"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "module_version": "1.3.1",
+  "art_file_sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+  "art_object_sha256": "101aeb47f6ba9a071c0cdea48e188c76038efcd7d6affe3deb8de09a3f2f844b",
+  "fresh_run": {
+    "command": [
+      "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py",
+      "validate",
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json"
+    ],
+    "exit_code": 0,
+    "stdout": "{\n  \"art_sha256\": \"101aeb47f6ba9a071c0cdea48e188c76038efcd7d6affe3deb8de09a3f2f844b\",\n  \"status\": \"STATIC_VALID\"\n}\n",
+    "stderr": ""
+  },
+  "compiled_package": {
+    "uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/compiled-generic-video",
+    "receipt_sha256": "1d9de705ade713d2b04df1298a5af65fe00f0302ffab25d3ba4f8c819199341a",
+    "status": "PLANNED",
+    "submitted": false,
+    "media_acceptance": "NOT_RUN"
+  },
+  "limitations": [
+    "Native structural validity does not demonstrate image/video quality.",
+    "DirectorIR owns timing, control, camera and action semantics; ArtIR events remain empty because Director shot phases are empty."
+  ]
+}

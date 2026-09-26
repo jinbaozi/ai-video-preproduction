@@ -1,0 +1,51 @@
+{
+  "check": "module_receipt",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T11:10:15.615221Z",
+  "method": "Independently recomputed SHA-256 for the locked module archive, four required reads, both frozen inputs, candidate ScriptIR, RoleResult and all four creator evidence files; recomputed V6 input and candidate JSON digests.",
+  "module_archive": {
+    "uri": "runtime/module-archives/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf.skill",
+    "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf"
+  },
+  "resource_hashes": [
+    {
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md",
+      "sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa"
+    },
+    {
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md",
+      "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
+    },
+    {
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md",
+      "sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392"
+    },
+    {
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md",
+      "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef"
+    }
+  ],
+  "input_hashes": [
+    {
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9"
+    },
+    {
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_20dbe9991f545d5fe05e55e7.json",
+      "sha256": "a6c5a65e9d439faf14c95492264c5396d3205613c34554351dcccfe1c76a6799"
+    }
+  ],
+  "candidate_artifact_sha256": "205d0961e84576e6326d70e900ab4491e7122bc96014fea0bfa22c28fc1dfc54",
+  "role_result_sha256": "df2ce5039316f3e6435ed07fc9a541f1fafdddfbdbf2545c0cf2500da9ac7d10",
+  "input_digest": "c669370e5a380de6e9c23ca3d7cd9a3cce08ddd5aff849f83e4c0c4a0be32ec8",
+  "candidate_digest": "c02c4deb8c08905e709b8f64a95c130c848ed6302b4ca70a03e051a684a1db13",
+  "creator_evidence_hashes": {
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/evidence/handoff-check.json": "8cad67cfa3e48fd7e986c3fbabb85da0afcd5eca171a274c4d134d06812f57d9",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/evidence/handoff.json": "7c115149a471b88ea762641cc1f8aefeb2861e21b63571b78393a5c6b9bba40d",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/evidence/module-receipt.json": "b1f97952669ef6671a1a27f9eea240d423a0dd0de68160645b9030de4dee4c99",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/evidence/native-validator.json": "86ddbdd2cdd00fdeb9a06ff6facc3ed12a11cc43b8e8186aa918aadc8ff06d4a"
+  },
+  "finding": "All declared bytes and frozen assignment bindings match; the locked screenplay-grammar 1.0.1 module and required resources are the ones used by this candidate."
+}

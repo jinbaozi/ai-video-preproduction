@@ -1,0 +1,59 @@
+{
+  "check": "module_receipt",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T11:25:08.975Z",
+  "method": "Recomputed SHA-256 for the locked archive, required resources, frozen inputs, ScriptIR, RoleResult and creator evidence; recomputed V6 input and candidate JSON digests; checked the current registered Canon binding against formal V5 state.",
+  "module_archive": {
+    "uri": "runtime/module-archives/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf.skill",
+    "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf"
+  },
+  "resource_hashes": [
+    {
+      "sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md"
+    },
+    {
+      "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md"
+    },
+    {
+      "sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md"
+    },
+    {
+      "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md"
+    }
+  ],
+  "input_hashes": [
+    {
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+      "version": 12
+    },
+    {
+      "sha256": "a6c5a65e9d439faf14c95492264c5396d3205613c34554351dcccfe1c76a6799",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_20dbe9991f545d5fe05e55e7.json",
+      "version": 0
+    }
+  ],
+  "input_digest": "a1e553422ead1ab4d5ddb57a62f9ed522e0649e542461d709f3ccdb7e68e4333",
+  "candidate_digest": "1e7920378071e2a282e33b2e418a2f540f91f84b8da894fcd1cf8f3235d22c59",
+  "candidate_artifact_sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+  "role_result_sha256": "62d2e1537405a63d6f489f5caf3a4525c8c0c5bb7029c5ff995723a0e8624ac2",
+  "creator_evidence_hashes": {
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff-check.json": "b0b7f024b18e5677e3083d78fa9003e5ebdd39c8a98adb41391935bf094e2adc",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff.json": "670e8f57649c16a92e895c016aed2dee171f1a0c8cc8cf815c60c04e3dbb9577",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/module-receipt.json": "e45422c2f2ecf9fcff10e70f0b5e8a6c023fa5a54cd5ef710b87934dc6296fe3",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/native-validator.json": "816e7f6a04779bfd08abfb4886b1b24f775e51a6976698f3cc998b8d993f681e"
+  },
+  "registered_canon": {
+    "uri": "artifacts/canon/965719a86c51acc77e6c62b078f235ed5c158aae5d23d58df8c052f908ead1d9/native/0cc4aebffda6a714_canon.json",
+    "sha256": "ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5",
+    "matches_frozen_json": true,
+    "matches_formal_state": true
+  },
+  "finding": "All frozen byte bindings and module receipts match. Batch 2 binds the current registered Canon SHA required by formal V5 state."
+}

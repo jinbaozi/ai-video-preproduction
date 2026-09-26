@@ -1,0 +1,31 @@
+{
+  "camera_operation_text_matches_numeric_position": true,
+  "camera_track_matches_locked_operation": true,
+  "candidate_digest": "b7ee9c05d68d344a2c59c7ff47c743909dacfd30a4e465d457338dd354087187",
+  "director_camera_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "director_coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+  "mapping": "storyboard [x,y,z] = director [X,Z,Y]",
+  "media": "NOT_RUN",
+  "promoted_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+  "requirement_id": "UP_8c4b696799e85db8db8972c4",
+  "result": "PASS",
+  "schema": "control-handoff-review/1.0",
+  "source_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "source_slot": "storyboard:project:project:StoryboardIR",
+  "source_task_id": "TASK_4f81cc62bc1b268a8f8be7b0",
+  "source_task_state": "ACCEPTED",
+  "source_version": 12,
+  "storyboard_camera_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "storyboard_coordinate_system": "x=world-right,y=up,z=depth",
+  "target_avir_sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33",
+  "target_manifest_sha256": "90c832f57a6753f5be33fe5132fe749101519eeaaae4e009ff4a15edac75d31e",
+  "target_slot": "control:project:project:ShotControlPack"
+}

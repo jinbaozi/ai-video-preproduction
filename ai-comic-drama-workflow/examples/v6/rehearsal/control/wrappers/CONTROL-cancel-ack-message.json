@@ -1,0 +1,23 @@
+{
+  "command_id": "CONTROL_CANCEL_ACK_COMMAND_1",
+  "expected_revision": 186,
+  "message": {
+    "at": "2026-09-25T13:38:38.609853Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/cancel-ack.json",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/package-manifest.json"
+    ],
+    "in_reply_to": "CONTROL_STALE_CANCEL_REQUEST_1",
+    "message_id": "CONTROL_CANCEL_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "bccc3b210128258ee02193b0e3e38f1bf19c02f2da97e44a1c7184e7c0c3496d",
+    "subject_uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/cancel-ack.json",
+    "summary": "Original Control creator stopped work; frozen package and semantic blocker hashes recorded, no RESULT/RoleResult or paid media call, upstream semantic review PENDING.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "CANCEL_ACK"
+  }
+}

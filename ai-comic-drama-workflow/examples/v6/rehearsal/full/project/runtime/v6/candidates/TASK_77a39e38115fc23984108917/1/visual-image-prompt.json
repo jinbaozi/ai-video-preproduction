@@ -1,0 +1,54 @@
+{
+  "project_id": "LETTER_FULL_DEMO",
+  "task_id": "TASK_77a39e38115fc23984108917",
+  "asset_id": "ENV_RAIN_NIGHT",
+  "scope_key": "ASSET_SCENE_HANDOFF_ENV_RAIN_NIGHT",
+  "art_source": {
+    "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+    "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+    "pointer": "/assets/4"
+  },
+  "reference_plan": {
+    "id": "PLAN_ENV_RAIN_NIGHT",
+    "status": "planned",
+    "file": null,
+    "sha256": null,
+    "role": "scene",
+    "use_in_this_prompt": "unbound; text-only scene design"
+  },
+  "prompt": "为场景资产 ENV_RAIN_NIGHT 制作一张单一静态的雨夜环境参考图，供 SCENE_HANDOFF 三镜共享同一雨夜、同一蓝灰色材与稳定环境光方向。低饱和蓝灰夜色铺满低纹理背景；背景雨幕细而低频，不遮蔽将来交接双手、完整封口与包口的画面区域。下方是一片中性平整、稳定可站立、低反光的承托面，表面只保留克制且物理连贯的微弱湿润反射。以单一平视视点呈现前中后景，中央留出两人相向站立和右手交信的通行净空，另留乙右手触及包口的空间；这些位置只是后续摆位净空，本图不画人物、信封或背包。仅用同一方位的画外柔和环境漫反射，令预留的手、封口和包口区域有可辨的亮度分离；不添加可见灯具。背景没有高频反光、招牌、品牌、可读文字或新陈设；不标定具体地点、城市、建筑、年代或室内外状态。",
+  "prompt_document": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/prompt.md",
+  "production_contract": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/production-contract.json",
+  "production_contract_sha256": "753be456e3495c0970df8d353767555fc85ddfcf3b4c92d692b2fb7c2aad75ba",
+  "params": {
+    "target_model": null,
+    "surface": "generic",
+    "aspect_ratio": "16:9",
+    "requested_pixels": null,
+    "reference_files": []
+  },
+  "static_checks": [
+    {
+      "ref": "三个镜头持续为同一雨夜",
+      "finding": "正文锁定 SCENE_HANDOFF 三镜共用同一雨夜、蓝灰色材与环境光方向；该静态场景图本身不声称三镜实拍连续性已通过。"
+    },
+    {
+      "ref": "不得从背景推断未给出的具体地点或室内外状态",
+      "finding": "正文不标定具体地点、城市、建筑、年代和室内外状态，也不加入能反推这些属性的地标。"
+    },
+    {
+      "ref": "/set/atmosphere",
+      "finding": "正文显式保留低频雨幕、交接双手/封口/包口净空，以及同一方位画外柔和环境漫反射。"
+    },
+    {
+      "ref": "/set/layout/0 GROUND_1",
+      "finding": "正文使用中性平整、稳定可站立、低反光承托面；未把 ArtIR 设计米值冒充原文测量或图像模型坐标控制。"
+    },
+    {
+      "ref": "/references/4 PLAN_ENV_RAIN_NIGHT",
+      "finding": "status=planned 且 file/sha256 均为 null；无真实图像参考文件或已核附件槽位，本张仍为纯文字提示词。"
+    }
+  ],
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN"
+}

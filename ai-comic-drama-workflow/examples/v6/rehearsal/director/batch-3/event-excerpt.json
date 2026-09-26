@@ -1,0 +1,1099 @@
+[
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "197a23a81d955bb2b13516e517acaae9e0cdb52aa9f99fdb997fadced682b114",
+    "hash": "eac7a6538cd764eb9ade8dcb5ea129e43116673db8ce6d01a85008dc914fd8a0",
+    "op": "create_task",
+    "payload": {
+      "batch": 3,
+      "dependencies": [
+        {
+          "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+        },
+        {
+          "task_id": "TASK_1b94794070565f70c7f697a7"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "DirectorIR",
+          "slot": "director:project:project:DirectorIR",
+          "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+          "source_slot": "canon:project:project:Canon",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "director:project:project:DirectorIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+          "source_slot": "screenplay:project:project:ScriptIR",
+          "source_version": 14,
+          "target_pointer": "",
+          "target_slot": "director:project:project:DirectorIR"
+        }
+      ],
+      "input_digest": "53f8e3d322c76ee869c2f91cc9ffaf7141897c5909f18b4aad3942577732f320",
+      "input_revision": 64,
+      "inputs": [
+        {
+          "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+          "slot": "canon:project:project:Canon",
+          "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+          "version": 12
+        },
+        {
+          "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+          "slot": "screenplay:project:project:ScriptIR",
+          "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+          "version": 14
+        },
+        {
+          "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+          "version": 0
+        },
+        {
+          "sha256": "efdc6ad9e1307d9eea8f32417f12e683786dbbe0cf8a392e373dca585afd4033",
+          "slot": "repair_brief",
+          "uri": "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+          "version": 3
+        },
+        {
+          "sha256": "3155f67ee805592d576967760d20dd2955abd43540bfeca78739c17950058d62",
+          "slot": "repair_failure_1",
+          "uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+          "version": 1
+        },
+        {
+          "sha256": "7d6a58d6a2ae798dd4c54d798ad70d9b6cd92566a1077261b23ef1eefc66b02d",
+          "slot": "repair_failure_2",
+          "uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json",
+          "version": 2
+        }
+      ],
+      "module": {
+        "name": "director-grammar",
+        "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+        "version": "1.4.2"
+      },
+      "node_id": "director",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+        },
+        {
+          "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+          "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+        }
+      ],
+      "role": "director",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "db1caa866f003bfb977f75cd9262c8842648d2adb5378252df66a95a4b6b0586",
+    "revision": 65,
+    "state_digest": "bc214e5107cdc57d137bac85dfeb2b661f9f7ef12b99c45b6fdaa6fb50c877bf"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "ff1e544a823046392467c1e577c81b588861a02156a1d8c0126c7be0fbde3830",
+    "hash": "dc9897e4d1493d49f410952b353f59d43c55acb76d3e6a6be5fdb7077417fba8",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T11:21:57.571715Z",
+        "batch": 3,
+        "check_results": [],
+        "command_id": "ready-TASK_b1e7ff7ce83d7a32bfa09935-3",
+        "evidence": [
+          "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json"
+        ],
+        "expected_revision": 65,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "eac7a6538cd764eb9ade8dcb5ea129e43116673db8ce6d01a85008dc914fd8a0",
+    "revision": 66,
+    "state_digest": "b3fa6e8136ed5e7b94b6ca963ea6e4454c0d83e572b1438fa9d8ce34e0e957f1"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "f969a1e284f26794d93d091b7aeb4eaa0803a4122b84d5684139244de29b9001",
+    "hash": "414f0daa3a4997b0abad0aff6282b79bdad3d5b8d743e08a8bd36ed0c7dfbb8a",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T11:21:57.584074Z",
+        "batch": 3,
+        "check_results": [],
+        "command_id": "dispatch-TASK_b1e7ff7ce83d7a32bfa09935-3",
+        "evidence": [
+          "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json"
+        ],
+        "expected_revision": 66,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "dc9897e4d1493d49f410952b353f59d43c55acb76d3e6a6be5fdb7077417fba8",
+    "revision": 67,
+    "state_digest": "a3f1678ec34e219e21913ff73be2739ae539aaa927d31a4baa6815a2416ecfbe"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "426551f193505dd470eab05f6db6773afd9161e3bcac506767560f93597ebb83",
+    "hash": "9504ccc6b44e4f8aeea155a774fbe7777d27b875d73f0960a00cbd8920016cd5",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T11:23:17.909197Z",
+        "batch": 3,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-5d15b5f4ca205ad31513c0d2",
+              "host-file:7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "DIRECTOR_B3_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-5d15b5f4ca205ad31513c0d2",
+          "host-file:7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4"
+        ],
+        "expected_revision": 67,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-5d15b5f4ca205ad31513c0d2",
+        "agent_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+        "batch": 3,
+        "dispatch_id": "dispatch-5d15b5f4ca205ad31513c0d2",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T11:23:17.909197Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T11:23:17.909197Z",
+        "status": "RUNNING",
+        "task_digest": "84becc068a0672dcdb476cc1a9d01e29e7ff5a9592f1c70a657f6f78ac3607e0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4",
+        "tool_result_uri": "runtime/v6/host-evidence/7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4.json"
+      },
+      "review": null
+    },
+    "previous_hash": "414f0daa3a4997b0abad0aff6282b79bdad3d5b8d743e08a8bd36ed0c7dfbb8a",
+    "revision": 68,
+    "state_digest": "6dfb5c9249e19b8b0dc52cd0cfcc7eff7141f62a217e0c4c7120f649b6571925"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "1632dac2f37e536c21145cd042efda74291e9295e1e9c13e29b3b64aeb9811c7",
+    "hash": "dedbf85add75c4abf4ffed1ec3413f3fcb15850a4d45cd89b75efe57cdc51765",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:23:36.805971Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_B3_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "0027db9de5fc571dbbac8bc48cca319515ca35e7c0194f33d13d30ceac0c9543",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-pending-action.json",
+      "summary": "Real dispatch delivered frozen batch-3 action; creator must read every input and fix both prior independent handoff failures, then report each resolution.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "HANDOFF"
+    },
+    "previous_hash": "9504ccc6b44e4f8aeea155a774fbe7777d27b875d73f0960a00cbd8920016cd5",
+    "revision": 69,
+    "state_digest": "c9a5625982e8a0f63ada64ee617f9a42586d5ecaf440dcdbd2ca45991738a5b6"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "65226735394718ed67cee8a9c6f696a4ebab40b5be7546650445b828384b3c84",
+    "hash": "7d219a640f997ab2c4629361532c8d0745b262990b8412912bcf14e73b02250a",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:23:49.397866Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_GUIDANCE_1",
+      "message_id": "DIRECTOR_B3_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator acknowledged actual batch-3 dispatch and will verify every frozen input hash, repair both recorded handoff defects only in batch-3 candidate, run locked checks, and return RESULT path and SHA.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    "previous_hash": "dedbf85add75c4abf4ffed1ec3413f3fcb15850a4d45cd89b75efe57cdc51765",
+    "revision": 70,
+    "state_digest": "9c8ae549b91ad8bd994d97fc79b6172d8b98675a670a05bcb9d624f164e538ac"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "65ef5a659650424b4d89287a877a936c58f07f9086b1d9cd70b18acea9ea7a14",
+    "hash": "8a4b60483ae0f2f43e671145c9c802834da2922f0d9ba6aa1161aae1e4cada37",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:27:26.807853Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_ACK_1",
+      "message_id": "DIRECTOR_B3_PROGRESS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d383107577348b32b770c0edecb8c235c3e9ca198519841c7d7d6c6ba2faf06e",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-progress-request.txt",
+      "summary": "Host requested repair progress and two-way contact consistency check before candidate submission.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    "previous_hash": "7d219a640f997ab2c4629361532c8d0745b262990b8412912bcf14e73b02250a",
+    "revision": 71,
+    "state_digest": "004566c9d8d1b5fc774d3e28ee41f61ff67c4e6f02ee9e44db409b8ff08a9afc"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "d6cb9707644176970990bbb7b8d1ae8ea375ddedf9ee0b9403a22231502ff6a6",
+    "hash": "a4965d1fa2e808839b9cb083bf9cc6f2c7de1948e22122aeacaae6a9ee34a5c3",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T11:27:40.476751Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/host-inputs/director-b3-progress-report.txt"
+      ],
+      "in_reply_to": "DIRECTOR_B3_PROGRESS_REQUEST_1",
+      "message_id": "DIRECTOR_B3_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "subject_sha256": "df89e46cd95336f0b6b8646abf64bd633a68e8c67e5242a3934b5c87724e8862",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-progress-report.txt",
+      "summary": "Creator verified all six frozen inputs and four resource hashes, read both repair failures/reviews, identified nonmirrored person contact, and is generating batch-3 candidate with per-sample two-way custody checks; no blocker.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "8a4b60483ae0f2f43e671145c9c802834da2922f0d9ba6aa1161aae1e4cada37",
+    "revision": 72,
+    "state_digest": "0f347205ff0dfc5e59660684c1482c5ea6553ba8b797f96f773a17322fd276be"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "2e86bd4ddee0b57ff793032a6e67ccdd08313fc347ba7b54bc050d89877b429f",
+    "hash": "79c7bfadb9c6c2f560218863b0c856ec41792faa4aa5f9148227d76f7f38e9d2",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:13:02.363072Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_PROGRESS_PROGRESS_1",
+      "message_id": "DIRECTOR_B3_RESUME_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d373f129711ed4c64ccd8fabdcad0dacea54e23693346cbc3cdbaac29fbbac19",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-resume-request.txt",
+      "summary": "Host followup to already registered creator after transient Codex usage-limit error; verify existing candidate bytes and report genuine RESULT or exact limit error, without redispatch.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    "previous_hash": "a4965d1fa2e808839b9cb083bf9cc6f2c7de1948e22122aeacaae6a9ee34a5c3",
+    "revision": 73,
+    "state_digest": "79b6d454aa54b83f2017f2f97aa09010481630be69948567a5b46bafa582e6d8"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "8974041bf3d6021d475ae53bb3c4a2366f7462738512dcf3e83fd6ae4e713063",
+    "hash": "c767f7233546de6161498add72252d4b8f3385624bafd8f3b757ff8edacc3627",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:13:31.128414Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_RESUME_REQUEST_1",
+      "message_id": "DIRECTOR_B3_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "subject_sha256": "8a63f4c005b0c160690ab7882bbbc241d53c8472ee18f1a7baf55d2f8cf5509b",
+      "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json",
+      "summary": "Creator completed batch-3 Director candidate; locked checks pass and static audit reports all four cited defects gone. Candidate hashes verified, submitted for independent review.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    },
+    "previous_hash": "79c7bfadb9c6c2f560218863b0c856ec41792faa4aa5f9148227d76f7f38e9d2",
+    "revision": 74,
+    "state_digest": "148bc181744b0c42ece099343327bff05e3840c56049cfbe3456045f135cd14d"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "b579321cd2a68b2c9a66a17160557018a9dfadf3175869ba520343c6d9b364fa",
+    "hash": "a86075227c994fe66ca2250c51a03800ba3061d9be81f5cffa92ddc0ae90f527",
+    "op": "transition",
+    "payload": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+        "artifacts": [
+          {
+            "kind": "DirectorIR",
+            "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+            "slot": "director:project:project:DirectorIR",
+            "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json"
+          }
+        ],
+        "batch": 3,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/source-integrity.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/module-receipt.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/native-validator.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/director-review.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json"
+            ],
+            "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          },
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json"
+            ],
+            "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+            "source_slot": "screenplay:project:project:ScriptIR",
+            "source_version": 14,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          }
+        ],
+        "input_digest": "53f8e3d322c76ee869c2f91cc9ffaf7141897c5909f18b4aad3942577732f320",
+        "module_receipts": [
+          {
+            "name": "director-grammar",
+            "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+            "version": "1.4.2"
+          }
+        ],
+        "result_sha256": "dd4f8eca64eef2bb8b4fbe2c2018e88551633da43faafb5531ebb043f1b40c78",
+        "result_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "unresolved": []
+      },
+      "event": {
+        "actor_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:13:46.209175Z",
+        "batch": 3,
+        "check_results": [],
+        "command_id": "DIRECTOR_B3_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/role-result.json"
+        ],
+        "expected_revision": 74,
+        "from_state": "RUNNING",
+        "object_version": 9,
+        "reason": "RESULT_RECEIVED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "RESULT_SUBMITTED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "c767f7233546de6161498add72252d4b8f3385624bafd8f3b757ff8edacc3627",
+    "revision": 75,
+    "state_digest": "d345058fb11ce6eee4210f3945160fd7ae8c76f4b97ce63d6a11a36858aed370"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "6c85b31063c76b90df2e1421b5cdaa8b82de9b8aef782465e245339046fa6e8e",
+    "hash": "53da69541575960be001da6b0cb2eefac5b3ce1faeccf99598b89f7885d6ef16",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:13:46.233424Z",
+        "batch": 3,
+        "check_results": [],
+        "command_id": "DIRECTOR_B3_SUBMIT_1-validate",
+        "evidence": [],
+        "expected_revision": 75,
+        "from_state": "RESULT_SUBMITTED",
+        "object_version": 10,
+        "reason": "VALIDATION_STARTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "VALIDATING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "a86075227c994fe66ca2250c51a03800ba3061d9be81f5cffa92ddc0ae90f527",
+    "revision": 76,
+    "state_digest": "97cc4e10dc5e955d40bb8b1bfe0be538e386a2a09f6f9c1cd3c3f448471b2af7"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "c621bdcdf25e7c17c5dc05c221d579008869b5fb297a7a2ce79cc1dd6ababc65",
+    "hash": "a12fcef9f9eadac8992e3bc1389eacee5042964fef7483c0c0400b7e5f79a675",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:13:46.397299Z",
+        "batch": 3,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/source-integrity.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/module-receipt.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/native-validator.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/director-review.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "DIRECTOR_B3_SUBMIT_1-validation",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/role-result.json"
+        ],
+        "expected_revision": 76,
+        "from_state": "VALIDATING",
+        "object_version": 11,
+        "reason": "VALIDATION_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "REVIEW_REQUIRED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "53da69541575960be001da6b0cb2eefac5b3ce1faeccf99598b89f7885d6ef16",
+    "revision": 77,
+    "state_digest": "f45b1cabe0802ff4f41bf4f05c2d28482d4403c5804238bfdc0f0d4c3ea4cbf1"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "4388a92082e69f7ecc12c588057d8d98593b4c9b1e008a9e043c2e45e1e468b0",
+    "hash": "b8c3598353bf47e20af0ed5b0c4cfd7c52ed8f344f457a8a3846905cd617730b",
+    "op": "review_dispatch",
+    "payload": {
+      "evidence": [],
+      "receipt": {
+        "action_id": "review-5d15b5f4ca205ad31513c0d2",
+        "agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+        "batch": 3,
+        "dispatch_id": "review-5d15b5f4ca205ad31513c0d2",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T12:14:20.936491Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T12:14:20.936491Z",
+        "status": "RUNNING",
+        "task_digest": "84becc068a0672dcdb476cc1a9d01e29e7ff5a9592f1c70a657f6f78ac3607e0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "740562cb87b8a5384ea27b0a6b800ffa40e171533760170922fc3946f539dac7",
+        "tool_result_uri": "runtime/v6/host-evidence/740562cb87b8a5384ea27b0a6b800ffa40e171533760170922fc3946f539dac7.json"
+      }
+    },
+    "previous_hash": "a12fcef9f9eadac8992e3bc1389eacee5042964fef7483c0c0400b7e5f79a675",
+    "revision": 78,
+    "state_digest": "de0829f28057419793c33fe4ff875db69ce1294b594aa23cc459a277d069a0b5"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "12de3d80dd0224dfb9146d5099e24fb9018f31497748289eb103ea37be8211a1",
+    "hash": "68398f7ef3e5cda6a64147c600f7c310fa6dff1a3c679f0212143062d46daddb",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:14:40.063090Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_B3_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d111d53d22389aeef1ff61986ea43ac77dc2c9a30c2a3de41562b5645f61c669",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-brief.json",
+      "summary": "Real independent reviewer dispatch carried frozen candidate, repair evidence, four prior defect checks and full declared validator set.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "HANDOFF"
+    },
+    "previous_hash": "b8c3598353bf47e20af0ed5b0c4cfd7c52ed8f344f457a8a3846905cd617730b",
+    "revision": 79,
+    "state_digest": "bd25048946f44e1a3025f9bfad63d43d07211c6be4a93eec8b75bd8028fa65cd"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "5bccf33f10747e19137f2f581d04d7dbb66559017fa4657b809040e675f6e667",
+    "hash": "555a85ed41d5938ce1f5478fd06423e40ed22487da1fae1744dc7d5161a3757d",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:14:50.557764Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_GUIDANCE_1",
+      "message_id": "DIRECTOR_B3_REVIEW_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Independent reviewer acknowledged frozen batch-3 candidate, repair inputs, supplied digest and review dispatch ID, and will write only batch-3 review record.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    "previous_hash": "68398f7ef3e5cda6a64147c600f7c310fa6dff1a3c679f0212143062d46daddb",
+    "revision": 80,
+    "state_digest": "b512616762a2ea1383cfda79165eb845ce03768a09a7f424bfa887f1a121b9cc"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "545a2d6a6fa915ef9c641284d92ffdccab5e41a6628f89fa25b7ed804f2babb3",
+    "hash": "156945b8d53b0ccf61c29127d8f851df5d6cd42c937091b8ad611dcdfb343777",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:18:11.685510Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_ACK_1",
+      "message_id": "DIRECTOR_B3_REVIEW_STATUS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "a997517201b7a6c7b6a011824620b92d471a74cbf311ae643ab54390ea54df9b",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-status-request.txt",
+      "summary": "Host requested independent review status and exact error if blocked; focus declared checks and four prior defects.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    "previous_hash": "555a85ed41d5938ce1f5478fd06423e40ed22487da1fae1744dc7d5161a3757d",
+    "revision": 81,
+    "state_digest": "836d06bc4894e997a2d8e44cb74caa67bb9fc26e3006acae123facd9c2a4ad39"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "ff89feb11bbfc066b22dc4a15a7e99f5edaf2ff040274b1757aea4d461003e72",
+    "hash": "f20499c75b75e03c040054a269be5deb94c09eea9dc57a0589cd604be2f5416d",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:18:24.457846Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/host-inputs/director-b3-review-status-report.txt"
+      ],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_STATUS_REQUEST_1",
+      "message_id": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": "33075abfb86d5bab5c369a04931ab1264dd68f9ffabc13e08983bc2ddb0b7cde",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-status-report.txt",
+      "summary": "Independent reviewer verified candidate/frozen inputs/resource/review hashes, locked STATIC_VALID binding and 31 action changes across six samples; four prior defects appear resolved; formal review evidence is being finalized.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "156945b8d53b0ccf61c29127d8f851df5d6cd42c937091b8ad611dcdfb343777",
+    "revision": 82,
+    "state_digest": "cb8c0b9629ca1824e0c88b9a9e2a370ef1540238e5b4a4a339535cec76ce7205"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "b62a7c5027f150ce2443fc3e63d1aef2c74facadfa02ec68965000c969f7302c",
+    "hash": "0eb228722b73aca09f9eec87f370a541b05280c191ca4195994efed47643ccf4",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:21:04.328496Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_1",
+      "message_id": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_1",
+      "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "0868369c1192d315f435b3fef3f60766dfca2a49eff135322b37b75a45b9e9e6",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-digest-correction.txt",
+      "summary": "Host preflight found reviewer used candidate byte SHA instead of canonical candidate_digest; reviewer asked to preserve v1 and correct protocol binding without changing independent judgment.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    "previous_hash": "f20499c75b75e03c040054a269be5deb94c09eea9dc57a0589cd604be2f5416d",
+    "revision": 83,
+    "state_digest": "06b8440f7a4d59f7da83f1644b2986c7b4d2f1c8eee77843da82e59d35cfba11"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "eb3b96b0a531d2112d47d994a87af4a8e699ab04fb0049d33cb81af05e72a32d",
+    "hash": "08f842e86f6d73018004811473159395d1d45a027bed909f097e04434883cdbb",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:21:14.788005Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_1",
+      "message_id": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer will preserve original review record as v1, recompute canonical candidate digest from candidate dictionary, change only protocol binding and revalidate identity/schema.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    "previous_hash": "0eb228722b73aca09f9eec87f370a541b05280c191ca4195994efed47643ccf4",
+    "revision": 84,
+    "state_digest": "578d72dbaa4130a2d44f64272902f0a69723b8c1895725bffcb374f2656ca3f0"
+  },
+  {
+    "artifacts_digest": "6a619da0ed656048cd526ce737bca798d817cbfab3db7dfd37dce73f154ea480",
+    "commands_digest": "8bdcfb494d048ce6b8616fca2d8706b63ce30e28ddbaf6e5ca093f7cc5c20503",
+    "hash": "3e66b9f9f26e30690fe881713eeede3cf1028a256877a097f889004d2405e5b1",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T12:21:53.268417Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_1",
+      "message_id": "DIRECTOR_B3_REVIEW_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": "5a19c080e6eb3692edc7004a77f58782ba4f5434a125805cd688046c210e4846",
+      "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json",
+      "summary": "Independent batch-3 Director review PASS on module receipt, native validation and handoff; all four prior defects resolved across six checkpoints; canonical candidate digest binding corrected by reviewer with original v1 preserved.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    },
+    "previous_hash": "08f842e86f6d73018004811473159395d1d45a027bed909f097e04434883cdbb",
+    "revision": 85,
+    "state_digest": "03460e2d4c362d82bc04a13c50ff46afba53bc666fd88793c08ee2099fac26b1"
+  },
+  {
+    "artifacts_digest": "4a6a0be73805eae7474a32493042b2da5dce460d7146f5a7a6fea040ba41ae01",
+    "commands_digest": "ab2a352443e71baff7c780d8ce6df667be32fe1043d51bce5c3105c15795e471",
+    "hash": "cb74a44d13d3f0f1227b0b67c263be82a8ecdd20f5d311168e1c419462a67b78",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:22:08.196129Z",
+        "batch": 3,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "DIRECTOR_B3_REVIEW_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json"
+        ],
+        "expected_revision": 85,
+        "from_state": "REVIEW_REQUIRED",
+        "object_version": 20,
+        "reason": "REVIEW_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "to_state": "ACCEPTED"
+      },
+      "receipt": null,
+      "review": {
+        "at": "2026-09-25T12:20:03.267642Z",
+        "batch": 3,
+        "candidate_digest": "08825e04b86194f6b1a9191851968a8f89fd255b1a334ce9c91715d49318fa11",
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "failure_owner": null,
+        "reviewer_agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+        "reviewer_dispatch_id": "review-5d15b5f4ca205ad31513c0d2",
+        "schema": "review-record/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+      }
+    },
+    "previous_hash": "3e66b9f9f26e30690fe881713eeede3cf1028a256877a097f889004d2405e5b1",
+    "revision": 86,
+    "state_digest": "80351b970afd61c7531d762615c249f593d173824202522ee414d399ec6629aa"
+  },
+  {
+    "artifacts_digest": "4a6a0be73805eae7474a32493042b2da5dce460d7146f5a7a6fea040ba41ae01",
+    "commands_digest": "6f72cd4347319edd1b4fc8ba05059bd579eb9d59490d89326491cbf1af12ec87",
+    "hash": "6dd3a55041d27910a9ccae922f312e61e658553e7eb1b1e8106998a2cf2fbfff",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+        },
+        {
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "ArtIR",
+          "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+          "uri_prefix": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+          "source_slot": "canon:project:project:Canon",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_4ef5cb7085ac9ff34cc5174a",
+          "source_slot": "director:project:project:DirectorIR",
+          "source_version": 21,
+          "target_pointer": "",
+          "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+        }
+      ],
+      "input_digest": "9e3d7e2becb98d9775c71657a1c656d4abf3235710c31223a214ee06a4aa000b",
+      "input_revision": 86,
+      "inputs": [
+        {
+          "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+          "slot": "canon:project:project:Canon",
+          "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+          "version": 12
+        },
+        {
+          "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+          "slot": "director:project:project:DirectorIR",
+          "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+          "version": 21
+        },
+        {
+          "sha256": "15bab14a9feac3670afc5000536f9beb444b7b1ee2b41af33f154e905b92dc80",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_0560d46ecc764c68ee9a590e.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "production-design-grammar",
+        "sha256": "34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019",
+        "version": "1.3.1"
+      },
+      "node_id": "art",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+          "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md"
+        },
+        {
+          "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+          "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+          "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md"
+        }
+      ],
+      "role": "art",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [
+          "SC_RAIN_NIGHT"
+        ],
+        "kind": "scene"
+      },
+      "task_id": "TASK_0560d46ecc764c68ee9a590e",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "cb74a44d13d3f0f1227b0b67c263be82a8ecdd20f5d311168e1c419462a67b78",
+    "revision": 87,
+    "state_digest": "5c793f344bf164f47cc11b827d0f9159188387e653856aa4544d9fc10316daaa"
+  },
+  {
+    "artifacts_digest": "4a6a0be73805eae7474a32493042b2da5dce460d7146f5a7a6fea040ba41ae01",
+    "commands_digest": "b8af2da7e889ec7f6003d1f96acd2d5fcda357b221fa1d58691e2bbf764d066f",
+    "hash": "205a001e1f7db5dfaffb6f0a210af9b1f7756ee5f47047573dfdba80dd23664a",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:22:08.418627Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-TASK_0560d46ecc764c68ee9a590e-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_0560d46ecc764c68ee9a590e.json"
+        ],
+        "expected_revision": 87,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0560d46ecc764c68ee9a590e",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "6dd3a55041d27910a9ccae922f312e61e658553e7eb1b1e8106998a2cf2fbfff",
+    "revision": 88,
+    "state_digest": "e0792f33cd41a5c6da0bfaa27bcabe90eb8be2ef34b125c85a48ed7cd7fc270c"
+  },
+  {
+    "artifacts_digest": "4a6a0be73805eae7474a32493042b2da5dce460d7146f5a7a6fea040ba41ae01",
+    "commands_digest": "1e4d014e8e7f82d3353958696f5615f90d636f81f50c9f36dd71c87beb4a4349",
+    "hash": "5a9262862e779fe2b0569337f1e20411d1f2391425629f5a06bb6cb6ce319b7d",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:22:08.438513Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-TASK_0560d46ecc764c68ee9a590e-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_0560d46ecc764c68ee9a590e.json"
+        ],
+        "expected_revision": 88,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_0560d46ecc764c68ee9a590e",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "205a001e1f7db5dfaffb6f0a210af9b1f7756ee5f47047573dfdba80dd23664a",
+    "revision": 89,
+    "state_digest": "21325a6fc74074d6413c5bf6639838958969c4b5325dfc4643880b4dadffa825"
+  }
+]

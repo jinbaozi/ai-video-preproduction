@@ -1,0 +1,58 @@
+{
+  "affected_native_clause": "G1_SEMANTIC",
+  "check": "native_validator",
+  "creator_semantic_claim": "REVIEW_ATTESTED",
+  "defect": {
+    "action_feedback": "信完全进入背包且不再露在手中",
+    "action_pointer": "/timeline/actions/2",
+    "composition_interval_ms": [
+      6000,
+      9000
+    ],
+    "composition_letter": {
+      "box": [
+        0.53,
+        0.48,
+        0.17,
+        0.12
+      ],
+      "node_id": "N_PROP_LETTER",
+      "occlusion": "关键部位保持无遮挡",
+      "presence": "inside",
+      "visible_parts": [
+        "prop"
+      ]
+    },
+    "composition_pointer": "/timeline/composition_tracks/2/subjects/1",
+    "impact": "The only S_STOW composition keeps the letter foreground, visible and unobstructed through the 9000 ms end boundary, while the action and terminal state place it fully inside the backpack. The submitted IR has no settled interval or visual state that stops showing the letter after insertion. Native static validation does not detect this semantic conflict.",
+    "intermediate_stow_state_samples": 0,
+    "letter_contacts": [
+      "PROP_BACKPACK.interior"
+    ],
+    "letter_supports": [
+      "PROP_BACKPACK.interior"
+    ],
+    "shot_composition_pointer": "/shots/2/composition/subjects/1",
+    "shot_composition_visible_parts": [
+      "prop"
+    ],
+    "shot_id": "S_STOW",
+    "state_at_ms": 9000,
+    "state_pointer": "/timeline/state_samples/5/entities/PROP_LETTER",
+    "title": "Letter remains visibly framed after its final state is inside the backpack",
+    "visibility_intervals": 0
+  },
+  "finding": "DirectorIR fails independent semantic continuity review despite the native validator returning STATIC_VALID.",
+  "media": "NOT_RUN",
+  "method": "Independently reran locked dg.py validate with the frozen screenplay handoff and screenplay map, then compared native DirectorIR composition, action, and state-sample fields at the final stow boundary.",
+  "native_command": "dg.py validate director-ir.json --screenplay-handoff director-handoff.json --screenplay-map screenplay-map.json",
+  "native_exit_code": 0,
+  "native_report": {
+    "errors": [],
+    "screenplay_binding": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  },
+  "repair_scope": "Director: split the final composition at a justified insertion moment, set the letter hidden or occluded once fully inside, and bind an explicit settled key state without changing Canon or ScriptIR facts.",
+  "reviewed_at": "2026-09-25T12:32:46.485Z",
+  "status": "FAIL"
+}

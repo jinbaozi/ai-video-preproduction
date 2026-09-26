@@ -1,0 +1,34 @@
+{
+  "defect": "At 9000 ms /timeline/camera_operations/2/end_framing still asks for 乙手、信和背包口同框. The 8500-9000 ms settled composition omits the letter, and explicit state samples put it inside the backpack. Native schema validation misses this semantic conflict.",
+  "failed_check": "native_validator",
+  "locked_camera_positions_equal": true,
+  "media": "NOT_RUN",
+  "native_status": "STATIC_VALID",
+  "new_camera_end_framing": "乙手与背包口同框的中近景；同一封信入包前可见，入包后完全遮挡不外露",
+  "new_camera_start_framing": "乙手与背包口同框的中近景；同一封信入包前可见，入包后完全遮挡不外露",
+  "old_camera_end_framing": "乙手、信和背包口同框的中近景",
+  "old_camera_start_framing": "乙手、信和背包口同框的中近景",
+  "previous_defect_gone": true,
+  "previous_record_sha256": "63cd15f5a0a96cd3bda7522210a4e07662e7408f36a7a66e2257312a295f74e2",
+  "previous_record_uri": "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/review-record.json",
+  "previous_review_sha256": "3de64d2a5987da3931342c7eb04b051686a5fb8c73fadf9c6bde57e4f10086fe",
+  "previous_review_uri": "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/native-validator.review.json",
+  "repair_reason": "固定机位原生校验要求 start_framing 与 end_framing 相同；因此将两端写成相同的时间条件描述，仍明确终段信已完全入包不外露。",
+  "settled_interval_ms": [
+    8500,
+    9000
+  ],
+  "settled_subject_nodes": [
+    "N_CHAR_YI",
+    "N_PROP_BACKPACK"
+  ],
+  "status": "PASS",
+  "terminal_letter_contacts": [
+    [
+      "PROP_BACKPACK.interior"
+    ],
+    [
+      "PROP_BACKPACK.interior"
+    ]
+  ]
+}

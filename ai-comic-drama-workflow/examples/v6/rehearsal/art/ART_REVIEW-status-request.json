@@ -1,0 +1,19 @@
+{
+  "command_id": "ART_REVIEW_STATUS_REQUEST_COMMAND_1",
+  "expected_revision": 103,
+  "message": {
+    "at": "2026-09-25T12:36:23.835862Z",
+    "batch": 1,
+    "evidence": [],
+    "in_reply_to": "ART_REVIEW_ACK_1",
+    "message_id": "ART_REVIEW_STATUS_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "9898baef455c6606655a4fc2cac4e6c13cd3e47a8bb5b67edee85937d1f61ee4",
+    "subject_uri": "runtime/v6/host-inputs/art-review-status-request.txt",
+    "summary": "Host requested exact ArtIR semantic or review-write blocker, otherwise complete three check evidences and strict review record.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "QUESTION"
+  }
+}

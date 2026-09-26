@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILE_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 326,
+  "message": {
+    "at": "2026-09-25T14:51:59.467912Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/compile-progress.txt"
+    ],
+    "in_reply_to": "COMPILE_GUIDANCE_1",
+    "message_id": "COMPILE_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_28e4632f6a12c66dc9ad12ef",
+    "subject_sha256": "bffd1c9778eee89edb1253af310ca575cd6415cc148e53e11122ce97f2a63c38",
+    "subject_uri": "runtime/v6/host-inputs/compile-progress.txt",
+    "summary": "27/27 冻结输入与 5/5 锁定资源匹配；Compile 图节点候选 result_uri=null。build COMPILED，但片段待目标检查、prompt review 待独审，媒体 NOT_RUN。",
+    "task_id": "V6_compile_8cb5698095d1a70e0b6b",
+    "type": "PROGRESS"
+  }
+}

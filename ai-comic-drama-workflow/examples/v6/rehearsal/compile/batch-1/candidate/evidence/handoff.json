@@ -1,0 +1,53 @@
+{
+  "control": {
+    "accepted": true,
+    "manifest_sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+    "production_specification_sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+    "source_slot": "control:project:project:ShotControlPack",
+    "source_version": 16
+  },
+  "dependency_states": {
+    "TASK_a956f0b50a44008d6467b92e": "ACCEPTED",
+    "TASK_afc04f54b23b01071a0b14e3": "ACCEPTED",
+    "V6_skip_166c9abb6d93883bdad69489": "NOT_APPLICABLE",
+    "V6_skip_3c88ed20c5c05ef3a106368c": "NOT_APPLICABLE",
+    "V6_skip_4b230fdc07c72782f102e2ba": "NOT_APPLICABLE",
+    "V6_skip_cb2ab3325976dd667766da62": "NOT_APPLICABLE",
+    "V6_skip_de9e40e99c4f6d3a10d16a56": "NOT_APPLICABLE",
+    "V6_skip_ee8a705a096afdd06995e393": "NOT_APPLICABLE",
+    "V6_skip_fbc32befb55cf08e431dd255": "NOT_APPLICABLE"
+  },
+  "note": "V5 promotion rebased only administrative source URIs, upstream URI/hash, and the dependent semantic stamp. The compiler adapter sidecar exactly equals the promoted StoryboardIR.",
+  "status": "PASS",
+  "storyboard": {
+    "accepted": true,
+    "adapter_sidecar_matches_promoted_storyboard": true,
+    "adapter_source_hash": "09cd04e15b3e39ed226b73f7f476c29aacb74853ecaaad57bd4721fa5938fca8",
+    "candidate_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+    "promoted_sha256": "09cd04e15b3e39ed226b73f7f476c29aacb74853ecaaad57bd4721fa5938fca8",
+    "promoted_uri": "artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/native/f575158f6608b6ab_storyboard-ir.json",
+    "promotion_difference_paths": [
+      "/sources/0/uri",
+      "/sources/1/uri",
+      "/sources/2/uri",
+      "/sources/3/uri",
+      "/sources/4/uri",
+      "/timeline/semantic_review/input_sha256",
+      "/upstreams/0/sha256",
+      "/upstreams/0/uri",
+      "/upstreams/1/sha256",
+      "/upstreams/1/uri",
+      "/upstreams/2/sha256",
+      "/upstreams/2/uri"
+    ],
+    "source_slot": "storyboard:project:project:StoryboardIR",
+    "source_version": 17
+  },
+  "target": {
+    "AVIR_sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+    "equals_compiler_input": true,
+    "equals_control_production_specification": true,
+    "mapping_losses": 0,
+    "mapping_status": "MAPPED"
+  }
+}

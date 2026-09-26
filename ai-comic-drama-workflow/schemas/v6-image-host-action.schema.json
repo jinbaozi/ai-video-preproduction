@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "action_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "allowed_providers": {
+      "items": {
+        "enum": [
+          "image_gen",
+          "provided"
+        ]
+      },
+      "minItems": 1,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "candidate_dir": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "generation_authorization_required": {
+      "type": "boolean"
+    },
+    "kind": {
+      "enum": [
+        "CHOOSE_PROVIDER",
+        "IMPORT_PROVIDED",
+        "RECONCILE_ONLY"
+      ]
+    },
+    "prompt_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "prompt_uri": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reference_bindings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "key": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "key",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "schema": {
+      "const": "image-host-action/6.0"
+    },
+    "task_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "task_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "action_id",
+    "task_id",
+    "batch",
+    "task_digest",
+    "kind",
+    "prompt_uri",
+    "prompt_sha256",
+    "reference_bindings",
+    "candidate_dir",
+    "allowed_providers",
+    "generation_authorization_required"
+  ],
+  "title": "v6-image-host-action",
+  "type": "object"
+}

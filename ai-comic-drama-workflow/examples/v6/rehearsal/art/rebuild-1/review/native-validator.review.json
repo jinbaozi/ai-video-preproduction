@@ -1,0 +1,69 @@
+{
+  "art_event_count": 0,
+  "candidate_digest": "1c9f4288d79f4aeb016ef90801f113920c1fee2e360bc1589252067038c9af9e",
+  "command": [
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json"
+  ],
+  "compiled_declared_files": [
+    {
+      "file": "art-ir.json",
+      "sha256": "83cd1d4f2fe21137618e3e015bdee04314fd513f66e1260d155a91f74d74d115"
+    },
+    {
+      "file": "asset-plan.json",
+      "sha256": "7dea9bedcce4b6ee92c93c44a47e2e8532b2e83b3f6a7bcb67d57684196d3388"
+    },
+    {
+      "file": "constraint-coverage.json",
+      "sha256": "6ebc7fd3c4c61c3c8dff1b573649a4bf60dc11c9423e442b60fe26a8a1165325"
+    },
+    {
+      "file": "dependency-index.json",
+      "sha256": "615169b384c6e577443fb9de030b01fdee3212203f74e0e937fa30c55415aa73"
+    },
+    {
+      "file": "handoff.json",
+      "sha256": "d4e974ed84e817652dcbc5b4853bbb70b339cbea3e0eaa1ef5f0e7477434e2f8"
+    },
+    {
+      "file": "production-contract.md",
+      "sha256": "eb2faae6d736bb17b2cb69a623f442c3d0c61926c36ee3d991bbc23e430aa5ec"
+    },
+    {
+      "file": "prompts/S1.txt",
+      "sha256": "b37cc86eea78ebb147fb05b142dc93cddd1a2d4583f7bda58474a656d4a3ac9e"
+    },
+    {
+      "file": "route-report.json",
+      "sha256": "b85a95e6fcdf35b0f232936d314047b2b915b2eb984efdc39e841eeb52327563"
+    },
+    {
+      "file": "target-snapshot.json",
+      "sha256": "c4db17cde21d5bde3b0feb03c4d323ee7a7d026ea93e44de865806eef7873313"
+    },
+    {
+      "file": "visual-bible.md",
+      "sha256": "921435de199b84fb1b53dd778aac7f4e495eb0584cc785a2bd1b0a65dfa94b45"
+    }
+  ],
+  "compiled_handoff_sha256": "d4e974ed84e817652dcbc5b4853bbb70b339cbea3e0eaa1ef5f0e7477434e2f8",
+  "compiled_qa_sha256": "5956bfe51d8a7771c041e5c4ddd6fcccae29a1f67c7e4e0cacebd4aa5aa1dc97",
+  "compiled_receipt_sha256": "646c5b1357c53b3fa4dd060b340656c31d88e9f47f82b783ee3f99a362179260",
+  "compiled_status": "PLANNED",
+  "director_action_count": 5,
+  "director_phase_count": 0,
+  "exit_code": 0,
+  "media_review": "NOT_RUN",
+  "role_result_validator": {
+    "errors": [],
+    "media": "NOT_RUN",
+    "professional_blind_review": "NOT_RUN",
+    "status": "STATIC_VALID"
+  },
+  "status": "PASS",
+  "stderr": "",
+  "stdout": "{\n  \"art_sha256\": \"83cd1d4f2fe21137618e3e015bdee04314fd513f66e1260d155a91f74d74d115\",\n  \"status\": \"STATIC_VALID\"\n}\n",
+  "task_id": "TASK_71abb1f14640b94809ef3db2"
+}

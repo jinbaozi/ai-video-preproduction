@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_CANON_REVIEW_RESULT_1",
+  "expected_revision": 15,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_CANON_REVIEW_RESULT_1",
+    "task_id": "TASK_5ae2734678bb041b76474d34",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_87ed0bec9a9bde5ccfd08bac",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_CANON_REVIEW_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Reviewer submits independent Canon review record",
+    "evidence": [
+      "runtime/v6/reviews/TASK_5ae2734678bb041b76474d34/1/review-record.json"
+    ],
+    "at": "2026-09-25T10:54:06.491259Z",
+    "subject_uri": "runtime/v6/reviews/TASK_5ae2734678bb041b76474d34/1/review-record.json",
+    "subject_sha256": "737ac0445fa09b6e9fcc772e6e5b9ddb30056a73c7cf8b15dbe84836b86eec98"
+  }
+}

@@ -1,0 +1,424 @@
+{
+  "source": "runtime/v6/events.json",
+  "source_sha256": "e251c5cc34075a03d8c065bc5681f664d66849411dc212deee003dfd05b34aa9",
+  "events": [
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "ad346f72e50a353b0b5540604fa021bb79360c44d1faea7a94f76694dbcd0cd0",
+      "hash": "9a24765b41809b09b131813f5490d3b1a4a40b71734cfa09f77f34eca195f809",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:48:04.996500Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "ready-TASK_eed007d42920d3df5b4f00f7-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_eed007d42920d3df5b4f00f7.json"
+          ],
+          "expected_revision": 550,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "9ef042a4fb21eb8f12e59af420672c207a667d055cc9d67a38b2e94a9f996006",
+      "revision": 551,
+      "state_digest": "bd6dac43014003c8449b2d69bb0efe462b30d7f4968b5623b47a50e0c550a961"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "7d390a23bbed9fe3141e35c1913815c68114c2149bbc866a98cbbf7f3ef5abbc",
+      "hash": "b0823edbf1ae2b4a62fc6b377c34f7f07062f6368f3d8da43763646972c88b89",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:48:05.216439Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "dispatch-TASK_eed007d42920d3df5b4f00f7-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_eed007d42920d3df5b4f00f7.json"
+          ],
+          "expected_revision": 551,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "9a24765b41809b09b131813f5490d3b1a4a40b71734cfa09f77f34eca195f809",
+      "revision": 552,
+      "state_digest": "3494081c881256c35a2a715ed69ece80696c6423f8a49ac3bf26b54a83855be7"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "b561b5883969f8808e9925d6579222dd649a7936b4fc88f174be02efa3c3bfdb",
+      "hash": "014b4aba07f7d8bc2821299a9c915c339d616a597bf1c62b451c39f45d0cda4a",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:48:28.793927Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-1ee2204bd5837a83ad899b28",
+                "host-file:e534b84936efd2fcb02e6a96a637fb9246b44175df562b63e4fb12e5fe8760a9"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "CONTROLSEMANTIC-FINAL_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-1ee2204bd5837a83ad899b28",
+            "host-file:e534b84936efd2fcb02e6a96a637fb9246b44175df562b63e4fb12e5fe8760a9"
+          ],
+          "expected_revision": 552,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-1ee2204bd5837a83ad899b28",
+          "agent_id": "/root/host_bridge/v6_838bd03108d80bdf753fc1b2",
+          "batch": 1,
+          "dispatch_id": "dispatch-1ee2204bd5837a83ad899b28",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T16:48:28.793927Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T16:48:28.793927Z",
+          "status": "RUNNING",
+          "task_digest": "293982724103ecb8e7c66140db187a2d5a9d51ac425006a09449c38b2afa0c17",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "tool_result_sha256": "e534b84936efd2fcb02e6a96a637fb9246b44175df562b63e4fb12e5fe8760a9",
+          "tool_result_uri": "runtime/v6/host-evidence/e534b84936efd2fcb02e6a96a637fb9246b44175df562b63e4fb12e5fe8760a9.json"
+        },
+        "review": null
+      },
+      "previous_hash": "b0823edbf1ae2b4a62fc6b377c34f7f07062f6368f3d8da43763646972c88b89",
+      "revision": 553,
+      "state_digest": "e2c1f8edb88f602bce5bd8d3f297b3b35ef90ceb174a62cd09ab1bf8005bf3e7"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "d5c016814d61b6cb0c4c187e3f3a26ccd0808c2f55b3bc50bbd86a67d9622418",
+      "hash": "34181e0a5f8d3b8a0f0ff1055d4b8ccdd81de94aec9bb1044b2544851d407a6e",
+      "op": "transition",
+      "payload": {
+        "candidate": {
+          "agent_id": "/root/host_bridge/v6_838bd03108d80bdf753fc1b2",
+          "artifacts": [
+            {
+              "kind": "ShotControlPack",
+              "sha256": "2eb0c085230597179ebac8297d8adf6e5274f6659190f9c39be784045e484c2e",
+              "slot": "control:project:project:ShotControlPack",
+              "uri": "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/control-pack/package-manifest.json"
+            }
+          ],
+          "batch": 1,
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/source-integrity.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/module-receipt.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/adapter-report.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/native-av-validation.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/control-build.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/control-verify.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/projection-limit.json"
+              ],
+              "id": "control_verify",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/handoff.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "handoffs": [
+            {
+              "channel": "artifact",
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/handoff.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json"
+              ],
+              "requirement_id": "UP_8c4b696799e85db8db8972c4",
+              "source_slot": "storyboard:project:project:StoryboardIR",
+              "source_version": 12,
+              "target_pointer": "",
+              "target_slot": "control:project:project:ShotControlPack"
+            }
+          ],
+          "input_digest": "cbc3a729c86c20f7bcfe3aecedd1a2245233030820984e42b9062b02f217cfdd",
+          "module_receipts": [
+            {
+              "name": "video-prompt-compiler",
+              "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+              "version": "1.17.6"
+            }
+          ],
+          "result_sha256": "92c24b93f557da063e18e9e43a3e3faec261afa27b30aba6ee3fe4212d77445e",
+          "result_uri": "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/role-result.json",
+          "schema": "candidate-result/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "unresolved": []
+        },
+        "event": {
+          "actor_id": "/root/host_bridge/v6_838bd03108d80bdf753fc1b2",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:50:34.072932Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "CONTROLSEMANTIC-FINAL-CREATOR-RESULT_SUBMIT_1",
+          "evidence": [
+            "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/role-result.json"
+          ],
+          "expected_revision": 558,
+          "from_state": "RUNNING",
+          "object_version": 8,
+          "reason": "RESULT_RECEIVED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "RESULT_SUBMITTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "5e2bdaf0c1451e67575871de935cfd99ba675f8a08ddd1f55756984583cad365",
+      "revision": 559,
+      "state_digest": "b9437ed4f1b3e61025d27540ca659f2b837fb87a1fc3a8d38d42442308bc5986"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "2b7081e13fa1319ae069ab62af1e613374517f3c2a7d61d29768736327788941",
+      "hash": "8e9dfae555306093963056874c1ceb072f0e25413e76772b51afa4a967cd1c30",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:50:34.493122Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "CONTROLSEMANTIC-FINAL-CREATOR-RESULT_SUBMIT_1-validate",
+          "evidence": [],
+          "expected_revision": 559,
+          "from_state": "RESULT_SUBMITTED",
+          "object_version": 9,
+          "reason": "VALIDATION_STARTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "VALIDATING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "34181e0a5f8d3b8a0f0ff1055d4b8ccdd81de94aec9bb1044b2544851d407a6e",
+      "revision": 560,
+      "state_digest": "52cdaada2eb01d764b706e9fa0a5ecda3ca0f2bc2fa5f2fb21e1cd0d78e0994a"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "4984cc69aa096bba4230b9e9419b9a96e2932483b9d6037c683c2740ed8d7d11",
+      "hash": "b0236a1fb070e9285cad9b15b722d42be5f086245e5291ce23290d380f96992b",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:50:35.232692Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/source-integrity.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/module-receipt.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/adapter-report.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/native-av-validation.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/control-build.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/control-verify.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/projection-limit.json"
+              ],
+              "id": "control_verify",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/handoff.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+                "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "CONTROLSEMANTIC-FINAL-CREATOR-RESULT_SUBMIT_1-validation",
+          "evidence": [
+            "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/role-result.json"
+          ],
+          "expected_revision": 560,
+          "from_state": "VALIDATING",
+          "object_version": 10,
+          "reason": "VALIDATION_PASSED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "REVIEW_REQUIRED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "8e9dfae555306093963056874c1ceb072f0e25413e76772b51afa4a967cd1c30",
+      "revision": 561,
+      "state_digest": "9a455c034997056cc612e7fbe0b11df0f813d623874baa056283e004ec0f9b71"
+    },
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "f5da1c21e088cf67bbdf9f22a7d29374f5738571e997144ee591d353d098c0f5",
+      "hash": "0765c30e71b377acb8ad39ee6ec274c605a55d7e73ae892ecb2a9c6d4bfafc4d",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:56:17.057905Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/module-receipt.review.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/control-verify.review.json"
+              ],
+              "id": "control_verify",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/handoff.review.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "CONTROLSEMANTIC-FINAL-REVIEWER-RESULT_SUBMIT_1",
+          "evidence": [
+            "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/control-pack/package-manifest.json"
+          ],
+          "expected_revision": 566,
+          "from_state": "REVIEW_REQUIRED",
+          "object_version": 16,
+          "reason": "REVIEW_PASSED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7",
+          "to_state": "ACCEPTED"
+        },
+        "receipt": null,
+        "review": {
+          "at": "2026-09-25T16:55:32.800933+00:00",
+          "batch": 1,
+          "candidate_digest": "a4a9944b8ae45004fefb4b8a55fbdb1f01f84e15836395246efca05023882728",
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/module-receipt.review.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/control-verify.review.json"
+              ],
+              "id": "control_verify",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/handoff.review.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "failure_owner": null,
+          "reviewer_agent_id": "/root/host_bridge/v6_5bfd7462fd70ccb47a908f72",
+          "reviewer_dispatch_id": "review-1ee2204bd5837a83ad899b28",
+          "schema": "review-record/6.0",
+          "task_id": "TASK_eed007d42920d3df5b4f00f7"
+        }
+      },
+      "previous_hash": "7753a36100267bfbc11d3a37cf0d104bbf60d489eb4c843d12497ec2dd426dbe",
+      "revision": 567,
+      "state_digest": "1d0c34153de847e26d314a24597c06cd4e0e7d220008b0a3bec81632bc7418f4"
+    }
+  ]
+}

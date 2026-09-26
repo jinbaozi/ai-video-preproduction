@@ -1,0 +1,44 @@
+{
+  "command_id": "COMPILEREPAIR-REVIEW_SUBMIT_1",
+  "expected_revision": 489,
+  "review": {
+    "at": "2026-09-25T15:59:08.595864Z",
+    "batch": 1,
+    "candidate_digest": "180bfe6d35b1dd26b46d8e3708c2dcc4c8d0801fa2ba55ffe7821e918bf43ecb",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/compile-manifest.review.json"
+        ],
+        "id": "compile_manifest",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+    "reviewer_dispatch_id": "review-7421b593596a70239fe2e670",
+    "schema": "review-record/6.0",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "command_id": "FINALFIX-COMPILE-REVIEW-RESULT_RESULT_COMMAND_1",
+  "expected_revision": 936,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FINALFIX-COMPILE-REVIEW-RESULT_RESULT_1",
+    "task_id": "V6_compile_68030bc9fd64468372e1",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/v6_2219254dcce405febf2702fe",
+    "recipient_id": "kernel",
+    "in_reply_to": "FINALFIX-COMPILE-REVIEW-PROGRESS_PROGRESS_1",
+    "type": "RESULT",
+    "summary": "Independent Compile review four checks and two handoffs PASS; frozen hashes, locked VALID/VERIFIED, old visibility conflict closed statically, media NOT_RUN.",
+    "evidence": [
+      "runtime/v6/reviews/V6_compile_68030bc9fd64468372e1/1/review-record.json",
+      "runtime/v6/host-inputs/finalfix-compile-review-result-1.txt"
+    ],
+    "at": "2026-09-25T19:07:29.066391Z",
+    "subject_uri": "runtime/v6/reviews/V6_compile_68030bc9fd64468372e1/1/review-record.json",
+    "subject_sha256": "4cfc0d3a4b9669197a0ed829ab1dcb9fe37239768d783fd01302a1d54d62c9c2"
+  }
+}

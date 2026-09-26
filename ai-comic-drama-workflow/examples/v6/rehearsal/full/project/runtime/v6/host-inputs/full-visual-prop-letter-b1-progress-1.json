@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_VISUAL_PROP_LETTER_B1_PROGRESS_1",
+  "expected_revision": 244,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_PROP_LETTER_B1_PROGRESS_1",
+    "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_798026e1f345ab3c91601691",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "PROGRESS",
+    "summary": "Creator reports locked production contract STATIC_VALID and candidate finalization; V5 read-only audits passed; media NOT_RUN.",
+    "evidence": [
+      "runtime/v6/host-messages/full-visual-prop-letter-b1-progress-1.txt"
+    ],
+    "at": "2026-09-25T15:18:00.511274Z",
+    "subject_uri": "runtime/v6/host-messages/full-visual-prop-letter-b1-progress-1.txt",
+    "subject_sha256": "16bdb6fc05e64d7f831ae031720e2fe26761c77467916e6a1587c484a2385cdd"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "camera_status_counts": {
+    "PLANNED_PROJECTION": 121
+  },
+  "command": "locked video-prompt-compiler scripts/control_cli.py verify control-pack",
+  "config_bytes_match_package": true,
+  "coverage_items": 17,
+  "frame_count": 121,
+  "keyframe_requests": 14,
+  "manifest_sha256": "90c832f57a6753f5be33fe5132fe749101519eeaaae4e009ff4a15edac75d31e",
+  "media_review": "NOT_RUN",
+  "model_submit": false,
+  "production_specification_equals_current_accepted_storyboard_conversion": true,
+  "status": "VERIFIED",
+  "visual_review": "NOT_RUN"
+}

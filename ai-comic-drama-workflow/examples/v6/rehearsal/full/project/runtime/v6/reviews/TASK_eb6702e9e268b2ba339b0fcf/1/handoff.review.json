@@ -1,0 +1,56 @@
+{
+  "canon_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "check": "handoff",
+  "dependency_states": {
+    "TASK_20dbe9991f545d5fe05e55e7": "ACCEPTED",
+    "TASK_5ae2734678bb041b76474d34": "ACCEPTED"
+  },
+  "finding": "Both artifact handoffs and all six screenplay mappings are present and semantically traceable to hard clauses and action state. The final-shot visibility conflict is recorded under native_validator; it does not alter the frozen source facts or handoff identities.",
+  "frozen_handoff_bindings": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_9574ea9e1502535dcd879c58",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    },
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_84941d3b7d9370ab514cb086",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_version": 16,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    }
+  ],
+  "method": "Compared both frozen handoff tuples with CandidateResult and RoleResult; resolved Canon source and DirectorIR target pointers; checked six screenplay source fingerprints, target assertions, native hard clauses, event order, and accepted dependencies.",
+  "native_hard_clause_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER",
+    "REQ_ENDING",
+    "REQ_SCRIPT_EVENTS",
+    "REQ_REVEAL_ORDER"
+  ],
+  "reviewed_at": "2026-09-25T12:32:46.485Z",
+  "screenplay_map_sha256": "1189d486ed37073cfa3e189058bbb57734997ad7931adbf030589e4efd91554c",
+  "screenplay_requirement_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SAME_UNOPENED_LETTER",
+    "screenplay:REQ_EVENT_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "status": "PASS",
+  "target_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ]
+}

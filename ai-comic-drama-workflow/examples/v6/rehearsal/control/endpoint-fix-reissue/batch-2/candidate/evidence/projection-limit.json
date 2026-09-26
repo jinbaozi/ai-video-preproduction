@@ -1,0 +1,20 @@
+{
+  "actual_3d_geometry_collision_review": "NOT_RUN",
+  "actual_camera_trajectory_validation": "NOT_RUN",
+  "actual_media_review": "NOT_RUN",
+  "camera_position_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "camera_track_rule": "CAMERA.LOCKED.HOLD.1.2",
+  "controls": [],
+  "generated_images": false,
+  "generated_video": false,
+  "lens_basis": "authored_proxy",
+  "planned_frames": 121,
+  "schema": "control-projection-limit/1.0",
+  "status": "PLANNED_PROJECTION",
+  "undetermined_frames": 0,
+  "vertical_fov_deg": 50
+}

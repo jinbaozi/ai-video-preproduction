@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_VISUAL_PROP_BACKPACK_B1_DIGEST_CORRECTION",
+  "expected_revision": 251,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_PROP_BACKPACK_B1_DIGEST_CORRECTION",
+    "task_id": "TASK_5975d46bd5020b778eaa0b5b",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_3c5f6f0a507eea0657f20785",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_VISUAL_PROP_BACKPACK_B1_DIGEST_QUESTION",
+    "type": "PROGRESS",
+    "summary": "Creator corrected prior digest concern: frozen input_digest is 64 hex; candidate script had omitted d6; authoritative state untouched.",
+    "evidence": [
+      "runtime/v6/host-messages/full-visual-prop-backpack-b1-digest-correction.txt"
+    ],
+    "at": "2026-09-25T15:20:48.863746Z",
+    "subject_uri": "runtime/v6/host-messages/full-visual-prop-backpack-b1-digest-correction.txt",
+    "subject_sha256": "c67e6781e7f420db11e4fa03be87f7104abad1c6a272702b1af6fc6937a2b250"
+  }
+}

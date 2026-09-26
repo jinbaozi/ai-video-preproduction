@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_PHASE_POINTER_LIMITATION_1",
+  "expected_revision": 110,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_PHASE_POINTER_LIMITATION_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_ART_B1_VISUAL_SCOPE_1",
+    "type": "BLOCKER",
+    "summary": "Art event pointers target absent Director 1.2 phases; preserve timeline evidence without invented pointers",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-phase-pointer-limitation.txt"
+    ],
+    "at": "2026-09-25T13:07:08.495670Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-phase-pointer-limitation.txt",
+    "subject_sha256": "a51dbe8678f8ae0c0e11a9f0a662f1bd8a5c77d82eb00a2fceb679b5d609720a"
+  }
+}

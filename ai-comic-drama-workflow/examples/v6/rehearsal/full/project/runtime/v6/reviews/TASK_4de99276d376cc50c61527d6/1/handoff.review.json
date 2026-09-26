@@ -1,0 +1,31 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "source_requirements_verified": [
+    "director:REQ_ENDING",
+    "director:REQ_EVENT_ORDER",
+    "director:REQ_RAIN_NIGHT",
+    "director:REQ_REVEAL_ORDER",
+    "director:REQ_SAME_UNOPENED_LETTER",
+    "director:REQ_SCRIPT_EVENTS"
+  ],
+  "source_fingerprints_match": true,
+  "v5_target_assertions_verified": 21,
+  "v6_handoffs_verified": [
+    "UP_736fae98163757821a66afe6",
+    "UP_c3003e890d5b8acf8bc952ef"
+  ],
+  "art_events_bound_to_director_actions": [
+    "/timeline/actions/1",
+    "/timeline/actions/2"
+  ],
+  "compiled_terminal_states": {
+    "handoff_unconfirmed": "尚未确认封口",
+    "seal_confirmed": "已确认同一封信封口完整",
+    "backpack_stowed": "收纳同一封信",
+    "letter_unopened": "同一封未拆、封口完整"
+  },
+  "media_review": "NOT_RUN",
+  "finding": "All six frozen Director hard requirements map to native Art clauses and pass their target assertions. Both discrete Art events match the same shot/entity/field/before/after in Director timeline actions. The compiler advances seal and backpack states in order while keeping handoff control with Director. No generated media was reviewed.",
+  "reviewed_at": "2026-09-25T14:55:11.836Z"
+}

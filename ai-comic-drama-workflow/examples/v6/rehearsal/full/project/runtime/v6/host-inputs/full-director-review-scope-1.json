@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVIEW_SCOPE_1",
+  "expected_revision": 66,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVIEW_SCOPE_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_6db57255928bfb85051137ff",
+    "in_reply_to": "FULL_DIRECTOR_POSTSUBMIT_QUESTION_1",
+    "type": "HANDOFF",
+    "summary": "Reviewer scope includes post-submit letter visibility concern",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-review-scope.txt"
+    ],
+    "at": "2026-09-25T12:26:49.888486Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-review-scope.txt",
+    "subject_sha256": "fe8cf5024e9fb94ce4336cf26472b96eca4a83989deca67f545c785a2a274545"
+  }
+}

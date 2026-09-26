@@ -1,0 +1,57 @@
+{
+  "director_detail_requirements": 1424,
+  "director_timeline_sections_compared_exactly": [
+    "action_groups",
+    "actions",
+    "audio_events",
+    "camera_operations",
+    "composition_tracks",
+    "coordinate_system",
+    "extensions",
+    "motion_tracks",
+    "performances",
+    "schema",
+    "segments",
+    "source_time_maps",
+    "spatial_nodes",
+    "spatial_relations",
+    "state_samples"
+  ],
+  "frozen_v5_requirements_recomputed": 1437,
+  "hard_semantic_requirements": 13,
+  "media_limitation": "Only the static plan is reviewed; no physical collision, rendered media, or viewer comprehension is proven.",
+  "native_handoff_validator": "PASS",
+  "same_path_exact_preservations": 1423,
+  "status": "PASS",
+  "v6_handoffs": [
+    {
+      "requirement_id": "UP_14ccecf60174e51512f867f2",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_binding": "/upstreams/0",
+      "target_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582"
+    },
+    {
+      "requirement_id": "UP_470e86ea8851d087c4f51d74",
+      "source_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_version": 21,
+      "target_binding": "/upstreams/1",
+      "target_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582"
+    },
+    {
+      "requirement_id": "UP_039d6bab6cbb61c8733568c8",
+      "source_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+      "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "source_version": 22,
+      "target_binding": "/upstreams/2",
+      "target_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582"
+    }
+  ],
+  "visibility_exception": {
+    "new_storyboard_intervals": 6,
+    "original": "/timeline/visibility = []",
+    "retained_at": "/upstreams/1/locks/3/source_value"
+  }
+}

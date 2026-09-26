@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_REMEDIATION_DIRECTION_COMMAND_1",
+  "expected_revision": 168,
+  "message": {
+    "at": "2026-09-25T13:15:45.762133Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-remediation-direction.txt"
+    ],
+    "in_reply_to": "CONTROL_BUILD_BLOCKER_1",
+    "message_id": "CONTROL_REMEDIATION_DIRECTION_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "7fefa2741017a48e210346f956f2e1e125f67fad7be50069c8b3f27cdf27d343",
+    "subject_uri": "runtime/v6/host-inputs/control-remediation-direction.txt",
+    "summary": "Kernel owners are fixing adapter and true control verifier; host told same registered creator to preserve blocker evidence and identify intended ShotControlPack/config paths.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

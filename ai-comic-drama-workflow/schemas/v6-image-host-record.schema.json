@@ -1,0 +1,329 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "COMPLETED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "null"
+          },
+          "media_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "media_uri": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "provider": {
+            "const": "image_gen"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tool": {
+            "const": "image_gen.imagegen"
+          },
+          "tool_call_id": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "provider": {
+            "const": "provided"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "source_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "source_uri": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "tool": {
+            "const": "provided"
+          },
+          "tool_call_id": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "enum": [
+              "UNKNOWN",
+              "FAILED"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tool_result_uri": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tool_result_sha256": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "provider": {
+            "const": "image_gen"
+          },
+          "status": {
+            "const": "COMPLETED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tool_result_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "tool_result_uri": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "action_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "error": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "evidence": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minItems": 1,
+              "type": "array"
+            },
+            "message": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "recovery_action": {
+              "enum": [
+                "RECONCILE",
+                "REVISE",
+                "ABORT"
+              ]
+            },
+            "retryable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "code",
+            "message",
+            "evidence",
+            "retryable",
+            "recovery_action"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "media_sha256": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "media_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "observed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "provider": {
+      "enum": [
+        "image_gen",
+        "provided"
+      ]
+    },
+    "schema": {
+      "const": "image-host-record/6.0"
+    },
+    "source_sha256": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "COMPLETED",
+        "UNKNOWN",
+        "FAILED"
+      ]
+    },
+    "submitted_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "task_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "task_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "tool": {
+      "enum": [
+        "image_gen.imagegen",
+        "provided"
+      ]
+    },
+    "tool_call_id": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tool_result_sha256": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tool_result_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "action_id",
+    "task_id",
+    "batch",
+    "task_digest",
+    "provider",
+    "tool",
+    "tool_call_id",
+    "status",
+    "submitted_at",
+    "observed_at",
+    "tool_result_uri",
+    "tool_result_sha256",
+    "source_uri",
+    "source_sha256",
+    "media_uri",
+    "media_sha256",
+    "error"
+  ],
+  "title": "v6-image-host-record",
+  "type": "object"
+}

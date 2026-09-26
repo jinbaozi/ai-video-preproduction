@@ -1,0 +1,779 @@
+{
+  "schema_version": "6.0",
+  "workflow_id": "ai-comic-drama-v6",
+  "execution_mode": "codex-agents",
+  "limits": {
+    "specialists": 2,
+    "reviewers": 1
+  },
+  "locked_skills": [
+    "screenplay-grammar",
+    "director-grammar",
+    "production-design-grammar",
+    "storyboard-grammar",
+    "video-prompt-compiler",
+    "image-prompt-optimizer"
+  ],
+  "nodes": [
+    {
+      "id": "sources",
+      "label": "资料及来源",
+      "role": "source_owner",
+      "executor_kind": "kernel",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [],
+      "output_types": [
+        "SourceRegistry"
+      ],
+      "checkers": [
+        "source_integrity"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "reference_observation",
+      "label": "参考视频观察",
+      "role": "reference_observer",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": "director-grammar",
+      "depends_on": [
+        "sources"
+      ],
+      "output_types": [
+        "ObservationRegister"
+      ],
+      "checkers": [
+        "module_receipt",
+        "reference_observation"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "equals",
+        "field": "observation_required",
+        "equals": true
+      },
+      "skip": {
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "Registered sources do not require actual video observation.",
+        "affected_outputs": [
+          "ObservationRegister"
+        ]
+      }
+    },
+    {
+      "id": "canon",
+      "label": "项目事实与 Canon",
+      "role": "canon",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "sources",
+        "reference_observation"
+      ],
+      "output_types": [
+        "Canon"
+      ],
+      "checkers": [
+        "source_integrity",
+        "canon_contract",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "screenplay",
+      "label": "故事与剧本",
+      "role": "screenplay",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": "screenplay-grammar",
+      "depends_on": [
+        "canon"
+      ],
+      "output_types": [
+        "ScriptIR"
+      ],
+      "checkers": [
+        "module_receipt",
+        "native_validator",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "director",
+      "label": "导演方案",
+      "role": "director",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": "director-grammar",
+      "depends_on": [
+        "canon",
+        "screenplay"
+      ],
+      "output_types": [
+        "DirectorIR"
+      ],
+      "checkers": [
+        "module_receipt",
+        "native_validator",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "art",
+      "label": "分场美术",
+      "role": "art",
+      "executor_kind": "specialist",
+      "scope": "scene",
+      "locked_skill": "production-design-grammar",
+      "depends_on": [
+        "canon",
+        "director"
+      ],
+      "output_types": [
+        "ArtIR"
+      ],
+      "checkers": [
+        "module_receipt",
+        "native_validator",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "visual_prompts",
+      "label": "视觉资产图片指令",
+      "role": "visual_prompt",
+      "executor_kind": "specialist",
+      "scope": "asset",
+      "locked_skill": "image-prompt-optimizer",
+      "depends_on": [
+        "art"
+      ],
+      "output_types": [
+        "VisualImagePrompt"
+      ],
+      "checkers": [
+        "module_receipt",
+        "image_prompt_contract",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "equals",
+        "field": "delivery",
+        "equals": "full"
+      },
+      "skip": {
+        "reason_code": "TEXT_ONLY",
+        "reason": "The frozen delivery mode is text-only, so image prompt tasks are outside this deliverable.",
+        "affected_outputs": [
+          "VisualImagePrompt"
+        ]
+      },
+      "skip_if_empty": {
+        "field": "visual_jobs_present",
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "The accepted ArtIR has no visual asset image jobs.",
+        "affected_outputs": ["VisualImagePrompt"]
+      }
+    },
+    {
+      "id": "visual_media",
+      "label": "视觉资产素材与看图审核",
+      "role": "image_host",
+      "executor_kind": "host",
+      "scope": "asset",
+      "locked_skill": null,
+      "depends_on": [
+        "visual_prompts"
+      ],
+      "output_types": [
+        "ReferenceImage"
+      ],
+      "checkers": [
+        "image_call_evidence",
+        "image_visual_review"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "delivery",
+        "equals": "full"
+      },
+      "skip": {
+        "reason_code": "TEXT_ONLY",
+        "reason": "The frozen delivery mode is text-only, so actual image generation and review are outside this deliverable.",
+        "affected_outputs": [
+          "ReferenceImage"
+        ]
+      },
+      "skip_if_empty": {
+        "field": "visual_jobs_present",
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "The accepted ArtIR has no visual asset image jobs.",
+        "affected_outputs": ["ReferenceImage"]
+      }
+    },
+    {
+      "id": "storyboard",
+      "label": "分镜制作",
+      "role": "storyboard",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": "storyboard-grammar",
+      "depends_on": [
+        "canon",
+        "director",
+        "art",
+        "visual_media"
+      ],
+      "output_types": [
+        "StoryboardIR"
+      ],
+      "checkers": [
+        "module_receipt",
+        "native_validator",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "control",
+      "label": "镜头调度控制包",
+      "role": "control",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": "video-prompt-compiler",
+      "depends_on": [
+        "storyboard"
+      ],
+      "output_types": [
+        "ShotControlPack"
+      ],
+      "checkers": [
+        "module_receipt",
+        "control_verify",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "equals",
+        "field": "control_required",
+        "equals": true
+      },
+      "skip": {
+        "reason_code": "CONTROL_NOT_REQUIRED",
+        "reason": "The current StoryboardIR contains no camera movement, multi-subject motion or contact requiring a control pack.",
+        "affected_outputs": [
+          "ShotControlPack"
+        ]
+      }
+    },
+    {
+      "id": "board_prompts",
+      "label": "分镜图片指令",
+      "role": "board_prompt",
+      "executor_kind": "specialist",
+      "scope": "panel",
+      "locked_skill": "image-prompt-optimizer",
+      "depends_on": [
+        "storyboard",
+        "control",
+        "visual_prompts"
+      ],
+      "output_types": [
+        "BoardImagePrompt"
+      ],
+      "checkers": [
+        "module_receipt",
+        "image_prompt_contract",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "equals",
+        "field": "delivery",
+        "equals": "full"
+      },
+      "skip": {
+        "reason_code": "TEXT_ONLY",
+        "reason": "The frozen delivery mode is text-only, so image prompt tasks are outside this deliverable.",
+        "affected_outputs": [
+          "BoardImagePrompt"
+        ]
+      },
+      "skip_if_empty": {
+        "field": "board_jobs_present",
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "The accepted StoryboardIR has no board image jobs.",
+        "affected_outputs": ["BoardImagePrompt"]
+      }
+    },
+    {
+      "id": "board_media",
+      "label": "分镜图片素材与看图审核",
+      "role": "image_host",
+      "executor_kind": "host",
+      "scope": "panel",
+      "locked_skill": null,
+      "depends_on": [
+        "board_prompts",
+        "visual_media"
+      ],
+      "output_types": [
+        "BoardImage"
+      ],
+      "checkers": [
+        "image_call_evidence",
+        "image_visual_review"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "delivery",
+        "equals": "full"
+      },
+      "skip": {
+        "reason_code": "TEXT_ONLY",
+        "reason": "The frozen delivery mode is text-only, so actual image generation and review are outside this deliverable.",
+        "affected_outputs": [
+          "BoardImage"
+        ]
+      },
+      "skip_if_empty": {
+        "field": "board_jobs_present",
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "The accepted StoryboardIR has no board image jobs.",
+        "affected_outputs": ["BoardImage"]
+      }
+    },
+    {
+      "id": "compile",
+      "label": "模型编译",
+      "role": "compiler",
+      "executor_kind": "specialist",
+      "scope": "project",
+      "locked_skill": "video-prompt-compiler",
+      "depends_on": [
+        "storyboard",
+        "control",
+        "board_media"
+      ],
+      "output_types": [
+        "AVIR",
+        "CompilePackage"
+      ],
+      "checkers": [
+        "module_receipt",
+        "native_validator",
+        "compile_manifest",
+        "handoff"
+      ],
+      "review": "independent",
+      "handoff_required": true,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "compile_review",
+      "label": "编译正文复核",
+      "role": "compiler_reviewer",
+      "executor_kind": "reviewer",
+      "scope": "project",
+      "locked_skill": "video-prompt-compiler",
+      "depends_on": [
+        "compile"
+      ],
+      "output_types": [
+        "CompileReview"
+      ],
+      "checkers": [
+        "module_receipt",
+        "compile_semantics"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "preproduction_qa",
+      "label": "前期交付验收",
+      "role": "preproduction_reviewer",
+      "executor_kind": "reviewer",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "compile_review"
+      ],
+      "output_types": [
+        "PreproductionQA"
+      ],
+      "checkers": [
+        "preproduction_final"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "preproduction_delivery",
+      "label": "前期包交付",
+      "role": "delivery_owner",
+      "executor_kind": "kernel",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "preproduction_qa"
+      ],
+      "output_types": [
+        "PreproductionDelivery"
+      ],
+      "checkers": [
+        "preproduction_final"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "always"
+      },
+      "skip": null
+    },
+    {
+      "id": "video_freeze",
+      "label": "冻结视频执行与验收基线",
+      "role": "production_owner",
+      "executor_kind": "kernel",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "preproduction_delivery"
+      ],
+      "output_types": [
+        "FrozenRequest",
+        "FrozenAcceptancePlan"
+      ],
+      "checkers": [
+        "freeze_request"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "FrozenRequest",
+          "FrozenAcceptancePlan"
+        ]
+      }
+    },
+    {
+      "id": "video_execution",
+      "label": "提交或登记视频执行",
+      "role": "video_host",
+      "executor_kind": "host",
+      "scope": "generation_request",
+      "locked_skill": null,
+      "depends_on": [
+        "video_freeze"
+      ],
+      "output_types": [
+        "ExecutionRecord"
+      ],
+      "checkers": [
+        "execution_provenance"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "ExecutionRecord"
+        ]
+      }
+    },
+    {
+      "id": "take_recovery",
+      "label": "回收与探测 Take",
+      "role": "video_host",
+      "executor_kind": "host",
+      "scope": "take",
+      "locked_skill": null,
+      "depends_on": [
+        "video_execution"
+      ],
+      "output_types": [
+        "Take"
+      ],
+      "checkers": [
+        "execution_provenance",
+        "take_probe"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "Take"
+        ]
+      }
+    },
+    {
+      "id": "shot_acceptance",
+      "label": "逐镜验收",
+      "role": "shot_reviewer",
+      "executor_kind": "reviewer",
+      "scope": "shot",
+      "locked_skill": null,
+      "depends_on": [
+        "take_recovery"
+      ],
+      "output_types": [
+        "ShotDecision"
+      ],
+      "checkers": [
+        "shot_coverage"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "ShotDecision"
+        ]
+      }
+    },
+    {
+      "id": "take_selection",
+      "label": "选定 Take",
+      "role": "take_selector",
+      "executor_kind": "reviewer",
+      "scope": "shot",
+      "locked_skill": null,
+      "depends_on": [
+        "shot_acceptance"
+      ],
+      "output_types": [
+        "SelectedTake"
+      ],
+      "checkers": [
+        "selected_take"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "SelectedTake"
+        ]
+      }
+    },
+    {
+      "id": "adjacent_acceptance",
+      "label": "相邻镜头验收",
+      "role": "continuity_reviewer",
+      "executor_kind": "reviewer",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "take_selection"
+      ],
+      "output_types": [
+        "AdjacentDecision"
+      ],
+      "checkers": [
+        "adjacent_coverage"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "AdjacentDecision"
+        ]
+      }
+    },
+    {
+      "id": "assembly",
+      "label": "总装与后期义务检查",
+      "role": "assembly_host",
+      "executor_kind": "host",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "adjacent_acceptance"
+      ],
+      "output_types": [
+        "AssemblyRecord",
+        "FinalMedia"
+      ],
+      "checkers": [
+        "selected_take",
+        "assembly_edl",
+        "post_obligations",
+        "take_probe"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "AssemblyRecord",
+          "FinalMedia"
+        ]
+      }
+    },
+    {
+      "id": "whole_acceptance",
+      "label": "整片验收",
+      "role": "whole_reviewer",
+      "executor_kind": "reviewer",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "assembly"
+      ],
+      "output_types": [
+        "WholeDecision"
+      ],
+      "checkers": [
+        "whole_review"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "WholeDecision"
+        ]
+      }
+    },
+    {
+      "id": "video_delivery",
+      "label": "成片交付",
+      "role": "delivery_owner",
+      "executor_kind": "kernel",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "whole_acceptance"
+      ],
+      "output_types": [
+        "VideoDelivery"
+      ],
+      "checkers": [
+        "video_final"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "VideoDelivery"
+        ]
+      }
+    }
+  ]
+}

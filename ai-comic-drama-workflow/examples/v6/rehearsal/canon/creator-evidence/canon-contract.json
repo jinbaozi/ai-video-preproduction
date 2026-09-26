@@ -1,0 +1,17 @@
+{
+  "check": "canon_contract",
+  "status": "PASS",
+  "canon_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+  "canon_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+  "project_id_matches": true,
+  "revision_positive": true,
+  "source_refs_registered": true,
+  "entity_ids_unique_and_safe": true,
+  "facts_quote_source": true,
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "scope_note": "V5 Canon has a content and source reference contract; no separate Canon JSON Schema is declared. Content preserves only the provided scene facts."
+}

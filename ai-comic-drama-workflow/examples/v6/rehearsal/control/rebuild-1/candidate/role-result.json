@@ -1,0 +1,75 @@
+{
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/module-receipt.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+      ],
+      "finding": "All frozen input and locked resource bytes match; current accepted StoryboardIR promotion differs in rebased metadata only.",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/adapter-report.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/native-av-validation.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-build.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-verify.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/projection-limit.json"
+      ],
+      "finding": "Locked AVIR validation VALID and control package VERIFIED. Projection is authored proxy planning; media NOT_RUN.",
+      "id": "control_verify",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+      ],
+      "finding": "Current accepted StoryboardIR maps without loss to the bound package; V6 source candidate to promoted copy has 12 metadata-only differences.",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "config": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/control-config.json",
+  "conflicts": [],
+  "context_fingerprint": "a956f0b50a44008d6467b92e0fc0d62b5e1f6645524e616131bde33add62d0df",
+  "handoff": [],
+  "module_receipt": {
+    "name": "video-prompt-compiler",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md",
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+      }
+    ],
+    "skill_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "version": "1.17.6"
+  },
+  "reused": false,
+  "schema": "role-result/5.1",
+  "task_id": "TASK_a956f0b50a44008d6467b92e",
+  "unresolved": [],
+  "validator": {
+    "camera_trajectory_media_review": "NOT_RUN",
+    "media_review": "NOT_RUN",
+    "projection_status": "PLANNED_PROJECTION",
+    "projection_unresolved_frames": 0,
+    "status": "VERIFIED",
+    "visual_review": "NOT_RUN"
+  }
+}

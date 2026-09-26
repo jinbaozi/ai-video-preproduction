@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "candidate_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "failure_owner": {
+      "oneOf": [
+        {
+          "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reviewer_agent_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reviewer_dispatch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "review-record/6.0"
+    },
+    "task_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema",
+    "task_id",
+    "batch",
+    "reviewer_agent_id",
+    "reviewer_dispatch_id",
+    "candidate_digest",
+    "checks",
+    "failure_owner",
+    "at"
+  ],
+  "title": "v6-review-record",
+  "type": "object"
+}

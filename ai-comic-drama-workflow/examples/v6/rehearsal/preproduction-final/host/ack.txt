@@ -1,0 +1,1 @@
+ACK: I read the frozen preproduction_qa action for TASK_5940525a2a35543b33e08b18 batch 1. I will inspect the accepted CompileReview and its bound chain, then write only the candidate directory and return raw result with hashes.

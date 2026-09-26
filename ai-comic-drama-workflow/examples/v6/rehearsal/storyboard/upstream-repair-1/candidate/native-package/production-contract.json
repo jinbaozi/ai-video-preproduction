@@ -1,0 +1,807 @@
+{
+  "input_hash": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "project_id": "LETTER_DEMO",
+  "requirements": [
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "保留雨夜且不指认具体地点、年代或室内外。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/scenes/0/time_of_day",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/scenes/0/description",
+          "value": "室内外未指定"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_RAIN",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "保留雨夜且不指认具体地点、年代或室内外。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "只使用 PROP_LETTER 这一封未拆且封口完整的信。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/entities/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/entities/2/identity_locks/1",
+          "value": "封口"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_SINGLE_LETTER",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "只使用 PROP_LETTER 这一封未拆且封口完整的信。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "交信后乙验封，验封后将同一封信收进同一个背包。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/beats/0/id",
+          "value": "BEAT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/1/depends_on/0",
+          "value": "BEAT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/2/depends_on/0",
+          "value": "BEAT_CONFIRM"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_ORDER",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "交信后乙验封，验封后将同一封信收进同一个背包。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "同一封信进入乙背包即结束，不出现额外剧情。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/state_end/PROP_LETTER/pose",
+          "value": "背包内"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/6/id",
+          "value": "P_END"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_ENDING",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "同一封信进入乙背包即结束，不出现额外剧情。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "交接、完整封口及包口入包三项证据分别可见。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/1/event_ids/0",
+          "value": "ACT_GRIP"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/3/event_ids/0",
+          "value": "ACT_CONFIRM_SEAL"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/5/event_ids/0",
+          "value": "ACT_STOW"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_EVENTS",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "交接、完整封口及包口入包三项证据分别可见。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "观众先见交接，再见封口完整，最后见收入背包。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/2/frame",
+          "value": 84
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/3/frame",
+          "value": 144
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/5/frame",
+          "value": 252
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_REVEAL",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "观众先见交接，再见封口完整，最后见收入背包。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "甲乙身份与衣装、唯一信、同一背包及雨夜后景连续；真实参考待取得和审图。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/entities/0/id",
+          "value": "CHAR_JIA"
+        },
+        {
+          "op": "equals",
+          "path": "/entities/1/id",
+          "value": "CHAR_YI"
+        },
+        {
+          "op": "equals",
+          "path": "/entities/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "equals",
+          "path": "/entities/3/id",
+          "value": "PROP_BACKPACK"
+        },
+        {
+          "op": "equals",
+          "path": "/entities/4/id",
+          "value": "ENV_RAIN_NIGHT"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_A_ASSET_LOCKS",
+      "owner": "art",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "甲乙身份与衣装、唯一信、同一背包及雨夜后景连续；真实参考待取得和审图。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "雨夜明确保留，具体地点与室内外不补写。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/scenes/0/time_of_day",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/scenes/0/description",
+          "value": "具体地点"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_D_RAIN",
+      "owner": "director",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "雨夜明确保留，具体地点与室内外不补写。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "交接、验封、入包全程是同一封未拆信。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/entities/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/state_start/PROP_LETTER/condition",
+          "value": "封口完整"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/state_end/PROP_LETTER/condition",
+          "value": "封口完整"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_D_SINGLE_LETTER",
+      "owner": "director",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "交接、验封、入包全程是同一封未拆信。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "甲交信、乙确认完整封口、乙收信入包必须依次发生。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/end_ms",
+          "value": 4000
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/3/start_ms",
+          "value": 4500
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/4/start_ms",
+          "value": 8000
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_D_ACTION_ORDER",
+      "owner": "director",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "甲交信、乙确认完整封口、乙收信入包必须依次发生。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "乙将信收入背包即终点，不延伸后续。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/state_end/PROP_LETTER/pose",
+          "value": "背包内"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/6/frame",
+          "value": 287
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_D_ENDING",
+      "owner": "director",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "乙将信收入背包即终点，不延伸后续。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "三项 ScriptIR 事件各有动作与可见反馈；不新增故事事件。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/beats/0/id",
+          "value": "BEAT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/1/id",
+          "value": "BEAT_CONFIRM"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/2/id",
+          "value": "BEAT_STOW"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/3/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_D_EVENTS",
+      "owner": "director",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "三项 ScriptIR 事件各有动作与可见反馈；不新增故事事件。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "观众先见交接，再见封口确认，最后见收入背包。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/2/frame",
+          "value": 84
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/3/frame",
+          "value": 144
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/5/frame",
+          "value": 252
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_D_REVEAL_ORDER",
+      "owner": "director",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT",
+        "DIRECTOR_INPUT",
+        "ART_INPUT"
+      ],
+      "statement": "观众先见交接，再见封口确认，最后见收入背包。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "固定机位、同一负轴侧与左右站位从头到尾保持。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/camera/axis_side",
+          "value": "negative"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/camera/start_m",
+          "value": [
+            0,
+            1.2,
+            -2.8
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/camera/end_m",
+          "value": [
+            0,
+            1.2,
+            -2.8
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/camera_operations/0/operation",
+          "value": "locked"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_FIXED_AXIS",
+      "owner": "storyboard",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "DIRECTOR_INPUT",
+        "STORYBOARD_DESIGN"
+      ],
+      "statement": "固定机位、同一负轴侧与左右站位从头到尾保持。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "乙右手先接触同一信，甲后松手；验封前乙取得独占控制。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/state_samples/1/entities/PROP_LETTER/controllers/0",
+          "value": "CHAR_JIA.right_hand"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/state_samples/2/entities/PROP_LETTER/controllers/0",
+          "value": "CHAR_YI.right_hand"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/1/id",
+          "value": "P_GRIP"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/2/id",
+          "value": "P_RELEASE"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_CONTACT_CONTROL",
+      "owner": "storyboard",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "DIRECTOR_INPUT",
+        "STORYBOARD_DESIGN"
+      ],
+      "statement": "乙右手先接触同一信，甲后松手；验封前乙取得独占控制。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "乙确认封口时，完整封口、乙眼部及右手在固定画幅中可读。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "prompt",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/panels/3/id",
+          "value": "P_SEAL"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/visibility/2/readability",
+          "value": "detail"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/composition_tracks/1/id",
+          "value": "COMP_CONFIRM"
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_SEAL_VISIBILITY",
+      "owner": "storyboard",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "DIRECTOR_INPUT",
+        "ART_INPUT",
+        "STORYBOARD_DESIGN"
+      ],
+      "statement": "乙确认封口时，完整封口、乙眼部及右手在固定画幅中可读。",
+      "strength": "hard"
+    },
+    {
+      "acceptance": [
+        {
+          "criterion": "原生 IR 字段、时间轨和硬断言一致。",
+          "evidence": "StoryboardIR、原生校验报告",
+          "phase": "structure"
+        },
+        {
+          "criterion": "文本计划中的画格、参考与音效均未生成或验收。",
+          "evidence": "带时间码的真实媒体；当前未生成",
+          "phase": "media"
+        }
+      ],
+      "channel": "post",
+      "checks": [
+        {
+          "op": "equals",
+          "path": "/assets",
+          "value": []
+        },
+        {
+          "op": "equals",
+          "path": "/bindings",
+          "value": []
+        },
+        {
+          "op": "equals",
+          "path": "/audio/utterances",
+          "value": []
+        }
+      ],
+      "execution": "在分镜正文、画格和提示词交接中保留本要求；实际可见性由真实媒体审查。",
+      "fallback": "block",
+      "id": "SB_MEDIA_BOUNDARY",
+      "owner": "storyboard",
+      "shot_ids": [
+        "S1"
+      ],
+      "source_refs": [
+        "ART_INPUT",
+        "STORYBOARD_DESIGN"
+      ],
+      "statement": "文本计划中的画格、参考与音效均未生成或验收。",
+      "strength": "hard"
+    }
+  ],
+  "schema_version": "storyboard-contract/1.0"
+}

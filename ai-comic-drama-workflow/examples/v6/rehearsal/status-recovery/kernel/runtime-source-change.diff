@@ -1,0 +1,52 @@
+--- sources/v6_runtime-before.py
++++ sources/v6_runtime-after.py
+@@ -1838,18 +1838,49 @@
+         snapshot = self.kernel.snapshot()
+         active = [row for row in snapshot['tasks'].values() if row['state'] not in _TERMINAL]
+         waiting_host = {'DISPATCHING', 'UNKNOWN', 'REVIEW_REQUIRED'}
++        project_scope = self._project_scope()
++
++        def latest_stage(node_id: str) -> dict | None:
++            rows = [row for row in snapshot['tasks'].values()
++                    if row['envelope']['node_id'] == node_id
++                    and row['envelope']['scope'] == project_scope]
++            return max(rows, key=lambda row: (row['envelope']['input_revision'],
++                                                row['envelope']['batch'])) if rows else None
++
++        preproduction = latest_stage('preproduction_delivery')
++        video = latest_stage('video_delivery')
++        preproduction_accepted = bool(preproduction and preproduction['state'] == 'ACCEPTED')
++        video_accepted = bool(video and video['state'] == 'ACCEPTED')
++        target = self.production_target()
++        native_status = base.get('status')
++        native_preproduction_complete = (
++            native_status in ('PREPRODUCTION_DELIVERED', 'VIDEO_DELIVERED')
++            if target == 'video' else native_status == 'DELIVERED')
++        native_video_complete = target == 'video' and native_status == 'VIDEO_DELIVERED'
++        delivery_consistent = (preproduction_accepted == native_preproduction_complete
++                               and video_accepted == native_video_complete)
++        preproduction_complete = preproduction_accepted and native_preproduction_complete
++        video_complete = video_accepted and native_video_complete
+         if any(row['state'] == 'UNKNOWN' for row in active):
+             status = 'RECONCILE_REQUIRED'
+         elif any(row['state'] in waiting_host for row in active):
+             status = 'AWAITING_HOST'
+         elif active:
+             status = 'AWAITING_RESULT'
++        elif delivery_consistent and video_complete:
++            status = 'VIDEO_DELIVERED'
++        elif delivery_consistent and preproduction_complete:
++            status = 'PREPRODUCTION_DELIVERED' if target == 'video' else 'DELIVERED'
++        elif not delivery_consistent:
++            status = 'BLOCKED'
+         elif any(row['state'] in ('STALE', 'FAILED', 'BLOCKED') for row in snapshot['tasks'].values()):
+             status = 'BLOCKED'
+         else:
+             status = base['status']
+         return {**base, 'status': status, 'execution_mode': 'codex-agents',
+                 'orchestration_protocol': '6.0', 'v6_revision': snapshot['revision'],
++                'preproduction_complete': preproduction_complete,
++                'video_complete': video_complete,
+                 'v6_tasks': {task_id: {'node_id': row['envelope']['node_id'], 'state': row['state']}
+                              for task_id, row in snapshot['tasks'].items()}}
+ 

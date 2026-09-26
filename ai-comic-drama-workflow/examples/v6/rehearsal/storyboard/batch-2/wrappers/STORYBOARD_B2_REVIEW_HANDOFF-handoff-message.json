@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_B2_REVIEW_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 155,
+  "message": {
+    "at": "2026-09-25T13:08:37.822789Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-b2-reviewer-report.txt"
+    ],
+    "in_reply_to": "STORYBOARD_B2_REVIEW_PROGRESS_REQUEST_1",
+    "message_id": "STORYBOARD_B2_REVIEW_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+    "subject_sha256": "92ae4cc125bffd178c635b5c1669cbf5792551733fccb183d70404600e8eece3",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-b2-reviewer-report.txt",
+    "summary": "Independent reviewer reports all three checks PASS and explicit media NOT_RUN boundary, with detailed native and handoff evidence.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "HANDOFF"
+  }
+}

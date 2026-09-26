@@ -1,0 +1,252 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "RUNNING"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "agent_id": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "error": {
+            "type": "null"
+          },
+          "tool_result_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "tool_result_uri": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "FAILED"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "error": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "tool_result_uri": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "tool_result_sha256": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "action_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "agent_id": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "dispatch_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "error": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+              "type": "string"
+            },
+            "evidence": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "minItems": 0,
+              "type": "array",
+              "uniqueItems": true
+            },
+            "failed_check": {
+              "oneOf": [
+                {
+                  "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "message": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "recovery_action": {
+              "enum": [
+                "RETRY",
+                "REVISE",
+                "RECONCILE",
+                "WAIT_FOR_INPUT",
+                "ABORT"
+              ]
+            },
+            "retryable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "code",
+            "message",
+            "failed_check",
+            "evidence",
+            "retryable",
+            "recovery_action"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "host": {
+      "const": "codex"
+    },
+    "host_call_id": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "host_tool": {
+      "enum": [
+        "collaboration.spawn_agent",
+        "collaboration.list_agents"
+      ]
+    },
+    "observed_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "result_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema": {
+      "const": "dispatch-receipt/6.0"
+    },
+    "sent_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "RUNNING",
+        "UNKNOWN",
+        "FAILED"
+      ]
+    },
+    "task_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "task_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "tool_result_sha256": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tool_result_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "task_id",
+    "batch",
+    "host",
+    "host_tool",
+    "host_call_id",
+    "dispatch_id",
+    "agent_id",
+    "task_digest",
+    "status",
+    "sent_at",
+    "observed_at",
+    "result_uri",
+    "error",
+    "action_id",
+    "tool_result_uri",
+    "tool_result_sha256"
+  ],
+  "title": "v6-dispatch-receipt",
+  "type": "object"
+}

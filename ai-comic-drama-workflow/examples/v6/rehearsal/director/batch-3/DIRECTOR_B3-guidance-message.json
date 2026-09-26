@@ -1,0 +1,23 @@
+{
+  "command_id": "DIRECTOR_B3_GUIDANCE_COMMAND_1",
+  "expected_revision": 68,
+  "message": {
+    "at": "2026-09-25T11:23:36.805971Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+      "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+      "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRECTOR_B3_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "0027db9de5fc571dbbac8bc48cca319515ca35e7c0194f33d13d30ceac0c9543",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-pending-action.json",
+    "summary": "Real dispatch delivered frozen batch-3 action; creator must read every input and fix both prior independent handoff failures, then report each resolution.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "HANDOFF"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "status": "AWAITING_HOST",
+  "revision": 371,
+  "actions": [
+    {
+      "schema": "codex-host-action/1.0",
+      "action_id": "dispatch-b2675e0a86b84995c72fed2c",
+      "dispatch_id": "dispatch-b2675e0a86b84995c72fed2c",
+      "task_id": "TASK_19a3cd14f25bf90e50215d4d",
+      "batch": 1,
+      "task_digest": "f16b31355d0115a1ee87babd8285e79aa01f5595452a792446f480b09923eb93",
+      "tool": "collaboration.spawn_agent",
+      "task_name": "v6_859d227c7d730ab3b9722469",
+      "preflight": {
+        "tool": "collaboration.list_agents",
+        "match_task_name": "v6_859d227c7d730ab3b9722469"
+      },
+      "arguments": {
+        "task_name": "v6_859d227c7d730ab3b9722469",
+        "agent_type": "worker",
+        "message": "Execute the frozen V6 task below. You are not alone in the codebase; do not revert other agents' edits. Project root: /private/tmp/ai-video-v6-real-efKlQy/project. Resolve every task URI against this root. Own only candidate files under /private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1. Read every item in envelope.inputs, every listed locked resource, and the relevant Skill before work. If inputs include repair_brief or repair_failure_1/2, read each cited prior review, fix every recorded defect, and report whether each old defect is gone. If inputs include upstream_repair, read the bound independent review and all failed-check evidence, correct the findings owned by this node, and describe the exact changed fields in the candidate. Do not edit another owner's artifacts. Copy RoleResult.validator.status exactly from a fresh locked native validator result; do not infer it from media or visual review status. Record checks and handoffs. Do not write formal artifacts or advance workflow state; submit a candidate result for independent review. If this is an independent review task, review the supplied candidate only and do not create another reviewer.\n\nFrozen task envelope:\n{\n  \"batch\": 1,\n  \"dependencies\": [\n    {\n      \"task_id\": \"TASK_0e0c8a4ca94c8ffdbb7e14ae\"\n    },\n    {\n      \"task_id\": \"TASK_1b94794070565f70c7f697a7\"\n    }\n  ],\n  \"execution_class\": \"professional\",\n  \"expected_artifacts\": [\n    {\n      \"kind\": \"DirectorIR\",\n      \"slot\": \"director:project:project:DirectorIR\",\n      \"uri_prefix\": \"runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/\"\n    }\n  ],\n  \"handoffs\": [\n    {\n      \"channel\": \"artifact\",\n      \"requirement_id\": \"UP_9fcd7950eb5d010a1a08b1d5\",\n      \"source_slot\": \"canon:project:project:Canon\",\n      \"source_version\": 12,\n      \"target_pointer\": \"\",\n      \"target_slot\": \"director:project:project:DirectorIR\"\n    },\n    {\n      \"channel\": \"artifact\",\n      \"requirement_id\": \"UP_9569ed7fedf5c8746c5c2cd2\",\n      \"source_slot\": \"screenplay:project:project:ScriptIR\",\n      \"source_version\": 14,\n      \"target_pointer\": \"\",\n      \"target_slot\": \"director:project:project:DirectorIR\"\n    }\n  ],\n  \"input_digest\": \"9beec88c19047a39bc70abdca4fcce5d929b7839f54ed57eac81a820a49f5829\",\n  \"input_revision\": 368,\n  \"inputs\": [\n    {\n      \"sha256\": \"befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c\",\n      \"slot\": \"canon:project:project:Canon\",\n      \"uri\": \"runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json\",\n      \"version\": 12\n    },\n    {\n      \"sha256\": \"3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d\",\n      \"slot\": \"screenplay:project:project:ScriptIR\",\n      \"uri\": \"runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json\",\n      \"version\": 14\n    },\n    {\n      \"sha256\": \"8fb4bb1880b158d6462f9e65ebcd8635ffa147d327cb4bb107a2bf75e6ac89fa\",\n      \"slot\": \"frozen_task\",\n      \"uri\": \"runtime/tasks/TASK_19a3cd14f25bf90e50215d4d.json\",\n      \"version\": 0\n    },\n    {\n      \"sha256\": \"43542b5335b3b80b6c6da390c0cdd1c815ea1999dc1d403969362febdd141110\",\n      \"slot\": \"upstream_repair\",\n      \"uri\": \"runtime/v6/upstream-repair/UPR_7aacd89414612ed785a0480b.json\",\n      \"version\": 1\n    }\n  ],\n  \"module\": {\n    \"name\": \"director-grammar\",\n    \"sha256\": \"0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64\",\n    \"version\": \"1.4.2\"\n  },\n  \"node_id\": \"director\",\n  \"project_id\": \"LETTER_DEMO\",\n  \"resources\": [\n    {\n      \"sha256\": \"7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b\",\n      \"uri\": \"runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md\"\n    },\n    {\n      \"sha256\": \"28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d\",\n      \"uri\": \"runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md\"\n    },\n    {\n      \"sha256\": \"7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6\",\n      \"uri\": \"runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md\"\n    },\n    {\n      \"sha256\": \"bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504\",\n      \"uri\": \"runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md\"\n    }\n  ],\n  \"role\": \"director\",\n  \"schema\": \"task-envelope/6.0\",\n  \"scope\": {\n    \"ids\": [],\n    \"kind\": \"project\"\n  },\n  \"task_id\": \"TASK_19a3cd14f25bf90e50215d4d\",\n  \"validators\": [\n    {\n      \"id\": \"module_receipt\",\n      \"kind\": \"hash\"\n    },\n    {\n      \"id\": \"native_validator\",\n      \"kind\": \"native\"\n    },\n    {\n      \"id\": \"handoff\",\n      \"kind\": \"handoff\"\n    }\n  ]\n}\n\nNative handoff reminder: read the frozen runtime/tasks/<task_id>.json handoff.required_handoffs. The V5 RoleResult.handoff must cover those native requirements, including screenplay review bindings for a Director task. candidate.handoffs separately covers the V6 envelope.handoffs; neither list substitutes for the other."
+      },
+      "candidate_dir": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "TASK_19a3cd14f25bf90e50215d4d",
+      "node_id": "director",
+      "state": "DISPATCHING"
+    }
+  ]
+}

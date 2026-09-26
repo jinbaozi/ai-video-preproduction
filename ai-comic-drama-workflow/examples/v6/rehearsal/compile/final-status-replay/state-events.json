@@ -1,0 +1,1042 @@
+[
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "50c39d7a743f06e64450c500d73a582f75b5321679767cabbb8afb351911b932",
+    "hash": "0942a718008a319b2b5082fa3712b02bd8305b6c71159aca02e7b1e5e9482d76",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_4f81cc62bc1b268a8f8be7b0"
+        },
+        {
+          "task_id": "TASK_4064ef49778d32687a4dde42"
+        },
+        {
+          "task_id": "V6_skip_e3661d41c681b43533635136"
+        },
+        {
+          "task_id": "V6_skip_1c52cf556b47b38c3bec4c3d"
+        },
+        {
+          "task_id": "V6_skip_446c2edea6fa7d6a4869de12"
+        },
+        {
+          "task_id": "V6_skip_0cb72b86d89fedd3255b90fa"
+        },
+        {
+          "task_id": "V6_skip_6e825d8207de222a3ad4b803"
+        },
+        {
+          "task_id": "V6_skip_2c16c5738ad8d1b59c2f8d25"
+        },
+        {
+          "task_id": "V6_skip_dea22af88d481ca12e2513aa"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "AVIR",
+          "slot": "compile:project:project:AVIR",
+          "uri_prefix": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/"
+        },
+        {
+          "kind": "CompilePackage",
+          "slot": "compile:project:project:CompilePackage",
+          "uri_prefix": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+          "source_slot": "storyboard:project:project:StoryboardIR",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "compile:project:project:AVIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_e5288336c739feea7cd2b47d",
+          "source_slot": "control:project:project:ShotControlPack",
+          "source_version": 15,
+          "target_pointer": "",
+          "target_slot": "compile:project:project:AVIR"
+        }
+      ],
+      "input_digest": "882882ec764d48e49a75762358efaa6239d4928e5c4c37b404164061fd9c3566",
+      "input_revision": 827,
+      "inputs": [
+        {
+          "sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+          "slot": "storyboard:project:project:StoryboardIR",
+          "uri": "runtime/v6/candidates/TASK_4f81cc62bc1b268a8f8be7b0/1/storyboard-ir.json",
+          "version": 12
+        },
+        {
+          "sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+          "slot": "control:project:project:ShotControlPack",
+          "uri": "runtime/v6/candidates/TASK_4064ef49778d32687a4dde42/1/control-pack/package-manifest.json",
+          "version": 15
+        },
+        {
+          "sha256": "8641aec6661529965af4424824367af5a35dd355162b45fd28e99fa9c7b95742",
+          "slot": "compile_brief",
+          "uri": "runtime/v6/task-briefs/V6_compile_297e4d54680b970deaed.json",
+          "version": 0
+        },
+        {
+          "sha256": "5d7e757f1b79ef1ae7e3b2e5cd233e280542cadfea91c4b5347e99c596d4173e",
+          "slot": "build_1",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/attachments.json",
+          "version": 0
+        },
+        {
+          "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+          "slot": "build_2",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/avir.json",
+          "version": 0
+        },
+        {
+          "sha256": "5cfd141e07964f5a6977c6472d3b72b6d6cfd288c346a1ed23e6c649c3b85148",
+          "slot": "build_3",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/artifact.json",
+          "version": 0
+        },
+        {
+          "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+          "slot": "build_4",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/avir.json",
+          "version": 0
+        },
+        {
+          "sha256": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+          "slot": "build_5",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/capability-snapshot.json",
+          "version": 0
+        },
+        {
+          "sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+          "slot": "build_6",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/compile-manifest.json",
+          "version": 0
+        },
+        {
+          "sha256": "72e1ae71f01a18ac18489852df0f71d45f57e124df97cef61c7b9f8052cf418b",
+          "slot": "build_7",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/constraint-coverage.json",
+          "version": 0
+        },
+        {
+          "sha256": "7d2e2717d80727f9c197c1bfaee7bfe177a47732208109de833ed68dc2110264",
+          "slot": "build_8",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/context-ir.json",
+          "version": 0
+        },
+        {
+          "sha256": "9c3894fb04f392595517a0dd0bc79beb86e017be480ae012a4da363aa09c0104",
+          "slot": "build_9",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/detail-coverage.json",
+          "version": 0
+        },
+        {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "slot": "build_10",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/loss-report.json",
+          "version": 0
+        },
+        {
+          "sha256": "8597c2855d9fa678266666317470f66210ee5ee65293214cbbf90801d2b6a404",
+          "slot": "build_11",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/post-001_000000-012000ms.txt",
+          "version": 0
+        },
+        {
+          "sha256": "5ff6d16237c98f2c2ffd3ddc0b65af1a5e74f584b6695090ae124f40e9b3c988",
+          "slot": "build_12",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/post-production.json",
+          "version": 0
+        },
+        {
+          "sha256": "c8cca586c8f9c9c380740a596e2c57add777491420becca584ba7430f1a27d0a",
+          "slot": "build_13",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/production-contract.md",
+          "version": 0
+        },
+        {
+          "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+          "slot": "build_14",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/production-specification.json",
+          "version": 0
+        },
+        {
+          "sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+          "slot": "build_15",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-001_000000-012000ms.txt",
+          "version": 0
+        },
+        {
+          "sha256": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+          "slot": "build_16",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-coverage-001_000000-012000ms.json",
+          "version": 0
+        },
+        {
+          "sha256": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+          "slot": "build_17",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-coverage.json",
+          "version": 0
+        },
+        {
+          "sha256": "b7c8d0c6d30bb7b9b9863a7025fb803dc336cd4305a310fd736ead5e6192ea5b",
+          "slot": "build_18",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-review.json",
+          "version": 0
+        },
+        {
+          "sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+          "slot": "build_19",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt.txt",
+          "version": 0
+        },
+        {
+          "sha256": "47c9315135d89a896d56770234e9df6aa39c7d7e887ee5c8a7f1791569ecf8f2",
+          "slot": "build_20",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-delivery.json",
+          "version": 0
+        },
+        {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "slot": "build_21",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-plan.json",
+          "version": 0
+        },
+        {
+          "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+          "slot": "build_22",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-proposals.json",
+          "version": 0
+        },
+        {
+          "sha256": "da56881aaf5af87ec77c66b52d9b7b8c6aebaec1c10305659c3c1b5fef144d60",
+          "slot": "build_23",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/spatial-checks.json",
+          "version": 0
+        },
+        {
+          "sha256": "e99cd86c4063bfe5c1178ed977919613f4b6fc74d4a9321cc9305cf87b4a0972",
+          "slot": "build_24",
+          "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/mapping.json",
+          "version": 0
+        },
+        {
+          "sha256": "6b2e4a247daa078eb3159032f47fa8ecfe4bfc29d220315b9d78c2a63c73669b",
+          "slot": "compile_semantic_failure",
+          "uri": "runtime/v6/compile-semantic-failures/CSF_74831a102e205da1d82b7605.json",
+          "version": 1
+        }
+      ],
+      "module": {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      },
+      "node_id": "compile",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+        },
+        {
+          "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "3567568e700d6973f6bbb70f7868c6673c4ef686b53b40110d4ed92441aa040a",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py"
+        },
+        {
+          "sha256": "ea82415dd830014907391464de1a14d51de578b166ba30a7904f1182748fd2ab",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc_core.py"
+        },
+        {
+          "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc",
+          "uri": "runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py"
+        },
+        {
+          "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2",
+          "uri": "runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py"
+        },
+        {
+          "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0",
+          "uri": "runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py"
+        },
+        {
+          "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae",
+          "uri": "runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py"
+        },
+        {
+          "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+          "uri": "runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py"
+        },
+        {
+          "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+          "uri": "runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py"
+        },
+        {
+          "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343",
+          "uri": "runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py"
+        },
+        {
+          "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0",
+          "uri": "runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py"
+        },
+        {
+          "sha256": "b94ea57c76a30b2437a013546f62874ec31fd8b3814c87b306e318ddd04033f0",
+          "uri": "runtime/v6/runtime-resources/b94ea57c76a30b2437a013546f62874ec31fd8b3814c87b306e318ddd04033f0/v6_runtime.py"
+        },
+        {
+          "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2",
+          "uri": "runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py"
+        },
+        {
+          "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b",
+          "uri": "runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py"
+        },
+        {
+          "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11",
+          "uri": "runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py"
+        },
+        {
+          "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da",
+          "uri": "runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py"
+        },
+        {
+          "sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+          "uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py"
+        },
+        {
+          "sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+          "uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py"
+        }
+      ],
+      "role": "compiler",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "compile_manifest",
+          "kind": "hash"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "4ffec745ebf88ab1a050089368d94111d8361c650727e27b19e7a2dec4a642b5",
+    "revision": 828,
+    "state_digest": "83b7802544aac278ff665135d04e4ce3660bb2184c9aa66a5ae20a4e6edcb9ae"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "98238bd1160e4fcc9c8eec9a874aee6f559295b1db5df500c43574607ef3fcbe",
+    "hash": "1270e33cab90338db1f525aeab65abc01434927e8771ff29b7cd2d128dcc9ca3",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:27:22.354058Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-V6_compile_297e4d54680b970deaed-1",
+        "evidence": [
+          "runtime/v6/task-briefs/V6_compile_297e4d54680b970deaed.json"
+        ],
+        "expected_revision": 828,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "0942a718008a319b2b5082fa3712b02bd8305b6c71159aca02e7b1e5e9482d76",
+    "revision": 829,
+    "state_digest": "348d64edde99ec718537fe91b86200d9b325a17ba742dd5af4f41bc9b099f2c3"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "4b1bd0814b924bce05d2d6396fbd1de4cb65da471c8b01cf390882a9c939c8d7",
+    "hash": "8a086f472ebabc0d0eaf1438d26afdf50828cb6ceb3d126cc7c0f04f68348a06",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:27:22.897042Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-V6_compile_297e4d54680b970deaed-1",
+        "evidence": [
+          "runtime/v6/task-briefs/V6_compile_297e4d54680b970deaed.json"
+        ],
+        "expected_revision": 829,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "1270e33cab90338db1f525aeab65abc01434927e8771ff29b7cd2d128dcc9ca3",
+    "revision": 830,
+    "state_digest": "2b35c000b9ee3cfffb5afaa4443dda7c03636bef762412eaa3d247a4aa635820"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "0eef796da3864eff8d3fda74b78cafb5912c58976979149933212f56733fee5f",
+    "hash": "c7b733716882f0d664f573fff191f9b4d87dd7286b7cbadcff3011f558edde83",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:28:20.995313Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-67cb241c69480b658d6ac806",
+              "host-file:e8281151873e5c0007f41b028fc6a8184fe2b9b8b39b6d7b9414549c16ebf703"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "REVIEWFIX-COMPILE_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-67cb241c69480b658d6ac806",
+          "host-file:e8281151873e5c0007f41b028fc6a8184fe2b9b8b39b6d7b9414549c16ebf703"
+        ],
+        "expected_revision": 830,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-67cb241c69480b658d6ac806",
+        "agent_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+        "batch": 1,
+        "dispatch_id": "dispatch-67cb241c69480b658d6ac806",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T18:28:20.995313Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T18:28:20.995313Z",
+        "status": "RUNNING",
+        "task_digest": "bc78a3955f66fd01c5cd4c4052cb86196ffab3f20d4cbba3d34ae7f72c8253fd",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "tool_result_sha256": "e8281151873e5c0007f41b028fc6a8184fe2b9b8b39b6d7b9414549c16ebf703",
+        "tool_result_uri": "runtime/v6/host-evidence/e8281151873e5c0007f41b028fc6a8184fe2b9b8b39b6d7b9414549c16ebf703.json"
+      },
+      "review": null
+    },
+    "previous_hash": "8a086f472ebabc0d0eaf1438d26afdf50828cb6ceb3d126cc7c0f04f68348a06",
+    "revision": 831,
+    "state_digest": "eaef6d09aa6873380fe94c866b42b10942ba2fa30de7c9263ab180f43bce2984"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "5da362e7a9a93afb17de00f3d60347bc623b1117072af406d07a97f0806db8a7",
+    "hash": "fe71a5220bce30222198e0ac08853d93c6fd0ca7ce444faf09fa3b16be06def8",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:28:42.995469Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/reviewfix-compile-ack-1.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "REVIEWFIX-COMPILE-ACK_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator read frozen dispatch for graph-only Compile batch 1 and is verifying all inputs/resources and semantic failure evidence.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "ACK"
+    },
+    "previous_hash": "c7b733716882f0d664f573fff191f9b4d87dd7286b7cbadcff3011f558edde83",
+    "revision": 832,
+    "state_digest": "9b8f386fc95bebae7641ec8a87b31137b615e41d8ca20b7bac27136d695593e8"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "3a081ff12ac253b1060a55f5b953c64777ea6923281fa5867d8c0aa04e8e95b9",
+    "hash": "22118e239f2e1a58db83bb0726a9d2d7f09ba36a5b4c3065e85331692465d7fd",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:29:13.144606Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/reviewfix-compile-resource-reminder.txt"
+      ],
+      "in_reply_to": "REVIEWFIX-COMPILE-ACK_ACK_1",
+      "message_id": "REVIEWFIX_COMPILE_RESOURCE_REMINDER_1",
+      "recipient_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Host reminded creator to verify every frozen resource after noticing ACK count discrepancy; the creator subsequently reported all 28 inputs and 20 resources hashed PASS.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "fe71a5220bce30222198e0ac08853d93c6fd0ca7ce444faf09fa3b16be06def8",
+    "revision": 833,
+    "state_digest": "90c6578575d673fe781f3184de2d6b6a6f94a0bc18a56ada353630571df89e73"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "11b6df21771a749bdd6af65f9b2658632052c75b228b0f2e0fa853c0b4211d4e",
+    "hash": "5caaba86ac83e0da992295dbc50a249e59a0b3ab1e0eb9a669073493d44c6ae6",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:29:25.438830Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/reviewfix-compile-progress-1.txt"
+      ],
+      "in_reply_to": "REVIEWFIX_COMPILE_RESOURCE_REMINDER_1",
+      "message_id": "REVIEWFIX-COMPILE-PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator reports all 28 inputs and 20 locked resources read bytewise and SHA matched, including prior compile semantic failure; now running native validation and semantic closure checks.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "22118e239f2e1a58db83bb0726a9d2d7f09ba36a5b4c3065e85331692465d7fd",
+    "revision": 834,
+    "state_digest": "242f6d994fef6ac18ec31e11f9c7e0fef4546f33a4a314186dc71aecc754014c"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "233c1fa838698b5ec78c6e515a8e00e3d4151a20b76e8571bf97c6b08b009adc",
+    "hash": "2c650cd1e2a84923ad5337c521f3ae8fcb0db2b465971cc6e4e35d45583f8743",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:29:54.358791Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/reviewfix-compile-progress-2.txt"
+      ],
+      "in_reply_to": "REVIEWFIX-COMPILE-PROGRESS_PROGRESS_1",
+      "message_id": "REVIEWFIX-COMPILE-PROGRESS2_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator reports 24 frozen build file hashes matched; copied AVIR and manifest bytes, locked AVIR VALID and package VERIFIED, old visibility conflict closed at 10500/12000 ms; completing checks and handoff.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "5caaba86ac83e0da992295dbc50a249e59a0b3ab1e0eb9a669073493d44c6ae6",
+    "revision": 835,
+    "state_digest": "bc03253c951fdd383c77a1925d458e526856a4babc5956d56624315cd550bcdb"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "3a05d3d017eb815120ef009eb2c0c0c5338a68ef7063b4d898101c4c090d7085",
+    "hash": "397b83f5cc67541a973c5c4dd3f5304006e3eda88d097809cc9e83547f8253ba",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:31:47.457252Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/candidate-result.json",
+        "runtime/v6/host-inputs/reviewfix-compile-result-1.txt"
+      ],
+      "in_reply_to": "REVIEWFIX-COMPILE-PROGRESS2_PROGRESS_1",
+      "message_id": "REVIEWFIX-COMPILE-RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+      "subject_sha256": "1fabbbf3f1d2a4b0205ba6ffc1f64dcaaf616bcf678714305d169d88a0538992",
+      "subject_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/candidate-result.json",
+      "summary": "Graph-only Compile candidate ready: 28 input/20 resource hashes, native VALID, package VERIFIED, prior semantic conflict closed statically; independent review pending, media NOT_RUN.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "RESULT"
+    },
+    "previous_hash": "2c650cd1e2a84923ad5337c521f3ae8fcb0db2b465971cc6e4e35d45583f8743",
+    "revision": 836,
+    "state_digest": "2c9935c1f41a57f72c54e620730bdf6f64d4369c460283c0b0f0da294d9248f9"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "ff2b39ae79bb94c69078c4d54a939df55d555f57beb0dac930d84022cbed40be",
+    "hash": "23b96b55aacde7a3dbb34f3b37274fe37d6002ab5db2a16d5cbbb61cd6aa1870",
+    "op": "transition",
+    "payload": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+        "artifacts": [
+          {
+            "kind": "AVIR",
+            "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+            "slot": "compile:project:project:AVIR",
+            "uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json"
+          },
+          {
+            "kind": "CompilePackage",
+            "sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+            "slot": "compile:project:project:CompilePackage",
+            "uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/module-receipt.json",
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/input-integrity.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/native-validator.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/compile-manifest.json",
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/semantic-closure.json",
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/constraint-clauses.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/handoff.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/handoff.json"
+            ],
+            "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+            "source_slot": "storyboard:project:project:StoryboardIR",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "compile:project:project:AVIR"
+          },
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/handoff.json"
+            ],
+            "requirement_id": "UP_e5288336c739feea7cd2b47d",
+            "source_slot": "control:project:project:ShotControlPack",
+            "source_version": 15,
+            "target_pointer": "",
+            "target_slot": "compile:project:project:AVIR"
+          }
+        ],
+        "input_digest": "882882ec764d48e49a75762358efaa6239d4928e5c4c37b404164061fd9c3566",
+        "module_receipts": [
+          {
+            "name": "video-prompt-compiler",
+            "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+            "version": "1.17.6"
+          }
+        ],
+        "result_sha256": null,
+        "result_uri": null,
+        "schema": "candidate-result/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "unresolved": []
+      },
+      "event": {
+        "actor_id": "/root/host_bridge/v6_358a224f5db0a6562d4d60bd",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:32:06.926524Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "REVIEWFIX-COMPILE_SUBMIT_1",
+        "evidence": [],
+        "expected_revision": 836,
+        "from_state": "RUNNING",
+        "object_version": 8,
+        "reason": "RESULT_RECEIVED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "RESULT_SUBMITTED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "397b83f5cc67541a973c5c4dd3f5304006e3eda88d097809cc9e83547f8253ba",
+    "revision": 837,
+    "state_digest": "54edab67bd7134dfd75bf5448643c7a625d31d84858e6e348c4eae3372120699"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "355917d95c49473e6b703959571ed010eb7fe5d7877cd0940ddb1d6d7137d5bc",
+    "hash": "f47d30e1bd7c59d0c3a7ff8a5192cab6e092e43ca6c30c39c2a1aa1be24433ee",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:32:07.376088Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "REVIEWFIX-COMPILE_SUBMIT_1-validate",
+        "evidence": [],
+        "expected_revision": 837,
+        "from_state": "RESULT_SUBMITTED",
+        "object_version": 9,
+        "reason": "VALIDATION_STARTED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "VALIDATING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "23b96b55aacde7a3dbb34f3b37274fe37d6002ab5db2a16d5cbbb61cd6aa1870",
+    "revision": 838,
+    "state_digest": "49fded48f16114cd7e0831b8f862522509e284b2692efa59276320fbb49c287e"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "369d6b0dc2aa5817c944ba5993edff6f36c5f9f4e48f30a5cba29eaf88eb9808",
+    "hash": "6a75cfd560da1a72961b4ab202c80fa740bfc9374d49d82721fcfa9c05f55462",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:32:07.974320Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/module-receipt.json",
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/input-integrity.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/native-validator.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/compile-manifest.json",
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/semantic-closure.json",
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/constraint-clauses.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/handoff.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "REVIEWFIX-COMPILE_SUBMIT_1-validation",
+        "evidence": [],
+        "expected_revision": 838,
+        "from_state": "VALIDATING",
+        "object_version": 10,
+        "reason": "VALIDATION_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "REVIEW_REQUIRED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "f47d30e1bd7c59d0c3a7ff8a5192cab6e092e43ca6c30c39c2a1aa1be24433ee",
+    "revision": 839,
+    "state_digest": "7a2e12b22c8e73b36ba669b93117085921d402aca69631ee2bbdba14e6c21ce0"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "0459daa33e421bbbac6903485181a50a8c8b3b9455dfc11090633209c8b3441e",
+    "hash": "8bff45209ce9fce10461d3aba1a829cf22a36d6442df36cb2535c49d4e0de0b4",
+    "op": "review_dispatch",
+    "payload": {
+      "evidence": [],
+      "receipt": {
+        "action_id": "review-67cb241c69480b658d6ac806",
+        "agent_id": "/root/host_bridge/v6_0f15f884265f9b6cd39021f7",
+        "batch": 1,
+        "dispatch_id": "review-67cb241c69480b658d6ac806",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T18:32:30.546508Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T18:32:30.546508Z",
+        "status": "RUNNING",
+        "task_digest": "bc78a3955f66fd01c5cd4c4052cb86196ffab3f20d4cbba3d34ae7f72c8253fd",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "tool_result_sha256": "bb64580ecc24414047f34921490e6d921e42dcb2b013207b947cbb15cb35c1f5",
+        "tool_result_uri": "runtime/v6/host-evidence/bb64580ecc24414047f34921490e6d921e42dcb2b013207b947cbb15cb35c1f5.json"
+      }
+    },
+    "previous_hash": "6a75cfd560da1a72961b4ab202c80fa740bfc9374d49d82721fcfa9c05f55462",
+    "revision": 840,
+    "state_digest": "646e353521dca59cd67205008679f82a4dbe5caa175837c7e0b58c1cd7109475"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "4d3567aa5011342efeea19b6eb857c77c2645636244ab04a3057f45f340abfb5",
+    "hash": "45f184c6cce452be8eaae27a3187a9a86889e02f419be4155e8b1e8f8f1bee3e",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:32:44.079470Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/reviewfix-compile-review-ack-1.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "REVIEWFIX-COMPILE-REVIEW-ACK_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_0f15f884265f9b6cd39021f7",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Independent reviewer accepted frozen Compile review task and is verifying four checks, hashes, semantic closure, graph-only result, handoffs and static/media boundary.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "ACK"
+    },
+    "previous_hash": "8bff45209ce9fce10461d3aba1a829cf22a36d6442df36cb2535c49d4e0de0b4",
+    "revision": 841,
+    "state_digest": "80a970264f8b0588c8eef59ed1c3452e3ce4340dd9ca91b355a520200e779784"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "ee402feee03c7ac9046245c3ba3316a13c467f2f39cae615ebe3f9e725da2b5b",
+    "hash": "57f126d7c195cd40bc99abe879380714aa071933685d96ba2394c9636dc01d35",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:33:04.163705Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/reviewfix-compile-review-progress-1.txt"
+      ],
+      "in_reply_to": "REVIEWFIX-COMPILE-REVIEW-ACK_ACK_1",
+      "message_id": "REVIEWFIX-COMPILE-REVIEW-PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_0f15f884265f9b6cd39021f7",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer independently rehashes 28 inputs/20 resources and checks prior visibility conflict against current AVIR/prompt/handoff and locked validator output.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "45f184c6cce452be8eaae27a3187a9a86889e02f419be4155e8b1e8f8f1bee3e",
+    "revision": 842,
+    "state_digest": "4ce4735fc04af2a1c356ce5325f6d06f70531ab3ff9ef329498419e04a730460"
+  },
+  {
+    "artifacts_digest": "6f541b2df9ba490912993b945a730ac0137c5e27b2d70204b11c48a2dc95bade",
+    "commands_digest": "5776288c4ed546e3b177e46f59ea43ddf963851a2285e3db98e37596ba2d93d1",
+    "hash": "474c0edd653ee96ea6178c35c7acea45f658743e2a40f8d83e617f51a5a78047",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:35:58.632616Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/review-record.json",
+        "runtime/v6/host-inputs/reviewfix-compile-review-result-1.txt"
+      ],
+      "in_reply_to": "REVIEWFIX-COMPILE-REVIEW-PROGRESS_PROGRESS_1",
+      "message_id": "REVIEWFIX-COMPILE-REVIEW-RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_0f15f884265f9b6cd39021f7",
+      "subject_sha256": "dcb61d729e2be35f3053138ca5f4e2a8bed93bd72ae9fabafcaea66aba51b748",
+      "subject_uri": "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/review-record.json",
+      "summary": "Independent Compile review four checks PASS; hashes, locked validators, old visibility correction, two handoffs, graph-only and media NOT_RUN verified.",
+      "task_id": "V6_compile_297e4d54680b970deaed",
+      "type": "RESULT"
+    },
+    "previous_hash": "57f126d7c195cd40bc99abe879380714aa071933685d96ba2394c9636dc01d35",
+    "revision": 843,
+    "state_digest": "3f18936d9ba9a43f024c956e0f4c34275c68b531410095b3c8e2a9636f649b0d"
+  },
+  {
+    "artifacts_digest": "3941596cee83d636f6e4dbf8cfd816ebc68a75378f33e29a2fcaddd0a80d3c64",
+    "commands_digest": "046959f97e32fb563272d656bcc27216bd31c1713d7c6d47189b4acd62b6a05e",
+    "hash": "1b08dd6900f5acb56baf8f752339cd10e719e58e094f9491915c89e5ae1ed2ab",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:36:15.880902Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/compile-manifest.review.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "REVIEWFIX-COMPILE-REVIEW_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json",
+          "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json"
+        ],
+        "expected_revision": 843,
+        "from_state": "REVIEW_REQUIRED",
+        "object_version": 15,
+        "reason": "REVIEW_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed",
+        "to_state": "ACCEPTED"
+      },
+      "receipt": null,
+      "review": {
+        "at": "2026-09-25T18:35:28.447053+00:00",
+        "batch": 1,
+        "candidate_digest": "8d8f286b8ae2076739b830e7b45791ffe7f09853294561ab7591a049c00adf42",
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/compile-manifest.review.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "failure_owner": null,
+        "reviewer_agent_id": "/root/host_bridge/v6_0f15f884265f9b6cd39021f7",
+        "reviewer_dispatch_id": "review-67cb241c69480b658d6ac806",
+        "schema": "review-record/6.0",
+        "task_id": "V6_compile_297e4d54680b970deaed"
+      }
+    },
+    "previous_hash": "474c0edd653ee96ea6178c35c7acea45f658743e2a40f8d83e617f51a5a78047",
+    "revision": 844,
+    "state_digest": "2d8c3c4c3668fe0aa61883cc4d2ec98fd8c7a2ce941fd45fa4d1acd8dbbbb724"
+  }
+]

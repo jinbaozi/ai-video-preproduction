@@ -1,0 +1,78 @@
+{
+  "current_accepted_storyboard_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+  "current_accepted_storyboard_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/a2a95587db81b0ac_storyboard-ir.json",
+  "derived_camera_tracks": [
+    {
+      "rule": "CAMERA.LOCKED.HOLD.1.2",
+      "shot_id": "S1",
+      "source_paths": [
+        "/shots/0/camera/start_m",
+        "/shots/0/camera/end_m",
+        "/timeline/camera_operations/0/id",
+        "/timeline/spatial_nodes/5/id"
+      ],
+      "target_paths": [
+        "/timeline/motion_tracks/4/keyframes/0/value/value",
+        "/timeline/motion_tracks/4/keyframes/1/value/value",
+        "/timeline/motion_tracks/4/camera_operation_ids/0",
+        "/timeline/motion_tracks/4/node_id"
+      ],
+      "track_id": "CAMERA_POSITION_S1"
+    }
+  ],
+  "frozen_inputs_and_resources": [
+    {
+      "bytes": 132741,
+      "expected_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+      "observed_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+      "slot": "storyboard:project:project:StoryboardIR",
+      "status": "MATCH",
+      "uri": "runtime/v6/candidates/TASK_4f81cc62bc1b268a8f8be7b0/1/storyboard-ir.json"
+    },
+    {
+      "bytes": 9096,
+      "expected_sha256": "96927166e69f594c68503df747f047566a1a2c4d57629676008fc275b728ee0c",
+      "observed_sha256": "96927166e69f594c68503df747f047566a1a2c4d57629676008fc275b728ee0c",
+      "slot": "frozen_task",
+      "status": "MATCH",
+      "uri": "runtime/tasks/TASK_ddd2a77146e2ddd7866420cb.json"
+    },
+    {
+      "bytes": 9342,
+      "expected_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+      "observed_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+      "slot": null,
+      "status": "MATCH",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+    },
+    {
+      "bytes": 2877,
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "observed_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "slot": null,
+      "status": "MATCH",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+    },
+    {
+      "bytes": 2406,
+      "expected_sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+      "observed_sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+      "slot": null,
+      "status": "MATCH",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+    },
+    {
+      "bytes": 32544,
+      "expected_sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+      "observed_sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+      "slot": null,
+      "status": "MATCH",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+    }
+  ],
+  "input_digest": "02a1ee8a07e3b5c94404e08bc1993d3a21bc06740e2f5095d285312c6c504efc",
+  "input_revision": 432,
+  "schema": "control-source-integrity/1.0",
+  "semantic_review": "INHERITED_DETERMINISTICALLY",
+  "task_id": "TASK_ddd2a77146e2ddd7866420cb"
+}

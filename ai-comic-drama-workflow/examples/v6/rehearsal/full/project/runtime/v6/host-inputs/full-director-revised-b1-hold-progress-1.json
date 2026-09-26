@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_HOLD_PROGRESS_1",
+  "expected_revision": 132,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_HOLD_PROGRESS_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_MODULE_HOLD_1",
+    "type": "PROGRESS",
+    "summary": "Creator confirms no candidate edits while module lock is being repaired",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-hold-progress.txt"
+    ],
+    "at": "2026-09-25T13:42:29.495874Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-hold-progress.txt",
+    "subject_sha256": "f84519a3326e7ec65ccac2ba26f6b84b6eec576eac5b900c24a6b85fb033617a"
+  }
+}

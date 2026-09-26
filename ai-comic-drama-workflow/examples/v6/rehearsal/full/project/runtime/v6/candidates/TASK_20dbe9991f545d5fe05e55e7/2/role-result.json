@@ -1,0 +1,79 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json",
+  "artifact_sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/module-receipt.json"
+      ],
+      "finding": "锁定模块、四份必读资源和两项冻结输入的字节哈希吻合；已核对正式登记 Canon 的独立字节哈希与同内容。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/native-validator.json"
+      ],
+      "finding": "锁定原生终验无错误，编译包 READY，文件哈希与导演交接均吻合；语义复核为当前执行者声明。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff-check.json"
+      ],
+      "finding": "冻结 V6 Canon 的三项硬要求、实体 ID 和事件顺序映射到 ScriptIR；主稿引用当前正式登记的 Canon。",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "20dbe9991f545d5fe05e55e73e07e6794fd8c5cfc688592b956a81fc2a85ab8a",
+  "handoff": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "screenplay:project:project:ScriptIR"
+    }
+  ],
+  "module_receipt": {
+    "name": "screenplay-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md",
+        "sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md",
+        "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md",
+        "sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md",
+        "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef"
+      }
+    ],
+    "skill_sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+    "version": "1.0.1"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+  "unresolved": [],
+  "validator": {
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  }
+}

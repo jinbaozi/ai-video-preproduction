@@ -1,0 +1,19 @@
+{
+  "command_id": "ART_REVIEW_FINISH_REQUEST_COMMAND_1",
+  "expected_revision": 105,
+  "message": {
+    "at": "2026-09-25T12:39:18.190845Z",
+    "batch": 1,
+    "evidence": [],
+    "in_reply_to": "ART_REVIEW_PROGRESS_PROGRESS_1",
+    "message_id": "ART_REVIEW_FINISH_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "54a8eeefbcbd514a26e171753de1cdf589b513122656db326317d98b2f62a2be",
+    "subject_uri": "runtime/v6/host-inputs/art-review-finish-request.txt",
+    "summary": "Host requested completion of three already checked Art review evidences or precise write/schema blocker without expanding scope.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "QUESTION"
+  }
+}

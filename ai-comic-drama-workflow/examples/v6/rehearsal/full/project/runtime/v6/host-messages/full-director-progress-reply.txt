@@ -1,0 +1,1 @@
+DirectorIR candidate builder is now written under the assigned directory. Frozen Canon/ScriptIR, task envelope, and all four locked module resources have been read and hash checked. I am generating the candidate, then running the native validator and six screenplay handoff mappings; no usage-limit error has recurred.

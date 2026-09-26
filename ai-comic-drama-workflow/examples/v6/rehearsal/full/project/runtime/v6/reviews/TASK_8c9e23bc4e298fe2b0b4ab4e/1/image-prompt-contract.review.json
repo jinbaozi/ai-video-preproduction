@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "native_validator": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "scope": "schema, references, locks, coverage and state; not semantic or visual proof"
+  },
+  "production_contract_sha256": "ff0498d54ae862d2ba9f344df7deaafd136de3b8bde86b1ea95ef6f67528d401",
+  "prompt_document_sha256": "8b7b966c553f41a2c20e7eb5c165a2eed3b1276386b02ab950490e07e4eec13d",
+  "verified_semantic_phrases": [
+    "同一封信",
+    "S_HANDOFF、S_SEAL、S_STOW",
+    "只见一封",
+    "入包前",
+    "闭合折叠封口",
+    "封口从头至尾完整且未拆",
+    "内页外露",
+    "中性偏暖的哑面纸色",
+    "没有可读文字",
+    "雨夜",
+    "不出现可辨地点",
+    "不表现交接、验封或入包的先后动作",
+    "8500毫秒后完全在背包内",
+    "9000毫秒终帧不再外露"
+  ],
+  "reference_binding": "PLAN_PROP_LETTER planned; no file, hash or attachment slot",
+  "temporal_reading": "Single still is pre-stow; 8500 ms and 9000 ms remain downstream continuity constraints.",
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN",
+  "scope": "Independent static review; no image or video outcome inspected"
+}

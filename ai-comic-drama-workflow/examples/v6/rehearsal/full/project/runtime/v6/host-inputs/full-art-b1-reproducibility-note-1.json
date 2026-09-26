@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_REPRODUCIBILITY_NOTE_1",
+  "expected_revision": 116,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_REPRODUCIBILITY_NOTE_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_ART_B1_HARD_BLOCKER_DECISION_1",
+    "type": "PROGRESS",
+    "summary": "Creator records reproducible blocked candidate builder and unchanged formal state",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-reproducibility-note.txt"
+    ],
+    "at": "2026-09-25T13:20:05.046435Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-reproducibility-note.txt",
+    "subject_sha256": "420408db89713a9c90487720b85a9235cb4cae3de054257eac42a6ac2dfef264"
+  }
+}

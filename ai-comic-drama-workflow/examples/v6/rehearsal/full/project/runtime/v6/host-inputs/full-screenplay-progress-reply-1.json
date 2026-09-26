@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_PROGRESS_REPLY_1",
+  "expected_revision": 22,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_PROGRESS_REPLY_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_a7e8818a9865c8d5c564ee39",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_PROGRESS_QUESTION_1",
+    "type": "PROGRESS",
+    "summary": "Screenplay ScriptIR written; candidate evidence in progress",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-progress-reply.txt"
+    ],
+    "at": "2026-09-25T11:00:20.950978Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-progress-reply.txt",
+    "subject_sha256": "e410978a794f732fac4b24be7ff0aeb5f966dbf0d2dda1cfa020106fbfb269f4"
+  }
+}

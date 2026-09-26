@@ -1,0 +1,24 @@
+{
+  "command_id": "CONTROL_CAMERA_NODE_BLOCKER_COMMAND_1",
+  "expected_revision": 176,
+  "message": {
+    "at": "2026-09-25T13:27:40.265182Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-camera-node-blocker.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/review/blocking-001.svg",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/review/frames.json",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/control-coverage.json"
+    ],
+    "in_reply_to": "CONTROL_PROJECTION_LIMIT_1",
+    "message_id": "CONTROL_CAMERA_NODE_BLOCKER_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "e9147a3af7f8b3bd514a9b3c29ac2f7c9ccc2d913eece9dbd44e045dfa5bb287",
+    "subject_uri": "runtime/v6/host-inputs/control-camera-node-blocker.txt",
+    "summary": "Creator found rendered overhead diagram omits N_CAMERA entirely; 121/121 frame projections undetermined despite frozen static camera coordinates.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "BLOCKER"
+  }
+}

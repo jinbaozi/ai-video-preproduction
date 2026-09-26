@@ -1,0 +1,95 @@
+{
+  "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+  "compiled_files_verified": 20,
+  "coordinate_recheck": {
+    "actual_media_camera_motion_verified": false,
+    "camera_track_ms": [
+      0,
+      12000
+    ],
+    "mapping": "(X,Z,Y)",
+    "prompt_lines": {
+      "prompt-001_000000-012000ms.txt": {
+        "/shots/0/camera/end_m；数值": {
+          "line": 104,
+          "text": "12秒：冻结分镜 /shots/0/camera/end_m；数值 0、1.2、-2.8 米"
+        },
+        "/shots/0/camera/start_m；数值": {
+          "line": 103,
+          "text": "0秒：冻结分镜 /shots/0/camera/start_m；数值 0、1.2、-2.8 米；保持此值至下一节点"
+        },
+        "固定机位的位置｜": {
+          "line": 99,
+          "text": "固定机位的位置｜0–12秒"
+        },
+        "结束机位：": {
+          "line": 71,
+          "text": "结束机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        },
+        "起始机位：": {
+          "line": 70,
+          "text": "起始机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        }
+      },
+      "prompt.txt": {
+        "/shots/0/camera/end_m；数值": {
+          "line": 104,
+          "text": "12秒：冻结分镜 /shots/0/camera/end_m；数值 0、1.2、-2.8 米"
+        },
+        "/shots/0/camera/start_m；数值": {
+          "line": 103,
+          "text": "0秒：冻结分镜 /shots/0/camera/start_m；数值 0、1.2、-2.8 米；保持此值至下一节点"
+        },
+        "固定机位的位置｜": {
+          "line": 99,
+          "text": "固定机位的位置｜0–12秒"
+        },
+        "结束机位：": {
+          "line": 71,
+          "text": "结束机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        },
+        "起始机位：": {
+          "line": 70,
+          "text": "起始机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        }
+      }
+    },
+    "source_axis": "X-right,Y-depth,Z-up",
+    "source_scene_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "status": "PASS",
+    "timeline_axis": "x-right,y-up,z-depth",
+    "timeline_m": [
+      0,
+      1.2,
+      -2.8
+    ]
+  },
+  "manifest_sha256": "e534f7d00ca740af8e26485cd4aab579b3be22742e70f9c70f489b68cde3a199",
+  "mode": "text",
+  "prior_failed_review": {
+    "error_code": "CAMERA_COORDINATE_CONFLICT",
+    "failure_owner": "director",
+    "repair_brief_sha256": "43542b5335b3b80b6c6da390c0cdd1c815ea1999dc1d403969362febdd141110",
+    "repair_brief_uri": "runtime/v6/upstream-repair/UPR_7aacd89414612ed785a0480b.json",
+    "review_sha256": "e1f58c8bff362bd6e61c885be553dddc6fc444ae6d87740855cdeadba728d66d",
+    "review_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json"
+  },
+  "replay_files_exact_match": 20,
+  "semantic_read": "Single 12-second shot preserves rain-night, one sealed letter, right-hand handoff, seal check before stow, backpack, and no dialogue; media outcome remains untested.",
+  "static_boundary": {
+    "artifact": "COMPILED",
+    "media_qa": "NOT_RUN",
+    "post_obligations": "PLANNED",
+    "prompt_review": "PENDING_AGENT_REVIEW",
+    "runnable": false,
+    "segment": "DRAFT_REQUIRES_TARGET_CHECK",
+    "submitted": false,
+    "transport": "unresolved"
+  },
+  "status": "PASS",
+  "target": "seedance2.0"
+}

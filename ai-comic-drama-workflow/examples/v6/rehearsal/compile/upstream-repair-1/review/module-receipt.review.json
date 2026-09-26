@@ -1,0 +1,17 @@
+{
+  "archive_members_verified": 123,
+  "archive_sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+  "batch": 1,
+  "creator_and_reviewer_distinct": true,
+  "declared_resources_verified": 5,
+  "frozen_inputs_verified": 27,
+  "input_digest": "fd85085d084323b31bf2c89f6e7bf0dd4b683ab4d1a7ff3cb2e7747a07f4d1a4",
+  "module": {
+    "name": "video-prompt-compiler",
+    "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+    "version": "1.17.6"
+  },
+  "runtime_files_verified": 77,
+  "status": "PASS",
+  "task_id": "V6_compile_3d390e1ba62af9b653ce"
+}

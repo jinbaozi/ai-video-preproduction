@@ -1,0 +1,200 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/art-ir.json",
+  "artifact_sha256": "d90e8c3ba2288f97f79393bebdf3262958d00057656d6d23bf5b299c4e7afd4b",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/module-receipt.json"
+      ],
+      "finding": "四份锁定资源和两份V5原生输入已逐字节核对。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/phase-pointer-limit.json"
+      ],
+      "finding": "锁定 art_compile.py 新鲜校验返回 STATIC_VALID；仅为静态检查。phase 指针限制单列，媒体未审。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v5.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v6-canon.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v6-director.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/phase-pointer-limit.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/hard-requirement-audit.json"
+      ],
+      "finding": "六条V5语法目标断言通过，但硬终态在Art原生状态演算中仍为背包待收纳；当前Director无可引用phase，故语义交接未满足。",
+      "id": "handoff",
+      "status": "FAIL"
+    }
+  ],
+  "complete": false,
+  "conflicts": [],
+  "context_fingerprint": "f43c3388a29f02af7a8fc90a6a71292a18259ff9c83ad0186f1da8baea34d684",
+  "handoff": [
+    {
+      "reason": "雨夜写入世界、美术环境和逐镜背景，地点及室内外仍开放。",
+      "requirement_id": "director:REQ_RAIN_NIGHT",
+      "source_fingerprint": "d00285ea99d113dad7fe1cb8a5276cdf55e6ea17a7fbffe615f71223e7e569d8",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/world/thesis",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/set/atmosphere",
+          "value": "具体室内外"
+        }
+      ],
+      "target_clause": "ART_WORLD"
+    },
+    {
+      "reason": "同一 PROP_LETTER 资产绑定三个镜头，封口持续完整且验封不拆。",
+      "requirement_id": "director:REQ_SAME_UNOPENED_LETTER",
+      "source_fingerprint": "d657c9b7f9234f453f2272b4d56cf0042ef5e52c368f283069ba3f8bb07e2e4d",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/assets/2/identity_locks/0",
+          "value": "同一实体 PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/occlusion",
+          "value": "未拆信"
+        }
+      ],
+      "target_clause": "ART_CONTINUITY"
+    },
+    {
+      "reason": "逐镜美术支持与冻结导演的三个有序 timeline/actions 对齐；Art 不重写动作时间线。",
+      "requirement_id": "director:REQ_EVENT_ORDER",
+      "source_fingerprint": "b95e8f55497a04a7d52f95ebb08b8bfcb27a029851a65e95f030ab861b346bc2",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/id",
+          "value": "S_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/id",
+          "value": "S_SEAL"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/id",
+          "value": "S_STOW"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/negative_space",
+          "value": "不提前显示入包"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    },
+    {
+      "reason": "终镜美术支持明确8500毫秒后信在包内且终帧不外露；动作终态仍以冻结导演时间线为准。",
+      "requirement_id": "director:REQ_ENDING",
+      "source_fingerprint": "58bf0b8f87e7a1fb617d053bb9c094233794f0f2bf2481397acb328ea8d6d3d2",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/background",
+          "value": "8500毫秒后信完全在背包内"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/occlusion",
+          "value": "终帧只见乙手退出与背包口"
+        }
+      ],
+      "target_clause": "ART_STOW"
+    },
+    {
+      "reason": "三个原生事件 ID 分别锚入对应镜头美术遮挡约束，角色认知与动作起讫仍由DirectorIR持有。",
+      "requirement_id": "director:REQ_SCRIPT_EVENTS",
+      "source_fingerprint": "0444e57ad1f49732ab1df213b0f1a85cc8f42b9510654500113683e1d88ada9c",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/occlusion",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/occlusion",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/occlusion",
+          "value": "EVT_STOW"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    },
+    {
+      "reason": "交接镜不提前展示验封/入包，验封镜不提前展示入包，最后镜才呈现收存结果。",
+      "requirement_id": "director:REQ_REVEAL_ORDER",
+      "source_fingerprint": "80801887eec1d58d31b0cfdc2621024b819ea5a27ff9ac5daa2c03dddb14f3e7",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/negative_space",
+          "value": "不提前展示验封或入包结果"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/negative_space",
+          "value": "不提前显示入包"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/negative_space",
+          "value": "只在验封之后出现"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    }
+  ],
+  "module_receipt": {
+    "name": "production-design-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md",
+        "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md",
+        "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md",
+        "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901"
+      }
+    ],
+    "skill_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+    "version": "1.3.1"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+  "unresolved": [
+    "Director owner: frozen DirectorIR 1.2 has no /shots/N/phases/K, so locked ArtIR.events cannot encode the three existing /timeline/actions. Shot-level Art support and V5 target assertions preserve their meaning; independent reviewer must decide whether this is adequate for downstream continuity."
+  ],
+  "validator": {
+    "art_sha256": "d90e8c3ba2288f97f79393bebdf3262958d00057656d6d23bf5b299c4e7afd4b",
+    "status": "STATIC_VALID"
+  }
+}

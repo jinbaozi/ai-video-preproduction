@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B3_REVIEW_RESULT_COMMAND_1",
+  "expected_revision": 84,
+  "message": {
+    "at": "2026-09-25T12:21:53.268417Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json"
+    ],
+    "in_reply_to": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_1",
+    "message_id": "DIRECTOR_B3_REVIEW_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "subject_sha256": "5a19c080e6eb3692edc7004a77f58782ba4f5434a125805cd688046c210e4846",
+    "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json",
+    "summary": "Independent batch-3 Director review PASS on module receipt, native validation and handoff; all four prior defects resolved across six checkpoints; canonical candidate digest binding corrected by reviewer with original v1 preserved.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "RESULT"
+  }
+}

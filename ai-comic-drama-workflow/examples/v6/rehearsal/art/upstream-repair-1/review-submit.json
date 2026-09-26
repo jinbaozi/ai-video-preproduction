@@ -1,0 +1,37 @@
+{
+  "command_id": "ARTREPAIR-REVIEW_SUBMIT_1",
+  "expected_revision": 398,
+  "review": {
+    "at": "2026-09-25T15:30:36.951975Z",
+    "batch": 1,
+    "candidate_digest": "64ea5bf23363b4c7656efa806c0c7049095b2ec6ed7953537c58bbd3e1e4fa83",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+    "reviewer_dispatch_id": "review-ae36c50928a68e33a352bda0",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3"
+  }
+}

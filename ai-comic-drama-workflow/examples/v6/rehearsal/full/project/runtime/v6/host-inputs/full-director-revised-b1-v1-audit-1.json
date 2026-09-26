@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_V1_AUDIT_1",
+  "expected_revision": 130,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_V1_AUDIT_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_MODULE_HOLD_1",
+    "type": "BLOCKER",
+    "summary": "Director 1.0 downshift loses required 1.2 timeline and native screenplay bindings",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-v1-audit.txt"
+    ],
+    "at": "2026-09-25T13:30:27.827700Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-v1-audit.txt",
+    "subject_sha256": "aff5450fc71ba3d6a0d30206cd65580aeec03e94b78748e9404824acc6b0c983"
+  }
+}

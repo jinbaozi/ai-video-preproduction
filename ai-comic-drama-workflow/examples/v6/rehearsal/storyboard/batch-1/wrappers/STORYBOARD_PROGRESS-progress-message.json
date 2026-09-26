@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 136,
+  "message": {
+    "at": "2026-09-25T12:45:35.510025Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-progress-report.txt"
+    ],
+    "in_reply_to": "STORYBOARD_PROGRESS_REQUEST_1",
+    "message_id": "STORYBOARD_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "subject_sha256": "ec3b6a7ce094b7f8bf0f16ee57c93a2538108c8343ca6d562d1336d297db2533",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-progress-report.txt",
+    "summary": "Storyboard creator verified frozen hashes and accepted Canon/ScriptIR/DirectorIR/ArtIR; no blocker, preserving Director timeline and explicitly mapping coordinates, camera/visibility and overhead handoff; media NOT_RUN.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "PROGRESS"
+  }
+}

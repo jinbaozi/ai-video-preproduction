@@ -1,0 +1,62 @@
+{
+  "build-control.py": {
+    "sha256": "561d2b2bfefa87cfcc15c85b9ee35c6238326b45f60ce6e07fd89c34be2c2354",
+    "bytes": 8802
+  },
+  "control-config.json": {
+    "sha256": "d052220b07a14a08e7162d30428f1b62a1efd45773419a482a15fc653890dc4e",
+    "bytes": 597
+  },
+  "control-pack/control-config.json": {
+    "sha256": "d052220b07a14a08e7162d30428f1b62a1efd45773419a482a15fc653890dc4e",
+    "bytes": 597
+  },
+  "control-pack/evaluation-plan.json": {
+    "sha256": "5650a0a69700a88a597319c18ce7b417310cb4a9216054f1baf170ffabacf946",
+    "bytes": 108966
+  },
+  "control-pack/keyframe-requests.json": {
+    "sha256": "f2070e255c1f4082cdc488a2f17afd4c1205c3b77177a174a075ca7df8cff6e4",
+    "bytes": 242338
+  },
+  "control-pack/production-specification.json": {
+    "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "bytes": 126063
+  },
+  "control-pack/review/blocking-001.svg": {
+    "sha256": "af21149321e95cd390f3a74c1c76ab34e23ee851af8509816009ddccc6c14e8a",
+    "bytes": 11641
+  },
+  "control-pack/review/frames.json": {
+    "sha256": "f3c5294bdb70816c87f07e1dc830c9bc96f2149c9ec826b5f55d77e3c675dd8a",
+    "bytes": 2266433
+  },
+  "control-pack/review/index.html": {
+    "sha256": "6a62b5d9ccc5fdd5298a1497cd3982435675ba62a76cdddf8c3c61cf9f2df0b4",
+    "bytes": 795710
+  },
+  "evidence/adapter-report.json": {
+    "sha256": "11f45358e00e0181970ed85154ff95c8b54825ee815e438111ecb5a7c49b207f",
+    "bytes": 1032553
+  },
+  "evidence/control-build.json": {
+    "sha256": "8cdc3a66dd2b89e9a604bba3ed94c759222b506a7757c2ce43b3a8b81af3153c",
+    "bytes": 351
+  },
+  "evidence/native-av-validation-command.json": {
+    "sha256": "70d356362943ada9fcd51de4840c71ff11a741431923bc71cb014151ec215625",
+    "bytes": 438
+  },
+  "evidence/promotion-diff.json": {
+    "sha256": "44229c2ddc8bf6cbb3d8270af6503533c4b6cea224ad6155120638f715ed978f",
+    "bytes": 4420
+  },
+  "finalize-control.py": {
+    "sha256": "3957d94b70c9cc79ef62875d426dd772ad37c76a8161d93c6a59466ab68561cc",
+    "bytes": 13516
+  },
+  "native-av-ir.json": {
+    "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "bytes": 126063
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_RESULT_1",
+  "expected_revision": 60,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_RESULT_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_83a899880d2e84fbf7f0a5a4",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Director creator submits candidate-result.json",
+    "evidence": [
+      "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/candidate-result.json"
+    ],
+    "at": "2026-09-25T12:23:39.172380Z",
+    "subject_uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/candidate-result.json",
+    "subject_sha256": "e607c7af553c840c8a47787f8d7481e15fa0edec70f0d84316b9dd1299ab21d3"
+  }
+}

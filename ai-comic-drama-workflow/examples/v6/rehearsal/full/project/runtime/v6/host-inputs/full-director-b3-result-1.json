@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_RESULT_1",
+  "expected_revision": 96,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_RESULT_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_19f7d0afd51ff59e575a24ec",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_B3_CANDIDATE_READY_1",
+    "type": "RESULT",
+    "summary": "Creator submits Director batch-3 candidate with native handoff repair",
+    "evidence": [
+      "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/candidate-result.json"
+    ],
+    "at": "2026-09-25T12:58:51.755733Z",
+    "subject_uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/candidate-result.json",
+    "subject_sha256": "7d1b358a64ca6e4a11d723776d8222e840b74b04a606e8138411344faa46cf88"
+  }
+}

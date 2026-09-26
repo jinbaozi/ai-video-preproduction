@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/scripts/validate_production_contract.py",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/production-contract.json"
+  ],
+  "exit_code": 0,
+  "stdout_uri": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/contract-validator-stdout.txt",
+  "stdout_sha256": "80937e259f6475cd53aa0626527f3176a736fa40b05959aff7523dd65581ec8c",
+  "stderr_uri": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/contract-validator-stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

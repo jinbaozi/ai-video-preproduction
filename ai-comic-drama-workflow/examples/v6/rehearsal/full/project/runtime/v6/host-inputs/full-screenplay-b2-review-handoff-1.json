@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_B2_REVIEW_HANDOFF_1",
+  "expected_revision": 48,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_B2_REVIEW_HANDOFF_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_246b5841b65e96879b2a2a6c",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_B2_REVIEW_PROGRESS_QUESTION_1",
+    "type": "HANDOFF",
+    "summary": "Independent batch-2 screenplay review complete and PASS",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-b2-review-ready.txt"
+    ],
+    "at": "2026-09-25T11:25:24.647105Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-b2-review-ready.txt",
+    "subject_sha256": "f96f4857f563b01a1d7c9cd0d7c968fcdc94263ae374dd10809fd7dcda30b105"
+  }
+}

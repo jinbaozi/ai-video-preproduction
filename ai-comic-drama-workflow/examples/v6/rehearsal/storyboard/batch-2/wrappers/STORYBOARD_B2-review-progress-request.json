@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_B2_REVIEW_PROGRESS_REQUEST_COMMAND_1",
+  "expected_revision": 154,
+  "message": {
+    "at": "2026-09-25T13:07:51.165042Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-b2-review-progress-request.txt"
+    ],
+    "in_reply_to": "STORYBOARD_B2_REVIEW_GUIDANCE_1",
+    "message_id": "STORYBOARD_B2_REVIEW_PROGRESS_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "198b6913b4b52e7cbb8e60976e1418f5025512e82299b27bed54d407946dab8f",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-b2-review-progress-request.txt",
+    "summary": "Host requested reviewer status or blocker while preserving independent judgment and media NOT_RUN boundary.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "QUESTION"
+  }
+}

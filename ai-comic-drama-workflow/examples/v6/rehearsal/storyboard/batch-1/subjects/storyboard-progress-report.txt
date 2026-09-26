@@ -1,0 +1,1 @@
+已核对冻结哈希、接受的 Canon/ScriptIR/DirectorIR/ArtIR 和 storyboard-grammar 1.3.2。当前未发现阻塞；DirectorIR 的 1.2 时间轨已经使用 storyboard 的 x-right,y-up,z-depth 坐标，旧静态机位/状态需显式换轴。我会将原时间轨精确保留，并在画格、固定机位、可见性与合同中绑定交接→验封→入包及俯视空间关系；媒体审核标记 NOT_RUN。

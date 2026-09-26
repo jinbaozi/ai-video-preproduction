@@ -1,0 +1,35 @@
+{
+  "candidate_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "control_production_spec_and_candidate_avir_bytes_equal": true,
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/handoff.json"
+      ],
+      "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+      "source_slot": "storyboard:project:project:StoryboardIR",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "compile:project:project:AVIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/handoff.json"
+      ],
+      "requirement_id": "UP_4b84d71046e8b9c2f571029f",
+      "source_slot": "control:project:project:ShotControlPack",
+      "source_version": 19,
+      "target_pointer": "",
+      "target_slot": "compile:project:project:AVIR"
+    }
+  ],
+  "media_qa": "NOT_RUN",
+  "source_and_avir_actions_equal": true,
+  "source_and_avir_camera_operations_equal": true,
+  "source_and_avir_state_samples_equal": true,
+  "source_control_manifest_sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+  "source_storyboard_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "status": "PASS"
+}

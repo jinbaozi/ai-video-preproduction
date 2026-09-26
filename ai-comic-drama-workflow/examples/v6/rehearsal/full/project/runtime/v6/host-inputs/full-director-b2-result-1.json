@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B2_RESULT_1",
+  "expected_revision": 79,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B2_RESULT_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_55931af0cddf390b43ba149a",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_B2_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Creator submits repaired Director batch-2 candidate",
+    "evidence": [
+      "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/candidate-result.json"
+    ],
+    "at": "2026-09-25T12:42:00.880681Z",
+    "subject_uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/candidate-result.json",
+    "subject_sha256": "283c0dc558d14db0238eefa52752e12074a2010f8c3c70a8866534b3ca8b0cbf"
+  }
+}

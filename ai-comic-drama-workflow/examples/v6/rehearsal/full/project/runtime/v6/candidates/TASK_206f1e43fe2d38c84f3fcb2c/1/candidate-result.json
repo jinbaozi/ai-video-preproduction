@@ -1,0 +1,66 @@
+{
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_206f1e43fe2d38c84f3fcb2c",
+  "batch": 1,
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_89ee5d36eed7d88d30b16458",
+  "input_digest": "7eb1b7bc6a853eeb14ba8282f5e0dc444b15849e162d982815c1273d35d27c9e",
+  "result_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/role-result.json",
+  "result_sha256": "a7391d3c539b1f3362b47d645e20897af12224cd4c651ea97bb2364eecb2956e",
+  "artifacts": [
+    {
+      "slot": "screenplay:project:project:ScriptIR",
+      "kind": "ScriptIR",
+      "uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+      "sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93"
+    }
+  ],
+  "module_receipts": [
+    {
+      "name": "screenplay-grammar",
+      "version": "1.0.2",
+      "sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4"
+    }
+  ],
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/module-receipt.json"
+      ]
+    },
+    {
+      "id": "native_validator",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/native-compile.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/semantic-review.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/native-validator-refresh.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff-check.json"
+      ]
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_10aaee2a8411c3ed15da2c11",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "screenplay:project:project:ScriptIR",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff-check.json"
+      ]
+    }
+  ],
+  "unresolved": []
+}

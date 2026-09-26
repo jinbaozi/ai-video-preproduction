@@ -1,0 +1,271 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+  "artifact_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/module-receipt.json"
+      ],
+      "finding": "当前冻结输入和锁定模块字节验证通过。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/coordinate-repair.json"
+      ],
+      "finding": "锁定 DirectorIR 1.2 校验为 STATIC_VALID；镜头坐标、文字机位和六个时间样本一致。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/v6-handoffs.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/upstream-repair.json"
+      ],
+      "finding": "当前六条 V5 编剧映射及两条 V6 上游交接逐项核对。",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "19a3cd14f25bf90e50215d4d329a45115e73ab25f60b9e854353469dcb7802af",
+  "handoff": [
+    {
+      "reason": "场景明确保留雨夜并保持地点、内外未定；声音与夜间可读性见同一硬条款。",
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "review": {
+        "director_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+        "findings": [
+          "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+          "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+          "按上游独立失败证据显式核对原生静态轴序与时间轴换算，并修正进入正文的时间轴机位文字；重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要。",
+          "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+        ],
+        "reviewer": "/root/host_bridge/v6_859d227c7d730ab3b9722469 / creator screenplay mapping check; independent V6 review pending",
+        "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+      },
+      "source_fingerprint": "b60d473b93e0128c877075bb361cdf0a7354d9d5fc800c059068a6f438772991",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/space",
+          "value": "雨夜；具体地点和室内外未指定"
+        }
+      ],
+      "target_clause": "D_RAIN"
+    },
+    {
+      "reason": "稳定道具 ID 贯穿交接、验封和入包，动作只处理这封未拆信。",
+      "requirement_id": "screenplay:REQ_SINGLE_LETTER",
+      "review": {
+        "director_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+        "findings": [
+          "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+          "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+          "按上游独立失败证据显式核对原生静态轴序与时间轴换算，并修正进入正文的时间轴机位文字；重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要。",
+          "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+        ],
+        "reviewer": "/root/host_bridge/v6_859d227c7d730ab3b9722469 / creator screenplay mapping check; independent V6 review pending",
+        "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+      },
+      "source_fingerprint": "f71a2edda35cedc6ce71ec44bd1df6a7cb787ea8afca919ec19d393a53032c84",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/entities/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/3/operation",
+          "value": "封口完整"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/4/operation",
+          "value": "同一封信"
+        }
+      ],
+      "target_clause": "D_SINGLE_LETTER"
+    },
+    {
+      "reason": "控制权交接完成后才验封，验封动作结束后才启动收存；逐项时间和依赖均可查。",
+      "requirement_id": "screenplay:REQ_ACTION_ORDER",
+      "review": {
+        "director_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+        "findings": [
+          "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+          "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+          "按上游独立失败证据显式核对原生静态轴序与时间轴换算，并修正进入正文的时间轴机位文字；重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要。",
+          "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+        ],
+        "reviewer": "/root/host_bridge/v6_859d227c7d730ab3b9722469 / creator screenplay mapping check; independent V6 review pending",
+        "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+      },
+      "source_fingerprint": "d16a6d14b489ffdc6dc97fac71785ddd73384b0e51a38eec503b5d015fd906b3",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/end_ms",
+          "value": 4000
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/3/start_ms",
+          "value": 4500
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/4/start_ms",
+          "value": 8000
+        }
+      ],
+      "target_clause": "D_ACTION_ORDER"
+    },
+    {
+      "reason": "画面以同一封信收存完成结束，未把来源未写的后续当作剧情。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "review": {
+        "director_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+        "findings": [
+          "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+          "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+          "按上游独立失败证据显式核对原生静态轴序与时间轴换算，并修正进入正文的时间轴机位文字；重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要。",
+          "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+        ],
+        "reviewer": "/root/host_bridge/v6_859d227c7d730ab3b9722469 / creator screenplay mapping check; independent V6 review pending",
+        "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+      },
+      "source_fingerprint": "a4757060eefb52f53bc99fd4399e9421014bd0f2941545ab004073d1e1d37ebd",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/narrative/audience_after/2",
+          "value": "乙随后将这封信收进背包；不呈现后续"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/4/settle",
+          "value": "不呈现后续"
+        }
+      ],
+      "target_clause": "D_ENDING"
+    },
+    {
+      "reason": "三事件有各自节拍；交接展开为接触与释放的物理子动作，不形成新剧情事件。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "review": {
+        "director_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+        "findings": [
+          "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+          "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+          "按上游独立失败证据显式核对原生静态轴序与时间轴换算，并修正进入正文的时间轴机位文字；重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要。",
+          "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+        ],
+        "reviewer": "/root/host_bridge/v6_859d227c7d730ab3b9722469 / creator screenplay mapping check; independent V6 review pending",
+        "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+      },
+      "source_fingerprint": "deab1f993a22dbdaede72c7e71c179e08cfbc776f2511efa71dbd8004a568f97",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/beats/0/id",
+          "value": "BEAT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/1/id",
+          "value": "BEAT_CONFIRM"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/2/id",
+          "value": "BEAT_STOW"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/3/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        }
+      ],
+      "target_clause": "D_EVENTS"
+    },
+    {
+      "reason": "观看顺序与 ScriptIR reveal_order 一致；收存依赖封口确认。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "review": {
+        "director_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+        "findings": [
+          "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+          "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+          "按上游独立失败证据显式核对原生静态轴序与时间轴换算，并修正进入正文的时间轴机位文字；重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要。",
+          "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+        ],
+        "reviewer": "/root/host_bridge/v6_859d227c7d730ab3b9722469 / creator screenplay mapping check; independent V6 review pending",
+        "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+      },
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/narrative/audience_after",
+          "value": [
+            "甲交给乙同一封未拆信",
+            "乙确认该信封口完整",
+            "乙随后将这封信收进背包；不呈现后续"
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/4/depends_on/0/action_id",
+          "value": "ACT_CONFIRM_SEAL"
+        }
+      ],
+      "target_clause": "D_REVEAL_ORDER"
+    }
+  ],
+  "module_receipt": {
+    "name": "director-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKLQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md",
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKLQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKLQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md",
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKLQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+      }
+    ],
+    "skill_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+    "version": "1.4.2"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_19a3cd14f25bf90e50215d4d",
+  "unresolved": [],
+  "validator": {
+    "errors": [],
+    "independent_review": "PENDING",
+    "media": "NOT_RUN",
+    "screenplay_binding": {
+      "director_content_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+      "handoff_sha256": "e7506e82b7f5505dd1da82c24ad9bbe777529509746b4d3f2d3cc1082795f6fb",
+      "mapping_sha256": "f1c682149aca0c7376a329fd1eea9620acce0b4e4e3b740716eca1fd6d17f5b4",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  }
+}

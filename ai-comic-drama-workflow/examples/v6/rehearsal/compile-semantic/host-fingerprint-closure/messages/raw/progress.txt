@@ -1,0 +1,1 @@
+PROGRESS：冻结的 3 个输入和 19 个资源字节哈希全部匹配。已定位上一轮独立复核失败点：旧 AVIR `/shots/0/end_state/4/visible_parts` 与同一时轴冲突。现在逐项核对新 AVIR、提示词、硬条款及后期义务。

@@ -1,0 +1,1 @@
+CANCEL_ACK: 已停止 V6_compile_6d907d52041427c68f2a batch 2 的候选结果提交；保留本批候选目录中的只读复制和诊断证据。未写 candidate-result.json 或 role-result.json，未请求内核状态迁移。

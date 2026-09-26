@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_SEMANTIC_REVIEW_HOLD_COMMAND_1",
+  "expected_revision": 182,
+  "message": {
+    "at": "2026-09-25T13:35:05.277062Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-semantic-review-hold.txt"
+    ],
+    "in_reply_to": "CONTROL_CAMERA_TRACK_RERUN_1",
+    "message_id": "CONTROL_SEMANTIC_REVIEW_HOLD_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "7adae616c91958be9934a482bfda96c333bfd2b8539763685c8914d9822efc60",
+    "subject_uri": "runtime/v6/host-inputs/control-semantic-review-hold.txt",
+    "summary": "Kernel owner held final Control RESULT because accepted Storyboard semantic-review input digest may be stale; AVIR VALID alone cannot clear semantic gate.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

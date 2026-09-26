@@ -1,0 +1,4 @@
+影响审阅结果的实际宿主沟通：
+1. Host to reviewer: 已知候选正文存在同一摄影机位置的非等价坐标时，请不要把当前 Compile 的所有审阅检查标 PASS 后留给下游。请按冻结四项检查与证据判定本阶段具体 FAIL 项和责任节点；说明矛盾源自上游 AVIR、编译投影，还是两者。保留候选原字节与独立证据，勿修创作者文件。
+2. Root orchestration response: 先不要让 CompilePackage ACCEPTED。按证据记录 Compile 独审 FAIL 是正确的候选级结论；failure_owner 需从值的来源判定：比较 accepted StoryboardIR/AVIR 与 locked adapter 的 lowering 来源，确定是 Control/AVIR 责任或 VPC lowering，再绑定具体路径和修复责任。若先无法确定 owner，把审阅标为 BLOCKED/QUESTION 并给出证据，不虚构归属。
+3. Host to reviewer: 根编排同意当前 Compile 候选应独审 FAIL、不得 ACCEPTED。请比较 accepted StoryboardIR/AVIR 与 locked adapter lowering 来源，给出 failure_owner 的实际责任节点和路径；若无法确定，保留 BLOCKER/QUESTION 证据，不猜归属。继续保留原候选字节。

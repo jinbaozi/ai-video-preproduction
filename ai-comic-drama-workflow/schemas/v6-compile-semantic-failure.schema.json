@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v6-compile-semantic-failure",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "route_id", "project_id", "source_task_id", "source_batch", "source_agent_id", "candidate_digest", "result", "build_id", "review_artifact", "failure_owner_node", "finding_code", "finding"],
+  "properties": {
+    "schema": {"const": "compile-semantic-failure/6.0"},
+    "route_id": {"type": "string", "pattern": "^CSF_[0-9a-f]{24}$"},
+    "project_id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+    "source_task_id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+    "source_batch": {"type": "integer", "minimum": 1},
+    "source_agent_id": {"type": "string", "minLength": 1},
+    "candidate_digest": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "result": {
+      "type": "object", "additionalProperties": false,
+      "required": ["uri", "sha256"],
+      "properties": {
+        "uri": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "build_id": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "review_artifact": {
+      "type": "object", "additionalProperties": false,
+      "required": ["uri", "sha256"],
+      "properties": {
+        "uri": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      }
+    },
+    "failure_owner_node": {"const": "compile"},
+    "finding_code": {"type": "string", "pattern": "^AVIR_[A-Z0-9_]+$"},
+    "finding": {"type": "string", "minLength": 1}
+  }
+}

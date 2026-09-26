@@ -1,0 +1,141 @@
+{
+  "schema": "independent-check-evidence/1.0",
+  "task_id": "TASK_4f81cc62bc1b268a8f8be7b0",
+  "batch": 1,
+  "candidate_digest": "f99b8fcf3dc0db203729d9aa3449a9a753ff32e6f57646b202c73dd0a82d9780",
+  "reviewer_agent_id": "/root/host_bridge/v6_4b265ad848098df52dea2a87",
+  "check_id": "native_validator",
+  "status": "PASS",
+  "independent_checks": [
+    {
+      "name": "native_inspect_compile_verify",
+      "status": "PASS",
+      "detail": {
+        "inspect": "VALID",
+        "compile": "VALID",
+        "verify": "VERIFIED",
+        "media": "NOT_RUN"
+      }
+    },
+    {
+      "name": "native_package_reproducible",
+      "status": "PASS",
+      "detail": {
+        "files": 9,
+        "different": []
+      }
+    },
+    {
+      "name": "semantic_review_byte_binding",
+      "status": "PASS",
+      "detail": {
+        "declared": "a81e3f7105d7d2ec4036eae6bd6ca650e9f387b8e9620cf366b7d347eccfe197",
+        "observed": "a81e3f7105d7d2ec4036eae6bd6ca650e9f387b8e9620cf366b7d347eccfe197"
+      }
+    },
+    {
+      "name": "director_timeline_preserved",
+      "status": "PASS",
+      "detail": {
+        "state_samples": [
+          0,
+          2500,
+          4000,
+          7500,
+          10500,
+          12000
+        ],
+        "visibility_additions": 6
+      }
+    },
+    {
+      "name": "camera_axis_conversion",
+      "status": "PASS",
+      "detail": {
+        "director_static_XYZ": [
+          0,
+          -2.8,
+          1.2
+        ],
+        "storyboard_timeline_xyz": [
+          0,
+          1.2,
+          -2.8
+        ],
+        "text_start": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+        "text_end": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+      }
+    },
+    {
+      "name": "end_pose_and_props",
+      "status": "PASS",
+      "detail": {
+        "end_positions_transformed": true,
+        "letter_pose": "同一封未拆信在背包内",
+        "letter_support": "PROP_BACKPACK.interior",
+        "bag_contacts": [
+          "CHAR_YI.body",
+          "CHAR_YI.left_hand",
+          "PROP_LETTER.body"
+        ]
+      }
+    },
+    {
+      "name": "seven_panels",
+      "status": "PASS",
+      "detail": {
+        "panels": [
+          [
+            "P_OPEN",
+            0
+          ],
+          [
+            "P_GRIP",
+            60
+          ],
+          [
+            "P_RELEASE",
+            84
+          ],
+          [
+            "P_SEAL",
+            144
+          ],
+          [
+            "P_BAG_OPEN",
+            204
+          ],
+          [
+            "P_STOWED",
+            252
+          ],
+          [
+            "P_END",
+            287
+          ]
+        ],
+        "total_frames": 288
+      }
+    },
+    {
+      "name": "story_and_media_boundary",
+      "status": "PASS",
+      "detail": {
+        "beats": [
+          "BEAT_HANDOFF",
+          "BEAT_CONFIRM",
+          "BEAT_STOW"
+        ],
+        "utterances": 0,
+        "execution_ready": false,
+        "submitted": false
+      }
+    }
+  ],
+  "native_outputs": [
+    "runtime/v6/reviews/TASK_4f81cc62bc1b268a8f8be7b0/1/native-inspect.review.json",
+    "runtime/v6/reviews/TASK_4f81cc62bc1b268a8f8be7b0/1/native-compile.review.json",
+    "runtime/v6/reviews/TASK_4f81cc62bc1b268a8f8be7b0/1/native-verify.review.json"
+  ],
+  "finding": "锁定 Storyboard Grammar 1.3.2 inspect/compile/verify 独立通过。七画格、六状态、固定机位轴序换算、最终道具状态及语义复核的当前内容哈希一致。仅静态预演；真实遮挡、可达性、成像和媒体 QA 未运行。"
+}

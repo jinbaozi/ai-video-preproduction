@@ -1,0 +1,1 @@
+我只读发现当前工作区 `_verify_candidate` 已验证 ShotControlPack，但 `_native_checks` 的 `control_verify` 分支尚未对该 kind 处理，可能仍无条件报 NATIVE_CHECK；已反馈内核负责人。请继续保留候选/阻断证据，adapter 和两道门都完成后再提交真实 RESULT。

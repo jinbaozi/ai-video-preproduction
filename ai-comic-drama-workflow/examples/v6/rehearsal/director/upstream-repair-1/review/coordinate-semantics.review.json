@@ -1,0 +1,310 @@
+{
+  "camera_operation_axis": "甲至乙为动作轴；固定机位在负 Z 深度同侧。",
+  "camera_operation_end_text": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+  "camera_operation_ms": [
+    0,
+    12000
+  ],
+  "camera_operation_start_text": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+  "candidate_digest": "f9c4ae3d48ce1a1de1f652c7f7bc9bc5087c52a1b02929644bafb8a003847aaf",
+  "converted_end_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "converted_look_at_m": [
+    0,
+    1.0,
+    0
+  ],
+  "converted_start_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "finding": "Scene numeric and timeline numeric/text use distinct declared axes and denote the same fixed camera. Old unqualified coordinate string that entered the rejected Compile prompt is corrected here. Downstream Storyboard, control and Compile artifacts must be rebuilt and reviewed; old Compile remains rejected. No actual media was run.",
+  "letter_custody": "JIA_THEN_YI_THEN_BACKPACK",
+  "motion_track_vs_sample_positions": [
+    {
+      "at_ms": 0,
+      "entity_id": "CHAR_JIA",
+      "position": [
+        -0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 0,
+      "entity_id": "CHAR_YI",
+      "position": [
+        0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 0,
+      "entity_id": "PROP_LETTER",
+      "position": [
+        -0.2,
+        1.1,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 0,
+      "entity_id": "PROP_BACKPACK",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 2500,
+      "entity_id": "CHAR_JIA",
+      "position": [
+        -0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 2500,
+      "entity_id": "CHAR_YI",
+      "position": [
+        0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 2500,
+      "entity_id": "PROP_LETTER",
+      "position": [
+        0,
+        1.1,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 2500,
+      "entity_id": "PROP_BACKPACK",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 4000,
+      "entity_id": "CHAR_JIA",
+      "position": [
+        -0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 4000,
+      "entity_id": "CHAR_YI",
+      "position": [
+        0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 4000,
+      "entity_id": "PROP_LETTER",
+      "position": [
+        0.2,
+        1.1,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 4000,
+      "entity_id": "PROP_BACKPACK",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 7500,
+      "entity_id": "CHAR_JIA",
+      "position": [
+        -0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 7500,
+      "entity_id": "CHAR_YI",
+      "position": [
+        0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 7500,
+      "entity_id": "PROP_LETTER",
+      "position": [
+        0.2,
+        1.1,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 7500,
+      "entity_id": "PROP_BACKPACK",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 10500,
+      "entity_id": "CHAR_JIA",
+      "position": [
+        -0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 10500,
+      "entity_id": "CHAR_YI",
+      "position": [
+        0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 10500,
+      "entity_id": "PROP_LETTER",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 10500,
+      "entity_id": "PROP_BACKPACK",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 12000,
+      "entity_id": "CHAR_JIA",
+      "position": [
+        -0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 12000,
+      "entity_id": "CHAR_YI",
+      "position": [
+        0.65,
+        0,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 12000,
+      "entity_id": "PROP_LETTER",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    },
+    {
+      "at_ms": 12000,
+      "entity_id": "PROP_BACKPACK",
+      "position": [
+        0.7,
+        0.75,
+        0
+      ],
+      "status": "PASS"
+    }
+  ],
+  "new_director_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+  "old_compile_failure": {
+    "failed_evidence_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/compile-manifest.review.json",
+    "old_compiled_text": "[0,-2.8,1.2]",
+    "old_numeric_position": [
+      0,
+      1.2,
+      -2.8
+    ],
+    "owner": "director",
+    "review_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json"
+  },
+  "reviewed_at": "2026-09-25T15:22:33.942016Z",
+  "scene_static_axes": "right-handed:X-right,Y-depth,Z-up;meters",
+  "shot_boundary_entity_positions": "ALL_MATCH_AFTER_AXIS_CONVERSION",
+  "six_sample_times_ms": [
+    0,
+    2500,
+    4000,
+    7500,
+    10500,
+    12000
+  ],
+  "static_end_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "static_look_at_m": [
+    0,
+    0,
+    1.0
+  ],
+  "static_start_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "status": "PASS",
+  "timeline_axes": "x-right,y-up,z-depth; screen and anatomical directions are separate",
+  "transform": "[x,depth,height] -> [x,height,depth]"
+}

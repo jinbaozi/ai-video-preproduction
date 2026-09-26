@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_CANCEL_ACK_1",
+  "expected_revision": 134,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_CANCEL_ACK_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_CANCEL_ACK_REQUEST_1",
+    "type": "CANCEL_ACK",
+    "summary": "Creator stops obsolete-lock Director task without candidate edits",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-cancel-ack.txt"
+    ],
+    "at": "2026-09-25T13:43:27.350001Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-cancel-ack.txt",
+    "subject_sha256": "3e38985771c4e4f13667fc0f2d4bc18473e79494ee9738e8db898a8828333634"
+  }
+}

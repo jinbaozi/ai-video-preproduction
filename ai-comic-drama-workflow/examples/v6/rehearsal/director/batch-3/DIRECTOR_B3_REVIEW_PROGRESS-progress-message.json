@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 81,
+  "message": {
+    "at": "2026-09-25T12:18:24.457846Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/host-inputs/director-b3-review-status-report.txt"
+    ],
+    "in_reply_to": "DIRECTOR_B3_REVIEW_STATUS_REQUEST_1",
+    "message_id": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "subject_sha256": "33075abfb86d5bab5c369a04931ab1264dd68f9ffabc13e08983bc2ddb0b7cde",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-review-status-report.txt",
+    "summary": "Independent reviewer verified candidate/frozen inputs/resource/review hashes, locked STATIC_VALID binding and 31 action changes across six samples; four prior defects appear resolved; formal review evidence is being finalized.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "PROGRESS"
+  }
+}

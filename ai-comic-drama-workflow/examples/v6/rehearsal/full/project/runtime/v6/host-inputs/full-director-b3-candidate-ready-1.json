@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_CANDIDATE_READY_1",
+  "expected_revision": 95,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_CANDIDATE_READY_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_19f7d0afd51ff59e575a24ec",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_B3_CORRECT_RESOURCE_CONFIRMED_1",
+    "type": "HANDOFF",
+    "summary": "Creator submits Director batch-3 repair evidence for independent review",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-b3-candidate-ready.txt"
+    ],
+    "at": "2026-09-25T12:58:40.957157Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-b3-candidate-ready.txt",
+    "subject_sha256": "8791ed78fd277bb2d7dbe90d337a40a8a55c33915d1c619377dfa2b822c81202"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "command_id": "STATUSFIX-CONTROL-REVIEW_SUBMIT_1",
+  "expected_revision": 781,
+  "review": {
+    "at": "2026-09-25T18:05:13.645826+00:00",
+    "batch": 1,
+    "candidate_digest": "9b8d5c622246119d5e241f6161ecf17c5839e7e1bd5898f4b9b59d0d29667090",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-verify.review.json",
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/native-validator.review.json",
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-verify-command.review.json",
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-build-command.review.json",
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/independent-control-verify.review.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+    "reviewer_dispatch_id": "review-7f1769452450ce2faf2007c4",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_4c69e10662f9834bb335155d"
+  }
+}

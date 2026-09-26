@@ -256,9 +256,23 @@ def validate(art, base):
     for event in art["events"]:
         require(event["shot_id"] in shots and event["asset_id"] in assets, "Unknown event target")
         if director:
-            prefix = shots[event["shot_id"]]["director_pointer"] + "/phases/"
-            require(event["director_pointer"] and event["director_pointer"].startswith(prefix), "Event must cite its director phase")
-            pointer(director, event["director_pointer"])
+            path = event["director_pointer"]
+            if director["schema_version"] == "1.0":
+                prefix = shots[event["shot_id"]]["director_pointer"] + "/phases/"
+                require(path and re.fullmatch(re.escape(prefix) + r"(?:0|[1-9][0-9]*)", path),
+                        "Event must cite its director phase")
+                pointer(director, path)
+            else:
+                require(path and re.fullmatch(r"/timeline/actions/(?:0|[1-9][0-9]*)", path),
+                        "Event must cite a Director timeline action")
+                action = pointer(director, path)
+                require(event["shot_id"] in action["shot_ids"], "Event action is outside its shot")
+                entity_id = assets[event["asset_id"]]["entity_id"]
+                require(entity_id and any(change["entity_id"] == entity_id
+                    and change["field"] == event["field"]
+                    and change["before"] == event["before"]
+                    and change["after"] == event["after"] for change in action["changes"]),
+                    "Event must match a Director action state change")
         else:
             require(event["director_pointer"] is None, "Event pointer without director")
     contract = art["contract"]

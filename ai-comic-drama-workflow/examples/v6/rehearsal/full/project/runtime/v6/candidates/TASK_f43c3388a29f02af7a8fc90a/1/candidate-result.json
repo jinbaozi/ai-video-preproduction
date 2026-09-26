@@ -1,0 +1,81 @@
+{
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+  "artifacts": [
+    {
+      "kind": "ArtIR",
+      "sha256": "d90e8c3ba2288f97f79393bebdf3262958d00057656d6d23bf5b299c4e7afd4b",
+      "slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+      "uri": "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/art-ir.json"
+    }
+  ],
+  "batch": 1,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/phase-pointer-limit.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v5.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v6-canon.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v6-director.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/phase-pointer-limit.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/hard-requirement-audit.json"
+      ],
+      "id": "handoff",
+      "status": "FAIL"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v6-canon.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v5.json"
+      ],
+      "requirement_id": "UP_397ea50a52c9fe05f985eace",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v6-director.json",
+        "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/evidence/handoff-v5.json"
+      ],
+      "requirement_id": "UP_06504a4678f51437f72e1922",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_version": 16,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR"
+    }
+  ],
+  "input_digest": "ff3451eb52b42d79f9688c984589b38860ec3faccbcc9e8fd475488ee94f3e18",
+  "module_receipts": [
+    {
+      "name": "production-design-grammar",
+      "sha256": "34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019",
+      "version": "1.3.1"
+    }
+  ],
+  "result_sha256": "acef564c0d137be2490cade64c881a2b1b44102aa5d4b48c8fac1a320c03e772",
+  "result_uri": "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+  "unresolved": [
+    "Director owner: frozen DirectorIR 1.2 has no /shots/N/phases/K, so locked ArtIR.events cannot encode the three existing /timeline/actions. Shot-level Art support and V5 target assertions preserve their meaning; independent reviewer must decide whether this is adequate for downstream continuity."
+  ]
+}

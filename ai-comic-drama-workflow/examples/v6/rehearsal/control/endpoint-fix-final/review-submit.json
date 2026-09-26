@@ -1,0 +1,37 @@
+{
+  "command_id": "CONTROLSEMANTIC-FINAL-REVIEWER-RESULT_SUBMIT_1",
+  "expected_revision": 566,
+  "review": {
+    "at": "2026-09-25T16:55:32.800933+00:00",
+    "batch": 1,
+    "candidate_digest": "a4a9944b8ae45004fefb4b8a55fbdb1f01f84e15836395246efca05023882728",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/control-verify.review.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_5bfd7462fd70ccb47a908f72",
+    "reviewer_dispatch_id": "review-1ee2204bd5837a83ad899b28",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_eed007d42920d3df5b4f00f7"
+  }
+}

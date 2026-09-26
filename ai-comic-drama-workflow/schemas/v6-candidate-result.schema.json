@@ -1,0 +1,295 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "result_uri": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result_sha256": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "result_uri": {
+            "type": "string"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "result_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "agent_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "uri": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "slot",
+          "kind",
+          "uri",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "BLOCKED"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "handoffs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "enum": [
+              "artifact",
+              "message",
+              "host"
+            ]
+          },
+          "evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 1,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "requirement_id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "source_slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "source_version": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "target_pointer": {
+            "type": "string"
+          },
+          "target_slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "requirement_id",
+          "source_version",
+          "target_slot",
+          "target_pointer",
+          "channel",
+          "evidence",
+          "source_slot"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "host_record_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "host_record_uri": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "input_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "module_receipts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "version": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "version",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "result_sha256": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reuse_bindings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_uri", "source_sha256", "target_slot"],
+        "properties": {
+          "source_uri": {"type": "string", "minLength": 1},
+          "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "target_slot": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"}
+        }
+      }
+    },
+    "result_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema": {
+      "const": "candidate-result/6.0"
+    },
+    "task_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "unresolved": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "message": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "owner": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "message",
+          "owner"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "task_id",
+    "batch",
+    "agent_id",
+    "input_digest",
+    "result_uri",
+    "result_sha256",
+    "artifacts",
+    "module_receipts",
+    "checks",
+    "handoffs",
+    "unresolved"
+  ],
+  "title": "v6-candidate-result",
+  "type": "object"
+}

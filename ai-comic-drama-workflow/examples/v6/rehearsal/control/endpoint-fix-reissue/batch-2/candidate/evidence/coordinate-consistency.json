@@ -1,0 +1,24 @@
+{
+  "actual_model_trajectory": "NOT_RUN",
+  "camera_operation_id": "CAM_LOCKED",
+  "director_coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+  "director_scene_camera_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "director_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+  "mapping": "storyboard [x,y,z] = director [X,Z,Y]",
+  "result": "CONSISTENT_PLANNING_INTENT",
+  "schema": "control-coordinate-evidence/1.0",
+  "storyboard_coordinate_system": {
+    "axes": "x=world-right,y=up,z=depth",
+    "origin": "当前 DirectorIR 静态场景坐标为 X右、Y深、Z上：[0,-2.8,1.2] 米；StoryboardIR 时间轴坐标为 x右、y上、z深：[0,1.2,-2.8] 米。两者按轴序 (X,Z,Y) 换算为同一物理固定机位；均为预演意图，不是实测。",
+    "unit": "m"
+  },
+  "storyboard_timeline_camera_m": [
+    0,
+    1.2,
+    -2.8
+  ]
+}

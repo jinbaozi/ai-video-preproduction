@@ -1,0 +1,15 @@
+{
+  "batch": 1,
+  "candidate_digest": "95f3002cfcc0b05c8ce539ef40141f22b280f3932411aa756ccaa94b1af87a78",
+  "check_evidence": [
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/evidence/source-integrity.json",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/evidence/module-receipt.json"
+  ],
+  "code": "VALUEERROR",
+  "failed_check": "module_receipt",
+  "message": "Validator summary does not match a fresh run",
+  "node_id": "storyboard",
+  "reviewer_failure_owner": null,
+  "submission_digest": "95f3002cfcc0b05c8ce539ef40141f22b280f3932411aa756ccaa94b1af87a78",
+  "task_id": "TASK_3240f8bc6a9896032b95d091"
+}

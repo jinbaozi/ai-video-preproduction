@@ -1,0 +1,107 @@
+{
+  "art_ir": {
+    "matched": true,
+    "sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+    "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json"
+  },
+  "candidate_claim_evidence_paths_checked": [
+    "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/evidence/module-receipt.json",
+    "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/evidence/native-validator.json",
+    "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/evidence/source-integrity.json",
+    "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/evidence/v5-handoff.json",
+    "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/evidence/v6-handoffs.json"
+  ],
+  "candidate_digest": "3f2ef52fc28f84e8a5454698807ccd6ca588a20bbee101d68b522805ef9ad253",
+  "candidate_result_file_sha256": "867748ca74ddf39266d991be4e966ac0c1ac541a0e677094eb3c101ca3a65eaf",
+  "candidate_result_uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/candidate-result.json",
+  "check": "module_receipt",
+  "envelope_input_digest": "9e3d7e2becb98d9775c71657a1c656d4abf3235710c31223a214ee06a4aa000b",
+  "finding": "Frozen envelope, source, three V6 inputs, four required resources, V5 formal inputs, module archive, ArtIR, RoleResult, and creator receipt match declared byte hashes. Provenance alone does not establish visual quality.",
+  "frozen_inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "expected_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "matched": true,
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+    },
+    {
+      "actual_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "expected_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "matched": true,
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json"
+    },
+    {
+      "actual_sha256": "15bab14a9feac3670afc5000536f9beb444b7b1ee2b41af33f154e905b92dc80",
+      "expected_sha256": "15bab14a9feac3670afc5000536f9beb444b7b1ee2b41af33f154e905b92dc80",
+      "matched": true,
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_0560d46ecc764c68ee9a590e.json"
+    }
+  ],
+  "frozen_resources": [
+    {
+      "actual_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "expected_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "matched": true,
+      "slot": null,
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md"
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "matched": true,
+      "slot": null,
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md"
+    },
+    {
+      "actual_sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "expected_sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "matched": true,
+      "slot": null,
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md"
+    },
+    {
+      "actual_sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "expected_sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "matched": true,
+      "slot": null,
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md"
+    }
+  ],
+  "module_archive": {
+    "matched": true,
+    "sha256": "34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019",
+    "uri": "runtime/module-archives/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019.skill"
+  },
+  "original_source": {
+    "matched": true,
+    "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "uri": "sources/SRC_69a71adcfaca/source.txt"
+  },
+  "reviewed_at": "2026-09-25T12:39:34.345Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+  "role_result": {
+    "matched": true,
+    "sha256": "307a1e78aad5f7e3333581a609e2786b341806086da92761d84e89a815678de9",
+    "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/role-result.json"
+  },
+  "status": "PASS",
+  "v5_formal_inputs": [
+    {
+      "actual_sha256": "4642c6289965a0335f0ff6450f3e20aaea375383d2a56ec0464cea462987aa8d",
+      "expected_sha256": "4642c6289965a0335f0ff6450f3e20aaea375383d2a56ec0464cea462987aa8d",
+      "matched": true,
+      "slot": "director",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/director/1af0791d746091fcf7027a41af573532c196d843be156afdc7572e18d9024f04/native/262e23f487752f69_director-ir.json"
+    },
+    {
+      "actual_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "expected_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "matched": true,
+      "slot": "canon",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json"
+    }
+  ]
+}

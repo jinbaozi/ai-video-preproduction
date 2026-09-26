@@ -1,0 +1,15 @@
+{
+  "adapter_version": "1.2.0",
+  "delivery": "full",
+  "execution_mode": "codex-agents",
+  "legacy_constraints": {},
+  "max_shots_per_task": 5,
+  "mode": "reference",
+  "orchestration_protocol": "6.0",
+  "production_target": "none",
+  "project_id": "LETTER_FULL_DEMO",
+  "schema_version": "5.0",
+  "target": null,
+  "workflow_id": "ai-comic-drama-v5",
+  "workflow_release": "0.10.0"
+}

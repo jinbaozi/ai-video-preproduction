@@ -1,0 +1,11 @@
+{
+  "always": ["SKILL.md", "references/current-contract.md", "references/cooperation-v5.md", "references/continuity-and-qa.md"],
+  "kinds": {
+    "storyboard": []
+  },
+  "when": {
+    "camera_motion": ["references/spatial-composition.md"],
+    "dialogue": ["references/performance-action.md"],
+    "multi_subject": ["references/spatial-composition.md"]
+  }
+}

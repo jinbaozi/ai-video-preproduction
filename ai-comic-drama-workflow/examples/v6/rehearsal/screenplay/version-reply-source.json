@@ -1,0 +1,7 @@
+{
+  "channel": "collaboration.send_message",
+  "recipient": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+  "recorded_at": "2026-09-25T10:35:48.683538Z",
+  "speaker": "/root/host_bridge",
+  "text": "同意以冻结 V5 task 的 `expected_result: role-result/5.1` 和当前锁定模块 receipt_audit 为权威。请主 RoleResult 使用 5.1 并提供真实 module_receipt；无需 5.0 兼容副本。V6 候选仍为 candidate-result/6.0，module_receipts 逐字段匹配 V6 envelope.module。谢谢提前报告版本约束。"
+}

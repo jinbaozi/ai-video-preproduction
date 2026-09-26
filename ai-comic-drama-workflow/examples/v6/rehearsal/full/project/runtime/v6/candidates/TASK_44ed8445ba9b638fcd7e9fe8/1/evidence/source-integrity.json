@@ -1,0 +1,50 @@
+{
+  "check": "source_integrity",
+  "status": "PASS",
+  "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+  "source_registry_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "source_registry_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a",
+  "frozen_task_uri": "runtime/tasks/TASK_44ed8445ba9b638fcd7e9fe8.json",
+  "frozen_task_sha256": "ef32a694cb2cde32741eb2cd494479bbe8ee75de64e13e51a314ec4675338341",
+  "source_uri": "sources/SRC_69a71adcfaca/source.txt",
+  "source_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+  "registered_source_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+  "quote_spans": [
+    {
+      "fact_id": "FACT_RAIN_NIGHT",
+      "quote": "雨夜",
+      "char_span": [
+        0,
+        2
+      ],
+      "exact": true
+    },
+    {
+      "fact_id": "FACT_HANDOFF",
+      "quote": "甲把一封未拆的信交给乙",
+      "char_span": [
+        3,
+        14
+      ],
+      "exact": true
+    },
+    {
+      "fact_id": "FACT_SEAL",
+      "quote": "乙确认封口完整",
+      "char_span": [
+        15,
+        22
+      ],
+      "exact": true
+    },
+    {
+      "fact_id": "FACT_STOW",
+      "quote": "后收进背包",
+      "char_span": [
+        22,
+        27
+      ],
+      "exact": true
+    }
+  ]
+}

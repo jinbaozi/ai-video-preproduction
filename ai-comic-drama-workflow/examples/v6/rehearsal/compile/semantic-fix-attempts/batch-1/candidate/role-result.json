@@ -1,0 +1,279 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/avir.json",
+  "artifact_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "checks": [
+    {
+      "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/module-receipt.json",
+      "id": "module-receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/native-validator.json",
+      "id": "native-validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/compile-manifest.json",
+      "id": "compile-manifest",
+      "status": "PASS"
+    },
+    {
+      "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/handoff.json",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "2a52931e1f3787c37ce830df39fc261c6c21403f32ad6cca443b0a1bffa2ab25",
+  "execution_boundaries": {
+    "backend": "prompt_plan",
+    "media_qa": "NOT_RUN",
+    "post_obligations": [
+      {
+        "id": "AUD_RAIN",
+        "status": "PLANNED"
+      },
+      {
+        "id": "SB_MEDIA_BOUNDARY",
+        "status": "PLANNED"
+      }
+    ],
+    "runnable": false,
+    "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+    "submitted": false,
+    "transport": "unresolved"
+  },
+  "handoff": [
+    {
+      "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/handoff.json",
+      "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+      "source_slot": "storyboard:project:project:StoryboardIR",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "compile:project:project:AVIR"
+    },
+    {
+      "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/handoff.json",
+      "requirement_id": "UP_a7101f5aef9183974482439b",
+      "source_slot": "control:project:project:ShotControlPack",
+      "source_version": 17,
+      "target_pointer": "",
+      "target_slot": "compile:project:project:AVIR"
+    }
+  ],
+  "manifest_sha256": "001626391cb8c293b2c9f67abb9e702a79242294c5dc137490c7c56fa896f892",
+  "module_receipt": {
+    "name": "video-prompt-compiler",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py",
+        "sha256": "3567568e700d6973f6bbb70f7868c6673c4ef686b53b40110d4ed92441aa040a"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc_core.py",
+        "sha256": "ea82415dd830014907391464de1a14d51de578b166ba30a7904f1182748fd2ab"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py",
+        "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py",
+        "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py",
+        "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py",
+        "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py",
+        "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py",
+        "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py",
+        "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py",
+        "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45/v6_runtime.py",
+        "sha256": "6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py",
+        "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py",
+        "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py",
+        "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py",
+        "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/runtime-resources/cff62a8310171b353e00264a04b10deccdc4dd4c9d94e918e4f65b8446d9c27b/v6_runtime_fingerprint.py",
+        "sha256": "cff62a8310171b353e00264a04b10deccdc4dd4c9d94e918e4f65b8446d9c27b"
+      }
+    ],
+    "skill_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "version": "1.17.6"
+  },
+  "schema": "role-result/5.1",
+  "semantic_review": {
+    "evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/semantic-closure.json",
+    "hard_clauses": [
+      {
+        "channel": "prompt",
+        "id": "SB_A_RAIN",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_A_SINGLE_LETTER",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_A_ORDER",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_A_ENDING",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_A_EVENTS",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_A_REVEAL",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_A_ASSET_LOCKS",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_D_RAIN",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_D_SINGLE_LETTER",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_D_ACTION_ORDER",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_D_ENDING",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_D_EVENTS",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_D_REVEAL_ORDER",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_FIXED_AXIS",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_CONTACT_CONTROL",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "prompt",
+        "id": "SB_SEAL_VISIBILITY",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "EMITTED"
+      },
+      {
+        "channel": "post",
+        "id": "SB_MEDIA_BOUNDARY",
+        "realization": "NOT_RUN",
+        "static_assertions": "PASS",
+        "status": "PLANNED"
+      }
+    ],
+    "independent_review": "PENDING",
+    "old_finding_closed_static": true,
+    "old_finding_code": "AVIR_END_VISIBILITY_CONFLICT"
+  },
+  "task_id": "V6_compile_6d907d52041427c68f2a",
+  "unresolved": []
+}

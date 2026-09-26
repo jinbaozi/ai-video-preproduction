@@ -1,0 +1,1 @@
+编译独立审阅已发现具体语义矛盾：冻结 AVIR /timeline/camera_operations/0 的 start_position/end_position 文本为 `[0,-2.8,1.2]`，同一 AVIR 的 /shots/0/camera/position 与 CAMERA_POSITION_S1 数值轨道是 `[0,1.2,-2.8]`；生成正文同时写入两组。按世界坐标（右、上、深），两者不是等价表示。Native validate/verify 仍 PASS，24 冻结构建文件与 20 编译文件哈希均匹配。正在确定责任来源；当前候选不得被接受。

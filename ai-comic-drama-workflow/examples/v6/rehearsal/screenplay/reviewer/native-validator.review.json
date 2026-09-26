@@ -1,0 +1,73 @@
+{
+  "check": "native_validator",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/scripts/sg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+    "--final"
+  ],
+  "compiled_file_count": 13,
+  "compiled_file_hashes_and_sizes_match": true,
+  "compiled_handoff_content_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14",
+  "compiled_manifest_sha256": "0db9cdd0bf59f0fa6a443fc49be3c22f786804bbdf6a52f8b797a2d6d4d729d2",
+  "compiled_manifest_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/compiled/compile-manifest.json",
+  "compiled_script_ref_sha256": "a7abceef03bbe46d668d69b63017bda906d773d75b8c747c324dab0b51045f15",
+  "content_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14",
+  "contract": {
+    "all_static_assertions_true": true,
+    "blocking_check_ids": [
+      "CHECK_RAIN",
+      "CHECK_LETTER",
+      "CHECK_ORDER",
+      "CHECK_SOURCE_BOUNDARY"
+    ],
+    "hard_clause_ids": [
+      "REQ_RAIN_NIGHT",
+      "REQ_SINGLE_LETTER",
+      "REQ_ACTION_ORDER"
+    ]
+  },
+  "creator_evidence_read": {
+    "sha256": "d8f169d50cbc38d99724b991a56b0ee85b526d44e13603a7b938d5cf96c06fcb",
+    "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/native-validator.json"
+  },
+  "exit_code": 0,
+  "finding": "Locked native validator returns STATIC_VALID with no errors. The readable screenplay contains only the four source-bound action blocks; all hard clauses and compiled hashes resolve. This is an independent text review, not media or audience acceptance.",
+  "method": "Executed the locked screenplay-grammar sg.py validate --final with the project venv; separately validated ScriptIR and compiled handoff schemas, every compile-manifest file hash and size, static contract assertions, and source-bound story semantics.",
+  "reviewed_at": "2026-09-25T10:42:19.667253Z",
+  "schema_validation": {
+    "screenplay_handoff": "PASS",
+    "script_ir": "PASS"
+  },
+  "script_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+  "source_bound_review": {
+    "blocks": [
+      "雨夜。",
+      "甲把一封未拆的信交给乙。",
+      "乙确认这封信的封口完整。",
+      "乙将同一封信收进背包。"
+    ],
+    "canon_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+    "canon_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+    "dialogue_or_after_story": false,
+    "event_ids": [
+      "EVT_HANDOFF",
+      "EVT_SEAL_CHECK",
+      "EVT_STOW"
+    ],
+    "extra_characters": false,
+    "extra_location_or_indoor_outdoor": false,
+    "extra_motive_or_letter_content": false,
+    "one_letter_and_order": "甲交未拆信；乙确认同一封信封口完整；乙随后将同一封信收进背包。",
+    "semantic_check": "CHECK_SOURCE_BOUNDARY PASS; paragraph, event and character fields were read against source and accepted Canon.",
+    "source_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "source_uri": "sources/SRC_69a71adcfaca/source.txt"
+  },
+  "status": "PASS",
+  "stdout": {
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  }
+}

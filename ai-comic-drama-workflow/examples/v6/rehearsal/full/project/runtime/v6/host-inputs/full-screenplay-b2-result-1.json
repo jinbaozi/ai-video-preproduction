@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_B2_RESULT_1",
+  "expected_revision": 42,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_B2_RESULT_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_e9426daa6bca9213754e68ed",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_B2_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Creator submits repaired screenplay batch-2 candidate",
+    "evidence": [
+      "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/candidate-result.json"
+    ],
+    "at": "2026-09-25T11:19:25.563870Z",
+    "subject_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/candidate-result.json",
+    "subject_sha256": "4dc585343b875d7f2b498b8fe7e3c98726930df91557813e6433bc5104c3f980"
+  }
+}

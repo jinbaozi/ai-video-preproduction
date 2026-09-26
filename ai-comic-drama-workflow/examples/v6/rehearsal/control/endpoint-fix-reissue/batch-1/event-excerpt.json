@@ -1,0 +1,367 @@
+{
+  "source": "runtime/v6/events.json",
+  "source_sha256": "17b28723a85b0ab6216f0ae80ba875f1516dcd76a3a9d8566fb60ef275505873",
+  "events": [
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "1fbdb8df2b3fabc85aa909b8113c7091f1f8c6c42ae379387d122731d2624bca",
+      "hash": "877483ee3dbaca086f14d6f5f8082b4c80df1654a9adc4cf45028265d1141b24",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:28:11.392344Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "ready-TASK_92a2f36e9b05a414fec43209-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_92a2f36e9b05a414fec43209.json"
+          ],
+          "expected_revision": 520,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "7b7ad5a1b096994553ff4adcc8a5ac881cc5aacf95bbb817553804c9e89c7ef0",
+      "revision": 521,
+      "state_digest": "daf647c52fa9dacf1998a98f8ff2980f6e1e63021abc14d014318b62acaedbce"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "015ea6657edd5f39507ba776142c8256819f167cd8f3508a5ae57677ae4adf4a",
+      "hash": "a04d65215183e448c43993017ab75f8f6b9f6f0482f1f0cac1119221651577dc",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:28:11.594651Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "dispatch-TASK_92a2f36e9b05a414fec43209-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_92a2f36e9b05a414fec43209.json"
+          ],
+          "expected_revision": 521,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "877483ee3dbaca086f14d6f5f8082b4c80df1654a9adc4cf45028265d1141b24",
+      "revision": 522,
+      "state_digest": "ccf7ad15914bd1991a239df47427cc762725f44869aa118796dfa6a72b40365f"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "a0399413ccb85157d8e1fe9e3a90f381c8a868f321b9a9ef77232aa5ac27c86b",
+      "hash": "b3dc9f9564940e868d4a9bb47e64a6e028b02c72c933adf2b5214714ccc05476",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:29:42.349448Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-70a97625e45632d2261df440",
+                "host-file:03dc016b50d87213bd910d1e7712c7e5a6d00ac8652605ae66f523dddd3a9f5a"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "CONTROLSEMANTIC_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-70a97625e45632d2261df440",
+            "host-file:03dc016b50d87213bd910d1e7712c7e5a6d00ac8652605ae66f523dddd3a9f5a"
+          ],
+          "expected_revision": 522,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-70a97625e45632d2261df440",
+          "agent_id": "/root/host_bridge/v6_9a3977dae695a8a989d38b0e",
+          "batch": 1,
+          "dispatch_id": "dispatch-70a97625e45632d2261df440",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T16:29:42.349448Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T16:29:42.349448Z",
+          "status": "RUNNING",
+          "task_digest": "4fbdb25143a56d2e8f0ef935e23c4bb61aea3978fc3cd3350ddaf5407faf27b6",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "tool_result_sha256": "03dc016b50d87213bd910d1e7712c7e5a6d00ac8652605ae66f523dddd3a9f5a",
+          "tool_result_uri": "runtime/v6/host-evidence/03dc016b50d87213bd910d1e7712c7e5a6d00ac8652605ae66f523dddd3a9f5a.json"
+        },
+        "review": null
+      },
+      "previous_hash": "a04d65215183e448c43993017ab75f8f6b9f6f0482f1f0cac1119221651577dc",
+      "revision": 523,
+      "state_digest": "040dff8b75126ba2bcdff3a94d2a8ca97e2a70f5edf74af559b29e89dc8662b9"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "efab3644dcaf4d8981ddfa621331583a227908ffadda6534f48b5b4b6a10f4f2",
+      "hash": "08f615209ea17992ec9d101872c7b546d365e2c4e1a1525b578c859ab8a9afec",
+      "op": "transition",
+      "payload": {
+        "candidate": {
+          "agent_id": "/root/host_bridge/v6_9a3977dae695a8a989d38b0e",
+          "artifacts": [
+            {
+              "kind": "ShotControlPack",
+              "sha256": "2eb0c085230597179ebac8297d8adf6e5274f6659190f9c39be784045e484c2e",
+              "slot": "control:project:project:ShotControlPack",
+              "uri": "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/control-pack/package-manifest.json"
+            }
+          ],
+          "batch": 1,
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/source-integrity.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/module-receipt.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/promotion-diff.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/coordinate-consistency.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/adapter-report.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/native-av-validation.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/control-build.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/control-verify.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/projection-limit.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/boundary-visibility.json"
+              ],
+              "id": "control_verify",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/handoff.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/promotion-diff.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/coordinate-consistency.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "handoffs": [
+            {
+              "channel": "artifact",
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/handoff.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/promotion-diff.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/coordinate-consistency.json"
+              ],
+              "requirement_id": "UP_8c4b696799e85db8db8972c4",
+              "source_slot": "storyboard:project:project:StoryboardIR",
+              "source_version": 12,
+              "target_pointer": "",
+              "target_slot": "control:project:project:ShotControlPack"
+            }
+          ],
+          "input_digest": "64ca60456491978f81dcd2f2268f2f758ab533521d531e8b70e1d682a045dcb1",
+          "module_receipts": [
+            {
+              "name": "video-prompt-compiler",
+              "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+              "version": "1.17.6"
+            }
+          ],
+          "result_sha256": "8efa1794583bd6364753af5a52c6f02642067436ee48d4baeb37ba46d4fa87a7",
+          "result_uri": "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/role-result.json",
+          "schema": "candidate-result/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "unresolved": []
+        },
+        "event": {
+          "actor_id": "/root/host_bridge/v6_9a3977dae695a8a989d38b0e",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:32:42.292284Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "CONTROLSEMANTIC-CREATOR-RESULT_SUBMIT_1",
+          "evidence": [
+            "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/role-result.json"
+          ],
+          "expected_revision": 527,
+          "from_state": "RUNNING",
+          "object_version": 7,
+          "reason": "RESULT_RECEIVED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "RESULT_SUBMITTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "52a30a864c4745ecdbf36cc43de41e5abd517d52618d83e0f79ce1b47b617cee",
+      "revision": 528,
+      "state_digest": "1c8ca776d161cc52809c6fdd22090738fe99216351c27acd2dce9e51528521f3"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "42a85e9e7edc50688d4efd025f501cf39b39c80d4a0c60ce98c21fc1fded29c0",
+      "hash": "94527ba16aeac2a0d044f023128ca770b65255cd13bcb7feb8b8f3d61c1afbbd",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:32:42.708816Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "CONTROLSEMANTIC-CREATOR-RESULT_SUBMIT_1-validate",
+          "evidence": [],
+          "expected_revision": 528,
+          "from_state": "RESULT_SUBMITTED",
+          "object_version": 8,
+          "reason": "VALIDATION_STARTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "VALIDATING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "08f615209ea17992ec9d101872c7b546d365e2c4e1a1525b578c859ab8a9afec",
+      "revision": 529,
+      "state_digest": "62130af954c754f6163163741d2a0d3922070d265f5d444eaecc9d47388b2b4b"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "2e8f5c72ada95edff4d75d28b751a0338a1259a3dab17e45d0166ff6a7a7c7cf",
+      "hash": "72749af8ca90f4ec93f4093df3704074138fb8dfcbb355e9c806d7b96e15f7ba",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:32:43.444961Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/source-integrity.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/module-receipt.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/promotion-diff.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/coordinate-consistency.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/adapter-report.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/native-av-validation.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/control-build.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/control-verify.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/projection-limit.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/boundary-visibility.json"
+              ],
+              "id": "control_verify",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/handoff.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/promotion-diff.json",
+                "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/evidence/coordinate-consistency.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "CONTROLSEMANTIC-CREATOR-RESULT_SUBMIT_1-validation",
+          "evidence": [
+            "runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/1/role-result.json"
+          ],
+          "expected_revision": 529,
+          "from_state": "VALIDATING",
+          "object_version": 9,
+          "reason": "VALIDATION_PASSED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "REVIEW_REQUIRED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "94527ba16aeac2a0d044f023128ca770b65255cd13bcb7feb8b8f3d61c1afbbd",
+      "revision": 530,
+      "state_digest": "7b32d741236193ece32d3d45d948fe58fba7efcc7d04cf2a99cb028b9a1a58cd"
+    },
+    {
+      "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+      "commands_digest": "a0a1a024da2f631ce04a40ace734863d27b811d634a95aac6f9c7b7eb0c6273c",
+      "hash": "66a14b0e4bb48106c61c0dc7af5615bf02ffef460c68da501216d0229d045edc",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:32:44.310816Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "input-stale-TASK_92a2f36e9b05a414fec43209-10",
+          "evidence": [
+            "runtime/v6/state.json"
+          ],
+          "expected_revision": 530,
+          "from_state": "REVIEW_REQUIRED",
+          "object_version": 10,
+          "reason": "INPUT_CHANGED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_92a2f36e9b05a414fec43209",
+          "to_state": "STALE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "72749af8ca90f4ec93f4093df3704074138fb8dfcbb355e9c806d7b96e15f7ba",
+      "revision": 531,
+      "state_digest": "8f09ae6f9e10fc45983abfd5760c2e6261d537647e5b7b5abf481c8c2bef57e5"
+    }
+  ]
+}

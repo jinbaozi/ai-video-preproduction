@@ -1,0 +1,82 @@
+{
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_ef7e68da05761cf96b9008e1",
+  "artifacts": [
+    {
+      "kind": "ArtIR",
+      "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+      "slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+      "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json"
+    }
+  ],
+  "batch": 1,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/frozen-inputs.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/compiled/receipt.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/compiled/qa-report.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v5.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v6-canon.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v6-director.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/state-chain-audit.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/action-bindings.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v6-canon.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v5.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/state-chain-audit.json"
+      ],
+      "requirement_id": "UP_736fae98163757821a66afe6",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v6-director.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/handoff-v5.json",
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/state-chain-audit.json"
+      ],
+      "requirement_id": "UP_c3003e890d5b8acf8bc952ef",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_version": 13,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR"
+    }
+  ],
+  "input_digest": "be1e826a855dcf3750bffd9bda6191ee11926f89a52564236abec6a00e9baf5e",
+  "module_receipts": [
+    {
+      "name": "production-design-grammar",
+      "sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+      "version": "1.3.3"
+    }
+  ],
+  "result_sha256": "2374210266ac65def3d87097bbc46c242802d2af34a8302e9aac250cf9613e95",
+  "result_uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_4de99276d376cc50c61527d6",
+  "unresolved": []
+}

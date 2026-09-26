@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "73607770967a5c4b8b69305a32d6793af4ed418faa7763a651d8dcd3dbef594d",
-  "file_count": 63,
+  "archive_sha256": "1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1",
+  "file_count": 64,
   "files": {
     "director-grammar/SKILL.md": {
-      "bytes": 7974,
-      "sha256": "d611b4eb8ebf5a24a45c59e3f6a990df4838f78b58c34ea17cc32dcd4946c8ff"
+      "bytes": 8566,
+      "sha256": "ca22158b6ca4c0e654e1df66f25cc02bdfa689869df124bb9ae0b201f1ad2f6f"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -64,8 +64,8 @@
       "sha256": "e0547093fefb2e40260b69924ab6d570e55a194db70382651c356b03f85b24b0"
     },
     "director-grammar/references/cooperation-v5.md": {
-      "bytes": 2506,
-      "sha256": "d9fc2a489343bb2917b023916e65c182d22128d8c2f2f50c09acf0ca482a8da7"
+      "bytes": 4268,
+      "sha256": "28fb0672d9920bb60bb2800da33cc9ac1d9cd6884d30ceb993fa51672b65bb28"
     },
     "director-grammar/references/current-contract.md": {
       "bytes": 2877,
@@ -118,6 +118,10 @@
     "director-grammar/references/style-and-camera.md": {
       "bytes": 3066,
       "sha256": "12ae76f518c39a71aab5940e19548fc6239dcbba0c642f51fc46a979924b6485"
+    },
+    "director-grammar/references/v5-reads.json": {
+      "bytes": 349,
+      "sha256": "9c1f3581c160459b8bc7a80df47e9dfe321dff3ae9f6565c78113a60aca6d4c9"
     },
     "director-grammar/references/verification.md": {
       "bytes": 3357,
@@ -257,5 +261,5 @@
     }
   },
   "name": "director-grammar",
-  "version": "1.4.1"
+  "version": "1.4.4"
 }

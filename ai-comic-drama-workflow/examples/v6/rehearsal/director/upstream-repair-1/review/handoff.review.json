@@ -1,0 +1,93 @@
+{
+  "candidate_digest": "f9c4ae3d48ce1a1de1f652c7f7bc9bc5087c52a1b02929644bafb8a003847aaf",
+  "director_action_order": [
+    "ACT_EXTEND",
+    "ACT_GRIP",
+    "ACT_RELEASE",
+    "ACT_CONFIRM_SEAL",
+    "ACT_STOW"
+  ],
+  "finding": "Current Canon and ScriptIR are bound by frozen hashes. Six screenplay requirements map to current hard DirectorIR clauses and valid target assertions; the two V6 artifact handoffs bind current source versions and target digest. Repair addresses the Compile failure assigned to Director.",
+  "locked_screenplay_binding": {
+    "director_content_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+    "handoff_sha256": "e7506e82b7f5505dd1da82c24ad9bbe777529509746b4d3f2d3cc1082795f6fb",
+    "mapping_sha256": "f1c682149aca0c7376a329fd1eea9620acce0b4e4e3b740716eca1fd6d17f5b4",
+    "status": "REVIEW_ATTESTED"
+  },
+  "reviewed_at": "2026-09-25T15:22:33.942016Z",
+  "source_story_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "status": "PASS",
+  "upstream_repair_route_id": "UPR_7aacd89414612ed785a0480b",
+  "v5_requirement_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SINGLE_LETTER",
+    "screenplay:REQ_ACTION_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "v5_screenplay_requirement_count": 6,
+  "v5_target_hard_clauses": [
+    "D_RAIN",
+    "D_SINGLE_LETTER",
+    "D_ACTION_ORDER",
+    "D_ENDING",
+    "D_EVENTS",
+    "D_REVEAL_ORDER"
+  ],
+  "v5_validate_handoff": "PASS",
+  "v6_handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/coordinate-repair.json"
+      ],
+      "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_slot": "canon:project:project:Canon",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_pointers": [
+        "/scenes/0/space",
+        "/contract/clauses/0",
+        "/timeline/actions",
+        "/shots/0/end_state"
+      ],
+      "target_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "target_slot": "director:project:project:DirectorIR",
+      "target_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/coordinate-repair.json"
+      ],
+      "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+      "source_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+      "source_version": 14,
+      "target_pointer": "",
+      "target_pointers": [
+        "/contract/clauses",
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ],
+      "target_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "target_slot": "director:project:project:DirectorIR",
+      "target_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json"
+    }
+  ]
+}

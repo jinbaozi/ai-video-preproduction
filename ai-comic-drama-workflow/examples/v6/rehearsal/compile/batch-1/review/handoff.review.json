@@ -1,0 +1,14 @@
+{
+  "adapter_mapping_status": "MAPPED",
+  "compiler_avir_equals_control_production_specification": true,
+  "control_sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+  "control_slot": "control:project:project:ShotControlPack",
+  "control_version": 16,
+  "current_accepted_sources_match": true,
+  "mapping_losses": 0,
+  "semantic_conflict": "Source content contradiction is preserved by the faithful handoff; see compile-manifest.review.json.",
+  "status": "PASS",
+  "storyboard_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+  "storyboard_slot": "storyboard:project:project:StoryboardIR",
+  "storyboard_version": 17
+}

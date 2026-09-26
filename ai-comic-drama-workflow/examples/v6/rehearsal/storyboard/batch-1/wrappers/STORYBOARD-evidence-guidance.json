@@ -1,0 +1,19 @@
+{
+  "command_id": "STORYBOARD_EVIDENCE_GUIDANCE_COMMAND_1",
+  "expected_revision": 137,
+  "message": {
+    "at": "2026-09-25T12:49:58.812667Z",
+    "batch": 1,
+    "evidence": [],
+    "in_reply_to": "STORYBOARD_PROGRESS_PROGRESS_1",
+    "message_id": "STORYBOARD_EVIDENCE_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "db95284097b42468c2f661470534e6ea019b3510c478e592fed39c8f99465002",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-evidence-guidance.txt",
+    "summary": "Host relayed current kernel requirement for nonempty existing per-check and per-handoff candidate evidence, no placeholder URI.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "HANDOFF"
+  }
+}

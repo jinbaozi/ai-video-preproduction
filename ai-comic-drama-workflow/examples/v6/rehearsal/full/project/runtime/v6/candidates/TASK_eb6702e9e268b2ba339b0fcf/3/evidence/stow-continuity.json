@@ -1,0 +1,72 @@
+{
+  "director_sha256": "6725c568baba23c007ce0742815a73320a1ae69bcdb4cd7f7ae0c3d5789e8ffc",
+  "panel_samples": [
+    {
+      "at_ms": 6000,
+      "composition_id": "COMP_S_STOW",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_visible_parts": [],
+      "physical_interpolation": false,
+      "status": "EXPLICIT",
+      "subject_nodes": [
+        "N_CHAR_YI",
+        "N_PROP_LETTER",
+        "N_PROP_BACKPACK"
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "composition_id": "COMP_S_STOW_SETTLED",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_visible_parts": [],
+      "physical_interpolation": false,
+      "status": "EXPLICIT",
+      "subject_nodes": [
+        "N_CHAR_YI",
+        "N_PROP_BACKPACK"
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "composition_id": "COMP_S_STOW_SETTLED",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_visible_parts": [],
+      "physical_interpolation": false,
+      "status": "EXPLICIT",
+      "subject_nodes": [
+        "N_CHAR_YI",
+        "N_PROP_BACKPACK"
+      ]
+    }
+  ],
+  "prior_defect": "9000毫秒信已在包内，构图仍把信列为无遮挡可见前景。",
+  "prior_review_uri": "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/1/native-validator.review.json",
+  "resolution": "8500毫秒完成入包并建立显式关键状态；6000至8500毫秒显示送信，8500至9000毫秒只显示乙与背包；终帧摘要也不把信列为可见主体。",
+  "source": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/spatial_runtime.py panel_state and composition validation",
+  "source_check": "runtime requires adjacent nonoverlapping composition intervals with full shot coverage; panel_state uses the explicit endpoint state.",
+  "status": "PASS",
+  "target_pointers": [
+    "/shots/2/composition",
+    "/shots/2/camera/framing_end",
+    "/timeline/actions/2/changes",
+    "/timeline/state_samples/5",
+    "/timeline/state_samples/6",
+    "/timeline/composition_tracks/2",
+    "/timeline/composition_tracks/3"
+  ]
+}

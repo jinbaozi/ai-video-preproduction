@@ -1,0 +1,28 @@
+{
+  "status": "RUNNING",
+  "project": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "execution_mode": "current-agent",
+  "artifacts": {
+    "art:SC_RAIN_NIGHT": "READY",
+    "canon": "READY",
+    "director": "READY",
+    "screenplay": "READY",
+    "storyboard": "READY"
+  },
+  "media": {},
+  "active_task": null,
+  "required_reads": [],
+  "control": {
+    "audit": "audited",
+    "keyframe_requests": "artifacts/control/keyframe-requests.json",
+    "status": "READY",
+    "storyboard_sha256": "09cd04e15b3e39ed226b73f7f476c29aacb74853ecaaad57bd4721fa5938fca8",
+    "uri": "artifacts/control"
+  },
+  "decision": null,
+  "delivery": "text-only",
+  "production_target": "none",
+  "preproduction_complete": false,
+  "video_complete": false,
+  "video_generated": false
+}

@@ -1,0 +1,22 @@
+{
+  "command_id": "CONTROL_CONFIG_STATUS_COMMAND_1",
+  "expected_revision": 171,
+  "message": {
+    "at": "2026-09-25T13:20:20.580070Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-config-status.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-config.json"
+    ],
+    "in_reply_to": "CONTROL_SOURCE_PLAN_PROGRESS_1",
+    "message_id": "CONTROL_CONFIG_STATUS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "14036ad597a7dab6115e5fbaeb8dd10e3cf815b5f292925e8e619e839e7e6c9e",
+    "subject_uri": "runtime/v6/host-inputs/control-config-status.txt",
+    "summary": "Creator confirms locked control config schema and source hashes pass; no result emitted while AVIR mapping remains blocked.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "PROGRESS"
+  }
+}

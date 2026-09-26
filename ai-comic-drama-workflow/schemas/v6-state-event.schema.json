@@ -1,0 +1,241 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "actor_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "actor_kind": {
+      "enum": [
+        "kernel",
+        "host"
+      ]
+    },
+    "affected_outputs": {
+      "items": {
+        "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "check_results": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "evidence": {
+            "items": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "minItems": 0,
+            "type": "array",
+            "uniqueItems": true
+          },
+          "id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "BLOCKED"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "status",
+          "evidence"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "command_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "error": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "evidence": {
+              "items": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "failed_check": {
+              "oneOf": [
+                {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "owner_node": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "recovery_action": {
+              "enum": [
+                "RETRY",
+                "REVISE",
+                "RECONCILE",
+                "WAIT_FOR_INPUT",
+                "ABORT"
+              ]
+            },
+            "retryable": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "code",
+            "owner_node",
+            "failed_check",
+            "evidence",
+            "retryable",
+            "recovery_action"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "evidence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "expected_revision": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "from_state": {
+      "enum": [
+        "PENDING",
+        "READY",
+        "DISPATCHING",
+        "RUNNING",
+        "RESULT_SUBMITTED",
+        "VALIDATING",
+        "REVIEW_REQUIRED",
+        "ACCEPTED",
+        "NOT_APPLICABLE",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "STALE",
+        "CANCELLED"
+      ]
+    },
+    "object_version": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reason": {
+      "enum": [
+        "DEPENDENCIES_SATISFIED",
+        "DISPATCH_REQUESTED",
+        "DISPATCH_CONFIRMED",
+        "DISPATCH_UNCERTAIN",
+        "RESULT_RECEIVED",
+        "VALIDATION_STARTED",
+        "VALIDATION_PASSED",
+        "REVIEW_PASSED",
+        "HOST_RECONCILED",
+        "HOST_FAILED",
+        "INPUT_CHANGED",
+        "CANCEL_REQUESTED",
+        "RETRY_REQUESTED",
+        "DEPENDENCY_BLOCKED",
+        "VALIDATION_FAILED",
+        "REVIEW_FAILED",
+        "TEXT_ONLY",
+        "CONTROL_NOT_REQUIRED",
+        "TARGET_NOT_VIDEO",
+        "NO_APPLICABLE_ASSETS",
+        "SYSTEM_VALIDATED",
+        "HOST_EXECUTION_CONFIRMED",
+        "DEPENDENCY_STALE",
+        "APPLICABILITY_CHANGED",
+        "HOST_EXECUTION_STARTED",
+        "HOST_RESULT_RECEIVED",
+        "HOST_RECORD_CHANGED"
+      ]
+    },
+    "schema": {
+      "const": "state-event/6.0"
+    },
+    "task_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "to_state": {
+      "enum": [
+        "PENDING",
+        "READY",
+        "DISPATCHING",
+        "RUNNING",
+        "RESULT_SUBMITTED",
+        "VALIDATING",
+        "REVIEW_REQUIRED",
+        "ACCEPTED",
+        "NOT_APPLICABLE",
+        "BLOCKED",
+        "FAILED",
+        "UNKNOWN",
+        "STALE",
+        "CANCELLED"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "command_id",
+    "expected_revision",
+    "task_id",
+    "batch",
+    "object_version",
+    "from_state",
+    "to_state",
+    "reason",
+    "check_results",
+    "evidence",
+    "affected_outputs",
+    "actor_kind",
+    "actor_id",
+    "at"
+  ],
+  "title": "v6-state-event",
+  "type": "object"
+}

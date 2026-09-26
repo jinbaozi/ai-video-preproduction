@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_REBUILD_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 264,
+  "message": {
+    "at": "2026-09-25T14:22:08.498011Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-rebuild-progress.txt"
+    ],
+    "in_reply_to": "STORYBOARD_REBUILD_VALIDATOR_REMINDER_1",
+    "message_id": "STORYBOARD_REBUILD_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_36a8771c4fafb48716d6d9c3",
+    "subject_sha256": "e17e0983c9e26c512fd2523103ad9398ead91fc7a6ed9da67fe0802b9c4a7398",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-progress.txt",
+    "summary": "新 StoryboardIR fresh locked inspect status=VALID、structure=PASS、semantic_review 摘要绑定；媒体 NOT_RUN，V5/V6 映射尚在制作。",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "type": "PROGRESS"
+  }
+}

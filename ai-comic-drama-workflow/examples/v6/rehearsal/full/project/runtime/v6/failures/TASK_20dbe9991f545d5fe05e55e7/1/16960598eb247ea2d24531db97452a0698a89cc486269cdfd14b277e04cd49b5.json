@@ -1,0 +1,11 @@
+{
+  "batch": 1,
+  "candidate_digest": null,
+  "code": "VALUEERROR",
+  "failed_check": "module_receipt",
+  "message": "Screenplay must bind the current Canon; reconcile design proposals and re-review",
+  "node_id": "screenplay",
+  "reviewer_failure_owner": null,
+  "submission_digest": "6f3497d40ff7c3fd975a1841ed530fa33095483f5ec609bee4b598df94628328",
+  "task_id": "TASK_20dbe9991f545d5fe05e55e7"
+}

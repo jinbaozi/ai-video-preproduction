@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_REBUILD_REVIEW_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 273,
+  "message": {
+    "at": "2026-09-25T14:29:32.356699Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-rebuild-reviewer-report.txt"
+    ],
+    "in_reply_to": "STORYBOARD_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "message_id": "STORYBOARD_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+    "subject_sha256": "40c6c30991cfd8fe582156048aabe5ae63330d04eb07c34747c278291d21d79a",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-rebuild-reviewer-report.txt",
+    "summary": "独审三项 PASS；fresh storyboard VALID、包 VERIFIED，V5 1437/1437、V6 3/3、语义摘要当前绑定；真实媒体/三维投影 NOT_RUN。",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "type": "HANDOFF"
+  }
+}

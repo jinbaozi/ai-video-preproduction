@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 104,
+  "message": {
+    "at": "2026-09-25T12:36:46.355916Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-review-progress-report.txt"
+    ],
+    "in_reply_to": "ART_REVIEW_STATUS_REQUEST_1",
+    "message_id": "ART_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "subject_sha256": "0bbbcd21b145e602bee02f9684276711f53ad7e522272d7f83cea8e44df9f8c2",
+    "subject_uri": "runtime/v6/host-inputs/art-review-progress-report.txt",
+    "summary": "Independent Art reviewer verified frozen hashes, canonical candidate digest, native STATIC_VALID and empty phase/event justification; completing semantic handoff evidence and formal record.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "PROGRESS"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_DIRECTOR_B2_REVIEW_DISPATCH_1",
+  "expected_revision": 83,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 2,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "review-e539e2f5ae9c5a8ccbaa9e5b",
+    "action_id": "review-e539e2f5ae9c5a8ccbaa9e5b",
+    "tool_result_uri": "runtime/v6/host-evidence/b78656d7304c32b230fb282bdd202e5131e7f1a380c20b09d0622a237724b38a.json",
+    "tool_result_sha256": "b78656d7304c32b230fb282bdd202e5131e7f1a380c20b09d0622a237724b38a",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_cd6e26e1cbeafb65a9918960",
+    "task_digest": "6ae3f65e4e0938bc33f2b78c29cf666d4e3dcfae664cb071d691a55fa1162336",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T12:43:29.840968Z",
+    "observed_at": "2026-09-25T12:43:29.840968Z",
+    "result_uri": null,
+    "error": null
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "native_validator": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "scope": "schema, references, locks, coverage and state; not semantic or visual proof"
+  },
+  "production_contract_sha256": "753be456e3495c0970df8d353767555fc85ddfcf3b4c92d692b2fb7c2aad75ba",
+  "prompt_document_sha256": "8ec362a89b665cacfcaf8965960f4bdf7ee23eab0f95cb1ca259bc827d489f68",
+  "verified_semantic_phrases": [
+    "SCENE_HANDOFF 三镜共享同一雨夜",
+    "同一蓝灰色材与稳定环境光方向",
+    "背景雨幕细而低频",
+    "不遮蔽将来交接双手、完整封口与包口",
+    "中性平整、稳定可站立、低反光的承托面",
+    "物理连贯的微弱湿润反射",
+    "单一平视视点",
+    "两人相向站立和右手交信的通行净空",
+    "乙右手触及包口的空间",
+    "本图不画人物、信封或背包",
+    "同一方位的画外柔和环境漫反射",
+    "不添加可见灯具",
+    "不标定具体地点、城市、建筑、年代或室内外状态"
+  ],
+  "reference_binding": "PLAN_ENV_RAIN_NIGHT planned; no file, hash or attachment slot",
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN",
+  "scope": "Independent static review of prompt and ArtIR; no image or video inspected"
+}

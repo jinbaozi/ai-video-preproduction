@@ -1,0 +1,1 @@
+PROGRESS：2 项输入与 18 项资源共 20/20 字节 SHA-256 匹配，14/14 当前本地运行码与冻结副本匹配。StoryboardIR 在 10500/12000 ms 的 PROP_LETTER.visible_parts 均为 []；v51 边界适配规则明确从状态样本派生终态。重新构建原生 AVIR 与 Control 包，运行原生 validate/control verify/handoff 检查。

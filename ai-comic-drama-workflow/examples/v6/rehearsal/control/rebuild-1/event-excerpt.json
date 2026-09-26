@@ -1,0 +1,387 @@
+{
+  "batch": 1,
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+    "artifacts": [
+      {
+        "kind": "ShotControlPack",
+        "sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+        "slot": "control:project:project:ShotControlPack",
+        "uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/control-pack/package-manifest.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/module-receipt.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/adapter-report.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/native-av-validation.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-build.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-verify.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/projection-limit.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/handoff.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/handoff.json",
+          "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+        ],
+        "requirement_id": "UP_d337fbf818938e402c0af332",
+        "source_slot": "storyboard:project:project:StoryboardIR",
+        "source_version": 17,
+        "target_pointer": "",
+        "target_slot": "control:project:project:ShotControlPack"
+      }
+    ],
+    "input_digest": "0937057b7d6b2d1757fc620d90e208238723999d7b4c3ecf7a3c57ad06088f1a",
+    "module_receipts": [
+      {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      }
+    ],
+    "result_sha256": "aa2768e59dc0d8903b1e238cb6a965571f7025f99df901507893e03135c707c3",
+    "result_uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "unresolved": []
+  },
+  "captured_revision": 293,
+  "dispatch_receipt": {
+    "action_id": "dispatch-24c4d946ca1648012b4e1b3d",
+    "agent_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+    "batch": 1,
+    "dispatch_id": "dispatch-24c4d946ca1648012b4e1b3d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:30:34.205675Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:30:34.205675Z",
+    "status": "RUNNING",
+    "task_digest": "7ef36fbe641af5eee11f52a40feedde7b73ac4433ed52d0cc48208faef1f9114",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "tool_result_sha256": "b0bbcdb78486b379e2aae9201498391fc897b28ac5f99cc2be771c746dd1d4d3",
+    "tool_result_uri": "runtime/v6/host-evidence/b0bbcdb78486b379e2aae9201498391fc897b28ac5f99cc2be771c746dd1d4d3.json"
+  },
+  "envelope": {
+    "batch": 1,
+    "dependencies": [
+      {
+        "task_id": "TASK_afc04f54b23b01071a0b14e3"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "ShotControlPack",
+        "slot": "control:project:project:ShotControlPack",
+        "uri_prefix": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_d337fbf818938e402c0af332",
+        "source_slot": "storyboard:project:project:StoryboardIR",
+        "source_version": 17,
+        "target_pointer": "",
+        "target_slot": "control:project:project:ShotControlPack"
+      }
+    ],
+    "input_digest": "0937057b7d6b2d1757fc620d90e208238723999d7b4c3ecf7a3c57ad06088f1a",
+    "input_revision": 276,
+    "inputs": [
+      {
+        "sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json",
+        "version": 17
+      },
+      {
+        "sha256": "e4b6e6c3e456040a9c772a2ea1ad78712378e6f76730c8b58f39988a8159ae2d",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_a956f0b50a44008d6467b92e.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "video-prompt-compiler",
+      "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+      "version": "1.17.6"
+    },
+    "node_id": "control",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+      },
+      {
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+      }
+    ],
+    "role": "control",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "control_verify",
+        "kind": "evidence"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T14:30:57.234650Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-rebuild-spawn-brief.json",
+        "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json",
+        "runtime/tasks/TASK_a956f0b50a44008d6467b92e.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROL_REBUILD_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d3a65e57ca771d1f34ab51a9047e210cbad28beab100956c4772c681d8816a6a",
+      "subject_uri": "runtime/v6/host-inputs/control-rebuild-spawn-brief.json",
+      "summary": "Actual Control creator spawn delivered current accepted Storyboard, locked compiler build/verify obligations and honest static camera/media boundary.",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:33:02.586561Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-rebuild-progress.txt"
+      ],
+      "in_reply_to": "CONTROL_REBUILD_GUIDANCE_1",
+      "message_id": "CONTROL_REBUILD_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+      "subject_sha256": "43fe50f01a931f73816271e7bdce246d1072e7e5c542df4407f40e86514f4d2c",
+      "subject_uri": "runtime/v6/host-inputs/control-rebuild-progress.txt",
+      "summary": "已核对两项冻结输入与四份锁定资源；V5 提升版 StoryboardIR 与 V6 候选版 SHA 不同，从当前正式 IR 确定性导出 AVIR，MAPPED/0 loss，静态相机轨道1条。",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:36:34.640329Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-rebuild-creator-report.txt"
+      ],
+      "in_reply_to": "CONTROL_REBUILD_PROGRESS_PROGRESS_1",
+      "message_id": "CONTROL_REBUILD_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+      "subject_sha256": "923ccf7cdc4a62c9392e47caf40c573d0103eb8be2e973aa8e7b6dc194c24549",
+      "subject_uri": "runtime/v6/host-inputs/control-rebuild-creator-report.txt",
+      "summary": "Control 候选完成：AVIR VALID/MAPPED 0 loss，控制包 VERIFIED，121 帧均规划投影；真实模型轨迹/媒体 NOT_RUN。",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:36:47.926474Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/candidate-result.json"
+      ],
+      "in_reply_to": "CONTROL_REBUILD_HANDOFF_HANDOFF_1",
+      "message_id": "CONTROL_REBUILD_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+      "subject_sha256": "a448a800a61de15fdc806ab3df8e767fb08c6e6cc131714bb9d56f3906beb37d",
+      "subject_uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/candidate-result.json",
+      "summary": "Control candidate-result/6.0 完成；ShotControlPack 与当前 AVIR/config 绑定，媒体及真实轨迹 NOT_RUN。",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T14:37:55.996018Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-rebuild-review-guidance.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/candidate-result.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROL_REBUILD_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "f3f3b727cec78e7035ab03d3908780880ed2bdf871dc8c52370d9f21379da5de",
+      "subject_uri": "runtime/v6/host-inputs/control-rebuild-review-guidance.json",
+      "summary": "Actual independent Control reviewer dispatched with frozen inputs, current V5 Storyboard rebinding, locked AVIR/control verify and honest planned-projection boundary.",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:39:55.073308Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-rebuild-review-progress.txt"
+      ],
+      "in_reply_to": "CONTROL_REBUILD_REVIEW_GUIDANCE_1",
+      "message_id": "CONTROL_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+      "subject_sha256": "d3712780613b39b18bcb51bb149ddc7bc492679b9eedda8f948faeee43a42705",
+      "subject_uri": "runtime/v6/host-inputs/control-rebuild-review-progress.txt",
+      "summary": "独审 AVIR VALID/包 VERIFIED，11文件重 build 字节一致；121 帧相机 PLANNED_PROJECTION，但 ENV_RAIN_NIGHT 点 UNDETERMINED，不能泛称所有点已投影。",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:42:03.384415Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-rebuild-reviewer-report.txt"
+      ],
+      "in_reply_to": "CONTROL_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "message_id": "CONTROL_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+      "subject_sha256": "cad07ef16c57f0450ade136de7538663367e1b096a39686ad22d35a4ba64fe9d",
+      "subject_uri": "runtime/v6/host-inputs/control-rebuild-reviewer-report.txt",
+      "summary": "独审三项 PASS：AVIR VALID，原包/重建包 VERIFIED 且 11 文件一致；121 相机帧规划投影，N_ENV 点仍未定，真实模型/媒体 NOT_RUN。",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:42:14.897707Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/review-record.json"
+      ],
+      "in_reply_to": "CONTROL_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "message_id": "CONTROL_REBUILD_REVIEW_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+      "subject_sha256": "8984a445458eeb94e87239824147aadd1702a83872819355be04cbc411ad2a36",
+      "subject_uri": "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/review-record.json",
+      "summary": "独立 Control review-record/6.0 完成；三项 PASS，控制包限于静态规划，真实媒体/模型轨迹 NOT_RUN。",
+      "task_id": "TASK_a956f0b50a44008d6467b92e",
+      "type": "RESULT"
+    }
+  ],
+  "project_id": "LETTER_DEMO",
+  "project_root_at_rehearsal": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "published_artifact": {
+    "batch": 1,
+    "candidate_digest": "d12680358b20984ae0822a8b6b99fe381910118a412df6ab52d1293a092a54f3",
+    "kind": "ShotControlPack",
+    "sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+    "slot": "control:project:project:ShotControlPack",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/control-pack/package-manifest.json"
+  },
+  "review": {
+    "at": "2026-09-25T14:41:26.735213Z",
+    "batch": 1,
+    "candidate_digest": "d12680358b20984ae0822a8b6b99fe381910118a412df6ab52d1293a092a54f3",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/control-verify.review.json"
+        ],
+        "id": "control_verify",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+    "reviewer_dispatch_id": "review-24c4d946ca1648012b4e1b3d",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_a956f0b50a44008d6467b92e"
+  },
+  "review_dispatch": {
+    "action_id": "review-24c4d946ca1648012b4e1b3d",
+    "agent_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+    "batch": 1,
+    "dispatch_id": "review-24c4d946ca1648012b4e1b3d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:37:28.242541Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:37:28.242541Z",
+    "status": "RUNNING",
+    "task_digest": "7ef36fbe641af5eee11f52a40feedde7b73ac4433ed52d0cc48208faef1f9114",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "tool_result_sha256": "3749b32da074cadb7adbb5d3812ef56115028d7fea709582482f228c32968b88",
+    "tool_result_uri": "runtime/v6/host-evidence/3749b32da074cadb7adbb5d3812ef56115028d7fea709582482f228c32968b88.json"
+  },
+  "state": "ACCEPTED",
+  "task_id": "TASK_a956f0b50a44008d6467b92e"
+}

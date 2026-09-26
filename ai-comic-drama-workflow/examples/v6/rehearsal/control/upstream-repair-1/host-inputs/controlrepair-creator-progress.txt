@@ -1,0 +1,1 @@
+Control TASK_ddd2a77146e2ddd7866420cb frozen envelope verified: both inputs and all four locked resources match declared SHA-256. I am inspecting current StoryboardIR, V5 promotion and locked AVIR/control build semantics before writing only the candidate directory.

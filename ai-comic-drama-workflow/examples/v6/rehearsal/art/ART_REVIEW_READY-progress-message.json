@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REVIEW_READY_PROGRESS_COMMAND_1",
+  "expected_revision": 106,
+  "message": {
+    "at": "2026-09-25T12:40:13.977932Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-review-ready-report.txt"
+    ],
+    "in_reply_to": "ART_REVIEW_FINISH_REQUEST_1",
+    "message_id": "ART_REVIEW_READY_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "subject_sha256": "81c70e289bb8a5de89280b4a42c2330d2c902f6fb0ae8d79086047c3ae85f7b6",
+    "subject_uri": "runtime/v6/host-inputs/art-review-ready-report.txt",
+    "summary": "Reviewer wrote three Art evidence files and draft review-record, all checks PASS, no write blocker, completing strict schema/SHA confirmation.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "PROGRESS"
+  }
+}

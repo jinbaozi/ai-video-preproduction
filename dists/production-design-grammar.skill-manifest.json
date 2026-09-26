@@ -1,11 +1,11 @@
 {
   "archive": "production-design-grammar.skill",
-  "archive_sha256": "b53b8b48c8a5eba6d8fa90bc02cfd956aed46c6d0977d35eb34089ac65c4f7ea",
-  "file_count": 36,
+  "archive_sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+  "file_count": 37,
   "files": {
     "production-design-grammar/SKILL.md": {
-      "bytes": 6780,
-      "sha256": "3f1c31097ea050c7980cc0f071be2cd77e346c7a46f5084d16fb4ac9dd02619d"
+      "bytes": 7407,
+      "sha256": "43a4f38ebf9271892d6c489f57e31408ad655b01fdecda4700b9018f105a2b10"
     },
     "production-design-grammar/agents/openai.yaml": {
       "bytes": 426,
@@ -36,12 +36,12 @@
       "sha256": "c5fc697934d5ab140eeb327ea4839ec7ab27ce52a728a79d9f15f28beb734976"
     },
     "production-design-grammar/references/compiler.md": {
-      "bytes": 3724,
-      "sha256": "2c37f54b5e6ecb9d3c78e78c7b5a1d337700f984613413f7bcdfc1e4abe97443"
+      "bytes": 4245,
+      "sha256": "5dc7e61e0741b8e03feb0543eda773306a9802eeed01fb823b10ac2251b73a77"
     },
     "production-design-grammar/references/cooperation-v5.md": {
-      "bytes": 2294,
-      "sha256": "b2c0e8827a10af7263c90ed3b159660df13483154d9d983d5b82ce1339f9cafb"
+      "bytes": 4003,
+      "sha256": "029d4196062a8794b515a85c337f592f5d5b447ec0bcf7b002486c08af4dc863"
     },
     "production-design-grammar/references/current-contract.md": {
       "bytes": 2877,
@@ -79,6 +79,10 @@
       "bytes": 1540,
       "sha256": "4f71171f7fd5a49300b549532c224548caa3f5c68f5e1bb73cd00f1ea0c7e377"
     },
+    "production-design-grammar/references/v5-reads.json": {
+      "bytes": 286,
+      "sha256": "0082c6ab434393e2207837f3393789796efb1711c7c69843af3ced0da707b854"
+    },
     "production-design-grammar/references/verification.md": {
       "bytes": 2971,
       "sha256": "03b858f80c4fdc73475e17c2292367b2691ce134a66dbf8f491fdb39b94626cb"
@@ -112,8 +116,8 @@
       "sha256": "117bb7857e2106917057761be56b51e26df4b9c0e3ebdbcf48a992e94534c6ac"
     },
     "production-design-grammar/schemas/art-ir.schema.json": {
-      "bytes": 32902,
-      "sha256": "46b4564a16bd011b23c371a50eab897c15f52c2109560ab38a303dbcf71138de"
+      "bytes": 32974,
+      "sha256": "1cd9a0566a616a82a2ddd04eda69cc48a5cead28d683f56416a89bc222a6dfda"
     },
     "production-design-grammar/schemas/handoff.schema.json": {
       "bytes": 3553,
@@ -128,8 +132,8 @@
       "sha256": "0dce84eb02cab021011fecb0d83df4aa4f9a873061b8a2dcb7b1393b11719d11"
     },
     "production-design-grammar/scripts/art_compile.py": {
-      "bytes": 31975,
-      "sha256": "ef2c666dd3b3aa09f4e56faea7d2f600cc2279b3ef6630622958b18c3b3eab6f"
+      "bytes": 32835,
+      "sha256": "5be3a4e816259f041b505d56ede5b2bde788091a028def72ebf110d81f5f3071"
     },
     "production-design-grammar/scripts/package_skill.py": {
       "bytes": 4659,
@@ -144,10 +148,10 @@
       "sha256": "9451e70497dabe3166ca5ce70c25cad1bf256873769e2fbd7a89926caebbc6ee"
     },
     "production-design-grammar/tests/test_art_compile.py": {
-      "bytes": 14490,
-      "sha256": "4f78c578928bb756f91dc06c141a90090d68601a53085844e40fdf22f9117971"
+      "bytes": 17543,
+      "sha256": "e827fe447897f500a8fc407137d08f5cc992bf7ebae15e6fda4657a5768b3816"
     }
   },
   "name": "production-design-grammar",
-  "version": "1.3.0"
+  "version": "1.3.3"
 }

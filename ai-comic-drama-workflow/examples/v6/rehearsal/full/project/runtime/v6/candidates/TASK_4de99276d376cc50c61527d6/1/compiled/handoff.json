@@ -1,0 +1,1193 @@
+{
+  "api_submission_allowed": false,
+  "art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "blockers": [],
+  "execution_implemented": false,
+  "kind": "OFFLINE_HANDOFF_NOT_API_REQUEST",
+  "runnable": false,
+  "schema_version": "1.0",
+  "shots": [
+    {
+      "art_support": {
+        "composition_support": {
+          "background": "雨夜蓝灰背景低频，不加地标或高亮陈设；延续Director的中景与交接轴。",
+          "focal_asset": "PROP_LETTER",
+          "negative_space": "双手相遇与信的运动路径留净空，不摆放新道具；本镜不提前展示验封或入包结果。",
+          "occlusion": "按Director /timeline/actions/0 的 EVT_HANDOFF：乙右手接稳后甲右手松开；不以袖口、雨幕或布景遮挡接触和控制权转移。",
+          "separation": "中性纸色与深色袖口分离，交接时同一封未拆信和两人的手均可辨。"
+        },
+        "director_pointer": "/shots/0",
+        "id": "S_HANDOFF",
+        "performance_support": [
+          {
+            "background": "手与信后方低纹理",
+            "entity_id": "CHAR_JIA",
+            "required_parts": [
+              "hands"
+            ],
+            "wardrobe_makeup": "深石墨灰袖口收紧，露出交信右手；不设计未给出的面容。"
+          },
+          {
+            "background": "接手位置后方低纹理",
+            "entity_id": "CHAR_YI",
+            "required_parts": [
+              "hands"
+            ],
+            "wardrobe_makeup": "深蓝灰右袖不吞手，接信处可见。"
+          }
+        ],
+        "relative_relations": [],
+        "required_references": [],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR",
+          "DESIGN_ART"
+        ],
+        "visible_assets": [
+          "CHAR_JIA",
+          "CHAR_YI",
+          "PROP_LETTER",
+          "ENV_RAIN_NIGHT"
+        ]
+      },
+      "director_context": {
+        "acceptance_ids": [
+          "G3_S_HANDOFF"
+        ],
+        "beat_id": "B_HANDOFF",
+        "camera": {
+          "axis_side": "negative",
+          "axis_transition": null,
+          "end_m": [
+            0,
+            -3,
+            1.3
+          ],
+          "focal_mm": 40,
+          "focus": "当前动作证据清楚可辨",
+          "framing_end": "二人手与信同框的中景",
+          "framing_start": "二人手与信同框的中景",
+          "look_at_m": [
+            0,
+            0,
+            1
+          ],
+          "motivation": "让当前剧情证据在动作期间可见",
+          "movement": "locked",
+          "path": "在交接轴同一侧固定观察；镜间切换不改变世界左右关系",
+          "precision": "qualitative",
+          "roll_deg": 0,
+          "speed": "全程固定；数值仅为机位设计意图",
+          "start_m": [
+            0,
+            -3,
+            1.3
+          ]
+        },
+        "composition": {
+          "attention_order": [
+            "CHAR_JIA",
+            "CHAR_YI",
+            "PROP_LETTER"
+          ],
+          "depth_layers": "关键手与信在前；人物关系在中；雨夜氛围在后",
+          "negative_space": "给手、信及背包口留出动作空间",
+          "rule": "甲的手、乙的接手与同一封信可见",
+          "safe_area": [
+            0.04,
+            0.04,
+            0.92,
+            0.92
+          ],
+          "subjects": [
+            {
+              "box": [
+                0.08,
+                0.14,
+                0.34,
+                0.72
+              ],
+              "entity_id": "CHAR_JIA",
+              "visible_parts": [
+                "body",
+                "hands"
+              ]
+            },
+            {
+              "box": [
+                0.58,
+                0.14,
+                0.34,
+                0.72
+              ],
+              "entity_id": "CHAR_YI",
+              "visible_parts": [
+                "body",
+                "hands"
+              ]
+            },
+            {
+              "box": [
+                0.43,
+                0.5,
+                0.15,
+                0.14
+              ],
+              "entity_id": "PROP_LETTER",
+              "visible_parts": [
+                "prop"
+              ]
+            }
+          ]
+        },
+        "continuity": {
+          "from_shot": null,
+          "invariants": [
+            "同一封信始终未拆且封口完整",
+            "角色身份和道具外观跨镜连续",
+            "交接轴不跳轴"
+          ],
+          "match_entities": [],
+          "reason": "同一场连续事件，镜间无省略",
+          "transition": "continuous"
+        },
+        "dialogue": [],
+        "end_state": [
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_JIA",
+            "gaze_target": "PROP_LETTER",
+            "pose": "站定，递信手已放开",
+            "position_m": [
+              -0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "PROP_LETTER",
+            "entity_id": "CHAR_YI",
+            "gaze_target": "PROP_LETTER",
+            "pose": "接住信并持稳",
+            "position_m": [
+              0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "CHAR_YI.right_hand",
+            "entity_id": "PROP_LETTER",
+            "gaze_target": null,
+            "pose": "同一封未拆的信，封口保持完整",
+            "position_m": [
+              0.3,
+              0,
+              0.9
+            ],
+            "support": "CHAR_YI.right_hand",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "PROP_BACKPACK",
+            "gaze_target": null,
+            "pose": "位于乙可触及范围；样式和放置方式由美术确定",
+            "position_m": [
+              0.75,
+              0,
+              0.4
+            ],
+            "support": "稳定承托；具体场景拓扑由美术确定",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "ENV_RAIN_NIGHT",
+            "gaze_target": null,
+            "pose": "雨夜环境；具体地点与室内外状态未指定",
+            "position_m": [
+              0,
+              0,
+              0
+            ],
+            "support": "不适用",
+            "yaw_deg": 0
+          }
+        ],
+        "frames": 72,
+        "id": "S_HANDOFF",
+        "lighting": {
+          "color_purpose": "保持夜晚气氛，不借色彩虚构信件内容",
+          "direction": "保持跨镜一致，方向由美术确定",
+          "quality": "手部与信封封口可辨",
+          "source": "雨夜可读的既有环境光；具体光源由美术确定"
+        },
+        "must_show": [
+          {
+            "entity_id": "CHAR_JIA",
+            "part": "hands",
+            "reason": "甲的手、乙的接手与同一封信可见"
+          },
+          {
+            "entity_id": "CHAR_YI",
+            "part": "hands",
+            "reason": "甲的手、乙的接手与同一封信可见"
+          },
+          {
+            "entity_id": "PROP_LETTER",
+            "part": "prop",
+            "reason": "甲的手、乙的接手与同一封信可见"
+          }
+        ],
+        "narrative": {
+          "audience_after": [
+            "甲与乙之间的同一封信",
+            "乙接稳信后甲松手"
+          ],
+          "audience_before": [
+            "交接前尚未确认",
+            "甲交给乙一封未拆的信"
+          ],
+          "character_knows": [
+            "乙尚未确认封口"
+          ],
+          "reveal": null,
+          "viewpoint": "客观观察；只呈现当前事件，不提前呈现后续结果"
+        },
+        "performance": [],
+        "phases": [],
+        "purpose": "甲把一封未拆的信交给乙",
+        "references": [],
+        "scene_id": "SCENE_HANDOFF",
+        "sound": {
+          "ambience": "雨夜持续雨声",
+          "cue": "本镜不增加对白或剧情性声源",
+          "silence": false,
+          "sync": "雨声跨镜连续；动作音如需后期处理须与真实接触同步"
+        },
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_V12",
+          "SCRIPT_V15",
+          "DESIGN_D1"
+        ],
+        "start_state": [
+          {
+            "contact": "PROP_LETTER",
+            "entity_id": "CHAR_JIA",
+            "gaze_target": "PROP_LETTER",
+            "pose": "站定，朝乙方向递信",
+            "position_m": [
+              -0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_YI",
+            "gaze_target": "PROP_LETTER",
+            "pose": "面向甲，准备接信",
+            "position_m": [
+              0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "CHAR_JIA.right_hand",
+            "entity_id": "PROP_LETTER",
+            "gaze_target": null,
+            "pose": "同一封未拆的信，封口保持完整",
+            "position_m": [
+              -0.35,
+              0,
+              0.9
+            ],
+            "support": "CHAR_JIA.right_hand",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "PROP_BACKPACK",
+            "gaze_target": null,
+            "pose": "位于乙可触及范围；样式和放置方式由美术确定",
+            "position_m": [
+              0.75,
+              0,
+              0.4
+            ],
+            "support": "稳定承托；具体场景拓扑由美术确定",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "ENV_RAIN_NIGHT",
+            "gaze_target": null,
+            "pose": "雨夜环境；具体地点与室内外状态未指定",
+            "position_m": [
+              0,
+              0,
+              0
+            ],
+            "support": "不适用",
+            "yaw_deg": 0
+          }
+        ],
+        "story_order": 1,
+        "technique_ids": [
+          "locked_observation",
+          "contact_action"
+        ]
+      },
+      "events": [],
+      "id": "S_HANDOFF",
+      "reference_bindings": [],
+      "state_after": {
+        "CHAR_JIA": {
+          "wardrobe": "深石墨灰无标识外层（设计提案）"
+        },
+        "CHAR_YI": {
+          "condition": "尚未确认封口",
+          "wardrobe": "深蓝灰无标识外层（设计提案）"
+        },
+        "ENV_RAIN_NIGHT": {
+          "condition": "雨夜持续"
+        },
+        "PROP_LETTER": {
+          "condition": "同一封未拆、封口完整"
+        }
+      },
+      "state_before": {
+        "CHAR_JIA": {
+          "wardrobe": "深石墨灰无标识外层（设计提案）"
+        },
+        "CHAR_YI": {
+          "condition": "尚未确认封口",
+          "wardrobe": "深蓝灰无标识外层（设计提案）"
+        },
+        "ENV_RAIN_NIGHT": {
+          "condition": "雨夜持续"
+        },
+        "PROP_LETTER": {
+          "condition": "同一封未拆、封口完整"
+        }
+      }
+    },
+    {
+      "art_support": {
+        "composition_support": {
+          "background": "乙脸后无高频反光；封口完整可视，不增加可读文字或拆开的信纸。",
+          "focal_asset": "PROP_LETTER",
+          "negative_space": "依Director近景留出乙视线到封口的净空；不提前显示入包。",
+          "occlusion": "按Director /timeline/actions/1 的 EVT_SEAL_CHECK：乙只微调同一封未拆信查看完整封口；衣领、发丝与手指不遮住眼神或封口，也不掀开封口。",
+          "separation": "中性纸封口与深色袖口分离，乙眼神和持信右手同时清楚。"
+        },
+        "director_pointer": "/shots/1",
+        "id": "S_SEAL",
+        "performance_support": [
+          {
+            "background": "脸和封口背后低频、低反光",
+            "entity_id": "CHAR_YI",
+            "required_parts": [
+              "face",
+              "eyes",
+              "hands"
+            ],
+            "wardrobe_makeup": "眼部无遮挡，右袖露出握信手；脸部身份未由美术擅定。"
+          }
+        ],
+        "relative_relations": [],
+        "required_references": [],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR",
+          "DESIGN_ART"
+        ],
+        "visible_assets": [
+          "CHAR_YI",
+          "PROP_LETTER",
+          "ENV_RAIN_NIGHT"
+        ]
+      },
+      "director_context": {
+        "acceptance_ids": [
+          "G3_S_SEAL"
+        ],
+        "beat_id": "B_SEAL_CHECK",
+        "camera": {
+          "axis_side": "negative",
+          "axis_transition": null,
+          "end_m": [
+            0.25,
+            -1.8,
+            1.25
+          ],
+          "focal_mm": 40,
+          "focus": "当前动作证据清楚可辨",
+          "framing_end": "乙眼神和封口均可辨的近景",
+          "framing_start": "乙眼神和封口均可辨的近景",
+          "look_at_m": [
+            0,
+            0,
+            1
+          ],
+          "motivation": "让当前剧情证据在动作期间可见",
+          "movement": "locked",
+          "path": "在交接轴同一侧固定观察；镜间切换不改变世界左右关系",
+          "precision": "qualitative",
+          "roll_deg": 0,
+          "speed": "全程固定；数值仅为机位设计意图",
+          "start_m": [
+            0.25,
+            -1.8,
+            1.25
+          ]
+        },
+        "composition": {
+          "attention_order": [
+            "CHAR_YI",
+            "PROP_LETTER"
+          ],
+          "depth_layers": "关键手与信在前；人物关系在中；雨夜氛围在后",
+          "negative_space": "给手、信及背包口留出动作空间",
+          "rule": "乙视线与完整封口同框；不能出现拆信",
+          "safe_area": [
+            0.04,
+            0.04,
+            0.92,
+            0.92
+          ],
+          "subjects": [
+            {
+              "box": [
+                0.53,
+                0.08,
+                0.37,
+                0.74
+              ],
+              "entity_id": "CHAR_YI",
+              "visible_parts": [
+                "face",
+                "eyes",
+                "hands"
+              ]
+            },
+            {
+              "box": [
+                0.24,
+                0.49,
+                0.34,
+                0.23
+              ],
+              "entity_id": "PROP_LETTER",
+              "visible_parts": [
+                "prop"
+              ]
+            }
+          ]
+        },
+        "continuity": {
+          "from_shot": "S_HANDOFF",
+          "invariants": [
+            "同一封信始终未拆且封口完整",
+            "角色身份和道具外观跨镜连续",
+            "交接轴不跳轴"
+          ],
+          "match_entities": [
+            "CHAR_JIA",
+            "CHAR_YI",
+            "PROP_LETTER",
+            "PROP_BACKPACK"
+          ],
+          "reason": "同一场连续事件，镜间无省略",
+          "transition": "continuous"
+        },
+        "dialogue": [],
+        "end_state": [
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_JIA",
+            "gaze_target": "PROP_LETTER",
+            "pose": "站定，递信手已放开",
+            "position_m": [
+              -0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "PROP_LETTER",
+            "entity_id": "CHAR_YI",
+            "gaze_target": "PROP_LETTER",
+            "pose": "接住信并持稳",
+            "position_m": [
+              0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "CHAR_YI.right_hand",
+            "entity_id": "PROP_LETTER",
+            "gaze_target": null,
+            "pose": "同一封未拆的信，封口保持完整",
+            "position_m": [
+              0.3,
+              0,
+              0.9
+            ],
+            "support": "CHAR_YI.right_hand",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "PROP_BACKPACK",
+            "gaze_target": null,
+            "pose": "位于乙可触及范围；样式和放置方式由美术确定",
+            "position_m": [
+              0.75,
+              0,
+              0.4
+            ],
+            "support": "稳定承托；具体场景拓扑由美术确定",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "ENV_RAIN_NIGHT",
+            "gaze_target": null,
+            "pose": "雨夜环境；具体地点与室内外状态未指定",
+            "position_m": [
+              0,
+              0,
+              0
+            ],
+            "support": "不适用",
+            "yaw_deg": 0
+          }
+        ],
+        "frames": 72,
+        "id": "S_SEAL",
+        "lighting": {
+          "color_purpose": "保持夜晚气氛，不借色彩虚构信件内容",
+          "direction": "保持跨镜一致，方向由美术确定",
+          "quality": "手部与信封封口可辨",
+          "source": "雨夜可读的既有环境光；具体光源由美术确定"
+        },
+        "must_show": [
+          {
+            "entity_id": "CHAR_YI",
+            "part": "hands",
+            "reason": "乙视线与完整封口同框；不能出现拆信"
+          },
+          {
+            "entity_id": "PROP_LETTER",
+            "part": "prop",
+            "reason": "乙视线与完整封口同框；不能出现拆信"
+          }
+        ],
+        "narrative": {
+          "audience_after": [
+            "乙已确认封口完整，信仍未拆"
+          ],
+          "audience_before": [
+            "乙已接稳同一封未拆的信"
+          ],
+          "character_knows": [
+            "乙在本镜确认封口完整"
+          ],
+          "reveal": null,
+          "viewpoint": "客观观察；只呈现当前事件，不提前呈现后续结果"
+        },
+        "performance": [],
+        "phases": [],
+        "purpose": "乙查看同一封信并确认封口完整",
+        "references": [],
+        "scene_id": "SCENE_HANDOFF",
+        "sound": {
+          "ambience": "雨夜持续雨声",
+          "cue": "本镜不增加对白或剧情性声源",
+          "silence": false,
+          "sync": "雨声跨镜连续；动作音如需后期处理须与真实接触同步"
+        },
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_V12",
+          "SCRIPT_V15",
+          "DESIGN_D1"
+        ],
+        "start_state": [
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_JIA",
+            "gaze_target": "PROP_LETTER",
+            "pose": "站定，递信手已放开",
+            "position_m": [
+              -0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "PROP_LETTER",
+            "entity_id": "CHAR_YI",
+            "gaze_target": "PROP_LETTER",
+            "pose": "接住信并持稳",
+            "position_m": [
+              0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "CHAR_YI.right_hand",
+            "entity_id": "PROP_LETTER",
+            "gaze_target": null,
+            "pose": "同一封未拆的信，封口保持完整",
+            "position_m": [
+              0.3,
+              0,
+              0.9
+            ],
+            "support": "CHAR_YI.right_hand",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "PROP_BACKPACK",
+            "gaze_target": null,
+            "pose": "位于乙可触及范围；样式和放置方式由美术确定",
+            "position_m": [
+              0.75,
+              0,
+              0.4
+            ],
+            "support": "稳定承托；具体场景拓扑由美术确定",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "ENV_RAIN_NIGHT",
+            "gaze_target": null,
+            "pose": "雨夜环境；具体地点与室内外状态未指定",
+            "position_m": [
+              0,
+              0,
+              0
+            ],
+            "support": "不适用",
+            "yaw_deg": 0
+          }
+        ],
+        "story_order": 2,
+        "technique_ids": [
+          "locked_observation",
+          "contact_action"
+        ]
+      },
+      "events": [
+        {
+          "after": "已确认同一封信封口完整",
+          "asset_id": "CHAR_YI",
+          "before": "尚未确认封口",
+          "director_pointer": "/timeline/actions/1",
+          "field": "condition",
+          "id": "ART_SEAL_CONFIRMED",
+          "order": 0,
+          "shot_id": "S_SEAL",
+          "source_refs": [
+            "CANON",
+            "DIRECTOR"
+          ],
+          "trigger": "冻结导演 EVENT_SEAL_CHECK 的乙确认封口完整终态；美术只读镜像，不改变演出决定。"
+        }
+      ],
+      "id": "S_SEAL",
+      "reference_bindings": [],
+      "state_after": {
+        "CHAR_YI": {
+          "condition": "已确认同一封信封口完整",
+          "wardrobe": "深蓝灰无标识外层（设计提案）"
+        },
+        "ENV_RAIN_NIGHT": {
+          "condition": "雨夜持续"
+        },
+        "PROP_LETTER": {
+          "condition": "同一封未拆、封口完整"
+        }
+      },
+      "state_before": {
+        "CHAR_YI": {
+          "condition": "尚未确认封口",
+          "wardrobe": "深蓝灰无标识外层（设计提案）"
+        },
+        "ENV_RAIN_NIGHT": {
+          "condition": "雨夜持续"
+        },
+        "PROP_LETTER": {
+          "condition": "同一封未拆、封口完整"
+        }
+      }
+    },
+    {
+      "art_support": {
+        "composition_support": {
+          "background": "前段在乙右手、同一封信和包口后保持低频雨夜背景；8500毫秒后信完全在背包内，9000毫秒终帧不外露。",
+          "focal_asset": "PROP_BACKPACK",
+          "negative_space": "包口前留右手送入和退出的净空；收存结果只在验封之后出现。",
+          "occlusion": "按Director /timeline/actions/2 的 EVT_STOW：乙右手把信穿过包口并由包内承托；8500毫秒后信在包内不再可见，终帧只见乙手退出与背包口，无外露信件。",
+          "separation": "深色包口边缘与乙手分离，入包前信的中性纸色可辨；入包后不让纸色继续作为前景。"
+        },
+        "director_pointer": "/shots/2",
+        "id": "S_STOW",
+        "performance_support": [
+          {
+            "background": "乙手与包口后方低反光",
+            "entity_id": "CHAR_YI",
+            "required_parts": [
+              "hands"
+            ],
+            "wardrobe_makeup": "右袖不遮住包口接触，手退出路径清楚。"
+          }
+        ],
+        "relative_relations": [],
+        "required_references": [],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR",
+          "DESIGN_ART"
+        ],
+        "visible_assets": [
+          "CHAR_YI",
+          "PROP_LETTER",
+          "PROP_BACKPACK",
+          "ENV_RAIN_NIGHT"
+        ]
+      },
+      "director_context": {
+        "acceptance_ids": [
+          "G3_S_STOW"
+        ],
+        "beat_id": "B_STOW",
+        "camera": {
+          "axis_side": "negative",
+          "axis_transition": null,
+          "end_m": [
+            0.2,
+            -2.1,
+            1.25
+          ],
+          "focal_mm": 40,
+          "focus": "当前动作证据清楚可辨",
+          "framing_end": "乙手退出包口，信已完全在包内；终帧只见乙与背包口",
+          "framing_start": "乙手、信和背包口同框的中近景",
+          "look_at_m": [
+            0,
+            0,
+            1
+          ],
+          "motivation": "让当前剧情证据在动作期间可见",
+          "movement": "locked",
+          "path": "在交接轴同一侧固定观察；镜间切换不改变世界左右关系",
+          "precision": "qualitative",
+          "roll_deg": 0,
+          "speed": "全程固定；数值仅为机位设计意图",
+          "start_m": [
+            0.2,
+            -2.1,
+            1.25
+          ]
+        },
+        "composition": {
+          "attention_order": [
+            "CHAR_YI",
+            "PROP_BACKPACK"
+          ],
+          "depth_layers": "终帧乙手与背包口可见；信在包内，不作为外露前景",
+          "negative_space": "给乙手退出包口留出动作空间",
+          "rule": "前段信与手、背包口同框；8500毫秒信完全入包后不再可见，终帧呈现收存结果",
+          "safe_area": [
+            0.04,
+            0.04,
+            0.92,
+            0.92
+          ],
+          "subjects": [
+            {
+              "box": [
+                0.18,
+                0.1,
+                0.52,
+                0.79
+              ],
+              "entity_id": "CHAR_YI",
+              "visible_parts": [
+                "body",
+                "hands"
+              ]
+            },
+            {
+              "box": [
+                0.55,
+                0.55,
+                0.32,
+                0.34
+              ],
+              "entity_id": "PROP_BACKPACK",
+              "visible_parts": [
+                "prop"
+              ]
+            }
+          ]
+        },
+        "continuity": {
+          "from_shot": "S_SEAL",
+          "invariants": [
+            "同一封信始终未拆且封口完整",
+            "角色身份和道具外观跨镜连续",
+            "交接轴不跳轴"
+          ],
+          "match_entities": [
+            "CHAR_JIA",
+            "CHAR_YI",
+            "PROP_LETTER",
+            "PROP_BACKPACK"
+          ],
+          "reason": "同一场连续事件，镜间无省略",
+          "transition": "continuous"
+        },
+        "dialogue": [],
+        "end_state": [
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_JIA",
+            "gaze_target": "PROP_LETTER",
+            "pose": "站定，递信手已放开",
+            "position_m": [
+              -0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_YI",
+            "gaze_target": "PROP_LETTER",
+            "pose": "将信送入背包后手离包口",
+            "position_m": [
+              0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "PROP_BACKPACK.interior",
+            "entity_id": "PROP_LETTER",
+            "gaze_target": null,
+            "pose": "同一封未拆的信，封口保持完整",
+            "position_m": [
+              0.72,
+              0,
+              0.45
+            ],
+            "support": "PROP_BACKPACK.interior",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "PROP_BACKPACK",
+            "gaze_target": null,
+            "pose": "位于乙可触及范围；样式和放置方式由美术确定",
+            "position_m": [
+              0.75,
+              0,
+              0.4
+            ],
+            "support": "稳定承托；具体场景拓扑由美术确定",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "ENV_RAIN_NIGHT",
+            "gaze_target": null,
+            "pose": "雨夜环境；具体地点与室内外状态未指定",
+            "position_m": [
+              0,
+              0,
+              0
+            ],
+            "support": "不适用",
+            "yaw_deg": 0
+          }
+        ],
+        "frames": 72,
+        "id": "S_STOW",
+        "lighting": {
+          "color_purpose": "保持夜晚气氛，不借色彩虚构信件内容",
+          "direction": "保持跨镜一致，方向由美术确定",
+          "quality": "手部与信封封口可辨",
+          "source": "雨夜可读的既有环境光；具体光源由美术确定"
+        },
+        "must_show": [
+          {
+            "entity_id": "CHAR_YI",
+            "part": "hands",
+            "reason": "信从乙手中进入背包；终态在包内"
+          },
+          {
+            "entity_id": "PROP_LETTER",
+            "part": "prop",
+            "reason": "信从乙手中进入背包；终态在包内"
+          },
+          {
+            "entity_id": "PROP_BACKPACK",
+            "part": "prop",
+            "reason": "信从乙手中进入背包；终态在包内"
+          }
+        ],
+        "narrative": {
+          "audience_after": [
+            "同一封未拆的信已经收进背包"
+          ],
+          "audience_before": [
+            "乙已确认封口完整"
+          ],
+          "character_knows": [
+            "乙已确认封口完整"
+          ],
+          "reveal": null,
+          "viewpoint": "客观观察；只呈现当前事件，不提前呈现后续结果"
+        },
+        "performance": [],
+        "phases": [],
+        "purpose": "确认后乙把同一封信收进背包",
+        "references": [],
+        "scene_id": "SCENE_HANDOFF",
+        "sound": {
+          "ambience": "雨夜持续雨声",
+          "cue": "本镜不增加对白或剧情性声源",
+          "silence": false,
+          "sync": "雨声跨镜连续；动作音如需后期处理须与真实接触同步"
+        },
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_V12",
+          "SCRIPT_V15",
+          "DESIGN_D1"
+        ],
+        "start_state": [
+          {
+            "contact": "无接触",
+            "entity_id": "CHAR_JIA",
+            "gaze_target": "PROP_LETTER",
+            "pose": "站定，递信手已放开",
+            "position_m": [
+              -0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "PROP_LETTER",
+            "entity_id": "CHAR_YI",
+            "gaze_target": "PROP_LETTER",
+            "pose": "接住信并持稳",
+            "position_m": [
+              0.6,
+              0,
+              0
+            ],
+            "support": "自身站立支撑",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "CHAR_YI.right_hand",
+            "entity_id": "PROP_LETTER",
+            "gaze_target": null,
+            "pose": "同一封未拆的信，封口保持完整",
+            "position_m": [
+              0.3,
+              0,
+              0.9
+            ],
+            "support": "CHAR_YI.right_hand",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "PROP_BACKPACK",
+            "gaze_target": null,
+            "pose": "位于乙可触及范围；样式和放置方式由美术确定",
+            "position_m": [
+              0.75,
+              0,
+              0.4
+            ],
+            "support": "稳定承托；具体场景拓扑由美术确定",
+            "yaw_deg": 0
+          },
+          {
+            "contact": "无接触",
+            "entity_id": "ENV_RAIN_NIGHT",
+            "gaze_target": null,
+            "pose": "雨夜环境；具体地点与室内外状态未指定",
+            "position_m": [
+              0,
+              0,
+              0
+            ],
+            "support": "不适用",
+            "yaw_deg": 0
+          }
+        ],
+        "story_order": 3,
+        "technique_ids": [
+          "locked_observation",
+          "contact_action"
+        ]
+      },
+      "events": [
+        {
+          "after": "收纳同一封信",
+          "asset_id": "PROP_BACKPACK",
+          "before": "待收纳信",
+          "director_pointer": "/timeline/actions/2",
+          "field": "condition",
+          "id": "ART_BACKPACK_STOWED",
+          "order": 0,
+          "shot_id": "S_STOW",
+          "source_refs": [
+            "CANON",
+            "DIRECTOR"
+          ],
+          "trigger": "冻结导演 EVENT_STOW 在 8500 毫秒完成；包内承托同一封未拆信。"
+        }
+      ],
+      "id": "S_STOW",
+      "reference_bindings": [],
+      "state_after": {
+        "CHAR_YI": {
+          "condition": "已确认同一封信封口完整",
+          "wardrobe": "深蓝灰无标识外层（设计提案）"
+        },
+        "ENV_RAIN_NIGHT": {
+          "condition": "雨夜持续"
+        },
+        "PROP_BACKPACK": {
+          "condition": "收纳同一封信"
+        },
+        "PROP_LETTER": {
+          "condition": "同一封未拆、封口完整"
+        }
+      },
+      "state_before": {
+        "CHAR_YI": {
+          "condition": "已确认同一封信封口完整",
+          "wardrobe": "深蓝灰无标识外层（设计提案）"
+        },
+        "ENV_RAIN_NIGHT": {
+          "condition": "雨夜持续"
+        },
+        "PROP_BACKPACK": {
+          "condition": "待收纳信"
+        },
+        "PROP_LETTER": {
+          "condition": "同一封未拆、封口完整"
+        }
+      }
+    }
+  ],
+  "status": "PLANNED",
+  "submitted": false,
+  "target": "generic-video",
+  "tasks": [
+    {
+      "channel": "prompt",
+      "check_ids": [
+        "G0INPUT",
+        "G1DESIGN",
+        "G4FINAL"
+      ],
+      "clause_id": "ART_WORLD",
+      "id": "TASK_ART_WORLD",
+      "instruction": "按对应ArtIR字段制作美术交接；由宿主与冻结DirectorIR合并并对实际画面核验，不改镜头、表演、台词或事件时序。",
+      "reference_ids": []
+    },
+    {
+      "channel": "prompt",
+      "check_ids": [
+        "G1DESIGN",
+        "G4FINAL"
+      ],
+      "clause_id": "ART_CONTINUITY",
+      "id": "TASK_ART_CONTINUITY",
+      "instruction": "按对应ArtIR字段制作美术交接；由宿主与冻结DirectorIR合并并对实际画面核验，不改镜头、表演、台词或事件时序。",
+      "reference_ids": []
+    },
+    {
+      "channel": "prompt",
+      "check_ids": [
+        "G3_HANDOFF"
+      ],
+      "clause_id": "ART_HANDOFF",
+      "id": "TASK_ART_HANDOFF",
+      "instruction": "按对应ArtIR字段制作美术交接；由宿主与冻结DirectorIR合并并对实际画面核验，不改镜头、表演、台词或事件时序。",
+      "reference_ids": []
+    },
+    {
+      "channel": "prompt",
+      "check_ids": [
+        "G3_SEAL"
+      ],
+      "clause_id": "ART_SEAL",
+      "id": "TASK_ART_SEAL",
+      "instruction": "按对应ArtIR字段制作美术交接；由宿主与冻结DirectorIR合并并对实际画面核验，不改镜头、表演、台词或事件时序。",
+      "reference_ids": []
+    },
+    {
+      "channel": "prompt",
+      "check_ids": [
+        "G3_STOW"
+      ],
+      "clause_id": "ART_STOW",
+      "id": "TASK_ART_STOW",
+      "instruction": "按对应ArtIR字段制作美术交接；由宿主与冻结DirectorIR合并并对实际画面核验，不改镜头、表演、台词或事件时序。",
+      "reference_ids": []
+    },
+    {
+      "channel": "prompt",
+      "check_ids": [
+        "G2MAP",
+        "G4FINAL"
+      ],
+      "clause_id": "ART_MAPPING",
+      "id": "TASK_ART_MAPPING",
+      "instruction": "按对应ArtIR字段制作美术交接；由宿主与冻结DirectorIR合并并对实际画面核验，不改镜头、表演、台词或事件时序。",
+      "reference_ids": []
+    }
+  ]
+}

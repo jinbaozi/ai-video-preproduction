@@ -1,0 +1,1 @@
+独立 Compile 审阅进行中：已用锁定 video-prompt-compiler 1.17.6 对冻结 AVIR 复跑 validate=VALID、编译包 verify=VERIFIED、replay=COMPILED（退出码均 0）；旧冲突的提示词第 70–71、103–104 行现在同指时间轴 [0,1.2,-2.8]。我正在核 27 冻结输入、5 必读资源、77 锁定运行文件、20 编译文件与两项交接，随后写严格 review-record。

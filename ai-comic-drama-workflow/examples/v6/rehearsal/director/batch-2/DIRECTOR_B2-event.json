@@ -1,0 +1,23 @@
+{
+  "command_id": "DIRECTOR_B2_DISPATCH_1",
+  "expected_revision": 51,
+  "receipt": {
+    "action_id": "dispatch-170f01b0b05c6d53096de3b2",
+    "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+    "batch": 2,
+    "dispatch_id": "dispatch-170f01b0b05c6d53096de3b2",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T11:07:41.685281Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T11:07:41.685281Z",
+    "status": "RUNNING",
+    "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "tool_result_sha256": "d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c",
+    "tool_result_uri": "runtime/v6/host-evidence/d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c.json"
+  }
+}

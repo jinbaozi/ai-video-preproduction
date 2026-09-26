@@ -1,0 +1,1374 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "artifacts": [
+      {
+        "kind": "DirectorIR",
+        "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json"
+      }
+    ],
+    "batch": 3,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/native-validator.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/director-review.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json"
+        ],
+        "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json"
+        ],
+        "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "53f8e3d322c76ee869c2f91cc9ffaf7141897c5909f18b4aad3942577732f320",
+    "module_receipts": [
+      {
+        "name": "director-grammar",
+        "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+        "version": "1.4.2"
+      }
+    ],
+    "result_sha256": "dd4f8eca64eef2bb8b4fbe2c2018e88551633da43faafb5531ebb043f1b40c78",
+    "result_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "unresolved": []
+  },
+  "envelope": {
+    "batch": 3,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_1b94794070565f70c7f697a7"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "DirectorIR",
+        "slot": "director:project:project:DirectorIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "53f8e3d322c76ee869c2f91cc9ffaf7141897c5909f18b4aad3942577732f320",
+    "input_revision": 64,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+        "slot": "screenplay:project:project:ScriptIR",
+        "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+        "version": 14
+      },
+      {
+        "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+        "version": 0
+      },
+      {
+        "sha256": "efdc6ad9e1307d9eea8f32417f12e683786dbbe0cf8a392e373dca585afd4033",
+        "slot": "repair_brief",
+        "uri": "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+        "version": 3
+      },
+      {
+        "sha256": "3155f67ee805592d576967760d20dd2955abd43540bfeca78739c17950058d62",
+        "slot": "repair_failure_1",
+        "uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+        "version": 1
+      },
+      {
+        "sha256": "7d6a58d6a2ae798dd4c54d798ad70d9b6cd92566a1077261b23ef1eefc66b02d",
+        "slot": "repair_failure_2",
+        "uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json",
+        "version": 2
+      }
+    ],
+    "module": {
+      "name": "director-grammar",
+      "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+      "version": "1.4.2"
+    },
+    "node_id": "director",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+      }
+    ],
+    "role": "director",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "evidence_hashes": {
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/director-review.json": "1b9b3ba3c76ee54e8baff5ec393808a02075712ee272e38bb37db428114a31f7",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/module-receipt.json": "4af0cf4175ac1f3ce03f02a60f08477649d90b7d1032d6c761615c6fe0536c9c",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/native-validator.json": "2c5c97691ac4eebd46db451696505f70671ee004dcd9b7d7c3232b06cf7f7815",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json": "b4fc835ed3f94d6a1d7c2dd32f04423ac5822f0e2483cb23b4d2b701dc0c0db1",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/source-integrity.json": "03a1a2023c6f238ab98eb81c94fc16914c0bcfa47f372a7efae7bc398fcb8403",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json": "5d1511847e9c81d703dc4877f017a9795eb028b2a5711904aa6fc7e26ab5bdb9",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json": "f7ad6b070d6040729d2c22e778a3d0788f4d46765d597ced69e0ea15268160fa",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json": "6e199b18640f119bf5086a355c4807a4e3a061563d7cf2cc12cac5487fda7d68",
+    "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/handoff.review.json": "fa6f00b1e937698dc89b7feacc1fc50c8bcd759fb0139f2fbe4b7f1f4414c295",
+    "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/module-receipt.review.json": "f7b8e5842aa383b6797d14a56ad523c89f934079f174bceefe3d8ef22a624e19",
+    "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/native-validator.review.json": "4eafa68d2d33cdce2d1d54f4f967ff7bb35ab8a05b07b4480fd62202e36147b0"
+  },
+  "failure_counts": {
+    "handoff": 2
+  },
+  "history": [
+    {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+        "artifacts": [
+          {
+            "kind": "DirectorIR",
+            "sha256": "67ab67ab9ab6065f097b0bdff9b27e354a138f19be9b66532f21001e4150126c",
+            "slot": "director:project:project:DirectorIR",
+            "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/director-ir.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/source-integrity.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/module-receipt.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/native-validator.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/director-review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v5-handoff.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v6-handoffs.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v5-handoff.json"
+            ],
+            "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          },
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v5-handoff.json"
+            ],
+            "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+            "source_slot": "screenplay:project:project:ScriptIR",
+            "source_version": 14,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          }
+        ],
+        "input_digest": "67cfef6783874f9f62f4eb63022caeb08b31bef38ffefbb2d4bbab5cda6d9c42",
+        "module_receipts": [
+          {
+            "name": "director-grammar",
+            "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+            "version": "1.4.2"
+          }
+        ],
+        "result_sha256": "1fde03848a4e1702be07225870a71060cf4153755293e28608cc395aa9ff1b51",
+        "result_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "unresolved": []
+      },
+      "envelope": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+          },
+          {
+            "task_id": "TASK_1b94794070565f70c7f697a7"
+          }
+        ],
+        "execution_class": "professional",
+        "expected_artifacts": [
+          {
+            "kind": "DirectorIR",
+            "slot": "director:project:project:DirectorIR",
+            "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          },
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+            "source_slot": "screenplay:project:project:ScriptIR",
+            "source_version": 14,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          }
+        ],
+        "input_digest": "67cfef6783874f9f62f4eb63022caeb08b31bef38ffefbb2d4bbab5cda6d9c42",
+        "input_revision": 32,
+        "inputs": [
+          {
+            "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+            "slot": "canon:project:project:Canon",
+            "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+            "version": 12
+          },
+          {
+            "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+            "slot": "screenplay:project:project:ScriptIR",
+            "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+            "version": 14
+          },
+          {
+            "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+            "version": 0
+          }
+        ],
+        "module": {
+          "name": "director-grammar",
+          "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+          "version": "1.4.2"
+        },
+        "node_id": "director",
+        "project_id": "LETTER_DEMO",
+        "resources": [
+          {
+            "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+          },
+          {
+            "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+          },
+          {
+            "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+          },
+          {
+            "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+          }
+        ],
+        "role": "director",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "validators": [
+          {
+            "id": "module_receipt",
+            "kind": "hash"
+          },
+          {
+            "id": "native_validator",
+            "kind": "native"
+          },
+          {
+            "id": "handoff",
+            "kind": "handoff"
+          }
+        ]
+      },
+      "evidence_hashes": {
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/director-review.json": "f4674a914070ec12676d0378a45676cadaa27b124070e9c93bbaeca98ac0149b",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/module-receipt.json": "7ccf25b719b50128ac11436aece1209ddec5f2c9737db65990191d73ee716fea",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/native-validator.json": "49d0855a25acf816bacdf673e0d3cdab56ae95fd6a4c0b4a96c727d3da7e1b5a",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/source-integrity.json": "5e53df63ed577be2ec1caf565c84daba345268650b02c8ada69fd4cb863d7201",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v5-handoff.json": "cfbc4939b66cc38390765edbcfa3efcb0e6ce0244b9fa704e616fa12ea786c83",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v6-handoffs.json": "1e2e86ff988b033212e5510e1f3d73f7e463df0c3f01e436f239543be8140b81"
+      },
+      "failure_counts": {
+        "handoff": 1
+      },
+      "messages": [
+        {
+          "at": "2026-09-25T10:45:50.082519Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+          ],
+          "in_reply_to": null,
+          "message_id": "DIRECTOR_CHILD_GUIDANCE_1",
+          "recipient_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "b06e25e17c71f95fbb888b6a2f27d15164334bab66fee7ac09a30af60a81ac24",
+          "subject_uri": "runtime/v6/messages/b06e25e17c71f95fbb888b6a2f27d15164334bab66fee7ac09a30af60a81ac24.json",
+          "summary": "Host instructed Director creator to keep contracts subagent read-only, record its advice and retain sole candidate authorship.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T10:46:07.938608Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+          ],
+          "in_reply_to": "DIRECTOR_CHILD_GUIDANCE_1",
+          "message_id": "DIRECTOR_ACK_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+          "subject_sha256": "8aa240367a5cea37dae96952766df8729da950a7ee4b335122d68acd9e2350d8",
+          "subject_uri": "runtime/v6/messages/8aa240367a5cea37dae96952766df8729da950a7ee4b335122d68acd9e2350d8.json",
+          "summary": "Director verified four locked Skill resources and input hashes; retained sole candidate authorship and read-only contract assistance.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "ACK"
+        },
+        {
+          "at": "2026-09-25T10:47:19.086544Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+          ],
+          "in_reply_to": "DIRECTOR_ACK_1",
+          "message_id": "DIRECTOR_PROGRESS_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+          "subject_sha256": "3005dcb098c59736c14922a2c4ea66e40e7469b05658dcaac1055075fda83d4e",
+          "subject_uri": "runtime/v6/messages/3005dcb098c59736c14922a2c4ea66e40e7469b05658dcaac1055075fda83d4e.json",
+          "summary": "Director distinguished V5 semantic handoffs from two frozen V6 predecessor handoffs and will cite read-only contract assistance.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T10:59:42.125832Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+          ],
+          "in_reply_to": "DIRECTOR_PROGRESS_1",
+          "message_id": "DIRECTOR_PROGRESS_REQUEST_1",
+          "recipient_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "e42329a1922deb60a7597e3785968bb89e2b104fa45a49cab89f76e13966bf5e",
+          "subject_uri": "runtime/v6/messages/e42329a1922deb60a7597e3785968bb89e2b104fa45a49cab89f76e13966bf5e.json",
+          "summary": "Host requested a verifiable minimal Director candidate or a precise frozen-input/native-check blocker and retained contract-assistance trace.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "QUESTION"
+        },
+        {
+          "at": "2026-09-25T11:00:07.089043Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/candidate-result.json"
+          ],
+          "in_reply_to": "DIRECTOR_PROGRESS_REQUEST_1",
+          "message_id": "DIRECTOR_RESULT_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+          "subject_sha256": "3a25fc100c48cd80ab9c7d16fae9aa99fdc67df28784c8a0aa9b2a4321d562a4",
+          "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/candidate-result.json",
+          "summary": "Director completed native DirectorIR, RoleResult, V6 candidate, checks and frozen handoffs; read-only contract assistance was independently checked and cited.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "RESULT"
+        },
+        {
+          "at": "2026-09-25T11:01:00.501902Z",
+          "batch": 1,
+          "evidence": [],
+          "in_reply_to": null,
+          "message_id": "DIRECTOR_REVIEW_ACK_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+          "subject_sha256": null,
+          "subject_uri": null,
+          "summary": "Reviewer accepted the frozen Director review and will compare source, Canon, ScriptIR, DirectorIR, and cited evidence while writing only in review_dir.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "ACK"
+        },
+        {
+          "at": "2026-09-25T11:06:43.301234Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json"
+          ],
+          "in_reply_to": "DIRECTOR_REVIEW_ACK_1",
+          "message_id": "DIRECTOR_REVIEW_RESULT_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+          "subject_sha256": "db5f23e4d9ea756a748013263d4998119a438705752fc32494e3d62d2773c65c",
+          "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+          "summary": "Independent Director review: module receipt and native validator pass; handoff continuity fails because final states still show Jia holding the letter after Yi put it in the bag.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "RESULT"
+        }
+      ],
+      "receipt": {
+        "action_id": "dispatch-8b0fde433baf3035921f61b9",
+        "agent_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+        "batch": 1,
+        "dispatch_id": "dispatch-8b0fde433baf3035921f61b9",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T10:43:39.693573Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T10:43:39.693573Z",
+        "status": "RUNNING",
+        "task_digest": "ea1933fcbc7fcff4e691eccbb7e99ed7c9c8f20b72bbeeddeb809eb7546117ac",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "8675200351967a488e8e61ae08df4143af9207dd7dc9a026059f650052996c83",
+        "tool_result_uri": "runtime/v6/host-evidence/8675200351967a488e8e61ae08df4143af9207dd7dc9a026059f650052996c83.json"
+      },
+      "receipt_history": [
+        {
+          "action_id": "dispatch-8b0fde433baf3035921f61b9",
+          "agent_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+          "batch": 1,
+          "dispatch_id": "dispatch-8b0fde433baf3035921f61b9",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T10:43:39.693573Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T10:43:39.693573Z",
+          "status": "RUNNING",
+          "task_digest": "ea1933fcbc7fcff4e691eccbb7e99ed7c9c8f20b72bbeeddeb809eb7546117ac",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "tool_result_sha256": "8675200351967a488e8e61ae08df4143af9207dd7dc9a026059f650052996c83",
+          "tool_result_uri": "runtime/v6/host-evidence/8675200351967a488e8e61ae08df4143af9207dd7dc9a026059f650052996c83.json"
+        }
+      ],
+      "review": null,
+      "review_dispatch": {
+        "action_id": "review-8b0fde433baf3035921f61b9",
+        "agent_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+        "batch": 1,
+        "dispatch_id": "review-8b0fde433baf3035921f61b9",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T11:00:50.950565Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T11:00:50.950565Z",
+        "status": "RUNNING",
+        "task_digest": "ea1933fcbc7fcff4e691eccbb7e99ed7c9c8f20b72bbeeddeb809eb7546117ac",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "885af13ae21fc04cf37d5c43dd4b1384f4ac18379f31b03f0adfa7bb2a60d41e",
+        "tool_result_uri": "runtime/v6/host-evidence/885af13ae21fc04cf37d5c43dd4b1384f4ac18379f31b03f0adfa7bb2a60d41e.json"
+      },
+      "state": "FAILED",
+      "validation": [
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/source-integrity.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/module-receipt.json"
+          ],
+          "id": "module_receipt",
+          "status": "PASS"
+        },
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/native-validator.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/director-review.json"
+          ],
+          "id": "native_validator",
+          "status": "PASS"
+        },
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v5-handoff.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/v6-handoffs.json"
+          ],
+          "id": "handoff",
+          "status": "PASS"
+        }
+      ],
+      "version": 15
+    },
+    {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+        "artifacts": [
+          {
+            "kind": "DirectorIR",
+            "sha256": "d7fc28b7d3207d0beadb14f286e9bffd302a2fdab918dfd54190f515f1355364",
+            "slot": "director:project:project:DirectorIR",
+            "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/director-ir.json"
+          }
+        ],
+        "batch": 2,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/source-integrity.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/module-receipt.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/native-validator.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/director-review.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json"
+            ],
+            "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          },
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+              "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json"
+            ],
+            "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+            "source_slot": "screenplay:project:project:ScriptIR",
+            "source_version": 14,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          }
+        ],
+        "input_digest": "c63833dc17ae7712fcf477b56e2c9efb9a131451db6d099e558be9a6e4dedd4a",
+        "module_receipts": [
+          {
+            "name": "director-grammar",
+            "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+            "version": "1.4.2"
+          }
+        ],
+        "result_sha256": "f194b59da68e16ce22662e92df2c366c028e1732cbdedb0209cefc194a821571",
+        "result_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "unresolved": []
+      },
+      "envelope": {
+        "batch": 2,
+        "dependencies": [
+          {
+            "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+          },
+          {
+            "task_id": "TASK_1b94794070565f70c7f697a7"
+          }
+        ],
+        "execution_class": "professional",
+        "expected_artifacts": [
+          {
+            "kind": "DirectorIR",
+            "slot": "director:project:project:DirectorIR",
+            "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          },
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+            "source_slot": "screenplay:project:project:ScriptIR",
+            "source_version": 14,
+            "target_pointer": "",
+            "target_slot": "director:project:project:DirectorIR"
+          }
+        ],
+        "input_digest": "c63833dc17ae7712fcf477b56e2c9efb9a131451db6d099e558be9a6e4dedd4a",
+        "input_revision": 48,
+        "inputs": [
+          {
+            "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+            "slot": "canon:project:project:Canon",
+            "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+            "version": 12
+          },
+          {
+            "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+            "slot": "screenplay:project:project:ScriptIR",
+            "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+            "version": 14
+          },
+          {
+            "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+            "version": 0
+          }
+        ],
+        "module": {
+          "name": "director-grammar",
+          "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+          "version": "1.4.2"
+        },
+        "node_id": "director",
+        "project_id": "LETTER_DEMO",
+        "resources": [
+          {
+            "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+          },
+          {
+            "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+          },
+          {
+            "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+          },
+          {
+            "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+            "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+          }
+        ],
+        "role": "director",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "validators": [
+          {
+            "id": "module_receipt",
+            "kind": "hash"
+          },
+          {
+            "id": "native_validator",
+            "kind": "native"
+          },
+          {
+            "id": "handoff",
+            "kind": "handoff"
+          }
+        ]
+      },
+      "evidence_hashes": {
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/director-review.json": "77c9259557dd42118d86d9ed70f895180857b3dd5dac9bb2c817ec9ffd462dcb",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/module-receipt.json": "5411f970bfba3558e9631c2a58968bb71b11f75936c0c8da06bfe5a524dd7a80",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/native-validator.json": "383880fc921c23eb117dc09a662b134917404012df132865e49fd76a750f52e0",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/source-integrity.json": "7602daa1588e53bc8334fcc1e2bd9dc453d3caba93ca10551d99318359bbacea",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json": "2cc54c0eec22acaefb1ab6e7e0fae79d88f122b5536beedb330fbe94bba2b797",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json": "d9ee89a0612f15b2596838f5642a85ec0dba5edec1c37646fa3775b19147c212",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json": "aef133d760f6af7b52de4c5dd2a9a0dbb1adf0dcf9ae9f4147b425cb396db714"
+      },
+      "failure_counts": {
+        "handoff": 2
+      },
+      "messages": [
+        {
+          "at": "2026-09-25T11:08:32.604911Z",
+          "batch": 2,
+          "evidence": [
+            "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+            "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json"
+          ],
+          "in_reply_to": null,
+          "message_id": "DIRECTOR_B2_GUIDANCE_1",
+          "recipient_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "13449ab70c464f1b69766c6e7c61a89691b6b3571d22147d2b89765a1856d224",
+          "subject_uri": "runtime/v6/host-inputs/director-b2-spawn-brief.json",
+          "summary": "Batch-2 frozen task and targeted repair guidance delivered through real host dispatch; see linked failed independent review.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "HANDOFF"
+        },
+        {
+          "at": "2026-09-25T11:08:44.021833Z",
+          "batch": 2,
+          "evidence": [],
+          "in_reply_to": "DIRECTOR_B2_GUIDANCE_1",
+          "message_id": "DIRECTOR_B2_ACK_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+          "subject_sha256": null,
+          "subject_uri": null,
+          "summary": "Creator read frozen batch-2 envelope, Canon, ScriptIR, director-grammar Skill and locked references; batch-1 independent handoff failure identifies stale Jia/Yi poses after letter transfer. Creator will repair only batch-2 candidate and revalidate.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "ACK"
+        },
+        {
+          "at": "2026-09-25T11:12:46.835961Z",
+          "batch": 2,
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json"
+          ],
+          "in_reply_to": "DIRECTOR_B2_ACK_1",
+          "message_id": "DIRECTOR_B2_RESULT_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+          "subject_sha256": "db572f06e28f0c585f48c27e2a912834a39c0c7ce55f23f9497f6a6f87302476",
+          "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+          "summary": "Batch-2 Director candidate fixes letter transfer continuity, carries exact frozen handoffs, locked module receipt and native validation evidence; submitted for independent review.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "RESULT"
+        },
+        {
+          "at": "2026-09-25T11:13:49.229013Z",
+          "batch": 2,
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+            "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json"
+          ],
+          "in_reply_to": null,
+          "message_id": "DIRECTOR_B2_REVIEW_GUIDANCE_1",
+          "recipient_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "b6420d66b61d70b1ea6222a8bd6f1eeeed54b2d81c5f6e12f10e65080aa01ebd",
+          "subject_uri": "runtime/v6/host-inputs/director-b2-review-guidance.json",
+          "summary": "Independent reviewer dispatched with batch-1 failure evidence and full declared check obligation.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "HANDOFF"
+        },
+        {
+          "at": "2026-09-25T11:14:11.221691Z",
+          "batch": 2,
+          "evidence": [],
+          "in_reply_to": "DIRECTOR_B2_REVIEW_GUIDANCE_1",
+          "message_id": "DIRECTOR_B2_REVIEW_ACK_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+          "subject_sha256": null,
+          "subject_uri": null,
+          "summary": "Reviewer verified frozen batch-2 envelope, candidate digest and review dispatch; independently checks module receipt, native validator and handoff including every letter-custody time point; writes only batch-2 reviews.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "ACK"
+        },
+        {
+          "at": "2026-09-25T11:19:28.675714Z",
+          "batch": 2,
+          "evidence": [
+            "runtime/v6/host-inputs/director-b2-review-progress.txt"
+          ],
+          "in_reply_to": "DIRECTOR_B2_REVIEW_ACK_1",
+          "message_id": "DIRECTOR_B2_REVIEW_PROGRESS_PROGRESS_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+          "subject_sha256": "107022470fef47a0af13f863d22027654134fe7a2f2f846657047c0db74fb0eb",
+          "subject_uri": "runtime/v6/host-inputs/director-b2-review-progress.txt",
+          "summary": "Reviewer reported an internal evidence-writing script KeyError (expected_sha256 versus sha256), no candidate change; correcting and writing formal review evidence.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T11:20:35.338245Z",
+          "batch": 2,
+          "evidence": [
+            "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json"
+          ],
+          "in_reply_to": "DIRECTOR_B2_REVIEW_ACK_1",
+          "message_id": "DIRECTOR_B2_REVIEW_RESULT_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+          "subject_sha256": "5c2ea5d84b021ca2eb1faac37d72a4db8b77f8762b64458058eca92ebbf396a2",
+          "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json",
+          "summary": "Independent batch-2 Director review: module receipt and native validator pass; handoff fails because Jia start-state says right hand holds the letter but person contact is no contact while letter contact points to Jia right hand; later contact samples conflict similarly.",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "type": "RESULT"
+        }
+      ],
+      "receipt": {
+        "action_id": "dispatch-170f01b0b05c6d53096de3b2",
+        "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+        "batch": 2,
+        "dispatch_id": "dispatch-170f01b0b05c6d53096de3b2",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T11:07:41.685281Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T11:07:41.685281Z",
+        "status": "RUNNING",
+        "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c",
+        "tool_result_uri": "runtime/v6/host-evidence/d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c.json"
+      },
+      "receipt_history": [
+        {
+          "action_id": "dispatch-170f01b0b05c6d53096de3b2",
+          "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+          "batch": 2,
+          "dispatch_id": "dispatch-170f01b0b05c6d53096de3b2",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T11:07:41.685281Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T11:07:41.685281Z",
+          "status": "RUNNING",
+          "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+          "tool_result_sha256": "d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c",
+          "tool_result_uri": "runtime/v6/host-evidence/d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c.json"
+        }
+      ],
+      "review": null,
+      "review_dispatch": {
+        "action_id": "review-170f01b0b05c6d53096de3b2",
+        "agent_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+        "batch": 2,
+        "dispatch_id": "review-170f01b0b05c6d53096de3b2",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T11:13:26.804040Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T11:13:26.804040Z",
+        "status": "RUNNING",
+        "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+        "tool_result_sha256": "b1a3b84f186f14eb2475f8905b1deb5514cf74197431c862484e385a99000fc6",
+        "tool_result_uri": "runtime/v6/host-evidence/b1a3b84f186f14eb2475f8905b1deb5514cf74197431c862484e385a99000fc6.json"
+      },
+      "state": "FAILED",
+      "validation": [
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/source-integrity.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/module-receipt.json"
+          ],
+          "id": "module_receipt",
+          "status": "PASS"
+        },
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/native-validator.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/director-review.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+          ],
+          "id": "native_validator",
+          "status": "PASS"
+        },
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+          ],
+          "id": "handoff",
+          "status": "PASS"
+        }
+      ],
+      "version": 15
+    }
+  ],
+  "messages": [
+    {
+      "at": "2026-09-25T11:23:36.805971Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_B3_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "0027db9de5fc571dbbac8bc48cca319515ca35e7c0194f33d13d30ceac0c9543",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-pending-action.json",
+      "summary": "Real dispatch delivered frozen batch-3 action; creator must read every input and fix both prior independent handoff failures, then report each resolution.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T11:23:49.397866Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_GUIDANCE_1",
+      "message_id": "DIRECTOR_B3_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator acknowledged actual batch-3 dispatch and will verify every frozen input hash, repair both recorded handoff defects only in batch-3 candidate, run locked checks, and return RESULT path and SHA.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    {
+      "at": "2026-09-25T11:27:26.807853Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_ACK_1",
+      "message_id": "DIRECTOR_B3_PROGRESS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d383107577348b32b770c0edecb8c235c3e9ca198519841c7d7d6c6ba2faf06e",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-progress-request.txt",
+      "summary": "Host requested repair progress and two-way contact consistency check before candidate submission.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T11:27:40.476751Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/host-inputs/director-b3-progress-report.txt"
+      ],
+      "in_reply_to": "DIRECTOR_B3_PROGRESS_REQUEST_1",
+      "message_id": "DIRECTOR_B3_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "subject_sha256": "df89e46cd95336f0b6b8646abf64bd633a68e8c67e5242a3934b5c87724e8862",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-progress-report.txt",
+      "summary": "Creator verified all six frozen inputs and four resource hashes, read both repair failures/reviews, identified nonmirrored person contact, and is generating batch-3 candidate with per-sample two-way custody checks; no blocker.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T12:13:02.363072Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_PROGRESS_PROGRESS_1",
+      "message_id": "DIRECTOR_B3_RESUME_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d373f129711ed4c64ccd8fabdcad0dacea54e23693346cbc3cdbaac29fbbac19",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-resume-request.txt",
+      "summary": "Host followup to already registered creator after transient Codex usage-limit error; verify existing candidate bytes and report genuine RESULT or exact limit error, without redispatch.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T12:13:31.128414Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_RESUME_REQUEST_1",
+      "message_id": "DIRECTOR_B3_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "subject_sha256": "8a63f4c005b0c160690ab7882bbbc241d53c8472ee18f1a7baf55d2f8cf5509b",
+      "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json",
+      "summary": "Creator completed batch-3 Director candidate; locked checks pass and static audit reports all four cited defects gone. Candidate hashes verified, submitted for independent review.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T12:14:40.063090Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+        "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_B3_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d111d53d22389aeef1ff61986ea43ac77dc2c9a30c2a3de41562b5645f61c669",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-brief.json",
+      "summary": "Real independent reviewer dispatch carried frozen candidate, repair evidence, four prior defect checks and full declared validator set.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T12:14:50.557764Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_GUIDANCE_1",
+      "message_id": "DIRECTOR_B3_REVIEW_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Independent reviewer acknowledged frozen batch-3 candidate, repair inputs, supplied digest and review dispatch ID, and will write only batch-3 review record.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    {
+      "at": "2026-09-25T12:18:11.685510Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_ACK_1",
+      "message_id": "DIRECTOR_B3_REVIEW_STATUS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "a997517201b7a6c7b6a011824620b92d471a74cbf311ae643ab54390ea54df9b",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-status-request.txt",
+      "summary": "Host requested independent review status and exact error if blocked; focus declared checks and four prior defects.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T12:18:24.457846Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/host-inputs/director-b3-review-status-report.txt"
+      ],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_STATUS_REQUEST_1",
+      "message_id": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": "33075abfb86d5bab5c369a04931ab1264dd68f9ffabc13e08983bc2ddb0b7cde",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-status-report.txt",
+      "summary": "Independent reviewer verified candidate/frozen inputs/resource/review hashes, locked STATIC_VALID binding and 31 action changes across six samples; four prior defects appear resolved; formal review evidence is being finalized.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T12:21:04.328496Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_1",
+      "message_id": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_1",
+      "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "0868369c1192d315f435b3fef3f60766dfca2a49eff135322b37b75a45b9e9e6",
+      "subject_uri": "runtime/v6/host-inputs/director-b3-review-digest-correction.txt",
+      "summary": "Host preflight found reviewer used candidate byte SHA instead of canonical candidate_digest; reviewer asked to preserve v1 and correct protocol binding without changing independent judgment.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T12:21:14.788005Z",
+      "batch": 3,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_1",
+      "message_id": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer will preserve original review record as v1, recompute canonical candidate digest from candidate dictionary, change only protocol binding and revalidate identity/schema.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    {
+      "at": "2026-09-25T12:21:53.268417Z",
+      "batch": 3,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_1",
+      "message_id": "DIRECTOR_B3_REVIEW_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+      "subject_sha256": "5a19c080e6eb3692edc7004a77f58782ba4f5434a125805cd688046c210e4846",
+      "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json",
+      "summary": "Independent batch-3 Director review PASS on module receipt, native validation and handoff; all four prior defects resolved across six checkpoints; canonical candidate digest binding corrected by reviewer with original v1 preserved.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-5d15b5f4ca205ad31513c0d2",
+    "agent_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "batch": 3,
+    "dispatch_id": "dispatch-5d15b5f4ca205ad31513c0d2",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T11:23:17.909197Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T11:23:17.909197Z",
+    "status": "RUNNING",
+    "task_digest": "84becc068a0672dcdb476cc1a9d01e29e7ff5a9592f1c70a657f6f78ac3607e0",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "tool_result_sha256": "7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4",
+    "tool_result_uri": "runtime/v6/host-evidence/7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4.json"
+  },
+  "receipt_history": [
+    {
+      "action_id": "dispatch-5d15b5f4ca205ad31513c0d2",
+      "agent_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+      "batch": 3,
+      "dispatch_id": "dispatch-5d15b5f4ca205ad31513c0d2",
+      "error": null,
+      "host": "codex",
+      "host_call_id": null,
+      "host_tool": "collaboration.spawn_agent",
+      "observed_at": "2026-09-25T11:23:17.909197Z",
+      "result_uri": null,
+      "schema": "dispatch-receipt/6.0",
+      "sent_at": "2026-09-25T11:23:17.909197Z",
+      "status": "RUNNING",
+      "task_digest": "84becc068a0672dcdb476cc1a9d01e29e7ff5a9592f1c70a657f6f78ac3607e0",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "tool_result_sha256": "7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4",
+      "tool_result_uri": "runtime/v6/host-evidence/7818513f35901b2942599ea24e995eded06819d393703c30399d853e09bab2c4.json"
+    }
+  ],
+  "review": {
+    "at": "2026-09-25T12:20:03.267642Z",
+    "batch": 3,
+    "candidate_digest": "08825e04b86194f6b1a9191851968a8f89fd255b1a334ce9c91715d49318fa11",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "reviewer_dispatch_id": "review-5d15b5f4ca205ad31513c0d2",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+  },
+  "review_dispatch": {
+    "action_id": "review-5d15b5f4ca205ad31513c0d2",
+    "agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "batch": 3,
+    "dispatch_id": "review-5d15b5f4ca205ad31513c0d2",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T12:14:20.936491Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T12:14:20.936491Z",
+    "status": "RUNNING",
+    "task_digest": "84becc068a0672dcdb476cc1a9d01e29e7ff5a9592f1c70a657f6f78ac3607e0",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "tool_result_sha256": "740562cb87b8a5384ea27b0a6b800ffa40e171533760170922fc3946f539dac7",
+    "tool_result_uri": "runtime/v6/host-evidence/740562cb87b8a5384ea27b0a6b800ffa40e171533760170922fc3946f539dac7.json"
+  },
+  "state": "ACCEPTED",
+  "validation": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/director-review.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/v6-handoffs.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/repair-audit.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "version": 21
+}

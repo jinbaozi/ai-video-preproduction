@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_PROGRESS_COMMAND_1",
+  "expected_revision": 38,
+  "message": {
+    "at": "2026-09-25T10:47:19.086544Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+    ],
+    "in_reply_to": "DIRECTOR_ACK_1",
+    "message_id": "DIRECTOR_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+    "subject_sha256": "3005dcb098c59736c14922a2c4ea66e40e7469b05658dcaac1055075fda83d4e",
+    "subject_uri": "runtime/v6/messages/3005dcb098c59736c14922a2c4ea66e40e7469b05658dcaac1055075fda83d4e.json",
+    "summary": "Director distinguished V5 semantic handoffs from two frozen V6 predecessor handoffs and will cite read-only contract assistance.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "PROGRESS"
+  }
+}

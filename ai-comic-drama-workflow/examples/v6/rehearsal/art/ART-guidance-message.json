@@ -1,0 +1,23 @@
+{
+  "command_id": "ART_GUIDANCE_COMMAND_1",
+  "expected_revision": 90,
+  "message": {
+    "at": "2026-09-25T12:23:07.607268Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "runtime/tasks/TASK_0560d46ecc764c68ee9a590e.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "ART_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_2dea6a2a9ca676085285dc07",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "18a268e54e9e473f490c8f4089d1266a03e9c75912a3990347b3e82fe086651f",
+    "subject_uri": "runtime/v6/host-inputs/art-spawn-action.json",
+    "summary": "Actual art scene spawn delivered frozen SC_RAIN_NIGHT task, all input/resource reads, candidate-only ownership, native checks and no image-generation claim.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "HANDOFF"
+  }
+}

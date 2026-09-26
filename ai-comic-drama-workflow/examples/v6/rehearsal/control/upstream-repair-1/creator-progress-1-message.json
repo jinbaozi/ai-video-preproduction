@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROLREPAIR_CREATOR_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 437,
+  "message": {
+    "at": "2026-09-25T15:40:39.521874Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/controlrepair-creator-progress.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "CONTROLREPAIR_CREATOR_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+    "subject_sha256": "01326b9deb0d0fd76802a410981822da5887a73afcd078f086ae2a94dd2eb70d",
+    "subject_uri": "runtime/v6/host-inputs/controlrepair-creator-progress.txt",
+    "summary": "Control creator 已核验两项冻结输入和四项资源，正检查当前 StoryboardIR/AVIR 控制包语义。",
+    "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+    "type": "PROGRESS"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "status": "PASS",
+  "v6_input_digest": "f489a1813e066f45852f9bd568f187b96710ab5aee7444156c025b044a1bae67",
+  "v6_input_revision": 220,
+  "scope": "SC_RAIN_NIGHT",
+  "inputs": [
+    {
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "version": 12,
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "verified": true
+    },
+    {
+      "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+      "version": 18,
+      "actual_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "verified": true
+    },
+    {
+      "sha256": "2abd6f8362bf85ff98b2c8de1630a4ee0efbe5c967a35655657d91d0b48576cd",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_71abb1f14640b94809ef3db2.json",
+      "version": 0,
+      "actual_sha256": "2abd6f8362bf85ff98b2c8de1630a4ee0efbe5c967a35655657d91d0b48576cd",
+      "verified": true
+    }
+  ],
+  "resources": [
+    {
+      "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md",
+      "actual_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "verified": true
+    },
+    {
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md",
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "verified": true
+    },
+    {
+      "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md",
+      "actual_sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "verified": true
+    },
+    {
+      "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md",
+      "actual_sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "verified": true
+    }
+  ],
+  "v5_formal_inputs": [
+    {
+      "slot": "director",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/director/439def06d105dcf00a04a39a5ae906d4ae0615641bad2ef31a35c9571b493a51/native/4f30c787cf87f6b0_director-ir.json",
+      "expected_sha256": "56d99fc34e965bbe6639488d5293e1fa64c440f472a5c3be84a62293eb5aed00",
+      "actual_sha256": "56d99fc34e965bbe6639488d5293e1fa64c440f472a5c3be84a62293eb5aed00",
+      "verified": true
+    },
+    {
+      "slot": "canon",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json",
+      "expected_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "actual_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "verified": true
+    }
+  ],
+  "original_source": {
+    "uri": "sources/SRC_69a71adcfaca/source.txt",
+    "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054"
+  },
+  "binding": {
+    "canon_v6_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+    "canon_native_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json",
+    "canon_native_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+    "canon_same_json_object": true,
+    "director_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+    "director_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+    "director_revision": 4
+  },
+  "notes": [
+    "Current DirectorIR binds V5-promoted Canon bytes; the promoted and V6 candidate Canon JSON objects match but byte hashes differ. ArtIR uses the exact DirectorIR canon_ref.",
+    "Old STALE ArtIR was consulted as design history; current output was re-bound to frozen inputs, revised, and freshly validated.",
+    "No generated or supplied visual reference was available; media QA is NOT_RUN."
+  ]
+}

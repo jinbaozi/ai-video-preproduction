@@ -1,0 +1,227 @@
+{
+  "input_digest": "190df47fbcae9912618be99925fc2b345aa519ebc59f5ee409942b9abb96e9d7",
+  "inputs": [
+    {
+      "bytes": 132269,
+      "sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+      "slot": "storyboard:project:project:StoryboardIR",
+      "uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json",
+      "version": 17
+    },
+    {
+      "bytes": 1023,
+      "sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+      "slot": "control:project:project:ShotControlPack",
+      "uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/control-pack/package-manifest.json",
+      "version": 16
+    },
+    {
+      "bytes": 4674,
+      "sha256": "d957ccf323f6e6b8bdb79022b685b1e1a3505b22ccaf484b39d912a75bd6d8aa",
+      "slot": "compile_brief",
+      "uri": "runtime/v6/task-briefs/V6_compile_8cb5698095d1a70e0b6b.json",
+      "version": 0
+    },
+    {
+      "bytes": 46,
+      "sha256": "5d7e757f1b79ef1ae7e3b2e5cd233e280542cadfea91c4b5347e99c596d4173e",
+      "slot": "build_1",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/attachments.json",
+      "version": 0
+    },
+    {
+      "bytes": 125681,
+      "sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+      "slot": "build_2",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/avir.json",
+      "version": 0
+    },
+    {
+      "bytes": 2035212,
+      "sha256": "1833f792402dd1199bc3ca680b2e2f85d1501d12b36d1d625cb425ed26ab862b",
+      "slot": "build_3",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/artifact.json",
+      "version": 0
+    },
+    {
+      "bytes": 125681,
+      "sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+      "slot": "build_4",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/avir.json",
+      "version": 0
+    },
+    {
+      "bytes": 822,
+      "sha256": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+      "slot": "build_5",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/capability-snapshot.json",
+      "version": 0
+    },
+    {
+      "bytes": 10989,
+      "sha256": "7d94cc477348512e0031f4b656ec0a475dfd339056db9a591dba7e59827360c5",
+      "slot": "build_6",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/compile-manifest.json",
+      "version": 0
+    },
+    {
+      "bytes": 12804,
+      "sha256": "72e1ae71f01a18ac18489852df0f71d45f57e124df97cef61c7b9f8052cf418b",
+      "slot": "build_7",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/constraint-coverage.json",
+      "version": 0
+    },
+    {
+      "bytes": 329,
+      "sha256": "4bf9dbcfee138140de3775697740a768c0e25d00b3429189acbf09f399d06b4c",
+      "slot": "build_8",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/context-ir.json",
+      "version": 0
+    },
+    {
+      "bytes": 1130865,
+      "sha256": "67f5ce29f5ceb62e8e8d65cd0fe48b1f08b786d3bbd8baa946c5c4c56e854266",
+      "slot": "build_9",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/detail-coverage.json",
+      "version": 0
+    },
+    {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "slot": "build_10",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/loss-report.json",
+      "version": 0
+    },
+    {
+      "bytes": 467,
+      "sha256": "8597c2855d9fa678266666317470f66210ee5ee65293214cbbf90801d2b6a404",
+      "slot": "build_11",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/post-001_000000-012000ms.txt",
+      "version": 0
+    },
+    {
+      "bytes": 624,
+      "sha256": "5ff6d16237c98f2c2ffd3ddc0b65af1a5e74f584b6695090ae124f40e9b3c988",
+      "slot": "build_12",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/post-production.json",
+      "version": 0
+    },
+    {
+      "bytes": 12720,
+      "sha256": "90240d6521b7d2442c11c71687326ddb053eba65da7955824b885ee7e3c36dea",
+      "slot": "build_13",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/production-contract.md",
+      "version": 0
+    },
+    {
+      "bytes": 125681,
+      "sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+      "slot": "build_14",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/production-specification.json",
+      "version": 0
+    },
+    {
+      "bytes": 30193,
+      "sha256": "38cd42f6bb56b428567644e90604d24941e3512a419b1daa53268d29d077da02",
+      "slot": "build_15",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/prompt-001_000000-012000ms.txt",
+      "version": 0
+    },
+    {
+      "bytes": 606233,
+      "sha256": "f3a01e32963b3d77b20df276a2b77a80f21198d95c87496ec424a2a8ab22beb8",
+      "slot": "build_16",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/prompt-coverage-001_000000-012000ms.json",
+      "version": 0
+    },
+    {
+      "bytes": 606233,
+      "sha256": "f3a01e32963b3d77b20df276a2b77a80f21198d95c87496ec424a2a8ab22beb8",
+      "slot": "build_17",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/prompt-coverage.json",
+      "version": 0
+    },
+    {
+      "bytes": 230,
+      "sha256": "3a9d3326bf9b05e034970f2e8f89f781566316df69649b8f59c8732cc79a3d21",
+      "slot": "build_18",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/prompt-review.json",
+      "version": 0
+    },
+    {
+      "bytes": 30193,
+      "sha256": "38cd42f6bb56b428567644e90604d24941e3512a419b1daa53268d29d077da02",
+      "slot": "build_19",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/prompt.txt",
+      "version": 0
+    },
+    {
+      "bytes": 830,
+      "sha256": "2683efb5499edcdcdf8772736400a527e83be8efd741971ae22579fae6d2f54f",
+      "slot": "build_20",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/segment-delivery.json",
+      "version": 0
+    },
+    {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "slot": "build_21",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/segment-plan.json",
+      "version": 0
+    },
+    {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "slot": "build_22",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/segment-proposals.json",
+      "version": 0
+    },
+    {
+      "bytes": 401,
+      "sha256": "da56881aaf5af87ec77c66b52d9b7b8c6aebaec1c10305659c3c1b5fef144d60",
+      "slot": "build_23",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/compiled/spatial-checks.json",
+      "version": 0
+    },
+    {
+      "bytes": 1027375,
+      "sha256": "50c2033740a44051febe78fa5964aaf270f7e53eb4ada88d93add315b7512482",
+      "slot": "build_24",
+      "uri": "builds/699a5121a050c9283d4debe6b042f4ff9f9a974e7d34f0a0a0ad1c3b7aac798e/mapping.json",
+      "version": 0
+    }
+  ],
+  "locked_resources": [
+    {
+      "bytes": 9342,
+      "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+    },
+    {
+      "bytes": 2877,
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+    },
+    {
+      "bytes": 2406,
+      "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+    },
+    {
+      "bytes": 12884,
+      "sha256": "3567568e700d6973f6bbb70f7868c6673c4ef686b53b40110d4ed92441aa040a",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py"
+    },
+    {
+      "bytes": 35613,
+      "sha256": "ea82415dd830014907391464de1a14d51de578b166ba30a7904f1182748fd2ab",
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc_core.py"
+    }
+  ],
+  "module": {
+    "name": "video-prompt-compiler",
+    "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+    "version": "1.17.6"
+  },
+  "status": "PASS"
+}

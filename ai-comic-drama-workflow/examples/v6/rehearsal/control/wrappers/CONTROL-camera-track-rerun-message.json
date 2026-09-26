@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_CAMERA_TRACK_RERUN_COMMAND_1",
+  "expected_revision": 181,
+  "message": {
+    "at": "2026-09-25T13:34:44.775243Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-camera-track-rerun.txt"
+    ],
+    "in_reply_to": "CONTROL_AWAIT_CAMERA_MAPPING_1",
+    "message_id": "CONTROL_CAMERA_TRACK_RERUN_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "d56a4a0de8a4b73eec69aba8b06ebff352d5ffad4c13b64da9edea4f7f11e027",
+    "subject_uri": "runtime/v6/host-inputs/control-camera-track-rerun.txt",
+    "summary": "Creator reports deterministic static N_CAMERA track mapping landed and is rerunning same batch, requiring zero unresolved frames before RESULT.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "PROGRESS"
+  }
+}

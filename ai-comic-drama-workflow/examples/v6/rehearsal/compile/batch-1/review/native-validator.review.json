@@ -1,0 +1,11 @@
+{
+  "candidate_avir_sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+  "candidate_equals_frozen_build_avir": true,
+  "locked_validate_command": "scripts/vpc.py validate frozen compiled/avir.json",
+  "observed_exit_code": 0,
+  "observed_result": {
+    "diagnostics": [],
+    "status": "VALID"
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_LIGHTING_PROGRESS_COMMAND_1",
+  "expected_revision": 139,
+  "message": {
+    "at": "2026-09-25T12:55:58.435425Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-lighting-caveat.txt"
+    ],
+    "in_reply_to": "STORYBOARD_SCHEMA_PROGRESS_1",
+    "message_id": "STORYBOARD_LIGHTING_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "subject_sha256": "e63a81d8f3cfc3b6567e4aaa22751cda079ae1f6e206c5ccf09ddec476fdf0a2",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-lighting-caveat.txt",
+    "summary": "Creator disclosed Schema-required lighting position as non-binding design anchor; real source location and media effect remain unresolved.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "PROGRESS"
+  }
+}

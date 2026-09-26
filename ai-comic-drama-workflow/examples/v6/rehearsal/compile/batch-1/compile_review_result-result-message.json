@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILE_REVIEW_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 337,
+  "message": {
+    "at": "2026-09-25T15:00:05.382843Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json"
+    ],
+    "in_reply_to": "COMPILE_REVIEW_HANDOFF_HANDOFF_1",
+    "message_id": "COMPILE_REVIEW_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_d3bca74dcb23c2e155eb4d64",
+    "subject_sha256": "e1f58c8bff362bd6e61c885be553dddc6fc444ae6d87740855cdeadba728d66d",
+    "subject_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json",
+    "summary": "独立 Compile review-record/6.0 FAIL：compile_manifest 坐标语义冲突，director 责任；其他三项 PASS，原候选未修改。",
+    "task_id": "V6_compile_8cb5698095d1a70e0b6b",
+    "type": "RESULT"
+  }
+}

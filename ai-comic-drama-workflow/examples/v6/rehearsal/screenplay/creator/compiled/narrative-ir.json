@@ -1,0 +1,120 @@
+{
+  "characters": [
+    {
+      "goal": "把一封未拆的信交给乙",
+      "id": "CHAR_JIA",
+      "name": "甲",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ],
+      "voice": "来源没有对白；本稿不设对白"
+    },
+    {
+      "goal": "确认信封口完整后收进背包",
+      "id": "CHAR_YI",
+      "name": "乙",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ],
+      "voice": "来源没有对白；本稿不设对白"
+    }
+  ],
+  "narrative": {
+    "ending": "乙把同一封信收进背包；来源没有交代后续。",
+    "events": [
+      {
+        "block_ids": [
+          "B_HANDOFF"
+        ],
+        "causes": [],
+        "description": "甲把一封未拆的信交给乙。",
+        "id": "EVT_HANDOFF",
+        "preconditions": [],
+        "scene_id": "SC_RAIN_NIGHT",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "updates": []
+      },
+      {
+        "block_ids": [
+          "B_SEAL"
+        ],
+        "causes": [
+          "EVT_HANDOFF"
+        ],
+        "description": "乙确认该信封口完整。",
+        "id": "EVT_SEAL_CHECK",
+        "preconditions": [],
+        "scene_id": "SC_RAIN_NIGHT",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "updates": [
+          {
+            "actor": "CHAR_YI",
+            "proposition": "PROP_SEAL_INTACT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "state": "knows"
+          }
+        ]
+      },
+      {
+        "block_ids": [
+          "B_STOW"
+        ],
+        "causes": [
+          "EVT_SEAL_CHECK"
+        ],
+        "description": "乙在确认后把同一封信收进背包。",
+        "id": "EVT_STOW",
+        "preconditions": [
+          {
+            "actor": "CHAR_YI",
+            "proposition": "PROP_SEAL_INTACT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "state": "knows"
+          }
+        ],
+        "scene_id": "SC_RAIN_NIGHT",
+        "source_refs": [
+          "SRC_69a71adcfaca",
+          "CANON_INPUT"
+        ],
+        "updates": []
+      }
+    ],
+    "initial_knowledge": [],
+    "premise": "雨夜，甲交给乙一封未拆的信；乙确认封口完整后将同一封信收进背包。",
+    "promises": [],
+    "reveal_order": [
+      "EVT_HANDOFF",
+      "EVT_SEAL_CHECK",
+      "EVT_STOW"
+    ]
+  },
+  "propositions": [
+    {
+      "id": "PROP_SEAL_INTACT",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_INPUT"
+      ],
+      "statement": "这封信在乙确认时封口完整。",
+      "truth": "true"
+    }
+  ],
+  "read_only": true,
+  "schema": "narrative-ir/1.0",
+  "script_sha256": "a7abceef03bbe46d668d69b63017bda906d773d75b8c747c324dab0b51045f15"
+}

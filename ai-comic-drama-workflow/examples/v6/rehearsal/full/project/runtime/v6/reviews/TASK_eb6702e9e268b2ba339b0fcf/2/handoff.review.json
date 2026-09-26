@@ -1,0 +1,109 @@
+{
+  "status": "PASS",
+  "method": "Independent comparison of three Canon hard requirements and six ScriptIR handoff fingerprints; evaluated each mapped native DirectorIR target check.",
+  "canon_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "screenplay_requirement_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SAME_UNOPENED_LETTER",
+    "screenplay:REQ_EVENT_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "target_checks": [
+    {
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "path": "/scenes/0/space",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "path": "/shots/0/sound/ambience",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "path": "/entities/2/description",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "path": "/timeline/actions/1/operation",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "path": "/timeline/state_samples/6/entities/PROP_LETTER/condition",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "path": "/timeline/actions/0/semantic_id",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "path": "/timeline/actions/1/semantic_id",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "path": "/timeline/actions/2/semantic_id",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "path": "/timeline/state_samples/6/entities/PROP_LETTER/contacts",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "path": "/shots/2/narrative/audience_after",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/timeline/actions/0/semantic_id",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/timeline/actions/1/semantic_id",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/timeline/actions/2/semantic_id",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/shots/1/narrative/character_knows",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "path": "/shots/0/story_order",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "path": "/shots/1/story_order",
+      "status": "PASS"
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "path": "/shots/2/story_order",
+      "status": "PASS"
+    }
+  ],
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ]
+}

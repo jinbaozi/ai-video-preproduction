@@ -1,0 +1,72 @@
+{
+  "action_id": "dispatch-8b0fde433baf3035921f61b9",
+  "canon_facts": [
+    "FACT_RAIN_NIGHT",
+    "FACT_HANDOFF",
+    "FACT_SEAL",
+    "FACT_STOW"
+  ],
+  "input_digest": "67cfef6783874f9f62f4eb63022caeb08b31bef38ffefbb2d4bbab5cda6d9c42",
+  "input_revision": 32,
+  "inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "verified": true,
+      "version": 12
+    },
+    {
+      "actual_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "slot": "screenplay:project:project:ScriptIR",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+      "verified": true,
+      "version": 14
+    },
+    {
+      "actual_sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+      "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+      "verified": true,
+      "version": 0
+    }
+  ],
+  "resources": [
+    {
+      "actual_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md",
+      "verified": true
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md",
+      "verified": true
+    },
+    {
+      "actual_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md",
+      "verified": true
+    },
+    {
+      "actual_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+      "verified": true
+    }
+  ],
+  "scope_boundary": "来源未给具体地点/内外、人物外观关系、动机、信件内容、对白、时长或后续。",
+  "script_events": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "script_review_status": "PASS",
+  "status": "PASS",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

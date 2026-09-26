@@ -1,0 +1,716 @@
+{
+  "assets": [
+    {
+      "design": "中性、无年代和职业标识的外观建议；袖口不遮握信的右手。",
+      "entity_id": "CHAR_JIA",
+      "graphic_text": null,
+      "id": "CHAR_JIA",
+      "identity_locks": [
+        "沿用 CHAR_JIA 身份；不发明年龄、性别、关系或表情",
+        "本镜衣装外观连续；不遮甲右手与信纸边接触"
+      ],
+      "initial_state": {
+        "appearance": "unapproved_stable_design"
+      },
+      "kind": "character",
+      "material_ids": [
+        "MAT_CLOTH"
+      ],
+      "name": "甲",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "中性、无年代和职业标识的外观建议；袖口和发丝不遮右手验封、左手在背包开口的动作。",
+      "entity_id": "CHAR_YI",
+      "graphic_text": null,
+      "id": "CHAR_YI",
+      "identity_locks": [
+        "沿用 CHAR_YI 身份；不发明年龄、性别、关系或动机",
+        "本镜衣装连续；右手、左手、眼部按导演可见范围保持清楚"
+      ],
+      "initial_state": {
+        "appearance": "unapproved_stable_design"
+      },
+      "kind": "character",
+      "material_ids": [
+        "MAT_CLOTH"
+      ],
+      "name": "乙",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "单件哑光浅纸色信件；封口折线完整且能被乙检查，外观无字、印章或特殊来历线索。",
+      "entity_id": "PROP_LETTER",
+      "graphic_text": null,
+      "id": "PROP_LETTER",
+      "identity_locks": [
+        "全程只有 PROP_LETTER 这一封信",
+        "封口在交接、确认、入包过程中保持未拆且完整",
+        "不得增加文字、印章、撕裂或信件内容；控制权和位置变化只读 DirectorIR 时间线"
+      ],
+      "initial_state": {
+        "identity": "single_letter",
+        "seal": "intact_unopened"
+      },
+      "kind": "prop",
+      "material_ids": [
+        "MAT_PAPER"
+      ],
+      "name": "同一封未拆信",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "乙身上的同一背包；开口能由左手撑持，包腔可容纳同一封信，开口边缘与信形成明度差。",
+      "entity_id": "PROP_BACKPACK",
+      "graphic_text": null,
+      "id": "PROP_BACKPACK",
+      "identity_locks": [
+        "始终为 PROP_BACKPACK，归乙使用",
+        "不增加品牌、图案或来源未给的独特形制；收存动作以 DirectorIR 为准"
+      ],
+      "initial_state": {
+        "access": "reachable",
+        "identity": "same_backpack"
+      },
+      "kind": "prop",
+      "material_ids": [
+        "MAT_BAG"
+      ],
+      "name": "乙的背包",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "无具体地点标识的低频雨夜后景；雨的可见线索与导演雨声计划兼容，不推定室内或室外。",
+      "entity_id": "ENV_RAIN_NIGHT",
+      "graphic_text": null,
+      "id": "ENV_RAIN_NIGHT",
+      "identity_locks": [
+        "雨夜事实稳定",
+        "地点、室内外、年代均未指定；不可加入门窗、街牌或地标作为事实"
+      ],
+      "initial_state": {
+        "time": "night",
+        "weather": "rain"
+      },
+      "kind": "set",
+      "material_ids": [
+        "MAT_RAIN"
+      ],
+      "name": "雨夜环境",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "state_rules": []
+    }
+  ],
+  "brief": {
+    "forbidden_styles": [],
+    "locked_style": "contemporary_observation",
+    "medium": "live_action",
+    "secondary": null,
+    "tags": [
+      "观察",
+      "雨夜"
+    ],
+    "world_mode": "contemporary"
+  },
+  "canon": {
+    "revision": "1",
+    "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json"
+  },
+  "contract": {
+    "checks": [
+      {
+        "blocking": true,
+        "evidence_required": "本次 source-integrity 与 module-receipt 证据，含当前导演版本与哈希。",
+        "gate": "G0",
+        "id": "C_INPUT",
+        "method": "static",
+        "owner": "art_planner",
+        "predicate": "输入 Canon/DirectorIR/任务与模块哈希、稳定ID及未指定项记录一致。",
+        "scope": "project"
+      },
+      {
+        "blocking": true,
+        "evidence_required": "ArtIR 字段审阅与导演只读绑定。",
+        "gate": "G1",
+        "id": "C_DESIGN",
+        "method": "static",
+        "owner": "art_director",
+        "predicate": "美术色材、空场拓扑和资产可读性不改导演镜头或原文事实。",
+        "scope": "project"
+      },
+      {
+        "blocking": true,
+        "evidence_required": "本次合同覆盖表及六条 V5、两条 V6 交接映射。",
+        "gate": "G2",
+        "id": "C_MAP",
+        "method": "static",
+        "owner": "host_reviewer",
+        "predicate": "每条硬要求有源、ArtIR 字段、执行渠道和后续可观察检查。",
+        "scope": "project"
+      },
+      {
+        "blocking": true,
+        "evidence_required": "真实 Take 文件/哈希，关键时间码及具名逐帧观察；当前 NOT_RUN。",
+        "gate": "G3",
+        "id": "C_MEDIA",
+        "method": "frame_review",
+        "owner": "visual_reviewer",
+        "predicate": "实际镜头可辨雨夜、唯一未拆信、完整封口、包口与先后动作，且没有新地点或剧情。",
+        "scope": "S1"
+      },
+      {
+        "blocking": true,
+        "evidence_required": "最终文件/哈希及完整播放记录；当前 NOT_RUN。",
+        "gate": "G4",
+        "id": "C_FINAL",
+        "method": "playback",
+        "owner": "final_reviewer",
+        "predicate": "完整播放后只得到雨夜交信、验封和收存；同一封信入包即终点。",
+        "scope": "project"
+      }
+    ],
+    "clauses": [
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_INPUT",
+          "C_DESIGN",
+          "C_MEDIA",
+          "C_FINAL"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "将雨夜与无地点标识后景作为美术补充；实际画面审雨夜可辨且未引入无来源地点。",
+          "reference_ids": []
+        },
+        "id": "A_RAIN",
+        "paths": [
+          "/world/era",
+          "/world/region",
+          "/set/atmosphere",
+          "/assets/4",
+          "/shots/0/composition_support/background"
+        ],
+        "priority": "hard",
+        "requirement": "保留雨夜；不指认具体地点、年代或室内外状态。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR"
+        ]
+      },
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_DESIGN",
+          "C_MEDIA",
+          "C_FINAL"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "给信件唯一资产ID与完整封口边缘；下游与导演时间线逐点核对身份、接触和控制权。",
+          "reference_ids": []
+        },
+        "id": "A_SINGLE_LETTER",
+        "paths": [
+          "/assets/2",
+          "/world/materials/1",
+          "/shots/0/composition_support/separation"
+        ],
+        "priority": "hard",
+        "requirement": "只使用 PROP_LETTER 这一封未拆且封口完整的信；交接、验封和收存保持同一外观。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR"
+        ]
+      },
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_MAP",
+          "C_MEDIA",
+          "C_FINAL"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "宿主合并只读 DirectorIR /timeline/actions 的 ACT_EXTEND→ACT_GRIP→ACT_RELEASE→ACT_CONFIRM_SEAL→ACT_STOW；本美术包只保障对应证据可见。",
+          "reference_ids": []
+        },
+        "id": "A_ORDER",
+        "paths": [
+          "/assets/2/identity_locks",
+          "/assets/3",
+          "/shots/0/composition_support/occlusion"
+        ],
+        "priority": "hard",
+        "requirement": "交信完成后乙确认完整封口，确认后才收进同一个 PROP_BACKPACK；美术不重排导演动作。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR"
+        ]
+      },
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_MEDIA",
+          "C_FINAL"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "合并导演末态后检查信入包并停在来源终点；不给画面增添故事线索。",
+          "reference_ids": []
+        },
+        "id": "A_ENDING",
+        "paths": [
+          "/assets/2/design",
+          "/assets/3/design",
+          "/shots/0/composition_support"
+        ],
+        "priority": "hard",
+        "requirement": "同一封信收进乙背包即结束；不添加信件内容、人物动机、对白或后续情节。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR"
+        ]
+      },
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_DESIGN",
+          "C_MAP",
+          "C_MEDIA"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "按导演三事件与五个动作节点留出无遮挡物理区域；不把美术状态说明改写为人物表演。",
+          "reference_ids": []
+        },
+        "id": "A_EVENTS",
+        "paths": [
+          "/shots/0/composition_support",
+          "/shots/0/performance_support",
+          "/set/functional_zones"
+        ],
+        "priority": "hard",
+        "requirement": "三项来源事件各有可见美术证据：接触与交接、完整封口、包口及入包；不新增事件。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR"
+        ]
+      },
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_MAP",
+          "C_MEDIA",
+          "C_FINAL"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "逐节点观察同一封信、封口和包口；美术可读性随导演时间线检查，保持单镜夜色连续。",
+          "reference_ids": []
+        },
+        "id": "A_REVEAL",
+        "paths": [
+          "/shots/0/composition_support/background",
+          "/shots/0/composition_support/occlusion",
+          "/world/color_script"
+        ],
+        "priority": "hard",
+        "requirement": "观众先见交接，再见封口完整，最后见同一封信收入包内；雨夜后景不得抢先暗示信件内容或后续。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR"
+        ]
+      },
+      {
+        "change_policy": "explicit_revision",
+        "check_ids": [
+          "C_INPUT",
+          "C_DESIGN",
+          "C_MAP",
+          "C_MEDIA"
+        ],
+        "execution": {
+          "channel": "prompt",
+          "instruction": "以稳定ID制作资产卡；参考仍为 planned，宿主补入真实文件、哈希、用途及权利后再做视觉审核。",
+          "reference_ids": []
+        },
+        "id": "A_ASSET_LOCKS",
+        "paths": [
+          "/shots/0",
+          "/assets/0",
+          "/assets/1",
+          "/assets/2",
+          "/assets/3",
+          "/assets/4",
+          "/references"
+        ],
+        "priority": "hard",
+        "requirement": "甲乙身份与衣装、唯一信件、同一背包和雨夜后景连续；真实参考取得后才可绑定并审图。",
+        "shot_ids": [
+          "S1"
+        ],
+        "source_refs": [
+          "CANON",
+          "DIRECTOR",
+          "ART_DESIGN"
+        ]
+      }
+    ],
+    "deliverables": [
+      "原生 ArtIR 1.0",
+      "离线美术交接与逐镜补充",
+      "来源、条款和待审媒体 QA"
+    ],
+    "execution": {
+      "authorization_ref": null,
+      "budget_amount": 0,
+      "currency": "CNY",
+      "max_attempts_per_job": 1,
+      "mode": "plan_only",
+      "stop_conditions": [
+        "仅交付文字与静态候选；生成媒体需独立执行任务",
+        "G3/G4 未完成前不声明实际画面通过"
+      ]
+    },
+    "id": "ART_RAIN_NIGHT",
+    "scope": "SC_RAIN_NIGHT 单镜文字美术候选，依据当前冻结 Canon 版本 12 与 DirectorIR 版本 18；两者只读；尚无真实图片或视频。",
+    "version": 2
+  },
+  "director": {
+    "project_id": "LETTER_DEMO",
+    "revision": 5,
+    "sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+    "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json"
+  },
+  "events": [],
+  "project_id": "LETTER_DEMO",
+  "references": [
+    {
+      "asset_id": "CHAR_JIA",
+      "exclude": [
+        "背景、无关道具、未经批准的年龄职业设定"
+      ],
+      "file": null,
+      "id": "REF_JIA",
+      "inherit": [
+        "仅待核身份与当次衣装轮廓"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "identity",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "CHAR_YI",
+      "exclude": [
+        "背景、无关道具、未经批准的关系动机"
+      ],
+      "file": null,
+      "id": "REF_YI",
+      "inherit": [
+        "仅待核身份与当次衣装轮廓"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "identity",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "PROP_LETTER",
+      "exclude": [
+        "文字、印章、信内内容、第二封信"
+      ],
+      "file": null,
+      "id": "REF_LETTER",
+      "inherit": [
+        "唯一信件外观、完整封口和纸边"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "prop",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "PROP_BACKPACK",
+      "exclude": [
+        "品牌、无关物件、未经批准的持有人变更"
+      ],
+      "file": null,
+      "id": "REF_BAG",
+      "inherit": [
+        "乙的同一背包及可收信的开口"
+      ],
+      "rights": "尚无文件或授权观察；待宿主取得并核验真实素材",
+      "role": "prop",
+      "sha256": null,
+      "source_refs": [
+        "ART_DESIGN"
+      ],
+      "status": "planned"
+    }
+  ],
+  "revision": 3,
+  "schema_version": "1.0",
+  "set": {
+    "atmosphere": "雨夜有可辨雨迹或雨层；背景不指认地点与室内外。柔和基础照度支持甲乙手部、封口及包口可读，画内灯具位置尚未定义；不把纸、衣、包自动做成湿透。",
+    "bounds": {
+      "max_m": [
+        1.5,
+        0.5,
+        2
+      ],
+      "min_m": [
+        -1.5,
+        -0.5,
+        0
+      ]
+    },
+    "coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+    "counts": [],
+    "functional_zones": [
+      {
+        "id": "HAND_BAG_CLEARANCE",
+        "max_m": [
+          0.95,
+          0.3,
+          1.45
+        ],
+        "min_m": [
+          -0.45,
+          -0.3,
+          0.6
+        ],
+        "purpose": "交信、验封和乙背包开口共用的无固定陈设操作区；人物与道具轨迹以导演时间线为准。"
+      }
+    ],
+    "layout": [],
+    "location_entity_id": "ENV_RAIN_NIGHT",
+    "origin": "按当前 DirectorIR /scenes/0 的交接中心和示意世界坐标留空操作区域；数值为设计包络而非实景测量。",
+    "practical_lights": [],
+    "scene_id": "SC_RAIN_NIGHT"
+  },
+  "shots": [
+    {
+      "composition_support": {
+        "background": "后景仅保留不指认地点的雨夜层次；无牌匾、门窗、桌椅或高频反光线穿过人物面部与手部。",
+        "focal_asset": "PROP_LETTER",
+        "negative_space": "两人之间的交接区域、乙验封手边与背包开口周围不放陈设；不改变导演固定双人中近景。",
+        "occlusion": "按当前 DirectorIR 的交接、封口确认与入包关键时间点，袖口、发丝、雨迹、包边不可遮挡同一封信、完整封口、乙双手及包口；镜头时序仍由导演只读时间线决定。",
+        "separation": "浅纸色信与甲乙手部、深色背包开口持续分离；封口完整的折线在确认段可读。"
+      },
+      "director_pointer": "/shots/0",
+      "id": "S1",
+      "performance_support": [
+        {
+          "background": "手后保留低频暗部，双手接触点不被雨迹遮挡。",
+          "entity_id": "CHAR_JIA",
+          "required_parts": [
+            "hands"
+          ],
+          "wardrobe_makeup": "甲的右袖口避开握信纸边；不规定未给的脸、年龄或妆容。"
+        },
+        {
+          "background": "乙面部与包口后方维持安静层次，不靠额外物件解释心理。",
+          "entity_id": "CHAR_YI",
+          "required_parts": [
+            "face",
+            "eyes",
+            "hands"
+          ],
+          "wardrobe_makeup": "乙的发丝和领口不遮眼部；右袖口露出验封手势，左袖口不盖住背包开口。"
+        }
+      ],
+      "relative_relations": [
+        {
+          "criterion": "沿用 DirectorIR 世界 X 轴的甲乙站位；不要由屏幕左右反推世界坐标。",
+          "object_asset": "CHAR_YI",
+          "relation": "world_left_of",
+          "subject_asset": "CHAR_JIA"
+        },
+        {
+          "criterion": "乙携带同一背包且包口在左手可及范围；动态接触和信的控制权由 DirectorIR 定义。",
+          "object_asset": "CHAR_YI",
+          "relation": "near",
+          "subject_asset": "PROP_BACKPACK"
+        }
+      ],
+      "required_references": [],
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "ART_DESIGN"
+      ],
+      "visible_assets": [
+        "CHAR_JIA",
+        "CHAR_YI",
+        "PROP_LETTER",
+        "PROP_BACKPACK",
+        "ENV_RAIN_NIGHT"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "claim": "雨夜；甲将一封未拆的信交给乙；乙确认封口完整后收进背包。",
+      "id": "USER",
+      "kind": "user",
+      "locator": "原始一句话雨夜交信文本",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/sources/SRC_69a71adcfaca/source.txt",
+      "verification": "read"
+    },
+    {
+      "claim": "稳定人物、道具和场景ID；一封未拆信与三事件顺序；地点、年代、外观、室内外未定。",
+      "id": "CANON",
+      "kind": "canon",
+      "locator": "/content /entities /event_order /source_requirements /unspecified",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json",
+      "verification": "read"
+    },
+    {
+      "claim": "当前冻结 DirectorIR v14 的单镜布局、手部交接、封口及包口可见约束；修正后的坐标表达与世界 X-right,Y-depth,Z-up 一致；动作时序与控制权以只读 /timeline/actions 为准。",
+      "id": "DIRECTOR",
+      "kind": "director",
+      "locator": "/scenes/0 /shots/0 /timeline/actions /contract",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+      "verification": "read"
+    },
+    {
+      "claim": "无具体地点和人物外观事实的低干扰雨夜美术；纸信封口与背包开口可读；未生产或审查任何媒体。",
+      "id": "ART_DESIGN",
+      "kind": "design",
+      "locator": "本次 ArtIR 场景与资产中性可读设计；复核旧候选设计后重新绑定当前冻结 Director 与 Canon",
+      "uri": "design://TASK_536f58cce58a7823bdf4a3f3/art-scope-revision-3",
+      "verification": "inference"
+    }
+  ],
+  "world": {
+    "color_script": [
+      {
+        "change_reason": "单镜连续；夜色保持恒定，封口和入包证据靠局部明度与材质分离，不作无来源色彩转场。",
+        "palette_ids": [
+          "NIGHT",
+          "PEOPLE",
+          "LETTER",
+          "BAG"
+        ],
+        "shot_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "era": "年代未指定；当前低干扰观察语法只为美术方案，不成为剧情年代事实。",
+    "materials": [
+      {
+        "base": "未定材质的服装面料",
+        "craft": "简洁剪裁与真实袖口",
+        "finish": "低反光、纹理频率低",
+        "id": "MAT_CLOTH",
+        "wear": "不凭空添加损伤；仅保持本镜一致"
+      },
+      {
+        "base": "纸质信件外层",
+        "craft": "连续纸面与完整封口折线",
+        "finish": "哑光中性浅色",
+        "id": "MAT_PAPER",
+        "wear": "未拆、封口完整；无可读文字、印章或破损"
+      },
+      {
+        "base": "可弯折的背包面料",
+        "craft": "开口和包腔结构可容纳同一封信",
+        "finish": "中深灰、低反光",
+        "id": "MAT_BAG",
+        "wear": "不增加品牌、标记或无来源磨损"
+      },
+      {
+        "base": "雨水",
+        "craft": "后景雨迹或水线层",
+        "finish": "低对比、局部可见",
+        "id": "MAT_RAIN",
+        "wear": "不预设人物、纸张或包身被雨淋湿"
+      }
+    ],
+    "palette": [
+      {
+        "color": "低饱和深灰蓝",
+        "id": "NIGHT",
+        "role": "无地点标识的雨夜后景，低对比但可辨雨势"
+      },
+      {
+        "color": "相互可分的中性灰阶",
+        "id": "PEOPLE",
+        "role": "甲乙衣装与背景分离，不用色彩编码身份或情绪"
+      },
+      {
+        "color": "中性偏浅纸色",
+        "id": "LETTER",
+        "role": "一封信及封口边缘在手部行动区可读"
+      },
+      {
+        "color": "低反光中深灰",
+        "id": "BAG",
+        "role": "背包开口与浅色信形成明度区别"
+      }
+    ],
+    "region": "地点和室内外未指定；不出现可指认城市、建筑、房间或地标。",
+    "shape_language": "只保留两人可交接的空隙、信的封口边缘和乙可触及的背包开口；后景用低频雨夜层次，不添门窗、桌椅或标志。",
+    "social_logic": "甲乙身份、关系和交信动机未给；衣装与背包仅服务同一动作链，不暗示职业或阶层。",
+    "thesis": "雨夜背景只提供天气与时间线索，人物、同一封未拆信、完整封口和背包开口依次可读；不以布景补写地点或人物关系。"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_REVIEW_RESULT_1",
+  "expected_revision": 102,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_REVIEW_RESULT_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_76274de274fb6f4113699d98",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_B3_REVIEW_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Reviewer submits Director batch-3 PASS record",
+    "evidence": [
+      "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/3/review-record.json"
+    ],
+    "at": "2026-09-25T13:04:10.073245Z",
+    "subject_uri": "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/3/review-record.json",
+    "subject_sha256": "b81a328bddba691caf3392d7e1647906753f3ea32f15ee2a2c8a053ce6660200"
+  }
+}

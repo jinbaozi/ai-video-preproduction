@@ -1,0 +1,137 @@
+{
+  "status": "PASS",
+  "method": "Compared frozen Canon and ScriptIR to six native screenplay mappings, resolved target checks and source fingerprints, and checked DirectorIR 1.2 action pointers for Art handoff.",
+  "canon_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "screenplay_requirement_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SAME_UNOPENED_LETTER",
+    "screenplay:REQ_EVENT_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "source_fingerprints_match": true,
+  "target_checks": [
+    {
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "path": "/scenes/0/space",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "path": "/shots/0/sound/ambience",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "path": "/entities/2/description",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "path": "/timeline/actions/1/operation",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "path": "/timeline/state_samples/6/entities/PROP_LETTER/condition",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "path": "/timeline/actions/0/semantic_id",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "path": "/timeline/actions/1/semantic_id",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "path": "/timeline/actions/2/semantic_id",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "path": "/timeline/state_samples/6/entities/PROP_LETTER/contacts",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "path": "/shots/2/narrative/audience_after",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/timeline/actions/0/semantic_id",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/timeline/actions/1/semantic_id",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/timeline/actions/2/semantic_id",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "path": "/shots/1/narrative/character_knows",
+      "op": "contains",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "path": "/shots/0/story_order",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "path": "/shots/1/story_order",
+      "op": "equals",
+      "pass": true
+    },
+    {
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "path": "/shots/2/story_order",
+      "op": "equals",
+      "pass": true
+    }
+  ],
+  "target_clauses_exist": true,
+  "source_artifact_bindings_match": true,
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "art_compiler_sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+  "art_action_pointers": [
+    "/timeline/actions/0",
+    "/timeline/actions/1",
+    "/timeline/actions/2"
+  ],
+  "art_pointer_compatibility": true,
+  "limitation": "The separate terminal camera framing conflict is recorded under native_validator."
+}

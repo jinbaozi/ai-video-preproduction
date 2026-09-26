@@ -1,0 +1,434 @@
+{
+  "batch": 1,
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+    "artifacts": [
+      {
+        "kind": "ArtIR",
+        "sha256": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+        "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+        ],
+        "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+        ],
+        "requirement_id": "UP_e1b0dd3716d6aea7cfc71ee1",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 18,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      }
+    ],
+    "input_digest": "f489a1813e066f45852f9bd568f187b96710ab5aee7444156c025b044a1bae67",
+    "module_receipts": [
+      {
+        "name": "production-design-grammar",
+        "sha256": "34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019",
+        "version": "1.3.1"
+      }
+    ],
+    "result_sha256": "77810ca51d0192e5c4ec8bb3defd7a5d405588a02da15dc7cef4a5b9d8e6c698",
+    "result_uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "unresolved": []
+  },
+  "captured_revision": 238,
+  "dispatch_receipt": {
+    "action_id": "dispatch-ffdb83201c4ee1a7a6058f6d",
+    "agent_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+    "batch": 1,
+    "dispatch_id": "dispatch-ffdb83201c4ee1a7a6058f6d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:01:35.746900Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:01:35.746900Z",
+    "status": "RUNNING",
+    "task_digest": "d4c74b0957a766bc6412aefa64ccf8df87abdf26d3767b5bd56dfb63fe27a6ec",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "tool_result_sha256": "97509f4127c8f99b4a10a5f6f390828b7a42b9affdc83c5c9c1c4d1ec9db6752",
+    "tool_result_uri": "runtime/v6/host-evidence/97509f4127c8f99b4a10a5f6f390828b7a42b9affdc83c5c9c1c4d1ec9db6752.json"
+  },
+  "envelope": {
+    "batch": 1,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_ae94f4322a77ebd18dbb635d"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "ArtIR",
+        "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_e1b0dd3716d6aea7cfc71ee1",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 18,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      }
+    ],
+    "input_digest": "f489a1813e066f45852f9bd568f187b96710ab5aee7444156c025b044a1bae67",
+    "input_revision": 220,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+        "version": 18
+      },
+      {
+        "sha256": "2abd6f8362bf85ff98b2c8de1630a4ee0efbe5c967a35655657d91d0b48576cd",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_71abb1f14640b94809ef3db2.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "production-design-grammar",
+      "sha256": "34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019",
+      "version": "1.3.1"
+    },
+    "node_id": "art",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+        "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+        "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+        "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md"
+      }
+    ],
+    "role": "art",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [
+        "SC_RAIN_NIGHT"
+      ],
+      "kind": "scene"
+    },
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T14:02:07.094413Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-spawn-brief.json",
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+        "runtime/tasks/TASK_71abb1f14640b94809ef3db2.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "ART_REBUILD_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "f7817846e072307b9df6681ed90036a401a3056e597eeadd1b92e371e6110465",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-spawn-brief.json",
+      "summary": "Actual Art creator spawn delivered frozen task, all input/resource reads, candidate-only ownership, fresh native validation, and media NOT_RUN boundary.",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:04:13.822381Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-progress.txt"
+      ],
+      "in_reply_to": "ART_REBUILD_GUIDANCE_1",
+      "message_id": "ART_REBUILD_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+      "subject_sha256": "d610b2764813dab49637f1d86205818bb8ffab6eea6f354ac5edd5e595e8abea",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-progress.txt",
+      "summary": "已读取全部冻结输入/资源和原始来源，正按当前 DirectorIR SHA 4f30… 创建新 ArtIR 并运行锁定原生校验。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:04:52.945552Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-binding-progress.txt"
+      ],
+      "in_reply_to": "ART_REBUILD_PROGRESS_PROGRESS_1",
+      "message_id": "ART_REBUILD_BINDING_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+      "subject_sha256": "43d38b4fe1a45840b9d9cbeed197f5e746efe25d43a01c8a575198d1d59218d9",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-binding-progress.txt",
+      "summary": "原生 Art 校验指出 DirectorIR.canon_ref 与 V6 Canon 输入的字节路径差异；创作者绑定确切 Director ref 并保留冻结 V6 Canon handoff 证据，正重验。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:08:53.565305Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-creator-report.txt"
+      ],
+      "in_reply_to": "ART_REBUILD_BINDING_PROGRESS_PROGRESS_1",
+      "message_id": "ART_REBUILD_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+      "subject_sha256": "2471448345a4406d169d1735e46794afad07950b4a9e2cc054417d86c9a787de",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-creator-report.txt",
+      "summary": "Art creator 完成候选，fresh locked STATIC_VALID，六条 V5 与两条 V6 交接通过；离线编译 PLANNED，媒体 NOT_RUN。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:09:04.737076Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/candidate-result.json"
+      ],
+      "in_reply_to": "ART_REBUILD_HANDOFF_HANDOFF_1",
+      "message_id": "ART_REBUILD_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+      "subject_sha256": "8c057b0b6ef1aa5cd84e2c67863ff171c42906024cfb6b95dbd28f8d870617be",
+      "subject_uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/candidate-result.json",
+      "summary": "Art candidate-result/6.0 已提交；ArtIR、RoleResult 和逐项证据在冻结候选目录，媒体 NOT_RUN。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T14:10:17.430513Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-review-guidance.json",
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/candidate-result.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "ART_REBUILD_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "c9eb8ef96496c54a377ee30b976e8bbfeec534d539a5d8ead2886c08724f40b6",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-review-guidance.json",
+      "summary": "Actual independent Art reviewer dispatched with frozen inputs, creator candidate, all native/V6 handoff checks, Canon URI relationship and media NOT_RUN boundary.",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:11:59.276228Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-review-progress.txt"
+      ],
+      "in_reply_to": "ART_REBUILD_REVIEW_GUIDANCE_1",
+      "message_id": "ART_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+      "subject_sha256": "9afb77a654427d74712f1aba29fc3e40d5604032b41dc4e7cc2c6be5b542a3af",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-review-progress.txt",
+      "summary": "独审确认 V6/V5 Canon JSON 对象等价、字节哈希不同；ArtIR 引用准确 Director canon_ref，fresh locked STATIC_VALID，继续核对 V5/V6 handoff。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:14:40.253078Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/art-rebuild-reviewer-report.txt"
+      ],
+      "in_reply_to": "ART_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "message_id": "ART_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+      "subject_sha256": "3979660b0abd892fd138e47d03232200039bce8010f067d5f15e155e928fc0f4",
+      "subject_uri": "runtime/v6/host-inputs/art-rebuild-reviewer-report.txt",
+      "summary": "独立 Art 审阅三项 PASS，fresh locked STATIC_VALID；Canon promoted URI 对象等价及 V5/V6 映射已逐项核对，媒体 NOT_RUN。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:14:52.944291Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/review-record.json"
+      ],
+      "in_reply_to": "ART_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "message_id": "ART_REBUILD_REVIEW_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+      "subject_sha256": "883c7210c4bf41575813b73aa6e072c76db76297ef4efb4bf1dddac01853dfcf",
+      "subject_uri": "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/review-record.json",
+      "summary": "独立 Art review-record/6.0 完成并绑定当前候选，三项检查 PASS，媒体 NOT_RUN。",
+      "task_id": "TASK_71abb1f14640b94809ef3db2",
+      "type": "RESULT"
+    }
+  ],
+  "project_id": "LETTER_DEMO",
+  "project_root_at_rehearsal": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "published_artifact": {
+    "batch": 1,
+    "candidate_digest": "1c9f4288d79f4aeb016ef90801f113920c1fee2e360bc1589252067038c9af9e",
+    "kind": "ArtIR",
+    "sha256": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+    "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json"
+  },
+  "review": {
+    "at": "2026-09-25T14:14:04.934328Z",
+    "batch": 1,
+    "candidate_digest": "1c9f4288d79f4aeb016ef90801f113920c1fee2e360bc1589252067038c9af9e",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+    "reviewer_dispatch_id": "review-ffdb83201c4ee1a7a6058f6d",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_71abb1f14640b94809ef3db2"
+  },
+  "review_dispatch": {
+    "action_id": "review-ffdb83201c4ee1a7a6058f6d",
+    "agent_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+    "batch": 1,
+    "dispatch_id": "review-ffdb83201c4ee1a7a6058f6d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:09:51.491207Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:09:51.491207Z",
+    "status": "RUNNING",
+    "task_digest": "d4c74b0957a766bc6412aefa64ccf8df87abdf26d3767b5bd56dfb63fe27a6ec",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "tool_result_sha256": "77ae4d3bb61157db52ff60bf7fdbe7fbffb8e35bfb3208341de95e7780a40ae6",
+    "tool_result_uri": "runtime/v6/host-evidence/77ae4d3bb61157db52ff60bf7fdbe7fbffb8e35bfb3208341de95e7780a40ae6.json"
+  },
+  "state": "ACCEPTED",
+  "task_id": "TASK_71abb1f14640b94809ef3db2"
+}

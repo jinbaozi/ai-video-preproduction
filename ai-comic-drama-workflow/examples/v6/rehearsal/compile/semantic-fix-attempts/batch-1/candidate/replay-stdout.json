@@ -1,0 +1,19 @@
+{
+  "status": "COMPILED",
+  "target": "seedance2.0",
+  "out": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/replay",
+  "canonical_count": 9986,
+  "diagnostics": [
+    {
+      "code": "W_TRANSPORT_UNRESOLVED",
+      "path": "/target",
+      "message": "已编译模型提示词计划；当前渠道载荷、槽位、账户可用性仍待核验。",
+      "severity": "warning"
+    }
+  ],
+  "submitted": false,
+  "delivery_status": "DRAFT_REQUIRES_TARGET_CHECK",
+  "prompt_files": [
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/replay/prompt-001_000000-012000ms.txt"
+  ]
+}

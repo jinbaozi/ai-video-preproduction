@@ -1,0 +1,44 @@
+{
+  "candidate_file_sha256": "7d1b358a64ca6e4a11d723776d8222e840b74b04a606e8138411344faa46cf88",
+  "director_sha256": "6725c568baba23c007ce0742815a73320a1ae69bcdb4cd7f7ae0c3d5789e8ffc",
+  "inputs": [
+    {
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json"
+    },
+    {
+      "sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+      "uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json"
+    },
+    {
+      "sha256": "7a838c5a39714a38f6bd1f8a93bb3a3bc3fc4c52ba0649dccfa895715e9ff710",
+      "uri": "runtime/tasks/TASK_eb6702e9e268b2ba339b0fcf.json"
+    }
+  ],
+  "method": "Independent SHA-256 verification against frozen task envelope, candidate manifest, native RoleResult and module receipt.",
+  "module": {
+    "name": "director-grammar",
+    "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "version": "1.4.2"
+  },
+  "resources": [
+    {
+      "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+    },
+    {
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+    },
+    {
+      "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+    },
+    {
+      "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+    }
+  ],
+  "role_result_sha256": "8b100060d88ce4b4dd47e02e15668b0cf8a15119552d5d6a20a8fa4f5de5622b",
+  "status": "PASS"
+}

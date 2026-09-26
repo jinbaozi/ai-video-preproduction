@@ -11,7 +11,7 @@ import tempfile
 import unittest
 import zlib
 
-from ai_comic_drama_workflow.v5 import V5Kernel
+from ai_comic_drama_workflow.v5 import V5Kernel, lock_refs
 from ai_comic_drama_workflow.v5_adapters import digest, encoded, pointer, storyboard_to_avir
 from ai_comic_drama_workflow.v5_modules import ROOT, MODULES, digest_file, load_python, read
 
@@ -42,10 +42,36 @@ def review(task,value):
     return rows
 
 
+VALIDATOR_STATUS={'screenplay':'STATIC_VALID','director':'STATIC_VALID','art':'STATIC_VALID','storyboard':'VALID','avir':'VALID'}
+
+
+def receipt_for(task):
+    module=task.get('module') or {}
+    reads=module.get('required_reads') or []
+    if not reads:return None
+    return {'name':module['name'],'version':module['version'],'skill_sha256':module['skill_sha256'],
+            'reads':[{'path':item['path'],'sha256':item['sha256']} for item in reads]}
+
+
 def result_for(task,**kw):
-    return {'schema':'role-result/5.0','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
+    result={'schema':'role-result/5.0','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
             'checks':['SYNTHETIC STATIC TEST: source, assertions and native protocol checked; no actual image/video QA.'],
-            'conflicts':[],'unresolved':[],**kw}
+            'conflicts':[],'unresolved':[]}
+    receipt=receipt_for(task)
+    if receipt and 'module_receipt' not in kw:
+        result['schema']='role-result/5.1';result['module_receipt']=receipt
+    result.update(kw)
+    if task.get('kind')=='image-prompt' and result.get('prompt'):
+        result.setdefault('understanding',['Synthetic fixture. No production claim.'])
+        result.setdefault('params',{'model':'generic','surface':'host'})
+        result.setdefault('quality_check','Synthetic constraint check only.')
+        note=result['checks'][0] if result.get('checks') and isinstance(result['checks'][0],str) else 'Synthetic fixture check.'
+        if not result.get('checks') or isinstance(result['checks'][0],str):
+            result['checks']=[{'ref':ref,'finding':task['slot']+': '+ref+'. '+note} for ref in lock_refs(task.get('job') or {})]
+        result.setdefault('production_contract',str(Path(task['module']['path'])/'examples'/'production-contract.json'))
+    if task.get('kind') in VALIDATOR_STATUS and result.get('artifact'):
+        result.setdefault('validator',{'status':VALIDATOR_STATUS[task['kind']],'tool':task['kind']})
+    return result
 
 
 def submit_fixture(k,author,task,complete=True):
@@ -56,9 +82,16 @@ def submit_fixture(k,author,task,complete=True):
         value={'project_id':'CAFE_DEMO','revision':1,'content':(FIXTURE/'cafe.source.txt').read_text(),
                'source_refs':[s['id'] for s in k.state['sources']]}
         if kind=='canon':value.update(entities=[{'id':e['id']} for e in read(FIXTURE/'director.json')['entities']],locks=[])
+    elif kind=='compile-review':
+        build_id=k.state['build']['build_id']
+        result=result_for(task,semantic_review={'build_id':build_id,'equivalent':True,
+            'clauses':[{'id':item,'finding':'Synthetic semantic review '+item} for item in task.get('hard_clauses') or []],
+            'blocked':[{'id':item,'disposition':'held'} for item in task.get('blocked_segments') or []]})
+        k.submit(result);return result
     elif kind=='qa':
-        value={'project_id':'CAFE_DEMO','passed':True,'build_id':k.state['build']['build_id'],
-               'checks':['Synthetic static fixture acceptance only; no real media was generated or reviewed.']}
+        build_id=k.state['build']['build_id']
+        value={'project_id':'CAFE_DEMO','passed':True,'build_id':build_id,'compile_review_build_id':build_id,
+               'checks':['Synthetic static fixture acceptance only; no real media was generated or reviewed.',*(task.get('hard_clauses') or [])]}
     else:value=read(author/(kind+'.json'))
     mapping=review(task,value)
     path=save(author/('submitted-'+kind+'.json'),value)
@@ -67,7 +100,7 @@ def submit_fixture(k,author,task,complete=True):
 
 
 def seed_until(k,author,kind):
-    for _ in range(12):
+    for _ in range(16):
         step=k.run()
         if step.get('task',{}).get('kind')==kind:return step['task']
         if 'task' not in step:raise AssertionError(step)
@@ -148,12 +181,14 @@ class V5Tests(unittest.TestCase):
         submit_fixture(self.k,self.author,task)
         shutil.rmtree(self.author)
         self.assertTrue(self.k.valid('storyboard'))
+        review=self.k.run()['task'];self.assertEqual(review['kind'],'compile-review');submit_fixture(self.k,self.author,review)
         self.assertEqual(self.k.run()['task']['kind'],'qa')
 
     def test_import_art_auto_infers_scene(self):
         task=seed_until(self.k,self.author,'art');value=read(self.author/'art.json')
         record=self.k.import_artifact('art',self.author/'art.json',handoff=review(task,value))
-        self.assertEqual(record['slot'],'art:CAFE');self.assertTrue(self.k.valid('art:CAFE'))
+        self.assertEqual(record['slot'],'art:CAFE');self.assertTrue(record['needs_review'])
+        self.assertTrue(any('Unaudited artifact: art:CAFE' in item for item in self.k.validate(True)['errors']))
 
     def test_target_revision_keeps_storyboard_and_art(self):
         self.ready();before={k:r['sha256'] for k,r in self.k.state['artifacts'].items() if k!='qa'}
@@ -210,6 +245,9 @@ class V5Tests(unittest.TestCase):
         self.ready();build=self.k.state['build'];folder=self.k.path(build['uri'])/'compiled'
         prompt=(folder/'prompt.txt').read_bytes()
         self.k.import_compiled(folder)
+        review_task=self.k.run()['task'];self.assertEqual(review_task['kind'],'avir')
+        self.k.submit(result_for(review_task,artifact=str(self.k.path(self.k.state['artifacts']['avir']['uri'])),
+            artifact_sha256=self.k.state['artifacts']['avir']['sha256'],handoff=[],checks=['Re-checked current upstream storyboard']))
         self.assertEqual(self.k.run()['status'],'DELIVERED')
         new=self.k.path(self.k.state['build']['uri'])
         self.assertEqual((new/'compiled/prompt.txt').read_bytes(),prompt)
@@ -254,7 +292,9 @@ class V5Tests(unittest.TestCase):
         return result_for(task,media={'path':str(path),'sha256':checksum,'provider':'provided',
             'call_evidence':'SYNTHETIC UNIT TEST INPUT; not real visual-acceptance evidence',
             'input_bindings':[{'key':r['key'],'sha256':r['sha256']} for r in task['job']['references']],
-            'visual_review':{'status':'PASS','sha256':checksum,'findings':['TEST ONLY: synthetic PNG byte/decoder exercise. No identity or composition QA claim.']}})
+            'visual_review':{'status':'PASS','sha256':checksum,'findings':[
+                {'ref':ref,'observation':'TEST ONLY: synthetic PNG byte/decoder exercise. No identity or composition QA claim.'}
+                for ref in lock_refs(task.get('job') or {})]}})
 
     def test_media_hash_missing_image_and_wrong_bindings_rejected(self):
         task=self.image_task();path=self.pixels();result=self.image_result(task,path)
@@ -305,7 +345,9 @@ class V5Tests(unittest.TestCase):
         self.assertEqual(Path(asset['path']).name,path.name)
         self.assertTrue(Path(asset['path']).is_relative_to(self.k.root))
         self.assertEqual(digest_file(asset['path']),digest_file(path));self.assertEqual(source.read_bytes(),original)
+        self.assertTrue(record['needs_review']);self.assertFalse(self.k.validate(True)['valid'])
         shutil.rmtree(self.author);self.assertTrue(self.k.valid('avir'))
+        self.assertTrue(any('Unaudited artifact: avir' in item for item in self.k.validate(True)['errors']))
 
     def test_locked_field_revision_requires_version_bound_decision(self):
         task=self.k.run()['task'];submit_fixture(self.k,self.author,task)
@@ -316,7 +358,9 @@ class V5Tests(unittest.TestCase):
         request=self.k.request_decision({'kind':'creative','question':'TEST: approve this exact locked content revision?',
             'context':{'reason':'SYNTHETIC TEST'},'lock_updates':[{'slot':'canon','index':0,'check':{'path':'/content','op':'equals','value':value['content']}}]})['decision']
         self.k.resume({'request_id':request['id'],'value':'approve','evidence':'SYNTHETIC TEST decision only'})
-        self.k.import_artifact('canon',changed);self.assertTrue(self.k.valid('canon'))
+        self.k.import_artifact('canon',changed);self.assertTrue(self.k.state['artifacts']['canon']['needs_review'])
+        self.assertTrue(self.k.valid('canon'))
+        self.assertTrue(any('Unaudited artifact: canon' in item for item in self.k.validate(True)['errors']))
         self.assertEqual(len(self.k.state['decisions']),1)
 
     def test_imported_compilation_followed_by_shot_revision_recompiles(self):
@@ -326,6 +370,7 @@ class V5Tests(unittest.TestCase):
         value=read(self.author/'storyboard.json');value['shots'][0]['purpose']+='；新的经审阅镜头说明'
         path=save(self.author/'shot-revision.json',value)
         self.k.submit(result_for(task,artifact=str(path),artifact_sha256=digest_file(path),handoff=review(task,value)))
+        review_task=self.k.run()['task'];self.assertEqual(review_task['kind'],'compile-review');submit_fixture(self.k,self.author,review_task)
         qa=self.k.run()['task'];self.assertEqual(qa['kind'],'qa');submit_fixture(self.k,self.author,qa)
         self.assertEqual(self.k.run()['status'],'DELIVERED')
         self.assertFalse(read(self.k.path(self.k.state['build']['uri'])/'mapping.json')['compiled_package_reused'])
@@ -350,6 +395,99 @@ class V5Tests(unittest.TestCase):
         self.assertEqual(result['changed'],[])
         self.assertEqual(old,read(self.k.root/'modules.lock.json'))
         self.assertTrue(list((self.k.root/'history').glob('modules-*.json')))
+
+    def test_module_task_without_receipt_is_rejected(self):
+        task=seed_until(self.k,self.author,'screenplay')
+        self.assertTrue(task['required_reads'] if 'required_reads' in task else task['module']['required_reads'])
+        bare={'schema':'role-result/5.0','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
+              'checks':['no receipt'],'conflicts':[],'unresolved':[],
+              'artifact':str(self.author/'storyboard.json'),'artifact_sha256':digest_file(self.author/'storyboard.json')}
+        with self.assertRaisesRegex(ValueError,'module_receipt'):self.k.submit(bare)
+        listed=self.k.run()['required_reads']
+        self.assertEqual(listed[0]['relative'],'SKILL.md')
+
+    def test_prompt_checks_must_cover_locks_and_not_repeat(self):
+        seed_until(self.k,self.author,'storyboard')
+        self.k.project['delivery']='full';self.k.write('project.json',self.k.project)
+        task=self.k.run()['task'];refs=lock_refs(task['job'])
+        short=result_for(task,prompt='Synthetic prompt that omits one lock.')
+        short['checks']=[{'ref':refs[0],'finding':'only the first lock'}] if len(refs)>1 else [{'ref':'missing','finding':'not a lock'}]
+        with self.assertRaisesRegex(ValueError,'locked item'):self.k.submit(short)
+        first=result_for(task,prompt='Synthetic prompt covering every lock for this slot.')
+        state=self.k.state
+        state['prompts']['PLANTED']={'checks':first['checks'],'uri':'prompts/x','sha256':'0'*64,'input_fingerprint':'x'}
+        self.k.save(state)
+        with self.assertRaisesRegex(ValueError,'template reuse'):self.k.submit(first)
+
+    def test_unregistered_image_provider_is_rejected(self):
+        task=self.image_task();path=self.pixels();result=self.image_result(task,path)
+        result['media']['provider']='image_gen'
+        result['media']['call_evidence']='HOST_IMAGE_TOOL synthetic call'
+        with self.assertRaisesRegex(ValueError,'not a registered host image tool'):self.k.submit(result)
+        self.k.host('available','TEST FIXTURE host declaration',image_tools=['HOST_IMAGE_TOOL'])
+        task=self.k.run()['task']
+        result=self.image_result(task,path)
+        result['media']['provider']='image_gen'
+        result['media']['call_evidence']='HOST_IMAGE_TOOL synthetic call'
+        self.k.begin_image(task['task_id']);self.k.submit(result)
+        self.assertEqual(self.k.state['media'][task['slot']]['provider'],'image_gen')
+
+    def test_old_project_accepts_role_result_5_without_receipt(self):
+        task=seed_until(self.k,self.author,'screenplay')
+        self.k.project.pop('workflow_release');self.k.write('project.json',self.k.project)
+        self.assertIn(self.k.status()['status'],('AWAITING_CURRENT_AGENT','RUNNING'))
+        value=screenplay(self.k);path=save(self.author/'old-screenplay.json',value)
+        result=result_for(task,artifact=str(path),artifact_sha256=digest_file(path),handoff=[])
+        result['schema']='role-result/5.0';result.pop('module_receipt')
+        self.k.submit(result)
+        self.assertEqual(self.k.state['artifacts']['screenplay']['audit'],'unaudited')
+        self.assertTrue(self.k.valid('screenplay'))
+
+    def test_required_reads_come_from_the_module_and_branch(self):
+        task=seed_until(self.k,self.author,'screenplay')
+        relative=[item['relative'] for item in task['module']['required_reads']]
+        self.assertIn('SKILL.md',relative);self.assertIn('references/contract.md',relative)
+        image=self.image_task();reads=[item['relative'] for item in image['module']['required_reads']]
+        self.assertIn('references/character-appearance.md',reads)
+        self.assertIn('templates/production-contract.md',reads)
+
+    def test_static_storyboard_records_shot_control_not_applicable(self):
+        self.ready();self.assertEqual(self.k.state['control']['status'],'NOT_APPLICABLE')
+        self.assertIn('没有机位运动',self.k.state['control']['reason'])
+
+    def test_camera_motion_issues_shot_control_before_compile(self):
+        seed_until(self.k,self.author,'storyboard');submit_fixture(self.k,self.author,self.k.run()['task'])
+        self.k.control_applicable=lambda storyboard: True
+        task=self.k.run()['task'];self.assertEqual(task['kind'],'control')
+        self.assertEqual(task['module']['name'],'video-prompt-compiler')
+        self.assertTrue(any(item['relative']=='references/shot-control.md' for item in task['module']['required_reads']))
+
+    def test_qa_waits_for_compile_review_and_requires_receipt(self):
+        seed_until(self.k,self.author,'storyboard');submit_fixture(self.k,self.author,self.k.run()['task'])
+        task=self.k.run()['task'];self.assertEqual(task['kind'],'compile-review')
+        bare=result_for(task);bare.pop('module_receipt')
+        with self.assertRaisesRegex(ValueError,'module_receipt'):self.k.submit(bare)
+        submit_fixture(self.k,self.author,task)
+        qa=self.k.run()['task'];self.assertEqual(qa['kind'],'qa')
+        self.assertEqual(qa['module']['name'],'video-prompt-compiler')
+        self.assertTrue(any('verification.md' in item['relative'] for item in qa['module']['required_reads']))
+
+    def test_image_task_requires_optimizer_receipt(self):
+        seed_until(self.k,self.author,'storyboard')
+        self.k.project.update(delivery='full',mode='reference',target='seedance2.0')
+        self.k.write('project.json',self.k.project);self.k.host('available','registered host tool',image_tools=['host-image'])
+        task=self.k.run()['task'];self.assertEqual(task['kind'],'image-prompt')
+        self.k.submit(result_for(task,prompt='身份A，短发，深蓝外套。'))
+        media_task=self.k.run()['task'];self.assertEqual(media_task['kind'],'image')
+        self.assertEqual(media_task['module']['name'],'image-prompt-optimizer')
+        self.assertTrue(any('compiler-evaluation.md' in item['relative'] for item in media_task['module']['required_reads']))
+
+    def test_imported_artifact_cannot_be_finally_delivered(self):
+        self.ready()
+        state=self.k.state;state['artifacts']['qa']['needs_review']=True;state['artifacts']['qa']['audit']='needs_review'
+        self.k.write('state.json',state)
+        report=self.k.validate(True);self.assertFalse(report['valid'])
+        self.assertTrue(any('Unaudited artifact: qa' in item or 'stale artifact: qa' in item for item in report['errors']))
 
 class AdapterTests(unittest.TestCase):
     def setUp(self):self.ir=read(FIXTURE/'storyboard.json')

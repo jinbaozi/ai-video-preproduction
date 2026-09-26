@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_PROGRESS_REQUEST_COMMAND_1",
+  "expected_revision": 39,
+  "message": {
+    "at": "2026-09-25T10:59:42.125832Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+    ],
+    "in_reply_to": "DIRECTOR_PROGRESS_1",
+    "message_id": "DIRECTOR_PROGRESS_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "e42329a1922deb60a7597e3785968bb89e2b104fa45a49cab89f76e13966bf5e",
+    "subject_uri": "runtime/v6/messages/e42329a1922deb60a7597e3785968bb89e2b104fa45a49cab89f76e13966bf5e.json",
+    "summary": "Host requested a verifiable minimal Director candidate or a precise frozen-input/native-check blocker and retained contract-assistance trace.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "QUESTION"
+  }
+}

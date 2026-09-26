@@ -1,0 +1,270 @@
+{
+  "schema": "independent-storyboard-review/1.0",
+  "task_id": "TASK_4f81cc62bc1b268a8f8be7b0",
+  "batch": 1,
+  "candidate_digest": "f99b8fcf3dc0db203729d9aa3449a9a753ff32e6f57646b202c73dd0a82d9780",
+  "checks": [
+    {
+      "name": "protocol:task-envelope",
+      "status": "PASS",
+      "detail": "strict schema accepted"
+    },
+    {
+      "name": "protocol:candidate-result",
+      "status": "PASS",
+      "detail": "strict schema accepted"
+    },
+    {
+      "name": "frozen_dispatch",
+      "status": "PASS",
+      "detail": {
+        "task_digest": "472e96cde9d28798d7052662b8f46f0f065f3a41f2ad00f727a0cebed57c2ddd",
+        "input_digest": "3423636bc3ce88fb3af313bf2fd26b6bd94bd008b0c899c165334e301583cbfe",
+        "review_dispatch_id": "review-0713b3b7c55f8e89a886f0b7"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "status": "PASS",
+      "detail": {
+        "declared": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "observed": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+      "status": "PASS",
+      "detail": {
+        "declared": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+        "observed": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json",
+      "status": "PASS",
+      "detail": {
+        "declared": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+        "observed": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/tasks/TASK_4f81cc62bc1b268a8f8be7b0.json",
+      "status": "PASS",
+      "detail": {
+        "declared": "96a7763f6b2bc2633918411175fda84222a179dd0324abdb93974dd9cb4a81c3",
+        "observed": "96a7763f6b2bc2633918411175fda84222a179dd0324abdb93974dd9cb4a81c3"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md",
+      "status": "PASS",
+      "detail": {
+        "declared": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+        "observed": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md",
+      "status": "PASS",
+      "detail": {
+        "declared": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "observed": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md",
+      "status": "PASS",
+      "detail": {
+        "declared": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+        "observed": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2"
+      }
+    },
+    {
+      "name": "frozen_sha256:runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md",
+      "status": "PASS",
+      "detail": {
+        "declared": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+        "observed": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3"
+      }
+    },
+    {
+      "name": "candidate_artifact_sha256",
+      "status": "PASS",
+      "detail": {
+        "sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c"
+      }
+    },
+    {
+      "name": "candidate_role_result_sha256",
+      "status": "PASS",
+      "detail": {
+        "sha256": "53a61c5d47ea5b98ca708efa130f405e874817976bd2cf1343fab0495e3db3b7"
+      }
+    },
+    {
+      "name": "candidate_digest",
+      "status": "PASS",
+      "detail": {
+        "digest": "f99b8fcf3dc0db203729d9aa3449a9a753ff32e6f57646b202c73dd0a82d9780"
+      }
+    },
+    {
+      "name": "module_receipt",
+      "status": "PASS",
+      "detail": {
+        "module": "storyboard-grammar",
+        "version": "1.3.2",
+        "read_count": 4
+      }
+    },
+    {
+      "name": "native_inspect_compile_verify",
+      "status": "PASS",
+      "detail": {
+        "inspect": "VALID",
+        "compile": "VALID",
+        "verify": "VERIFIED",
+        "media": "NOT_RUN"
+      }
+    },
+    {
+      "name": "native_package_reproducible",
+      "status": "PASS",
+      "detail": {
+        "files": 9,
+        "different": []
+      }
+    },
+    {
+      "name": "semantic_review_byte_binding",
+      "status": "PASS",
+      "detail": {
+        "declared": "a81e3f7105d7d2ec4036eae6bd6ca650e9f387b8e9620cf366b7d347eccfe197",
+        "observed": "a81e3f7105d7d2ec4036eae6bd6ca650e9f387b8e9620cf366b7d347eccfe197"
+      }
+    },
+    {
+      "name": "v5_handoffs",
+      "status": "PASS",
+      "detail": {
+        "reason": "native validate_handoff accepted",
+        "required": 1437,
+        "mapped": 1437,
+        "preservation_only": 1424,
+        "hard_semantic": 13
+      }
+    },
+    {
+      "name": "v6_handoffs",
+      "status": "PASS",
+      "detail": {
+        "count": 3,
+        "requirements": [
+          "UP_14ccecf60174e51512f867f2",
+          "UP_691f92ce970fc177f973068a",
+          "UP_ec56aaf56b57017015d9c04b"
+        ]
+      }
+    },
+    {
+      "name": "director_timeline_preserved",
+      "status": "PASS",
+      "detail": {
+        "state_samples": [
+          0,
+          2500,
+          4000,
+          7500,
+          10500,
+          12000
+        ],
+        "visibility_additions": 6
+      }
+    },
+    {
+      "name": "camera_axis_conversion",
+      "status": "PASS",
+      "detail": {
+        "director_static_XYZ": [
+          0,
+          -2.8,
+          1.2
+        ],
+        "storyboard_timeline_xyz": [
+          0,
+          1.2,
+          -2.8
+        ],
+        "text_start": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+        "text_end": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+      }
+    },
+    {
+      "name": "end_pose_and_props",
+      "status": "PASS",
+      "detail": {
+        "end_positions_transformed": true,
+        "letter_pose": "同一封未拆信在背包内",
+        "letter_support": "PROP_BACKPACK.interior",
+        "bag_contacts": [
+          "CHAR_YI.body",
+          "CHAR_YI.left_hand",
+          "PROP_LETTER.body"
+        ]
+      }
+    },
+    {
+      "name": "seven_panels",
+      "status": "PASS",
+      "detail": {
+        "panels": [
+          [
+            "P_OPEN",
+            0
+          ],
+          [
+            "P_GRIP",
+            60
+          ],
+          [
+            "P_RELEASE",
+            84
+          ],
+          [
+            "P_SEAL",
+            144
+          ],
+          [
+            "P_BAG_OPEN",
+            204
+          ],
+          [
+            "P_STOWED",
+            252
+          ],
+          [
+            "P_END",
+            287
+          ]
+        ],
+        "total_frames": 288
+      }
+    },
+    {
+      "name": "story_and_media_boundary",
+      "status": "PASS",
+      "detail": {
+        "beats": [
+          "BEAT_HANDOFF",
+          "BEAT_CONFIRM",
+          "BEAT_STOW"
+        ],
+        "utterances": 0,
+        "execution_ready": false,
+        "submitted": false
+      }
+    }
+  ],
+  "overall": "PASS",
+  "scope_limit": "Static native IR, hash, ownership, timeline and package review only; no generated media or real camera execution examined."
+}

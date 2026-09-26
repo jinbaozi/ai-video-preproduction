@@ -1,0 +1,10 @@
+{
+  "argv": [
+    "/Users/godxu/101-\u526f\u4e1a/00-\u5de5\u4f5c\u6d41/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py",
+    "verify",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/builds/4d8c7109a2c5b0a987b0091eb893c2762b012d34787557c3af5b38d47136fb01/compiled"
+  ],
+  "cwd": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler",
+  "exit_code": 0
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_REVIEW_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 217,
+  "message": {
+    "at": "2026-09-25T14:00:15.622273Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-reviewer-report.txt"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "message_id": "DIRECTOR_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+    "subject_sha256": "a0a3e4be315679957d981b2d6ba8724f3673d7685786d5ef604e6eca0b92d5f0",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-reviewer-report.txt",
+    "summary": "独立审阅报告：三项 PASS；真实媒体 NOT_RUN；旧 promoted stamp 历史不匹配，当前候选绑定正确。",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "HANDOFF"
+  }
+}

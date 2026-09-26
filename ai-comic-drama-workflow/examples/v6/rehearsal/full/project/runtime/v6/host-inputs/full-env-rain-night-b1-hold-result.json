@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ENV_RAIN_NIGHT_B1_HOLD_RESULT",
+  "expected_revision": 266,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ENV_RAIN_NIGHT_B1_HOLD_RESULT",
+    "task_id": "TASK_77a39e38115fc23984108917",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_1e8bce88416377cfc2d8315e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_ENV_RAIN_NIGHT_B1_ANNOUNCEMENT",
+    "type": "PROGRESS",
+    "summary": "Creator requested hold before RESULT while tightening three ICIR fields.",
+    "evidence": [
+      "runtime/v6/host-messages/full-env-rain-night-b1-hold-result.txt"
+    ],
+    "at": "2026-09-25T15:29:47.311106Z",
+    "subject_uri": "runtime/v6/host-messages/full-env-rain-night-b1-hold-result.txt",
+    "subject_sha256": "e387b7d360315d749c027e248771434c719d4a5edb6d0b2b212071e71825771a"
+  }
+}

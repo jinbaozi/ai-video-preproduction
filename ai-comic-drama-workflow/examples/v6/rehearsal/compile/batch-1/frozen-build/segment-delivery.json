@@ -1,0 +1,28 @@
+{
+  "execution": "NOT_RUN",
+  "max_duration_ms": 15000,
+  "mode": "text",
+  "parts": [
+    {
+      "duration_ms": 12000,
+      "execution": "NOT_RUN",
+      "number": 1,
+      "post_file": "post-001_000000-012000ms.txt",
+      "project_end_ms": 12000,
+      "project_start_ms": 0,
+      "prompt_coverage_count": 1349,
+      "prompt_coverage_file": "prompt-coverage-001_000000-012000ms.json",
+      "prompt_file": "prompt-001_000000-012000ms.txt",
+      "prompt_sha256": "38cd42f6bb56b428567644e90604d24941e3512a419b1daa53268d29d077da02",
+      "reasons": [],
+      "reference_files": [],
+      "references": [],
+      "status": "DRAFT_REQUIRES_TARGET_CHECK"
+    }
+  ],
+  "project_duration_ms": 12000,
+  "reasons": [],
+  "schema": "model-prompt-delivery/1.0",
+  "status": "DRAFT_REQUIRES_TARGET_CHECK",
+  "target": "seedance2.0"
+}

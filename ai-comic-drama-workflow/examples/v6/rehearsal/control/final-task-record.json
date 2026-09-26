@@ -1,0 +1,584 @@
+{
+  "candidate": null,
+  "envelope": {
+    "batch": 1,
+    "dependencies": [
+      {
+        "task_id": "TASK_3240f8bc6a9896032b95d091"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "ShotControlPack",
+        "slot": "control:project:project:ShotControlPack",
+        "uri_prefix": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_3d86c759b2ec7ceb80ac168c",
+        "source_slot": "storyboard:project:project:StoryboardIR",
+        "source_version": 15,
+        "target_pointer": "",
+        "target_slot": "control:project:project:ShotControlPack"
+      }
+    ],
+    "input_digest": "58f28c5c8c27244b9ef6085cae27341117fdf58489bd7af7584d9161ee486194",
+    "input_revision": 158,
+    "inputs": [
+      {
+        "sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/storyboard-ir.json",
+        "version": 15
+      },
+      {
+        "sha256": "a12a02186d34e102ce38bb1c4e29965f65e69c361dcae0b44904570dcd597809",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_60ca76854c7350d8a40f1c72.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "video-prompt-compiler",
+      "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+      "version": "1.17.6"
+    },
+    "node_id": "control",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+      },
+      {
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+        "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+      }
+    ],
+    "role": "control",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "control_verify",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "evidence_hashes": {},
+  "failure_counts": {},
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T13:10:03.385293Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-spawn-actual-message.txt",
+        "runtime/v6/host-inputs/control-pending-action.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "CONTROL_GUIDANCE_ORIGINAL_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "f331a49da0dd5441000c3a0eecf2ecfd3453ba865e0ceb16264658e7ad54c46d",
+      "subject_uri": "runtime/v6/host-inputs/control-spawn-actual-message.txt",
+      "summary": "Actual Control spawn text included a mistyped action ID; frozen action file was referenced and exact original text preserved.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:10:15.441769Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-action-id-correction.txt",
+        "runtime/v6/host-inputs/control-pending-action.json"
+      ],
+      "in_reply_to": "CONTROL_GUIDANCE_ORIGINAL_1",
+      "message_id": "CONTROL_ACTION_ID_CORRECTION_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "c57ccebd1c7b00f1da2d1c9000366b8539caf572a1c3d673fb9b70aaa8553211",
+      "subject_uri": "runtime/v6/host-inputs/control-action-id-correction.txt",
+      "summary": "Host corrected the mistyped action ID to the frozen pending action dispatch ID and instructed the same registered creator to follow that action.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:12:11.565539Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-native-gate-blocker.txt"
+      ],
+      "in_reply_to": "CONTROL_ACTION_ID_CORRECTION_1",
+      "message_id": "CONTROL_BLOCKER_BLOCKER_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "82fd453410132deb7a2566b31014c4683b9f9a3b184cd7f2a0ce23f5311ad19d",
+      "subject_uri": "runtime/v6/host-inputs/control-native-gate-blocker.txt",
+      "summary": "Creator identified deterministic V6 native-check gate failure for ShotControlPack before candidate; requires real locked control verify path.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "BLOCKER"
+    },
+    {
+      "at": "2026-09-25T13:12:25.937549Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-blocker-response.txt"
+      ],
+      "in_reply_to": "CONTROL_BLOCKER_BLOCKER_1",
+      "message_id": "CONTROL_BLOCKER_RESPONSE_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "ec449b298f9560532b17edd6da3d6a89c0a73deb226695d9ab7e891608b0bfe7",
+      "subject_uri": "runtime/v6/host-inputs/control-blocker-response.txt",
+      "summary": "Host escalated genuine ShotControlPack native-check gap and asked creator for exact locked verify path while preserving candidate ownership.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:13:45.322043Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-adapter-blocker.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/adapter-report.json"
+      ],
+      "in_reply_to": "CONTROL_BLOCKER_RESPONSE_1",
+      "message_id": "CONTROL_ADAPTER_BLOCKER_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "21c56bf807682de6966d6f4888826a6410a1c11534486513c11132a1f2e66954",
+      "subject_uri": "runtime/v6/host-inputs/control-adapter-blocker.txt",
+      "summary": "Creator reproduced V5 storyboard_to_avir adapter BLOCKED with 24 unmapped hard assertions, preventing control promotion even after V6 native gate fix.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "BLOCKER"
+    },
+    {
+      "at": "2026-09-25T13:14:36.473486Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-build-blocker.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/adapter-report.json"
+      ],
+      "in_reply_to": "CONTROL_ADAPTER_BLOCKER_1",
+      "message_id": "CONTROL_BUILD_BLOCKER_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "93eb5a41bbf506f9a63eb3953756915c7f5dd1d5fd5c82c6a28f1610aa03ca1a",
+      "subject_uri": "runtime/v6/host-inputs/control-build-blocker.txt",
+      "summary": "Locked control_cli build fails Invalid native AVIR on eight E_CONTRACT source-path assertions before a control package can be built.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "BLOCKER"
+    },
+    {
+      "at": "2026-09-25T13:15:45.762133Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-remediation-direction.txt"
+      ],
+      "in_reply_to": "CONTROL_BUILD_BLOCKER_1",
+      "message_id": "CONTROL_REMEDIATION_DIRECTION_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "7fefa2741017a48e210346f956f2e1e125f67fad7be50069c8b3f27cdf27d343",
+      "subject_uri": "runtime/v6/host-inputs/control-remediation-direction.txt",
+      "summary": "Kernel owners are fixing adapter and true control verifier; host told same registered creator to preserve blocker evidence and identify intended ShotControlPack/config paths.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:16:19.093327Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-planned-paths.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-config.json"
+      ],
+      "in_reply_to": "CONTROL_REMEDIATION_DIRECTION_1",
+      "message_id": "CONTROL_PLANNED_PATHS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "dd37c912b486006c6a7d30d9be9d20e9797d9e6a21ff6fc1995e2e0cc42f08e9",
+      "subject_uri": "runtime/v6/host-inputs/control-planned-paths.txt",
+      "summary": "Creator specified exact ShotControlPack package-manifest artifact URI, locked verifier, config path and source-binding checks; adapter blocker remains.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:18:22.301536Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-source-plan-progress.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/topdown-source-plan.json",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/topdown-review.svg",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/native-av-ir.json",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-build.json"
+      ],
+      "in_reply_to": "CONTROL_PLANNED_PATHS_1",
+      "message_id": "CONTROL_SOURCE_PLAN_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "3aabf02753095aa80c3846aa1d5e219a04f72aae3dd33c247ca803f46e66b1a9",
+      "subject_uri": "runtime/v6/host-inputs/control-source-plan-progress.txt",
+      "summary": "Creator froze source hashes and authored source-only overhead plan with exact native build failures; no verified pack or PASS claimed.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:20:20.580070Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-config-status.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-config.json"
+      ],
+      "in_reply_to": "CONTROL_SOURCE_PLAN_PROGRESS_1",
+      "message_id": "CONTROL_CONFIG_STATUS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "14036ad597a7dab6115e5fbaeb8dd10e3cf815b5f292925e8e619e839e7e6c9e",
+      "subject_uri": "runtime/v6/host-inputs/control-config-status.txt",
+      "summary": "Creator confirms locked control config schema and source hashes pass; no result emitted while AVIR mapping remains blocked.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:23:07.109228Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-native-branch-followup.txt"
+      ],
+      "in_reply_to": "CONTROL_CONFIG_STATUS_1",
+      "message_id": "CONTROL_NATIVE_BRANCH_FOLLOWUP_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "1be679c509bceedd843f92fa6777791151e9552b919ef6643e2ded9c22c80b51",
+      "subject_uri": "runtime/v6/host-inputs/control-native-branch-followup.txt",
+      "summary": "Host warned creator that current native-check loop still lacks ShotControlPack branch and asked to preserve blocker until adapter and gates pass.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:24:24.442413Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-native-branch-resolved.txt"
+      ],
+      "in_reply_to": "CONTROL_NATIVE_BRANCH_FOLLOWUP_1",
+      "message_id": "CONTROL_NATIVE_BRANCH_RESOLVED_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "e5e79d748bce84ce544f0d6f91cee85318e69254141e6ac9398a42c6a88fcf62",
+      "subject_uri": "runtime/v6/host-inputs/control-native-branch-resolved.txt",
+      "summary": "Host confirmed V6 control_verify now runs locked ShotControlPack verification; adapter repair remains outstanding.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:25:12.622198Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-adapter-fix-resume.txt"
+      ],
+      "in_reply_to": "CONTROL_NATIVE_BRANCH_RESOLVED_1",
+      "message_id": "CONTROL_ADAPTER_FIX_RESUME_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "b254ec939017e8293c6a307992e1882c31cdd53cdbcf1300b0e4d0d0d81323d7",
+      "subject_uri": "runtime/v6/host-inputs/control-adapter-fix-resume.txt",
+      "summary": "Host resumed the same registered Control creator after adapter and V6 native-gate repair; requested fresh locked build/verify and candidate with media NOT_RUN.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:27:07.673516Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-projection-limit.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/package-manifest.json",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/control-coverage.json"
+      ],
+      "in_reply_to": "CONTROL_ADAPTER_FIX_RESUME_1",
+      "message_id": "CONTROL_PROJECTION_LIMIT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "f114ebdfed1f191705c9e088e5d081f2a64c894d5b3152117173de6cfd4e2a47",
+      "subject_uri": "runtime/v6/host-inputs/control-projection-limit.txt",
+      "summary": "Creator reports genuine mapped/verified control pack with 121/121 unresolved perspective projections; overhead roots exist, camera-frame readiness remains undetermined.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:27:40.265182Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-camera-node-blocker.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/review/blocking-001.svg",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/review/frames.json",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/control-coverage.json"
+      ],
+      "in_reply_to": "CONTROL_PROJECTION_LIMIT_1",
+      "message_id": "CONTROL_CAMERA_NODE_BLOCKER_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "e9147a3af7f8b3bd514a9b3c29ac2f7c9ccc2d913eece9dbd44e045dfa5bb287",
+      "subject_uri": "runtime/v6/host-inputs/control-camera-node-blocker.txt",
+      "summary": "Creator found rendered overhead diagram omits N_CAMERA entirely; 121/121 frame projections undetermined despite frozen static camera coordinates.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "BLOCKER"
+    },
+    {
+      "at": "2026-09-25T13:28:00.073262Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-camera-decision.txt"
+      ],
+      "in_reply_to": "CONTROL_CAMERA_NODE_BLOCKER_1",
+      "message_id": "CONTROL_CAMERA_DECISION_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "24a21298ba9b1345bd4c3bd91a0f7c6383c1dab48f3affc102583181bd135940",
+      "subject_uri": "runtime/v6/host-inputs/control-camera-decision.txt",
+      "summary": "Kernel owner held Control RUNNING and forbade final PASS until deterministic camera-track derivation or explicit upstream revision.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:28:39.919045Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-projection-blocker.json"
+      ],
+      "in_reply_to": "CONTROL_CAMERA_DECISION_1",
+      "message_id": "CONTROL_STRUCTURED_PROJECTION_BLOCKER_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "bb720e786f834d68b021f25c17c4e1917c11a1f86f375ced9a13bdb68c630ecf",
+      "subject_uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-projection-blocker.json",
+      "summary": "Creator submitted structured blocker binding pack/storyboard SHA, 121/121 undetermined camera projections, cause, impact and recovery; RESULT held.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "BLOCKER"
+    },
+    {
+      "at": "2026-09-25T13:30:13.318664Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-camera-derivation-proof.txt",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-projection-blocker.json"
+      ],
+      "in_reply_to": "CONTROL_STRUCTURED_PROJECTION_BLOCKER_1",
+      "message_id": "CONTROL_CAMERA_DERIVATION_PROOF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "9e037d71979d8711a98e148a231480b580432800ea29ad4d3d935080ee493f1a",
+      "subject_uri": "runtime/v6/host-inputs/control-camera-derivation-proof.txt",
+      "summary": "Creator reports adapter owner in-memory proof that frozen static camera coordinates can deterministically supply N_CAMERA hold track with zero unresolved projections; code placement pending.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:32:29.408317Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-await-camera-mapping.txt"
+      ],
+      "in_reply_to": "CONTROL_CAMERA_DERIVATION_PROOF_1",
+      "message_id": "CONTROL_AWAIT_CAMERA_MAPPING_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "5848bc229391f8be730ff7c02f5047717a347c93c79c724dd36484d0b6ca01b3",
+      "subject_uri": "runtime/v6/host-inputs/control-await-camera-mapping.txt",
+      "summary": "Creator holds same RUNNING batch and will regenerate verified pack after deterministic N_CAMERA mapping; 121/121 frame gap bars current PASS.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:34:44.775243Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-camera-track-rerun.txt"
+      ],
+      "in_reply_to": "CONTROL_AWAIT_CAMERA_MAPPING_1",
+      "message_id": "CONTROL_CAMERA_TRACK_RERUN_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "d56a4a0de8a4b73eec69aba8b06ebff352d5ffad4c13b64da9edea4f7f11e027",
+      "subject_uri": "runtime/v6/host-inputs/control-camera-track-rerun.txt",
+      "summary": "Creator reports deterministic static N_CAMERA track mapping landed and is rerunning same batch, requiring zero unresolved frames before RESULT.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:35:05.277062Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-semantic-review-hold.txt"
+      ],
+      "in_reply_to": "CONTROL_CAMERA_TRACK_RERUN_1",
+      "message_id": "CONTROL_SEMANTIC_REVIEW_HOLD_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "7adae616c91958be9934a482bfda96c333bfd2b8539763685c8914d9822efc60",
+      "subject_uri": "runtime/v6/host-inputs/control-semantic-review-hold.txt",
+      "summary": "Kernel owner held final Control RESULT because accepted Storyboard semantic-review input digest may be stale; AVIR VALID alone cannot clear semantic gate.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:36:06.695850Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-semantic-diff-request.txt"
+      ],
+      "in_reply_to": "CONTROL_SEMANTIC_REVIEW_HOLD_1",
+      "message_id": "CONTROL_SEMANTIC_DIFF_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "6c4c26c52422ab88b14540881e8fe8b3fbcbd80beaf0a889f0f24f5c4e561e4f",
+      "subject_uri": "runtime/v6/host-inputs/control-semantic-diff-request.txt",
+      "summary": "Host requested frozen byte/field-level evidence for V6 accepted vs V5 promoted Storyboard semantic-review digest mismatch.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T13:36:46.191775Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json"
+      ],
+      "in_reply_to": "CONTROL_SEMANTIC_DIFF_REQUEST_1",
+      "message_id": "CONTROL_SEMANTIC_REBASE_EVIDENCE_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "bdd4ecfe340996088a3d17c0c1752084da435e4e7607f6054563170d6b839a95",
+      "subject_uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json",
+      "summary": "Creator froze exact 11-leaf V6-to-V5 Storyboard URI/hash rebase diff proving semantic review passes on accepted bytes but fails on promoted copy; adapter remains PENDING.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "BLOCKER"
+    },
+    {
+      "at": "2026-09-25T13:38:06.913730Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/control-stale-cancel-request.txt"
+      ],
+      "in_reply_to": "CONTROL_SEMANTIC_REBASE_EVIDENCE_1",
+      "message_id": "CONTROL_STALE_CANCEL_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d1bed47974e2938f67c6b240e0b65d1552db64ac551dd1bf4b300cbff43f65fb",
+      "subject_uri": "runtime/v6/host-inputs/control-stale-cancel-request.txt",
+      "summary": "Kernel owner confirmed upstream accepted semantic bindings stale after V5 rebase; host requested final BLOCKER/CANCEL_ACK before formal invalidation.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:38:38.609853Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/cancel-ack.json",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json",
+        "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/package-manifest.json"
+      ],
+      "in_reply_to": "CONTROL_STALE_CANCEL_REQUEST_1",
+      "message_id": "CONTROL_CANCEL_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "subject_sha256": "bccc3b210128258ee02193b0e3e38f1bf19c02f2da97e44a1c7184e7c0c3496d",
+      "subject_uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/cancel-ack.json",
+      "summary": "Original Control creator stopped work; frozen package and semantic blocker hashes recorded, no RESULT/RoleResult or paid media call, upstream semantic review PENDING.",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "type": "CANCEL_ACK"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-e4b0c6da80911dcda638f633",
+    "agent_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "batch": 1,
+    "dispatch_id": "dispatch-e4b0c6da80911dcda638f633",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T13:09:47.925119Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T13:09:47.925119Z",
+    "status": "RUNNING",
+    "task_digest": "4eef48c55cdb0454daf1251e2c7655222025fd8e0859adc0fd7145b93e642c60",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "tool_result_sha256": "cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650",
+    "tool_result_uri": "runtime/v6/host-evidence/cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650.json"
+  },
+  "receipt_history": [
+    {
+      "action_id": "dispatch-e4b0c6da80911dcda638f633",
+      "agent_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+      "batch": 1,
+      "dispatch_id": "dispatch-e4b0c6da80911dcda638f633",
+      "error": null,
+      "host": "codex",
+      "host_call_id": null,
+      "host_tool": "collaboration.spawn_agent",
+      "observed_at": "2026-09-25T13:09:47.925119Z",
+      "result_uri": null,
+      "schema": "dispatch-receipt/6.0",
+      "sent_at": "2026-09-25T13:09:47.925119Z",
+      "status": "RUNNING",
+      "task_digest": "4eef48c55cdb0454daf1251e2c7655222025fd8e0859adc0fd7145b93e642c60",
+      "task_id": "TASK_60ca76854c7350d8a40f1c72",
+      "tool_result_sha256": "cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650",
+      "tool_result_uri": "runtime/v6/host-evidence/cb3fd7d5700681e585c17ce144c9c8972a99e799308a91a48f3722ee5da3f650.json"
+    }
+  ],
+  "review": null,
+  "review_dispatch": null,
+  "state": "CANCELLED",
+  "validation": [],
+  "version": 29
+}

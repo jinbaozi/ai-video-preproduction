@@ -1,0 +1,17 @@
+{
+  "batch": 1,
+  "camera_undetermined_count": 121,
+  "cause": "Frozen StoryboardIR has fixed shot.camera.start_m=end_m and locked camera operation, but no N_CAMERA position motion track; locked control_plan.frame uses spatial.position_at(N_CAMERA), so camera.position is null and all perspective projections are UNDETERMINED.",
+  "frame_count": 121,
+  "impact": [
+    "Native package verifies but cannot claim perspective keyframe readiness or camera path shown in module blocking diagram.",
+    "Root point trajectories and contact timing remain in source-bound plan; no generated media or video-control compliance is established."
+  ],
+  "missing_node": "N_CAMERA",
+  "package_manifest_sha256": "46fe901662bf07780720cf1f6a6a54ed3e0a7a1b2b725e5fe37e0ace9b4ea8de",
+  "recovery": "Owner-reviewed deterministic derivation of a fixed N_CAMERA position track from frozen shot camera fields, or explicit storyboard/director revision if not semantically safe.",
+  "schema": "control-projection-blocker/1.0",
+  "source_storyboard_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+  "status": "BLOCKED_FOR_CAMERA_PROJECTION_REVIEW",
+  "task_id": "TASK_60ca76854c7350d8a40f1c72"
+}

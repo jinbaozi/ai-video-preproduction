@@ -1,0 +1,23 @@
+{
+  "command_id": "CONTROLSEMANTIC-REISSUE-REVIEW_DISPATCH_1",
+  "expected_revision": 542,
+  "receipt": {
+    "action_id": "review-4e1a29bc8bda43f08bb508a8",
+    "agent_id": "/root/host_bridge/v6_beb7d005b2240400272486ee",
+    "batch": 2,
+    "dispatch_id": "review-4e1a29bc8bda43f08bb508a8",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T16:39:02.197262Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T16:39:02.197262Z",
+    "status": "RUNNING",
+    "task_digest": "d793f9e1a418d73ce0118d22d4cfa57ecbcd524005d88f5c52e5c20ff22bc231",
+    "task_id": "TASK_92a2f36e9b05a414fec43209",
+    "tool_result_sha256": "a6bb6f96f6d3793ff9fcd1d8200f25ec8985c7e10e7f7a944788a72d81aff093",
+    "tool_result_uri": "runtime/v6/host-evidence/a6bb6f96f6d3793ff9fcd1d8200f25ec8985c7e10e7f7a944788a72d81aff093.json"
+  }
+}

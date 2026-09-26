@@ -1,0 +1,1 @@
+ScriptIR is written under my candidate directory. The frozen module resources and Canon/input hashes match; screenplay-grammar `validate --final` returned STATIC_VALID with current semantic review, and compilation returned READY. I’m finishing V6 evidence, role-result, and candidate-result now. No blocker; formal state untouched.

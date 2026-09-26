@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_REVIEW_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 218,
+  "message": {
+    "at": "2026-09-25T14:00:27.096362Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/review-record.json"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+    "message_id": "DIRECTOR_REBUILD_REVIEW_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+    "subject_sha256": "d4b11354a091ec5e00cda42d7e5de5aea3f1b9ff43f49764fd1e0000ee1eff75",
+    "subject_uri": "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/review-record.json",
+    "summary": "独立审阅记录已写入，三项检查 PASS；真实媒体 NOT_RUN。",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "RESULT"
+  }
+}

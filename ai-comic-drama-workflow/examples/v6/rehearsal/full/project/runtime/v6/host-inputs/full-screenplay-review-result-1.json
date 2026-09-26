@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_REVIEW_RESULT_1",
+  "expected_revision": 32,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_REVIEW_RESULT_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_85f01703433be9e02caabf7d",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_REVIEW_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Reviewer submits independent screenplay review record",
+    "evidence": [
+      "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/1/review-record.json"
+    ],
+    "at": "2026-09-25T11:10:53.966258Z",
+    "subject_uri": "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/1/review-record.json",
+    "subject_sha256": "d44949a52b0013b739d93db7218d7cdecc5ab454c55c9307887376a603367f10"
+  }
+}

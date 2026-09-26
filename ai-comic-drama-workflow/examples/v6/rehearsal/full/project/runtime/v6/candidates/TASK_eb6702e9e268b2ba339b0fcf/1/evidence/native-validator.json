@@ -1,0 +1,31 @@
+{
+  "command_argv": [
+    "python3.12",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/screenplay-map.json"
+  ],
+  "director_sha256": "72b516cfd2a50886b01ab7a78e2761e0ee09b8b2aea7b92429759f81f108bcca",
+  "exit_code": 0,
+  "media": "NOT_RUN",
+  "note": "原生静态校验及当前 Agent 语义复核，不代表真实媒体通过。",
+  "professional_blind_review": "NOT_RUN",
+  "report": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "94e55c27726e0efd17b425194f0129e9a06652bc42f3d840143656254bf01f27",
+      "handoff_sha256": "2f36410b0c139ee6df36281c89f51746c5a651f626ad4032029f3bfa45f8ccc6",
+      "mapping_sha256": "1189d486ed37073cfa3e189058bbb57734997ad7931adbf030589e4efd91554c",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  },
+  "screenplay_map_sha256": "1189d486ed37073cfa3e189058bbb57734997ad7931adbf030589e4efd91554c",
+  "semantic_review": "CURRENT_AGENT_ATTESTED",
+  "status": "PASS",
+  "validator": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py validate"
+}

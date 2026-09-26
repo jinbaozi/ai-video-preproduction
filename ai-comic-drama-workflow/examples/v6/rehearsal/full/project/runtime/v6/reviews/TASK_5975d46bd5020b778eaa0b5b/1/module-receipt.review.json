@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "candidate_result_sha256": "5249f209f806bfa9e2eb2c4be1a9e2f6ff781e8e823f59485c0d471977d8790d",
+  "role_result_sha256": "fb7d53684b2f855e3a3254a219865c1d0f2bf40ad2d55ddfd629e00b5de0aaac",
+  "visual_artifact_sha256": "faaa6dd8c725b277885314496220f0633fae0953be5d7dafbe4b96c9016d8d2b",
+  "frozen_input_sha256": {
+    "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+    "runtime/tasks/TASK_5975d46bd5020b778eaa0b5b.json": "4ba345915355288aa3cfc778f0cad98059fcd36b906e88fc9d7571cb313e70b0"
+  },
+  "resource_sha256": {
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+  },
+  "module": {
+    "name": "image-prompt-optimizer",
+    "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+    "version": "1.15.7"
+  },
+  "note": "Hash and receipt match; semantics reviewed separately."
+}

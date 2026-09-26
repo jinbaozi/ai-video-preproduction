@@ -1,0 +1,80 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_490d550e3662334847bfacb2",
+  "context_fingerprint": "490d550e3662334847bfacb2a0ce964e0b618c2049e7cce8fe75f1db1cbd8e9c",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/prompt.txt",
+  "artifact_sha256": "8e13f02621f16192f882e8b3c26e140263279009664eeeec6887386544e07c99",
+  "understanding": "乙 CHAR_YI 的单张写实角色身份与衣装提示词；保留雨夜、美术衣装及眼手可见性。面容、年龄、性别、职业、关系和具体地点无来源锁定，PLAN_CHAR_YI 尚无图像文件。",
+  "prompt": "制作乙的单张2:3竖幅写实角色外观参考图。画面仅一名虚构角色乙，平视三分之二身的单一静态时刻，稳立于承托面，双手自然放在身前，衣装轮廓和手的归属可辨。乙穿无标识深蓝灰低反光哑面平织外层；眼部、右手以及活动自如的右袖与袖口清楚可见，发丝、头饰和袖口均不遮挡眼睛或右手。雨夜低饱和蓝灰、低频雨幕与中性平整承托面；不出现可识别城市、建筑或具体室内外线索。同一方向的画外柔和环境漫反射令眼周、右手与深色衣料之间有可读层次，雨幕不遮挡人物。不指定面容、年龄、性别、职业或人物关系；无品牌标志、身份标记和可读文字，不添信件内容或其他剧情。此图确定后作为乙在交接、验封、入包三镜的同一人物与同一衣装外观参考。",
+  "params": {
+    "target": "通用自然语言",
+    "surface": "generic",
+    "native_params": {},
+    "reference_files": []
+  },
+  "quality_check": "锁定制作合同原生校验为 STATIC_VALID，两个 Art 身份锁项已逐项对照提示词；真实图片未生成，像素、人物身份和视觉质量均未审看。",
+  "production_contract": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/production-contract.json",
+  "validator": {
+    "status": "STATIC_VALID",
+    "contract_sha256": "9fa0b50d4ca4a7e29e8c551501febebedafd225a9ace3fc79a4fcec9212ec161"
+  },
+  "checks": [
+    {
+      "ref": "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+      "finding": "乙的深蓝灰无标识哑面外层和跨三镜同一人物、同一服装外观已写入提示词；真实脸部身份需待图像形成后由已核参考或后续审核确定。",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/prompt.txt",
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/production-contract.json"
+      ]
+    },
+    {
+      "ref": "眼部、右手与包口接触面不被衣袖或头饰遮挡",
+      "finding": "乙的眼部、右手及可活动右袖在单张身份参考图中无遮挡；实际与包口接触的镜头仍需后续媒体审核，此处未声称已经看见包口。",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/prompt.txt",
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/production-contract.json"
+      ]
+    }
+  ],
+  "handoff": [],
+  "module_receipt": {
+    "name": "image-prompt-optimizer",
+    "version": "1.15.7",
+    "skill_sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md",
+        "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md",
+        "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md",
+        "sha256": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/character-appearance.md",
+        "sha256": "b3cb6fafc16e207b8ee64cfc4d50d797c73eebdd1c8728d5d5e6cff4cd151631"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/templates/production-contract.md",
+        "sha256": "8f156b9ccf183bbeda62260fc5fb94bcb50d4d6e731c51bd2407bca253c0a8d0"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md",
+        "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+      }
+    ]
+  },
+  "complete": true,
+  "conflicts": [],
+  "unresolved": []
+}

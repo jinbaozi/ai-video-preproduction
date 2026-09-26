@@ -1,0 +1,1 @@
+PROGRESS V6_compile_297e4d54680b970deaed batch 1：已对冻结 envelope 的 inputs 28 项、resources 20 项逐一 read_bytes 并重算 SHA-256，全部匹配；我此前给您的 ACK 也是 28/20。28 项 = Storyboard、Control、compile_brief、24 个 build 文件、compile_semantic_failure。已读 locked SKILL、current-contract、cooperation-v5 与旧失败的独立 review；现执行原生 validate/verify 和语义闭环检查。

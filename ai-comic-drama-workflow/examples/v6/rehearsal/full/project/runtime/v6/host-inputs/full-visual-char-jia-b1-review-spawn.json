@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_VISUAL_CHAR_JIA_B1_REVIEW_SPAWN",
+  "expected_revision": 236,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_7aabf77f33bdc18e71193c47",
+    "batch": 1,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "review-31c8d00f4303fba956ec306a",
+    "action_id": "review-31c8d00f4303fba956ec306a",
+    "tool_result_uri": "runtime/v6/host-evidence/5ca2743cbc027c430af8458b4992e4b68dd3b5fef6f8f7c032c68601c04cda6a.json",
+    "tool_result_sha256": "5ca2743cbc027c430af8458b4992e4b68dd3b5fef6f8f7c032c68601c04cda6a",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_d7e8d1dbf2d9c81f273cbfc4",
+    "task_digest": "284856c9bae2e3b89903ed45231015b2605bc8bc082f5c49b975b81ef83eff2b",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T15:12:58.467375Z",
+    "observed_at": "2026-09-25T15:12:58.467375Z",
+    "result_uri": null,
+    "error": null
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "command_id": "DIRECTOR_B2_REVIEW_SUBMIT_1",
+  "expected_revision": 63,
+  "review": {
+    "at": "2026-09-25T11:20:14.028690Z",
+    "batch": 2,
+    "candidate_digest": "4bbd44daaa6de55d06e15bd9341aee4ee91643a534624b733b09ffb85657ebf6",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "FAIL"
+      }
+    ],
+    "failure_owner": "director",
+    "reviewer_agent_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+    "reviewer_dispatch_id": "review-170f01b0b05c6d53096de3b2",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+  }
+}

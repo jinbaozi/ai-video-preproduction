@@ -1,0 +1,15 @@
+{
+  "inputs": [
+    {
+      "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+      "expected_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+      "observed_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71"
+    },
+    {
+      "uri": "runtime/tasks/TASK_7aabf77f33bdc18e71193c47.json",
+      "expected_sha256": "4d6415c7bc7d3e0e876577b8458211924a1a3629c0d710b86831b9aac3d8c156",
+      "observed_sha256": "4d6415c7bc7d3e0e876577b8458211924a1a3629c0d710b86831b9aac3d8c156"
+    }
+  ],
+  "status": "MATCH"
+}

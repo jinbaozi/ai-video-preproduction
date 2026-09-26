@@ -1,0 +1,64 @@
+{
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_490d550e3662334847bfacb2",
+  "batch": 1,
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_a845ef66576a5cddd55a6125",
+  "input_digest": "d5213297e7bf126af70ff54a9fb5eb86742ea993e7fddbea7e7d4ade1906361e",
+  "result_uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/role-result.json",
+  "result_sha256": "7b4e5c87ec6caaaf393646915ca5efa3e27b7d781eb65ef7fcf923d4d56ed789",
+  "artifacts": [
+    {
+      "slot": "visual_prompts:asset:27x41535345545f5343454e455f48414e444f46465f434841525f5949:VisualImagePrompt",
+      "kind": "VisualImagePrompt",
+      "uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/prompt.txt",
+      "sha256": "8e13f02621f16192f882e8b3c26e140263279009664eeeec6887386544e07c99"
+    }
+  ],
+  "module_receipts": [
+    {
+      "name": "image-prompt-optimizer",
+      "version": "1.15.7",
+      "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1"
+    }
+  ],
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/read-audit.json"
+      ]
+    },
+    {
+      "id": "image_prompt_contract",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/contract-checks.json",
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/production-contract.json",
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/v5-preflight.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "handoffs": [
+    {
+      "requirement_id": "UP_0af56be83b7ef933e42debd3",
+      "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+      "source_version": 11,
+      "target_slot": "visual_prompts:asset:27x41535345545f5343454e455f48414e444f46465f434841525f5949:VisualImagePrompt",
+      "target_pointer": "",
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "unresolved": []
+}

@@ -1,0 +1,339 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "dependencies": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "task_id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "execution_class": {
+      "enum": [
+        "professional",
+        "review",
+        "external_image",
+        "external_video",
+        "local_media",
+        "system"
+      ]
+    },
+    "expected_artifacts": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "uri_prefix": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "slot",
+          "kind",
+          "uri_prefix"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "handoffs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "channel": {
+            "enum": [
+              "artifact",
+              "message",
+              "host"
+            ]
+          },
+          "requirement_id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "source_slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "source_version": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "target_pointer": {
+            "type": "string"
+          },
+          "target_slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "requirement_id",
+          "source_slot",
+          "source_version",
+          "target_slot",
+          "target_pointer",
+          "channel"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "input_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "input_revision": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "inputs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "slot": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "uri": {
+            "oneOf": [
+              {
+                "minLength": 1,
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "version": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "slot",
+          "uri",
+          "sha256",
+          "version"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "module": {
+      "oneOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+              "type": "string"
+            },
+            "sha256": {
+              "pattern": "^[0-9a-f]{64}$",
+              "type": "string"
+            },
+            "version": {
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "version",
+            "sha256"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "node_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "project_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "resources": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "uri": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "uri",
+          "sha256"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    },
+    "retry_authorization": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "authorization_id": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "evidence_uri": {
+              "minLength": 1,
+              "type": "string"
+            },
+            "remaining_budget": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "authorization_id",
+            "evidence_uri",
+            "remaining_budget"
+          ],
+          "type": "object"
+        }
+      ]
+    },
+    "role": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "schema": {
+      "const": "task-envelope/6.0"
+    },
+    "scope": {
+      "additionalProperties": false,
+      "properties": {
+        "ids": {
+          "items": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "minItems": 0,
+          "type": "array",
+          "uniqueItems": true
+        },
+        "kind": {
+          "enum": [
+            "project",
+            "scene",
+            "shot",
+            "shots",
+            "asset",
+            "panel",
+            "sequence",
+            "adjacent_pair",
+            "generation_request",
+            "take"
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "ids"
+      ],
+      "type": "object"
+    },
+    "task_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "validators": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "native",
+              "schema",
+              "evidence",
+              "media",
+              "manual",
+              "handoff",
+              "hash"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind"
+        ],
+        "type": "object"
+      },
+      "minItems": 0,
+      "type": "array"
+    }
+  },
+  "required": [
+    "schema",
+    "project_id",
+    "node_id",
+    "task_id",
+    "batch",
+    "role",
+    "execution_class",
+    "scope",
+    "input_revision",
+    "inputs",
+    "input_digest",
+    "module",
+    "resources",
+    "expected_artifacts",
+    "validators",
+    "dependencies",
+    "handoffs"
+  ],
+  "title": "v6-task-envelope",
+  "type": "object"
+}

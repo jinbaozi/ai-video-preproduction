@@ -1,0 +1,19 @@
+{
+  "command_id": "DIRECTOR_B2_REVIEW_ACK_COMMAND_1",
+  "expected_revision": 60,
+  "message": {
+    "at": "2026-09-25T11:14:11.221691Z",
+    "batch": 2,
+    "evidence": [],
+    "in_reply_to": "DIRECTOR_B2_REVIEW_GUIDANCE_1",
+    "message_id": "DIRECTOR_B2_REVIEW_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Reviewer verified frozen batch-2 envelope, candidate digest and review dispatch; independently checks module receipt, native validator and handoff including every letter-custody time point; writes only batch-2 reviews.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "ACK"
+  }
+}

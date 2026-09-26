@@ -1,0 +1,19 @@
+{
+  "compiled_file_hashes_verified": true,
+  "compiled_manifest_sha256": "4fbab859a9d472bbb0d1b1a62ce58e1c45f1274bbc5192e01018e25fd9f7f5b1",
+  "compiled_manifest_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/compiled/compile-manifest.json",
+  "compiled_status": "READY",
+  "director_handoff_ready": true,
+  "director_handoff_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/compiled/director-handoff.json",
+  "media": "NOT_RUN",
+  "professional_blind_review": "NOT_RUN",
+  "report": {
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  },
+  "script_sha256": "205d0961e84576e6326d70e900ab4491e7122bc96014fea0bfa22c28fc1dfc54",
+  "script_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/script-ir.json",
+  "status": "PASS",
+  "validator": "screenplay-grammar/scripts/sg.py validate --final"
+}

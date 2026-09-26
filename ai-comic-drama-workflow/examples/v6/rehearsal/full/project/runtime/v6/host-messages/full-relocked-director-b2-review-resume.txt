@@ -1,0 +1,1 @@
+宿主上一轮中断了你已登记的 Director batch 2 独立审阅执行；review dispatch `review-042e3afd47ec05dfe055ac2b` 和 reviewer ID 均保持不变。请在同一任务继续核对已冻结 batch 2 候选、上一批失败修复和三项检查，写正式 review-record/6.0 与真实证据。不要修改候选或正式状态，也不要创建新 reviewer。完成后返回 review 文件 URI、SHA 与审阅原文。

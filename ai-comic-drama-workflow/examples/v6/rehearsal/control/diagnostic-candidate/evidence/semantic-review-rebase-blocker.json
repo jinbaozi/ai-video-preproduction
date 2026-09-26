@@ -1,0 +1,129 @@
+{
+  "actual_checks": {
+    "command": "PYTHONPATH=src .venv/bin/python - <<PY: load accepted/promoted StoryboardIR; call v52_spatial_runtime.content_hash and semantic_status; deep compare JSON leaves; inspect current adapter-report.json PY",
+    "result": {
+      "accepted_content_hash": "e812f0fe9ed4d53af49fb90a51546b87a118f6724354feec4fa6988fdd2b800e",
+      "accepted_semantic_status": true,
+      "adapter_losses": 0,
+      "adapter_semantic_review": "PENDING",
+      "adapter_status": "MAPPED",
+      "promoted_content_hash": "9ca154adc01a08c89afe7e1ea28181a12c1b651c3c972710f05ab6638841e365",
+      "promoted_semantic_status": false
+    }
+  },
+  "batch": 1,
+  "control_pack_manifest_sha256": "f1a0053e903e891c3b2255a642c30fc634c69e7e02078df0675bb293d0fcffe8",
+  "differences": [
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/files/69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054/source.txt",
+      "after_value_sha256": "a66cceb8c8d1498f3a88495ec3bb048d2e8b60477c882e7a9ba3993c5922322a",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/sources/SRC_69a71adcfaca/source.txt",
+      "before_value_sha256": "497dabea03dd143cda84a2317f521a32f1bac60032cfdc02a4b9184afc57a50b",
+      "pointer": "/sources/0/uri"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/files/befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c/canon.json",
+      "after_value_sha256": "c69a46abfb38ef883ea78c90b373a8afd1d08e53bef612480cf6608c43948e3f",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "before_value_sha256": "a1ff690a6e993c8f0ceb884b042812029dadf46b1301ebf3332b957ddb54f660",
+      "pointer": "/sources/1/uri"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/files/3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d/script-ir.json",
+      "after_value_sha256": "8697a84b98010676d43355e1666849ad02d02e46d212e615f0560c54e0f4dac1",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+      "before_value_sha256": "71ab529ede18b160be8c851ab014ebc9e1423019a03005e6063396a311c3f68e",
+      "pointer": "/sources/2/uri"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/files/262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b/director-ir.json",
+      "after_value_sha256": "2f02ab0cb70457ad7bdeb0b7d1469c0b3aeaf23e1ae05969d601c3acb9157344",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "before_value_sha256": "82a8de4ebdce327915cce2284943279b2d920a2d85dc3f5d409a3072306edca3",
+      "pointer": "/sources/3/uri"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/files/2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be/art-ir.json",
+      "after_value_sha256": "4bbbf020b978e7d0c6f229a6f2dd87d9eac14fd58bb302a974204091558ce80e",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+      "before_value_sha256": "c96a21bb60c6cea659e7d568cf5dedbb991adde1a10f80472a7f3912f5a5f0d2",
+      "pointer": "/sources/4/uri"
+    },
+    {
+      "after_value": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "after_value_sha256": "ad5f7a692976b79a60b95458a7178ec3576aa3c8fbca286d12e84546ca6e00d4",
+      "before_value": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "before_value_sha256": "bbaccf8e5fcbeaefc272f04ad6e219662ad55c9aef4900bc9d9b3d0dcd5232d1",
+      "pointer": "/upstreams/0/sha256"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/native/befdfe311a8fed6f_canon.json",
+      "after_value_sha256": "1011684ba42e5e0bcc4328728de33d9b91078e978700fe4f7973a369b219bdcc",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "before_value_sha256": "a1ff690a6e993c8f0ceb884b042812029dadf46b1301ebf3332b957ddb54f660",
+      "pointer": "/upstreams/0/uri"
+    },
+    {
+      "after_value": "1d1c2b8e5ac92a5957431f5487455217b076bef5a40f3548c565ea8ae3620371",
+      "after_value_sha256": "441924f929faa1a65daf7241b52068c74df4fcb9dc284efa974a12a753b9c4aa",
+      "before_value": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "before_value_sha256": "6ac2881106e977cb6b64d2b5c26a3e1e3418a20a571bbc895261e50ce08fa869",
+      "pointer": "/upstreams/1/sha256"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/native/262e23f487752f69_director-ir.json",
+      "after_value_sha256": "7486d4e36d622221550d3ffcba8421d7ce2dc378c3ab5701eb23306051aa6b0f",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "before_value_sha256": "82a8de4ebdce327915cce2284943279b2d920a2d85dc3f5d409a3072306edca3",
+      "pointer": "/upstreams/1/uri"
+    },
+    {
+      "after_value": "2c574fface33f211fba3cc19bcf5b3117e30658c29638a2c6100a89d4f0c072f",
+      "after_value_sha256": "acff54c8258d92b872fc5213493fd006b7e11a250cd31abf6115ad9ae070b3f8",
+      "before_value": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+      "before_value_sha256": "57ef5850a51bb835ca9a88877144e6e0f501e968f085a41608564d33413ee6cb",
+      "pointer": "/upstreams/2/sha256"
+    },
+    {
+      "after_value": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/native/2cf96f2b38b82bdd_art-ir.json",
+      "after_value_sha256": "cdda3c08a14063973c62f35c0d90985f2909640328e51208c6375a0b099a21e8",
+      "before_value": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+      "before_value_sha256": "c96a21bb60c6cea659e7d568cf5dedbb991adde1a10f80472a7f3912f5a5f0d2",
+      "pointer": "/upstreams/2/uri"
+    }
+  ],
+  "different_leaf_count": 11,
+  "finding": "V5 import rebased provenance paths and upstream captured hashes. Although ten narrative/timeline/contract scopes are structurally unchanged, the original independent review hash does not bind the promoted bytes. Native AVIR VALID and control-pack VERIFIED do not establish semantic review equivalence.",
+  "recovery": "Owner verifies exact provenance-preserving import rebasing and records auditable review rebinding, or routes to an independent upstream re-review; then regenerate AVIR/control package.",
+  "schema": "semantic-review-rebase-blocker/1.0",
+  "source_files": {
+    "accepted": {
+      "content_hash": "e812f0fe9ed4d53af49fb90a51546b87a118f6724354feec4fa6988fdd2b800e",
+      "file_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+      "recorded_review_input_sha256": "e812f0fe9ed4d53af49fb90a51546b87a118f6724354feec4fa6988fdd2b800e",
+      "semantic_status": true,
+      "uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/storyboard-ir.json"
+    },
+    "promoted": {
+      "content_hash": "9ca154adc01a08c89afe7e1ea28181a12c1b651c3c972710f05ab6638841e365",
+      "file_sha256": "71393c76d00ff060023568d093f4ea258f436a9b111c8343c3e8277bd8eb622b",
+      "recorded_review_input_sha256": "e812f0fe9ed4d53af49fb90a51546b87a118f6724354feec4fa6988fdd2b800e",
+      "semantic_status": false,
+      "uri": "artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/native/a328c6560e7e9d2d_storyboard-ir.json"
+    }
+  },
+  "status": "BLOCKED_PENDING_SEMANTIC_REVIEW_BINDING",
+  "task_id": "TASK_60ca76854c7350d8a40f1c72",
+  "unchanged_scopes": {
+    "audio": true,
+    "beats": true,
+    "contract": true,
+    "delivery": true,
+    "entities": true,
+    "intent": true,
+    "scenes": true,
+    "shots": true,
+    "style": true,
+    "timeline": true
+  }
+}

@@ -1,0 +1,1 @@
+ACK TASK_92a2f36e9b05a414fec43209 batch 2. I received dispatch-4e1a29bc8bda43f08bb508a8 and will read the frozen inputs and locked resources. Candidate files are confined to runtime/v6/candidates/TASK_92a2f36e9b05a414fec43209/2/.

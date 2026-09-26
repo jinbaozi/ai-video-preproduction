@@ -1,0 +1,135 @@
+{
+  "mappings": [
+    {
+      "reason": "雨夜写入世界、美术环境和逐镜背景，地点及室内外仍开放。",
+      "requirement_id": "director:REQ_RAIN_NIGHT",
+      "source_fingerprint": "d00285ea99d113dad7fe1cb8a5276cdf55e6ea17a7fbffe615f71223e7e569d8",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/world/thesis",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/set/atmosphere",
+          "value": "具体室内外"
+        }
+      ],
+      "target_clause": "ART_WORLD"
+    },
+    {
+      "reason": "同一 PROP_LETTER 资产绑定三个镜头，封口持续完整且验封不拆。",
+      "requirement_id": "director:REQ_SAME_UNOPENED_LETTER",
+      "source_fingerprint": "d657c9b7f9234f453f2272b4d56cf0042ef5e52c368f283069ba3f8bb07e2e4d",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/assets/2/identity_locks/0",
+          "value": "同一实体 PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/occlusion",
+          "value": "未拆信"
+        }
+      ],
+      "target_clause": "ART_CONTINUITY"
+    },
+    {
+      "reason": "逐镜美术支持与冻结导演的三个有序 timeline/actions 对齐；Art 不重写动作时间线。",
+      "requirement_id": "director:REQ_EVENT_ORDER",
+      "source_fingerprint": "b95e8f55497a04a7d52f95ebb08b8bfcb27a029851a65e95f030ab861b346bc2",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/id",
+          "value": "S_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/id",
+          "value": "S_SEAL"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/id",
+          "value": "S_STOW"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/negative_space",
+          "value": "不提前显示入包"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    },
+    {
+      "reason": "终镜美术支持明确8500毫秒后信在包内且终帧不外露；动作终态仍以冻结导演时间线为准。",
+      "requirement_id": "director:REQ_ENDING",
+      "source_fingerprint": "58bf0b8f87e7a1fb617d053bb9c094233794f0f2bf2481397acb328ea8d6d3d2",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/background",
+          "value": "8500毫秒后信完全在背包内"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/occlusion",
+          "value": "终帧只见乙手退出与背包口"
+        }
+      ],
+      "target_clause": "ART_STOW"
+    },
+    {
+      "reason": "三个原生事件 ID 分别锚入对应镜头美术遮挡约束，角色认知与动作起讫仍由DirectorIR持有。",
+      "requirement_id": "director:REQ_SCRIPT_EVENTS",
+      "source_fingerprint": "0444e57ad1f49732ab1df213b0f1a85cc8f42b9510654500113683e1d88ada9c",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/occlusion",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/occlusion",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/occlusion",
+          "value": "EVT_STOW"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    },
+    {
+      "reason": "交接镜不提前展示验封/入包，验封镜不提前展示入包，最后镜才呈现收存结果。",
+      "requirement_id": "director:REQ_REVEAL_ORDER",
+      "source_fingerprint": "80801887eec1d58d31b0cfdc2621024b819ea5a27ff9ac5daa2c03dddb14f3e7",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/negative_space",
+          "value": "不提前展示验封或入包结果"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/negative_space",
+          "value": "不提前显示入包"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/negative_space",
+          "value": "只在验封之后出现"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    }
+  ],
+  "note": "六条原生V5映射独立于V6两条artifact lineage。ArtIR.events为空的阶段指针限制另列证据，不以静态检查冒充实际媒体/语义审核。",
+  "scope": "static target assertions and source fingerprints",
+  "status": "PASS"
+}

@@ -1,0 +1,15 @@
+{
+  "current_candidate_ir_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "current_candidate_map_sha256": "82957e19257a10dd3cd05d41b5adebd0d479979ccea3cfc29416cd014e147796",
+  "difference": "V5 snapshot relocated source URIs; the old promoted DirectorIR retained its pre-promotion semantic-review stamp.",
+  "note": "当前候选的 stamp 仅绑定本次候选；未预造未来 V5 snapshot 的 hash。",
+  "prior_candidate_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+  "prior_candidate_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+  "prior_mapping_director_sha256": "24a6ef5e11e48f849b53073608eee9f8838cf6903cf8bc236b9cc09c91e3a2d6",
+  "prior_promoted_current_semantic_content_sha256": "e29dd6c3d8de14ee63e24074d2d8ac3a276116f971a88c9fa75e69f1f837dcf9",
+  "prior_promoted_mapping_content_sha256": "24a6ef5e11e48f849b53073608eee9f8838cf6903cf8bc236b9cc09c91e3a2d6",
+  "prior_promoted_semantic_review_input_sha256": "3b3c2e6917a63d910033192cbba2d88038039e91f5649cee8300184395cca3ea",
+  "prior_promoted_sha256": "4642c6289965a0335f0ff6450f3e20aaea375383d2a56ec0464cea462987aa8d",
+  "prior_promoted_uri": "artifacts/director/1af0791d746091fcf7027a41af573532c196d843be156afdc7572e18d9024f04/native/262e23f487752f69_director-ir.json",
+  "status": "OBSERVED"
+}

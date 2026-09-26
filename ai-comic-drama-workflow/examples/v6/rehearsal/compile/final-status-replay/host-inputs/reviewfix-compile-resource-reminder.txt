@@ -1,0 +1,1 @@
+已登记 ACK。核对冻结 envelope：inputs 为 27 项，resources 实际为 20 项（其中包括 V6 runtime 模块）。请逐项按 URI/SHA 读取全部 20 项；你的 ACK 写 17 项，可能只是子集。该提醒会正式登记为宿主 PROGRESS 证据。

@@ -1,0 +1,38 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_SUBMIT_1",
+  "expected_revision": 190,
+  "review": {
+    "schema": "review-record/6.0",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_409b607d1ac2769916e7252e",
+    "reviewer_dispatch_id": "review-13e0650838434e8bca4ce7df",
+    "candidate_digest": "758eb105a3cc11bd3c80240d92bf59e73f656ba3650d93a4afaa4d5e759d3f87",
+    "checks": [
+      {
+        "id": "module_receipt",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/module-receipt.review.json"
+        ]
+      },
+      {
+        "id": "native_validator",
+        "status": "FAIL",
+        "evidence": [
+          "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/native-validator.review.json",
+          "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/native-validator.raw.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/handoff.review.json"
+        ]
+      }
+    ],
+    "failure_owner": "director",
+    "at": "2026-09-25T14:32:31.781813Z"
+  }
+}

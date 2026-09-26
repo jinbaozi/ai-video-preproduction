@@ -1,0 +1,259 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/director-ir.json",
+  "artifact_sha256": "6725c568baba23c007ce0742815a73320a1ae69bcdb4cd7f7ae0c3d5789e8ffc",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/module-receipt.json"
+      ],
+      "finding": "冻结模块四份必读资源和三项冻结输入哈希吻合。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/stow-continuity.json"
+      ],
+      "finding": "DirectorIR 1.2 原生静态校验无错误，编剧绑定为 REVIEW_ATTESTED；9000毫秒信不外露的旧缺陷已按 panel_state 显式复核，媒体未执行。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/handoff-check.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/evidence/v5-pre-review.json"
+      ],
+      "finding": "Canon 三项硬要求与 ScriptIR 六条交接均映射到原生导演字段。",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "eb6702e9e268b2ba339b0fcf3cae95297aa618712d0a06fc0510c6d1cb93f566",
+  "handoff": [
+    {
+      "reason": "雨夜由场景与声画氛围承载，具体地点保持开放。",
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "review": {
+        "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+        "findings": [
+          "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+          "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+        ],
+        "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+        "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+      },
+      "source_fingerprint": "1c01089dff949f1e66af960811afb8d7605819a62c9aba9bfdb0b27440ce8201",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/space",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/sound/ambience",
+          "value": "雨夜"
+        }
+      ],
+      "target_clause": "REQ_RAIN_NIGHT"
+    },
+    {
+      "reason": "同一实体 ID 从交接延续至入包，验封过程不拆信。",
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "review": {
+        "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+        "findings": [
+          "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+          "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+        ],
+        "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+        "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+      },
+      "source_fingerprint": "982782a89c1cdcaa4938dac6cc0bf02f82f2a41b8c016b5a58dac3676d527658",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/entities/2/description",
+          "value": "同一封未拆的信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/1/operation",
+          "value": "不拆信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/condition",
+          "value": "未拆"
+        }
+      ],
+      "target_clause": "REQ_SAME_UNOPENED_LETTER"
+    },
+    {
+      "reason": "三个动作的开始时间与前件依赖按剧本顺序排列。",
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "review": {
+        "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+        "findings": [
+          "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+          "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+        ],
+        "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+        "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+      },
+      "source_fingerprint": "79799371a55b1c98b351e6b46e31e38b8c4c546f94aedb4a66bb063bbed52e98",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        }
+      ],
+      "target_clause": "REQ_EVENT_ORDER"
+    },
+    {
+      "reason": "最终关键姿态与观众所得信息均为同一封信入包。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "review": {
+        "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+        "findings": [
+          "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+          "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+        ],
+        "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+        "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+      },
+      "source_fingerprint": "9279f0d98ece08aaa16979367361f73a73cd3f0e82abccee6fe1d361cdfe1442",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/contacts",
+          "value": "PROP_BACKPACK.interior"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/narrative/audience_after",
+          "value": "同一封未拆的信已经收进背包"
+        }
+      ],
+      "target_clause": "REQ_ENDING"
+    },
+    {
+      "reason": "每一剧本事件均有独立动作、可见反馈和认知更新。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "review": {
+        "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+        "findings": [
+          "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+          "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+        ],
+        "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+        "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+      },
+      "source_fingerprint": "48fd7fe8fcff39782c51268c41766dc9823f1946395d769641d3931bded68409",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/narrative/character_knows",
+          "value": "乙在本镜确认封口完整"
+        }
+      ],
+      "target_clause": "REQ_SCRIPT_EVENTS"
+    },
+    {
+      "reason": "镜头和动作顺序均与剧本 reveal_order 对齐。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "review": {
+        "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+        "findings": [
+          "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+          "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+        ],
+        "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+        "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+      },
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/story_order",
+          "value": 1
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/story_order",
+          "value": 2
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/story_order",
+          "value": 3
+        }
+      ],
+      "target_clause": "REQ_REVEAL_ORDER"
+    }
+  ],
+  "module_receipt": {
+    "name": "director-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md",
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md",
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+      }
+    ],
+    "skill_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+    "version": "1.4.2"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+  "unresolved": [],
+  "validator": {
+    "errors": [],
+    "media": "NOT_RUN",
+    "screenplay_binding": "REVIEW_ATTESTED",
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  }
+}

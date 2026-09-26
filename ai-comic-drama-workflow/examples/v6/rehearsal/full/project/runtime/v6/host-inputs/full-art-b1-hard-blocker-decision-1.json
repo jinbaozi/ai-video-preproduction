@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_HARD_BLOCKER_DECISION_1",
+  "expected_revision": 115,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_HARD_BLOCKER_DECISION_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_ART_B1_UNRESOLVED_CLARIFICATION_1",
+    "type": "BLOCKER",
+    "summary": "Art hard requirement audit fails ending state; Director phases absent",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-hard-blocker-decision.txt"
+    ],
+    "at": "2026-09-25T13:19:47.271169Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-hard-blocker-decision.txt",
+    "subject_sha256": "71bfde37a0b66631ac2bf21f17a210a3a671afd59e314b87cac75900f6cab165"
+  }
+}

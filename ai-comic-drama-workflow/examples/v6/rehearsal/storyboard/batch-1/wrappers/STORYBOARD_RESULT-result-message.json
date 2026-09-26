@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 140,
+  "message": {
+    "at": "2026-09-25T12:56:08.953737Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/candidate-result.json"
+    ],
+    "in_reply_to": "STORYBOARD_LIGHTING_PROGRESS_1",
+    "message_id": "STORYBOARD_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "subject_sha256": "301dd866c94b906a67bcf12eed2356df59ed8930dcca76b8c5a0577ade307e0d",
+    "subject_uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/candidate-result.json",
+    "summary": "Creator submitted StoryboardIR candidate, native package and evidence for independent review; media NOT_RUN.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "RESULT"
+  }
+}

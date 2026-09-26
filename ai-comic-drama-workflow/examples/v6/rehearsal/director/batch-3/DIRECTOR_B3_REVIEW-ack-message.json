@@ -1,0 +1,19 @@
+{
+  "command_id": "DIRECTOR_B3_REVIEW_ACK_COMMAND_1",
+  "expected_revision": 79,
+  "message": {
+    "at": "2026-09-25T12:14:50.557764Z",
+    "batch": 3,
+    "evidence": [],
+    "in_reply_to": "DIRECTOR_B3_REVIEW_GUIDANCE_1",
+    "message_id": "DIRECTOR_B3_REVIEW_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Independent reviewer acknowledged frozen batch-3 candidate, repair inputs, supplied digest and review dispatch ID, and will write only batch-3 review record.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "ACK"
+  }
+}

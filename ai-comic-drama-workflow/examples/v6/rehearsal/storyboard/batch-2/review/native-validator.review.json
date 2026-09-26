@@ -1,0 +1,138 @@
+{
+  "artifact_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+  "inspect": {
+    "contract_results": [],
+    "diagnostics": [],
+    "execution_ready": false,
+    "manual_checks": [
+      "原文事件、潜台词与观众知情顺序：对照原文及导演决定逐镜审阅。",
+      "三维碰撞、摄影投影、遮挡、视线和手部接触：检查预演或真实画格。",
+      "表情幅度、重心、动作惯性、接动作剪点：查看连续媒体，不能只看首尾帧。",
+      "身份、服化道、场景拓扑、光源和道具：逐镜核对实际参考及资产版本。",
+      "台词声音归属、口型、停顿、旁白与音乐混音：实听实看并标时间码。",
+      "执行入口、模型版本、模式、附件、时长和返回素材：由宿主核验并另存真实回执。"
+    ],
+    "media": "NOT_RUN",
+    "schema_version": "storyboard-qa/1.0",
+    "status": "VALID",
+    "structure": "PASS",
+    "submitted": false,
+    "visual": "NOT_RUN"
+  },
+  "spatial_and_continuity": {
+    "axis": "JIA -0.65 < YI +0.65 in world x; camera z=-2.8 on fixed negative side",
+    "camera": "one locked S1, 0..288 frames at 24 fps, static same-side framing",
+    "letter": [
+      {
+        "at_ms": 0,
+        "contacts": [
+          "CHAR_JIA.right_hand"
+        ],
+        "controllers": [
+          "CHAR_JIA.right_hand"
+        ],
+        "supports": [
+          "CHAR_JIA.right_hand"
+        ]
+      },
+      {
+        "at_ms": 2500,
+        "contacts": [
+          "CHAR_JIA.right_hand",
+          "CHAR_YI.right_hand"
+        ],
+        "controllers": [
+          "CHAR_JIA.right_hand"
+        ],
+        "supports": [
+          "CHAR_JIA.right_hand",
+          "CHAR_YI.right_hand"
+        ]
+      },
+      {
+        "at_ms": 4000,
+        "contacts": [
+          "CHAR_YI.right_hand"
+        ],
+        "controllers": [
+          "CHAR_YI.right_hand"
+        ],
+        "supports": [
+          "CHAR_YI.right_hand"
+        ]
+      },
+      {
+        "at_ms": 7500,
+        "contacts": [
+          "CHAR_YI.right_hand"
+        ],
+        "controllers": [
+          "CHAR_YI.right_hand"
+        ],
+        "supports": [
+          "CHAR_YI.right_hand"
+        ]
+      },
+      {
+        "at_ms": 10500,
+        "contacts": [
+          "PROP_BACKPACK.interior"
+        ],
+        "controllers": [],
+        "supports": [
+          "PROP_BACKPACK.interior"
+        ]
+      },
+      {
+        "at_ms": 12000,
+        "contacts": [
+          "PROP_BACKPACK.interior"
+        ],
+        "controllers": [],
+        "supports": [
+          "PROP_BACKPACK.interior"
+        ]
+      }
+    ],
+    "light_position_limit": "ArtIR specifies no practical lamp; numeric position is explicitly a readability rehearsal anchor, not fixed physical light or model control",
+    "media_claim": "No generated image, video, audio, binding or visual QA is claimed.",
+    "panels": [
+      [
+        "P_OPEN",
+        0
+      ],
+      [
+        "P_GRIP",
+        60
+      ],
+      [
+        "P_RELEASE",
+        84
+      ],
+      [
+        "P_SEAL",
+        144
+      ],
+      [
+        "P_BAG_OPEN",
+        204
+      ],
+      [
+        "P_STOWED",
+        252
+      ],
+      [
+        "P_END",
+        287
+      ]
+    ],
+    "visibility_intervals": 6
+  },
+  "status": "PASS",
+  "verify": {
+    "build_id": "f3b30a2ddd6a1a3499a51b96eebd229117f429f613c6f7868eefcfbf7cb2860d",
+    "files": 8,
+    "media": "NOT_RUN",
+    "status": "VERIFIED"
+  }
+}

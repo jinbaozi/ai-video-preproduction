@@ -1,0 +1,19 @@
+{
+  "command_id": "DIRECTOR_B3_ACK_COMMAND_1",
+  "expected_revision": 69,
+  "message": {
+    "at": "2026-09-25T11:23:49.397866Z",
+    "batch": 3,
+    "evidence": [],
+    "in_reply_to": "DIRECTOR_B3_GUIDANCE_1",
+    "message_id": "DIRECTOR_B3_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Creator acknowledged actual batch-3 dispatch and will verify every frozen input hash, repair both recorded handoff defects only in batch-3 candidate, run locked checks, and return RESULT path and SHA.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "ACK"
+  }
+}

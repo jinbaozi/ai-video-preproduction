@@ -1,0 +1,21 @@
+{
+  "command_id": "SCREENPLAY_REVIEW_RESULT_COMMAND_1",
+  "expected_revision": 30,
+  "message": {
+    "at": "2026-09-25T10:42:48.247551Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/review-record.json"
+    ],
+    "in_reply_to": "SCREENPLAY_REVIEW_ACK_1",
+    "message_id": "SCREENPLAY_REVIEW_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0f12f0efac55ace2c0387d7",
+    "subject_sha256": "b5f824abe4532d0865a0d505f237d67c13276c6fbc9d83ab17979bac28acc19b",
+    "subject_uri": "runtime/v6/reviews/TASK_1b94794070565f70c7f697a7/1/review-record.json",
+    "summary": "Independent screenplay review completed module receipt, native validator and handoff checks against current candidate; all PASS.",
+    "task_id": "TASK_1b94794070565f70c7f697a7",
+    "type": "RESULT"
+  }
+}

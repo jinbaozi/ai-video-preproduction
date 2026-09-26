@@ -1,0 +1,9 @@
+{
+  "always": ["SKILL.md", "references/contract.md", "references/cooperation.md"],
+  "kinds": {
+    "screenplay": ["references/writing.md"]
+  },
+  "when": {
+    "dialogue": ["references/writing.md"]
+  }
+}

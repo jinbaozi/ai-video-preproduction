@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_DISPATCH_1",
+  "expected_revision": 181,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "dispatch-13e0650838434e8bca4ce7df",
+    "action_id": "dispatch-13e0650838434e8bca4ce7df",
+    "tool_result_uri": "runtime/v6/host-evidence/e1ef6cff26bccfff36bf304999249a344a4c15c0511e140d7b384a47428a7fa6.json",
+    "tool_result_sha256": "e1ef6cff26bccfff36bf304999249a344a4c15c0511e140d7b384a47428a7fa6",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_6cd3cfdd715fd5aa4f9956a2",
+    "task_digest": "ab90dae4b0c3bfa52427c04227d6e0ddc48d471ceffdb2c6436b425fd9d94da7",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T14:16:33.421468Z",
+    "observed_at": "2026-09-25T14:16:33.421468Z",
+    "result_uri": null,
+    "error": null
+  }
+}

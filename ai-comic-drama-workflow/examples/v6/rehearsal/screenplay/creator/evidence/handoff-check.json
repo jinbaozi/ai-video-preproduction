@@ -1,0 +1,36 @@
+{
+  "binding": {
+    "channel": "artifact",
+    "requirement_id": "UP_814da7eff2542914498c917f",
+    "source_slot": "canon:project:project:Canon",
+    "source_version": 12,
+    "target_pointer": "",
+    "target_slot": "screenplay:project:project:ScriptIR"
+  },
+  "finding": "原始 Canon 的三项硬要求和三个事件顺序分别落在 ScriptIR 正文、叙事事件与阻断合同中。",
+  "mapping_pointers_exist": true,
+  "requirement_id": "UP_814da7eff2542914498c917f",
+  "source_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "source_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SINGLE_LETTER",
+    "REQ_ACTION_ORDER"
+  ],
+  "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+  "status": "PASS",
+  "target_clause_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SINGLE_LETTER",
+    "REQ_ACTION_ORDER"
+  ],
+  "target_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "target_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d"
+}

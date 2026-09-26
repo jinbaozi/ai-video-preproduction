@@ -1,0 +1,99 @@
+{
+  "artifact_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+  "candidate_digest": "8a63f4c005b0c160690ab7882bbbc241d53c8472ee18f1a7baf55d2f8cf5509b",
+  "candidate_matches_frozen_state": true,
+  "candidate_result_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json",
+  "check": "module_receipt",
+  "creator_evidence_hashes_verified": 8,
+  "finding": "Candidate, RoleResult, frozen inputs, repair citations, locked archive, four required resources and creator evidence bytes match their declared hashes; receipt establishes provenance only.",
+  "frozen_inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "expected_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+    },
+    {
+      "actual_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "expected_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "slot": "screenplay:project:project:ScriptIR",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+    },
+    {
+      "actual_sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+      "expected_sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+    },
+    {
+      "actual_sha256": "efdc6ad9e1307d9eea8f32417f12e683786dbbe0cf8a392e373dca585afd4033",
+      "expected_sha256": "efdc6ad9e1307d9eea8f32417f12e683786dbbe0cf8a392e373dca585afd4033",
+      "slot": "repair_brief",
+      "uri": "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json"
+    },
+    {
+      "actual_sha256": "3155f67ee805592d576967760d20dd2955abd43540bfeca78739c17950058d62",
+      "expected_sha256": "3155f67ee805592d576967760d20dd2955abd43540bfeca78739c17950058d62",
+      "slot": "repair_failure_1",
+      "uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json"
+    },
+    {
+      "actual_sha256": "7d6a58d6a2ae798dd4c54d798ad70d9b6cd92566a1077261b23ef1eefc66b02d",
+      "expected_sha256": "7d6a58d6a2ae798dd4c54d798ad70d9b6cd92566a1077261b23ef1eefc66b02d",
+      "slot": "repair_failure_2",
+      "uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+    }
+  ],
+  "frozen_resources": [
+    {
+      "actual_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "expected_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+    },
+    {
+      "actual_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "expected_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+    },
+    {
+      "actual_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "expected_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+    }
+  ],
+  "module_archive": {
+    "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "uri": "runtime/module-archives/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64.skill"
+  },
+  "prior_review_citations": [
+    {
+      "batch": 1,
+      "sha256": "db5f23e4d9ea756a748013263d4998119a438705752fc32494e3d62d2773c65c",
+      "uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json"
+    },
+    {
+      "batch": 2,
+      "sha256": "1f2aeb91366c4ac0bc2e28d22fd39d56f6ef07a8656c346517ace2f7357857ed",
+      "uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/handoff.review.json"
+    },
+    {
+      "batch": 2,
+      "sha256": "5c2ea5d84b021ca2eb1faac37d72a4db8b77f8762b64458058eca92ebbf396a2",
+      "uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json"
+    }
+  ],
+  "reviewed_at": "2026-09-25T12:20:03.267642Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+  "role_result_sha256": "dd4f8eca64eef2bb8b4fbe2c2018e88551633da43faafb5531ebb043f1b40c78",
+  "schema_results": {
+    "v5-role-result": "PASS",
+    "v6-candidate-result": "PASS",
+    "v6-task-envelope": "PASS"
+  },
+  "status": "PASS"
+}

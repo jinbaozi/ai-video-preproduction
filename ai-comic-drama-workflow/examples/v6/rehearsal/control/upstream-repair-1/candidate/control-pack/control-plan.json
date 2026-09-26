@@ -1,0 +1,14 @@
+{
+  "controls": [],
+  "schema": "shot-control/0.2",
+  "shot_ids": [
+    "S1"
+  ],
+  "source": {
+    "kind": "avir/1.2",
+    "path": "production-specification.json",
+    "sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33"
+  },
+  "video_generated": false,
+  "video_qa": "NOT_RUN"
+}

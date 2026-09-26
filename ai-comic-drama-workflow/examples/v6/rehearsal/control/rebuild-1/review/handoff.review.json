@@ -1,0 +1,96 @@
+{
+  "allowed_metadata_only_pointers": [
+    "/sources/0/uri",
+    "/sources/1/uri",
+    "/sources/2/uri",
+    "/sources/3/uri",
+    "/sources/4/uri",
+    "/timeline/semantic_review/input_sha256",
+    "/upstreams/0/sha256",
+    "/upstreams/0/uri",
+    "/upstreams/1/sha256",
+    "/upstreams/1/uri",
+    "/upstreams/2/sha256",
+    "/upstreams/2/uri"
+  ],
+  "batch": 1,
+  "check_id": "handoff",
+  "current_storyboard_semantic_review_valid": true,
+  "media": "NOT_RUN",
+  "promotion_differences": [
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/sources/SRC_69a71adcfaca/source.txt",
+      "pointer": "/sources/0/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/files/69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054/source.txt"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "pointer": "/sources/1/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/files/befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c/canon.json"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+      "pointer": "/sources/2/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/files/3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d/script-ir.json"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+      "pointer": "/sources/3/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/files/4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e/director-ir.json"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+      "pointer": "/sources/4/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/files/df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909/art-ir.json"
+    },
+    {
+      "candidate": "46bbcd5b764ba4c9742228f1f833f92d48bf6d4ceef38c7958839ad8cc951065",
+      "pointer": "/timeline/semantic_review/input_sha256",
+      "promoted": "7969a9bb047e7a793a68e432c6467a73321a7f64e1768a63f3962ff585f13c8d"
+    },
+    {
+      "candidate": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "pointer": "/upstreams/0/sha256",
+      "promoted": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "pointer": "/upstreams/0/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/native/befdfe311a8fed6f_canon.json"
+    },
+    {
+      "candidate": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "pointer": "/upstreams/1/sha256",
+      "promoted": "43d1997868340e1dd6735d31e0b21a171bf86c9028eb7aede41c034c683e9458"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+      "pointer": "/upstreams/1/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/native/4f30c787cf87f6b0_director-ir.json"
+    },
+    {
+      "candidate": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+      "pointer": "/upstreams/2/sha256",
+      "promoted": "3b13c864c4a5518154a9a2caf60f0b4d3a88a521fe7c4b0a64dd36d942164717"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+      "pointer": "/upstreams/2/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/ce8e91ffb7483bd2c6cc9ec59001a28ee47260b382798ef1896740d1397538db/native/df69d5d5899dc7f9_art-ir.json"
+    }
+  ],
+  "requirement_id": "UP_d337fbf818938e402c0af332",
+  "result": "PASS",
+  "schema": "v6-control-review-evidence/1.0",
+  "source_candidate_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+  "source_promoted_sha256": "09cd04e15b3e39ed226b73f7f476c29aacb74853ecaaad57bd4721fa5938fca8",
+  "source_slot": "storyboard:project:project:StoryboardIR",
+  "source_to_avir_losses": 0,
+  "source_to_avir_report_status": "MAPPED",
+  "source_version": 17,
+  "target_avir_sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+  "target_manifest_sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+  "target_pointer": "",
+  "target_slot": "control:project:project:ShotControlPack",
+  "task_id": "TASK_a956f0b50a44008d6467b92e"
+}

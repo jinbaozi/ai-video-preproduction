@@ -1,0 +1,23 @@
+{
+  "name": "production-design-grammar",
+  "reads": [
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md",
+      "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md",
+      "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md",
+      "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901"
+    }
+  ],
+  "skill_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+  "version": "1.3.1"
+}

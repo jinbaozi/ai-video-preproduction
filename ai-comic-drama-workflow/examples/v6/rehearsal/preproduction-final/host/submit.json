@@ -1,0 +1,35 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+    "artifacts": [
+      {
+        "kind": "PreproductionQA",
+        "sha256": "aebfd2ff133622433dc390e259c185c676b66a5dc433a769c122ba3193b93e9d",
+        "slot": "preproduction_qa:project:project:PreproductionQA",
+        "uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/preproduction-qa.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/preproduction-final.evidence.json",
+          "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/preproduction-qa.json",
+          "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/build-verify.stdout.json"
+        ],
+        "id": "preproduction_final",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [],
+    "input_digest": "5f5f8b48d7c9531b93ef577bff22cadcac7c4896d25540216a9250791a95f824",
+    "module_receipts": [],
+    "result_sha256": "39211a36e3e367c7a0b0e149b90aa20022131d69058f5d9db78ecf8ef2813328",
+    "result_uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_5940525a2a35543b33e08b18",
+    "unresolved": []
+  },
+  "command_id": "HOSTFIX-PREPRODUCTION-QA_SUBMIT_1",
+  "expected_revision": 715
+}

@@ -1,0 +1,407 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+    "artifacts": [
+      {
+        "kind": "DirectorIR",
+        "sha256": "d7fc28b7d3207d0beadb14f286e9bffd302a2fdab918dfd54190f515f1355364",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/director-ir.json"
+      }
+    ],
+    "batch": 2,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/native-validator.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/director-review.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json"
+        ],
+        "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json"
+        ],
+        "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "c63833dc17ae7712fcf477b56e2c9efb9a131451db6d099e558be9a6e4dedd4a",
+    "module_receipts": [
+      {
+        "name": "director-grammar",
+        "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+        "version": "1.4.2"
+      }
+    ],
+    "result_sha256": "f194b59da68e16ce22662e92df2c366c028e1732cbdedb0209cefc194a821571",
+    "result_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "unresolved": []
+  },
+  "envelope": {
+    "batch": 2,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_1b94794070565f70c7f697a7"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "DirectorIR",
+        "slot": "director:project:project:DirectorIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "c63833dc17ae7712fcf477b56e2c9efb9a131451db6d099e558be9a6e4dedd4a",
+    "input_revision": 48,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+        "slot": "screenplay:project:project:ScriptIR",
+        "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+        "version": 14
+      },
+      {
+        "sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "director-grammar",
+      "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+      "version": "1.4.2"
+    },
+    "node_id": "director",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+      }
+    ],
+    "role": "director",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "evidence_hashes": {
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/director-review.json": "77c9259557dd42118d86d9ed70f895180857b3dd5dac9bb2c817ec9ffd462dcb",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/module-receipt.json": "5411f970bfba3558e9631c2a58968bb71b11f75936c0c8da06bfe5a524dd7a80",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/native-validator.json": "383880fc921c23eb117dc09a662b134917404012df132865e49fd76a750f52e0",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/source-integrity.json": "7602daa1588e53bc8334fcc1e2bd9dc453d3caba93ca10551d99318359bbacea",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json": "2cc54c0eec22acaefb1ab6e7e0fae79d88f122b5536beedb330fbe94bba2b797",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json": "d9ee89a0612f15b2596838f5642a85ec0dba5edec1c37646fa3775b19147c212",
+    "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json": "aef133d760f6af7b52de4c5dd2a9a0dbb1adf0dcf9ae9f4147b425cb396db714"
+  },
+  "failure_counts": {
+    "handoff": 2
+  },
+  "messages": [
+    {
+      "at": "2026-09-25T11:08:32.604911Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_B2_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "13449ab70c464f1b69766c6e7c61a89691b6b3571d22147d2b89765a1856d224",
+      "subject_uri": "runtime/v6/host-inputs/director-b2-spawn-brief.json",
+      "summary": "Batch-2 frozen task and targeted repair guidance delivered through real host dispatch; see linked failed independent review.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T11:08:44.021833Z",
+      "batch": 2,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B2_GUIDANCE_1",
+      "message_id": "DIRECTOR_B2_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator read frozen batch-2 envelope, Canon, ScriptIR, director-grammar Skill and locked references; batch-1 independent handoff failure identifies stale Jia/Yi poses after letter transfer. Creator will repair only batch-2 candidate and revalidate.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    {
+      "at": "2026-09-25T11:12:46.835961Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json"
+      ],
+      "in_reply_to": "DIRECTOR_B2_ACK_1",
+      "message_id": "DIRECTOR_B2_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+      "subject_sha256": "db572f06e28f0c585f48c27e2a912834a39c0c7ce55f23f9497f6a6f87302476",
+      "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+      "summary": "Batch-2 Director candidate fixes letter transfer continuity, carries exact frozen handoffs, locked module receipt and native validation evidence; submitted for independent review.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T11:13:49.229013Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_B2_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "b6420d66b61d70b1ea6222a8bd6f1eeeed54b2d81c5f6e12f10e65080aa01ebd",
+      "subject_uri": "runtime/v6/host-inputs/director-b2-review-guidance.json",
+      "summary": "Independent reviewer dispatched with batch-1 failure evidence and full declared check obligation.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T11:14:11.221691Z",
+      "batch": 2,
+      "evidence": [],
+      "in_reply_to": "DIRECTOR_B2_REVIEW_GUIDANCE_1",
+      "message_id": "DIRECTOR_B2_REVIEW_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Reviewer verified frozen batch-2 envelope, candidate digest and review dispatch; independently checks module receipt, native validator and handoff including every letter-custody time point; writes only batch-2 reviews.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "ACK"
+    },
+    {
+      "at": "2026-09-25T11:19:28.675714Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/host-inputs/director-b2-review-progress.txt"
+      ],
+      "in_reply_to": "DIRECTOR_B2_REVIEW_ACK_1",
+      "message_id": "DIRECTOR_B2_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+      "subject_sha256": "107022470fef47a0af13f863d22027654134fe7a2f2f846657047c0db74fb0eb",
+      "subject_uri": "runtime/v6/host-inputs/director-b2-review-progress.txt",
+      "summary": "Reviewer reported an internal evidence-writing script KeyError (expected_sha256 versus sha256), no candidate change; correcting and writing formal review evidence.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T11:20:35.338245Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_B2_REVIEW_ACK_1",
+      "message_id": "DIRECTOR_B2_REVIEW_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+      "subject_sha256": "5c2ea5d84b021ca2eb1faac37d72a4db8b77f8762b64458058eca92ebbf396a2",
+      "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json",
+      "summary": "Independent batch-2 Director review: module receipt and native validator pass; handoff fails because Jia start-state says right hand holds the letter but person contact is no contact while letter contact points to Jia right hand; later contact samples conflict similarly.",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-170f01b0b05c6d53096de3b2",
+    "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+    "batch": 2,
+    "dispatch_id": "dispatch-170f01b0b05c6d53096de3b2",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T11:07:41.685281Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T11:07:41.685281Z",
+    "status": "RUNNING",
+    "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "tool_result_sha256": "d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c",
+    "tool_result_uri": "runtime/v6/host-evidence/d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c.json"
+  },
+  "receipt_history": [
+    {
+      "action_id": "dispatch-170f01b0b05c6d53096de3b2",
+      "agent_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+      "batch": 2,
+      "dispatch_id": "dispatch-170f01b0b05c6d53096de3b2",
+      "error": null,
+      "host": "codex",
+      "host_call_id": null,
+      "host_tool": "collaboration.spawn_agent",
+      "observed_at": "2026-09-25T11:07:41.685281Z",
+      "result_uri": null,
+      "schema": "dispatch-receipt/6.0",
+      "sent_at": "2026-09-25T11:07:41.685281Z",
+      "status": "RUNNING",
+      "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+      "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+      "tool_result_sha256": "d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c",
+      "tool_result_uri": "runtime/v6/host-evidence/d30f9660e8f52637b4604476e6d46829c39aab15e57321e95dde767bb66e5e7c.json"
+    }
+  ],
+  "review": null,
+  "review_dispatch": {
+    "action_id": "review-170f01b0b05c6d53096de3b2",
+    "agent_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+    "batch": 2,
+    "dispatch_id": "review-170f01b0b05c6d53096de3b2",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T11:13:26.804040Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T11:13:26.804040Z",
+    "status": "RUNNING",
+    "task_digest": "3ca9d8e332e93c00178b9e9297894166ba9e996608fd8241bdc9151575c4e364",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "tool_result_sha256": "b1a3b84f186f14eb2475f8905b1deb5514cf74197431c862484e385a99000fc6",
+    "tool_result_uri": "runtime/v6/host-evidence/b1a3b84f186f14eb2475f8905b1deb5514cf74197431c862484e385a99000fc6.json"
+  },
+  "state": "FAILED",
+  "validation": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/director-review.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/v6-handoffs.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/evidence/state-consistency.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "version": 15
+}

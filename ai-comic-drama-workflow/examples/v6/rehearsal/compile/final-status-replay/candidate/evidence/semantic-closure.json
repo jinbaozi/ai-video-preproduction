@@ -1,0 +1,69 @@
+{
+  "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+  "independent_review_required": true,
+  "media_qa": "NOT_RUN",
+  "new_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "new_avir_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json",
+  "new_build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "new_end_pointer": "/shots/0/end_state/4/visible_parts",
+  "new_end_value": [],
+  "new_timeline_letter_visibility": [
+    [
+      10500,
+      []
+    ],
+    [
+      12000,
+      []
+    ]
+  ],
+  "old_avir_sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33",
+  "old_avir_uri": "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/avir.json",
+  "old_build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+  "old_end_pointer": "/shots/0/end_state/4/visible_parts",
+  "old_end_value": [
+    "body",
+    "prop"
+  ],
+  "old_review_sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60",
+  "old_review_uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json",
+  "prompt_lines": [
+    {
+      "line": 70,
+      "text": "起始机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+    },
+    {
+      "line": 71,
+      "text": "结束机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+    },
+    {
+      "line": 324,
+      "text": "10.5秒，同一封信的姿态从“未拆；封口朝乙且完整可见”变为“同一封未拆信在背包内”。"
+    },
+    {
+      "line": 328,
+      "text": "10.5秒，同一封信的可见部位从“身体、seal”变为“无”。"
+    },
+    {
+      "line": 346,
+      "text": "同一封信：接触部位：PROP_BACKPACK.interior；控制部位：无；姿态：同一封未拆信在背包内；世界位置（右、上、深，米）：0.7、0.75、0；支撑：PROP_BACKPACK.interior；可见部位：无"
+    },
+    {
+      "line": 356,
+      "text": "同一封信：信已经入包，由包体遮住；画面不呈现后续；在画内；中景；可见部位：无；可读尺度：身体；遮挡：背包内部遮住整封信；画面区域（左、上、宽、高）：0.69、0.7、0.1、0.09"
+    }
+  ],
+  "prompt_sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+  "prompt_uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt.txt",
+  "source_timeline_letter_visibility": [
+    [
+      10500,
+      []
+    ],
+    [
+      12000,
+      []
+    ]
+  ],
+  "status": "CLOSED_STATIC"
+}

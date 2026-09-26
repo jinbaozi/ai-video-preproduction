@@ -1,0 +1,39 @@
+{
+  "channel": "artifact",
+  "finding": "雨夜、同一封未拆信及交接→验封口→收存的顺序均进入原生正文、事件和阻断合同。",
+  "mapping": [
+    {
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/blocks/0/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text",
+        "/scenes/0/blocks/3/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/narrative/events",
+        "/narrative/reveal_order"
+      ]
+    }
+  ],
+  "requirement_id": "UP_814da7eff2542914498c917f",
+  "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+  "source_slot": "canon:project:project:Canon",
+  "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+  "source_version": 12,
+  "target_pointer": "",
+  "target_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+  "target_slot": "screenplay:project:project:ScriptIR",
+  "target_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+}

@@ -1,0 +1,20 @@
+{
+  "adapter": "offline-only",
+  "entry_key_fields": [
+    "provider",
+    "product_entry",
+    "model",
+    "mode",
+    "documentation_version",
+    "region",
+    "permissions"
+  ],
+  "handoff_rule": "保持原合同；宿主合并DirectorIR、解析真实能力和上传槽位，另建执行回执",
+  "id": "generic-video",
+  "kind": "video",
+  "name": "通用视频美术补充",
+  "native_parameters": {},
+  "needs_director": true,
+  "needs_entry_resolution": false,
+  "needs_first_frame": false
+}

@@ -1,0 +1,36 @@
+{
+  "binding": {
+    "channel": "artifact",
+    "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+    "source_slot": "canon:project:project:Canon",
+    "source_version": 12,
+    "target_pointer": "",
+    "target_slot": "screenplay:project:project:ScriptIR"
+  },
+  "finding": "已复核同一封信、雨夜和三个事件的顺序；人物复用 Canon ID，没有新增人物或剧情事实。",
+  "mapping_pointers_exist": true,
+  "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+  "source_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "source_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "status": "PASS",
+  "target_clause_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "target_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "target_sha256": "205d0961e84576e6326d70e900ab4491e7122bc96014fea0bfa22c28fc1dfc54"
+}

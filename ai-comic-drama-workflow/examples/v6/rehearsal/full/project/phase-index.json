@@ -1,0 +1,59 @@
+{
+  "phases": [
+    {
+      "index": 1,
+      "module": null,
+      "name": "资料与项目事实",
+      "role": "canon"
+    },
+    {
+      "index": 2,
+      "module": "screenplay-grammar",
+      "name": "故事与剧本",
+      "role": "screenplay"
+    },
+    {
+      "index": 3,
+      "module": "director-grammar",
+      "name": "导演方案",
+      "role": "director"
+    },
+    {
+      "index": 4,
+      "module": "production-design-grammar",
+      "name": "美术方案",
+      "role": "art"
+    },
+    {
+      "index": 5,
+      "module": "image-prompt-optimizer",
+      "name": "视觉资产",
+      "role": "visual"
+    },
+    {
+      "index": 6,
+      "module": "storyboard-grammar",
+      "name": "分镜制作",
+      "role": "storyboard"
+    },
+    {
+      "index": 7,
+      "module": "image-prompt-optimizer",
+      "name": "分镜图片",
+      "role": "boards"
+    },
+    {
+      "index": 8,
+      "module": "video-prompt-compiler",
+      "name": "视频提示词",
+      "role": "compile"
+    },
+    {
+      "index": 9,
+      "module": null,
+      "name": "验收与交付",
+      "role": "qa"
+    }
+  ],
+  "schema_version": "5.0"
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B3_RESULT_COMMAND_1",
+  "expected_revision": 73,
+  "message": {
+    "at": "2026-09-25T12:13:31.128414Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json"
+    ],
+    "in_reply_to": "DIRECTOR_B3_RESUME_REQUEST_1",
+    "message_id": "DIRECTOR_B3_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "subject_sha256": "8a63f4c005b0c160690ab7882bbbc241d53c8472ee18f1a7baf55d2f8cf5509b",
+    "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/candidate-result.json",
+    "summary": "Creator completed batch-3 Director candidate; locked checks pass and static audit reports all four cited defects gone. Candidate hashes verified, submitted for independent review.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "RESULT"
+  }
+}

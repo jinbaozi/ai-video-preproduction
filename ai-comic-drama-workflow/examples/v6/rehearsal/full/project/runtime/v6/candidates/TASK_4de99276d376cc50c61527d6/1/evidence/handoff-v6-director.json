@@ -1,0 +1,21 @@
+{
+  "input": {
+    "sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+    "slot": "director:project:project:DirectorIR",
+    "uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json"
+  },
+  "media_review": "NOT_RUN",
+  "native_binding": {
+    "project_id": "LETTER_FULL_DEMO",
+    "revision": 2,
+    "sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+    "uri": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json"
+  },
+  "requirement_id": "UP_c3003e890d5b8acf8bc952ef",
+  "source_slot": "director:project:project:DirectorIR",
+  "static_checks": [
+    "frozen input hash matched",
+    "same scene and entity IDs retained",
+    "hard source requirements mapped into ArtIR"
+  ]
+}

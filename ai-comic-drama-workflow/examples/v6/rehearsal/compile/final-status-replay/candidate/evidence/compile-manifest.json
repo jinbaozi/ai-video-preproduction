@@ -1,0 +1,16 @@
+{
+  "all_brief_files_verified": true,
+  "brief_file_count": 24,
+  "brief_uri": "runtime/v6/task-briefs/V6_compile_297e4d54680b970deaed.json",
+  "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "candidate_manifest_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json",
+  "execution": "NOT_RUN",
+  "locked_compiler_verify_status": "VERIFIED",
+  "prompt_review_status": "PENDING_AGENT_REVIEW",
+  "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+  "semantic_closure_evidence": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/evidence/semantic-closure.json",
+  "sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+  "source_and_candidate_avir_bytes_equal": true,
+  "source_and_candidate_bytes_equal": true,
+  "source_manifest_uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/compile-manifest.json"
+}

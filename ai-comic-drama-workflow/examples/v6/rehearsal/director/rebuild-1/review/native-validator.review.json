@@ -1,0 +1,114 @@
+{
+  "action_changes_replayed": 31,
+  "actual_media": "NOT_RUN",
+  "artifact_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "candidate_digest": "e6e8e0e4f7e57a20dfc62f067c9e25bca67a20290abc5f368ec06745c9d8c10c",
+  "check": "native_validator",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/screenplay-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/screenplay-map.json"
+  ],
+  "custody_samples": [
+    {
+      "at_ms": 0,
+      "contacts": [
+        "CHAR_JIA.right_hand"
+      ],
+      "controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "jia_pose": "站立；右手持同一封未拆信",
+      "letter_pose": "未拆；封口朝上",
+      "yi_pose": "站立；右手准备接信；背包可及"
+    },
+    {
+      "at_ms": 2500,
+      "contacts": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "jia_pose": "站立；右手仍持同一封未拆信，乙右手已握住另一侧纸边",
+      "letter_pose": "未拆；封口朝上",
+      "yi_pose": "站立；右手已握住同一封信的另一侧纸边，等待甲松手"
+    },
+    {
+      "at_ms": 4000,
+      "contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_pose": "未拆；封口朝上",
+      "yi_pose": "站立；右手独自持有同一封未拆信"
+    },
+    {
+      "at_ms": 7500,
+      "contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_pose": "未拆；封口朝乙且完整可见",
+      "yi_pose": "站立；右手持同一封未拆信，正查看完整封口"
+    },
+    {
+      "at_ms": 10500,
+      "contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "controllers": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_pose": "同一封未拆信在背包内",
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    },
+    {
+      "at_ms": 12000,
+      "contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "controllers": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_pose": "同一封未拆信在背包内",
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    }
+  ],
+  "finding": "Locked native DirectorIR 1.2 check and screenplay binding pass. Six key states and 31 action deltas agree; final letter is inside backpack and occluded, with neither person holding it. This is static review only.",
+  "legacy_coordinate_conversion": "Static X-right,Y-depth,Z-up [x,y,z] equals timeline x-right,y-up,z-depth [x,z,y] at shot start and end.",
+  "returncode": 0,
+  "reviewed_at": "2026-09-25T13:58:27.695636Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+  "semantic_content_sha256": "8e00dd171e659070e2ac063479f5e3b4284a177d0ce17ff25c1d169950545ea3",
+  "state_samples_checked": [
+    0,
+    2500,
+    4000,
+    7500,
+    10500,
+    12000
+  ],
+  "status": "PASS",
+  "stderr": "",
+  "stdout": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "82957e19257a10dd3cd05d41b5adebd0d479979ccea3cfc29416cd014e147796",
+      "handoff_sha256": "3be5ae48933afa0c14d73c670bf0b6bce5c64695089b8bb0ec162803ac5b9f0e",
+      "mapping_sha256": "41b343ce08cd1dd4569dadbdab2b4af8450e12ee85bc74e97d8cd54370ff4612",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  }
+}

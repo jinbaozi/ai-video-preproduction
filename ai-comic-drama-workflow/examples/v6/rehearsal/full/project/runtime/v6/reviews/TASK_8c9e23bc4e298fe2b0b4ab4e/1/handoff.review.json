@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "requirement_id": "UP_093a53405e6e3c6e38d8937a",
+  "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+  "source_version": 11,
+  "source_art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "source_asset_id": "PROP_LETTER",
+  "identity_locks": [
+    "同一实体 PROP_LETTER 跨交接、验封、入包三镜连续",
+    "封口从头至尾完整且未拆；不露出内页",
+    "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+  ],
+  "target_slot": "visual_prompts:asset:31x41535345545f5343454e455f48414e444f46465f50524f505f4c4554544552:VisualImagePrompt",
+  "target_artifact_sha256": "1bb1b80a9216b11980f26eb0e8c82a37ca040026a2db1e08a66f04b2c7608b6a",
+  "finding": "Single sealed letter and downstream stow timing preserved without claiming visual proof."
+}

@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_RESULT_1",
+  "expected_revision": 189,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_RESULT_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_409b607d1ac2769916e7252e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_BLOCKER_1",
+    "type": "RESULT",
+    "summary": "Director review FAIL: terminal camera framing exposes stowed letter",
+    "evidence": [
+      "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/review-record.json",
+      "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/reviewer-result-message.txt"
+    ],
+    "at": "2026-09-25T14:33:26.066816Z",
+    "subject_uri": "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/1/review-record.json",
+    "subject_sha256": "63cd15f5a0a96cd3bda7522210a4e07662e7408f36a7a66e2257312a295f74e2"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REBUILD_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 234,
+  "message": {
+    "at": "2026-09-25T14:11:59.276228Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-rebuild-review-progress.txt"
+    ],
+    "in_reply_to": "ART_REBUILD_REVIEW_GUIDANCE_1",
+    "message_id": "ART_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+    "subject_sha256": "9afb77a654427d74712f1aba29fc3e40d5604032b41dc4e7cc2c6be5b542a3af",
+    "subject_uri": "runtime/v6/host-inputs/art-rebuild-review-progress.txt",
+    "summary": "独审确认 V6/V5 Canon JSON 对象等价、字节哈希不同；ArtIR 引用准确 Director canon_ref，fresh locked STATIC_VALID，继续核对 V5/V6 handoff。",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "type": "PROGRESS"
+  }
+}

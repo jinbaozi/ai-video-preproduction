@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_ENV_RAIN_NIGHT_B1_REVIEW_SPAWN",
+  "expected_revision": 271,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_77a39e38115fc23984108917",
+    "batch": 1,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "review-8b198aac69acdc1439c9b8fb",
+    "action_id": "review-8b198aac69acdc1439c9b8fb",
+    "tool_result_uri": "runtime/v6/host-evidence/4f99fa65f4904c2aa327c2c257ce9ce12c2a3edc668079cd3c7a2d2744b23cd0.json",
+    "tool_result_sha256": "4f99fa65f4904c2aa327c2c257ce9ce12c2a3edc668079cd3c7a2d2744b23cd0",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_0b1cc97fa601a675d86e59c8",
+    "task_digest": "859c89036287d9ecc4c54b6577bf18a74f86f4460835e99704266e93cc83e130",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T15:31:12.175626Z",
+    "observed_at": "2026-09-25T15:31:12.175626Z",
+    "result_uri": null,
+    "error": null
+  }
+}

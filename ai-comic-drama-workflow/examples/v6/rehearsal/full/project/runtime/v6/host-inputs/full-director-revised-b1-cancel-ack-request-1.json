@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_CANCEL_ACK_REQUEST_1",
+  "expected_revision": 133,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_CANCEL_ACK_REQUEST_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_HOLD_PROGRESS_1",
+    "type": "QUESTION",
+    "summary": "Request cancellation acknowledgment before formal module-lock update",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-cancel-ack-request.txt"
+    ],
+    "at": "2026-09-25T13:42:55.135806Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-cancel-ack-request.txt",
+    "subject_sha256": "dfe2a8239f2146e0db13db20a05941ea154da1f16c10aef86270513459fa8299"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "checks": [
+    "Three frozen shot pointers match",
+    "8500/9000 ms stow state expressed without exposed letter",
+    "No invented ArtIR event phase pointer"
+  ],
+  "director_phase_counts": {
+    "S_HANDOFF": 0,
+    "S_SEAL": 0,
+    "S_STOW": 0
+  },
+  "input": {
+    "sha256": "6725c568baba23c007ce0742815a73320a1ae69bcdb4cd7f7ae0c3d5789e8ffc",
+    "slot": "director:project:project:DirectorIR",
+    "uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/3/director-ir.json",
+    "version": 16
+  },
+  "native_binding": {
+    "project_id": "LETTER_FULL_DEMO",
+    "revision": 2,
+    "sha256": "9673e767dbe8a0568d052c188783eda230466f8d4fada955405ec350742ad2b5",
+    "uri": "/private/tmp/ai-video-v6-full-demo/project/artifacts/director/efb6db4094d6ddfd35ce00b2b4e1a0cdd60c6e31350e56f1bfd1d87a6948132d/native/6725c568baba23c0_director-ir.json"
+  },
+  "requirement_id": "UP_06504a4678f51437f72e1922",
+  "shot_ids": [
+    "S_HANDOFF",
+    "S_SEAL",
+    "S_STOW"
+  ]
+}

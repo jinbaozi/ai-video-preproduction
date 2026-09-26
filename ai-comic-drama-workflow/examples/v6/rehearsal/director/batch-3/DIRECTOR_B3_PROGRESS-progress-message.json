@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B3_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 71,
+  "message": {
+    "at": "2026-09-25T11:27:40.476751Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/host-inputs/director-b3-progress-report.txt"
+    ],
+    "in_reply_to": "DIRECTOR_B3_PROGRESS_REQUEST_1",
+    "message_id": "DIRECTOR_B3_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "subject_sha256": "df89e46cd95336f0b6b8646abf64bd633a68e8c67e5242a3934b5c87724e8862",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-progress-report.txt",
+    "summary": "Creator verified all six frozen inputs and four resource hashes, read both repair failures/reviews, identified nonmirrored person contact, and is generating batch-3 candidate with per-sample two-way custody checks; no blocker.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "PROGRESS"
+  }
+}

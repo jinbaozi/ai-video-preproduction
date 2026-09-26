@@ -1,0 +1,23 @@
+{
+  "command_id": "COMPILEREPAIR_REVIEW_DISPATCH_1",
+  "expected_revision": 485,
+  "receipt": {
+    "action_id": "review-7421b593596a70239fe2e670",
+    "agent_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+    "batch": 1,
+    "dispatch_id": "review-7421b593596a70239fe2e670",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:54:34.841963Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:54:34.841963Z",
+    "status": "RUNNING",
+    "task_digest": "2e79396214a25ce4d7c62a541341214d26b48555248a4a8178b54ffc96067754",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce",
+    "tool_result_sha256": "a8155a6c0211a7abd6fa572291bf3b1cd16e9024b07096402c5292faf8a5e29c",
+    "tool_result_uri": "runtime/v6/host-evidence/a8155a6c0211a7abd6fa572291bf3b1cd16e9024b07096402c5292faf8a5e29c.json"
+  }
+}

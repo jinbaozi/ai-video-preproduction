@@ -1,0 +1,1 @@
+简短状态：若 frozen envelope、scene-painter 合同、ArtIR 原生校验或 RoleResult 绑定遇阻，请给具体原始错误；若顺利继续写候选即可。不要产生图片或声称素材已审核。

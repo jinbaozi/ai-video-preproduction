@@ -1,0 +1,19 @@
+{
+  "command_id": "ART_REVIEW_ACK_COMMAND_1",
+  "expected_revision": 102,
+  "message": {
+    "at": "2026-09-25T12:34:00.239773Z",
+    "batch": 1,
+    "evidence": [],
+    "in_reply_to": "ART_REVIEW_GUIDANCE_1",
+    "message_id": "ART_REVIEW_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Independent Art reviewer acknowledged frozen scene candidate and will write only task review directory after declared checks.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "ACK"
+  }
+}

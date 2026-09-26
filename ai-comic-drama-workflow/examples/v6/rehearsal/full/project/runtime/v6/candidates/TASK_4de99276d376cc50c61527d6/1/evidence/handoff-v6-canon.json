@@ -1,0 +1,19 @@
+{
+  "input": {
+    "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+    "slot": "canon:project:project:Canon",
+    "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json"
+  },
+  "media_review": "NOT_RUN",
+  "native_binding": {
+    "revision": "1",
+    "uri": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json"
+  },
+  "requirement_id": "UP_736fae98163757821a66afe6",
+  "source_slot": "canon:project:project:Canon",
+  "static_checks": [
+    "frozen input hash matched",
+    "same scene and entity IDs retained",
+    "hard source requirements mapped into ArtIR"
+  ]
+}

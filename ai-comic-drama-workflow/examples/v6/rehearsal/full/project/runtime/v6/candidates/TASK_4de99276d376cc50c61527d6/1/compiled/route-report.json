@@ -1,0 +1,83 @@
+{
+  "ranked": [
+    {
+      "id": "contemporary_observation",
+      "matches": [
+        "日常",
+        "观察"
+      ],
+      "score": 6
+    },
+    {
+      "id": "graphic_blocks",
+      "matches": [],
+      "score": -1
+    },
+    {
+      "id": "urban_memory",
+      "matches": [],
+      "score": -1
+    }
+  ],
+  "rejected": [
+    {
+      "id": "period_lived_in",
+      "reasons": [
+        "world_mode"
+      ]
+    },
+    {
+      "id": "ritual_myth",
+      "reasons": [
+        "world_mode"
+      ]
+    },
+    {
+      "id": "ink_material",
+      "reasons": [
+        "world_mode",
+        "medium"
+      ]
+    },
+    {
+      "id": "alien_monument",
+      "reasons": [
+        "world_mode"
+      ]
+    },
+    {
+      "id": "industrial_layers",
+      "reasons": [
+        "world_mode"
+      ]
+    },
+    {
+      "id": "culture_future",
+      "reasons": [
+        "world_mode"
+      ]
+    },
+    {
+      "id": "handmade_fable",
+      "reasons": [
+        "world_mode",
+        "medium"
+      ]
+    },
+    {
+      "id": "gothic_environment",
+      "reasons": [
+        "world_mode"
+      ]
+    },
+    {
+      "id": "brand_product",
+      "reasons": [
+        "world_mode"
+      ]
+    }
+  ],
+  "rule": "hard filters then 3*tag_matches-risk_prior; heuristic, not an aesthetic score",
+  "secondary": null,
+  "selected": "contemporary_observation"
+}

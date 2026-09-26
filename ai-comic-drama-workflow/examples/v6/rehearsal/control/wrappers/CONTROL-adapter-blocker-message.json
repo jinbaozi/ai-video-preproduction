@@ -1,0 +1,22 @@
+{
+  "command_id": "CONTROL_ADAPTER_BLOCKER_COMMAND_1",
+  "expected_revision": 166,
+  "message": {
+    "at": "2026-09-25T13:13:45.322043Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-adapter-blocker.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/adapter-report.json"
+    ],
+    "in_reply_to": "CONTROL_BLOCKER_RESPONSE_1",
+    "message_id": "CONTROL_ADAPTER_BLOCKER_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "21c56bf807682de6966d6f4888826a6410a1c11534486513c11132a1f2e66954",
+    "subject_uri": "runtime/v6/host-inputs/control-adapter-blocker.txt",
+    "summary": "Creator reproduced V5 storyboard_to_avir adapter BLOCKED with 24 unmapped hard assertions, preventing control promotion even after V6 native gate fix.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "BLOCKER"
+  }
+}

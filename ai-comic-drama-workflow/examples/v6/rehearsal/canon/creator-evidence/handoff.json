@@ -1,0 +1,28 @@
+{
+  "requirement_id": "UP_02899a994552add4610374b6",
+  "source_slot": "sources:project:project:SourceRegistry",
+  "source_version": 1,
+  "source_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "target_slot": "canon:project:project:Canon",
+  "target_pointer": "",
+  "target_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+  "mapping": [
+    {
+      "source_id": "SRC_69a71adcfaca",
+      "target_pointer": "/source_refs/0"
+    },
+    {
+      "source_id": "SRC_69a71adcfaca",
+      "target_pointer": "/source_facts"
+    },
+    {
+      "source_id": "SRC_69a71adcfaca",
+      "target_pointer": "/entities"
+    },
+    {
+      "source_id": "SRC_69a71adcfaca",
+      "target_pointer": "/event_order"
+    }
+  ],
+  "result": "The registered source text is represented by literal quote spans, stable entity IDs, and the stated event order."
+}

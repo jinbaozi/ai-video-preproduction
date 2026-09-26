@@ -1,0 +1,41 @@
+{
+  "art_source": {
+    "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+    "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71"
+  },
+  "target_artifact": {
+    "uri": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/visual-image-prompt.json",
+    "sha256": "ed4de0c456d051555121cb7a46a82d6b1d5d7e0a4c033fa663e3fa0e453a3077"
+  },
+  "locks": [
+    {
+      "ref": "三个镜头持续为同一雨夜",
+      "finding": "正文锁定 SCENE_HANDOFF 三镜共用同一雨夜、蓝灰色材与环境光方向；该静态场景图本身不声称三镜实拍连续性已通过。"
+    },
+    {
+      "ref": "不得从背景推断未给出的具体地点或室内外状态",
+      "finding": "正文不标定具体地点、城市、建筑、年代和室内外状态，也不加入能反推这些属性的地标。"
+    },
+    {
+      "ref": "/set/atmosphere",
+      "finding": "正文显式保留低频雨幕、交接双手/封口/包口净空，以及同一方位画外柔和环境漫反射。"
+    },
+    {
+      "ref": "/set/layout/0 GROUND_1",
+      "finding": "正文使用中性平整、稳定可站立、低反光承托面；未把 ArtIR 设计米值冒充原文测量或图像模型坐标控制。"
+    },
+    {
+      "ref": "/references/4 PLAN_ENV_RAIN_NIGHT",
+      "finding": "status=planned 且 file/sha256 均为 null；无真实图像参考文件或已核附件槽位，本张仍为纯文字提示词。"
+    }
+  ],
+  "contract": {
+    "uri": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/production-contract.json",
+    "sha256": "753be456e3495c0970df8d353767555fc85ddfcf3b4c92d692b2fb7c2aad75ba",
+    "validator_status": "STATIC_VALID"
+  },
+  "prompt_text_matches_contract": true,
+  "reference_file_binding": "NONE_PLANNED_ONLY",
+  "image_generation": "NOT_RUN",
+  "visual_review": "NOT_RUN"
+}

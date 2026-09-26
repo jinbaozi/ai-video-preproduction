@@ -1,0 +1,14 @@
+{
+  "batch": 1,
+  "candidate_digest": null,
+  "check_evidence": [
+    "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/1/native-validator.review.json"
+  ],
+  "code": "VALUEERROR",
+  "failed_check": "native_validator",
+  "message": "Independent review failed",
+  "node_id": "director",
+  "reviewer_failure_owner": "director",
+  "submission_digest": "4a8a9d6b5f80c7f6934edb650e658fa6d5e0e513ae68f77591833c9ddabf3a12",
+  "task_id": "TASK_eb6702e9e268b2ba339b0fcf"
+}

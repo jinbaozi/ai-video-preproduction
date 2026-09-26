@@ -1,0 +1,70 @@
+{
+  "command_id": "FULL_ENV_RAIN_NIGHT_B1_SUBMIT_1",
+  "expected_revision": 268,
+  "candidate": {
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_77a39e38115fc23984108917",
+    "batch": 1,
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_1e8bce88416377cfc2d8315e",
+    "input_digest": "2b7814e506316f6376e92fbbc3f638fc8a5b16a258f016cfa9933bc1d700f35a",
+    "result_uri": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/role-result.json",
+    "result_sha256": "279de2b5985cc268703203dc6ba74a2e3c8d167e6365b64bf4263c49a39ee74f",
+    "artifacts": [
+      {
+        "slot": "visual_prompts:asset:34x41535345545f5343454e455f48414e444f46465f454e565f5241494e5f4e49474854:VisualImagePrompt",
+        "kind": "VisualImagePrompt",
+        "uri": "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/visual-image-prompt.json",
+        "sha256": "ed4de0c456d051555121cb7a46a82d6b1d5d7e0a4c033fa663e3fa0e453a3077"
+      }
+    ],
+    "module_receipts": [
+      {
+        "name": "image-prompt-optimizer",
+        "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+        "version": "1.15.7"
+      }
+    ],
+    "checks": [
+      {
+        "id": "module_receipt",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/module-receipt.json",
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/input-integrity.json"
+        ]
+      },
+      {
+        "id": "image_prompt_contract",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/contract-validation.json",
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/semantic-audit.json",
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/native-preflight.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/semantic-audit.json",
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/visual-image-prompt.json"
+        ]
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_6c6271015f933f8caf2034aa",
+        "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+        "source_version": 11,
+        "target_pointer": "",
+        "target_slot": "visual_prompts:asset:34x41535345545f5343454e455f48414e444f46465f454e565f5241494e5f4e49474854:VisualImagePrompt",
+        "evidence": [
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/semantic-audit.json",
+          "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/visual-image-prompt.json"
+        ]
+      }
+    ],
+    "unresolved": []
+  }
+}

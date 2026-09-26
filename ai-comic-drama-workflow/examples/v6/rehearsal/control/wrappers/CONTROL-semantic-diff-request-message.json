@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_SEMANTIC_DIFF_REQUEST_COMMAND_1",
+  "expected_revision": 183,
+  "message": {
+    "at": "2026-09-25T13:36:06.695850Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-semantic-diff-request.txt"
+    ],
+    "in_reply_to": "CONTROL_SEMANTIC_REVIEW_HOLD_1",
+    "message_id": "CONTROL_SEMANTIC_DIFF_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "6c4c26c52422ab88b14540881e8fe8b3fbcbd80beaf0a889f0f24f5c4e561e4f",
+    "subject_uri": "runtime/v6/host-inputs/control-semantic-diff-request.txt",
+    "summary": "Host requested frozen byte/field-level evidence for V6 accepted vs V5 promoted Storyboard semantic-review digest mismatch.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "QUESTION"
+  }
+}

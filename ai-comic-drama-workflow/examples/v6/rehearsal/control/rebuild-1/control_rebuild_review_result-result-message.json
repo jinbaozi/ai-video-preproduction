@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_REBUILD_REVIEW_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 291,
+  "message": {
+    "at": "2026-09-25T14:42:14.897707Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/review-record.json"
+    ],
+    "in_reply_to": "CONTROL_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+    "message_id": "CONTROL_REBUILD_REVIEW_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+    "subject_sha256": "8984a445458eeb94e87239824147aadd1702a83872819355be04cbc411ad2a36",
+    "subject_uri": "runtime/v6/reviews/TASK_a956f0b50a44008d6467b92e/1/review-record.json",
+    "summary": "独立 Control review-record/6.0 完成；三项 PASS，控制包限于静态规划，真实媒体/模型轨迹 NOT_RUN。",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "type": "RESULT"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRREPAIR_CREATOR_PROGRESS2_PROGRESS_COMMAND_1",
+  "expected_revision": 374,
+  "message": {
+    "at": "2026-09-25T15:15:21.726728Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/dirrepair-creator-progress-2.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRREPAIR_CREATOR_PROGRESS2_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_859d227c7d730ab3b9722469",
+    "subject_sha256": "e9d9b13d5119ab325c105bb40ac905ddda63a5cb7f47ad9d0ca6ba1cfc3bedc5",
+    "subject_uri": "runtime/v6/host-inputs/dirrepair-creator-progress-2.txt",
+    "summary": "锁定 Schema 使用两种轴序；creator 保持原生约定并显式换算成时间轴机位，修正编译正文文字。",
+    "task_id": "TASK_19a3cd14f25bf90e50215d4d",
+    "type": "PROGRESS"
+  }
+}

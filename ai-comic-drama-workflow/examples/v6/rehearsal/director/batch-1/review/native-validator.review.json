@@ -1,0 +1,96 @@
+{
+  "actions": [
+    {
+      "depends_on": [],
+      "end_ms": 1800,
+      "id": "ACT_EXTEND",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 500
+    },
+    {
+      "depends_on": [
+        "ACT_EXTEND"
+      ],
+      "end_ms": 2800,
+      "id": "ACT_GRIP",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2000
+    },
+    {
+      "depends_on": [
+        "ACT_GRIP"
+      ],
+      "end_ms": 4000,
+      "id": "ACT_RELEASE",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2800
+    },
+    {
+      "depends_on": [
+        "ACT_RELEASE"
+      ],
+      "end_ms": 7500,
+      "id": "ACT_CONFIRM_SEAL",
+      "semantic_id": "EVT_SEAL_CHECK",
+      "start_ms": 4500
+    },
+    {
+      "depends_on": [
+        "ACT_CONFIRM_SEAL"
+      ],
+      "end_ms": 11000,
+      "id": "ACT_STOW",
+      "semantic_id": "EVT_STOW",
+      "start_ms": 8000
+    }
+  ],
+  "camera": {
+    "end_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "framing_end": "双人中近景，手与信同框，乙背包开口在画面下部",
+    "framing_start": "双人中近景，手与信同框，乙背包开口在画面下部",
+    "movement": "locked",
+    "start_m": [
+      0,
+      -2.8,
+      1.2
+    ]
+  },
+  "check": "native_validator",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/screenplay-map.json"
+  ],
+  "creator_report_sha256": "49d0855a25acf816bacdf673e0d3cdab56ae95fd6a4c0b4a96c727d3da7e1b5a",
+  "exit_code": 0,
+  "finding": "Locked dg.py returns STATIC_VALID. The action time ranges preserve handoff, seal check, then stow; this machine result does not resolve contradictory character poses at state checkpoints.",
+  "media_status": "NOT_RUN",
+  "reviewed_at": "2026-09-25T11:05:56.560227Z",
+  "scope": "Locked machine validation and declared static action timing only; semantic consistency of handoff and state fields is adjudicated in handoff.review.json.",
+  "script_reveal_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "status": "PASS",
+  "stderr": "",
+  "stdout": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "6d63a48645fda0117575c0a768fd4b3d29eadd8c171941602681563d9d993d70",
+      "handoff_sha256": "716373601911cbf6bcd4274098162556c84e5b5cfa5202a9a40ac8f88576e11c",
+      "mapping_sha256": "d3c14eabc32c4dc29a245df0a089172ac2578513dbcff7d002e326824af3b82c",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  }
+}

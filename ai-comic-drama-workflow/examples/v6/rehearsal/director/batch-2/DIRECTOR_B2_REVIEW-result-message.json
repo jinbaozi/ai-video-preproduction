@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B2_REVIEW_RESULT_COMMAND_1",
+  "expected_revision": 62,
+  "message": {
+    "at": "2026-09-25T11:20:35.338245Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json"
+    ],
+    "in_reply_to": "DIRECTOR_B2_REVIEW_ACK_1",
+    "message_id": "DIRECTOR_B2_REVIEW_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+    "subject_sha256": "5c2ea5d84b021ca2eb1faac37d72a4db8b77f8762b64458058eca92ebbf396a2",
+    "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json",
+    "summary": "Independent batch-2 Director review: module receipt and native validator pass; handoff fails because Jia start-state says right hand holds the letter but person contact is no contact while letter contact points to Jia right hand; later contact samples conflict similarly.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "RESULT"
+  }
+}

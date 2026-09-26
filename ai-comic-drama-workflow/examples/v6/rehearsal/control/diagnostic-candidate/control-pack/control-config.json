@@ -1,0 +1,12 @@
+{
+  "controls": [],
+  "lenses": {
+    "S1": {
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "StoryboardIR S1 fixes camera position [0,1.2,-2.8], look_at [0,1,0], and 16:9 output; 50-degree vertical FOV is an explicit review-only proxy because no calibrated sensor and lens parameters are supplied. It is not a model-native control or measured field of view.",
+      "vertical_fov_deg": 50
+    }
+  },
+  "schema": "shot-control-config/0.2"
+}

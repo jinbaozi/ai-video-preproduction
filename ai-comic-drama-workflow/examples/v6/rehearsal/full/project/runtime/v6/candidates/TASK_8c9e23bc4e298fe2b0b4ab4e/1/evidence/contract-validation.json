@@ -1,0 +1,5 @@
+{
+  "status": "STATIC_VALID",
+  "errors": [],
+  "scope": "schema, references, locks, coverage and state; not semantic or visual proof"
+}

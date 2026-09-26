@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "target_is_candidate_artifact": true,
+  "frozen_handoff_fields": [
+    "requirement_id",
+    "source_slot",
+    "source_version",
+    "target_slot",
+    "target_pointer",
+    "channel"
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "target_uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+      "target_sha256": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+      "mapping": [
+        {
+          "source_pointer": "/content",
+          "target_pointers": [
+            "/sources/1",
+            "/contract/clauses/0"
+          ]
+        },
+        {
+          "source_pointer": "/entities/2/id",
+          "target_pointers": [
+            "/assets/2/entity_id",
+            "/contract/clauses/1"
+          ]
+        },
+        {
+          "source_pointer": "/event_order",
+          "target_pointers": [
+            "/contract/clauses/2",
+            "/contract/clauses/5"
+          ]
+        }
+      ],
+      "evidence": [
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+      ]
+    },
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_e1b0dd3716d6aea7cfc71ee1",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_version": 18,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "source_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+      "source_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "target_uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+      "target_sha256": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+      "mapping": [
+        {
+          "source_pointer": "/scenes/0",
+          "target_pointers": [
+            "/set",
+            "/shots/0"
+          ]
+        },
+        {
+          "source_pointer": "/shots/0",
+          "target_pointers": [
+            "/shots/0"
+          ]
+        },
+        {
+          "source_pointer": "/timeline/actions",
+          "target_pointers": [
+            "/contract/clauses/2",
+            "/contract/clauses/4",
+            "/contract/clauses/5"
+          ]
+        }
+      ],
+      "evidence": [
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+      ]
+    }
+  ]
+}

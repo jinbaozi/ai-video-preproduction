@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B2_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 61,
+  "message": {
+    "at": "2026-09-25T11:19:28.675714Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/host-inputs/director-b2-review-progress.txt"
+    ],
+    "in_reply_to": "DIRECTOR_B2_REVIEW_ACK_1",
+    "message_id": "DIRECTOR_B2_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+    "subject_sha256": "107022470fef47a0af13f863d22027654134fe7a2f2f846657047c0db74fb0eb",
+    "subject_uri": "runtime/v6/host-inputs/director-b2-review-progress.txt",
+    "summary": "Reviewer reported an internal evidence-writing script KeyError (expected_sha256 versus sha256), no candidate change; correcting and writing formal review evidence.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "PROGRESS"
+  }
+}

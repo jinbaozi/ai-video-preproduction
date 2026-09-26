@@ -1,0 +1,77 @@
+{
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_55931af0cddf390b43ba149a",
+  "artifacts": [
+    {
+      "kind": "DirectorIR",
+      "sha256": "6725c568baba23c007ce0742815a73320a1ae69bcdb4cd7f7ae0c3d5789e8ffc",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/director-ir.json"
+    }
+  ],
+  "batch": 2,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/stow-continuity.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-check.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_9574ea9e1502535dcd879c58",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_84941d3b7d9370ab514cb086",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_version": 16,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    }
+  ],
+  "input_digest": "baba5e856c1602d63e4280c1712db8e6e0814a59170f18f0aaa4e3bbfbdd5d28",
+  "module_receipts": [
+    {
+      "name": "director-grammar",
+      "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+      "version": "1.4.2"
+    }
+  ],
+  "result_sha256": "377c2c1e87e793543fed9a995962eefc5e957bb18c38c7819c41d4aa07deb3e6",
+  "result_uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+  "unresolved": []
+}

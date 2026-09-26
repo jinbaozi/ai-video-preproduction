@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_ENV_RAIN_NIGHT_B1_REVIEW_RESULT_1",
+  "expected_revision": 272,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ENV_RAIN_NIGHT_B1_REVIEW_RESULT_1",
+    "task_id": "TASK_77a39e38115fc23984108917",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_0b1cc97fa601a675d86e59c8",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_ENV_RAIN_NIGHT_B1_RESULT_1",
+    "type": "RESULT",
+    "summary": "ENV_RAIN_NIGHT independent static review: all declared checks PASS; media NOT_RUN.",
+    "evidence": [
+      "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/review-record.json",
+      "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/reviewer-result-message.txt",
+      "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/reviewer-final-message.txt"
+    ],
+    "at": "2026-09-25T15:33:31.161519Z",
+    "subject_uri": "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/review-record.json",
+    "subject_sha256": "70e25ea7ad057559367e6e01a2ed7c3fe77a5b96680ddcc66c8746b4804de435"
+  }
+}

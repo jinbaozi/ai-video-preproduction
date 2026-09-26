@@ -1,0 +1,1 @@
+I also updated my candidate build_result.py so rerunning it reproduces the preliminary PASS hash and then reapplies the recorded BLOCKED handoff decision; current candidate SHA remains e6da439ff9db2e210b0d7d3a1f56aed35f98a85f7b067c6212cd84bea22dc990. No frozen input, formal artifact or workflow state was touched.

@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILE_REVIEW_CONTRADICTION_PROGRESS_COMMAND_1",
+  "expected_revision": 334,
+  "message": {
+    "at": "2026-09-25T14:58:14.683950Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/compile-review-contradiction-progress.txt"
+    ],
+    "in_reply_to": "COMPILE_REVIEW_GUIDANCE_1",
+    "message_id": "COMPILE_REVIEW_CONTRADICTION_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_d3bca74dcb23c2e155eb4d64",
+    "subject_sha256": "e63bf65f883595090e651afb154d96927402509a739d8e13bf93b27851924b04",
+    "subject_uri": "runtime/v6/host-inputs/compile-review-contradiction-progress.txt",
+    "summary": "独审发现 AVIR camera_operations 与数值 camera track 坐标矛盾，正文两组均出现；native/hash PASS 不足以接受，正追溯责任来源。",
+    "task_id": "V6_compile_8cb5698095d1a70e0b6b",
+    "type": "PROGRESS"
+  }
+}

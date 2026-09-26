@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B3_PROGRESS_REQUEST_COMMAND_1",
+  "expected_revision": 70,
+  "message": {
+    "at": "2026-09-25T11:27:26.807853Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/repair/TASK_b1e7ff7ce83d7a32bfa09935/3/repair-brief.json"
+    ],
+    "in_reply_to": "DIRECTOR_B3_ACK_1",
+    "message_id": "DIRECTOR_B3_PROGRESS_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "d383107577348b32b770c0edecb8c235c3e9ca198519841c7d7d6c6ba2faf06e",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-progress-request.txt",
+    "summary": "Host requested repair progress and two-way contact consistency check before candidate submission.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "QUESTION"
+  }
+}

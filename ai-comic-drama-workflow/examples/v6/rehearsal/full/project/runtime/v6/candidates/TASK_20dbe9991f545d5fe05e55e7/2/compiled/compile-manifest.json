@@ -1,0 +1,66 @@
+{
+  "files": {
+    "checks.json": {
+      "bytes": 180,
+      "sha256": "82b0b905e25a502ee768e39524ce022ef30ab57ca3bd2b039d006cd301632537"
+    },
+    "dialogue.json": {
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    "director-handoff.json": {
+      "bytes": 6330,
+      "sha256": "2f36410b0c139ee6df36281c89f51746c5a651f626ad4032029f3bfa45f8ccc6"
+    },
+    "narrative-ir.json": {
+      "bytes": 2883,
+      "sha256": "64657e425141913847109b617349fdfc6308ce43474cb8ec8e0252b8a1156fe0"
+    },
+    "production-contract.json": {
+      "bytes": 5242,
+      "sha256": "55530c5dd622258c5c07468efd93d41cfa8cce08d88cacb09e8b85eae6ddef8d"
+    },
+    "production-contract.md": {
+      "bytes": 1177,
+      "sha256": "393f77ff55c8f78b27a22a3e13eef1e661caece28da5257426c93b7aff7b44c7"
+    },
+    "screenplay.fountain": {
+      "bytes": 212,
+      "sha256": "e77f73d6ac1f14914791e9a58be0d5ed55fd6fa419a8107c39bf41bb040a2661"
+    },
+    "screenplay.md": {
+      "bytes": 206,
+      "sha256": "86d8429f30ac8d497af212e193626ce713239f02c4b01791d76f3df036c47cf2"
+    },
+    "script-ir.json": {
+      "bytes": 12297,
+      "sha256": "e21300f910eeaa674a8b08fa2df164fe0ef00455afb73e64db4d9c284456ebaa"
+    },
+    "source-map.json": {
+      "bytes": 741,
+      "sha256": "33f1a5eb32f3ae9f4d7a71281b77e68a07e05d5453d99d6a620e21cf2e636f57"
+    },
+    "sources/69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054-source.txt": {
+      "bytes": 84,
+      "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054"
+    },
+    "sources/ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5-0cc4aebffda6a714_canon.json": {
+      "bytes": 4927,
+      "sha256": "ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5"
+    },
+    "sources/ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5-canon.json": {
+      "bytes": 4927,
+      "sha256": "ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5"
+    }
+  },
+  "input_content_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463",
+  "media": "NOT_RUN",
+  "project_id": "LETTER_FULL_DEMO",
+  "representation_changes": [
+    "Fountain subset: narrative, knowledge, locks and contracts remain in JSON; no arbitrary round-trip import."
+  ],
+  "revision": 1,
+  "schema": "screenplay-compile/1.0",
+  "status": "READY",
+  "submitted": false
+}

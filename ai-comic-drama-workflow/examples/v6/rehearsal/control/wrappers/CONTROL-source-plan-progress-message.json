@@ -1,0 +1,25 @@
+{
+  "command_id": "CONTROL_SOURCE_PLAN_PROGRESS_COMMAND_1",
+  "expected_revision": 170,
+  "message": {
+    "at": "2026-09-25T13:18:22.301536Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-source-plan-progress.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/topdown-source-plan.json",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/topdown-review.svg",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/native-av-ir.json",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-build.json"
+    ],
+    "in_reply_to": "CONTROL_PLANNED_PATHS_1",
+    "message_id": "CONTROL_SOURCE_PLAN_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "3aabf02753095aa80c3846aa1d5e219a04f72aae3dd33c247ca803f46e66b1a9",
+    "subject_uri": "runtime/v6/host-inputs/control-source-plan-progress.txt",
+    "summary": "Creator froze source hashes and authored source-only overhead plan with exact native build failures; no verified pack or PASS claimed.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "PROGRESS"
+  }
+}

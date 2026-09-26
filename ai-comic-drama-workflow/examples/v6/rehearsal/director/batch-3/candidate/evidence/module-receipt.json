@@ -1,0 +1,34 @@
+{
+  "meaning": "收据只证明锁定版本和资源字节已读取，不代表独立专业盲评。",
+  "module_receipt": {
+    "name": "director-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md",
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md",
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+      }
+    ],
+    "skill_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+    "version": "1.4.2"
+  },
+  "read_count": 4,
+  "source_integrity_evidence": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/evidence/source-integrity.json",
+  "status": "PASS",
+  "v6_module_receipt": {
+    "name": "director-grammar",
+    "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "version": "1.4.2"
+  }
+}

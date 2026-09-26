@@ -1,0 +1,41 @@
+{
+  "channel": "artifact",
+  "finding": "Canon 的雨夜、同一封未拆信、交接→验封→收存顺序都映射到正文、叙事事件及阻断合同。",
+  "mapping": [
+    {
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/heading",
+        "/scenes/0/blocks/0/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/scenes/0/blocks/0/text",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/narrative/events",
+        "/narrative/reveal_order",
+        "/scenes/0/blocks"
+      ]
+    }
+  ],
+  "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "source_slot": "canon:project:project:Canon",
+  "source_uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+  "source_version": 12,
+  "target_pointer": "",
+  "target_sha256": "205d0961e84576e6326d70e900ab4491e7122bc96014fea0bfa22c28fc1dfc54",
+  "target_slot": "screenplay:project:project:ScriptIR",
+  "target_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/script-ir.json"
+}

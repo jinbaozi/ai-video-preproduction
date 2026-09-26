@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="680" viewBox="0 0 1000 680" role="img" aria-label="雨夜交信分镜 S1 俯视调度审阅图">
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#117a8b"/></marker><marker id="camera-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8Z" fill="#6b5294"/></marker></defs>
+<rect width="1000" height="680" fill="#f8fafc"/><text x="36" y="45" font-size="25" font-family="sans-serif" fill="#17212b">S1 俯视调度：交信 → 验封 → 入包</text>
+<text x="36" y="74" font-size="15" font-family="sans-serif" fill="#4a5663">来源：冻结 StoryboardIR 1.2；世界 X 向右、Z 为深度，Y 高度以标签标注。示意坐标，不是实测或模型控制。</text>
+<rect x="120" y="105" width="760" height="510" fill="#eef4f7" stroke="#80909b" stroke-width="2"/>
+<line x1="155" y1="220" x2="835" y2="220" stroke="#a7bac4" stroke-dasharray="7 6"/><line x1="500" y1="125" x2="500" y2="595" stroke="#a7bac4" stroke-dasharray="7 6"/>
+<text x="817" y="207" font-size="15" font-family="sans-serif" fill="#54636d">+X</text><text x="513" y="139" font-size="15" font-family="sans-serif" fill="#54636d">+Z</text><text x="513" y="589" font-size="15" font-family="sans-serif" fill="#54636d">−Z</text>
+<ellipse cx="337.5" cy="220" rx="45" ry="30" fill="#315b85"/><text x="322" y="226" font-size="19" font-family="sans-serif" fill="white">甲</text><text x="285" y="267" font-size="15" font-family="sans-serif" fill="#233c55">(-0.65, 0, 0)</text>
+<ellipse cx="662.5" cy="220" rx="45" ry="30" fill="#a96444"/><text x="648" y="226" font-size="19" font-family="sans-serif" fill="white">乙</text><text x="610" y="267" font-size="15" font-family="sans-serif" fill="#6d412c">(0.65, 0, 0)</text>
+<rect x="666" y="211" width="18" height="18" rx="3" fill="#6b5b4b" stroke="white" stroke-width="2"/><path d="M675 229 L675 315 L713 315" fill="none" stroke="#6b5b4b" stroke-width="1.5" stroke-dasharray="4 4"/><text x="718" y="320" font-size="16" font-family="sans-serif" fill="#3f362e">同一背包 (0.7, 0.75, 0)；标注偏置</text>
+<path d="M450 220 L500 220 L550 220 L675 220" fill="none" stroke="#117a8b" stroke-width="5" stroke-dasharray="11 8" marker-end="url(#arrow)"/>
+<circle cx="450" cy="220" r="10" fill="#117a8b"/><circle cx="500" cy="220" r="10" fill="#117a8b"/><circle cx="550" cy="220" r="10" fill="#117a8b"/><circle cx="675" cy="220" r="5" fill="#117a8b"/>
+<text x="405" y="191" font-size="14" font-family="sans-serif" fill="#0d5360">0–500 ms</text><text x="455" y="169" font-size="14" font-family="sans-serif" fill="#0d5360">1800–2800 ms 双右手接触，甲控制</text>
+<text x="530" y="191" font-size="14" font-family="sans-serif" fill="#0d5360">3500–8000 ms 乙控制、验封</text><text x="650" y="371" font-size="14" font-family="sans-serif" fill="#0d5360">10500 ms 信到 (0.7, 0.75, 0) 入包；X 与 Y 变化，Z=0</text>
+<path d="M500 584 L500 370" stroke="#6b5294" stroke-width="4" marker-end="url(#camera-arrow)"/><path d="M478 598 L522 598 L510 617 L490 617Z" fill="#6b5294"/>
+<text x="525" y="530" font-size="16" font-family="sans-serif" fill="#4b386b">固定机位 (0, 1.2, −2.8)</text><text x="525" y="551" font-size="15" font-family="sans-serif" fill="#4b386b">观察点 (0, 1.0, 0)；始终负轴侧</text>
+<text x="35" y="648" font-size="14" font-family="sans-serif" fill="#52606d">仅绘制根节点与已声明关键位置；手臂、接触、遮挡、表情和真实媒体服从度需另行验证。未生成图片或视频。</text>
+</svg>

@@ -1,0 +1,21 @@
+{
+  "command_id": "SCREENPLAY_ACK_COMMAND_1",
+  "expected_revision": 21,
+  "message": {
+    "at": "2026-09-25T10:28:14.209659Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "SCREENPLAY_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Creator read the frozen screenplay task and candidate directory and is checking inputs and Skill hashes before producing ScriptIR.",
+    "task_id": "TASK_1b94794070565f70c7f697a7",
+    "type": "ACK"
+  }
+}

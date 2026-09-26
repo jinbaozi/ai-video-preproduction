@@ -1,0 +1,150 @@
+{
+  "project_id": "LETTER_DEMO",
+  "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+  "equivalent": false,
+  "review_scope": "static preproduction compile semantics",
+  "failure_owner_node": "compile",
+  "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+  "finding": "AVIR /shots/0/end_state/4/visible_parts retains body and prop at shot end although its own 12000 ms timeline, source StoryboardIR timeline, and compiled prompt specify that the letter is hidden inside the backpack after 10500 ms. The two authoritative AVIR fields conflict; the compiler adapter must be corrected and a new build reviewed.",
+  "coordinates_recheck": {
+    "prior_defect": "CAMERA_COORDINATE_CONFLICT",
+    "status": "CLOSED_IN_THIS_BUILD",
+    "avir_camera_position": [
+      0,
+      1.2,
+      -2.8
+    ],
+    "camera_operation_start": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+    "camera_operation_end": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+    "prompt_start_lines": [
+      {
+        "line": 70,
+        "text": "起始机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+      }
+    ],
+    "prompt_end_lines": [
+      {
+        "line": 71,
+        "text": "结束机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+      }
+    ]
+  },
+  "visibility_conflict": {
+    "avir_sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33",
+    "avir_shot_end_pointer": "/shots/0/end_state/4/visible_parts",
+    "avir_shot_end_value": [
+      "body",
+      "prop"
+    ],
+    "avir_timeline_pointer": "/timeline/state_samples/5/entities/PROP_LETTER/visible_parts",
+    "avir_timeline_value": [],
+    "storyboard_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+    "storyboard_timeline_pointer": "/timeline/state_samples/5/entities/PROP_LETTER/visible_parts",
+    "storyboard_timeline_value": [],
+    "prompt_sha256": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+    "prompt_lines": [
+      {
+        "line": 346,
+        "text": "同一封信：接触部位：PROP_BACKPACK.interior；控制部位：无；姿态：同一封未拆信在背包内；世界位置（右、上、深，米）：0.7、0.75、0；支撑：PROP_BACKPACK.interior；可见部位：无"
+      },
+      {
+        "line": 356,
+        "text": "同一封信：信已经入包，由包体遮住；画面不呈现后续；在画内；中景；可见部位：无；可读尺度：身体；遮挡：背包内部遮住整封信；画面区域（左、上、宽、高）：0.69、0.7、0.1、0.09"
+      }
+    ],
+    "contract_basis": "video-prompt-compiler/references/avir-and-contract.md: start_state/end_state retains every entity, out-of-frame entities use visible_parts=[]"
+  },
+  "hard_clauses": [
+    {
+      "id": "SB_A_RAIN",
+      "finding": "正文保留雨夜，明确地点、年代、室内外未指定；视觉效果尚需媒体审查。"
+    },
+    {
+      "id": "SB_A_SINGLE_LETTER",
+      "finding": "正文锁定唯一 PROP_LETTER，封口在交接、确认、入包期间未拆。"
+    },
+    {
+      "id": "SB_A_ORDER",
+      "finding": "交接、验封、入包按 0.5–4、4.5–7.5、8–11 秒顺序展开。"
+    },
+    {
+      "id": "SB_A_ENDING",
+      "finding": "正文在 10.5 秒入包后停止新增动作，12 秒仅保持结果。"
+    },
+    {
+      "id": "SB_A_EVENTS",
+      "finding": "P_GRIP、P_SEAL、P_STOWED 的静态画格要求和动作节点均保留。"
+    },
+    {
+      "id": "SB_A_REVEAL",
+      "finding": "控制权交接、完整封口、收存的可见证据按时序书写；媒体可见性未验证。"
+    },
+    {
+      "id": "SB_A_ASSET_LOCKS",
+      "finding": "甲乙身份、同一封信、同一背包和雨夜后景均作为锁定意图；无真实参考、无媒体审核。"
+    },
+    {
+      "id": "SB_D_RAIN",
+      "finding": "雨夜明确；正文没有增补地点或室内外。"
+    },
+    {
+      "id": "SB_D_SINGLE_LETTER",
+      "finding": "同一封信从甲右手转乙右手再入同一背包，封口未拆。"
+    },
+    {
+      "id": "SB_D_ACTION_ORDER",
+      "finding": "甲交、乙验封、乙收存三段时间不倒序。"
+    },
+    {
+      "id": "SB_D_ENDING",
+      "finding": "10.5 秒已收存，结尾仅保持同一结果。"
+    },
+    {
+      "id": "SB_D_EVENTS",
+      "finding": "三项故事事件均有动作和反馈，没有新增对白或后续事件。"
+    },
+    {
+      "id": "SB_D_REVEAL_ORDER",
+      "finding": "画格时间 P_RELEASE 84 帧、P_SEAL 144 帧、P_STOWED 252 帧，正文顺序一致。"
+    },
+    {
+      "id": "SB_FIXED_AXIS",
+      "finding": "旧坐标冲突已关闭；AVIR 机位和正文两种表述均为 [0,1.2,-2.8]（右、上、深），固定负 Z 轴侧。"
+    },
+    {
+      "id": "SB_CONTACT_CONTROL",
+      "finding": "2.5 秒双手接触甲控制，3.5 秒乙独占，验封前完成交接。"
+    },
+    {
+      "id": "SB_SEAL_VISIBILITY",
+      "finding": "4.5–7.5 秒封口、乙眼部和右手被规划为可读，实际细节仍待媒体审查。"
+    },
+    {
+      "id": "SB_MEDIA_BOUNDARY",
+      "finding": "画格/参考/音频没有生成或验收；后期雨声与媒体边界义务仍为 PLANNED。"
+    }
+  ],
+  "other_boundaries": {
+    "compiled_status": "COMPILED",
+    "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+    "target": "seedance2.0",
+    "backend": "prompt_plan",
+    "transport": "unresolved",
+    "post_obligation_ids": [
+      "AUD_RAIN",
+      "SB_MEDIA_BOUNDARY"
+    ],
+    "post_obligation_status": "PLANNED",
+    "media_qa": "NOT_RUN",
+    "submitted": false,
+    "runnable": false
+  },
+  "source_evidence": {
+    "build_manifest_uri": "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/compile-manifest.json",
+    "build_manifest_sha256": "e534f7d00ca740af8e26485cd4aab579b3be22742e70f9c70f489b68cde3a199",
+    "independent_compile_review_uri": "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/review-record.json",
+    "independent_compile_review_sha256": "66f94ec704d47d4c21bc673a5a8dd00bea22d354c2ac0d319cba39a06b79e11d",
+    "prior_failed_compile_review_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json",
+    "prior_failed_compile_review_sha256": "e1f58c8bff362bd6e61c885be553dddc6fc444ae6d87740855cdeadba728d66d"
+  }
+}

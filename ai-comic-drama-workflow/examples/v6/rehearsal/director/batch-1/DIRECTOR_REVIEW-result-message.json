@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REVIEW_RESULT_COMMAND_1",
+  "expected_revision": 46,
+  "message": {
+    "at": "2026-09-25T11:06:43.301234Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json"
+    ],
+    "in_reply_to": "DIRECTOR_REVIEW_ACK_1",
+    "message_id": "DIRECTOR_REVIEW_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_1cac274d3e21ae688426fb78",
+    "subject_sha256": "db5f23e4d9ea756a748013263d4998119a438705752fc32494e3d62d2773c65c",
+    "subject_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+    "summary": "Independent Director review: module receipt and native validator pass; handoff continuity fails because final states still show Jia holding the letter after Yi put it in the bag.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "RESULT"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "channel": "collaboration.message",
+  "recipient": "/root/host_bridge",
+  "recorded_at": "2026-09-25T10:47:19.086182Z",
+  "speaker": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+  "text": "已确认两层交接分离：V5 RoleResult 使用 6 条 screenplay 语义映射；V6 candidate 使用 2 条冻结前驱 handoff。只读 contracts 子代理已返回对应契约位置和命令，我会在 evidence/contract-assistance.json 记录原建议摘要、来源和逐项核对结论。"
+}

@@ -1,0 +1,96 @@
+{
+  "accepted_script": {
+    "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+    "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+  },
+  "artifact_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+  "batch": 1,
+  "frozen_inputs": [
+    {
+      "observed_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "status": "PASS",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "version": 12
+    },
+    {
+      "observed_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "slot": "director:project:project:DirectorIR",
+      "status": "PASS",
+      "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "version": 21
+    },
+    {
+      "observed_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+      "sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+      "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "status": "PASS",
+      "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+      "version": 22
+    },
+    {
+      "observed_sha256": "c9ff0259ed0199c94f7610fe464f1edd8e1242f5262eb15964bfc403b5f929bf",
+      "sha256": "c9ff0259ed0199c94f7610fe464f1edd8e1242f5262eb15964bfc403b5f929bf",
+      "slot": "frozen_task",
+      "status": "PASS",
+      "uri": "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json",
+      "version": 0
+    }
+  ],
+  "frozen_resources": [
+    {
+      "observed_sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+      "sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+      "status": "PASS",
+      "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md"
+    },
+    {
+      "observed_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "status": "PASS",
+      "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md"
+    },
+    {
+      "observed_sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+      "sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+      "status": "PASS",
+      "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md"
+    },
+    {
+      "observed_sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+      "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+      "status": "PASS",
+      "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md"
+    }
+  ],
+  "input_digest": "6e0692452ece358689793f82767e71503e060b5e0e30a4ae58e4ffe18fa2409e",
+  "original_v5_inputs": [
+    {
+      "sha256": "7d44b8e8bd5f4cd6b332fbfe3712948347405c25d9b48ac54cd6d57cf2f77ad5",
+      "slot": "art:SC_RAIN_NIGHT",
+      "status": "PASS",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/art/6e3404b7ae405a5f5a57a989af562fc9cde1f752fdf6111d1ae03ba1071b0b6d/native/2cf96f2b38b82bdd_art-ir.json"
+    },
+    {
+      "sha256": "4642c6289965a0335f0ff6450f3e20aaea375383d2a56ec0464cea462987aa8d",
+      "slot": "director",
+      "status": "PASS",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/director/1af0791d746091fcf7027a41af573532c196d843be156afdc7572e18d9024f04/native/262e23f487752f69_director-ir.json"
+    },
+    {
+      "sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "slot": "canon",
+      "status": "PASS",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json"
+    }
+  ],
+  "project_id": "LETTER_DEMO",
+  "source_text": {
+    "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "uri": "sources/SRC_69a71adcfaca/source.txt"
+  },
+  "status": "PASS",
+  "task_id": "TASK_3240f8bc6a9896032b95d091"
+}

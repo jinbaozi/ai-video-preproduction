@@ -1,0 +1,58 @@
+{
+  "action_id": "dispatch-e4b0c6da80911dcda638f633",
+  "all_match": true,
+  "correction": "Parent spawn text originally named another action ID; frozen action file identifies dispatch-e4b0c6da80911dcda638f633 as authoritative.",
+  "input_digest": "58f28c5c8c27244b9ef6085cae27341117fdf58489bd7af7584d9161ee486194",
+  "items": [
+    {
+      "actual_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+      "expected_sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+      "kind": "input",
+      "match": true,
+      "uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/storyboard-ir.json"
+    },
+    {
+      "actual_sha256": "a12a02186d34e102ce38bb1c4e29965f65e69c361dcae0b44904570dcd597809",
+      "expected_sha256": "a12a02186d34e102ce38bb1c4e29965f65e69c361dcae0b44904570dcd597809",
+      "kind": "input",
+      "match": true,
+      "uri": "runtime/tasks/TASK_60ca76854c7350d8a40f1c72.json"
+    },
+    {
+      "actual_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+      "expected_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+      "kind": "resource",
+      "match": true,
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "kind": "resource",
+      "match": true,
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+    },
+    {
+      "actual_sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+      "expected_sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+      "kind": "resource",
+      "match": true,
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+    },
+    {
+      "actual_sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+      "expected_sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+      "kind": "resource",
+      "match": true,
+      "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+    },
+    {
+      "actual_sha256": "71393c76d00ff060023568d093f4ea258f436a9b111c8343c3e8277bd8eb622b",
+      "expected_sha256": "71393c76d00ff060023568d093f4ea258f436a9b111c8343c3e8277bd8eb622b",
+      "kind": "native_v5_input",
+      "match": true,
+      "uri": "artifacts/storyboard/fe568f2bf759cfb0d113fab39d5ad50e133e997f41d9f7eaf14b9b6213bc9399/native/a328c6560e7e9d2d_storyboard-ir.json"
+    }
+  ],
+  "task_id": "TASK_60ca76854c7350d8a40f1c72"
+}

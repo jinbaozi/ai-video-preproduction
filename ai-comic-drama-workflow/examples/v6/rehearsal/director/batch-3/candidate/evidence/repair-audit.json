@@ -1,0 +1,34 @@
+{
+  "basis": [
+    "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+    "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json"
+  ],
+  "independent_review": "PENDING",
+  "old_defects": [
+    {
+      "batch": 1,
+      "evidence": "10500/12000 ms: Jia no contact, Yi releases letter, one letter contacts backpack interior; shot end matches 12000 ms.",
+      "gone_in_batch_3": true,
+      "id": "CONTRADICTORY_FINAL_CUSTODY"
+    },
+    {
+      "batch": 1,
+      "evidence": "2500/4000/7500/10500/12000 ms poses match letter contact and custody.",
+      "gone_in_batch_3": true,
+      "id": "STALE_CHECKPOINT_POSES"
+    },
+    {
+      "batch": 2,
+      "evidence": "0 ms and shot start: Jia contact is PROP_LETTER.body; letter contact is CHAR_JIA.right_hand.",
+      "gone_in_batch_3": true,
+      "id": "INITIAL_CONTACT_DENIAL"
+    },
+    {
+      "batch": 2,
+      "evidence": "0/2500/4000/7500/10500/12000 ms person, letter and backpack contacts are reciprocal; actions replay.",
+      "gone_in_batch_3": true,
+      "id": "UNMIRRORED_CHARACTER_CONTACTS"
+    }
+  ],
+  "status": "PASS"
+}

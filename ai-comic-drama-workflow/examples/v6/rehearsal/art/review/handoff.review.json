@@ -1,0 +1,196 @@
+{
+  "candidate_digest": "3f2ef52fc28f84e8a5454698807ccd6ca588a20bbee101d68b522805ef9ad253",
+  "canon_event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "check": "handoff",
+  "continuity": {
+    "art_events": 0,
+    "backpack_asset_id": "PROP_BACKPACK",
+    "backpack_count": 1,
+    "director_shot_phases": 0,
+    "handoff_complete_ms": 4000,
+    "letter_asset_id": "PROP_LETTER",
+    "letter_count": 1,
+    "letter_initial_seal": "intact_unopened",
+    "location_and_indoor_outdoor": "unspecified",
+    "rain_night": "retained",
+    "scene": "SC_RAIN_NIGHT",
+    "seal_check_start_end_ms": [
+      4500,
+      7500
+    ],
+    "stow_start_end_ms": [
+      8000,
+      11000
+    ]
+  },
+  "director_action_sequence": [
+    {
+      "end_ms": 1800,
+      "id": "ACT_EXTEND",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 500
+    },
+    {
+      "end_ms": 2800,
+      "id": "ACT_GRIP",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2000
+    },
+    {
+      "end_ms": 4000,
+      "id": "ACT_RELEASE",
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2800
+    },
+    {
+      "end_ms": 7500,
+      "id": "ACT_CONFIRM_SEAL",
+      "semantic_id": "EVT_SEAL_CHECK",
+      "start_ms": 4500
+    },
+    {
+      "end_ms": 11000,
+      "id": "ACT_STOW",
+      "semantic_id": "EVT_STOW",
+      "start_ms": 8000
+    }
+  ],
+  "finding": "Six frozen Director requirements pass source-path and native ArtIR clause checks. Both V6 Canon/Director artifact handoffs match frozen slot/version/channel/pointer, source and target SHA, with valid mapping pointers. Rain-night setting, one unopened letter, same backpack, and handoff-before-check-before-stow order remain coherent.",
+  "offline_handoff_boundary": "Compiled handoff carries Director shot context and is runnable=false. It does not itself contain /timeline/actions; downstream execution must merge the pinned DirectorIR input referenced by ArtIR and the V6 handoff. No image or video execution is evidenced.",
+  "reviewed_at": "2026-09-25T12:39:34.345Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+  "status": "PASS",
+  "v5_required_mapping": [
+    {
+      "requirement_id": "director:D_RAIN",
+      "source_fingerprint": "92f7859ad2ae44a0836a040b4f3718c6ce1259c0bee5ccd84a294aea4105dd73",
+      "source_paths_verified": [
+        "/scenes/0/space",
+        "/shots/0/sound/ambience",
+        "/shots/0/lighting/color_purpose"
+      ],
+      "status": "PASS",
+      "target_check_paths_passed": [
+        "/set/atmosphere",
+        "/world/region"
+      ],
+      "target_clause": "A_RAIN"
+    },
+    {
+      "requirement_id": "director:D_SINGLE_LETTER",
+      "source_fingerprint": "5987c8f2db8f22a35f572bd2a70887fcc8ade48b1c3a320a33a81a6c9ed1256c",
+      "source_paths_verified": [
+        "/entities/2",
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2",
+        "/timeline/actions/3",
+        "/timeline/actions/4",
+        "/shots/0/end_state/2"
+      ],
+      "status": "PASS",
+      "target_check_paths_passed": [
+        "/assets/2/id",
+        "/assets/2/identity_locks/0"
+      ],
+      "target_clause": "A_SINGLE_LETTER"
+    },
+    {
+      "requirement_id": "director:D_ACTION_ORDER",
+      "source_fingerprint": "3c1489e110fb4b4c2e340cf5b7f79b1136ae755301daa837654f1b821cad9e49",
+      "source_paths_verified": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ],
+      "status": "PASS",
+      "target_check_paths_passed": [
+        "/contract/clauses/2/requirement",
+        "/shots/0/id"
+      ],
+      "target_clause": "A_ORDER"
+    },
+    {
+      "requirement_id": "director:D_ENDING",
+      "source_fingerprint": "58c516797253809f3f45d68280c6a9a2895201fbbcbfdf0df5e387bd9a17cc20",
+      "source_paths_verified": [
+        "/shots/0/narrative/audience_after/2",
+        "/timeline/actions/4/settle",
+        "/shots/0/end_state/2"
+      ],
+      "status": "PASS",
+      "target_check_paths_passed": [
+        "/contract/clauses/3/requirement",
+        "/assets/2/design"
+      ],
+      "target_clause": "A_ENDING"
+    },
+    {
+      "requirement_id": "director:D_EVENTS",
+      "source_fingerprint": "3d655be9bdb95627a6900099877831f3bf3364a3a7b132083ea7ec09a55d49b4",
+      "source_paths_verified": [
+        "/beats",
+        "/timeline/actions"
+      ],
+      "status": "PASS",
+      "target_check_paths_passed": [
+        "/contract/clauses/4/requirement",
+        "/shots/0/director_pointer"
+      ],
+      "target_clause": "A_EVENTS"
+    },
+    {
+      "requirement_id": "director:D_REVEAL_ORDER",
+      "source_fingerprint": "78290042e04dd7a3f3ad3ad1e612c753ad4b9ed4ecaf60f12ffdc0e7e0ffa6ee",
+      "source_paths_verified": [
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative/audience_after"
+      ],
+      "status": "PASS",
+      "target_check_paths_passed": [
+        "/contract/clauses/5/requirement",
+        "/shots/0/composition_support/occlusion"
+      ],
+      "target_clause": "A_REVEAL"
+    }
+  ],
+  "v6_frozen_handoffs": [
+    {
+      "frozen_fields": {
+        "channel": "artifact",
+        "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      },
+      "mapping_count": 3,
+      "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "status": "PASS",
+      "target_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be"
+    },
+    {
+      "frozen_fields": {
+        "channel": "artifact",
+        "requirement_id": "UP_4ef5cb7085ac9ff34cc5174a",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 21,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      },
+      "mapping_count": 3,
+      "requirement_id": "UP_4ef5cb7085ac9ff34cc5174a",
+      "source_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "source_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "status": "PASS",
+      "target_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be"
+    }
+  ]
+}

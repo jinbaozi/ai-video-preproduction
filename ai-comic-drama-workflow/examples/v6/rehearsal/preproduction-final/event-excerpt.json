@@ -1,0 +1,1333 @@
+{
+  "source_uri": "runtime/v6/events.json",
+  "source_sha256": "4d310c8ea9ef30d845fd2e225f7e8fad5dadf1656b4210cca5cf6f6fc3d25ccf",
+  "source_size_bytes": 1434054,
+  "selection": "inclusive revisions 708–738; entries retained as parsed from source log",
+  "events": [
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "34dbc2b0e5905f8606deccb198368824a2a46e7f0b9ade98bb598a398ffa62e0",
+      "hash": "aff56c59e269723a8aff22dadf06dce6c32ea9efdb4a1d325ab6b65334a8e75f",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "TASK_01b83d9bf3bd9032fd655d18"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "PreproductionQA",
+            "slot": "preproduction_qa:project:project:PreproductionQA",
+            "uri_prefix": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "5f5f8b48d7c9531b93ef577bff22cadcac7c4896d25540216a9250791a95f824",
+        "input_revision": 707,
+        "inputs": [
+          {
+            "sha256": "cccbecbebfea36fb4639c9d08db48868e16e696a9cc9efb54cc91f52367ffba7",
+            "slot": "compile_review:project:project:CompileReview",
+            "uri": "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+            "version": 11
+          },
+          {
+            "sha256": "6905b3cfcc463ab133c69e9c6cdcf7cae00cef985d3df5f6c81064050cd5b8fd",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_5940525a2a35543b33e08b18.json",
+            "version": 0
+          }
+        ],
+        "module": null,
+        "node_id": "preproduction_qa",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "preproduction_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_5940525a2a35543b33e08b18",
+        "validators": [
+          {
+            "id": "preproduction_final",
+            "kind": "evidence"
+          }
+        ]
+      },
+      "previous_hash": "a82f3adce625bb8d5c36b8dabe96a503649d9711237a22aea2dde6bb42b14e8c",
+      "revision": 708,
+      "state_digest": "ee812b3584dbf3fc0ad25ca0001398bc099106f5556fe1a7c78ceb7139cb3bda"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "bda93a323a2916920d95ccab6ce03d40ba0c22e968ee47cf68bdea21f7456fc7",
+      "hash": "75111bfcf6465ccc53ae0731f570d296ea84df8673681785ffb8016942668188",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:39:51.564358Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "ready-TASK_5940525a2a35543b33e08b18-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_5940525a2a35543b33e08b18.json"
+          ],
+          "expected_revision": 708,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "aff56c59e269723a8aff22dadf06dce6c32ea9efdb4a1d325ab6b65334a8e75f",
+      "revision": 709,
+      "state_digest": "3450b14c40db90bd671af527492c162f66762f944f4e931edaf604a997223df0"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "5ced9936382fa576bcc04ad0d2d1cc82d8adb1563e0ae1ccc37a1954976cc2f3",
+      "hash": "8dbb8b0cc94302f863eb1ea234eb3aa0947bae907a8e282a70d37b44734b75a1",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:39:51.807731Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "dispatch-TASK_5940525a2a35543b33e08b18-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_5940525a2a35543b33e08b18.json"
+          ],
+          "expected_revision": 709,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "75111bfcf6465ccc53ae0731f570d296ea84df8673681785ffb8016942668188",
+      "revision": 710,
+      "state_digest": "a1079f3ba31a61770ab03cfc7bc0378f8d35cc27f888c7945762f893cb4126fc"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "bac77b17d87bd5cd797b9054b63b5105f669bde913ecd012028f1d0e55e0d614",
+      "hash": "4226ce4b497a9528359fb8ee272888859cf427ac18bb6abe917031adba0d7c60",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:40:34.197449Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-3b5c74395ace78b141d2a3d1",
+                "host-file:6270942cf223c133c45f5d76249d61ac9a312dd3366fe30779731984ccb5cdaf"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "HOSTFIX-PREPRODUCTION-QA_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-3b5c74395ace78b141d2a3d1",
+            "host-file:6270942cf223c133c45f5d76249d61ac9a312dd3366fe30779731984ccb5cdaf"
+          ],
+          "expected_revision": 710,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-3b5c74395ace78b141d2a3d1",
+          "agent_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+          "batch": 1,
+          "dispatch_id": "dispatch-3b5c74395ace78b141d2a3d1",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T17:40:34.197449Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T17:40:34.197449Z",
+          "status": "RUNNING",
+          "task_digest": "d8a28269be690901a8f31ba50bd8bbc626b82257748843048d8ce82477fa52e0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "tool_result_sha256": "6270942cf223c133c45f5d76249d61ac9a312dd3366fe30779731984ccb5cdaf",
+          "tool_result_uri": "runtime/v6/host-evidence/6270942cf223c133c45f5d76249d61ac9a312dd3366fe30779731984ccb5cdaf.json"
+        },
+        "review": null
+      },
+      "previous_hash": "8dbb8b0cc94302f863eb1ea234eb3aa0947bae907a8e282a70d37b44734b75a1",
+      "revision": 711,
+      "state_digest": "1c627a70980b5d803018ed001bf7f897921b86579df78da80c8bc5d5e74d6505"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "d2f9c5da8d2298c5ce180b6e77c2b4e481c4f21c57ba8672c4c66c9cf727dc54",
+      "hash": "1f433badb404925670739564008056be1b1a7ba23e92a7dbb88e31a02589a8e2",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:40:46.334521Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-preproduction-qa-ack.txt"
+        ],
+        "in_reply_to": null,
+        "message_id": "HOSTFIX-PREPRODUCTION-QA-ACK_ACK_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "Preproduction QA reviewer acknowledged frozen action and will inspect accepted CompileReview and provenance chain.",
+        "task_id": "TASK_5940525a2a35543b33e08b18",
+        "type": "ACK"
+      },
+      "previous_hash": "4226ce4b497a9528359fb8ee272888859cf427ac18bb6abe917031adba0d7c60",
+      "revision": 712,
+      "state_digest": "ab40366d9f1584d36f709ae7d16fb239482b55123aae442cfae8b118a93fa0c8"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "c8b9ac0067d1f74b479aac81e86fdfb5f738b4047a5563afea6789a72aaf2ddd",
+      "hash": "eac2edf0bbbfb44ad7e8aab2a6fa22cf512f1101beea3ec44f97c1d144dfc0dd",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:41:54.382695Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-preproduction-qa-progress.txt"
+        ],
+        "in_reply_to": "HOSTFIX-PREPRODUCTION-QA-ACK_ACK_1",
+        "message_id": "HOSTFIX-PREPRODUCTION-QA-PROGRESS_PROGRESS_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "QA reviewer bound frozen CompileReview and current build; checking accepted chain, text-only draft and native final gate while media remains NOT_RUN.",
+        "task_id": "TASK_5940525a2a35543b33e08b18",
+        "type": "PROGRESS"
+      },
+      "previous_hash": "1f433badb404925670739564008056be1b1a7ba23e92a7dbb88e31a02589a8e2",
+      "revision": 713,
+      "state_digest": "510adc842fca14802537cb3a820c508b679fe889af436208a72e3b4df9034d2b"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "2ac3da4193553a2d62f346f7fb3b7c539acb0405bcbe1df258be7974d36eaa4d",
+      "hash": "6023d69b4915f4f1f2eb786b5d17994e88e7b619b7da69e52aecccdd090c262b",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:43:22.131521Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-preproduction-qa-progress-2.txt"
+        ],
+        "in_reply_to": "HOSTFIX-PREPRODUCTION-QA-PROGRESS_PROGRESS_1",
+        "message_id": "HOSTFIX-PREPRODUCTION-QA-PROGRESS2_PROGRESS_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "QA reviewer verified native artifacts, Control, AVIR and CompileReview; native final gate only lacks QA and candidate is being prepared.",
+        "task_id": "TASK_5940525a2a35543b33e08b18",
+        "type": "PROGRESS"
+      },
+      "previous_hash": "eac2edf0bbbfb44ad7e8aab2a6fa22cf512f1101beea3ec44f97c1d144dfc0dd",
+      "revision": 714,
+      "state_digest": "6520396b0c5f00420aaee1ea30a61ac537f300b3b4efe2dc09a8100bbc224561"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "0dd4ef23e8c9f954d64fe79c54a034f2f0036f73378c65faf1e312deec452d83",
+      "hash": "a6e0453ac592d8a454034757176618036bf78a7c9ce01faa9cf8d87bc18b83eb",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:45:42.366657Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/candidate-result.json",
+          "runtime/v6/host-inputs/hostfix-preproduction-qa-result-raw.txt"
+        ],
+        "in_reply_to": "HOSTFIX-PREPRODUCTION-QA-PROGRESS2_PROGRESS_1",
+        "message_id": "HOSTFIX-PREPRODUCTION-QA-RESULT_RESULT_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+        "subject_sha256": "4357cf6943a22ee4f8dbd265f5c3e9f66b9fde5f309e67a71cea7e9da0addd4d",
+        "subject_uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/candidate-result.json",
+        "summary": "Preproduction QA candidate passed static scope and native checks for text-only target; media NOT_RUN, post obligations PLANNED, video_delivered false.",
+        "task_id": "TASK_5940525a2a35543b33e08b18",
+        "type": "RESULT"
+      },
+      "previous_hash": "6023d69b4915f4f1f2eb786b5d17994e88e7b619b7da69e52aecccdd090c262b",
+      "revision": 715,
+      "state_digest": "4a5005753665661fb3bad3b848a5b9043ea3eb2da3914d93b86cafebd5b51d5f"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "f8a85903fb1564b1a100db6f62a9a06bc629e8a2e4cdc73e751b3291f2989978",
+      "hash": "6cc820d78c1a508e273999ae5972e921694a496a32c7ef530ae15d9dde41ee71",
+      "op": "transition",
+      "payload": {
+        "candidate": {
+          "agent_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+          "artifacts": [
+            {
+              "kind": "PreproductionQA",
+              "sha256": "aebfd2ff133622433dc390e259c185c676b66a5dc433a769c122ba3193b93e9d",
+              "slot": "preproduction_qa:project:project:PreproductionQA",
+              "uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/preproduction-qa.json"
+            }
+          ],
+          "batch": 1,
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/preproduction-final.evidence.json",
+                "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/preproduction-qa.json",
+                "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/build-verify.stdout.json"
+              ],
+              "id": "preproduction_final",
+              "status": "PASS"
+            }
+          ],
+          "handoffs": [],
+          "input_digest": "5f5f8b48d7c9531b93ef577bff22cadcac7c4896d25540216a9250791a95f824",
+          "module_receipts": [],
+          "result_sha256": "39211a36e3e367c7a0b0e149b90aa20022131d69058f5d9db78ecf8ef2813328",
+          "result_uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/role-result.json",
+          "schema": "candidate-result/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "unresolved": []
+        },
+        "event": {
+          "actor_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:45:49.104383Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "HOSTFIX-PREPRODUCTION-QA_SUBMIT_1",
+          "evidence": [
+            "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/role-result.json"
+          ],
+          "expected_revision": 715,
+          "from_state": "RUNNING",
+          "object_version": 7,
+          "reason": "RESULT_RECEIVED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "to_state": "RESULT_SUBMITTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "a6e0453ac592d8a454034757176618036bf78a7c9ce01faa9cf8d87bc18b83eb",
+      "revision": 716,
+      "state_digest": "892c54e91e01a6f28ada345638d578e6fca546a54318d271b4647e6cae19b5b6"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "495f86ea4fcd7b505efbe3b31a184bbc955200964e7e2e7020e190c189261b34",
+      "hash": "3b4e53e4346363625e9a1996d34dd9b84e8d2b2ef6baabd22ee62b18ddff33f4",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:45:49.266865Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "HOSTFIX-PREPRODUCTION-QA_SUBMIT_1-validate",
+          "evidence": [],
+          "expected_revision": 716,
+          "from_state": "RESULT_SUBMITTED",
+          "object_version": 8,
+          "reason": "VALIDATION_STARTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "to_state": "VALIDATING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "6cc820d78c1a508e273999ae5972e921694a496a32c7ef530ae15d9dde41ee71",
+      "revision": 717,
+      "state_digest": "db52801b1718a9e6e0e0a28a3fe253775f87e73ac2b1d2fc73d866c696a2ed9d"
+    },
+    {
+      "artifacts_digest": "9ab437c4de332471e4347b5f866b89c69d0e7dfba09a3340a1e9eab7bbb100af",
+      "commands_digest": "e94187ce8f851614923d004a91a72e90617cc282da00637ad15b6eef8e136866",
+      "hash": "28a42c96acd5c0da4fe3068d7111c06ccae1882439b42ca25378659e997aa2db",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:45:49.518989Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/preproduction-final.evidence.json",
+                "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/preproduction-qa.json",
+                "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/build-verify.stdout.json"
+              ],
+              "id": "preproduction_final",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "HOSTFIX-PREPRODUCTION-QA_SUBMIT_1-validation",
+          "evidence": [
+            "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/role-result.json"
+          ],
+          "expected_revision": 717,
+          "from_state": "VALIDATING",
+          "object_version": 9,
+          "reason": "VALIDATION_PASSED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_5940525a2a35543b33e08b18",
+          "to_state": "ACCEPTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "3b4e53e4346363625e9a1996d34dd9b84e8d2b2ef6baabd22ee62b18ddff33f4",
+      "revision": 718,
+      "state_digest": "d97c0cb209ed3fe7c0b8550e862419f7fbe53374315d14dc050f59a3581dbd36"
+    },
+    {
+      "artifacts_digest": "9ab437c4de332471e4347b5f866b89c69d0e7dfba09a3340a1e9eab7bbb100af",
+      "commands_digest": "a86953053c33f03307d31f862e33cfce75f84a21bda2c0c14624a32366a9aec0",
+      "hash": "c96f4d7071f6ce29f23b8eb230fd58fd1577d4774d638077a1409bee44dbd0b6",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "TASK_5940525a2a35543b33e08b18"
+          }
+        ],
+        "execution_class": "system",
+        "expected_artifacts": [
+          {
+            "kind": "PreproductionDelivery",
+            "slot": "preproduction_delivery:project:project:PreproductionDelivery",
+            "uri_prefix": "runtime/v6/candidates/V6_preproduction_13e89f5eb81bc5856bc8/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "20f59a96ec5c2c6768d15b9287f99c1fba9036e76264a868207f1b7757c7c1c2",
+        "input_revision": 718,
+        "inputs": [
+          {
+            "sha256": "aebfd2ff133622433dc390e259c185c676b66a5dc433a769c122ba3193b93e9d",
+            "slot": "preproduction_qa:project:project:PreproductionQA",
+            "uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/preproduction-qa.json",
+            "version": 10
+          }
+        ],
+        "module": null,
+        "node_id": "preproduction_delivery",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "delivery_owner",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "V6_preproduction_13e89f5eb81bc5856bc8",
+        "validators": [
+          {
+            "id": "preproduction_final",
+            "kind": "evidence"
+          }
+        ]
+      },
+      "previous_hash": "28a42c96acd5c0da4fe3068d7111c06ccae1882439b42ca25378659e997aa2db",
+      "revision": 719,
+      "state_digest": "0c09c843081bca42faab75c5e3934c5c37e4014191b76018f0a9129957ac793e"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "16c63ec2dcf8cde2cd32f27f4058ae9d38b00f5f42ee21bbe5b74e4703736977",
+      "hash": "56e09372d9e6a70487ba7fda5b8404e77792e63310391ab5b27f2a15a30dc36c",
+      "op": "transition",
+      "payload": {
+        "candidate": {
+          "agent_id": "kernel",
+          "artifacts": [
+            {
+              "kind": "PreproductionDelivery",
+              "sha256": "f0822e082ba9bf202e93211a5a98de489c22e091f40391a2cdccbe84e1447a94",
+              "slot": "preproduction_delivery:project:project:PreproductionDelivery",
+              "uri": "runtime/v6/candidates/V6_preproduction_13e89f5eb81bc5856bc8/1/delivery-index.json"
+            }
+          ],
+          "batch": 1,
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/V6_preproduction_13e89f5eb81bc5856bc8/1/delivery-index.json",
+                "delivery/index.json"
+              ],
+              "id": "preproduction_final",
+              "status": "PASS"
+            }
+          ],
+          "handoffs": [],
+          "input_digest": "20f59a96ec5c2c6768d15b9287f99c1fba9036e76264a868207f1b7757c7c1c2",
+          "module_receipts": [],
+          "result_sha256": null,
+          "result_uri": null,
+          "schema": "candidate-result/6.0",
+          "task_id": "V6_preproduction_13e89f5eb81bc5856bc8",
+          "unresolved": []
+        },
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:45:53.992694Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/V6_preproduction_13e89f5eb81bc5856bc8/1/delivery-index.json",
+                "delivery/index.json"
+              ],
+              "id": "preproduction_final",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "accept-V6_preproduction_13e89f5eb81bc5856bc8",
+          "evidence": [
+            "runtime/v6/candidates/V6_preproduction_13e89f5eb81bc5856bc8/1/delivery-index.json",
+            "delivery/index.json"
+          ],
+          "expected_revision": 719,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "SYSTEM_VALIDATED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_preproduction_13e89f5eb81bc5856bc8",
+          "to_state": "ACCEPTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "c96f4d7071f6ce29f23b8eb230fd58fd1577d4774d638077a1409bee44dbd0b6",
+      "revision": 720,
+      "state_digest": "7c333ea6bfd5c8bc880e77c34f994778b03138c7567be5638dfa416b912e6936"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "abac59acfd68700d82fbe92e6ddea4019bcc62cb987b747206e3935e1ca0ea4a",
+      "hash": "04372ad480805e465ac2f4833de74022f32e541d26fd6b8e99e517bbf2f5d43c",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_preproduction_13e89f5eb81bc5856bc8"
+          }
+        ],
+        "execution_class": "system",
+        "expected_artifacts": [
+          {
+            "kind": "FrozenRequest",
+            "slot": "video_freeze:project:project:FrozenRequest",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_bda1f83a5199e74831fa50a7/1/"
+          },
+          {
+            "kind": "FrozenAcceptancePlan",
+            "slot": "video_freeze:project:project:FrozenAcceptancePlan",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_bda1f83a5199e74831fa50a7/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "019fa7f6c63ce79387065e8f600b24e734bf1cb9cf1ff6eb1f5b9b7994d301b5",
+        "input_revision": 720,
+        "inputs": [
+          {
+            "sha256": "f0822e082ba9bf202e93211a5a98de489c22e091f40391a2cdccbe84e1447a94",
+            "slot": "preproduction_delivery:project:project:PreproductionDelivery",
+            "uri": "runtime/v6/candidates/V6_preproduction_13e89f5eb81bc5856bc8/1/delivery-index.json",
+            "version": 1
+          }
+        ],
+        "module": null,
+        "node_id": "video_freeze",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "production_owner",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "V6_skip_bda1f83a5199e74831fa50a7",
+        "validators": [
+          {
+            "id": "freeze_request",
+            "kind": "schema"
+          }
+        ]
+      },
+      "previous_hash": "56e09372d9e6a70487ba7fda5b8404e77792e63310391ab5b27f2a15a30dc36c",
+      "revision": 721,
+      "state_digest": "f68a1ea97866b778e8fa6b49c71dbb5e8450404890cd6aa73c4baf4090751b2f"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "3af4dbcb2d3d8293a0db4850b1bc877639be3a3d1f171723e794058e44ccb611",
+      "hash": "a1c0c845de0d1f1b714118cc4dc47cf3354be553e07fa8cf78b23784e22d3cdd",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "FrozenRequest",
+            "FrozenAcceptancePlan"
+          ],
+          "at": "2026-09-25T17:45:55.837142Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_bda1f83a5199e74831fa50a7",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 721,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_bda1f83a5199e74831fa50a7",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "04372ad480805e465ac2f4833de74022f32e541d26fd6b8e99e517bbf2f5d43c",
+      "revision": 722,
+      "state_digest": "502eebe4cb20ea94c5cca2d1db0a240620f9ab1ed3bbc7f2ba0e38854312f99b"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "69a188cac754ec81563b9a0b2e4fe8bdc3a61476c558c9f7d915b2cf0bb7fc51",
+      "hash": "61a5ef4e99a6c9debb07d9721edfe8a5b1b90a75de562dac7721851cba88693b",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_bda1f83a5199e74831fa50a7"
+          }
+        ],
+        "execution_class": "external_video",
+        "expected_artifacts": [
+          {
+            "kind": "ExecutionRecord",
+            "slot": "video_execution:generation_request:8x4e4f5f564944454f:ExecutionRecord",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_a81ab5ffd457c0e43664375d/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "abe1e60974be6d8ce5264fcc5aeb16ab2c6951b8e6a1490992e87fa5a50eb651",
+        "input_revision": 722,
+        "inputs": [],
+        "module": null,
+        "node_id": "video_execution",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "video_host",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [
+            "NO_VIDEO"
+          ],
+          "kind": "generation_request"
+        },
+        "task_id": "V6_skip_a81ab5ffd457c0e43664375d",
+        "validators": [
+          {
+            "id": "execution_provenance",
+            "kind": "evidence"
+          }
+        ]
+      },
+      "previous_hash": "a1c0c845de0d1f1b714118cc4dc47cf3354be553e07fa8cf78b23784e22d3cdd",
+      "revision": 723,
+      "state_digest": "d2282376622509226505b72af602d7c753893b794802ddf4405db69ffb9a8f94"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "d0e07064d5f0819f419fd91331d8b6655cc7c15d459e4b95205ad928cfff7777",
+      "hash": "68fe57b240896d85bd89ba178541f6a644fda414518d58085ecf0f8079a68f08",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "ExecutionRecord"
+          ],
+          "at": "2026-09-25T17:45:56.310083Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_a81ab5ffd457c0e43664375d",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 723,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_a81ab5ffd457c0e43664375d",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "61a5ef4e99a6c9debb07d9721edfe8a5b1b90a75de562dac7721851cba88693b",
+      "revision": 724,
+      "state_digest": "719309d8995ea5dda8ba88e7acbd6e4ef4e1e084dea794d30ceef88ea08eb694"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "2a9401a72bfc6972a3c2b54dd7b81efd7593a9969088c343929654a3d6271313",
+      "hash": "e856b508c782c5d2ecee7737523cc21126b7a825f4e6ef6bf8159b964aa0a118",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_a81ab5ffd457c0e43664375d"
+          }
+        ],
+        "execution_class": "local_media",
+        "expected_artifacts": [
+          {
+            "kind": "Take",
+            "slot": "take_recovery:take:8x4e4f5f564944454f:Take",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_ae09b2d083ad33abcb18f59f/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "86c6bc2acf31fa73f3dfd380edc084c3a601bb5669b908049af35a62caf1d2a0",
+        "input_revision": 724,
+        "inputs": [],
+        "module": null,
+        "node_id": "take_recovery",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "video_host",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [
+            "NO_VIDEO"
+          ],
+          "kind": "take"
+        },
+        "task_id": "V6_skip_ae09b2d083ad33abcb18f59f",
+        "validators": [
+          {
+            "id": "execution_provenance",
+            "kind": "evidence"
+          },
+          {
+            "id": "take_probe",
+            "kind": "media"
+          }
+        ]
+      },
+      "previous_hash": "68fe57b240896d85bd89ba178541f6a644fda414518d58085ecf0f8079a68f08",
+      "revision": 725,
+      "state_digest": "d90cfa31e681fa90f7078d390a8283e5438e17758acc074cedb6e19521e53c7b"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "b8952f41b231e7501b6b10e449e26371c758717d8f4ad995cd01cace68c1b760",
+      "hash": "5869c23184c507e997da2768551b84767020d9a9d9e4936eed175177d829b1a1",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "Take"
+          ],
+          "at": "2026-09-25T17:45:56.785824Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_ae09b2d083ad33abcb18f59f",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 725,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_ae09b2d083ad33abcb18f59f",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "e856b508c782c5d2ecee7737523cc21126b7a825f4e6ef6bf8159b964aa0a118",
+      "revision": 726,
+      "state_digest": "b9997c3b99c7b3003f98e279e1e269ba4100cde0050ace68679cc45f0211eca8"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "a7927fa351467bcba5db426501e6cc13ba87f92f7a4efe61606a1087f6d29095",
+      "hash": "b9d6c54c9165513a5d3724fea32a73480d7e3b3c8dc409ae259bfe3651e9b1de",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_ae09b2d083ad33abcb18f59f"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "ShotDecision",
+            "slot": "shot_acceptance:shot:8x4e4f5f564944454f:ShotDecision",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_b33bc581d277b293aed79e47/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "955d1115dbf2b66cb4e40cc1c21c1aee275d853d4608c87c03fe8027358589b0",
+        "input_revision": 726,
+        "inputs": [],
+        "module": null,
+        "node_id": "shot_acceptance",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "shot_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [
+            "NO_VIDEO"
+          ],
+          "kind": "shot"
+        },
+        "task_id": "V6_skip_b33bc581d277b293aed79e47",
+        "validators": [
+          {
+            "id": "shot_coverage",
+            "kind": "manual"
+          }
+        ]
+      },
+      "previous_hash": "5869c23184c507e997da2768551b84767020d9a9d9e4936eed175177d829b1a1",
+      "revision": 727,
+      "state_digest": "d0efc496a85986a841680cd65437a75fc4b6af0d23a4d3e4a57ccb0f92fea3a6"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "a547bcf7d990e8ed3ae8bf56b7ddbe2b65bb2b247aabcce977fbcd9831babdda",
+      "hash": "3c17f07d6ea5389d7ccc9d052f21c9fcf2e3aa4e27dbc8c30883ad6ee5c6c8b8",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "ShotDecision"
+          ],
+          "at": "2026-09-25T17:45:57.259416Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_b33bc581d277b293aed79e47",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 727,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_b33bc581d277b293aed79e47",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "b9d6c54c9165513a5d3724fea32a73480d7e3b3c8dc409ae259bfe3651e9b1de",
+      "revision": 728,
+      "state_digest": "6668ac3df6046fde76ffefc7111da4ab4d5d1395c9de4dc67dbeb208499b2b7f"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "1a9a07436240c5f56dad182b6da00a1e3b76da44eb53696685607264cd898d96",
+      "hash": "d6fa411498ddd56b1b550dce17b4a38a64c4410141040a738ad5d7b9d57c550b",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_b33bc581d277b293aed79e47"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "SelectedTake",
+            "slot": "take_selection:shot:8x4e4f5f564944454f:SelectedTake",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_59c2adc68c7c8d9ca114a7d6/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "751b25813bf2a8c322d5627f06db4b2f3e27023b390d16400246122c437ec525",
+        "input_revision": 728,
+        "inputs": [],
+        "module": null,
+        "node_id": "take_selection",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "take_selector",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [
+            "NO_VIDEO"
+          ],
+          "kind": "shot"
+        },
+        "task_id": "V6_skip_59c2adc68c7c8d9ca114a7d6",
+        "validators": [
+          {
+            "id": "selected_take",
+            "kind": "evidence"
+          }
+        ]
+      },
+      "previous_hash": "3c17f07d6ea5389d7ccc9d052f21c9fcf2e3aa4e27dbc8c30883ad6ee5c6c8b8",
+      "revision": 729,
+      "state_digest": "8557bf045b6897b28efa20b36ea9c54ce831a87fe52b0c0fbdbc2659202b2332"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "54618eba68a7c9628515443d3775013075f47071db650de485bb11d0ad196b1b",
+      "hash": "78e667ef1be32d80d53dd1558a1ada1123caf5fc7b3a083b417e53390cea8985",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "SelectedTake"
+          ],
+          "at": "2026-09-25T17:45:57.736116Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_59c2adc68c7c8d9ca114a7d6",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 729,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_59c2adc68c7c8d9ca114a7d6",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "d6fa411498ddd56b1b550dce17b4a38a64c4410141040a738ad5d7b9d57c550b",
+      "revision": 730,
+      "state_digest": "e29750355402c7537963d1ee0ced9210074eb5ed9733740712658d84a962428b"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "522b755ffb4010d9d8dd2722b10fa7cce3153e61d5bd8415a31cb9f7459e7e9d",
+      "hash": "cbfc46754e9c0d141bea1a10995b4669ba34bff64f31c95411e97d1fb3365c14",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_59c2adc68c7c8d9ca114a7d6"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "AdjacentDecision",
+            "slot": "adjacent_acceptance:project:project:AdjacentDecision",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_41e77664632fd57cd287fca6/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "7afb39ce49f0d756598352b9b5f4b8b66ca91eedc45b8cb4e71d8ff56d4a7e36",
+        "input_revision": 730,
+        "inputs": [],
+        "module": null,
+        "node_id": "adjacent_acceptance",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "continuity_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "V6_skip_41e77664632fd57cd287fca6",
+        "validators": [
+          {
+            "id": "adjacent_coverage",
+            "kind": "manual"
+          }
+        ]
+      },
+      "previous_hash": "78e667ef1be32d80d53dd1558a1ada1123caf5fc7b3a083b417e53390cea8985",
+      "revision": 731,
+      "state_digest": "de1c8c1a1c3be8b1156b0b1788b9bdb8d7ce8b76ff2e93afbb19370daa55fc0d"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "c74143398178bb1a81fd7839a4e523fdb21e1cc44d1013f05590f608aa6dafb7",
+      "hash": "9a34937ad69a67ebcbb73f34532455b586c48ac70ed33788836fe01cbbab09a8",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "AdjacentDecision"
+          ],
+          "at": "2026-09-25T17:45:58.216083Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_41e77664632fd57cd287fca6",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 731,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_41e77664632fd57cd287fca6",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "cbfc46754e9c0d141bea1a10995b4669ba34bff64f31c95411e97d1fb3365c14",
+      "revision": 732,
+      "state_digest": "ba4103aba1d410371f5bb50b33724d101e777ad466bfcd0b48663a50aa34ef0d"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "9852a3c33d3e2947026b55e7a7a291c5eb4f096fd1c7bea4857d659f50e41140",
+      "hash": "c5ad84ca479073476c6a7b1dc450824bf6de13bf596b27d94673c9329706baa3",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_41e77664632fd57cd287fca6"
+          }
+        ],
+        "execution_class": "local_media",
+        "expected_artifacts": [
+          {
+            "kind": "AssemblyRecord",
+            "slot": "assembly:project:project:AssemblyRecord",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_99ec3e03afe91188cf84925a/1/"
+          },
+          {
+            "kind": "FinalMedia",
+            "slot": "assembly:project:project:FinalMedia",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_99ec3e03afe91188cf84925a/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "4cd0de09b0c2036730bbbef31a003443acafa0ee518ccb11e83c4d899bd1880b",
+        "input_revision": 732,
+        "inputs": [],
+        "module": null,
+        "node_id": "assembly",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "assembly_host",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "V6_skip_99ec3e03afe91188cf84925a",
+        "validators": [
+          {
+            "id": "selected_take",
+            "kind": "evidence"
+          },
+          {
+            "id": "assembly_edl",
+            "kind": "media"
+          },
+          {
+            "id": "post_obligations",
+            "kind": "manual"
+          },
+          {
+            "id": "take_probe",
+            "kind": "media"
+          }
+        ]
+      },
+      "previous_hash": "9a34937ad69a67ebcbb73f34532455b586c48ac70ed33788836fe01cbbab09a8",
+      "revision": 733,
+      "state_digest": "db5c4e0089637a7762258af42e29c16fa8738ab2f538df078cdb853723ad7841"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "fe36c67e9fa03805a24322e4cd64c3de559af44d285cf474ad9a8d9dca314d4b",
+      "hash": "ed7d16330de103f4f1a47d389dc733dbdc5cdecec691cfd132459fc3d77908be",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "AssemblyRecord",
+            "FinalMedia"
+          ],
+          "at": "2026-09-25T17:45:58.690998Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_99ec3e03afe91188cf84925a",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 733,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_99ec3e03afe91188cf84925a",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "c5ad84ca479073476c6a7b1dc450824bf6de13bf596b27d94673c9329706baa3",
+      "revision": 734,
+      "state_digest": "a97c9a43be12209d40dfcc470578a9e66332ecef76b420ea13a6ba808a64ff49"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "edf759b3c847129f132af1ff6e60c18279b8cf9d75c1256af799d1717e7ea549",
+      "hash": "96f23e4ac745d9ea03d5723417b21ad65bed03de35174ceae4a4afefb0305b35",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_99ec3e03afe91188cf84925a"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "WholeDecision",
+            "slot": "whole_acceptance:project:project:WholeDecision",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_51b9636f85c3325bac7d09ac/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "b8063c27dcc29c674782f4d8645b95ca0cfa4de4cd373816b6d72d78bd696031",
+        "input_revision": 734,
+        "inputs": [],
+        "module": null,
+        "node_id": "whole_acceptance",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "whole_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "V6_skip_51b9636f85c3325bac7d09ac",
+        "validators": [
+          {
+            "id": "whole_review",
+            "kind": "manual"
+          }
+        ]
+      },
+      "previous_hash": "ed7d16330de103f4f1a47d389dc733dbdc5cdecec691cfd132459fc3d77908be",
+      "revision": 735,
+      "state_digest": "dc7cc70416f8ff5ac56de7fc7d7d9ad7e262da2b5270bf8aecf7cfc17eb6e03d"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "a2a7c131b5f0e2b49a5a90bcd7755082d28bec0573022b1f23be474583036219",
+      "hash": "c664e3b472997234728b6bda3b1100377ca66011c392d8c54bd20d7c30059f1b",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "WholeDecision"
+          ],
+          "at": "2026-09-25T17:45:59.169269Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_51b9636f85c3325bac7d09ac",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 735,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_51b9636f85c3325bac7d09ac",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "96f23e4ac745d9ea03d5723417b21ad65bed03de35174ceae4a4afefb0305b35",
+      "revision": 736,
+      "state_digest": "03c6071798f389dd53c786e61ba337ff96cf1ac94d71a7a19005a0e38fdab681"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "d790adac21682fb8af68c2b7d48a8d652701e6eb4b8cbd176cb9ca1aec75d7ab",
+      "hash": "639ab73fb0a540c1da783948a742b8dcabafc4a51e10c5819175db898841861e",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_skip_51b9636f85c3325bac7d09ac"
+          }
+        ],
+        "execution_class": "system",
+        "expected_artifacts": [
+          {
+            "kind": "VideoDelivery",
+            "slot": "video_delivery:project:project:VideoDelivery",
+            "uri_prefix": "runtime/v6/candidates/V6_skip_d648e2e8383da8cf62584eae/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "74dae22985bc9f1f0aed5ccd343e4554b9a46ef65807279f62e2e054e1940ff0",
+        "input_revision": 736,
+        "inputs": [],
+        "module": null,
+        "node_id": "video_delivery",
+        "project_id": "LETTER_DEMO",
+        "resources": [],
+        "role": "delivery_owner",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "V6_skip_d648e2e8383da8cf62584eae",
+        "validators": [
+          {
+            "id": "video_final",
+            "kind": "evidence"
+          }
+        ]
+      },
+      "previous_hash": "c664e3b472997234728b6bda3b1100377ca66011c392d8c54bd20d7c30059f1b",
+      "revision": 737,
+      "state_digest": "1b6c017552bd2daa5e788e5cff76879d8f81196f9e17cc31755a246abc9e8dbd"
+    },
+    {
+      "artifacts_digest": "f64d82b978a41195aac67d900a51a52bb2c7dc60b4f0b21a2e2e4c75e5e3fdbc",
+      "commands_digest": "b3003c1699df2eb713a9b9e99b6a16e7f559136ed31ef385b75b5980e21ae11a",
+      "hash": "8ac3b36038074a60156d58f61dacd9803922ec4b86eff6ef6f9015201faac01b",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [
+            "VideoDelivery"
+          ],
+          "at": "2026-09-25T17:45:59.730965Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "skip-V6_skip_d648e2e8383da8cf62584eae",
+          "evidence": [
+            "project.json"
+          ],
+          "expected_revision": 737,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "TARGET_NOT_VIDEO",
+          "schema": "state-event/6.0",
+          "task_id": "V6_skip_d648e2e8383da8cf62584eae",
+          "to_state": "NOT_APPLICABLE"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "639ab73fb0a540c1da783948a742b8dcabafc4a51e10c5819175db898841861e",
+      "revision": 738,
+      "state_digest": "0cea7fcd94c130ed5adbec390dfb62c2b59cc9155339f6f23f1e853562529f39"
+    }
+  ]
+}

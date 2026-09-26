@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ai-comic-drama-workflow.local/schemas/v6-observation-register.schema.json",
+  "title": "V6 observation bundle register",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "bundles"],
+  "properties": {
+    "schema": {"const": "observation-register/6.0"},
+    "bundles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "directory", "observation_sha256", "review_sha256"],
+        "properties": {
+          "source_id": {"type": "string", "pattern": "^[@A-Za-z_][@A-Za-z0-9_.:_-]*$"},
+          "directory": {
+            "type": "string",
+            "pattern": "^runtime/v6/candidates/[^/.][^/]*/[1-9][0-9]*/[^/.][^/]*/$"
+          },
+          "observation_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "review_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 210,
+  "message": {
+    "at": "2026-09-25T13:51:12.164794Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/candidate-result.json"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_HANDOFF_HANDOFF_1",
+    "message_id": "DIRECTOR_REBUILD_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "subject_sha256": "0308126d1e8204fddc48f21ab66cc420d1b3bd9ae23eee8edbca8178c69fda8f",
+    "subject_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/candidate-result.json",
+    "summary": "Creator submitted current-input Director candidate with native and all frozen handoff checks PASS; media NOT_RUN.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "RESULT"
+  }
+}

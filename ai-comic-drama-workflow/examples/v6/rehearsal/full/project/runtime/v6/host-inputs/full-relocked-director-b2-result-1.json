@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B2_RESULT_1",
+  "expected_revision": 197,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B2_RESULT_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_ae88af1ac4163d4e37222aa4",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_DIRECTOR_B2_REPAIR_1",
+    "type": "RESULT",
+    "summary": "Director batch 2 repairs terminal framing and passes fresh native validation",
+    "evidence": [
+      "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/candidate-result.json",
+      "runtime/v6/host-messages/full-relocked-director-b2-result.txt"
+    ],
+    "at": "2026-09-25T14:38:52.290136Z",
+    "subject_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/candidate-result.json",
+    "subject_sha256": "443d292b746c02ab6ef9d21c4e1660319fae0ca2bfa73553c5d7e804e65d6083"
+  }
+}

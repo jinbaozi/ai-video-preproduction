@@ -12,7 +12,7 @@
   ],
   "properties": {
     "schema": {
-      "const": "role-result/5.0"
+      "enum": ["role-result/5.0", "role-result/5.1"]
     },
     "task_id": {
       "type": "string",

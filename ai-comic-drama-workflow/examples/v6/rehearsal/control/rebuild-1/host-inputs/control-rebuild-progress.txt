@@ -1,0 +1,1 @@
+Control batch1 已读并核对冻结信封两项输入与四份锁定资源，字节哈希全部匹配。当前 V5 接受的 StoryboardIR 为正式提升版 SHA 09cd04e1…；V6 冻结输入是候选版 SHA f575158f…，两者不相同。按内核预审要求，将从当前 V5 正式 StoryboardIR 确定性导出 AVIR；适配报告现为 MAPPED、0 loss、semantic review INHERITED_DETERMINISTICALLY，锁定固定相机派生轨道 1 条。

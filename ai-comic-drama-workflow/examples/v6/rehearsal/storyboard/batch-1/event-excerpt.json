@@ -1,0 +1,340 @@
+[
+  {
+    "artifacts_digest": "749564fd9d2e3eceb3c6924e5393510631879bf26b9038b4355b3eb97b1608ed",
+    "commands_digest": "de8fede066bd03bdef50254e20c169d042c8e05defb966435573c3e3d346260b",
+    "hash": "54c20d57fec06aa6aafb8fb13178935de4468b4a15aebc73c0569b3ea6dc0a33",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+        },
+        {
+          "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+        },
+        {
+          "task_id": "TASK_0560d46ecc764c68ee9a590e"
+        },
+        {
+          "task_id": "V6_skip_2de8dc7accb8e722fccf86b2"
+        },
+        {
+          "task_id": "V6_skip_6193e6182edb67785c9fec09"
+        },
+        {
+          "task_id": "V6_skip_50bb5189ee0b2249e0e494c0"
+        },
+        {
+          "task_id": "V6_skip_255d0aea025897f1f04e0a3a"
+        },
+        {
+          "task_id": "V6_skip_063d7a697a209a072977d11f"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "StoryboardIR",
+          "slot": "storyboard:project:project:StoryboardIR",
+          "uri_prefix": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_14ccecf60174e51512f867f2",
+          "source_slot": "canon:project:project:Canon",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "storyboard:project:project:StoryboardIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_470e86ea8851d087c4f51d74",
+          "source_slot": "director:project:project:DirectorIR",
+          "source_version": 21,
+          "target_pointer": "",
+          "target_slot": "storyboard:project:project:StoryboardIR"
+        },
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_039d6bab6cbb61c8733568c8",
+          "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+          "source_version": 22,
+          "target_pointer": "",
+          "target_slot": "storyboard:project:project:StoryboardIR"
+        }
+      ],
+      "input_digest": "6e0692452ece358689793f82767e71503e060b5e0e30a4ae58e4ffe18fa2409e",
+      "input_revision": 129,
+      "inputs": [
+        {
+          "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+          "slot": "canon:project:project:Canon",
+          "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+          "version": 12
+        },
+        {
+          "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+          "slot": "director:project:project:DirectorIR",
+          "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+          "version": 21
+        },
+        {
+          "sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+          "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+          "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+          "version": 22
+        },
+        {
+          "sha256": "c9ff0259ed0199c94f7610fe464f1edd8e1242f5262eb15964bfc403b5f929bf",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "storyboard-grammar",
+        "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+        "version": "1.3.2"
+      },
+      "node_id": "storyboard",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+          "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md"
+        },
+        {
+          "sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+          "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+          "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md"
+        }
+      ],
+      "role": "storyboard",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "native_validator",
+          "kind": "native"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "34bef5915f5381c336428d1fa5d590207ac83353ad5ad6bf0094ec31c202159a",
+    "revision": 130,
+    "state_digest": "fedbe022d26085fa524468f6cffb13889b1cfea49a71fc6da6045b6b745921ca"
+  },
+  {
+    "artifacts_digest": "749564fd9d2e3eceb3c6924e5393510631879bf26b9038b4355b3eb97b1608ed",
+    "commands_digest": "33d449940134afc91a5d324d200b6be0e64bcef997ed9b62ad22577d8f813df2",
+    "hash": "a1680267e7976bd0df2530617373f44b234782eb85ab91e08a9ef4ac45d22a40",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:40:54.042688Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-TASK_3240f8bc6a9896032b95d091-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_3240f8bc6a9896032b95d091.json"
+        ],
+        "expected_revision": 130,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "54c20d57fec06aa6aafb8fb13178935de4468b4a15aebc73c0569b3ea6dc0a33",
+    "revision": 131,
+    "state_digest": "87f668c6bd97728e9e88c8c5dbb4a52e46787f53a06e705c200729546fc16d26"
+  },
+  {
+    "artifacts_digest": "749564fd9d2e3eceb3c6924e5393510631879bf26b9038b4355b3eb97b1608ed",
+    "commands_digest": "7672c0f784a9cab450f2328853b7941bf633a5503a8fdc0eb614d9699ea6fec1",
+    "hash": "e23585bb00ac9a32d56b03b6a43009558d5fa58d2026857e4b46b22f2b6b4193",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:40:54.076783Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-TASK_3240f8bc6a9896032b95d091-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_3240f8bc6a9896032b95d091.json"
+        ],
+        "expected_revision": 131,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "a1680267e7976bd0df2530617373f44b234782eb85ab91e08a9ef4ac45d22a40",
+    "revision": 132,
+    "state_digest": "19b4676d60b02c46b5bebab8226976bc5cf637e7214ee347b089ed0fa3fd27a5"
+  },
+  {
+    "artifacts_digest": "749564fd9d2e3eceb3c6924e5393510631879bf26b9038b4355b3eb97b1608ed",
+    "commands_digest": "edb6be4dbe12702d66177d79bcf15ff1aa0234b3bb8459c93e4cc3bb3f5fed56",
+    "hash": "f7feffd9406b896ccc5bce38af25ead3d2679fd5054861944832e8ac623d0611",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:41:37.435599Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-2897aa32166b120d4fcc903a",
+              "host-file:08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "STORYBOARD_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-2897aa32166b120d4fcc903a",
+          "host-file:08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568"
+        ],
+        "expected_revision": 132,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-2897aa32166b120d4fcc903a",
+        "agent_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+        "batch": 1,
+        "dispatch_id": "dispatch-2897aa32166b120d4fcc903a",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T12:41:37.435599Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T12:41:37.435599Z",
+        "status": "RUNNING",
+        "task_digest": "82e2515f57d805ac33afefa09ba2195a58460b4bd6a35ff22edf2ce56c92e9f2",
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "tool_result_sha256": "08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568",
+        "tool_result_uri": "runtime/v6/host-evidence/08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568.json"
+      },
+      "review": null
+    },
+    "previous_hash": "e23585bb00ac9a32d56b03b6a43009558d5fa58d2026857e4b46b22f2b6b4193",
+    "revision": 133,
+    "state_digest": "e0c0fcee917166155b1ba9f96efee2db19a3a3ed9487f2503a6c01bc4645b6ae"
+  },
+  {
+    "artifacts_digest": "749564fd9d2e3eceb3c6924e5393510631879bf26b9038b4355b3eb97b1608ed",
+    "commands_digest": "3a86fa1f0b2578b2c3ee2f210f92e83a4ce92432fae7c55742d57f40dc45f1cc",
+    "hash": "1d8d8c8cbe94ebc6d305162f0e763dfbddc965060c3486be8b278ceb6470a243",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T12:56:25.577804Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/failures/TASK_3240f8bc6a9896032b95d091/1/7e935ad91dbedcb71c8c4f6c6de74dfe999e8b50281ef41b4f756a9d6a88cd15.json"
+            ],
+            "id": "module_receipt",
+            "status": "FAIL"
+          },
+          {
+            "evidence": [
+              "runtime/v6/failures/TASK_3240f8bc6a9896032b95d091/1/7e935ad91dbedcb71c8c4f6c6de74dfe999e8b50281ef41b4f756a9d6a88cd15.json"
+            ],
+            "id": "native_validator",
+            "status": "BLOCKED"
+          },
+          {
+            "evidence": [
+              "runtime/v6/failures/TASK_3240f8bc6a9896032b95d091/1/7e935ad91dbedcb71c8c4f6c6de74dfe999e8b50281ef41b4f756a9d6a88cd15.json"
+            ],
+            "id": "handoff",
+            "status": "BLOCKED"
+          }
+        ],
+        "command_id": "STORYBOARD_CANDIDATE_SUBMIT_1-failed",
+        "error": {
+          "code": "VALUEERROR",
+          "evidence": [
+            "runtime/v6/failures/TASK_3240f8bc6a9896032b95d091/1/7e935ad91dbedcb71c8c4f6c6de74dfe999e8b50281ef41b4f756a9d6a88cd15.json"
+          ],
+          "failed_check": "module_receipt",
+          "owner_node": "storyboard",
+          "recovery_action": "RETRY",
+          "retryable": true
+        },
+        "evidence": [
+          "runtime/v6/failures/TASK_3240f8bc6a9896032b95d091/1/7e935ad91dbedcb71c8c4f6c6de74dfe999e8b50281ef41b4f756a9d6a88cd15.json"
+        ],
+        "expected_revision": 141,
+        "from_state": "RUNNING",
+        "object_version": 11,
+        "reason": "VALIDATION_FAILED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "to_state": "FAILED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "88365e4b33229a6c043d3a994138d44d224843f08ec043b9772c8e0bd34fdb06",
+    "revision": 142,
+    "state_digest": "1b91aa4369726905505af7e96de6802e9f3e52be5d476367470a16687e9303a8"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+  "requirement_id": "UP_02899a994552add4610374b6",
+  "source_slot": "sources:project:project:SourceRegistry",
+  "source_version": 1,
+  "source_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "source_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a",
+  "target_slot": "canon:project:project:Canon",
+  "target_pointer": "",
+  "target_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+  "target_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "mapping_pointers": [
+    "/source_refs/0",
+    "/source_facts",
+    "/entities",
+    "/event_order",
+    "/source_requirements"
+  ],
+  "finding": "The single registered source maps to this current Canon candidate and all ordered source requirements."
+}

@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "type": {
+            "const": "RESULT"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "subject_sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": "string"
+          },
+          "subject_uri": {
+            "minLength": 1,
+            "type": "string"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "subject_uri": {
+            "type": "null"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "subject_sha256": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ],
+  "properties": {
+    "at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "batch": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "evidence": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "minItems": 0,
+      "type": "array",
+      "uniqueItems": true
+    },
+    "in_reply_to": {
+      "oneOf": [
+        {
+          "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "message_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "recipient_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "schema": {
+      "const": "agent-message/6.0"
+    },
+    "sender_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "subject_sha256": {
+      "oneOf": [
+        {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "subject_uri": {
+      "oneOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "summary": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "task_id": {
+      "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$",
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "ACK",
+        "PROGRESS",
+        "QUESTION",
+        "BLOCKER",
+        "HANDOFF",
+        "RESULT",
+        "CANCEL_ACK"
+      ]
+    }
+  },
+  "required": [
+    "schema",
+    "message_id",
+    "task_id",
+    "batch",
+    "sender_id",
+    "recipient_id",
+    "in_reply_to",
+    "type",
+    "summary",
+    "evidence",
+    "at",
+    "subject_uri",
+    "subject_sha256"
+  ],
+  "title": "v6-agent-message",
+  "type": "object"
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_VISUAL_PROP_BACKPACK_B1_RESULT_1",
+  "expected_revision": 252,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_PROP_BACKPACK_B1_RESULT_1",
+    "task_id": "TASK_5975d46bd5020b778eaa0b5b",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_3c5f6f0a507eea0657f20785",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_VISUAL_PROP_BACKPACK_B1_DIGEST_CORRECTION",
+    "type": "RESULT",
+    "summary": "PROP_BACKPACK visual prompt candidate STATIC_VALID; corrected input digest matches frozen state; media NOT_RUN.",
+    "evidence": [
+      "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/candidate-result.json",
+      "runtime/v6/host-messages/full-visual-prop-backpack-b1-candidate-ready.txt",
+      "runtime/v6/host-messages/full-visual-prop-backpack-b1-result-final.txt"
+    ],
+    "at": "2026-09-25T15:21:25.231138Z",
+    "subject_uri": "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/candidate-result.json",
+    "subject_sha256": "5249f209f806bfa9e2eb2c4be1a9e2f6ff781e8e823f59485c0d471977d8790d"
+  }
+}

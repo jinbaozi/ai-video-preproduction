@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_SCREENPLAY_B1_PRIOR_REFERENCE_1",
+  "expected_revision": 166,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_SCREENPLAY_B1_PRIOR_REFERENCE_1",
+    "task_id": "TASK_206f1e43fe2d38c84f3fcb2c",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_89ee5d36eed7d88d30b16458",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Old screenplay read-only reference; bind current formal Canon and module",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-screenplay-b1-prior-reference.txt"
+    ],
+    "at": "2026-09-25T14:01:43.387098Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-screenplay-b1-prior-reference.txt",
+    "subject_sha256": "320635c56e1ae92c50d1ff92694e398a61d144c0bbc9ce9ac46ad8763fefa96a"
+  }
+}

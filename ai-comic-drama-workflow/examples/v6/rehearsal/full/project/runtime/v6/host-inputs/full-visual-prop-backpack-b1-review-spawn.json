@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_VISUAL_PROP_BACKPACK_B1_REVIEW_SPAWN",
+  "expected_revision": 261,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_5975d46bd5020b778eaa0b5b",
+    "batch": 1,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "review-823713548349265db78da7b9",
+    "action_id": "review-823713548349265db78da7b9",
+    "tool_result_uri": "runtime/v6/host-evidence/244ef99d83e8ab7a2840abe3bb211150cf66504d82a9ef508f7fdf3fdbbddde0.json",
+    "tool_result_sha256": "244ef99d83e8ab7a2840abe3bb211150cf66504d82a9ef508f7fdf3fdbbddde0",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_4d56a993103fabdf7afa6223",
+    "task_digest": "775d9e6fb1c0d18f9d470e0723891bf4d3ce0ac3c2ec023a45343adf7a0559d9",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T15:23:19.800420Z",
+    "observed_at": "2026-09-25T15:23:19.800420Z",
+    "result_uri": null,
+    "error": null
+  }
+}

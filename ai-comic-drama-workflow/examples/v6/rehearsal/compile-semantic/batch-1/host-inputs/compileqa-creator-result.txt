@@ -1,0 +1,2 @@
+已完成独立 compile_review 候选，结论为 FAIL：AVIR 镜头终态仍标记信件可见，但 12 秒时间轨、源分镜及正文均表明信已入包且不可见。此前的机位坐标冲突已修复；模型提交、媒体质量和后期音频仍未执行。
+候选结果 runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/candidate-result.json，SHA-256 f29d28558a5473de7df24c44dc52bb99b7f4952a5b5f496c73f6256a7320bee9；逐项证据 runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json。V5、V6 协议校验通过。未提交正式状态转移。

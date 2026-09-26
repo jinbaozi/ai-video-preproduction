@@ -1,0 +1,53 @@
+{
+  "agent_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+  "batch": 1,
+  "dispatch_id": "dispatch-e4b0c6da80911dcda638f633",
+  "external_media_submissions": 0,
+  "formal_state_mutated_by_creator": false,
+  "frozen_files": [
+    {
+      "sha256": "240ee2ee6b82d3d20140db6b6d53fe8ff2ce485dce39ffdc8fa6d7925277ad1b",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-config.json"
+    },
+    {
+      "sha256": "de845e5e4f52434edcd4c2a87252be51097e7b0d887eb141972dee146e272965",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-source.json"
+    },
+    {
+      "sha256": "f1a0053e903e891c3b2255a642c30fc634c69e7e02078df0675bb293d0fcffe8",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/package-manifest.json"
+    },
+    {
+      "sha256": "71e5562885e5ff44fcd5a6670f60828a55c1ca7870d8bf1a62b822e0284a040e",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/adapter-report.json"
+    },
+    {
+      "sha256": "130fdf5c3b3310b1254b56996b840ac7f1d2e66da0bbbe51d376d04a9c127aa4",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/source-integrity.json"
+    },
+    {
+      "sha256": "6d9a8df7db9d5c637e8abfb4f99c0ef0248633afd54418e80eed8cbd0fbc0866",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/topdown-source-plan.json"
+    },
+    {
+      "sha256": "ad0c742102f83fee22ee8da73c8e9880b31393a1cdc59ffdfa11bd51163b421e",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/topdown-review.svg"
+    },
+    {
+      "sha256": "bb720e786f834d68b021f25c17c4e1917c11a1f86f375ced9a13bdb68c630ecf",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-projection-blocker.json"
+    },
+    {
+      "sha256": "bdd4ecfe340996088a3d17c0c1752084da435e4e7607f6054563170d6b839a95",
+      "uri": "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/semantic-review-rebase-blocker.json"
+    }
+  ],
+  "message_type": "CANCEL_ACK",
+  "paid_image_calls": 0,
+  "paid_video_calls": 0,
+  "reason": "Upstream V5 snapshot provenance rebasing invalidated hash-bound Director/Storyboard semantic reviews. The accepted upstream must be made STALE and re-reviewed before this control candidate can be accepted.",
+  "result_submitted": false,
+  "schema": "creator-cancel-ack/1.0",
+  "status": "CANCEL_ACK_FOR_UPSTREAM_STALE",
+  "task_id": "TASK_60ca76854c7350d8a40f1c72"
+}

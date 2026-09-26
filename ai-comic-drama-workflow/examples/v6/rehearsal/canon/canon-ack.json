@@ -1,0 +1,21 @@
+{
+  "command_id": "CANON_ACK_COMMAND_1",
+  "expected_revision": 8,
+  "message": {
+    "at": "2026-09-25T10:14:10.446838Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_0e0c8a4ca94c8ffdbb7e14ae.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "CANON_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Creator reported reading the frozen envelope and source and began a source-bound Canon.",
+    "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+    "type": "ACK"
+  }
+}

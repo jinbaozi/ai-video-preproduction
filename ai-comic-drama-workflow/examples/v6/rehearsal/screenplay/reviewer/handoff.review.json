@@ -1,0 +1,67 @@
+{
+  "candidate_and_role_handoff_tuples_match_frozen": true,
+  "canon_dependency_state": "ACCEPTED",
+  "canon_version": 12,
+  "check": "handoff",
+  "compiled_handoff_fingerprints_match": true,
+  "compiled_handoff_requirement_count": 6,
+  "creator_evidence_read": [
+    {
+      "sha256": "56af1a96c2313b7e21e99bdb4e7d824dab9b6b303ea7dffa238c430c5af9138e",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff.json"
+    },
+    {
+      "sha256": "73cf13c7b8d8646f84485c362890e8512cfb58d6218682189ccb8a3cf7391007",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/evidence/handoff-check.json"
+    }
+  ],
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "finding": "All three Canon hard requirements and their event order map to the ScriptIR body and blocking contract; the V6 binding and compiled director handoff are current.",
+  "formal_canon_json_equal_to_frozen": true,
+  "formal_canon_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+  "frozen_canon_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+  "mapped_requirements": [
+    {
+      "source_id": "REQ_RAIN_NIGHT",
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/blocks/0/text"
+      ],
+      "target_pointers_resolve": true
+    },
+    {
+      "source_id": "REQ_SINGLE_LETTER",
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text",
+        "/scenes/0/blocks/3/text"
+      ],
+      "target_pointers_resolve": true
+    },
+    {
+      "source_id": "REQ_ACTION_ORDER",
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/narrative/events",
+        "/narrative/reveal_order"
+      ],
+      "target_pointers_resolve": true
+    }
+  ],
+  "method": "Compared the frozen V6 handoff tuple with CandidateResult and RoleResult, checked accepted Canon version and byte/content bindings, resolved all Canon-to-ScriptIR pointers, and recomputed all six compiled director-handoff source fingerprints.",
+  "requirement_id": "UP_814da7eff2542914498c917f",
+  "reviewed_at": "2026-09-25T10:42:19.667253Z",
+  "source_slot": "canon:project:project:Canon",
+  "source_version": 12,
+  "status": "PASS",
+  "target_pointer": "",
+  "target_slot": "screenplay:project:project:ScriptIR"
+}

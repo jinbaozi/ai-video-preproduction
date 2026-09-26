@@ -1,0 +1,1 @@
+PROGRESS: Frozen StoryboardIR v12 and frozen task hashes match; all 20 listed resource hashes match. I have read the Control Skill and current/cooperation/shot-control contracts, and am checking the current StoryboardIR against the prior diagnostic before constructing the fresh candidate.

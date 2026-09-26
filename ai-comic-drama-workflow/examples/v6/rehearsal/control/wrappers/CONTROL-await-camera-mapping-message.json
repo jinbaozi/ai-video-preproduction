@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_AWAIT_CAMERA_MAPPING_COMMAND_1",
+  "expected_revision": 180,
+  "message": {
+    "at": "2026-09-25T13:32:29.408317Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-await-camera-mapping.txt"
+    ],
+    "in_reply_to": "CONTROL_CAMERA_DERIVATION_PROOF_1",
+    "message_id": "CONTROL_AWAIT_CAMERA_MAPPING_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "5848bc229391f8be730ff7c02f5047717a347c93c79c724dd36484d0b6ca01b3",
+    "subject_uri": "runtime/v6/host-inputs/control-await-camera-mapping.txt",
+    "summary": "Creator holds same RUNNING batch and will regenerate verified pack after deterministic N_CAMERA mapping; 121/121 frame gap bars current PASS.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "PROGRESS"
+  }
+}

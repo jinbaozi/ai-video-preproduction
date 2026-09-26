@@ -1,0 +1,14 @@
+{
+  "batch": 1,
+  "candidate_digest": "4f393594c40d0baa7d5851172b0619c64e11e09f8bb7f85184fa1004b60f6533",
+  "check_evidence": [
+    "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/module-receipt.json"
+  ],
+  "code": "VALUEERROR",
+  "failed_check": "module_receipt",
+  "message": "Graph-only candidate must not claim a native RoleResult",
+  "node_id": "compile",
+  "reviewer_failure_owner": null,
+  "submission_digest": "4f393594c40d0baa7d5851172b0619c64e11e09f8bb7f85184fa1004b60f6533",
+  "task_id": "V6_compile_6d907d52041427c68f2a"
+}

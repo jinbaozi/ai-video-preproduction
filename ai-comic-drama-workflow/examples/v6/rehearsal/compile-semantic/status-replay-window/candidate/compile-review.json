@@ -1,0 +1,116 @@
+{
+  "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "equivalent": true,
+  "finding": "源文、StoryboardIR、当前 AVIR、逐段正文与 17 条硬要求在静态制作语义上一致；信件终态可见性旧缺陷已关闭。媒体与后期义务仍待真实执行。",
+  "hard_clauses": [
+    {
+      "finding": "源文雨夜进入场景与正文；未指定具体地点、年代或室内外。",
+      "id": "SB_A_RAIN"
+    },
+    {
+      "finding": "AVIR 唯一 PROP_LETTER；正文锁定同一封未拆且完整封口的信。",
+      "id": "SB_A_SINGLE_LETTER"
+    },
+    {
+      "finding": "交接在 0.5–4 秒，验封在 4.5–7.5 秒，收存从 8 秒开始。",
+      "id": "SB_A_ORDER"
+    },
+    {
+      "finding": "10.5 秒信入同一背包，12 秒仅保持结果；无后续剧情。",
+      "id": "SB_A_ENDING"
+    },
+    {
+      "finding": "P_GRIP、P_SEAL、P_STOWED 均有相应动作和计划画格。",
+      "id": "SB_A_EVENTS"
+    },
+    {
+      "finding": "交接控制权、完整封口、入包证据按 84、144、252 帧展开。",
+      "id": "SB_A_REVEAL"
+    },
+    {
+      "finding": "甲乙、唯一信、同一背包和雨夜连续性作为制作约束；参考未生成或审图。",
+      "id": "SB_A_ASSET_LOCKS"
+    },
+    {
+      "finding": "正文保留雨夜且未增补具体地点或室内外事实。",
+      "id": "SB_D_RAIN"
+    },
+    {
+      "finding": "同一信从甲右手转乙右手，最终进入同一背包；封口未拆。",
+      "id": "SB_D_SINGLE_LETTER"
+    },
+    {
+      "finding": "ACT_RELEASE 在 ACT_CONFIRM_SEAL 前，后者在 ACT_STOW 前。",
+      "id": "SB_D_ACTION_ORDER"
+    },
+    {
+      "finding": "终态为信在背包内，镜头只保持结果。",
+      "id": "SB_D_ENDING"
+    },
+    {
+      "finding": "三项原故事事件各有动作和反馈；未增加对白或后续事件。",
+      "id": "SB_D_EVENTS"
+    },
+    {
+      "finding": "P_RELEASE 84 帧、P_SEAL 144 帧、P_STOWED 252 帧与正文顺序相同。",
+      "id": "SB_D_REVEAL_ORDER"
+    },
+    {
+      "finding": "固定机位 [0,1.2,-2.8] 与正文起止机位一致，位于负 Z 同侧。",
+      "id": "SB_FIXED_AXIS"
+    },
+    {
+      "finding": "2.5 秒双右手共同接触而甲仍控制；3.5 秒乙独占，早于验封。",
+      "id": "SB_CONTACT_CONTROL"
+    },
+    {
+      "finding": "验封时封口、乙眼部和右手规划为可读；真实媒体尚未验证。",
+      "id": "SB_SEAL_VISIBILITY"
+    },
+    {
+      "finding": "无真实参考或媒体执行；雨声和媒体义务仍为后期 PLANNED。",
+      "id": "SB_MEDIA_BOUNDARY"
+    }
+  ],
+  "other_boundaries": {
+    "compiled_status": "COMPILED",
+    "media_qa": "NOT_RUN",
+    "post_obligations": [
+      {
+        "id": "AUD_RAIN",
+        "status": "PLANNED"
+      },
+      {
+        "id": "SB_MEDIA_BOUNDARY",
+        "status": "PLANNED"
+      }
+    ],
+    "runnable": false,
+    "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+    "submitted": false,
+    "target": "seedance2.0",
+    "transport": "unresolved"
+  },
+  "prior_defect": {
+    "current_avir_end_visible_parts": [],
+    "current_timeline_end_visible_parts": [],
+    "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+    "old_build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+    "old_end_visible_parts": [
+      "body",
+      "prop"
+    ],
+    "old_review_sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60",
+    "old_review_uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json",
+    "source_storyboard_end_visible_parts": [],
+    "status": "CLOSED_IN_CURRENT_BUILD"
+  },
+  "project_id": "LETTER_DEMO",
+  "review_scope": "static preproduction compile semantics",
+  "source_evidence": {
+    "compile_manifest_sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+    "compile_manifest_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json",
+    "semantic_evidence_sha256": "f70d30c135df5bdaf1e9e7e0ed15fa8b35db5a2a63ae8a2485382f96d378fe77",
+    "semantic_evidence_uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/compile-semantics.evidence.json"
+  }
+}

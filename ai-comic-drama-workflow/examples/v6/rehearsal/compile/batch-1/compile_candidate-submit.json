@@ -1,0 +1,89 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_28e4632f6a12c66dc9ad12ef",
+    "artifacts": [
+      {
+        "kind": "AVIR",
+        "sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+        "slot": "compile:project:project:AVIR",
+        "uri": "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/avir.json"
+      },
+      {
+        "kind": "CompilePackage",
+        "sha256": "7d94cc477348512e0031f4b656ec0a475dfd339056db9a591dba7e59827360c5",
+        "slot": "compile:project:project:CompilePackage",
+        "uri": "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/compile-manifest.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/evidence/native-validator.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/evidence/compile-manifest.json"
+        ],
+        "id": "compile_manifest",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/evidence/handoff.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/evidence/handoff.json"
+        ],
+        "requirement_id": "UP_4cec2dda99dca78ed5c62a1d",
+        "source_slot": "storyboard:project:project:StoryboardIR",
+        "source_version": 17,
+        "target_pointer": "",
+        "target_slot": "compile:project:project:AVIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/evidence/handoff.json"
+        ],
+        "requirement_id": "UP_837d6b88cfc176ea031d6610",
+        "source_slot": "control:project:project:ShotControlPack",
+        "source_version": 16,
+        "target_pointer": "",
+        "target_slot": "compile:project:project:AVIR"
+      }
+    ],
+    "input_digest": "190df47fbcae9912618be99925fc2b345aa519ebc59f5ee409942b9abb96e9d7",
+    "module_receipts": [
+      {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      }
+    ],
+    "result_sha256": null,
+    "result_uri": null,
+    "schema": "candidate-result/6.0",
+    "task_id": "V6_compile_8cb5698095d1a70e0b6b",
+    "unresolved": []
+  },
+  "command_id": "COMPILE_CANDIDATE_SUBMIT_1",
+  "expected_revision": 329
+}

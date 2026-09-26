@@ -1,0 +1,1 @@
+ACK `TASK_4064ef49778d32687a4dde42` batch 1: read frozen host action `reviewfix-control-action.json`; I own only its candidate directory. Verifying every frozen input and locked resource now. Formal subject: host action path.

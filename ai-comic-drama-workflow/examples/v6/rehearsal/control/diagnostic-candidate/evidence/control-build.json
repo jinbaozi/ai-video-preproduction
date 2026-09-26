@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/control_cli.py",
+    "build",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-source.json",
+    "--config",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-config.json",
+    "--out",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack"
+  ],
+  "exit_code": 1,
+  "interpretation": "BLOCKED: diagnostic only; no control package exists and no native PASS is claimed",
+  "stderr": "{\"status\": \"ERROR\", \"message\": \"Invalid native AVIR: [{'code': 'E_CONTRACT', 'path': '/beats/0/id', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/beats/1/id', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/beats/2/id', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/shots/0/camera/axis_side', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/shots/0/camera/end_m', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/shots/0/panels/1/id', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/shots/0/panels/2/id', 'message': '合同断言失败', 'severity': 'error'}, {'code': 'E_CONTRACT', 'path': '/shots/0/panels/3/id', 'message': '合同断言失败', 'severity': 'error'}]\"}\n",
+  "stdout": ""
+}

@@ -1,0 +1,9 @@
+{
+  "command": "locked scripts/control_cli.py build native-av-ir.json --config control-config.json --out control-pack",
+  "execution": "NOT_RUN",
+  "keyframe_requests": 14,
+  "manifest_sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+  "projection_unresolved_frames": 0,
+  "status": "DERIVED",
+  "video_generated": false
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILE_REVIEW_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 336,
+  "message": {
+    "at": "2026-09-25T14:59:56.497101Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/compile-reviewer-report.txt"
+    ],
+    "in_reply_to": "COMPILE_REVIEW_FAIL_GUIDANCE_1",
+    "message_id": "COMPILE_REVIEW_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_d3bca74dcb23c2e155eb4d64",
+    "subject_sha256": "ece56a5e41653a5fe3e4a0c1b66acaa4a88406a8062086f3713ccc6781de1cb4",
+    "subject_uri": "runtime/v6/host-inputs/compile-reviewer-report.txt",
+    "summary": "独审 compile_manifest FAIL、failure_owner=director：正文两组世界机位坐标不等价；native/hash PASS 不消除此语义矛盾。",
+    "task_id": "V6_compile_8cb5698095d1a70e0b6b",
+    "type": "HANDOFF"
+  }
+}

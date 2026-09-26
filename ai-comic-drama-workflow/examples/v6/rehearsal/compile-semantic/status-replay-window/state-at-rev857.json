@@ -1,0 +1,489 @@
+{
+  "source": "runtime/v6/state.json",
+  "revision": 857,
+  "source_sha256": "9a06e07ec6837a4671f0565f260227fcf2a83d80f5a57ae4de317f729ab0746c",
+  "tasks": {
+    "TASK_6cac2b25585760d16bce096d": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+        "artifacts": [
+          {
+            "kind": "CompileReview",
+            "sha256": "39918409ba98e131b8befbbee30613188c976190f7eacfc968feaefd88919fab",
+            "slot": "compile_review:project:project:CompileReview",
+            "uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/compile-review.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/module-receipt.evidence.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/compile-semantics.evidence.json",
+              "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/avir-validator.stdout.json",
+              "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/build-verify.stdout.json"
+            ],
+            "id": "compile_semantics",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "c9dd9f9475e8ae59db2eb38541ba485312542357fd7bf7ed9908eaa982f622b8",
+        "module_receipts": [
+          {
+            "name": "video-prompt-compiler",
+            "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+            "version": "1.17.6"
+          }
+        ],
+        "result_sha256": "49cf83cea2b906a7b92c7e5ab5de134d8d30484e3549e66fe0129996484a1c0c",
+        "result_uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_6cac2b25585760d16bce096d",
+        "unresolved": []
+      },
+      "envelope": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_compile_297e4d54680b970deaed"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "CompileReview",
+            "slot": "compile_review:project:project:CompileReview",
+            "uri_prefix": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "c9dd9f9475e8ae59db2eb38541ba485312542357fd7bf7ed9908eaa982f622b8",
+        "input_revision": 844,
+        "inputs": [
+          {
+            "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+            "slot": "compile:project:project:AVIR",
+            "uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json",
+            "version": 16
+          },
+          {
+            "sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+            "slot": "compile:project:project:CompilePackage",
+            "uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json",
+            "version": 16
+          },
+          {
+            "sha256": "04f9698d6fc72703837c3eea510195caf691daff09f424e49ee85ad0e4280c24",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_6cac2b25585760d16bce096d.json",
+            "version": 0
+          }
+        ],
+        "module": {
+          "name": "video-prompt-compiler",
+          "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+          "version": "1.17.6"
+        },
+        "node_id": "compile_review",
+        "project_id": "LETTER_DEMO",
+        "resources": [
+          {
+            "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+          },
+          {
+            "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+          },
+          {
+            "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+          },
+          {
+            "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md"
+          },
+          {
+            "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md"
+          },
+          {
+            "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+          },
+          {
+            "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc",
+            "uri": "runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py"
+          },
+          {
+            "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2",
+            "uri": "runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py"
+          },
+          {
+            "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0",
+            "uri": "runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py"
+          },
+          {
+            "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae",
+            "uri": "runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py"
+          },
+          {
+            "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+            "uri": "runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py"
+          },
+          {
+            "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+            "uri": "runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py"
+          },
+          {
+            "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343",
+            "uri": "runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py"
+          },
+          {
+            "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0",
+            "uri": "runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py"
+          },
+          {
+            "sha256": "b94ea57c76a30b2437a013546f62874ec31fd8b3814c87b306e318ddd04033f0",
+            "uri": "runtime/v6/runtime-resources/b94ea57c76a30b2437a013546f62874ec31fd8b3814c87b306e318ddd04033f0/v6_runtime.py"
+          },
+          {
+            "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2",
+            "uri": "runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py"
+          },
+          {
+            "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b",
+            "uri": "runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py"
+          },
+          {
+            "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11",
+            "uri": "runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py"
+          },
+          {
+            "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da",
+            "uri": "runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py"
+          },
+          {
+            "sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+            "uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py"
+          },
+          {
+            "sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+            "uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py"
+          }
+        ],
+        "role": "compiler_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_6cac2b25585760d16bce096d",
+        "validators": [
+          {
+            "id": "module_receipt",
+            "kind": "hash"
+          },
+          {
+            "id": "compile_semantics",
+            "kind": "manual"
+          }
+        ]
+      },
+      "evidence_hashes": {
+        "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/avir-validator.stdout.json": "092408d23984369a3bd563b100bba620253307eb70a3ad218399e68e9033e92c",
+        "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/build-verify.stdout.json": "fdfd69cde7c88da0c75fff3fdbfc55c249878c4ae813746e7ec38f67af04c6bb",
+        "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/compile-semantics.evidence.json": "f70d30c135df5bdaf1e9e7e0ed15fa8b35db5a2a63ae8a2485382f96d378fe77",
+        "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/module-receipt.evidence.json": "6cd8ac940074ae521c9b91623cb71bd317127660c29f4304fe7b0b8ee8ca2246"
+      },
+      "failure_counts": {},
+      "history": [],
+      "messages": [
+        {
+          "at": "2026-09-25T18:37:04.467559Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/host-inputs/reviewfix-compile-semantic-ack-1.txt"
+          ],
+          "in_reply_to": null,
+          "message_id": "REVIEWFIX-COMPILE-SEMANTIC-ACK_ACK_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+          "subject_sha256": null,
+          "subject_uri": null,
+          "summary": "Compile semantic reviewer accepted frozen task/batch and will verify inputs/resources and 17 clauses in its own candidate directory.",
+          "task_id": "TASK_6cac2b25585760d16bce096d",
+          "type": "ACK"
+        },
+        {
+          "at": "2026-09-25T18:37:35.193732Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/host-inputs/reviewfix-compile-semantic-progress-1.txt"
+          ],
+          "in_reply_to": "REVIEWFIX-COMPILE-SEMANTIC-ACK_ACK_1",
+          "message_id": "REVIEWFIX-COMPILE-SEMANTIC-PROGRESS_PROGRESS_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+          "subject_sha256": null,
+          "subject_uri": null,
+          "summary": "Semantic reviewer verified 3 frozen inputs and 21 locked resources, checking exact accepted build, storyboard/AVIR/text, post obligations and historical visibility defect.",
+          "task_id": "TASK_6cac2b25585760d16bce096d",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T18:40:14.358951Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/candidate-result.json",
+            "runtime/v6/host-inputs/reviewfix-compile-semantic-result-1.txt"
+          ],
+          "in_reply_to": "REVIEWFIX-COMPILE-SEMANTIC-PROGRESS_PROGRESS_1",
+          "message_id": "REVIEWFIX-COMPILE-SEMANTIC-RESULT_RESULT_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+          "subject_sha256": "aa56dabbf7ea1a5c26364aa00c194585c6a52670a88d0edbb50bbd1c87eb61fa",
+          "subject_uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/candidate-result.json",
+          "summary": "Semantic CompileReview candidate: 17 hard clauses individually PASS, native AVIR VALID and package VERIFIED, historical visibility conflict closed statically; media NOT_RUN.",
+          "task_id": "TASK_6cac2b25585760d16bce096d",
+          "type": "RESULT"
+        }
+      ],
+      "receipt": {
+        "action_id": "dispatch-e6f4239baff8a457126610ec",
+        "agent_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+        "batch": 1,
+        "dispatch_id": "dispatch-e6f4239baff8a457126610ec",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T18:36:49.958899Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T18:36:49.958899Z",
+        "status": "RUNNING",
+        "task_digest": "17163ff1aa3ec9f916e0598c6e843e4c16549ed4a38ac3e569709fd9b2c5cdc8",
+        "task_id": "TASK_6cac2b25585760d16bce096d",
+        "tool_result_sha256": "99bcb81a7cd3b823ade6fcc5fb6b44c4417c57d85f0f19239fa65465beaff2a7",
+        "tool_result_uri": "runtime/v6/host-evidence/99bcb81a7cd3b823ade6fcc5fb6b44c4417c57d85f0f19239fa65465beaff2a7.json"
+      },
+      "receipt_history": [
+        {
+          "action_id": "dispatch-e6f4239baff8a457126610ec",
+          "agent_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+          "batch": 1,
+          "dispatch_id": "dispatch-e6f4239baff8a457126610ec",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T18:36:49.958899Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T18:36:49.958899Z",
+          "status": "RUNNING",
+          "task_digest": "17163ff1aa3ec9f916e0598c6e843e4c16549ed4a38ac3e569709fd9b2c5cdc8",
+          "task_id": "TASK_6cac2b25585760d16bce096d",
+          "tool_result_sha256": "99bcb81a7cd3b823ade6fcc5fb6b44c4417c57d85f0f19239fa65465beaff2a7",
+          "tool_result_uri": "runtime/v6/host-evidence/99bcb81a7cd3b823ade6fcc5fb6b44c4417c57d85f0f19239fa65465beaff2a7.json"
+        }
+      ],
+      "review": null,
+      "review_dispatch": null,
+      "state": "ACCEPTED",
+      "validation": [
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/module-receipt.evidence.json"
+          ],
+          "id": "module_receipt",
+          "status": "PASS"
+        },
+        {
+          "evidence": [
+            "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/compile-semantics.evidence.json",
+            "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/avir-validator.stdout.json",
+            "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/build-verify.stdout.json"
+          ],
+          "id": "compile_semantics",
+          "status": "PASS"
+        }
+      ],
+      "version": 9
+    },
+    "TASK_b093572942cdfdfa08f184e7": {
+      "candidate": null,
+      "envelope": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_compile_297e4d54680b970deaed"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "CompileReview",
+            "slot": "compile_review:project:project:CompileReview",
+            "uri_prefix": "runtime/v6/candidates/TASK_b093572942cdfdfa08f184e7/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "7222801d0beeaaff2e6f083274c0feb846276eeb057445fea3adf90cfab4741a",
+        "input_revision": 854,
+        "inputs": [
+          {
+            "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+            "slot": "compile:project:project:AVIR",
+            "uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json",
+            "version": 16
+          },
+          {
+            "sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+            "slot": "compile:project:project:CompilePackage",
+            "uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json",
+            "version": 16
+          },
+          {
+            "sha256": "b0393173117cb470a8affd12509b71db142342bfb28ddfb09ef163ad14346792",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_b093572942cdfdfa08f184e7.json",
+            "version": 0
+          }
+        ],
+        "module": {
+          "name": "video-prompt-compiler",
+          "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+          "version": "1.17.6"
+        },
+        "node_id": "compile_review",
+        "project_id": "LETTER_DEMO",
+        "resources": [
+          {
+            "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+          },
+          {
+            "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+          },
+          {
+            "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+          },
+          {
+            "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md"
+          },
+          {
+            "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md"
+          },
+          {
+            "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+          },
+          {
+            "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc",
+            "uri": "runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py"
+          },
+          {
+            "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2",
+            "uri": "runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py"
+          },
+          {
+            "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0",
+            "uri": "runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py"
+          },
+          {
+            "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae",
+            "uri": "runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py"
+          },
+          {
+            "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+            "uri": "runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py"
+          },
+          {
+            "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+            "uri": "runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py"
+          },
+          {
+            "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343",
+            "uri": "runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py"
+          },
+          {
+            "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0",
+            "uri": "runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py"
+          },
+          {
+            "sha256": "b94ea57c76a30b2437a013546f62874ec31fd8b3814c87b306e318ddd04033f0",
+            "uri": "runtime/v6/runtime-resources/b94ea57c76a30b2437a013546f62874ec31fd8b3814c87b306e318ddd04033f0/v6_runtime.py"
+          },
+          {
+            "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2",
+            "uri": "runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py"
+          },
+          {
+            "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b",
+            "uri": "runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py"
+          },
+          {
+            "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11",
+            "uri": "runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py"
+          },
+          {
+            "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da",
+            "uri": "runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py"
+          },
+          {
+            "sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+            "uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py"
+          },
+          {
+            "sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+            "uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py"
+          }
+        ],
+        "role": "compiler_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_b093572942cdfdfa08f184e7",
+        "validators": [
+          {
+            "id": "module_receipt",
+            "kind": "hash"
+          },
+          {
+            "id": "compile_semantics",
+            "kind": "manual"
+          }
+        ]
+      },
+      "evidence_hashes": {},
+      "failure_counts": {},
+      "history": [],
+      "messages": [],
+      "receipt": null,
+      "receipt_history": [],
+      "review": null,
+      "review_dispatch": null,
+      "state": "DISPATCHING",
+      "validation": [],
+      "version": 2
+    }
+  }
+}

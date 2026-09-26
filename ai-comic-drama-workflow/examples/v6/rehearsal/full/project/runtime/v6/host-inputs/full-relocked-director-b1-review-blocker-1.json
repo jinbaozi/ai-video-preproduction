@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_BLOCKER_1",
+  "expected_revision": 188,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_BLOCKER_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_409b607d1ac2769916e7252e",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "BLOCKER",
+    "summary": "Terminal end_framing contradicts hidden letter state; director repair required",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-director-b1-review-blocker.txt"
+    ],
+    "at": "2026-09-25T14:29:28.672287Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-director-b1-review-blocker.txt",
+    "subject_sha256": "52c480250a6633ba8b2404f99f77a9a3ac67e7c70efb1347f4c426542e75bd8d"
+  }
+}

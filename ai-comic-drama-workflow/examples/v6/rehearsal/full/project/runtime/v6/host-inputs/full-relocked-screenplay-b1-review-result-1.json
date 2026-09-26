@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_RELOCKED_SCREENPLAY_B1_REVIEW_RESULT_1",
+  "expected_revision": 176,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_SCREENPLAY_B1_REVIEW_RESULT_1",
+    "task_id": "TASK_206f1e43fe2d38c84f3fcb2c",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_0a3e7de03e6af972fb4ce021",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "RESULT",
+    "summary": "Independent screenplay review passes module, native, and handoff checks",
+    "evidence": [
+      "runtime/v6/reviews/TASK_206f1e43fe2d38c84f3fcb2c/1/review-record.json",
+      "runtime/v6/host-messages/full-relocked-screenplay-b1-review-result-actual.txt",
+      "runtime/v6/reviews/TASK_206f1e43fe2d38c84f3fcb2c/1/reviewer-result-message.txt"
+    ],
+    "at": "2026-09-25T14:15:33.134671Z",
+    "subject_uri": "runtime/v6/reviews/TASK_206f1e43fe2d38c84f3fcb2c/1/review-record.json",
+    "subject_sha256": "a59cf4c2cb3f71f1ea4fb75800cf91563ff7bb46c1ab9d791008edce1f3725b9"
+  }
+}

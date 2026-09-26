@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 
 from ..production import channel_registry
+from ..transactions import transaction
 
 
 class AgnesApiExecutor:
@@ -19,6 +20,10 @@ class AgnesApiExecutor:
                       if r['model'] == payload['model'] and r['mode'] == payload['mode'] and r['surface'] == 'API'), None)
         if route is None:
             raise ValueError('Unregistered Agnes route')
+        if job.get('route') != route['entry']:
+            raise ValueError('Frozen execution route differs from registered Agnes route')
+        if self.ledger.strict and getattr(self.transport, 'base', '').rstrip('/') + '/videos' != route['entry']:
+            raise ValueError('Transport endpoint differs from frozen execution route')
         if not route.get('probe_passed'):
             # Documented routes may be attempted; quality_validated stays false until an experiment passes.
             pass
@@ -39,15 +44,18 @@ class AgnesApiExecutor:
                 raise ValueError('Attachment URL bytes do not match the frozen hash')
         return {'status': 'PREFLIGHT_OK', 'route': route['entry']}
 
-    def execute(self, job_id, dest):
+    def execute(self, job_id, dest, *, on_started=None):
         key = os.environ.get(self.key_env)
         if not key:
             raise ValueError(self.key_env + ' is required')
         job = self.ledger._load('jobs/' + job_id + '.json')
         self.preflight(job)
-        started = self.ledger.begin_submit(job_id, automatic=True)
-        if started.get('status') == 'BLOCKED_BUDGET':
-            return started
+        with transaction(self.ledger.kernel.root):
+            started = self.ledger.begin_submit(job_id, automatic=True)
+            if started.get('status') == 'BLOCKED_BUDGET':
+                return started
+            if on_started is not None:
+                on_started(started)
         try:
             task_id = self.transport.submit(job['payload'], key)
         except Exception as exc:
@@ -61,8 +69,11 @@ class AgnesApiExecutor:
             remote = self.transport.poll(task_id, key, model=job['payload'].get('model'))
             self.transport.download(remote, dest)
         except Exception as exc:
-            self.ledger.mark_failed(started['id'], str(exc))
-            return {'status': 'FAILED', 'record_id': started['id']}
+            if str(exc).startswith('Agnes task failed:'):
+                self.ledger.mark_failed(started['id'], str(exc))
+                return {'status': 'FAILED', 'record_id': started['id']}
+            self.ledger.mark_unknown(started['id'], 'submitted task requires recovery: ' + str(exc))
+            return {'status': 'UNKNOWN', 'resubmit': False, 'record_id': started['id']}
         probe = self.transport.probe(dest)
         take = self.ledger.save_take(job_id, started['id'], dest, probe, automatic=True)
         return {'status': 'SUCCEEDED', 'take': take, 'record_id': started['id']}
@@ -73,12 +84,22 @@ class AgnesApiExecutor:
         if not key:
             raise ValueError(self.key_env + ' is required')
         record = self.ledger._load('executions/' + record_id + '.json')
+        if record['state'] not in ('SUBMITTED', 'UNKNOWN'):
+            raise ValueError('Execution is not waiting for a submitted task')
         task_id = record.get('task_id')
         if not task_id:
             raise ValueError('No task id to resume')
         job = self.ledger._load('jobs/' + record['job_id'] + '.json')
-        remote = self.transport.poll(task_id, key, model=job['payload'].get('model'))
-        self.transport.download(remote, dest)
+        try:
+            remote = self.transport.poll(task_id, key, model=job['payload'].get('model'))
+            self.transport.download(remote, dest)
+        except Exception as exc:
+            if str(exc).startswith('Agnes task failed:'):
+                self.ledger.mark_failed(record_id, str(exc))
+                return {'status': 'FAILED', 'record_id': record_id}
+            if record['state'] == 'SUBMITTED':
+                self.ledger.mark_unknown(record_id, 'submitted task requires recovery: ' + str(exc))
+            return {'status': 'UNKNOWN', 'resubmit': False, 'record_id': record_id}
         probe = self.transport.probe(dest)
         take = self.ledger.save_take(record['job_id'], record_id, dest, probe, automatic=True)
         return {'status': 'SUCCEEDED', 'take': take, 'record_id': record_id}

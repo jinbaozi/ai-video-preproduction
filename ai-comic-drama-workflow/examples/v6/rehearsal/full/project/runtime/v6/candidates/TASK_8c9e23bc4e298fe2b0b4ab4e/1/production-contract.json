@@ -1,0 +1,457 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "TASK_8c9e23bc4e298fe2b0b4ab4e-PROP_LETTER-b1",
+  "versions": {
+    "skill": "1.15.7",
+    "compiler": "agent-icir-1.0",
+    "packs": [
+      "image-prompt-optimizer/1.15.7"
+    ]
+  },
+  "sources": [
+    {
+      "id": "ART",
+      "kind": "document",
+      "locator": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+      "excerpt": "ArtIR /assets/2、/world、/references/2：同一封中性偏暖哑面纸质信封，闭合折叠封口，跨三镜连续；8500毫秒后完全入包，9000毫秒终帧不外露；PLAN_PROP_LETTER 仍为 planned。",
+      "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+      "reviewed": true
+    },
+    {
+      "id": "TASK",
+      "kind": "document",
+      "locator": "runtime/tasks/TASK_8c9e23bc4e298fe2b0b4ab4e.json",
+      "excerpt": "冻结任务只允许 PROP_LETTER 范围的提示词表达，保留三项 identity_locks 与已批准的美术设计。",
+      "sha256": "8dd30228cb95534ec0f508643da3efcbce0335d3012ac2e7e72cceb09e524a4e",
+      "reviewed": true
+    },
+    {
+      "id": "DISPLAY",
+      "kind": "assumption",
+      "locator": "creator visual-expression decision for a static prop anchor",
+      "excerpt": "无标识中性承托面、单一略俯视视点、4:3 建议画幅，只用于清楚展示闭合封口，不替剧情增加事件。",
+      "sha256": null,
+      "reviewed": true
+    }
+  ],
+  "icir": {
+    "locale": "zh-CN",
+    "intent": "为同一封未拆信制作静态道具外观锚图，以便交接、验封和入包三镜保持材质与封口连续。",
+    "mode": "text_to_image",
+    "entities": [
+      {
+        "id": "PROP_LETTER",
+        "kind": "object",
+        "description": "PROP_LETTER：同一封普通纸质信封，中性偏暖哑面纸色与细微纸纹，闭合折叠封口；不固定具体尺寸、内容或来历。",
+        "source_ids": [
+          "ART",
+          "TASK"
+        ]
+      },
+      {
+        "id": "ENV_RAIN_NIGHT",
+        "kind": "scene_anchor",
+        "description": "雨夜低饱和蓝灰背景，低频无地标，不确立具体地点或室内外。",
+        "source_ids": [
+          "ART"
+        ]
+      }
+    ],
+    "references": [],
+    "frames": [
+      {
+        "id": "F_PROP_LETTER_ANCHOR",
+        "entity_ids": [
+          "PROP_LETTER",
+          "ENV_RAIN_NIGHT"
+        ],
+        "scene": "低饱和蓝灰的低频雨夜背景与无标识中性承托面；不指明具体地点、建筑、年代或室内外。",
+        "moment": "入包前的单一静态道具外观；不在本图演绎交接、验封或入包动作。",
+        "composition": "整封信与朝上的闭合折叠封口均完整入画，画面仅一封信，周围留低纹理净空。",
+        "camera": {
+          "viewpoint": "单一略俯视视点，观察闭合折叠封口",
+          "framing": "整封信完整入画的道具静态参考",
+          "equipment_intent": "无指定器材",
+          "derived_visual_intent": "可辨信封外形、纸纹和完整封口",
+          "focus_depth": "整封信与封口在清晰区，背景低频退后"
+        },
+        "performance": [],
+        "lighting": {
+          "key": "同一方向的柔和画外环境漫反射",
+          "exposure_intent": "封口与纸纹可辨，纸色和蓝灰背景分离"
+        },
+        "color": {
+          "palette": "低饱和蓝灰背景与中性偏暖纸色"
+        },
+        "quality": {
+          "realism": "可信的静态纸质道具外观",
+          "detail_budget": "聚焦纸材、连续折线、闭合封口与完整边缘"
+        },
+        "continuity": {
+          "invariants": [
+            "同一实体 PROP_LETTER 的纸色、轮廓、纸纹和封口形制跨 S_HANDOFF、S_SEAL、S_STOW 连续",
+            "封口从头至尾完整且未拆，不露内页",
+            "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+          ]
+        }
+      }
+    ],
+    "relations": [],
+    "texts": [],
+    "output": {
+      "aspect_ratio": "4:3",
+      "requested_pixels": null,
+      "delivered_pixels": null,
+      "native_resolution": "unknown",
+      "crop_safe_area": "整封信与封口不裁切",
+      "format": null
+    }
+  },
+  "facts": [
+    {
+      "path": "/icir/entities/0/description",
+      "value": "PROP_LETTER：同一封普通纸质信封，中性偏暖哑面纸色与细微纸纹，闭合折叠封口；不固定具体尺寸、内容或来历。",
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ],
+      "reason": "归一化 ArtIR 的 PROP_LETTER 外观及未知内容边界"
+    },
+    {
+      "path": "/icir/frames/0/scene",
+      "value": "低饱和蓝灰的低频雨夜背景与无标识中性承托面；不指明具体地点、建筑、年代或室内外。",
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "DISPLAY"
+      ],
+      "reason": "保留雨夜色材，承托面只用于道具展示，不推断地点"
+    },
+    {
+      "path": "/icir/frames/0/moment",
+      "value": "入包前的单一静态道具外观；不在本图演绎交接、验封或入包动作。",
+      "origin": "assumed",
+      "source_ids": [
+        "DISPLAY"
+      ],
+      "reason": "单幅道具参考图不能同时展示三镜先后动作"
+    },
+    {
+      "path": "/icir/frames/0/continuity/invariants",
+      "value": [
+        "同一实体 PROP_LETTER 的纸色、轮廓、纸纹和封口形制跨 S_HANDOFF、S_SEAL、S_STOW 连续",
+        "封口从头至尾完整且未拆，不露内页",
+        "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+      ],
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ],
+      "reason": "把三项冻结硬锁逐字映射到未来使用范围"
+    },
+    {
+      "path": "/icir/output/aspect_ratio",
+      "value": "4:3",
+      "origin": "assumed",
+      "source_ids": [
+        "DISPLAY"
+      ],
+      "reason": "仅作为道具全幅构图建议，不代表模型已执行或实际像素"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "H1",
+      "level": "hard",
+      "requirement": "同一实体及纸色、轮廓、纸纹和封口形制跨三镜连续",
+      "path": "/icir/frames/0/continuity/invariants",
+      "value": [
+        "同一实体 PROP_LETTER 的纸色、轮廓、纸纹和封口形制跨 S_HANDOFF、S_SEAL、S_STOW 连续",
+        "封口从头至尾完整且未拆，不露内页",
+        "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+      ],
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H2",
+      "level": "hard",
+      "requirement": "封口从头至尾完整未拆，不露内页",
+      "path": "/icir/frames/0/continuity/invariants",
+      "value": [
+        "同一实体 PROP_LETTER 的纸色、轮廓、纸纹和封口形制跨 S_HANDOFF、S_SEAL、S_STOW 连续",
+        "封口从头至尾完整且未拆，不露内页",
+        "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+      ],
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H3",
+      "level": "hard",
+      "requirement": "8500毫秒后完全入包，9000毫秒终帧不外露",
+      "path": "/icir/frames/0/continuity/invariants",
+      "value": [
+        "同一实体 PROP_LETTER 的纸色、轮廓、纸纹和封口形制跨 S_HANDOFF、S_SEAL、S_STOW 连续",
+        "封口从头至尾完整且未拆，不露内页",
+        "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+      ],
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H4",
+      "level": "hard",
+      "requirement": "单封纸质信封为中性偏暖哑面且无可读文字",
+      "path": "/icir/entities/0/description",
+      "value": "PROP_LETTER：同一封普通纸质信封，中性偏暖哑面纸色与细微纸纹，闭合折叠封口；不固定具体尺寸、内容或来历。",
+      "source_ids": [
+        "ART"
+      ]
+    },
+    {
+      "id": "H5",
+      "level": "hard",
+      "requirement": "雨夜背景不增加具体地点、年代或室内外事实",
+      "path": "/icir/frames/0/scene",
+      "value": "低饱和蓝灰的低频雨夜背景与无标识中性承托面；不指明具体地点、建筑、年代或室内外。",
+      "source_ids": [
+        "ART",
+        "DISPLAY"
+      ]
+    }
+  ],
+  "compilations": [
+    {
+      "id": "OUT_PROP_LETTER",
+      "target": "通用自然语言（未指定目标图像模型）",
+      "surface": "generic",
+      "adapter_version": "generic/1.0",
+      "status": "READY",
+      "prompt": "为道具资产 PROP_LETTER 制作一张单一静态的信封外观锚图，供 S_HANDOFF、S_SEAL、S_STOW 沿用同一封信的纸色、轮廓、纸纹与封口形制。本张是入包前的道具展示：只见一封普通纸质信封平稳置于无标识的中性承托面，从单一略俯视视点拍摄，使整张信封和朝上的闭合折叠封口完整入画；不表现交接、验封或入包的先后动作。信封采用中性偏暖的哑面纸色与细微纸纹；封舌沿折线平贴，边缘连续，封口从头至尾完整且未拆，无掀起、破口或内页外露。信体上没有可读文字、邮戳、签名、贴纸或图案，也不加入未给出的信件内容或来历。背景以低饱和蓝灰和低频雨夜气氛退后，不出现可辨地点、建筑、年代或室内外线索；柔和画外环境光让封口与纸纹可辨，纸色与背景分离，承托接触自然，不以反光或遮挡吞没封口。画面只呈现这一封，不添加第二封信、背包、人物或其他道具；此图只锁定入包前外观，后续沿用同一实体，8500毫秒后完全在背包内，9000毫秒终帧不再外露。",
+      "negative_prompt": null,
+      "native_params": {},
+      "capability": {
+        "status": "unknown",
+        "checked_at": null,
+        "source_ids": [],
+        "negative_mode": "positive_only",
+        "allowed_native_params": []
+      },
+      "constraint_clauses": {
+        "H1": "供 S_HANDOFF、S_SEAL、S_STOW 沿用同一封信的纸色、轮廓、纸纹与封口形制",
+        "H2": "封口从头至尾完整且未拆，无掀起、破口或内页外露",
+        "H3": "8500毫秒后完全在背包内，9000毫秒终帧不再外露",
+        "H4": "中性偏暖的哑面纸色与细微纸纹",
+        "H5": "不出现可辨地点、建筑、年代或室内外线索"
+      },
+      "trace": [
+        {
+          "operation": "preserve",
+          "path": "/icir/entities/0",
+          "reason": "沿用同一信封的纸材与闭合封口，不编造内容或来历"
+        },
+        {
+          "operation": "derive",
+          "path": "/icir/frames/0/continuity/invariants",
+          "reason": "把入包后不可见的时点保留为后续镜头连续性说明，而非本张画面第二时刻"
+        },
+        {
+          "operation": "add",
+          "path": "/icir/frames/0/composition",
+          "reason": "道具图采用单一略俯视视点，使完整封口可辨"
+        }
+      ],
+      "warnings": [
+        "PLAN_PROP_LETTER 只有文字计划，无真实文件、哈希和附件槽位。",
+        "本次未调用图像工具，静态合同校验不能证明生成图或视频终帧通过。"
+      ]
+    }
+  ],
+  "execution": [
+    {
+      "id": "S1",
+      "owner": "image-prompt-optimizer creator",
+      "action": "按锁定 ArtIR 编译 PROP_LETTER 提示词并运行合同校验",
+      "depends_on": [],
+      "inputs": [
+        "ART",
+        "TASK"
+      ],
+      "outputs": [
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md",
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/production-contract.json"
+      ],
+      "status": "DONE",
+      "stop_condition": "来源或硬锁冲突即停止提交"
+    },
+    {
+      "id": "S2",
+      "owner": "host image executor",
+      "action": "在授权和入口确定后生成真实道具图片",
+      "depends_on": [
+        "S1"
+      ],
+      "inputs": [
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md"
+      ],
+      "outputs": [
+        "image artifact"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "没有模型调用和真实文件则不得报告生成"
+    },
+    {
+      "id": "S3",
+      "owner": "independent visual reviewer",
+      "action": "审阅实际图片及三镜中同一信封和最终不可见状态",
+      "depends_on": [
+        "S2"
+      ],
+      "inputs": [
+        "image artifact"
+      ],
+      "outputs": [
+        "visual review"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "没有真实媒体不得宣称视觉验收"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "STATIC_H1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "static",
+      "method": "对照冻结 ArtIR、ICIR、主提示词与连续性条款",
+      "expected": "同一实体及纸色、轮廓、纸纹和封口形制跨三镜连续",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "visual",
+      "method": "真实图像或后续镜头可用后按对应时点人工审阅",
+      "expected": "同一实体及纸色、轮廓、纸纹和封口形制跨三镜连续",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "static",
+      "method": "对照冻结 ArtIR、ICIR、主提示词与连续性条款",
+      "expected": "封口从头至尾完整未拆，不露内页",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "visual",
+      "method": "真实图像或后续镜头可用后按对应时点人工审阅",
+      "expected": "封口从头至尾完整未拆，不露内页",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "static",
+      "method": "对照冻结 ArtIR、ICIR、主提示词与连续性条款",
+      "expected": "8500毫秒后完全入包，9000毫秒终帧不外露",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "visual",
+      "method": "真实图像或后续镜头可用后按对应时点人工审阅",
+      "expected": "8500毫秒后完全入包，9000毫秒终帧不外露",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "static",
+      "method": "对照冻结 ArtIR、ICIR、主提示词与连续性条款",
+      "expected": "单封纸质信封为中性偏暖哑面且无可读文字",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "visual",
+      "method": "真实图像或后续镜头可用后按对应时点人工审阅",
+      "expected": "单封纸质信封为中性偏暖哑面且无可读文字",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "static",
+      "method": "对照冻结 ArtIR、ICIR、主提示词与连续性条款",
+      "expected": "雨夜背景不增加具体地点、年代或室内外事实",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "visual",
+      "method": "真实图像或后续镜头可用后按对应时点人工审阅",
+      "expected": "雨夜背景不增加具体地点、年代或室内外事实",
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "unresolved": []
+}

@@ -1,0 +1,6 @@
+{
+  "ack_message_id": "CONTROL_CANCEL_ACK_1",
+  "command_id": "CONTROL_CANCEL_1",
+  "expected_revision": 187,
+  "task_id": "TASK_60ca76854c7350d8a40f1c72"
+}

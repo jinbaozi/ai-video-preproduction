@@ -1,0 +1,1 @@
+BLOCKER: Compile batch 2 冻结任务的 Codex 宿主桥运行码即将变更，并将 v6_codex_host 纳入运行码指纹；当前输入预计 STALE。已核对 28 个输入和 19 个锁定资源 SHA；已复制原样 AVIR 与 compile-manifest；锁定编译器 validate=VALID、verify=VERIFIED、replay=COMPILED，回放 20/20 编译文件逐字节相等。根据宿主暂停指令，不提交 candidate-result、RoleResult 或正式状态。等待新代码指纹下重新派发。

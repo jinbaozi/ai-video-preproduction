@@ -1,0 +1,23 @@
+{
+  "command_id": "REVIEWFIX-COMPILE-SEMANTIC_DISPATCH_1",
+  "expected_revision": 847,
+  "receipt": {
+    "action_id": "dispatch-e6f4239baff8a457126610ec",
+    "agent_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+    "batch": 1,
+    "dispatch_id": "dispatch-e6f4239baff8a457126610ec",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T18:36:49.958899Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T18:36:49.958899Z",
+    "status": "RUNNING",
+    "task_digest": "17163ff1aa3ec9f916e0598c6e843e4c16549ed4a38ac3e569709fd9b2c5cdc8",
+    "task_id": "TASK_6cac2b25585760d16bce096d",
+    "tool_result_sha256": "99bcb81a7cd3b823ade6fcc5fb6b44c4417c57d85f0f19239fa65465beaff2a7",
+    "tool_result_uri": "runtime/v6/host-evidence/99bcb81a7cd3b823ade6fcc5fb6b44c4417c57d85f0f19239fa65465beaff2a7.json"
+  }
+}

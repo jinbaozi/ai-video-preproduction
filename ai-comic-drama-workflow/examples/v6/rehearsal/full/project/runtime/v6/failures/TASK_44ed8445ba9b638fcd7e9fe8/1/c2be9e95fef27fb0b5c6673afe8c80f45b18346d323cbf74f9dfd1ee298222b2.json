@@ -1,0 +1,14 @@
+{
+  "batch": 1,
+  "candidate_digest": "84777ca62fb503e30540f17f9a20cd38b074a18ee1561ae207ef266d9dcb904b",
+  "check_evidence": [
+    "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/evidence/source-integrity.json"
+  ],
+  "code": "REUSE_PROVENANCE",
+  "failed_check": "source_integrity",
+  "message": "REUSE_PROVENANCE: Reused RoleResult needs frozen migration provenance",
+  "node_id": "canon",
+  "reviewer_failure_owner": null,
+  "submission_digest": "84777ca62fb503e30540f17f9a20cd38b074a18ee1561ae207ef266d9dcb904b",
+  "task_id": "TASK_44ed8445ba9b638fcd7e9fe8"
+}

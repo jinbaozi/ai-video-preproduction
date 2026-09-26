@@ -1,0 +1,33 @@
+{
+  "schema": "review-record/6.0",
+  "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+  "batch": 1,
+  "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_85f01703433be9e02caabf7d",
+  "reviewer_dispatch_id": "review-e3d5506b80813ba1c290e98c",
+  "candidate_digest": "c02c4deb8c08905e709b8f64a95c130c848ed6302b4ca70a03e051a684a1db13",
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/1/module-receipt.review.json"
+      ]
+    },
+    {
+      "id": "native_validator",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/1/native-validator.review.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/1/handoff.review.json"
+      ]
+    }
+  ],
+  "failure_owner": null,
+  "at": "2026-09-25T11:10:15.615221Z"
+}

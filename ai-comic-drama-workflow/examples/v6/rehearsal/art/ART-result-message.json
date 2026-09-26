@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_RESULT_COMMAND_1",
+  "expected_revision": 96,
+  "message": {
+    "at": "2026-09-25T12:32:44.589494Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/candidate-result.json"
+    ],
+    "in_reply_to": "ART_VALIDATOR_RUNTIME_GUIDANCE_1",
+    "message_id": "ART_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_2dea6a2a9ca676085285dc07",
+    "subject_sha256": "867748ca74ddf39266d991be4e966ac0c1ac541a0e677094eb3c101ca3a65eaf",
+    "subject_uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/candidate-result.json",
+    "summary": "Art creator completed scoped ArtIR candidate; locked native validator STATIC_VALID, offline generic-video compile PLANNED with media NOT_RUN; first dependency and contract-pointer errors retained as evidence; exact frozen handoffs and hashes supplied.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "RESULT"
+  }
+}

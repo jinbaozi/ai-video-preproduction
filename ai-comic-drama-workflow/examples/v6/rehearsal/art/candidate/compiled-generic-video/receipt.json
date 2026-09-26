@@ -1,0 +1,24 @@
+{
+  "art_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+  "blockers": [],
+  "coverage": "EXPLICIT_MAPPING_NOT_VISUAL_PASS",
+  "files": {
+    "art-ir.json": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+    "asset-plan.json": "7dea9bedcce4b6ee92c93c44a47e2e8532b2e83b3f6a7bcb67d57684196d3388",
+    "constraint-coverage.json": "246f61662ec7dcd49a0a85900dd82ee1a02f1ecc79c1c8383444f0cbed5748c7",
+    "dependency-index.json": "3ce0cd431bb18155da326a0996d8d9944a6f963b3c567dcb4b0b6a56ad6d177e",
+    "handoff.json": "7c9960bc142e4abb31ac23d39a0f18cbd4df41bfcc5cc1a999ae0d805922255b",
+    "production-contract.md": "ff5681bf56b47d8e21b13bfe2964be62e77f7daa3b9acdb27071c872d9495ecf",
+    "prompts/S1.txt": "8c13c2ff93acb12d174b80b5c126f6c0a91c4aab033782d4e740d24a454e5d73",
+    "route-report.json": "b85a95e6fcdf35b0f232936d314047b2b915b2eb984efdc39e841eeb52327563",
+    "target-snapshot.json": "c4db17cde21d5bde3b0feb03c4d323ee7a7d026ea93e44de865806eef7873313",
+    "visual-bible.md": "bf45748cb47581e6aab09b78bc253f9d66ecc0cd82ce7d23a83e874614a1649e"
+  },
+  "media_acceptance": "NOT_RUN",
+  "status": "PLANNED",
+  "submitted": false,
+  "target": "generic-video",
+  "toolchain_sha256": "674ba6fc118f61cb0d7c27f3f4893fdc23a9fbbe7fe49bbb7b34b9ed45b5b15e",
+  "validation": "STATIC_VALID",
+  "version": "1.3.1"
+}

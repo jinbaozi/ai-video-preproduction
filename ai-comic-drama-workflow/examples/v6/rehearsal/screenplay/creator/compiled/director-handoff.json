@@ -1,0 +1,257 @@
+{
+  "content_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14",
+  "director_freedom": [
+    "景别、机位与运镜",
+    "在剧情动作与结果内的表演和走位",
+    "不改变信息顺序约束的覆盖与剪辑",
+    "不改词义和说话归属的声音处理"
+  ],
+  "project_id": "LETTER_DEMO",
+  "ready": true,
+  "requirements": [
+    {
+      "id": "screenplay:REQ_RAIN_NIGHT",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "b60d473b93e0128c877075bb361cdf0a7354d9d5fc800c059068a6f438772991",
+      "source_paths": [
+        "/scenes/0/blocks/0/text"
+      ],
+      "source_values": [
+        "雨夜。"
+      ],
+      "statement": "保留雨夜这一时空事实，不补写具体地点。"
+    },
+    {
+      "id": "screenplay:REQ_SINGLE_LETTER",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "f71a2edda35cedc6ce71ec44bd1df6a7cb787ea8afca919ec19d393a53032c84",
+      "source_paths": [
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text",
+        "/scenes/0/blocks/3/text"
+      ],
+      "source_values": [
+        "甲把一封未拆的信交给乙。",
+        "乙确认这封信的封口完整。",
+        "乙将同一封信收进背包。"
+      ],
+      "statement": "交接一封未拆的信，后续封口检查与收存指向同一封信。"
+    },
+    {
+      "id": "screenplay:REQ_ACTION_ORDER",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "d16a6d14b489ffdc6dc97fac71785ddd73384b0e51a38eec503b5d015fd906b3",
+      "source_paths": [
+        "/narrative/events",
+        "/narrative/reveal_order",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text",
+        "/scenes/0/blocks/3/text"
+      ],
+      "source_values": [
+        [
+          {
+            "block_ids": [
+              "B_HANDOFF"
+            ],
+            "causes": [],
+            "description": "甲把一封未拆的信交给乙。",
+            "id": "EVT_HANDOFF",
+            "preconditions": [],
+            "scene_id": "SC_RAIN_NIGHT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "updates": []
+          },
+          {
+            "block_ids": [
+              "B_SEAL"
+            ],
+            "causes": [
+              "EVT_HANDOFF"
+            ],
+            "description": "乙确认该信封口完整。",
+            "id": "EVT_SEAL_CHECK",
+            "preconditions": [],
+            "scene_id": "SC_RAIN_NIGHT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "updates": [
+              {
+                "actor": "CHAR_YI",
+                "proposition": "PROP_SEAL_INTACT",
+                "source_refs": [
+                  "SRC_69a71adcfaca",
+                  "CANON_INPUT"
+                ],
+                "state": "knows"
+              }
+            ]
+          },
+          {
+            "block_ids": [
+              "B_STOW"
+            ],
+            "causes": [
+              "EVT_SEAL_CHECK"
+            ],
+            "description": "乙在确认后把同一封信收进背包。",
+            "id": "EVT_STOW",
+            "preconditions": [
+              {
+                "actor": "CHAR_YI",
+                "proposition": "PROP_SEAL_INTACT",
+                "source_refs": [
+                  "SRC_69a71adcfaca",
+                  "CANON_INPUT"
+                ],
+                "state": "knows"
+              }
+            ],
+            "scene_id": "SC_RAIN_NIGHT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "updates": []
+          }
+        ],
+        [
+          "EVT_HANDOFF",
+          "EVT_SEAL_CHECK",
+          "EVT_STOW"
+        ],
+        "甲把一封未拆的信交给乙。",
+        "乙确认这封信的封口完整。",
+        "乙将同一封信收进背包。"
+      ],
+      "statement": "甲交给乙；乙确认封口完整；确认后乙把信收进背包。"
+    },
+    {
+      "id": "screenplay:NARRATIVE_ending",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "a4757060eefb52f53bc99fd4399e9421014bd0f2941545ab004073d1e1d37ebd",
+      "source_paths": [
+        "/narrative/ending"
+      ],
+      "source_values": [
+        "乙把同一封信收进背包；来源没有交代后续。"
+      ],
+      "statement": "保留叙事语义 ending"
+    },
+    {
+      "id": "screenplay:NARRATIVE_events",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "deab1f993a22dbdaede72c7e71c179e08cfbc776f2511efa71dbd8004a568f97",
+      "source_paths": [
+        "/narrative/events"
+      ],
+      "source_values": [
+        [
+          {
+            "block_ids": [
+              "B_HANDOFF"
+            ],
+            "causes": [],
+            "description": "甲把一封未拆的信交给乙。",
+            "id": "EVT_HANDOFF",
+            "preconditions": [],
+            "scene_id": "SC_RAIN_NIGHT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "updates": []
+          },
+          {
+            "block_ids": [
+              "B_SEAL"
+            ],
+            "causes": [
+              "EVT_HANDOFF"
+            ],
+            "description": "乙确认该信封口完整。",
+            "id": "EVT_SEAL_CHECK",
+            "preconditions": [],
+            "scene_id": "SC_RAIN_NIGHT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "updates": [
+              {
+                "actor": "CHAR_YI",
+                "proposition": "PROP_SEAL_INTACT",
+                "source_refs": [
+                  "SRC_69a71adcfaca",
+                  "CANON_INPUT"
+                ],
+                "state": "knows"
+              }
+            ]
+          },
+          {
+            "block_ids": [
+              "B_STOW"
+            ],
+            "causes": [
+              "EVT_SEAL_CHECK"
+            ],
+            "description": "乙在确认后把同一封信收进背包。",
+            "id": "EVT_STOW",
+            "preconditions": [
+              {
+                "actor": "CHAR_YI",
+                "proposition": "PROP_SEAL_INTACT",
+                "source_refs": [
+                  "SRC_69a71adcfaca",
+                  "CANON_INPUT"
+                ],
+                "state": "knows"
+              }
+            ],
+            "scene_id": "SC_RAIN_NIGHT",
+            "source_refs": [
+              "SRC_69a71adcfaca",
+              "CANON_INPUT"
+            ],
+            "updates": []
+          }
+        ]
+      ],
+      "statement": "保留叙事语义 events"
+    },
+    {
+      "id": "screenplay:NARRATIVE_reveal_order",
+      "literal": false,
+      "owner": "screenplay",
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "source_paths": [
+        "/narrative/reveal_order"
+      ],
+      "source_values": [
+        [
+          "EVT_HANDOFF",
+          "EVT_SEAL_CHECK",
+          "EVT_STOW"
+        ]
+      ],
+      "statement": "保留叙事语义 reveal_order"
+    }
+  ],
+  "revision": 1,
+  "schema": "screenplay-handoff/1.0",
+  "script_ref": {
+    "sha256": "a7abceef03bbe46d668d69b63017bda906d773d75b8c747c324dab0b51045f15",
+    "uri": "script-ir.json"
+  }
+}

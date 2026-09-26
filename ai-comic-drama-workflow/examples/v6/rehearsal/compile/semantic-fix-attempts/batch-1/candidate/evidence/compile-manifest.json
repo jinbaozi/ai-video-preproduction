@@ -1,0 +1,67 @@
+{
+  "build_file_inputs_verified": 24,
+  "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "build_manifest_sha256": "001626391cb8c293b2c9f67abb9e702a79242294c5dc137490c7c56fa896f892",
+  "build_manifest_uri": "builds/be1f326524d3368a16505f5c559cc7aab444eb925773dcf96e9ba4e79b7e5790/compiled/compile-manifest.json",
+  "build_uri": "builds/be1f326524d3368a16505f5c559cc7aab444eb925773dcf96e9ba4e79b7e5790",
+  "candidate_manifest_sha256": "001626391cb8c293b2c9f67abb9e702a79242294c5dc137490c7c56fa896f892",
+  "capability": {
+    "account_verified": false,
+    "backend": "prompt_plan",
+    "entry_point": "model_prompt_plan; current transport unresolved",
+    "native_reference_syntax": "unresolved"
+  },
+  "compiled_file_hashes_match": true,
+  "compiled_files_verified": 20,
+  "constraints": {
+    "count": 17,
+    "realization_not_run": 17,
+    "static_assertions_pass": 17,
+    "statuses": {
+      "EMITTED": 16,
+      "PLANNED": 1
+    }
+  },
+  "locked_runtime_files_in_manifest": 77,
+  "mapping": {
+    "loss_count": 0,
+    "source_hash": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+    "status": "MAPPED",
+    "target_hash": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c"
+  },
+  "media_qa": "NOT_RUN",
+  "native_verify": {
+    "exit_code": 0,
+    "result": {
+      "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+      "status": "VERIFIED"
+    },
+    "stdout_uri": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/verify-stdout.json"
+  },
+  "old_defect_closure_evidence": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/evidence/semantic-closure.json",
+  "post_obligations": [
+    {
+      "channel": "post",
+      "id": "AUD_RAIN",
+      "status": "PLANNED"
+    },
+    {
+      "channel": "post",
+      "id": "SB_MEDIA_BOUNDARY",
+      "status": "PLANNED"
+    }
+  ],
+  "prompt_status": "PENDING_AGENT_REVIEW",
+  "replay": {
+    "compiled_files_exact_match": 20,
+    "exit_code": 0,
+    "manifest_exact_match": true,
+    "result_status": "COMPILED",
+    "stdout_uri": "runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/replay-stdout.json",
+    "target": "seedance2.0"
+  },
+  "runnable": false,
+  "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+  "status": "PASS",
+  "submitted": false
+}

@@ -1,0 +1,201 @@
+{
+  "action_order": "Handoff completes 4000 ms, seal confirmation runs 4500–7500 ms, stow runs 8000–11000 ms.",
+  "actual_media": "NOT_RUN",
+  "artifact_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+  "candidate_digest": "8a63f4c005b0c160690ab7882bbbc241d53c8472ee18f1a7baf55d2f8cf5509b",
+  "canon_requirements": [
+    {
+      "id": "REQ_RAIN_NIGHT",
+      "statement": "保留雨夜这一时空事实。"
+    },
+    {
+      "id": "REQ_SINGLE_LETTER",
+      "statement": "交接对象是一封未拆的信，后续封口检查与收存指向同一封信。"
+    },
+    {
+      "id": "REQ_ACTION_ORDER",
+      "statement": "甲交给乙；乙确认封口完整；确认后乙将信收进背包，顺序不可颠倒。"
+    }
+  ],
+  "check": "handoff",
+  "checkpoints": [
+    {
+      "at_ms": 0,
+      "backpack_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_contacts": [
+        "PROP_LETTER.body"
+      ],
+      "jia_pose": "站立；右手持同一封未拆信",
+      "letter_contacts": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "reciprocal_contacts": true,
+      "yi_contacts": [
+        "PROP_BACKPACK.body"
+      ],
+      "yi_pose": "站立；右手准备接信；背包可及"
+    },
+    {
+      "at_ms": 2500,
+      "backpack_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_contacts": [
+        "PROP_LETTER.body"
+      ],
+      "jia_pose": "站立；右手仍持同一封未拆信，乙右手已握住另一侧纸边",
+      "letter_contacts": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "reciprocal_contacts": true,
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_LETTER.body"
+      ],
+      "yi_pose": "站立；右手已握住同一封信的另一侧纸边，等待甲松手"
+    },
+    {
+      "at_ms": 4000,
+      "backpack_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "reciprocal_contacts": true,
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_LETTER.body"
+      ],
+      "yi_pose": "站立；右手独自持有同一封未拆信"
+    },
+    {
+      "at_ms": 7500,
+      "backpack_contacts": [
+        "CHAR_YI.body"
+      ],
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝乙且完整可见",
+      "reciprocal_contacts": true,
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_LETTER.body"
+      ],
+      "yi_pose": "站立；右手持同一封未拆信，正查看完整封口"
+    },
+    {
+      "at_ms": 10500,
+      "backpack_contacts": [
+        "CHAR_YI.body",
+        "CHAR_YI.left_hand",
+        "PROP_LETTER.body"
+      ],
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "reciprocal_contacts": true,
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_BACKPACK.opening"
+      ],
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    },
+    {
+      "at_ms": 12000,
+      "backpack_contacts": [
+        "CHAR_YI.body",
+        "CHAR_YI.left_hand",
+        "PROP_LETTER.body"
+      ],
+      "jia_contacts": [],
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "reciprocal_contacts": true,
+      "yi_contacts": [
+        "PROP_BACKPACK.body",
+        "PROP_BACKPACK.opening"
+      ],
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    }
+  ],
+  "finding": "Frozen source, Canon and ScriptIR retain rain at night, one unopened letter, the required action order and ending at stow. No new contradiction found in source scope, shot boundaries, action changes or sampled custody/contact states. Director timing, hands, stance and camera are marked design.",
+  "prior_defects": [
+    {
+      "batch": 1,
+      "finding": "At 10500 and 12000 ms one letter is in backpack interior, Jia has released it, Yi has released it, and shot end matches.",
+      "id": "CONTRADICTORY_FINAL_CUSTODY",
+      "status": "RESOLVED"
+    },
+    {
+      "batch": 1,
+      "finding": "At 2500, 4000, 7500, 10500 and 12000 ms Jia and Yi poses agree with letter contacts and custody.",
+      "id": "STALE_CHECKPOINT_POSES",
+      "status": "RESOLVED"
+    },
+    {
+      "batch": 2,
+      "finding": "At 0 ms and shot start Jia lists PROP_LETTER.body; letter lists CHAR_JIA.right_hand.",
+      "id": "INITIAL_CONTACT_DENIAL",
+      "status": "RESOLVED"
+    },
+    {
+      "batch": 2,
+      "finding": "At all six checkpoints, each person, letter and backpack contact has a reciprocal entity-side contact; the 8500/10500 ms action changes add and remove both sides.",
+      "id": "UNMIRRORED_CHARACTER_CONTACTS",
+      "status": "RESOLVED"
+    }
+  ],
+  "reviewed_at": "2026-09-25T12:20:03.267642Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+  "script_reveal_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "source_text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+  "status": "PASS",
+  "v5_mapping_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SINGLE_LETTER",
+    "screenplay:REQ_ACTION_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "v6_handoff_ids": [
+    "UP_9fcd7950eb5d010a1a08b1d5",
+    "UP_9569ed7fedf5c8746c5c2cd2"
+  ]
+}

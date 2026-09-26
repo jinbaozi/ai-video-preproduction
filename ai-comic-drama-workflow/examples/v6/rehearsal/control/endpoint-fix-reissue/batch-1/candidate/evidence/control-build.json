@@ -1,0 +1,9 @@
+{
+  "command": "locked video-prompt-compiler scripts/vpc.py control build native-av-ir.json --config control-config.json --out control-pack",
+  "execution": "NOT_RUN",
+  "keyframe_requests": 14,
+  "manifest_sha256": "2eb0c085230597179ebac8297d8adf6e5274f6659190f9c39be784045e484c2e",
+  "projection_unresolved_frames": 0,
+  "status": "DERIVED",
+  "video_generated": false
+}

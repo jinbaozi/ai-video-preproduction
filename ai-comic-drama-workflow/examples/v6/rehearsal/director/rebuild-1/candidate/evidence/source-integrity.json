@@ -1,0 +1,66 @@
+{
+  "batch": 1,
+  "current_screenplay_content_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14",
+  "input_digest": "5de30c5ff1c790bd581ce0431e7022952794fb9386dcab2c65eff75d0c4f0aa1",
+  "input_revision": 201,
+  "inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "expected_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "status": "PASS",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+    },
+    {
+      "actual_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "expected_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "slot": "screenplay:project:project:ScriptIR",
+      "status": "PASS",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+    },
+    {
+      "actual_sha256": "ba333d039d7a61dbc0083fdac22fb95cf784ebefabaf8ea127613b1ab2aba833",
+      "expected_sha256": "ba333d039d7a61dbc0083fdac22fb95cf784ebefabaf8ea127613b1ab2aba833",
+      "slot": "frozen_task",
+      "status": "PASS",
+      "uri": "runtime/tasks/TASK_ae94f4322a77ebd18dbb635d.json"
+    }
+  ],
+  "prior_candidate_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+  "prior_candidate_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+  "resources": [
+    {
+      "actual_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "expected_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "status": "PASS",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "status": "PASS",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+    },
+    {
+      "actual_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "expected_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "status": "PASS",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+    },
+    {
+      "actual_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "expected_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "status": "PASS",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+    }
+  ],
+  "reuse_scope": "沿用上一候选的动作和镜头设计；重新绑定当前来源、DirectorIR 内容摘要、六条编剧映射并重新运行本地校验。",
+  "status": "PASS",
+  "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+  "v5_canon_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+  "v5_canon_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json",
+  "v5_screenplay_sha256": "c880f4fb9ef8c53257dc1e9cbfac98ebbe787e599079c723ebcf8ca9c8a079fe",
+  "v5_screenplay_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/screenplay/d62ec7f7e999c948e2905afac998281f06b036b03b1945d9443de1f267ac5acd/native/3a01072f7456716a_script-ir.json",
+  "v6_v5_canon_bytes_equal": true,
+  "v6_v5_screenplay_content_hash_equal": true
+}

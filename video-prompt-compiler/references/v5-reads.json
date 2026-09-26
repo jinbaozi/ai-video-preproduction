@@ -1,0 +1,13 @@
+{
+  "always": ["SKILL.md", "references/current-contract.md", "references/cooperation-v5.md"],
+  "kinds": {
+    "avir": ["references/avir-and-contract.md"],
+    "control": ["references/shot-control.md"],
+    "compile-review": ["references/verification.md", "references/avir-and-contract.md"],
+    "qa": ["references/verification.md"]
+  },
+  "when": {
+    "camera_motion": ["references/shot-control.md"],
+    "dialogue": ["references/avir-and-contract.md"]
+  }
+}

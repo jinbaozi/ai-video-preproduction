@@ -1,0 +1,1 @@
+PROGRESS V6_compile_297e4d54680b970deaed batch 1：冻结 build 24 个文件与任务输入 SHA 一致；候选 AVIR、compile-manifest 已按字节复制。锁定 vpc.py 对候选 AVIR 返回 VALID（diagnostics=[]），对冻结 compiled 包返回 VERIFIED，build_id=1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0。旧 AVIR_END_VISIBILITY_CONFLICT 的新终态、10500/12000ms 轨道均为 visible_parts=[]；prompt 第 324/328/346/356 行与之吻合。现生成逐项检查及交接证据。

@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILE_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 328,
+  "message": {
+    "at": "2026-09-25T14:55:40.242137Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/candidate-result.json"
+    ],
+    "in_reply_to": "COMPILE_HANDOFF_HANDOFF_1",
+    "message_id": "COMPILE_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_28e4632f6a12c66dc9ad12ef",
+    "subject_sha256": "29e04d593f917b1a6840d8fd8d2ff62ff88f93639d23ad9408e7642f99cc6b0e",
+    "subject_uri": "runtime/v6/candidates/V6_compile_8cb5698095d1a70e0b6b/1/candidate-result.json",
+    "summary": "V6 CompilePackage 与 AVIR 候选已提交，四项逐证据检查 PASS；静态编译不等于正文复核/后期/媒体完成。",
+    "task_id": "V6_compile_8cb5698095d1a70e0b6b",
+    "type": "RESULT"
+  }
+}

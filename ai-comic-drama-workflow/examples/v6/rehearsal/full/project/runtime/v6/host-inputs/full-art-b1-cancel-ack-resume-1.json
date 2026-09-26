@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_CANCEL_ACK_RESUME_1",
+  "expected_revision": 118,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_CANCEL_ACK_RESUME_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "in_reply_to": "FULL_ART_B1_CANCEL_ACK_REQUEST_1",
+    "type": "PROGRESS",
+    "summary": "Resume existing creator cancellation acknowledgment after interruption",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-cancel-ack-resume.txt"
+    ],
+    "at": "2026-09-25T13:22:23.587149Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-cancel-ack-resume.txt",
+    "subject_sha256": "69707a6c8f4045f56fe378b0e0e77d867448a901c26f35f807f554479682e736"
+  }
+}

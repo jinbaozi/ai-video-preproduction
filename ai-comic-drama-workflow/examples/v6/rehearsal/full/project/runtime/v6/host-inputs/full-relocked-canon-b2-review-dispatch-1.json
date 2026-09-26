@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B2_REVIEW_DISPATCH_1",
+  "expected_revision": 159,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 2,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "review-e8166a197121d4f68fbc7bdc",
+    "action_id": "review-e8166a197121d4f68fbc7bdc",
+    "tool_result_uri": "runtime/v6/host-evidence/97f849ca0560c811f5387d871347bff900f1e94e7e7909d2abaf5d7491ecda1e.json",
+    "tool_result_sha256": "97f849ca0560c811f5387d871347bff900f1e94e7e7909d2abaf5d7491ecda1e",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_eeec77fc69b9cf207546f6fc",
+    "task_digest": "8b24e23a6ff3a0b6ab0523aedee537ad8fa23466898c576042f347f121fd754f",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T13:57:19.848393Z",
+    "observed_at": "2026-09-25T13:57:19.848393Z",
+    "result_uri": null,
+    "error": null
+  }
+}

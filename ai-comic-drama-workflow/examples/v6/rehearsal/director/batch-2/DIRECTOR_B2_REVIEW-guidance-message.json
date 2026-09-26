@@ -1,0 +1,22 @@
+{
+  "command_id": "DIRECTOR_B2_REVIEW_GUIDANCE_COMMAND_1",
+  "expected_revision": 59,
+  "message": {
+    "at": "2026-09-25T11:13:49.229013Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRECTOR_B2_REVIEW_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_474d45b6de6f35a85042d4f4",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "b6420d66b61d70b1ea6222a8bd6f1eeeed54b2d81c5f6e12f10e65080aa01ebd",
+    "subject_uri": "runtime/v6/host-inputs/director-b2-review-guidance.json",
+    "summary": "Independent reviewer dispatched with batch-1 failure evidence and full declared check obligation.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "HANDOFF"
+  }
+}

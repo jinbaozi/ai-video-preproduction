@@ -1,0 +1,42 @@
+{
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_ede3a3425d547d3569e53ec4",
+  "batch": 1,
+  "agent_id": "/root/host_bridge/v6_42abfe0c85c46ba290a73be2",
+  "input_digest": "01db078033fde87c25bafbb8fe1cc2a934b857cf2167560ad2d1284abe7a217b",
+  "result_uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/role-result.json",
+  "result_sha256": "d87842981b0d84f7e2011fc8b6384a07cf0bab6d1662c2d08f3e365ef3055e2d",
+  "artifacts": [
+    {
+      "slot": "compile_review:project:project:CompileReview",
+      "kind": "CompileReview",
+      "uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json",
+      "sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60"
+    }
+  ],
+  "module_receipts": [
+    {
+      "name": "video-prompt-compiler",
+      "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+      "version": "1.17.6"
+    }
+  ],
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/module-receipt.evidence.json"
+      ]
+    },
+    {
+      "id": "compile_semantics",
+      "status": "FAIL",
+      "evidence": [
+        "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-semantics.evidence.json"
+      ]
+    }
+  ],
+  "handoffs": [],
+  "unresolved": []
+}

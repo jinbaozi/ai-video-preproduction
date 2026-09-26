@@ -1,0 +1,206 @@
+[
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_RAIN",
+    "source_pointers": [
+      "/scenes/0/description",
+      "/scenes/0/description"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_SINGLE_LETTER",
+    "source_pointers": [
+      "/entities/2/id",
+      "/entities/2/locks/1"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_ORDER",
+    "source_pointers": [
+      "/timeline/extensions/0/payload/beats/0/id",
+      "/timeline/extensions/0/payload/beats/1/depends_on/0",
+      "/timeline/extensions/0/payload/beats/2/depends_on/0"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_ENDING",
+    "source_pointers": [
+      "/shots/0/end_state/4/pose",
+      "/timeline/extensions/0/payload/panels/0/items/6/id"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_EVENTS",
+    "source_pointers": [
+      "/timeline/extensions/0/payload/panels/0/items/1/event_ids/0",
+      "/timeline/extensions/0/payload/panels/0/items/3/event_ids/0",
+      "/timeline/extensions/0/payload/panels/0/items/5/event_ids/0"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_REVEAL",
+    "source_pointers": [
+      "/timeline/extensions/0/payload/panels/0/items/2/frame",
+      "/timeline/extensions/0/payload/panels/0/items/3/frame",
+      "/timeline/extensions/0/payload/panels/0/items/5/frame"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_A_ASSET_LOCKS",
+    "source_pointers": [
+      "/entities/0/id",
+      "/entities/1/id",
+      "/entities/2/id",
+      "/entities/3/id",
+      "/entities/4/id"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_D_RAIN",
+    "source_pointers": [
+      "/scenes/0/description",
+      "/scenes/0/description"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_D_SINGLE_LETTER",
+    "source_pointers": [
+      "/entities/2/id",
+      "/shots/0/start_state/4/pose",
+      "/shots/0/end_state/4/pose"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_D_ACTION_ORDER",
+    "source_pointers": [
+      "/timeline/actions/2/end_ms",
+      "/timeline/actions/3/start_ms",
+      "/timeline/actions/4/start_ms"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_D_ENDING",
+    "source_pointers": [
+      "/shots/0/end_state/4/pose",
+      "/timeline/extensions/0/payload/panels/0/items/6/frame"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_D_EVENTS",
+    "source_pointers": [
+      "/timeline/extensions/0/payload/beats/0/id",
+      "/timeline/extensions/0/payload/beats/1/id",
+      "/timeline/extensions/0/payload/beats/2/id",
+      "/timeline/actions/3/semantic_id"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_D_REVEAL_ORDER",
+    "source_pointers": [
+      "/timeline/extensions/0/payload/panels/0/items/2/frame",
+      "/timeline/extensions/0/payload/panels/0/items/3/frame",
+      "/timeline/extensions/0/payload/panels/0/items/5/frame"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_FIXED_AXIS",
+    "source_pointers": [
+      "/shots/0/camera/axis_side",
+      "/shots/0/camera/position",
+      "/shots/0/camera/trajectory",
+      "/timeline/camera_operations/0/operation"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_CONTACT_CONTROL",
+    "source_pointers": [
+      "/timeline/state_samples/1/entities/PROP_LETTER/controllers/0",
+      "/timeline/state_samples/2/entities/PROP_LETTER/controllers/0",
+      "/timeline/extensions/0/payload/panels/0/items/1/id",
+      "/timeline/extensions/0/payload/panels/0/items/2/id"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_SEAL_VISIBILITY",
+    "source_pointers": [
+      "/timeline/extensions/0/payload/panels/0/items/3/id",
+      "/timeline/visibility/2/readability",
+      "/timeline/composition_tracks/1/id"
+    ]
+  },
+  {
+    "control_ids": [],
+    "execution_status": "PLANNED",
+    "level": "hard",
+    "media_review": "NOT_RUN",
+    "requirement_id": "SB_MEDIA_BOUNDARY",
+    "source_pointers": [
+      "/assets",
+      "/bindings",
+      "/audio/utterances"
+    ]
+  }
+]

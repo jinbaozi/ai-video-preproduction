@@ -1,0 +1,14 @@
+{
+  "batch": 1,
+  "candidate_digest": "2d8f14c9ad3d5c749b6c1e1c2a4c1c62043ba14c6692d921666eded0f6cd7192",
+  "check_evidence": [
+    "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-semantics.evidence.json"
+  ],
+  "code": "VALUEERROR",
+  "failed_check": "compile_semantics",
+  "message": "Compile review must bind the current build and state semantic equivalence",
+  "node_id": "compile_review",
+  "reviewer_failure_owner": null,
+  "submission_digest": "2d8f14c9ad3d5c749b6c1e1c2a4c1c62043ba14c6692d921666eded0f6cd7192",
+  "task_id": "TASK_ede3a3425d547d3569e53ec4"
+}

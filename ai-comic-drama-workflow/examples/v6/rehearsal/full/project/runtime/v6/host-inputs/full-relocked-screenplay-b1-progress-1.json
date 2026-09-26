@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_SCREENPLAY_B1_PROGRESS_1",
+  "expected_revision": 167,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_SCREENPLAY_B1_PROGRESS_1",
+    "task_id": "TASK_206f1e43fe2d38c84f3fcb2c",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_89ee5d36eed7d88d30b16458",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_SCREENPLAY_B1_PRIOR_REFERENCE_1",
+    "type": "PROGRESS",
+    "summary": "Creator verified frozen Canon and locked screenplay resources",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-screenplay-b1-progress-1.txt"
+    ],
+    "at": "2026-09-25T14:02:30.121819Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-screenplay-b1-progress-1.txt",
+    "subject_sha256": "d8341a9e8af5c29e33d3206e77c636b0c67dd901aaa226c9b7ab1c6522b7a7e6"
+  }
+}

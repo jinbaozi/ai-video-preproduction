@@ -1,0 +1,66 @@
+{
+  "execution_boundaries": {
+    "artifact_status": "COMPILED",
+    "media_qa": "NOT_RUN",
+    "post_obligations": "PLANNED",
+    "prompt_review_status": "PENDING_AGENT_REVIEW",
+    "runnable": false,
+    "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+    "submitted": false,
+    "transport": "unresolved"
+  },
+  "hash_integrity": {
+    "backend": "prompt_plan",
+    "compiled_files_verified": 20,
+    "frozen_build_files_verified": 24,
+    "locked_verify": "VERIFIED",
+    "manifest_sha256": "7d94cc477348512e0031f4b656ec0a475dfd339056db9a591dba7e59827360c5",
+    "observed_exit_code": 0,
+    "target": "seedance2.0"
+  },
+  "semantic_consistency": {
+    "compiled_avir_camera_operation_text": "[0,-2.8,1.2]",
+    "compiled_avir_camera_position": [
+      0,
+      1.2,
+      -2.8
+    ],
+    "compiled_prompt_numeric_track_lines": [
+      103,
+      104
+    ],
+    "compiled_prompt_text_camera_op_lines": [
+      70,
+      71
+    ],
+    "coordinate_system": "x-right,y-up,z-depth",
+    "director_camera_end_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "director_camera_operation_text": "[0,-2.8,1.2]",
+    "director_camera_start_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "downstream_carried_by": [
+      "storyboard",
+      "control",
+      "compile"
+    ],
+    "earliest_owner": "director",
+    "error_code": "CAMERA_COORDINATE_CONFLICT",
+    "impact": "One fixed camera is assigned two non-equivalent world coordinates in the same 12-second prompt. The text coordinate puts world y at -2.8 m while the numeric camera track puts y at 1.2 m. Static hash and schema checks do not resolve the contradiction.",
+    "recovery": "Revise DirectorIR camera design and all dependent StoryboardIR camera fields under the declared world axis, then rebuild control and compile from new accepted versions.",
+    "status": "FAIL",
+    "storyboard_camera_operation_text": "[0,-2.8,1.2]",
+    "storyboard_camera_start_m": [
+      0,
+      1.2,
+      -2.8
+    ]
+  },
+  "status": "FAIL"
+}

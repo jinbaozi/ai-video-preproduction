@@ -1,0 +1,5 @@
+RESULT：独立审阅已完成。背包视觉提示词候选通过 module_receipt、image_prompt_contract、handoff 三项检查；锁定 ArtIR 的同一背包、深色无标识软质织物、可触及包口、可容信内腔和入包后不外露均在静态提示词及交接中保留。PLAN_PROP_BACKPACK 只有文字计划，没有实际参考图；图片生成与视觉验收均为 NOT_RUN。
+
+审阅记录：[review-record.json](/private/tmp/ai-video-v6-full-demo/project/runtime/v6/reviews/TASK_5975d46bd5020b778eaa0b5b/1/review-record.json)  
+SHA-256：`b95bb76ebfeead026df774d0ed77c40c83099c3f4e83b6b00d70fb8b23b4ef92`  
+候选摘要：`0f95ead5d64434a4adf45982c39f9e99aaf52abfa6589c50f47ab2babadb1256`

@@ -1,0 +1,401 @@
+{
+  "camera": {
+    "axis_side": "negative",
+    "end_m": [
+      0,
+      1.2,
+      -2.8
+    ],
+    "look_at_m": [
+      0,
+      1.0,
+      0
+    ],
+    "operation_ids": [
+      "CAM_LOCKED"
+    ],
+    "projection": "authored_proxy; not calibrated or model-native",
+    "start_m": [
+      0,
+      1.2,
+      -2.8
+    ]
+  },
+  "coordinate_frame": {
+    "plan_view_axes": [
+      "x",
+      "z"
+    ],
+    "screen_is_distinct": true,
+    "units": "m",
+    "world_axes": "x=world-right,y=up,z=depth",
+    "world_origin": "导演甲乙交接中心；旧静态坐标 [X右,Y深,Z上] 映为 [x右,y上,z深]。数值为预演意图，不是实测。"
+  },
+  "events": [
+    {
+      "contact": "甲右手持续接触并控制同一封信。",
+      "end_ms": 1800,
+      "id": "ACT_EXTEND",
+      "markers": [
+        {
+          "at_ms": 1800,
+          "id": "MARK_REACH",
+          "meaning": "信到达交接位置，未释放"
+        }
+      ],
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 500
+    },
+    {
+      "contact": "甲右手和乙右手同时接触同一封信；此刻控制权仍在甲。",
+      "end_ms": 2800,
+      "id": "ACT_GRIP",
+      "markers": [
+        {
+          "at_ms": 2500,
+          "id": "MARK_DUAL_CONTACT",
+          "meaning": "两只右手同时接触一封信"
+        }
+      ],
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2000
+    },
+    {
+      "contact": "甲右手释放；信与乙右手持续接触。",
+      "end_ms": 4000,
+      "id": "ACT_RELEASE",
+      "markers": [
+        {
+          "at_ms": 3500,
+          "id": "MARK_CUSTODY_YI",
+          "meaning": "信的控制权由甲转给乙"
+        }
+      ],
+      "semantic_id": "EVT_HANDOFF",
+      "start_ms": 2800
+    },
+    {
+      "contact": "乙右手始终接触同一封信；封口不被打开。",
+      "end_ms": 7500,
+      "id": "ACT_CONFIRM_SEAL",
+      "markers": [
+        {
+          "at_ms": 6000,
+          "id": "MARK_SEAL_VISIBLE",
+          "meaning": "封口完整可读且乙正在确认"
+        }
+      ],
+      "semantic_id": "EVT_SEAL_CHECK",
+      "start_ms": 4500
+    },
+    {
+      "contact": "信从乙右手接触转为背包内部接触；不再次交给甲。",
+      "end_ms": 11000,
+      "id": "ACT_STOW",
+      "markers": [
+        {
+          "at_ms": 10500,
+          "id": "MARK_IN_BAG",
+          "meaning": "同一封信完成收存，控制权解除"
+        }
+      ],
+      "semantic_id": "EVT_STOW",
+      "start_ms": 8000
+    }
+  ],
+  "ground_roots": {
+    "CHAR_JIA": [
+      -0.65,
+      0,
+      0
+    ],
+    "CHAR_YI": [
+      0.65,
+      0,
+      0
+    ],
+    "PROP_BACKPACK": [
+      0.7,
+      0.75,
+      0
+    ]
+  },
+  "letter_keyframes": [
+    {
+      "at_ms": 0,
+      "description": "同一封信由甲右手持有",
+      "position_m": [
+        -0.2,
+        1.1,
+        0
+      ],
+      "transition": "hold"
+    },
+    {
+      "at_ms": 500,
+      "description": "甲开始前送",
+      "position_m": [
+        -0.2,
+        1.1,
+        0
+      ],
+      "transition": "linear"
+    },
+    {
+      "at_ms": 1800,
+      "description": "信到达两人之间",
+      "position_m": [
+        0,
+        1.1,
+        0
+      ],
+      "transition": "hold"
+    },
+    {
+      "at_ms": 2500,
+      "description": "双方短暂接触，甲仍控制",
+      "position_m": [
+        0,
+        1.1,
+        0
+      ],
+      "transition": "hold"
+    },
+    {
+      "at_ms": 2800,
+      "description": "乙握稳后甲准备释放",
+      "position_m": [
+        0,
+        1.1,
+        0
+      ],
+      "transition": "linear"
+    },
+    {
+      "at_ms": 3500,
+      "description": "信转至乙右手控制",
+      "position_m": [
+        0.2,
+        1.1,
+        0
+      ],
+      "transition": "hold"
+    },
+    {
+      "at_ms": 7500,
+      "description": "封口检查期间停留在乙视线内",
+      "position_m": [
+        0.2,
+        1.1,
+        0
+      ],
+      "transition": "hold"
+    },
+    {
+      "at_ms": 8000,
+      "description": "乙开始向背包开口移动",
+      "position_m": [
+        0.2,
+        1.1,
+        0
+      ],
+      "transition": "linear"
+    },
+    {
+      "at_ms": 10500,
+      "description": "同一封信进入背包",
+      "position_m": [
+        0.7,
+        0.75,
+        0
+      ],
+      "transition": "hold"
+    },
+    {
+      "at_ms": 12000,
+      "description": "信保持在背包内，未拆",
+      "position_m": [
+        0.7,
+        0.75,
+        0
+      ],
+      "transition": "none"
+    }
+  ],
+  "limits": [
+    "World root trajectories are not a skeleton, collision simulation or proof of right/left-hand contact.",
+    "No image/video was generated, submitted or reviewed.",
+    "Rain audio is a post-production cue, not present media."
+  ],
+  "panels": [
+    {
+      "at_ms": 0.0,
+      "event_ids": [],
+      "frame": 0,
+      "id": "P_OPEN"
+    },
+    {
+      "at_ms": 2500.0,
+      "event_ids": [
+        "ACT_GRIP"
+      ],
+      "frame": 60,
+      "id": "P_GRIP"
+    },
+    {
+      "at_ms": 3500.0,
+      "event_ids": [
+        "ACT_RELEASE"
+      ],
+      "frame": 84,
+      "id": "P_RELEASE"
+    },
+    {
+      "at_ms": 6000.0,
+      "event_ids": [
+        "ACT_CONFIRM_SEAL"
+      ],
+      "frame": 144,
+      "id": "P_SEAL"
+    },
+    {
+      "at_ms": 8500.0,
+      "event_ids": [
+        "ACT_STOW"
+      ],
+      "frame": 204,
+      "id": "P_BAG_OPEN"
+    },
+    {
+      "at_ms": 10500.0,
+      "event_ids": [
+        "ACT_STOW"
+      ],
+      "frame": 252,
+      "id": "P_STOWED"
+    },
+    {
+      "at_ms": 11958.333333333334,
+      "event_ids": [],
+      "frame": 287,
+      "id": "P_END"
+    }
+  ],
+  "source": {
+    "duration_ms": 12000,
+    "fps": 24,
+    "frame_count": 288,
+    "sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+    "shot_id": "S1",
+    "uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/storyboard-ir.json"
+  },
+  "state_samples": [
+    {
+      "at_ms": 0,
+      "letter_contacts": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "letter_position_m": [
+        -0.2,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_JIA.right_hand"
+      ]
+    },
+    {
+      "at_ms": 2500,
+      "letter_contacts": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "letter_position_m": [
+        0,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ]
+    },
+    {
+      "at_ms": 4000,
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "letter_position_m": [
+        0.2,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ]
+    },
+    {
+      "at_ms": 7500,
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝乙且完整可见",
+      "letter_position_m": [
+        0.2,
+        1.1,
+        0
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ]
+    },
+    {
+      "at_ms": 10500,
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "letter_position_m": [
+        0.7,
+        0.75,
+        0
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ]
+    },
+    {
+      "at_ms": 12000,
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "letter_position_m": [
+        0.7,
+        0.75,
+        0
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ]
+    }
+  ],
+  "status": "SOURCE_BOUND_PLAN_ONLY"
+}

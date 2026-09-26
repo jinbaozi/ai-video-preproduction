@@ -1,0 +1,88 @@
+{
+  "check": "source_integrity",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T13:59:49.879Z",
+  "method": "Independently recomputed frozen input, original source, candidate artifact, RoleResult and creator-evidence SHA-256 values; checked Unicode quote spans and current V6/V5 schemas.",
+  "candidate_digest": "29f1eb51f353a2ebc1ee7d7c782d1d35adb7044660f0ff1bb1a04274d9476f56",
+  "input_digest": "937517c6260ad2b27ddc8b0d73e6afb92beae3b9c96258f2ce55dfd876b4a3ab",
+  "input_hashes": [
+    {
+      "slot": "sources:project:project:SourceRegistry",
+      "uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+      "declared_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a",
+      "actual_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a"
+    },
+    {
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_44ed8445ba9b638fcd7e9fe8.json",
+      "declared_sha256": "ef32a694cb2cde32741eb2cd494479bbe8ee75de64e13e51a314ec4675338341",
+      "actual_sha256": "ef32a694cb2cde32741eb2cd494479bbe8ee75de64e13e51a314ec4675338341"
+    }
+  ],
+  "source": {
+    "uri": "sources/SRC_69a71adcfaca/source.txt",
+    "declared_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "actual_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。"
+  },
+  "canon": {
+    "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+    "declared_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+    "actual_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9"
+  },
+  "role_result": {
+    "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/role-result.json",
+    "declared_sha256": "313e62c55b0ddbce3789c2d58b67523d5adaf6052fe6cf261fd28c73526b412f",
+    "actual_sha256": "313e62c55b0ddbce3789c2d58b67523d5adaf6052fe6cf261fd28c73526b412f",
+    "reused": false,
+    "reuse_bindings": []
+  },
+  "quote_spans": [
+    {
+      "fact_id": "FACT_RAIN_NIGHT",
+      "char_span": [
+        0,
+        2
+      ],
+      "quote": "雨夜",
+      "matches_source": true
+    },
+    {
+      "fact_id": "FACT_HANDOFF",
+      "char_span": [
+        3,
+        14
+      ],
+      "quote": "甲把一封未拆的信交给乙",
+      "matches_source": true
+    },
+    {
+      "fact_id": "FACT_SEAL",
+      "char_span": [
+        15,
+        22
+      ],
+      "quote": "乙确认封口完整",
+      "matches_source": true
+    },
+    {
+      "fact_id": "FACT_STOW",
+      "char_span": [
+        22,
+        27
+      ],
+      "quote": "后收进背包",
+      "matches_source": true
+    }
+  ],
+  "creator_evidence_read": [
+    {
+      "check": "source_integrity",
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/evidence/source-integrity.json",
+      "sha256": "d66d7169c42c66037e91ea553b9f0f2a33b908d5d12128010202058f122a9780"
+    }
+  ],
+  "batch1_defect": "REUSE_PROVENANCE",
+  "batch1_defect_resolved": true,
+  "finding": "All frozen inputs and candidate files match declared hashes. The RoleResult is freshly attributed and does not claim migration reuse; all four source quote spans are exact."
+}

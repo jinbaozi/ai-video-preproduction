@@ -1,0 +1,21 @@
+{
+  "command_id": "ARTREPAIR_REVIEWER_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 395,
+  "message": {
+    "at": "2026-09-25T15:29:45.095922Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/artrepair-reviewer-progress.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "ARTREPAIR_REVIEWER_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+    "subject_sha256": "acaece8f889099c8914ef2892111abad32c5f7d5ec91937c712361ba8ba2d26a",
+    "subject_uri": "runtime/v6/host-inputs/artrepair-reviewer-progress.txt",
+    "summary": "独立审阅发现 Art 候选采用 Director 静态坐标而下游时间轴坐标可能不一致，继续核对。",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+    "type": "PROGRESS"
+  }
+}

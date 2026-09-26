@@ -1,0 +1,259 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_7b5a454008989aa60f8a7f58",
+    "artifacts": [
+      {
+        "kind": "AVIR",
+        "sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33",
+        "slot": "compile:project:project:AVIR",
+        "uri": "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/avir.json"
+      },
+      {
+        "kind": "CompilePackage",
+        "sha256": "e534f7d00ca740af8e26485cd4aab579b3be22742e70f9c70f489b68cde3a199",
+        "slot": "compile:project:project:CompilePackage",
+        "uri": "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/compile-manifest.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/evidence/native-validator.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/evidence/compile-manifest.json"
+        ],
+        "id": "compile_manifest",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/evidence/handoff.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/evidence/handoff.json"
+        ],
+        "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+        "source_slot": "storyboard:project:project:StoryboardIR",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "compile:project:project:AVIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/evidence/handoff.json"
+        ],
+        "requirement_id": "UP_b5d9d335a4af8d78a0f82cd2",
+        "source_slot": "control:project:project:ShotControlPack",
+        "source_version": 15,
+        "target_pointer": "",
+        "target_slot": "compile:project:project:AVIR"
+      }
+    ],
+    "input_digest": "fd85085d084323b31bf2c89f6e7bf0dd4b683ab4d1a7ff3cb2e7747a07f4d1a4",
+    "module_receipts": [
+      {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      }
+    ],
+    "result_sha256": null,
+    "result_uri": null,
+    "schema": "candidate-result/6.0",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce",
+    "unresolved": []
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T15:49:14.659568Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/compilerepair-spawn-brief.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "COMPILEREPAIR_HOST_BRIEF_1",
+      "recipient_id": "/root/host_bridge/v6_7b5a454008989aa60f8a7f58",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "3c928f07eecdde9b9a07f6ca9a094f84d0e17af8dd4035f7f6624d69f192f5e2",
+      "subject_uri": "runtime/v6/host-inputs/compilerepair-spawn-brief.txt",
+      "summary": "\u771f\u5b9e Compile \u8fd4\u4fee\u6d3e\u53d1\u8bf4\u660e\uff1b\u5fc5\u987b\u590d\u6838\u65e7\u5750\u6807\u51b2\u7a81\u6d88\u5931\u4e0e\u65b0\u9759\u6001\u5305\u5f53\u524d\u7ed1\u5b9a\u3002",
+      "task_id": "V6_compile_3d390e1ba62af9b653ce",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:54:09.511404Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/candidate-result.json",
+        "runtime/v6/host-inputs/compilerepair-creator-result.txt"
+      ],
+      "in_reply_to": "COMPILEREPAIR_HOST_BRIEF_1",
+      "message_id": "COMPILEREPAIR_CREATOR_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_7b5a454008989aa60f8a7f58",
+      "subject_sha256": "b41d3012a3da5a1e50e801ec0e8e5569fb81d3664f5751ddd0bc63db6a4770d2",
+      "subject_uri": "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/candidate-result.json",
+      "summary": "\u91cd\u7f16\u8bd1\u5019\u9009\u63d0\u4ea4\uff1blocked VALID/VERIFIED\uff0c20/20 \u91cd\u653e\u4e00\u81f4\uff0c\u65e7\u673a\u4f4d\u5750\u6807\u51b2\u7a81\u8bc1\u636e\u4e3a PASS\uff0c\u5a92\u4f53 NOT_RUN\u3002",
+      "task_id": "V6_compile_3d390e1ba62af9b653ce",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T15:54:48.703991Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/compilerepair-review-brief.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "COMPILEREPAIR_REVIEW_HOST_BRIEF_1",
+      "recipient_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "d633238f0c96687406d6a2184eea9205f4cae5bfc110a125d891d83d77fab395",
+      "subject_uri": "runtime/v6/host-inputs/compilerepair-review-brief.txt",
+      "summary": "\u771f\u5b9e Compile \u72ec\u5ba1\u6d3e\u53d1\u8bf4\u660e\uff1b\u6838\u5bf9\u65e7\u72ec\u5ba1\u673a\u4f4d\u51b2\u7a81\u662f\u5426\u5728\u65b0\u6b63\u6587\u6d88\u9664\uff0c\u5e76\u4fdd\u7559\u9759\u6001\u8fb9\u754c\u3002",
+      "task_id": "V6_compile_3d390e1ba62af9b653ce",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:56:54.287479Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/compilerepair-reviewer-progress.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "COMPILEREPAIR_REVIEWER_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+      "subject_sha256": "1586e32419a6b529be9424357c6bbf636d7f67c7b8f93b1947bcfeace0a8f64a",
+      "subject_uri": "runtime/v6/host-inputs/compilerepair-reviewer-progress.txt",
+      "summary": "Compile reviewer locked validate/verify/replay \u5747\u901a\u8fc7\u3001\u65e7\u673a\u4f4d\u51b2\u7a81\u884c\u5df2\u4e00\u81f4\uff0c\u6b63\u5728\u6838\u5168\u90e8\u8f93\u5165/\u8d44\u6e90/\u6587\u4ef6/\u4ea4\u63a5\u3002",
+      "task_id": "V6_compile_3d390e1ba62af9b653ce",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:59:43.259271Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/review-record.json",
+        "runtime/v6/host-inputs/compilerepair-reviewer-result.txt"
+      ],
+      "in_reply_to": "COMPILEREPAIR_REVIEW_HOST_BRIEF_1",
+      "message_id": "COMPILEREPAIR_REVIEWER_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+      "subject_sha256": "66f94ec704d47d4c21bc673a5a8dd00bea22d354c2ac0d319cba39a06b79e11d",
+      "subject_uri": "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/review-record.json",
+      "summary": "Compile \u72ec\u5ba1\u56db\u9879 PASS\uff1b\u65e7 CAMERA_COORDINATE_CONFLICT \u6d88\u9664\uff0clocked replay 20/20 \u4e00\u81f4\uff0c\u5a92\u4f53 NOT_RUN\u3002",
+      "task_id": "V6_compile_3d390e1ba62af9b653ce",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-7421b593596a70239fe2e670",
+    "agent_id": "/root/host_bridge/v6_7b5a454008989aa60f8a7f58",
+    "batch": 1,
+    "dispatch_id": "dispatch-7421b593596a70239fe2e670",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:49:01.825075Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:49:01.825075Z",
+    "status": "RUNNING",
+    "task_digest": "2e79396214a25ce4d7c62a541341214d26b48555248a4a8178b54ffc96067754",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce",
+    "tool_result_sha256": "8df490834933bcd26111598a6e3b70c3c3f9db73d2f8bc2513b3c452f126c18c",
+    "tool_result_uri": "runtime/v6/host-evidence/8df490834933bcd26111598a6e3b70c3c3f9db73d2f8bc2513b3c452f126c18c.json"
+  },
+  "review": {
+    "at": "2026-09-25T15:59:08.595864Z",
+    "batch": 1,
+    "candidate_digest": "180bfe6d35b1dd26b46d8e3708c2dcc4c8d0801fa2ba55ffe7821e918bf43ecb",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/compile-manifest.review.json"
+        ],
+        "id": "compile_manifest",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/V6_compile_3d390e1ba62af9b653ce/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+    "reviewer_dispatch_id": "review-7421b593596a70239fe2e670",
+    "schema": "review-record/6.0",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce"
+  },
+  "review_dispatch": {
+    "action_id": "review-7421b593596a70239fe2e670",
+    "agent_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+    "batch": 1,
+    "dispatch_id": "review-7421b593596a70239fe2e670",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:54:34.841963Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:54:34.841963Z",
+    "status": "RUNNING",
+    "task_digest": "2e79396214a25ce4d7c62a541341214d26b48555248a4a8178b54ffc96067754",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce",
+    "tool_result_sha256": "a8155a6c0211a7abd6fa572291bf3b1cd16e9024b07096402c5292faf8a5e29c",
+    "tool_result_uri": "runtime/v6/host-evidence/a8155a6c0211a7abd6fa572291bf3b1cd16e9024b07096402c5292faf8a5e29c.json"
+  },
+  "revision_at_archive": 495,
+  "state": "ACCEPTED",
+  "task_id": "V6_compile_3d390e1ba62af9b653ce",
+  "version": 13
+}

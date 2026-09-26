@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_REVIEW_HANDOFF_1",
+  "expected_revision": 101,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_REVIEW_HANDOFF_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_76274de274fb6f4113699d98",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Independent Director batch-3 review PASS with native binding proof",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-b3-review-ready.txt"
+    ],
+    "at": "2026-09-25T13:03:59.131596Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-b3-review-ready.txt",
+    "subject_sha256": "f10cc995c85c069e248afa5f373ec0a5667c196dc324d9724e2dd89e5d683388"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "adapter_status": "MAPPED",
+  "avir_sha256": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+  "command": "locked video-prompt-compiler scripts/vpc.py validate native-av-ir.json",
+  "derived_camera_tracks": 1,
+  "diagnostics": [],
+  "losses": 0,
+  "semantic_review": "INHERITED_DETERMINISTICALLY",
+  "status": "VALID"
+}

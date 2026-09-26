@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_REVIEW_HANDOFF_1",
+  "expected_revision": 31,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_REVIEW_HANDOFF_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_85f01703433be9e02caabf7d",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_REVIEW_PROGRESS_QUESTION_1",
+    "type": "HANDOFF",
+    "summary": "Reviewer reports screenplay review complete and PASS",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-review-ready.txt"
+    ],
+    "at": "2026-09-25T11:10:44.742422Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-review-ready.txt",
+    "subject_sha256": "a1ff65d056b4dd706e02cf3d5abd954bd2b30894417c9767607b1a1cfb9f3b66"
+  }
+}

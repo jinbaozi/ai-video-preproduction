@@ -1,0 +1,1 @@
+Fresh locked Art validator caught a real binding issue: the current accepted DirectorIR canon_ref points to V5-promoted Canon (same JSON object, different bytes from V6 candidate input). I am binding ArtIR.canon.uri to that exact Director ref while preserving the frozen V6 Canon input in handoff evidence, then rerunning. No kernel change needed.

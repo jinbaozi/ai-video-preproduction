@@ -1,0 +1,8 @@
+{
+  "role_result_schema": "SCHEMA_VALID",
+  "module_receipt": "audited",
+  "v5_accept_prompt": "PASS",
+  "scope": "read-only native preflight; no promotion or independent review",
+  "role_result_sha256": "94e298893bce895d194bb6fedf8235290210fb514b52b58ea9fc6b99797f749d",
+  "visual_image_prompt_sha256": "1bb1b80a9216b11980f26eb0e8c82a37ca040026a2db1e08a66f04b2c7608b6a"
+}

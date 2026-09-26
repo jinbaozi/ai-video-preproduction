@@ -1,0 +1,48 @@
+{
+  "artifact_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "candidate_digest": "e6e8e0e4f7e57a20dfc62f067c9e25bca67a20290abc5f368ec06745c9d8c10c",
+  "candidate_sha256": "0308126d1e8204fddc48f21ab66cc420d1b3bd9ae23eee8edbca8178c69fda8f",
+  "check": "module_receipt",
+  "finding": "Frozen input, four locked resource bytes, result bytes and V6 candidate schema agree with the dispatch envelope. Module receipt records resources only.",
+  "input_digest": "5de30c5ff1c790bd581ce0431e7022952794fb9386dcab2c65eff75d0c4f0aa1",
+  "input_hashes": [
+    {
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+    },
+    {
+      "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+    },
+    {
+      "sha256": "ba333d039d7a61dbc0083fdac22fb95cf784ebefabaf8ea127613b1ab2aba833",
+      "uri": "runtime/tasks/TASK_ae94f4322a77ebd18dbb635d.json"
+    }
+  ],
+  "module": {
+    "name": "director-grammar",
+    "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "version": "1.4.2"
+  },
+  "resource_hashes": [
+    {
+      "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+    },
+    {
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+    },
+    {
+      "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+    },
+    {
+      "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+    }
+  ],
+  "reviewed_at": "2026-09-25T13:58:27.695636Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+  "status": "PASS"
+}

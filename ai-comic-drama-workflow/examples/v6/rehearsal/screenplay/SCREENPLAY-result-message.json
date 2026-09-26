@@ -1,0 +1,21 @@
+{
+  "command_id": "SCREENPLAY_RESULT_COMMAND_1",
+  "expected_revision": 24,
+  "message": {
+    "at": "2026-09-25T10:36:37.446631Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/candidate-result.json"
+    ],
+    "in_reply_to": "SCREENPLAY_VERSION_REPLY_1",
+    "message_id": "SCREENPLAY_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+    "subject_sha256": "fe6fb69e27c683c2739177051eb9f54504616fa3fc23c5ad5c4fe510ba62a284",
+    "subject_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/candidate-result.json",
+    "summary": "Creator completed source-bound ScriptIR, RoleResult 5.1, module receipt, checks and handoff.",
+    "task_id": "TASK_1b94794070565f70c7f697a7",
+    "type": "RESULT"
+  }
+}

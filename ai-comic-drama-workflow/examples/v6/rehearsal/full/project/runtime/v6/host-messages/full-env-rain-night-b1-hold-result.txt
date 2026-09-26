@@ -1,0 +1,1 @@
+I am tightening three ICIR field values so each hard constraint points to the complete locked condition (rain continuity/light direction, rain non-occlusion, and offscreen light/readability). Please hold RESULT registration for TASK_77a39e38115fc23984108917 until I send the updated candidate SHA shortly.

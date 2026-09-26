@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B2_REVIEW_RESULT_1",
+  "expected_revision": 203,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B2_REVIEW_RESULT_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_9c8946265ae15cff1637e477",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_DIRECTOR_B2_REVIEW_RESUME_1",
+    "type": "RESULT",
+    "summary": "Director batch 2 independent review passes all checks and prior framing defect resolved",
+    "evidence": [
+      "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/2/review-record.json",
+      "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/2/reviewer-result-message.txt"
+    ],
+    "at": "2026-09-25T14:46:57.343764Z",
+    "subject_uri": "runtime/v6/reviews/TASK_bf0865334b4a88be570a164a/2/review-record.json",
+    "subject_sha256": "0bbf0534b4ff122eb46bcd1460f5485aff55c71980f33ab278d46b1af02fcfea"
+  }
+}

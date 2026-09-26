@@ -1,0 +1,54 @@
+{
+  "project_id": "LETTER_FULL_DEMO",
+  "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+  "asset_id": "PROP_LETTER",
+  "scope_key": "ASSET_SCENE_HANDOFF_PROP_LETTER",
+  "art_source": {
+    "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+    "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+    "pointer": "/assets/2"
+  },
+  "reference_plan": {
+    "id": "PLAN_PROP_LETTER",
+    "status": "planned",
+    "file": null,
+    "sha256": null,
+    "role": "prop",
+    "use_in_this_prompt": "unbound; text-only prop appearance plan"
+  },
+  "prompt": "为道具资产 PROP_LETTER 制作一张单一静态的信封外观锚图，供 S_HANDOFF、S_SEAL、S_STOW 沿用同一封信的纸色、轮廓、纸纹与封口形制。本张是入包前的道具展示：只见一封普通纸质信封平稳置于无标识的中性承托面，从单一略俯视视点拍摄，使整张信封和朝上的闭合折叠封口完整入画；不表现交接、验封或入包的先后动作。信封采用中性偏暖的哑面纸色与细微纸纹；封舌沿折线平贴，边缘连续，封口从头至尾完整且未拆，无掀起、破口或内页外露。信体上没有可读文字、邮戳、签名、贴纸或图案，也不加入未给出的信件内容或来历。背景以低饱和蓝灰和低频雨夜气氛退后，不出现可辨地点、建筑、年代或室内外线索；柔和画外环境光让封口与纸纹可辨，纸色与背景分离，承托接触自然，不以反光或遮挡吞没封口。画面只呈现这一封，不添加第二封信、背包、人物或其他道具；此图只锁定入包前外观，后续沿用同一实体，8500毫秒后完全在背包内，9000毫秒终帧不再外露。",
+  "prompt_document": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/prompt.md",
+  "production_contract": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/production-contract.json",
+  "production_contract_sha256": "ff0498d54ae862d2ba9f344df7deaafd136de3b8bde86b1ea95ef6f67528d401",
+  "params": {
+    "target_model": null,
+    "surface": "generic",
+    "aspect_ratio": "4:3",
+    "requested_pixels": null,
+    "reference_files": []
+  },
+  "static_checks": [
+    {
+      "ref": "同一实体 PROP_LETTER 跨交接、验封、入包三镜连续",
+      "finding": "正文把同一 PROP_LETTER 的纸色、轮廓、纸纹和闭合折叠封口指定为 S_HANDOFF、S_SEAL、S_STOW 的共同外观锚点；本图只呈现一封。"
+    },
+    {
+      "ref": "封口从头至尾完整且未拆；不露出内页",
+      "finding": "正文要求封舌平贴、边缘连续、封口从头至尾完整未拆，且无掀起、破口或内页外露；没有可读文字。"
+    },
+    {
+      "ref": "8500毫秒后完全在背包内，9000毫秒终帧不外露",
+      "finding": "正文将 8500 毫秒后完全在背包内及 9000 毫秒终帧不外露保留为后续镜头连续性约束；这张静态道具图只展示入包前，实际终帧尚未审阅。"
+    },
+    {
+      "ref": "/references/2 PLAN_PROP_LETTER",
+      "finding": "ArtIR 中 status=planned，file/sha256 均为 null；没有虚构参考文件、哈希、附件槽位或视觉验收。"
+    },
+    {
+      "ref": "/assets/2 design and MAT_PAPER",
+      "finding": "中性偏暖哑面纸质、普通折叠封口、无可读文字；未加入信件内容、来历或可辨地点。"
+    }
+  ],
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN"
+}

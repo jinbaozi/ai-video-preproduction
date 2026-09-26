@@ -1,0 +1,86 @@
+{
+  "status": "PASS",
+  "target_is_candidate_artifact": true,
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "target_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json",
+      "target_sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+      "mapping": [
+        {
+          "source_pointer": "/content",
+          "target_pointers": [
+            "/sources/1",
+            "/contract/clauses/0"
+          ]
+        },
+        {
+          "source_pointer": "/entities/2/id",
+          "target_pointers": [
+            "/assets/2/entity_id",
+            "/contract/clauses/1"
+          ]
+        },
+        {
+          "source_pointer": "/event_order",
+          "target_pointers": [
+            "/contract/clauses/2",
+            "/contract/clauses/5"
+          ]
+        }
+      ],
+      "evidence": [
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+      ]
+    },
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_671ea8754cf2e57a5e495051",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_version": 14,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "source_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+      "source_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "target_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json",
+      "target_sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+      "mapping": [
+        {
+          "source_pointer": "/scenes/0",
+          "target_pointers": [
+            "/set",
+            "/shots/0"
+          ]
+        },
+        {
+          "source_pointer": "/shots/0",
+          "target_pointers": [
+            "/shots/0"
+          ]
+        },
+        {
+          "source_pointer": "/timeline/actions",
+          "target_pointers": [
+            "/contract/clauses/2",
+            "/contract/clauses/4",
+            "/contract/clauses/5"
+          ]
+        }
+      ],
+      "evidence": [
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+      ]
+    }
+  ]
+}

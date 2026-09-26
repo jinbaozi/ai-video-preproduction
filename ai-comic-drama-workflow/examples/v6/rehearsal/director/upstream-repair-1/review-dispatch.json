@@ -1,0 +1,23 @@
+{
+  "command_id": "DIRREPAIR_REVIEW_DISPATCH_1",
+  "expected_revision": 379,
+  "receipt": {
+    "action_id": "review-b2675e0a86b84995c72fed2c",
+    "agent_id": "/root/host_bridge/v6_df80385afeacb4a6056c235f",
+    "batch": 1,
+    "dispatch_id": "review-b2675e0a86b84995c72fed2c",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:18:33.414636Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:18:33.414636Z",
+    "status": "RUNNING",
+    "task_digest": "f16b31355d0115a1ee87babd8285e79aa01f5595452a792446f480b09923eb93",
+    "task_id": "TASK_19a3cd14f25bf90e50215d4d",
+    "tool_result_sha256": "9a9c453285f9dfc5f0b99736eef503ca7ff398ef696e7e522a25b5f4d16a4d94",
+    "tool_result_uri": "runtime/v6/host-evidence/9a9c453285f9dfc5f0b99736eef503ca7ff398ef696e7e522a25b5f4d16a4d94.json"
+  }
+}

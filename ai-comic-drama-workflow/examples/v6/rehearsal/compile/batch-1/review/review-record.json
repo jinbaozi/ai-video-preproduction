@@ -1,0 +1,40 @@
+{
+  "at": "2026-09-25T14:59:18.009859Z",
+  "batch": 1,
+  "candidate_digest": "8d48867f50c8c59460fd33a3cd71b73b3d1a1202cc6a25fe898d75c95084d18c",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/module-receipt.review.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/native-validator.review.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/compile-manifest.review.json"
+      ],
+      "id": "compile_manifest",
+      "status": "FAIL"
+    },
+    {
+      "evidence": [
+        "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/handoff.review.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "failure_owner": "director",
+  "reviewer_agent_id": "/root/host_bridge/v6_d3bca74dcb23c2e155eb4d64",
+  "reviewer_dispatch_id": "review-26ffdd35b09ae4968faef34c",
+  "schema": "review-record/6.0",
+  "task_id": "V6_compile_8cb5698095d1a70e0b6b"
+}

@@ -14,7 +14,7 @@
 | world | 美术命题、年代地域、社会逻辑、形态、色板、材料链和Color Script |
 | assets | 宿主entity_id或候选资产、不可改项、材料、初态与允许状态 |
 | set | 单场景坐标、边界、布局实例、总数断言、功能区、画内光源与气氛 |
-| events | 镜头内有序状态变化及来源/导演phase指针 |
+| events | 镜头内有序状态变化及来源/导演事件指针：DirectorIR 1.0 指向 phase，1.1/1.2 指向 timeline action |
 | shots | 引用镜头ID，当前可见资产、参考、美术构图/表情支持和相对关系判据 |
 | references | 真实文件、字节摘要、用途、继承边界、权利与待制作状态 |
 | contract | 条款、检查、执行边界；独立Schema与ArtIR内嵌定义保持一致 |
@@ -22,6 +22,7 @@
 Schema全部关闭未声明字段，禁止偷偷加入自己的camera、performance、dialogue或timeline。
 每镜及其可见资产必须被适用合同条款的路径直接覆盖，资产锁定项不能只留在游离说明里。
 `state_rules`只用于离散字符串状态，例如holder、wetness、door_state；连续运动归导演。
+绑定 DirectorIR 1.1/1.2 的 Art 事件必须指向 `/timeline/actions/N`，且该动作覆盖 Art 镜头，`changes` 中有同一宿主实体、字段和完全一致的 `before`/`after` 字符串。Art 不另造 Director `phases`；若美术状态无法与现有动作逐字段对齐，交回导演补充动作，或只在资产设计中标为待定，不将它作为已绑定事件入链。DirectorIR 1.0 的 `/shots/N/phases/K` 指针保持原规则。
 `set.counts`计布局实例，不计图片中的像素对象；物理三维连续性仍须预演/审片。
 
 ## 命令与产物

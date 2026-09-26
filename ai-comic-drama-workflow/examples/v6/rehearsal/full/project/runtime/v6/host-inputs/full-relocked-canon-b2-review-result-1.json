@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B2_REVIEW_RESULT_1",
+  "expected_revision": 160,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_CANON_B2_REVIEW_RESULT_1",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_eeec77fc69b9cf207546f6fc",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "RESULT",
+    "summary": "Independent Canon batch 2 review passes three checks",
+    "evidence": [
+      "runtime/v6/reviews/TASK_44ed8445ba9b638fcd7e9fe8/2/review-record.json",
+      "runtime/v6/host-messages/full-relocked-canon-b2-review-result.txt"
+    ],
+    "at": "2026-09-25T14:00:33.318526Z",
+    "subject_uri": "runtime/v6/reviews/TASK_44ed8445ba9b638fcd7e9fe8/2/review-record.json",
+    "subject_sha256": "7ff9cf914bdcfc92a9413f90f7975d753d1e0e671d7fefcde002ae6cb85e30d7"
+  }
+}

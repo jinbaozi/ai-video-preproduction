@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_STALE_CANCEL_REQUEST_COMMAND_1",
+  "expected_revision": 185,
+  "message": {
+    "at": "2026-09-25T13:38:06.913730Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-stale-cancel-request.txt"
+    ],
+    "in_reply_to": "CONTROL_SEMANTIC_REBASE_EVIDENCE_1",
+    "message_id": "CONTROL_STALE_CANCEL_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "d1bed47974e2938f67c6b240e0b65d1552db64ac551dd1bf4b300cbff43f65fb",
+    "subject_uri": "runtime/v6/host-inputs/control-stale-cancel-request.txt",
+    "summary": "Kernel owner confirmed upstream accepted semantic bindings stale after V5 rebase; host requested final BLOCKER/CANCEL_ACK before formal invalidation.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

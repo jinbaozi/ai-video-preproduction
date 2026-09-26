@@ -1,0 +1,110 @@
+{
+  "actual_media_review": "NOT_RUN",
+  "actual_model_camera_trajectory_validation": "NOT_RUN",
+  "adapter_losses": [],
+  "adapter_report_bytes_match": true,
+  "adapter_status": "MAPPED",
+  "boundary_visible_parts": {
+    "accepted_storyboard": {
+      "10500": [],
+      "12000": []
+    },
+    "avir": {
+      "10500": [],
+      "12000": []
+    },
+    "frozen_storyboard": {
+      "10500": [],
+      "12000": []
+    },
+    "package": {
+      "10500": [],
+      "12000": []
+    }
+  },
+  "camera_position_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "camera_status_counts": {
+    "PLANNED_PROJECTION": 121
+  },
+  "candidate_digest": "a4a9944b8ae45004fefb4b8a55fbdb1f01f84e15836395246efca05023882728",
+  "final_control_frame_visible_parts": [],
+  "generated_video": false,
+  "geometry": "ROOT_POINTS_ONLY",
+  "independent_build_verify": {
+    "command": [
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/control_cli.py",
+      "verify",
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/reviews/TASK_eed007d42920d3df5b4f00f7/1/independent-control-build"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\n  \"status\": \"VERIFIED\",\n  \"media_review\": \"NOT_RUN\"\n}"
+  },
+  "independent_rebuild_matches_all_candidate_files": true,
+  "keyframe_requests": 14,
+  "keyframe_status": "DRAFT_REQUIRES_HOST_REVIEW",
+  "locked_control_verify": {
+    "command": [
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/control_cli.py",
+      "verify",
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/control-pack"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\n  \"status\": \"VERIFIED\",\n  \"media_review\": \"NOT_RUN\"\n}"
+  },
+  "manifest_member_hashes_match": true,
+  "native_validation": {
+    "command": [
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py",
+      "validate",
+      "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/native-av-ir.json"
+    ],
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\n  \"status\": \"VALID\",\n  \"diagnostics\": []\n}"
+  },
+  "occlusion": "NOT_EVALUATED",
+  "package_file_hashes": {
+    "artifact-manifest.json": "d049667a30b21964ff38b10151b34042772ea1d8d6c3dee40fe72ad4762ebf90",
+    "control-config.json": "200f4f1287b09cfa3009d625f59578ef8107920130825f9c8de482b0f959c266",
+    "control-coverage.json": "8b6ab8eb8aa4c642ce016b1d6f530f23047d84a2ed009ab24fa4af8c510ab0fa",
+    "control-plan.json": "7ddad931d2ca763c093563c638cc2f5a5ded18a3c38b7a5e8d513a04adf41206",
+    "evaluation-plan.json": "5650a0a69700a88a597319c18ce7b417310cb4a9216054f1baf170ffabacf946",
+    "keyframe-requests.json": "f2070e255c1f4082cdc488a2f17afd4c1205c3b77177a174a075ca7df8cff6e4",
+    "package-manifest.json": "2eb0c085230597179ebac8297d8adf6e5274f6659190f9c39be784045e484c2e",
+    "production-specification.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "review/blocking-001.svg": "af21149321e95cd390f3a74c1c76ab34e23ee851af8509816009ddccc6c14e8a",
+    "review/frames.json": "f3c5294bdb70816c87f07e1dc830c9bc96f2149c9ec826b5f55d77e3c675dd8a",
+    "review/index.html": "6a62b5d9ccc5fdd5298a1497cd3982435675ba62a76cdddf8c3c61cf9f2df0b4"
+  },
+  "point_projection_limit": "N_LETTER root is projected IN_FRAME at 12000 ms, but authoritative visible_parts is []; root projection does not determine occlusion or media visibility.",
+  "point_status_counts": {
+    "N_BACKPACK": {
+      "IN_FRAME": 121
+    },
+    "N_CAMERA": {
+      "BEHIND_CAMERA": 121
+    },
+    "N_ENV": {
+      "UNDETERMINED": 121
+    },
+    "N_JIA": {
+      "IN_FRAME": 121
+    },
+    "N_LETTER": {
+      "IN_FRAME": 121
+    },
+    "N_YI": {
+      "IN_FRAME": 121
+    }
+  },
+  "rederived_avir_bytes_match": true,
+  "result": "PASS",
+  "schema": "control-verification-review/1.0",
+  "shot_end_visible_parts": []
+}

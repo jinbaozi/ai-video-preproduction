@@ -1,0 +1,1 @@
+请在完成后先报告 fresh native validator 的准确 status、semantic_review 摘要与提交 IR 是否绑定，以及 V5/V6 handoff 结果；若遇源指针或签名冲突，先发具体 BLOCKER，不要补造 PASS。继续只写自己的候选目录。

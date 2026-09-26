@@ -1,0 +1,272 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json",
+  "artifact_sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/module-receipt.json"
+      ],
+      "finding": "冻结输入和四份锁定模块资源哈希吻合。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/stow-continuity.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/repair-b1.json"
+      ],
+      "finding": "锁定 DirectorIR 1.2 原生校验返回 STATIC_VALID；编剧绑定 REVIEW_ATTESTED；终态显式样本信在包内不外露。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-check.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/art-compatibility.json"
+      ],
+      "finding": "Canon 三项硬要求与 ScriptIR 六条交接已映射到原生字段；新锁 Art 事件指针可定位三项 timeline.actions。",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "bf0865334b4a88be570a164a095df2e96eeaf1c5be45d0fd61562ae0108bf9b6",
+  "handoff": [
+    {
+      "reason": "雨夜由场景与声画氛围承载，具体地点保持开放。",
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "review": {
+        "director_sha256": "b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea",
+        "findings": [
+          "本批逐条对照冻结 Canon 与已通过当前语义复核的 ScriptIR：雨夜、同一封未拆信及交接→验封→入包顺序均有原生视听字段承载。",
+          "DirectorIR 1.2 的三项动作位于 timeline.actions，shots[].phases 保持空；入包动作在8500毫秒更新信件接触、支撑、控制权及背包状态，终帧信完全在包内且不再外露。",
+          "三镜九秒、机位和左右站位属于导演设计；具体地点、室内外、角色外观及背包样式仍未指定。静态设计未作为实际媒体审片。",
+          "按上一批独立审阅返修：9000毫秒镜头终帧仅见乙手与背包口，同一封信已完全在包内且不外露；与8500至9000毫秒构图和显式物理状态一致。"
+        ],
+        "reviewer": "current-agent / TASK_bf0865334b4a88be570a164a / batch 2",
+        "screenplay_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809"
+      },
+      "source_fingerprint": "1c01089dff949f1e66af960811afb8d7605819a62c9aba9bfdb0b27440ce8201",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/space",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/sound/ambience",
+          "value": "雨夜"
+        }
+      ],
+      "target_clause": "REQ_RAIN_NIGHT"
+    },
+    {
+      "reason": "同一实体 ID 从交接延续至入包，验封过程不拆信。",
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "review": {
+        "director_sha256": "b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea",
+        "findings": [
+          "本批逐条对照冻结 Canon 与已通过当前语义复核的 ScriptIR：雨夜、同一封未拆信及交接→验封→入包顺序均有原生视听字段承载。",
+          "DirectorIR 1.2 的三项动作位于 timeline.actions，shots[].phases 保持空；入包动作在8500毫秒更新信件接触、支撑、控制权及背包状态，终帧信完全在包内且不再外露。",
+          "三镜九秒、机位和左右站位属于导演设计；具体地点、室内外、角色外观及背包样式仍未指定。静态设计未作为实际媒体审片。",
+          "按上一批独立审阅返修：9000毫秒镜头终帧仅见乙手与背包口，同一封信已完全在包内且不外露；与8500至9000毫秒构图和显式物理状态一致。"
+        ],
+        "reviewer": "current-agent / TASK_bf0865334b4a88be570a164a / batch 2",
+        "screenplay_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809"
+      },
+      "source_fingerprint": "97eb18b237c8758344de34386e927d754490d1dd7c80a8a26d360a6401465ffb",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/entities/2/description",
+          "value": "同一封未拆的信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/1/operation",
+          "value": "不拆信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/condition",
+          "value": "未拆"
+        }
+      ],
+      "target_clause": "REQ_SAME_UNOPENED_LETTER"
+    },
+    {
+      "reason": "三个动作的开始时间与前件依赖按剧本顺序排列。",
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "review": {
+        "director_sha256": "b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea",
+        "findings": [
+          "本批逐条对照冻结 Canon 与已通过当前语义复核的 ScriptIR：雨夜、同一封未拆信及交接→验封→入包顺序均有原生视听字段承载。",
+          "DirectorIR 1.2 的三项动作位于 timeline.actions，shots[].phases 保持空；入包动作在8500毫秒更新信件接触、支撑、控制权及背包状态，终帧信完全在包内且不再外露。",
+          "三镜九秒、机位和左右站位属于导演设计；具体地点、室内外、角色外观及背包样式仍未指定。静态设计未作为实际媒体审片。",
+          "按上一批独立审阅返修：9000毫秒镜头终帧仅见乙手与背包口，同一封信已完全在包内且不外露；与8500至9000毫秒构图和显式物理状态一致。"
+        ],
+        "reviewer": "current-agent / TASK_bf0865334b4a88be570a164a / batch 2",
+        "screenplay_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809"
+      },
+      "source_fingerprint": "8f40a21ba4c3e07fe35295a99ada60e873b0491b1c238d3b4cb0a7b4460cf1e6",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        }
+      ],
+      "target_clause": "REQ_EVENT_ORDER"
+    },
+    {
+      "reason": "最终关键姿态与观众所得信息均为同一封信入包。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "review": {
+        "director_sha256": "b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea",
+        "findings": [
+          "本批逐条对照冻结 Canon 与已通过当前语义复核的 ScriptIR：雨夜、同一封未拆信及交接→验封→入包顺序均有原生视听字段承载。",
+          "DirectorIR 1.2 的三项动作位于 timeline.actions，shots[].phases 保持空；入包动作在8500毫秒更新信件接触、支撑、控制权及背包状态，终帧信完全在包内且不再外露。",
+          "三镜九秒、机位和左右站位属于导演设计；具体地点、室内外、角色外观及背包样式仍未指定。静态设计未作为实际媒体审片。",
+          "按上一批独立审阅返修：9000毫秒镜头终帧仅见乙手与背包口，同一封信已完全在包内且不外露；与8500至9000毫秒构图和显式物理状态一致。"
+        ],
+        "reviewer": "current-agent / TASK_bf0865334b4a88be570a164a / batch 2",
+        "screenplay_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809"
+      },
+      "source_fingerprint": "4f54859522a816a31f24e21d40a7a673c05cd2996bab23c54fa385511e4214ef",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/contacts",
+          "value": "PROP_BACKPACK.interior"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/narrative/audience_after",
+          "value": "同一封未拆的信已经收进背包"
+        }
+      ],
+      "target_clause": "REQ_ENDING"
+    },
+    {
+      "reason": "每一剧本事件均有独立动作、可见反馈和认知更新。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "review": {
+        "director_sha256": "b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea",
+        "findings": [
+          "本批逐条对照冻结 Canon 与已通过当前语义复核的 ScriptIR：雨夜、同一封未拆信及交接→验封→入包顺序均有原生视听字段承载。",
+          "DirectorIR 1.2 的三项动作位于 timeline.actions，shots[].phases 保持空；入包动作在8500毫秒更新信件接触、支撑、控制权及背包状态，终帧信完全在包内且不再外露。",
+          "三镜九秒、机位和左右站位属于导演设计；具体地点、室内外、角色外观及背包样式仍未指定。静态设计未作为实际媒体审片。",
+          "按上一批独立审阅返修：9000毫秒镜头终帧仅见乙手与背包口，同一封信已完全在包内且不外露；与8500至9000毫秒构图和显式物理状态一致。"
+        ],
+        "reviewer": "current-agent / TASK_bf0865334b4a88be570a164a / batch 2",
+        "screenplay_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809"
+      },
+      "source_fingerprint": "9044de0a13ef70378170d21d51fdf0e0b57a6db67b226f5e2b17e4780e65d5f7",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/narrative/character_knows",
+          "value": "乙在本镜确认封口完整"
+        }
+      ],
+      "target_clause": "REQ_SCRIPT_EVENTS"
+    },
+    {
+      "reason": "镜头和动作顺序均与剧本 reveal_order 对齐。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "review": {
+        "director_sha256": "b8267ea0a2d70c3e3d3d4a69436c5a78b78250b4675497eba354cf3894b35aea",
+        "findings": [
+          "本批逐条对照冻结 Canon 与已通过当前语义复核的 ScriptIR：雨夜、同一封未拆信及交接→验封→入包顺序均有原生视听字段承载。",
+          "DirectorIR 1.2 的三项动作位于 timeline.actions，shots[].phases 保持空；入包动作在8500毫秒更新信件接触、支撑、控制权及背包状态，终帧信完全在包内且不再外露。",
+          "三镜九秒、机位和左右站位属于导演设计；具体地点、室内外、角色外观及背包样式仍未指定。静态设计未作为实际媒体审片。",
+          "按上一批独立审阅返修：9000毫秒镜头终帧仅见乙手与背包口，同一封信已完全在包内且不外露；与8500至9000毫秒构图和显式物理状态一致。"
+        ],
+        "reviewer": "current-agent / TASK_bf0865334b4a88be570a164a / batch 2",
+        "screenplay_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809"
+      },
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/story_order",
+          "value": 1
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/story_order",
+          "value": 2
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/story_order",
+          "value": 3
+        }
+      ],
+      "target_clause": "REQ_REVEAL_ORDER"
+    }
+  ],
+  "module_receipt": {
+    "name": "director-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/SKILL.md",
+        "sha256": "ca22158b6ca4c0e654e1df66f25cc02bdfa689869df124bb9ae0b201f1ad2f6f"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/references/cooperation-v5.md",
+        "sha256": "28fb0672d9920bb60bb2800da33cc9ac1d9cd6884d30ceb993fa51672b65bb28"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/references/screenplay-handoff.md",
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+      }
+    ],
+    "skill_sha256": "ca22158b6ca4c0e654e1df66f25cc02bdfa689869df124bb9ae0b201f1ad2f6f",
+    "version": "1.4.4"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_bf0865334b4a88be570a164a",
+  "unresolved": [],
+  "validator": {
+    "errors": [],
+    "media": "NOT_RUN",
+    "screenplay_binding": "REVIEW_ATTESTED",
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  }
+}

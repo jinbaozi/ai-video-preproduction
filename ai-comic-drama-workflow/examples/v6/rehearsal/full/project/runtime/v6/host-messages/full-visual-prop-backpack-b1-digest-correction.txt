@@ -1,0 +1,1 @@
+更正上一条：冻结 envelope 完全有效，存储值和 envelope_input_digest() 都是 64 位 `acd6b26fc943e25584b86ae4f6afa8c47467a9b8dae5ace4d4ff8d6d8e86056f`。是我在候选构造脚本里手动漏抄了 `d6`，没有改动权威 state；正在用 state 原值生成候选。请忽略先前阻塞提示。

@@ -1,0 +1,8 @@
+{
+  "delivery": "READY",
+  "final_issues": [],
+  "media": "NOT_RUN",
+  "professional_blind_review": "NOT_RUN",
+  "semantic_review": "REVIEW_ATTESTED",
+  "status": "STATIC_VALID"
+}

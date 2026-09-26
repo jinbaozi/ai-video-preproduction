@@ -1,0 +1,22 @@
+{
+  "source_project": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "v6_revision": 782,
+  "v6_control_task_id": "TASK_4c69e10662f9834bb335155d",
+  "v6_control_state": "ACCEPTED",
+  "v6_control_artifact": {
+    "batch": 1,
+    "candidate_digest": "9b8d5c622246119d5e241f6161ecf17c5839e7e1bd5898f4b9b59d0d29667090",
+    "kind": "ShotControlPack",
+    "sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+    "slot": "control:project:project:ShotControlPack",
+    "task_id": "TASK_4c69e10662f9834bb335155d",
+    "uri": "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/control-pack/package-manifest.json"
+  },
+  "v6_prior_compile_review_task_id": "TASK_01b83d9bf3bd9032fd655d18",
+  "v6_prior_compile_review_state": "STALE",
+  "v6_prior_compile_task_id": "V6_compile_ee07749c72a2525a571b",
+  "v6_prior_compile_state": "STALE",
+  "v5_build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "v5_compile_review_status": "ACCEPTED",
+  "v5_compile_review_build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0"
+}

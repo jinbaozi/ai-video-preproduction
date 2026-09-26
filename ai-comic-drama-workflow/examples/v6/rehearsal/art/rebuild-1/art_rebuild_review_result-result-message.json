@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REBUILD_REVIEW_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 236,
+  "message": {
+    "at": "2026-09-25T14:14:52.944291Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/review-record.json"
+    ],
+    "in_reply_to": "ART_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+    "message_id": "ART_REBUILD_REVIEW_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+    "subject_sha256": "883c7210c4bf41575813b73aa6e072c76db76297ef4efb4bf1dddac01853dfcf",
+    "subject_uri": "runtime/v6/reviews/TASK_71abb1f14640b94809ef3db2/1/review-record.json",
+    "summary": "独立 Art review-record/6.0 完成并绑定当前候选，三项检查 PASS，媒体 NOT_RUN。",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "type": "RESULT"
+  }
+}

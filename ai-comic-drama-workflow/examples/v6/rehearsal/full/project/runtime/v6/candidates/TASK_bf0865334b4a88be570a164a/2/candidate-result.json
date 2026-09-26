@@ -1,0 +1,79 @@
+{
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_ae88af1ac4163d4e37222aa4",
+  "artifacts": [
+    {
+      "kind": "DirectorIR",
+      "sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json"
+    }
+  ],
+  "batch": 2,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/stow-continuity.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/repair-b1.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-check.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/art-compatibility.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_45d4c22d9b47d4c769367b04",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_beaf9e05cc9e0aa9e036f59b",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_version": 15,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    }
+  ],
+  "input_digest": "85b2bcd4414232835001b6218d902ef7db0f4872571ef5c617e2e41e417bb6ac",
+  "module_receipts": [
+    {
+      "name": "director-grammar",
+      "sha256": "1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1",
+      "version": "1.4.4"
+    }
+  ],
+  "result_sha256": "582b182414510d84798577225651bddae8ce4e69a9af04fc900bc0d28c1de5d4",
+  "result_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_bf0865334b4a88be570a164a",
+  "unresolved": []
+}

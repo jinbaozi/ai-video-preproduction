@@ -1,11 +1,11 @@
 {
   "archive": "storyboard-grammar.skill",
-  "archive_sha256": "e1b7b6a932d2870e726ffaf53687b38a7c50573e01f979912dc680d1115a8310",
-  "file_count": 58,
+  "archive_sha256": "5c989032511440fb847af093bf73167ebd58c60f4f4c6ef0174416ae2b731a6f",
+  "file_count": 59,
   "files": {
     "storyboard-grammar/SKILL.md": {
-      "bytes": 6300,
-      "sha256": "9308d0ebc03bab13a2c6605d68a58c76edbeb55073b66415223638598c2176b2"
+      "bytes": 6776,
+      "sha256": "0dea89b5fe64014f964c4ddccf65a2845a4836f5fa0fc649422cb6ea09a413ee"
     },
     "storyboard-grammar/agents/openai.yaml": {
       "bytes": 390,
@@ -64,8 +64,8 @@
       "sha256": "cae09336db49025604c3d8e90b30282e95a79f6636c53f2bce4fbfe7ad0d7bad"
     },
     "storyboard-grammar/references/cooperation-v5.md": {
-      "bytes": 2279,
-      "sha256": "019134c7af9de7da115c680397878e9f6835a2db6cc819e37ebf353dd57c8866"
+      "bytes": 3897,
+      "sha256": "6fbfae5a32824e122d5146e7741a4df38edc48ad5c58269b38ad671809aee021"
     },
     "storyboard-grammar/references/current-contract.md": {
       "bytes": 2877,
@@ -110,6 +110,10 @@
     "storyboard-grammar/references/spatial-composition.md": {
       "bytes": 3584,
       "sha256": "ae2e5b82c183faad0f3842d6ab15a18daa9b9d2124632090b91f96c71e56d1d8"
+    },
+    "storyboard-grammar/references/v5-reads.json": {
+      "bytes": 359,
+      "sha256": "036c4704f8f07cfab50568f95b57535f7857e8902266849d7a10e8e1207e272d"
     },
     "storyboard-grammar/references/verification.md": {
       "bytes": 2209,
@@ -237,5 +241,5 @@
     }
   },
   "name": "storyboard-grammar",
-  "version": "1.3.1"
+  "version": "1.3.3"
 }

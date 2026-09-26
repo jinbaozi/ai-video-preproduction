@@ -1,0 +1,33 @@
+{
+  "schema": "review-record/6.0",
+  "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+  "batch": 1,
+  "reviewer_agent_id": "/root/host_bridge/v6_e184a8b19af38523257bb812",
+  "reviewer_dispatch_id": "review-0ef4d4d5c63274b982c620a4",
+  "candidate_digest": "a41333f9bb29d2016c5e1bd9b05f0c1816de681e7191c656b9a6b16ce91df173",
+  "checks": [
+    {
+      "id": "source_integrity",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/source-integrity.review.json"
+      ]
+    },
+    {
+      "id": "canon_contract",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon-contract.review.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/handoff.review.json"
+      ]
+    }
+  ],
+  "failure_owner": null,
+  "at": "2026-09-25T10:25:46.367942Z"
+}

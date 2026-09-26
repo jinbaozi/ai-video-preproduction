@@ -20,7 +20,7 @@ def run_example(out, version='v5'):
     out.mkdir(parents=True,exist_ok=True)
     author=out/'authored-fixture';shutil.copytree(ROOT/'examples'/version/'cafe',author)
     k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5')
-    for _ in range(12):
+    for _ in range(16):
         step=k.run()
         if step['status']=='DELIVERED':return step
         if 'task' not in step:raise ValueError(str(step))
@@ -31,9 +31,31 @@ def run_example(out, version='v5'):
             value={'project_id':'CAFE_DEMO','revision':1,'content':(author/'cafe.source.txt').read_text(),
                    'source_refs':[s['id'] for s in k.state['sources']]}
             if kind=='canon':value.update(entities=[{'id':e['id']} for e in read(author/'director.json')['entities']],locks=[])
+        elif kind=='control':
+            config=author/'control-config.json'
+            config.write_bytes(encoded({'schema':'shot-control-config/0.2','lenses':{},'controls':[]}))
+            result={'schema':'role-result/5.1','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
+                'checks':['Synthetic shot-control config for the fixture motion.'],'conflicts':[],'unresolved':[],
+                'config':str(config),'validator':{'status':'VERIFIED','tool':'control_cli.py verify'}}
+            module=task.get('module') or {}
+            result['module_receipt']={'name':module['name'],'version':module['version'],'skill_sha256':module['skill_sha256'],
+                'reads':[{'path':item['path'],'sha256':item['sha256']} for item in module.get('required_reads') or []]}
+            k.submit(result);continue
+        elif kind=='compile-review':
+            build_id=k.state['build']['build_id']
+            result={'schema':'role-result/5.1','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
+                'checks':['Synthetic semantic review of the compiled prompt and segment files.'],'conflicts':[],'unresolved':[],
+                'semantic_review':{'build_id':build_id,'equivalent':True,
+                    'clauses':[{'id':item,'finding':'Reviewed against prompt.txt '+item} for item in task.get('hard_clauses') or []],
+                    'blocked':[{'id':item,'disposition':'held'} for item in task.get('blocked_segments') or []]}}
+            module=task.get('module') or {}
+            result['module_receipt']={'name':module['name'],'version':module['version'],'skill_sha256':module['skill_sha256'],
+                'reads':[{'path':item['path'],'sha256':item['sha256']} for item in module.get('required_reads') or []]}
+            k.submit(result);continue
         elif kind=='qa':
-            value={'project_id':'CAFE_DEMO','passed':True,'build_id':k.state['build']['build_id'],
-                   'checks':['Fixed fixture: source order, B dialogue, two identities, hand custody and explicit coordinate conversion checked.','Static example only; actual images and video NOT_RUN.']}
+            build_id=k.state['build']['build_id']
+            value={'project_id':'CAFE_DEMO','passed':True,'build_id':build_id,'compile_review_build_id':build_id,
+                   'checks':['Fixed fixture: source order, B dialogue, two identities, hand custody and explicit coordinate conversion checked.','Static example only; actual images and video NOT_RUN.',*(task.get('hard_clauses') or [])]}
         else:value=read(author/(kind+'.json'))
         handoff=director_mapping(task,value) if kind=='director' and k.screenplay_protocol() else []
         path=author/('result-'+kind+'.json');path.write_bytes(encoded(value))
@@ -50,6 +72,13 @@ def run_example(out, version='v5'):
         result={'schema':'role-result/5.0','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
             'artifact':str(path),'artifact_sha256':digest_file(path),'complete':True,'handoff':handoff,
             'checks':['Fixed native example and source checked; no external model or media execution.'],'conflicts':[],'unresolved':[]}
+        statuses={'screenplay':'STATIC_VALID','director':'STATIC_VALID','art':'STATIC_VALID','storyboard':'VALID','avir':'VALID'}
+        if kind in statuses:result['validator']={'status':statuses[kind],'tool':kind}
+        module=task.get('module') or {}
+        if module.get('required_reads'):
+            result['schema']='role-result/5.1'
+            result['module_receipt']={'name':module['name'],'version':module['version'],'skill_sha256':module['skill_sha256'],
+                'reads':[{'path':item['path'],'sha256':item['sha256']} for item in module['required_reads']]}
         k.submit(result)
     raise ValueError('Example did not converge')
 

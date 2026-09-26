@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_COMMAND_1",
+  "expected_revision": 82,
+  "message": {
+    "at": "2026-09-25T12:21:04.328496Z",
+    "batch": 3,
+    "evidence": [
+      "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/3/review-record.json"
+    ],
+    "in_reply_to": "DIRECTOR_B3_REVIEW_PROGRESS_PROGRESS_1",
+    "message_id": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_1",
+    "recipient_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "0868369c1192d315f435b3fef3f60766dfca2a49eff135322b37b75a45b9e9e6",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-review-digest-correction.txt",
+    "summary": "Host preflight found reviewer used candidate byte SHA instead of canonical candidate_digest; reviewer asked to preserve v1 and correct protocol binding without changing independent judgment.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "QUESTION"
+  }
+}

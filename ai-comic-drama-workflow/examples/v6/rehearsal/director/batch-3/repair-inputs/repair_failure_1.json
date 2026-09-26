@@ -1,0 +1,11 @@
+{
+  "batch": 1,
+  "candidate_digest": null,
+  "code": "VALUEERROR",
+  "failed_check": "handoff",
+  "message": "Independent review failed",
+  "node_id": "director",
+  "reviewer_failure_owner": "director",
+  "submission_digest": "10dfb8a01434a4f91c2832d8b665dfdc53caa1986e4cc88fd0768ac512e811a5",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_REPAIR_INSTRUCTION_1",
+  "expected_revision": 91,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_REPAIR_INSTRUCTION_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_19f7d0afd51ff59e575a24ec",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Correct frozen resource URI and native screenplay review binding",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-b3-repair-instruction.txt"
+    ],
+    "at": "2026-09-25T12:53:32.101476Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-b3-repair-instruction.txt",
+    "subject_sha256": "4c7e647494729fbdb7505e47b393aad4e184c369aba896b6f32baf07accc51e0"
+  }
+}

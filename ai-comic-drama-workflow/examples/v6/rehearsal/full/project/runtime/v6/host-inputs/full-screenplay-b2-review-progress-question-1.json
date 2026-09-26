@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_B2_REVIEW_PROGRESS_QUESTION_1",
+  "expected_revision": 47,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_B2_REVIEW_PROGRESS_QUESTION_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 2,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_246b5841b65e96879b2a2a6c",
+    "in_reply_to": null,
+    "type": "QUESTION",
+    "summary": "Host requests batch-2 screenplay review progress",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-b2-review-progress-request.txt"
+    ],
+    "at": "2026-09-25T11:24:47.499334Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-b2-review-progress-request.txt",
+    "subject_sha256": "91b5fad10786c06eeb94c7ea23d138566d865b46db8bcdd7470fa5a16058fd7b"
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+  "findings": [
+    "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+    "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+  ],
+  "mappings": [
+    {
+      "reason": "雨夜由场景与声画氛围承载，具体地点保持开放。",
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "source_fingerprint": "1c01089dff949f1e66af960811afb8d7605819a62c9aba9bfdb0b27440ce8201",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/space",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/0/sound/ambience",
+          "value": "雨夜"
+        }
+      ],
+      "target_clause": "REQ_RAIN_NIGHT"
+    },
+    {
+      "reason": "同一实体 ID 从交接延续至入包，验封过程不拆信。",
+      "requirement_id": "screenplay:REQ_SAME_UNOPENED_LETTER",
+      "source_fingerprint": "982782a89c1cdcaa4938dac6cc0bf02f82f2a41b8c016b5a58dac3676d527658",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/entities/2/description",
+          "value": "同一封未拆的信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/1/operation",
+          "value": "不拆信"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/condition",
+          "value": "未拆"
+        }
+      ],
+      "target_clause": "REQ_SAME_UNOPENED_LETTER"
+    },
+    {
+      "reason": "三个动作的开始时间与前件依赖按剧本顺序排列。",
+      "requirement_id": "screenplay:REQ_EVENT_ORDER",
+      "source_fingerprint": "79799371a55b1c98b351e6b46e31e38b8c4c546f94aedb4a66bb063bbed52e98",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        }
+      ],
+      "target_clause": "REQ_EVENT_ORDER"
+    },
+    {
+      "reason": "最终关键姿态与观众所得信息均为同一封信入包。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "source_fingerprint": "9279f0d98ece08aaa16979367361f73a73cd3f0e82abccee6fe1d361cdfe1442",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/timeline/state_samples/6/entities/PROP_LETTER/contacts",
+          "value": "PROP_BACKPACK.interior"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/narrative/audience_after",
+          "value": "同一封未拆的信已经收进背包"
+        }
+      ],
+      "target_clause": "REQ_ENDING"
+    },
+    {
+      "reason": "每一剧本事件均有独立动作、可见反馈和认知更新。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "source_fingerprint": "48fd7fe8fcff39782c51268c41766dc9823f1946395d769641d3931bded68409",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/0/semantic_id",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/1/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/semantic_id",
+          "value": "EVT_STOW"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/narrative/character_knows",
+          "value": "乙在本镜确认封口完整"
+        }
+      ],
+      "target_clause": "REQ_SCRIPT_EVENTS"
+    },
+    {
+      "reason": "镜头和动作顺序均与剧本 reveal_order 对齐。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/story_order",
+          "value": 1
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/story_order",
+          "value": 2
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/story_order",
+          "value": 3
+        }
+      ],
+      "target_clause": "REQ_REVEAL_ORDER"
+    }
+  ],
+  "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+  "schema": "screenplay-director-map/1.0",
+  "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+}

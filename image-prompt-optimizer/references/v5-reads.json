@@ -1,0 +1,11 @@
+{
+  "always": ["SKILL.md", "references/current-contract.md", "references/cooperation-v5.md"],
+  "kinds": {
+    "image-prompt": ["references/intent-compiler.md"],
+    "image": ["references/compiler-evaluation.md", "references/structural-realism.md"]
+  },
+  "when": {
+    "identity": ["references/character-appearance.md", "templates/production-contract.md"],
+    "multi_subject": ["references/structural-realism.md"]
+  }
+}

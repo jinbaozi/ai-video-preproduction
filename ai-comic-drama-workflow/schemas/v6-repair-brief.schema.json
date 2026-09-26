@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "v6-repair-brief",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "task_id", "node_id", "next_batch", "failed_check", "failures", "instruction"],
+  "properties": {
+    "schema": {"const": "repair-brief/6.0"},
+    "task_id": {"type": "string", "pattern": "^[@A-Za-z][@A-Za-z0-9_.:_-]*$"},
+    "node_id": {"type": "string", "minLength": 1},
+    "next_batch": {"const": 3},
+    "failed_check": {"type": "string", "minLength": 1},
+    "instruction": {"type": "string", "minLength": 1},
+    "failures": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["batch", "code", "failure_uri", "failure_sha256", "review_evidence"],
+        "properties": {
+          "batch": {"type": "integer", "minimum": 1, "maximum": 2},
+          "code": {"type": "string", "minLength": 1},
+          "failure_uri": {"type": "string", "minLength": 1},
+          "failure_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "review_evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["uri", "sha256"],
+              "properties": {
+                "uri": {"type": "string", "minLength": 1},
+                "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

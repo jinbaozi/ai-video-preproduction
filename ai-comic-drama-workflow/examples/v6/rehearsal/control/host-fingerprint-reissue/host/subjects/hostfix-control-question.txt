@@ -1,0 +1,1 @@
+核对发现此 Control 新任务冻结资源中的 v5_adapters.py SHA cb9e…仍在 src 行 195–203 将 composition.subjects.visible_parts 复制到 start/end 两端；这正是先前 compile_review 的终态可见性问题。请确认是否希望我在候选 AVIR 中按 StoryboardIR 10500/12000ms 权威样本显式修正终态，并保留锁定适配器原始输出及差异证据；我会继续只在候选目录工作。

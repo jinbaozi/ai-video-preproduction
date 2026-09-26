@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_HANDOFF_1",
+  "expected_revision": 59,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_HANDOFF_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_83a899880d2e84fbf7f0a5a4",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_PROGRESS_QUESTION_1",
+    "type": "HANDOFF",
+    "summary": "Director creator reports candidate ready",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-candidate-ready.txt"
+    ],
+    "at": "2026-09-25T12:23:28.219502Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-candidate-ready.txt",
+    "subject_sha256": "ac4c3bc50c5726d68a62e64980a2f847208fea5dab1f9ab77c667061ded36976"
+  }
+}

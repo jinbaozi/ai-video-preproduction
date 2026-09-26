@@ -1,0 +1,19 @@
+{
+  "command_id": "DIRECTOR_B2_ACK_COMMAND_1",
+  "expected_revision": 53,
+  "message": {
+    "at": "2026-09-25T11:08:44.021833Z",
+    "batch": 2,
+    "evidence": [],
+    "in_reply_to": "DIRECTOR_B2_GUIDANCE_1",
+    "message_id": "DIRECTOR_B2_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Creator read frozen batch-2 envelope, Canon, ScriptIR, director-grammar Skill and locked references; batch-1 independent handoff failure identifies stale Jia/Yi poses after letter transfer. Creator will repair only batch-2 candidate and revalidate.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "ACK"
+  }
+}

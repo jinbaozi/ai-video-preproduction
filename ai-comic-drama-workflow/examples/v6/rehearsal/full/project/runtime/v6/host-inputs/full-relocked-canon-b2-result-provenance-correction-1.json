@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B2_RESULT_PROVENANCE_CORRECTION_1",
+  "expected_revision": 155,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_CANON_B2_RESULT_PROVENANCE_CORRECTION_1",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_24326123ce7bb1eabb4fd0b7",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_CANON_B2_RESULT_1",
+    "type": "PROGRESS",
+    "summary": "Exact RESULT text provenance correction; prior bound copy omitted final sentence",
+    "evidence": [
+      "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/creator-result-message-actual.txt"
+    ],
+    "at": "2026-09-25T13:56:24.272608Z",
+    "subject_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/creator-result-message-actual.txt",
+    "subject_sha256": "dc5f7fe91656ed45d8316e43dc3d4062048e3842416f935ec611a01fcdb55e2f"
+  }
+}

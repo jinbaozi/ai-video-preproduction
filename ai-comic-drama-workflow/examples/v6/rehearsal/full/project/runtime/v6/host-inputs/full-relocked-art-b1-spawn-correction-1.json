@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_RELOCKED_ART_B1_SPAWN_CORRECTION_1",
+  "expected_revision": 209,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_ART_B1_SPAWN_CORRECTION_1",
+    "task_id": "TASK_4de99276d376cc50c61527d6",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_ef7e68da05761cf96b9008e1",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Correct truncated host spawn text with exact complete frozen Art action",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-art-b1-spawn-correction.txt",
+      "runtime/v6/host-messages/full-relocked-art-b1-spawn-actual.txt",
+      "runtime/v6/host-messages/full-relocked-art-b1-spawn-complete.txt"
+    ],
+    "at": "2026-09-25T14:48:04.258869Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-art-b1-spawn-correction.txt",
+    "subject_sha256": "80d19fd7c9bf73b988c6927b0ed7ddd000744e75b3069757deb18bb368539ef6"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_REBUILD_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 282,
+  "message": {
+    "at": "2026-09-25T14:36:34.640329Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-rebuild-creator-report.txt"
+    ],
+    "in_reply_to": "CONTROL_REBUILD_PROGRESS_PROGRESS_1",
+    "message_id": "CONTROL_REBUILD_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+    "subject_sha256": "923ccf7cdc4a62c9392e47caf40c573d0103eb8be2e973aa8e7b6dc194c24549",
+    "subject_uri": "runtime/v6/host-inputs/control-rebuild-creator-report.txt",
+    "summary": "Control 候选完成：AVIR VALID/MAPPED 0 loss，控制包 VERIFIED，121 帧均规划投影；真实模型轨迹/媒体 NOT_RUN。",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "type": "HANDOFF"
+  }
+}

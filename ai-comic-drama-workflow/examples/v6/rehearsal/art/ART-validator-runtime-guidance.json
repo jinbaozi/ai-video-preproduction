@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_VALIDATOR_RUNTIME_GUIDANCE_COMMAND_1",
+  "expected_revision": 95,
+  "message": {
+    "at": "2026-09-25T12:29:58.101953Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-validator-error.txt"
+    ],
+    "in_reply_to": "ART_VALIDATOR_ERROR_PROGRESS_1",
+    "message_id": "ART_VALIDATOR_RUNTIME_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_2dea6a2a9ca676085285dc07",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "24a68af47c941ba568db697c61dd1113d66c43ca23a498127d0b368bc438a285",
+    "subject_uri": "runtime/v6/host-inputs/art-validator-runtime-guidance.txt",
+    "summary": "Host pointed creator to existing project venv for locked native validator and required preservation of first dependency error and rerun output; no installation or module change.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "HANDOFF"
+  }
+}

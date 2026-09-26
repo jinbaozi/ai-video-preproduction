@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_SCHEMA_CONFLICT_1",
+  "expected_revision": 128,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_SCHEMA_CONFLICT_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_PHASE_REPAIR_1",
+    "type": "BLOCKER",
+    "summary": "Locked Director 1.2 phases const empty conflicts with Art event phase pointers",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-schema-conflict.txt"
+    ],
+    "at": "2026-09-25T13:28:59.627915Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-schema-conflict.txt",
+    "subject_sha256": "ccc115a5c32b2a36d6db4b3120043facf91a4de2119075c934a7c6e96a80aac0"
+  }
+}

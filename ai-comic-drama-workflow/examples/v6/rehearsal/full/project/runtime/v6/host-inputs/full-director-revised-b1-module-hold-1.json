@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_MODULE_HOLD_1",
+  "expected_revision": 129,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_MODULE_HOLD_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_SCHEMA_CONFLICT_1",
+    "type": "HANDOFF",
+    "summary": "Hold candidate until locked Director and Art module contracts are reconciled",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-module-hold.txt"
+    ],
+    "at": "2026-09-25T13:29:43.243541Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-module-hold.txt",
+    "subject_sha256": "2fcdcac2e6a7a4be3465e064def88f525cec3e4a856899e57b78a94df21be484"
+  }
+}

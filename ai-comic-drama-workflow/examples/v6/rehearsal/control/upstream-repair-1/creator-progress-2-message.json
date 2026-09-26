@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROLREPAIR_CREATOR_PROGRESS2_PROGRESS_COMMAND_1",
+  "expected_revision": 438,
+  "message": {
+    "at": "2026-09-25T15:43:30.877097Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/controlrepair-creator-progress-2.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "CONTROLREPAIR_CREATOR_PROGRESS2_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_3076d1ab1cd1bb831b0aefa3",
+    "subject_sha256": "8f36fc3aa9d6b4afd8241f7131ab6800645d06a31bf3470433a9963836d8782a",
+    "subject_uri": "runtime/v6/host-inputs/controlrepair-creator-progress-2.txt",
+    "summary": "Control creator 已 fresh AVIR MAPPED/loss0、native VALID、build DERIVED、verify VERIFIED，正封装候选。",
+    "task_id": "TASK_ddd2a77146e2ddd7866420cb",
+    "type": "PROGRESS"
+  }
+}

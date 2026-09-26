@@ -1,0 +1,159 @@
+{
+  "mappings": [
+    {
+      "reason": "雨夜写入世界、美术环境和逐镜背景，地点及室内外仍开放。",
+      "requirement_id": "director:REQ_RAIN_NIGHT",
+      "source_fingerprint": "d00285ea99d113dad7fe1cb8a5276cdf55e6ea17a7fbffe615f71223e7e569d8",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/world/thesis",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/set/atmosphere",
+          "value": "具体室内外"
+        }
+      ],
+      "target_clause": "ART_WORLD"
+    },
+    {
+      "reason": "同一 PROP_LETTER 资产绑定三个镜头，封口持续完整且验封不拆。",
+      "requirement_id": "director:REQ_SAME_UNOPENED_LETTER",
+      "source_fingerprint": "01bab3ae8108ff73fbcf8b27c8f881126728611d3c9a8bb566d552294b97312a",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/assets/2/identity_locks/0",
+          "value": "同一实体 PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/occlusion",
+          "value": "未拆信"
+        },
+        {
+          "op": "equals",
+          "path": "/assets/2/initial_state/condition",
+          "value": "同一封未拆、封口完整"
+        }
+      ],
+      "target_clause": "ART_CONTINUITY"
+    },
+    {
+      "reason": "三镜按交接、验封、入包排序；两个原生离散终态事件只读绑定冻结导演动作，交接控制权归导演。",
+      "requirement_id": "director:REQ_EVENT_ORDER",
+      "source_fingerprint": "ec14c584c30ecc76b557b757f2ce3a247921484e46fdcff03d28fd329ac9cd91",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/id",
+          "value": "S_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/1/id",
+          "value": "S_SEAL"
+        },
+        {
+          "op": "equals",
+          "path": "/shots/2/id",
+          "value": "S_STOW"
+        },
+        {
+          "op": "equals",
+          "path": "/events/0/director_pointer",
+          "value": "/timeline/actions/1"
+        },
+        {
+          "op": "equals",
+          "path": "/events/1/director_pointer",
+          "value": "/timeline/actions/2"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    },
+    {
+      "reason": "终镜 Art 原生状态链把背包从待收纳信改为收纳同一封信，导演8500毫秒后信在包内且终帧不外露。",
+      "requirement_id": "director:REQ_ENDING",
+      "source_fingerprint": "304e9e36b44834282b308fa54a9a1c26020569a33034b9913fc2f4ba66ac8fed",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/events/1/after",
+          "value": "收纳同一封信"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/background",
+          "value": "8500毫秒后信完全在背包内"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/occlusion",
+          "value": "终帧只见乙手退出与背包口"
+        }
+      ],
+      "target_clause": "ART_STOW"
+    },
+    {
+      "reason": "三个原生事件按冻结导演时轴承接：交信归导演接触控制权、验封确认与收包写入 Art 逐镜离散状态。",
+      "requirement_id": "director:REQ_SCRIPT_EVENTS",
+      "source_fingerprint": "d8001374c3b6eb71338a8349440e52fe0e1f6e2afbc438fce3d4e7f3672e5af0",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/occlusion",
+          "value": "EVT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/events/0/shot_id",
+          "value": "S_SEAL"
+        },
+        {
+          "op": "equals",
+          "path": "/events/1/shot_id",
+          "value": "S_STOW"
+        },
+        {
+          "op": "equals",
+          "path": "/events/0/after",
+          "value": "已确认同一封信封口完整"
+        },
+        {
+          "op": "equals",
+          "path": "/events/1/after",
+          "value": "收纳同一封信"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    },
+    {
+      "reason": "交接镜不提前展示验封/入包，验封镜不提前展示入包，最后镜才呈现收存结果。",
+      "requirement_id": "director:REQ_REVEAL_ORDER",
+      "source_fingerprint": "276d85cad0500b0b70455f358a3f1558342bb2d7b21e4ecb6760b32cf7cbe1e9",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/shots/0/composition_support/negative_space",
+          "value": "不提前展示验封或入包结果"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/1/composition_support/negative_space",
+          "value": "不提前显示入包"
+        },
+        {
+          "op": "contains",
+          "path": "/shots/2/composition_support/negative_space",
+          "value": "只在验封之后出现"
+        }
+      ],
+      "target_clause": "ART_MAPPING"
+    }
+  ],
+  "scope": "V5 native target assertions; semantic and media review remain independent",
+  "status": "PASS_STATIC"
+}

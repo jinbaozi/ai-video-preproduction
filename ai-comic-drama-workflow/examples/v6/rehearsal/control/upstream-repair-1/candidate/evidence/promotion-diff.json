@@ -1,0 +1,69 @@
+{
+  "candidate_storyboard_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "core_semantics_unchanged": true,
+  "diff_count": 12,
+  "differences": [
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/sources/SRC_69a71adcfaca/source.txt",
+      "pointer": "/sources/0/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/files/69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054/source.txt"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "pointer": "/sources/1/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/files/befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c/canon.json"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+      "pointer": "/sources/2/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/files/3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d/script-ir.json"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+      "pointer": "/sources/3/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/files/3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b/director-ir.json"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json",
+      "pointer": "/sources/4/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/files/a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7/art-ir.json"
+    },
+    {
+      "candidate": "a81e3f7105d7d2ec4036eae6bd6ca650e9f387b8e9620cf366b7d347eccfe197",
+      "pointer": "/timeline/semantic_review/input_sha256",
+      "promoted": "4bc99d9d2b6900c8b6f22367c0463491b803d550a51750ae9c0045a5249f4411"
+    },
+    {
+      "candidate": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "pointer": "/upstreams/0/sha256",
+      "promoted": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "pointer": "/upstreams/0/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/befdfe311a8fed6f_canon.json"
+    },
+    {
+      "candidate": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "pointer": "/upstreams/1/sha256",
+      "promoted": "5e058c8251317251030c26d550afc92469e9743588567fe5f2bf24a615a6bfbe"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+      "pointer": "/upstreams/1/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/3c47e2922471e46f_director-ir.json"
+    },
+    {
+      "candidate": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+      "pointer": "/upstreams/2/sha256",
+      "promoted": "716f7d389d3c6d0ec56746946f1ad17921153f681b0f492053fff8c3b9780008"
+    },
+    {
+      "candidate": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json",
+      "pointer": "/upstreams/2/uri",
+      "promoted": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/a73ce04fd18258d3_art-ir.json"
+    }
+  ],
+  "promoted_storyboard_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+  "schema": "control-promotion-diff/1.0"
+}

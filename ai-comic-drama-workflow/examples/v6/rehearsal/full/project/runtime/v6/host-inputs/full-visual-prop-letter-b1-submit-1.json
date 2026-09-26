@@ -1,0 +1,70 @@
+{
+  "command_id": "FULL_VISUAL_PROP_LETTER_B1_SUBMIT_1",
+  "expected_revision": 246,
+  "candidate": {
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+    "batch": 1,
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_798026e1f345ab3c91601691",
+    "input_digest": "dc2dfc3cc8722aec8e8fb9dc6c38950ec11935a0293c36bf8e76e9da9fffbba6",
+    "result_uri": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/role-result.json",
+    "result_sha256": "94e298893bce895d194bb6fedf8235290210fb514b52b58ea9fc6b99797f749d",
+    "artifacts": [
+      {
+        "slot": "visual_prompts:asset:31x41535345545f5343454e455f48414e444f46465f50524f505f4c4554544552:VisualImagePrompt",
+        "kind": "VisualImagePrompt",
+        "uri": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/visual-image-prompt.json",
+        "sha256": "1bb1b80a9216b11980f26eb0e8c82a37ca040026a2db1e08a66f04b2c7608b6a"
+      }
+    ],
+    "module_receipts": [
+      {
+        "name": "image-prompt-optimizer",
+        "version": "1.15.7",
+        "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1"
+      }
+    ],
+    "checks": [
+      {
+        "id": "module_receipt",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/module-receipt.json",
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/input-integrity.json"
+        ]
+      },
+      {
+        "id": "image_prompt_contract",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/contract-validation.json",
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/semantic-audit.json",
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/native-preflight.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/semantic-audit.json",
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/visual-image-prompt.json"
+        ]
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_093a53405e6e3c6e38d8937a",
+        "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+        "source_version": 11,
+        "target_pointer": "",
+        "target_slot": "visual_prompts:asset:31x41535345545f5343454e455f48414e444f46465f50524f505f4c4554544552:VisualImagePrompt",
+        "evidence": [
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/semantic-audit.json",
+          "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/visual-image-prompt.json"
+        ]
+      }
+    ],
+    "unresolved": []
+  }
+}

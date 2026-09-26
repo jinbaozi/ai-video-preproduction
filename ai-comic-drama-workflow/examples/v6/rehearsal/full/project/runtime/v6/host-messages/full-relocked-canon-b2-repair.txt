@@ -1,0 +1,1 @@
+当前 Canon batch 2 须修复 batch 1 原生拒绝：runtime/v6/failures/TASK_44ed8445ba9b638fcd7e9fe8/1/c2be9e95fef27fb0b5c6673afe8c80f45b18346d323cbf74f9dfd1ee298222b2.json 报 REUSE_PROVENANCE，原因是 RoleResult 声称 reused=true 但没有冻结 migration provenance。请独立重新核对本批冻结输入与 Canon 内容，形成新 batch 2 原生证据；可以得到相同 Canon 内容字节，但不要无凭据地标记 reused/migrated。保留 batch 1 原候选和失败文件，不覆盖。你的所有候选只写 batch 2 目录，并说明旧缺陷是否解决。

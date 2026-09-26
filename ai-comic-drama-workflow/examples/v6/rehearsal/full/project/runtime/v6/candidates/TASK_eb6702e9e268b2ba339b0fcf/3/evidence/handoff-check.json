@@ -1,0 +1,39 @@
+{
+  "canon_source_requirements": 3,
+  "dispatch_correction": {
+    "correct_resource_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+    "correct_resource_uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+    "original_dispatch_text_sha256": "be0fbbf7ed11238b7ad7062b163faa7c9ef23b390f0ef977d594199d50e908c4",
+    "original_dispatch_text_uri": "/private/tmp/ai-video-v6-full-demo/full-director-b3-spawn-actual-message.txt",
+    "registered_correction_message_id": "FULL_DIRECTOR_B3_REPAIR_INSTRUCTION_1",
+    "registered_correction_subject_sha256": "4c7e647494729fbdb7505e47b393aad4e184c369aba896b6f32baf07accc51e0",
+    "registered_correction_subject_uri": "runtime/v6/host-messages/full-director-b3-repair-instruction.txt"
+  },
+  "media": "NOT_RUN",
+  "native_hard_clauses": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER",
+    "REQ_ENDING",
+    "REQ_SCRIPT_EVENTS",
+    "REQ_REVEAL_ORDER"
+  ],
+  "repair_history": [
+    {
+      "defect": "terminal letter still visibly framed after stow",
+      "failure_uri": "runtime/v6/failures/TASK_eb6702e9e268b2ba339b0fcf/1/0e276ea9e87a7e82db3a8a4624acf10287969bb241527b72d32e4916fb6c8eea.json",
+      "prior_batch": 1,
+      "resolution": "PASS; explicit 8500 and 9000 ms settled state and composition hide letter; see stow-continuity.json"
+    },
+    {
+      "defect": "Inconsistent screenplay review binding",
+      "failure_uri": "runtime/v6/failures/TASK_eb6702e9e268b2ba339b0fcf/2/e4ee8fd8222294abde4440b2870100925d62bc54185aca5708b173916144461b.json",
+      "prior_batch": 2,
+      "resolution": "PASS; six native screenplay mapping rows use identical review stamp; V6 candidate retains two separate artifact handoffs"
+    }
+  ],
+  "screenplay_mapped_handoffs": 6,
+  "screenplay_required_handoffs": 6,
+  "semantic_finding": "雨夜未指定地点；同一信件 ID 贯穿；先交接、后验封、8500毫秒入包并在9000毫秒保持不可见；无新增对白。",
+  "status": "PASS"
+}

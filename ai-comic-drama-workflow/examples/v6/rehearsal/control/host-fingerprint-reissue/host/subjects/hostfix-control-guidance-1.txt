@@ -1,0 +1,1 @@
+你的 QUESTION 已作为 V6 正式消息登记（rev636，原文保留）。先不要手动补正锁定适配器的 AVIR 或提交 RESULT。请只读核对完整 locked lowering 链，尤其 v6_stage_adapter 是否在 v5_adapters 之后按 start/end 权威状态重绑可见性；生成原始输出与 StoryboardIR 的逐时点差异证据，并报告实际 `control_cli verify` 与 V6 预审是否会接受。只在候选目录做诊断，等责任归属确认。

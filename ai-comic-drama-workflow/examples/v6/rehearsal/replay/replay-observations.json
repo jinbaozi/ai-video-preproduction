@@ -1,0 +1,20 @@
+[
+  {
+    "exit_code": 0,
+    "revision_after": 39,
+    "revision_before": 39,
+    "stderr": "",
+    "stdout": "{\n  \"status\": \"ALREADY_RECORDED\",\n  \"revision\": 39,\n  \"recorded_revision\": 36,\n  \"command_id\": \"DIRECTOR_DISPATCH_1\"\n}",
+    "wrapper": "DIRECTOR-event.json",
+    "wrapper_sha256": "3b4b7165821efee83745da290ca51cbd6b88c7e8d1a6ef495ab0bc57fa2e160d"
+  },
+  {
+    "exit_code": 1,
+    "revision_after": 39,
+    "revision_before": 39,
+    "stderr": "",
+    "stdout": "{\"status\": \"ERROR\", \"error\": \"COMMAND_COLLISION: command revision differs from its original submission\"}",
+    "wrapper": "director-event-collision.json",
+    "wrapper_sha256": "d8280be173e875eae482abd6a2fdab670a07aa00b2070effd5f7382488248a2b"
+  }
+]

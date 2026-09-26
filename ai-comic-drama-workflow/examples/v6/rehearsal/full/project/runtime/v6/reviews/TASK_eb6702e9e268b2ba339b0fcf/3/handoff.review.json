@@ -1,0 +1,34 @@
+{
+  "canon_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "method": "Compared frozen Canon and ScriptIR with DirectorIR, six mapping rows and native hard clauses; independently reran native mapping and read-only V5 acceptance validation.",
+  "screenplay_map_sha256": "6f4c914c3a041b5f96e1ffe894681bf7b79b888f74ecef54a42e6d31194c0677",
+  "screenplay_requirement_ids": [
+    "screenplay:REQ_RAIN_NIGHT",
+    "screenplay:REQ_SAME_UNOPENED_LETTER",
+    "screenplay:REQ_EVENT_ORDER",
+    "screenplay:NARRATIVE_ending",
+    "screenplay:NARRATIVE_events",
+    "screenplay:NARRATIVE_reveal_order"
+  ],
+  "screenplay_review_stamp": {
+    "director_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+    "findings": [
+      "逐项复核冻结 Canon、ScriptIR 与六条编剧交接；沿用已通过独立语义审阅的 DirectorIR，确认8500/9000毫秒信完全在包内且不再作为可见主体。",
+      "本批修复原生 V5 RoleResult 的 screenplay review binding；六条映射使用同一当前复核标记，与 V6 两条 artifact handoff 分离。"
+    ],
+    "reviewer": "current-agent / TASK_eb6702e9e268b2ba339b0fcf / batch 3",
+    "screenplay_sha256": "d9a72294a778c2c9517ecfb45bd19705dd58dedc69fc70b6eaf53e4d22488463"
+  },
+  "semantic_finding": "Rain night retained without specifying a location; one unopened letter remains throughout handoff, seal check and stow; no new dialogue; letter is inside backpack at 8500 and 9000 ms.",
+  "status": "PASS",
+  "target_check_count": 17
+}

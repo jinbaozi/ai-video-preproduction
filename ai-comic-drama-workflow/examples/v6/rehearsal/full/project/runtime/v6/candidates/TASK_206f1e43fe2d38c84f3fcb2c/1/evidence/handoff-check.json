@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "binding": {
+    "channel": "artifact",
+    "requirement_id": "UP_10aaee2a8411c3ed15da2c11",
+    "source_slot": "canon:project:project:Canon",
+    "source_version": 12,
+    "target_pointer": "",
+    "target_slot": "screenplay:project:project:ScriptIR"
+  },
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "target_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "registered_canon_uri": "artifacts/canon/f3c90f6c20dd218a854fa67548b296692d71fd08bc62e2ca5076a27667809b18/native/0cc4aebffda6a714_canon.json",
+  "registered_canon_sha256": "ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5",
+  "registered_canon_matches_frozen_content": true,
+  "mapping_pointers_exist": true,
+  "source_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "target_clause_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "source_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "target_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "finding": "冻结 Canon 与正式 Canon 的 JSON 内容一致；来源硬要求、角色 ID 和事件顺序可在剧本中逐项定位。"
+}

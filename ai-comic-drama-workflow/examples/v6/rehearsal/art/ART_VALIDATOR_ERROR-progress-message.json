@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_VALIDATOR_ERROR_PROGRESS_COMMAND_1",
+  "expected_revision": 94,
+  "message": {
+    "at": "2026-09-25T12:29:33.183178Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-validator-error.txt"
+    ],
+    "in_reply_to": "ART_PROGRESS_PROGRESS_1",
+    "message_id": "ART_VALIDATOR_ERROR_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_2dea6a2a9ca676085285dc07",
+    "subject_sha256": "5e2197d616af9bd5364a483b2f4b58e959fa7e1dcbdc0a5986572a262c0fb2ff",
+    "subject_uri": "runtime/v6/host-inputs/art-validator-error.txt",
+    "summary": "Art creator reported first native-validator attempt failed before reading ArtIR because system python3 lacks jsonschema; locating existing local runtime, no source/module change.",
+    "task_id": "TASK_0560d46ecc764c68ee9a590e",
+    "type": "PROGRESS"
+  }
+}

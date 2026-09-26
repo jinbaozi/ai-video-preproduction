@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_CANON_HANDOFF_1",
+  "expected_revision": 8,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_CANON_HANDOFF_1",
+    "task_id": "TASK_5ae2734678bb041b76474d34",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_0a8cc6f3589aaff61cfd9c63",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Creator reports Canon candidate ready with hash and checks",
+    "evidence": [
+      "runtime/v6/host-messages/full-canon-candidate-ready.txt"
+    ],
+    "at": "2026-09-25T10:43:43.321135Z",
+    "subject_uri": "runtime/v6/host-messages/full-canon-candidate-ready.txt",
+    "subject_sha256": "5520f267a6e6c052850b9ef4e1a98c989ae01c946ec7040a5f4139136c32eba2"
+  }
+}

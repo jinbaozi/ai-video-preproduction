@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVIEW_RESULT_1",
+  "expected_revision": 69,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVIEW_RESULT_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_6db57255928bfb85051137ff",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVIEW_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Reviewer submits independent Director review with native semantic FAIL",
+    "evidence": [
+      "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/1/review-record.json"
+    ],
+    "at": "2026-09-25T12:33:21.581344Z",
+    "subject_uri": "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/1/review-record.json",
+    "subject_sha256": "af7b637a5d77949438541dad6526c8c2cee0d23b406569ba7dbaa229641da60d"
+  }
+}

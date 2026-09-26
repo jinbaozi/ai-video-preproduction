@@ -1,0 +1,49 @@
+{
+  "schema": "role-result/5.0",
+  "task_id": "TASK_5ae2734678bb041b76474d34",
+  "context_fingerprint": "5ae2734678bb041b76474d34951c3a3528c63b5451bb807a5b65f43cc9083e25",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+  "artifact_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "complete": true,
+  "checks": [
+    {
+      "id": "source_integrity",
+      "status": "PASS",
+      "finding": "Frozen source registry and task hashes match; all quoted spans match the original source.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/evidence/source-integrity.json"
+      ]
+    },
+    {
+      "id": "canon_contract",
+      "status": "PASS",
+      "finding": "Canon retains all source facts, stable entity IDs, and exact event order without added story claims.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/evidence/canon-contract.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "finding": "SourceRegistry version 1 maps to the complete Canon with source and event references.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "handoff": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_02899a994552add4610374b6",
+      "source_slot": "sources:project:project:SourceRegistry",
+      "source_version": 1,
+      "target_pointer": "",
+      "target_slot": "canon:project:project:Canon",
+      "evidence": [
+        "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolved": []
+}

@@ -1,0 +1,28 @@
+{
+  "check": "native_validator",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T14:14:34.625Z",
+  "method": "Reran the frozen sg.py validate --final, checked the content fingerprint and every compiled manifest byte size and SHA-256, and evaluated all static contract assertions.",
+  "native_final_report": {
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  },
+  "script_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+  "script_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "content_sha256": "b3f75e923c6435d7481fb9606fe45d4be69ab0425a6c6b8a311afc4bf4540809",
+  "compiled_manifest_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/compiled/compile-manifest.json",
+  "compiled_manifest_sha256": "f8163b55e2d53174075f0d3e0ba940c8fe35ea6592c4d81c3f9513db289d7d32",
+  "compiled_files_verified": 13,
+  "compiled_status": "READY",
+  "director_handoff_ready": true,
+  "compiled_script_ref_hash_matches": true,
+  "static_contract_assertions": {
+    "RAIN_STATIC": true,
+    "LETTER_STATIC": true,
+    "ORDER_STATIC": true
+  },
+  "professional_blind_review": "THIS_REVIEW",
+  "media": "NOT_RUN",
+  "finding": "The native final validator returns STATIC_VALID with no errors; review fingerprint, static clauses and all compiled files are current. No media was generated."
+}

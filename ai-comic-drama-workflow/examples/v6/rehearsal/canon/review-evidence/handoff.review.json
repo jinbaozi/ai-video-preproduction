@@ -1,0 +1,28 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T10:25:46.367942Z",
+  "method": "Compared the frozen handoff tuple with CandidateResult and RoleResult, resolved creator mapping pointers in the Canon, verified source registry version and accepted dependency state, and confirmed that the observation dependency is explicitly not applicable.",
+  "requirement_id": "UP_02899a994552add4610374b6",
+  "source_slot": "sources:project:project:SourceRegistry",
+  "source_version": 1,
+  "target_slot": "canon:project:project:Canon",
+  "target_pointer": "",
+  "source_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "target_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+  "mapping_pointers": [
+    "/source_refs/0",
+    "/source_facts",
+    "/entities",
+    "/event_order"
+  ],
+  "source_dependency_state": "ACCEPTED",
+  "observation_dependency_state": "NOT_APPLICABLE",
+  "creator_evidence_read": [
+    {
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json",
+      "sha256": "bbd967aa668d9cc5e5bb33d666b225d866fdabc010ae517a8da6496121ef4bfb"
+    }
+  ],
+  "finding": "The declared source registry version 1 maps to the complete Canon artifact; mapped facts, entities, and ordered events all resolve to the registered source ID."
+}

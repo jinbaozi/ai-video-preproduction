@@ -1,0 +1,141 @@
+{
+  "director_sha256": "82957e19257a10dd3cd05d41b5adebd0d479979ccea3cfc29416cd014e147796",
+  "findings": [
+    "六条当前 V5 编剧要求及源指纹与锁定编剧交接逐条相同。",
+    "雨夜、唯一未拆信、交接→验封→收存、结尾边界落入原生 hard clause 与目标字段断言。",
+    "上一候选的动作设计已重新绑定当前 V5 编剧快照和本次 DirectorIR 语义摘要；没有复制旧 reviewer stamp。",
+    "接触、支撑、控制权及镜头起止态重新核对；静态结论不声称实际媒体通过。"
+  ],
+  "mappings": [
+    {
+      "reason": "场景明确保留雨夜并保持地点、内外未定；声音与夜间可读性见同一硬条款。",
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "source_fingerprint": "b60d473b93e0128c877075bb361cdf0a7354d9d5fc800c059068a6f438772991",
+      "target_checks": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/space",
+          "value": "雨夜；具体地点和室内外未指定"
+        }
+      ],
+      "target_clause": "D_RAIN"
+    },
+    {
+      "reason": "稳定道具 ID 贯穿交接、验封和入包，动作只处理这封未拆信。",
+      "requirement_id": "screenplay:REQ_SINGLE_LETTER",
+      "source_fingerprint": "f71a2edda35cedc6ce71ec44bd1df6a7cb787ea8afca919ec19d393a53032c84",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/entities/2/id",
+          "value": "PROP_LETTER"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/3/operation",
+          "value": "封口完整"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/4/operation",
+          "value": "同一封信"
+        }
+      ],
+      "target_clause": "D_SINGLE_LETTER"
+    },
+    {
+      "reason": "控制权交接完成后才验封，验封动作结束后才启动收存；逐项时间和依赖均可查。",
+      "requirement_id": "screenplay:REQ_ACTION_ORDER",
+      "source_fingerprint": "d16a6d14b489ffdc6dc97fac71785ddd73384b0e51a38eec503b5d015fd906b3",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/timeline/actions/2/end_ms",
+          "value": 4000
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/3/start_ms",
+          "value": 4500
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/4/start_ms",
+          "value": 8000
+        }
+      ],
+      "target_clause": "D_ACTION_ORDER"
+    },
+    {
+      "reason": "画面以同一封信收存完成结束，未把来源未写的后续当作剧情。",
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "source_fingerprint": "a4757060eefb52f53bc99fd4399e9421014bd0f2941545ab004073d1e1d37ebd",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/narrative/audience_after/2",
+          "value": "乙随后将这封信收进背包；不呈现后续"
+        },
+        {
+          "op": "contains",
+          "path": "/timeline/actions/4/settle",
+          "value": "不呈现后续"
+        }
+      ],
+      "target_clause": "D_ENDING"
+    },
+    {
+      "reason": "三事件有各自节拍；交接展开为接触与释放的物理子动作，不形成新剧情事件。",
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "source_fingerprint": "deab1f993a22dbdaede72c7e71c179e08cfbc776f2511efa71dbd8004a568f97",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/beats/0/id",
+          "value": "BEAT_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/1/id",
+          "value": "BEAT_CONFIRM"
+        },
+        {
+          "op": "equals",
+          "path": "/beats/2/id",
+          "value": "BEAT_STOW"
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/3/semantic_id",
+          "value": "EVT_SEAL_CHECK"
+        }
+      ],
+      "target_clause": "D_EVENTS"
+    },
+    {
+      "reason": "观看顺序与 ScriptIR reveal_order 一致；收存依赖封口确认。",
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a",
+      "target_checks": [
+        {
+          "op": "equals",
+          "path": "/shots/0/narrative/audience_after",
+          "value": [
+            "甲交给乙同一封未拆信",
+            "乙确认该信封口完整",
+            "乙随后将这封信收进背包；不呈现后续"
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/timeline/actions/4/depends_on/0/action_id",
+          "value": "ACT_CONFIRM_SEAL"
+        }
+      ],
+      "target_clause": "D_REVEAL_ORDER"
+    }
+  ],
+  "reviewer": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e / current frozen screenplay mapping review",
+  "schema": "screenplay-director-map/1.0",
+  "screenplay_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14"
+}

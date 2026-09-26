@@ -1,0 +1,20 @@
+{
+  "check": "canon_contract",
+  "status": "PASS",
+  "project_id": "LETTER_FULL_DEMO",
+  "source_refs_registered": true,
+  "content_equals_source": true,
+  "source_quotes_exact": true,
+  "entity_ids_unique": true,
+  "fact_ids_unique": true,
+  "event_ids_unique": true,
+  "event_references_resolve": true,
+  "source_requirement_references_resolve": true,
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "asset_registry_claims": 0,
+  "finding": "Canon captures the four source facts and their order. Unknown story and design details remain unspecified."
+}

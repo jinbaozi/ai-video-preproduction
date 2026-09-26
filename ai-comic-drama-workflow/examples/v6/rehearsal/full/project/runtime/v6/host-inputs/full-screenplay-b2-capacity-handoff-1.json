@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_B2_CAPACITY_HANDOFF_1",
+  "expected_revision": 39,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_B2_CAPACITY_HANDOFF_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 2,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_e9426daa6bca9213754e68ed",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Host requests no further auxiliary spawn and records helper advice",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-b2-capacity-instruction.txt"
+    ],
+    "at": "2026-09-25T11:16:16.872483Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-b2-capacity-instruction.txt",
+    "subject_sha256": "9422545758469e4ab74cfec054ecdb7078b49348a215a8dce2a6366c0b4e54b6"
+  }
+}

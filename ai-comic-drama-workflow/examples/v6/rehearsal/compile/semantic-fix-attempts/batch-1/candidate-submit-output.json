@@ -1,0 +1,9 @@
+{
+  "status": "RETRY_REQUIRED",
+  "task_id": "V6_compile_6d907d52041427c68f2a",
+  "node_id": "compile",
+  "failed_check": "module_receipt",
+  "failure_evidence": "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json",
+  "recovery_action": "RETRY",
+  "revision": 605
+}

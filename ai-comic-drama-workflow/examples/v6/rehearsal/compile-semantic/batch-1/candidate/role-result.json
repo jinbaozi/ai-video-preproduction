@@ -1,0 +1,129 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_ede3a3425d547d3569e53ec4",
+  "context_fingerprint": "ede3a3425d547d3569e53ec4f583b21407c2ee75a33394ecb975e297d735aaaf",
+  "artifact": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json",
+  "artifact_sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60",
+  "checks": [
+    {
+      "id": "module_receipt",
+      "finding": "Locked Skill and all six required resources match frozen hashes."
+    },
+    {
+      "id": "compile_semantics",
+      "finding": "FAIL AVIR_END_VISIBILITY_CONFLICT: AVIR terminal letter visibility disagrees with timeline and source; static equivalence cannot be attested."
+    }
+  ],
+  "conflicts": [],
+  "unresolved": [],
+  "complete": false,
+  "module_receipt": {
+    "name": "video-prompt-compiler",
+    "version": "1.17.6",
+    "skill_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md",
+        "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md",
+        "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md",
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+      }
+    ]
+  },
+  "semantic_review": {
+    "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+    "equivalent": false,
+    "clauses": [
+      {
+        "id": "SB_A_RAIN",
+        "finding": "正文保留雨夜，明确地点、年代、室内外未指定；视觉效果尚需媒体审查。"
+      },
+      {
+        "id": "SB_A_SINGLE_LETTER",
+        "finding": "正文锁定唯一 PROP_LETTER，封口在交接、确认、入包期间未拆。"
+      },
+      {
+        "id": "SB_A_ORDER",
+        "finding": "交接、验封、入包按 0.5–4、4.5–7.5、8–11 秒顺序展开。"
+      },
+      {
+        "id": "SB_A_ENDING",
+        "finding": "正文在 10.5 秒入包后停止新增动作，12 秒仅保持结果。"
+      },
+      {
+        "id": "SB_A_EVENTS",
+        "finding": "P_GRIP、P_SEAL、P_STOWED 的静态画格要求和动作节点均保留。"
+      },
+      {
+        "id": "SB_A_REVEAL",
+        "finding": "控制权交接、完整封口、收存的可见证据按时序书写；媒体可见性未验证。"
+      },
+      {
+        "id": "SB_A_ASSET_LOCKS",
+        "finding": "甲乙身份、同一封信、同一背包和雨夜后景均作为锁定意图；无真实参考、无媒体审核。"
+      },
+      {
+        "id": "SB_D_RAIN",
+        "finding": "雨夜明确；正文没有增补地点或室内外。"
+      },
+      {
+        "id": "SB_D_SINGLE_LETTER",
+        "finding": "同一封信从甲右手转乙右手再入同一背包，封口未拆。"
+      },
+      {
+        "id": "SB_D_ACTION_ORDER",
+        "finding": "甲交、乙验封、乙收存三段时间不倒序。"
+      },
+      {
+        "id": "SB_D_ENDING",
+        "finding": "10.5 秒已收存，结尾仅保持同一结果。"
+      },
+      {
+        "id": "SB_D_EVENTS",
+        "finding": "三项故事事件均有动作和反馈，没有新增对白或后续事件。"
+      },
+      {
+        "id": "SB_D_REVEAL_ORDER",
+        "finding": "画格时间 P_RELEASE 84 帧、P_SEAL 144 帧、P_STOWED 252 帧，正文顺序一致。"
+      },
+      {
+        "id": "SB_FIXED_AXIS",
+        "finding": "旧坐标冲突已关闭；AVIR 机位和正文两种表述均为 [0,1.2,-2.8]（右、上、深），固定负 Z 轴侧。"
+      },
+      {
+        "id": "SB_CONTACT_CONTROL",
+        "finding": "2.5 秒双手接触甲控制，3.5 秒乙独占，验封前完成交接。"
+      },
+      {
+        "id": "SB_SEAL_VISIBILITY",
+        "finding": "4.5–7.5 秒封口、乙眼部和右手被规划为可读，实际细节仍待媒体审查。"
+      },
+      {
+        "id": "SB_MEDIA_BOUNDARY",
+        "finding": "画格/参考/音频没有生成或验收；后期雨声与媒体边界义务仍为 PLANNED。"
+      }
+    ],
+    "blocked": [],
+    "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+    "failure_owner": "compile",
+    "evidence": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json"
+  }
+}

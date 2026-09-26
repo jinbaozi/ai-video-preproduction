@@ -1,0 +1,22 @@
+{
+  "command_id": "CONTROL_ACTION_ID_CORRECTION_COMMAND_1",
+  "expected_revision": 163,
+  "message": {
+    "at": "2026-09-25T13:10:15.441769Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-action-id-correction.txt",
+      "runtime/v6/host-inputs/control-pending-action.json"
+    ],
+    "in_reply_to": "CONTROL_GUIDANCE_ORIGINAL_1",
+    "message_id": "CONTROL_ACTION_ID_CORRECTION_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "c57ccebd1c7b00f1da2d1c9000366b8539caf572a1c3d673fb9b70aaa8553211",
+    "subject_uri": "runtime/v6/host-inputs/control-action-id-correction.txt",
+    "summary": "Host corrected the mistyped action ID to the frozen pending action dispatch ID and instructed the same registered creator to follow that action.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

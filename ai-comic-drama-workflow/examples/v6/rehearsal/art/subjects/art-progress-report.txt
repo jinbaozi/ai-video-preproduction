@@ -1,0 +1,1 @@
+Frozen V6 envelope and all three input/four locked-resource hashes match. I’ve written the ArtIR candidate under the assigned directory and am running the locked native validator now. The DirectorIR has an empty shot phases array, so ArtIR events remain empty; its contract binds the DirectorIR timeline for action order. No media is claimed.

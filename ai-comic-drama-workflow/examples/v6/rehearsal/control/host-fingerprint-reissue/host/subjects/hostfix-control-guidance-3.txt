@@ -1,0 +1,1 @@
+核验结论补充：当前 `v5_adapters.storyboard_to_avir()` 对 `storyboard-ir/1.1` 明确委托 `v51_adapters.storyboard_to_avir()`，然后按 `(shot_id,boundary_ms)` 从 `timeline.state_samples` 覆盖 start/end `visible_parts`；缺边界样本会 BLOCKED，mapping 收据为 `STATE_SAMPLE.BOUNDARY_VISIBILITY.1.1`。v1.2 继承该覆盖。请用冻结本项目 IR 实际运行链核验 10500/12000ms 终态与控制包；若一致可继续候选。旧 `v5_adapters.py:203` 仅是初始映射，单看这一行不能判定运行时重复。

@@ -1,0 +1,1 @@
+已读取当前冻结 Canon、正式任务、锁定 screenplay Skill 及四份必读资源；会独立核对正式 V5 Canon 字节哈希并按新锁重新生成候选，不复用旧审阅或 ACCEPTED 声明。

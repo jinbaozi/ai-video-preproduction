@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_CANCEL_ACK_REQUEST_1",
+  "expected_revision": 117,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_CANCEL_ACK_REQUEST_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "in_reply_to": "FULL_ART_B1_HARD_BLOCKER_DECISION_1",
+    "type": "QUESTION",
+    "summary": "Request creator cancellation acknowledgment for Director-owned Art blocker",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-cancel-ack-request.txt"
+    ],
+    "at": "2026-09-25T13:20:51.205487Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-cancel-ack-request.txt",
+    "subject_sha256": "73b98db22a1ffe77e1392e28abce9b993ed66fc889c6ff4de4f5e6068f19ac9d"
+  }
+}

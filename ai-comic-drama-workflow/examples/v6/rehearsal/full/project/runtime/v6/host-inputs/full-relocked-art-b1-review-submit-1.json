@@ -1,0 +1,37 @@
+{
+  "command_id": "FULL_RELOCKED_ART_B1_REVIEW_SUBMIT_1",
+  "expected_revision": 216,
+  "review": {
+    "schema": "review-record/6.0",
+    "task_id": "TASK_4de99276d376cc50c61527d6",
+    "batch": 1,
+    "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_87ae54bf4025a9468a875864",
+    "reviewer_dispatch_id": "review-8b49e46109d2353ee8cc5b63",
+    "candidate_digest": "88eba274dbdbff36e3091dce4763e7218aaca9eaae9ad585ac9049481f0b1feb",
+    "checks": [
+      {
+        "id": "module_receipt",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_4de99276d376cc50c61527d6/1/module-receipt.review.json"
+        ]
+      },
+      {
+        "id": "native_validator",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_4de99276d376cc50c61527d6/1/native-validator.review.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_4de99276d376cc50c61527d6/1/handoff.review.json"
+        ]
+      }
+    ],
+    "failure_owner": null,
+    "at": "2026-09-25T14:55:11.836Z"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "command_id": "STORYBOARD_GUIDANCE_COMMAND_1",
+  "expected_revision": 133,
+  "message": {
+    "at": "2026-09-25T12:41:56.607703Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+      "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "STORYBOARD_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "f48d61f6606510034167fcee3152f58826297066d7e44c0ed209229be617cd6f",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-spawn-action.json",
+    "summary": "Actual storyboard spawn carried frozen inputs/resources, accepted upstream IRs, candidate-only ownership, text-only media boundary and blocking/control contract.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "HANDOFF"
+  }
+}

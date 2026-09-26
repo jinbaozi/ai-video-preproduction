@@ -1,0 +1,70 @@
+{
+  "at": "2026-09-25T18:35:28.446118+00:00",
+  "batch": 1,
+  "brief_file_count": 24,
+  "candidate_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "candidate_digest": "8d8f286b8ae2076739b830e7b45791ffe7f09853294561ab7591a049c00adf42",
+  "candidate_manifest_sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+  "compiled_file_count": 20,
+  "control_file_count": 10,
+  "envelope_input_digest": "882882ec764d48e49a75762358efaa6239d4928e5c4c37b404164061fd9c3566",
+  "frozen_input_count": 28,
+  "graph_only_result_null": true,
+  "handoff_requirement_ids": [
+    "UP_87d3c1dee16c7cb8201ea8b6",
+    "UP_e5288336c739feea7cd2b47d"
+  ],
+  "hard_clause_count": 17,
+  "locked_resource_count": 20,
+  "media_status": {
+    "coverage_realization": "NOT_RUN",
+    "post_statuses": [
+      "PLANNED"
+    ],
+    "segment_execution": "NOT_RUN"
+  },
+  "new_avir_end_letter_visible_parts": [],
+  "old_avir_end_letter_visible_parts": [
+    "body",
+    "prop"
+  ],
+  "source_and_avir_letter_visible_at_10500_12000": [
+    {
+      "at_ms": 10500,
+      "source": "StoryboardIR",
+      "visible_parts": []
+    },
+    {
+      "at_ms": 10500,
+      "source": "AVIR",
+      "visible_parts": []
+    },
+    {
+      "at_ms": 12000,
+      "source": "StoryboardIR",
+      "visible_parts": []
+    },
+    {
+      "at_ms": 12000,
+      "source": "AVIR",
+      "visible_parts": []
+    }
+  ],
+  "task_id": "V6_compile_297e4d54680b970deaed",
+  "validate": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": {
+      "diagnostics": [],
+      "status": "VALID"
+    }
+  },
+  "verify": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": {
+      "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+      "status": "VERIFIED"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "archived_file": "sources/v6_runtime-before.py",
+    "archived_sha256": "6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45",
+    "declared_sha256": "6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45",
+    "frozen_sha256": "6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45",
+    "frozen_uri": "runtime/v6/runtime-resources/6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45/v6_runtime.py",
+    "source": "v6_runtime.py",
+    "task": "old-control",
+    "verified": true
+  },
+  {
+    "archived_file": "sources/v6_runtime_fingerprint.py",
+    "archived_sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+    "declared_sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+    "frozen_sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+    "frozen_uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py",
+    "source": "v6_runtime_fingerprint.py",
+    "task": "old-control",
+    "verified": true
+  },
+  {
+    "archived_file": "sources/v6_codex_host.py",
+    "archived_sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+    "declared_sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+    "frozen_sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+    "frozen_uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py",
+    "source": "v6_codex_host.py",
+    "task": "old-control",
+    "verified": true
+  },
+  {
+    "archived_file": "sources/v6_runtime-after.py",
+    "archived_sha256": "cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be",
+    "declared_sha256": "cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be",
+    "frozen_sha256": "cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be",
+    "frozen_uri": "runtime/v6/runtime-resources/cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be/v6_runtime.py",
+    "source": "v6_runtime.py",
+    "task": "new-control",
+    "verified": true
+  },
+  {
+    "archived_file": "sources/v6_runtime_fingerprint.py",
+    "archived_sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+    "declared_sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+    "frozen_sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+    "frozen_uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py",
+    "source": "v6_runtime_fingerprint.py",
+    "task": "new-control",
+    "verified": true
+  },
+  {
+    "archived_file": "sources/v6_codex_host.py",
+    "archived_sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+    "declared_sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+    "frozen_sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+    "frozen_uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py",
+    "source": "v6_codex_host.py",
+    "task": "new-control",
+    "verified": true
+  }
+]

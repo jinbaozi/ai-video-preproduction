@@ -1,0 +1,21 @@
+{
+  "command_id": "SCREENPLAY_VERSION_REPORT_COMMAND_1",
+  "expected_revision": 22,
+  "message": {
+    "at": "2026-09-25T10:35:28.535055Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+    ],
+    "in_reply_to": "SCREENPLAY_ACK_1",
+    "message_id": "SCREENPLAY_VERSION_REPORT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+    "subject_sha256": "a380fe1f749231efcf926d5daa195678958e6619086629520ccd2fa0cd4fadfb",
+    "subject_uri": "runtime/v6/messages/a380fe1f749231efcf926d5daa195678958e6619086629520ccd2fa0cd4fadfb.json",
+    "summary": "Creator reported that frozen V5 task requires RoleResult 5.1 and module receipt; asked whether a 5.0 copy is needed.",
+    "task_id": "TASK_1b94794070565f70c7f697a7",
+    "type": "QUESTION"
+  }
+}

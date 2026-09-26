@@ -1,0 +1,21 @@
+{
+  "command_id": "ARTREPAIR_REVIEWER_PROGRESS2_PROGRESS_COMMAND_1",
+  "expected_revision": 396,
+  "message": {
+    "at": "2026-09-25T15:30:08.603357Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/artrepair-reviewer-progress-2.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "ARTREPAIR_REVIEWER_PROGRESS2_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+    "subject_sha256": "d4785acda8edd7edb052f1656c512bc6e2360c7526d9faed1fc3b6089a7c8435",
+    "subject_uri": "runtime/v6/host-inputs/artrepair-reviewer-progress-2.txt",
+    "summary": "独审核对后确认 Art 仅显式使用合法静态场景坐标，未改写时间轴机位；初步疑虑撤回。",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+    "type": "PROGRESS"
+  }
+}

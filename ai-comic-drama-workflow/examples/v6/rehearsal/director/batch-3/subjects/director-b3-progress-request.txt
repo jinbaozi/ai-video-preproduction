@@ -1,0 +1,1 @@
+简短进度：若 repair-brief/两份 failure 与 review 解析或 native 校验遇阻，请立即给出原始错误。若无阻，完成候选前请自行核对 start/end state 与每个 state_sample 的人/信双向接触一致。

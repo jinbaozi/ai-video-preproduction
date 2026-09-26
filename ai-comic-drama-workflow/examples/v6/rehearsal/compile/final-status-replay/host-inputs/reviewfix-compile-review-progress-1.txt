@@ -1,0 +1,1 @@
+PROGRESS task_id=V6_compile_297e4d54680b970deaed batch=1. Candidate declares four PASS checks and graph-only null result; I am independently rehashing 28 frozen inputs and 20 locked resources, then checking the old visibility conflict against current AVIR, prompt, handoffs, and locked validator output.

@@ -1,0 +1,90 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T11:25:08.975Z",
+  "method": "Compared frozen handoff tuple with CandidateResult and RoleResult, resolved each creator source and target JSON Pointer, and read the Canon and screenplay action blocks for requirement and event fidelity.",
+  "binding": {
+    "channel": "artifact",
+    "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+    "source_slot": "canon:project:project:Canon",
+    "source_version": 12,
+    "target_pointer": "",
+    "target_slot": "screenplay:project:project:ScriptIR"
+  },
+  "source_uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "target_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json",
+  "target_sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+  "dependency_state": "ACCEPTED",
+  "mapping_pointers_exist": true,
+  "mappings": [
+    {
+      "requirement_id": "REQ_RAIN_NIGHT",
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/heading",
+        "/scenes/0/blocks/0/text"
+      ]
+    },
+    {
+      "requirement_id": "REQ_SAME_UNOPENED_LETTER",
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/scenes/0/blocks/0/text",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text"
+      ]
+    },
+    {
+      "requirement_id": "REQ_EVENT_ORDER",
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/narrative/events",
+        "/narrative/reveal_order",
+        "/scenes/0/blocks"
+      ]
+    }
+  ],
+  "source_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "target_clause_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "source_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "target_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "target_reveal_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "source_semantics": {
+    "rainy_night_retained": true,
+    "same_unopened_letter_retained": true,
+    "seal_confirmation_before_stow": true,
+    "canon_character_ids_reused": true,
+    "invented_dialogue_or_motive": false,
+    "invented_location_or_indoor_outdoor_state": false
+  },
+  "registered_canon_json_matches_frozen": true,
+  "creator_evidence_uris": [
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff.json",
+    "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/evidence/handoff-check.json"
+  ],
+  "finding": "Rainy night, one unopened letter, and handoff then seal confirmation then backpack stow are preserved in both action blocks and event chain, with hard clauses and no added story fact."
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "requirement_id": "UP_6c6271015f933f8caf2034aa",
+  "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+  "source_version": 11,
+  "source_art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "source_asset_id": "ENV_RAIN_NIGHT",
+  "identity_locks": [
+    "三个镜头持续为同一雨夜",
+    "不得从背景推断未给出的具体地点或室内外状态"
+  ],
+  "target_slot": "visual_prompts:asset:34x41535345545f5343454e455f48414e444f46465f454e565f5241494e5f4e49474854:VisualImagePrompt",
+  "target_artifact_sha256": "ed4de0c456d051555121cb7a46a82d6b1d5d7e0a4c033fa663e3fa0e453a3077",
+  "finding": "Rain-night continuity and location ambiguity preserved as prompt constraints; actual visual continuity remains untested."
+}

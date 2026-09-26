@@ -1,0 +1,39 @@
+{
+  "name": "screenplay-grammar",
+  "version": "1.0.2",
+  "archive_sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
+  "skill_sha256": "04f9f9b6fbb66c097bb9f5c520270d701a8f0bc5d0d00cf0b102f5221db6368e",
+  "reads": [
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/SKILL.md",
+      "sha256": "04f9f9b6fbb66c097bb9f5c520270d701a8f0bc5d0d00cf0b102f5221db6368e"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/references/contract.md",
+      "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/references/cooperation.md",
+      "sha256": "284750ee9f1a18d6647067e08dbcea74fe68e44d259e031cfaaeaa3b4c194e36"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/references/writing.md",
+      "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef"
+    }
+  ],
+  "frozen_inputs": [
+    {
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9"
+    },
+    {
+      "uri": "runtime/tasks/TASK_206f1e43fe2d38c84f3fcb2c.json",
+      "sha256": "565de82ac95f0f5d62d21cf126c4ae91987d26f329cd3c6fa1d16be6fa0f9523"
+    }
+  ],
+  "formal_canon": {
+    "uri": "artifacts/canon/f3c90f6c20dd218a854fa67548b296692d71fd08bc62e2ca5076a27667809b18/native/0cc4aebffda6a714_canon.json",
+    "sha256": "ec1a717dc3c8059122916da8f3207437393d9a0cbc4a00cb342dd1b46a94a7a5",
+    "json_equal_to_frozen": true
+  }
+}

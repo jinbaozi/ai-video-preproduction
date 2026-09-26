@@ -1,0 +1,21 @@
+{
+  "command_id": "SCREENPLAY_VERSION_REPLY_COMMAND_1",
+  "expected_revision": 23,
+  "message": {
+    "at": "2026-09-25T10:35:48.683877Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_1b94794070565f70c7f697a7.json"
+    ],
+    "in_reply_to": "SCREENPLAY_VERSION_REPORT_1",
+    "message_id": "SCREENPLAY_VERSION_REPLY_1",
+    "recipient_id": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "a1bf7c5e9682766dcaf73a082a5ad16104095c0b10798479a42158c79c129511",
+    "subject_uri": "runtime/v6/messages/a1bf7c5e9682766dcaf73a082a5ad16104095c0b10798479a42158c79c129511.json",
+    "summary": "Host relayed that the frozen V5 task and module receipt require RoleResult 5.1; no 5.0 copy is needed. Frozen task remains authoritative.",
+    "task_id": "TASK_1b94794070565f70c7f697a7",
+    "type": "PROGRESS"
+  }
+}

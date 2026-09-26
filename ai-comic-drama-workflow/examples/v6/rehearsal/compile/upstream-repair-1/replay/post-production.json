@@ -1,0 +1,14 @@
+[
+  {
+    "channel": "post",
+    "id": "AUD_RAIN",
+    "instruction": "【对白与声音 AUD_RAIN｜0–12秒】\n内容：持续雨声，提示雨夜；不暗示具体地点。\n声音类型：环境声\n声音归属：环境\n口型：不需要\n发声节奏：环境底声；实际场景和声场待后期确定。\n声音层次：不盖过手部接触与封口检视的可读性。\n执行渠道：后期声音",
+    "status": "PLANNED"
+  },
+  {
+    "channel": "post",
+    "id": "SB_MEDIA_BOUNDARY",
+    "instruction": "文本计划中的画格、参考与音效均未生成或验收。",
+    "status": "PLANNED"
+  }
+]

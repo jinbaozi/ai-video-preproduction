@@ -1,0 +1,23 @@
+{
+  "command_id": "CANON_DISPATCH_1",
+  "expected_revision": 7,
+  "receipt": {
+    "action_id": "dispatch-0ef4d4d5c63274b982c620a4",
+    "agent_id": "/root/host_bridge/v6_98512993c68d19b0338077b6",
+    "batch": 1,
+    "dispatch_id": "dispatch-0ef4d4d5c63274b982c620a4",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T10:12:43.510562Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T10:12:43.510562Z",
+    "status": "RUNNING",
+    "task_digest": "9db0e3e36f98ed562311b841a590e27630a5c6580664206e40ce87d3d4708187",
+    "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+    "tool_result_sha256": "4f0a25168750a723a9ec9dfcb1bfafce424beaa6c408b0182b9e69454e2fecc6",
+    "tool_result_uri": "runtime/v6/host-evidence/4f0a25168750a723a9ec9dfcb1bfafce424beaa6c408b0182b9e69454e2fecc6.json"
+  }
+}

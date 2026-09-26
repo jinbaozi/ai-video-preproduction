@@ -1,0 +1,16 @@
+{
+  "artifact_sha256": "d7fc28b7d3207d0beadb14f286e9bffd302a2fdab918dfd54190f515f1355364",
+  "candidate_result_sha256": "db572f06e28f0c585f48c27e2a912834a39c0c7ce55f23f9497f6a6f87302476",
+  "formal_project_state_modified": false,
+  "role_result_sha256": "f194b59da68e16ce22662e92df2c366c028e1732cbdedb0209cefc194a821571",
+  "status": "PASS",
+  "v5_handoff": "PASS",
+  "v5_module_receipt": "audited",
+  "v5_native_validator": "STATIC_VALID",
+  "v5_role_schema": "PASS",
+  "v6_candidate_schema": "PASS",
+  "v6_check_ids": "PASS",
+  "v6_handoff_ids": "PASS",
+  "v6_input_digest": "PASS",
+  "v6_module_receipts": "PASS"
+}

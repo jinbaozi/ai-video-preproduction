@@ -1,0 +1,50 @@
+[
+  {
+    "block_id": "B_HANDOFF",
+    "fountain_lines": [
+      5,
+      5
+    ],
+    "markdown_lines": [
+      5,
+      5
+    ],
+    "script_path": "/scenes/0/blocks/0",
+    "source_refs": [
+      "SRC_69a71adcfaca",
+      "CANON_V12"
+    ]
+  },
+  {
+    "block_id": "B_SEAL_CHECK",
+    "fountain_lines": [
+      7,
+      7
+    ],
+    "markdown_lines": [
+      7,
+      7
+    ],
+    "script_path": "/scenes/0/blocks/1",
+    "source_refs": [
+      "SRC_69a71adcfaca",
+      "CANON_V12"
+    ]
+  },
+  {
+    "block_id": "B_STOW",
+    "fountain_lines": [
+      9,
+      9
+    ],
+    "markdown_lines": [
+      9,
+      9
+    ],
+    "script_path": "/scenes/0/blocks/2",
+    "source_refs": [
+      "SRC_69a71adcfaca",
+      "CANON_V12"
+    ]
+  }
+]

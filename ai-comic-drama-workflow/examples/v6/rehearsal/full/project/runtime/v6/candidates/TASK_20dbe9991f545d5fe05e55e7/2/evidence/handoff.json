@@ -1,0 +1,41 @@
+{
+  "channel": "artifact",
+  "finding": "冻结 V6 Canon 的三项要求映射到剧本；ScriptIR 另绑定内容相同的当前已登记原生 Canon。",
+  "mapping": [
+    {
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/heading",
+        "/scenes/0/blocks/0/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/scenes/0/blocks/0/text",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/narrative/events",
+        "/narrative/reveal_order",
+        "/scenes/0/blocks"
+      ]
+    }
+  ],
+  "requirement_id": "UP_48fbb808eb40092b1f27d8df",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "source_slot": "canon:project:project:Canon",
+  "source_uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+  "source_version": 12,
+  "target_pointer": "",
+  "target_sha256": "256bd6ad450cc44f312453fa58e93fcccc8af15dfd0069c4bb765746d6faedeb",
+  "target_slot": "screenplay:project:project:ScriptIR",
+  "target_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/script-ir.json"
+}

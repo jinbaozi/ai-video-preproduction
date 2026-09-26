@@ -1,0 +1,22 @@
+{
+  "command_id": "STORYBOARD_B2_GUIDANCE_COMMAND_1",
+  "expected_revision": 146,
+  "message": {
+    "at": "2026-09-25T12:58:56.583053Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-b2-spawn-actual-message.txt",
+      "runtime/v6/host-inputs/storyboard-b2-pending-action.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "STORYBOARD_B2_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "bb7aec6940e5b34e36165079d90aff6bbbafc3a65a0f03ad440c29065b0687d7",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-b2-spawn-actual-message.txt",
+    "summary": "Host sent actual batch-2 spawn text pointing to the frozen pending action and exact fresh-validator failure; original batch-1 candidate is immutable history.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "HANDOFF"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_REVIEW_DISPATCH_1",
+  "expected_revision": 187,
+  "receipt": {
+    "schema": "dispatch-receipt/6.0",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "host": "codex",
+    "host_tool": "collaboration.spawn_agent",
+    "host_call_id": null,
+    "dispatch_id": "review-13e0650838434e8bca4ce7df",
+    "action_id": "review-13e0650838434e8bca4ce7df",
+    "tool_result_uri": "runtime/v6/host-evidence/3cdfbc7db5bbdff827f9c319cd962e7669bdb9c17933f27e7783a7423c7e7de5.json",
+    "tool_result_sha256": "3cdfbc7db5bbdff827f9c319cd962e7669bdb9c17933f27e7783a7423c7e7de5",
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_409b607d1ac2769916e7252e",
+    "task_digest": "ab90dae4b0c3bfa52427c04227d6e0ddc48d471ceffdb2c6436b425fd9d94da7",
+    "status": "RUNNING",
+    "sent_at": "2026-09-25T14:25:40.893405Z",
+    "observed_at": "2026-09-25T14:25:40.893405Z",
+    "result_uri": null,
+    "error": null
+  }
+}

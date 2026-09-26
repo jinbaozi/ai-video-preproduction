@@ -8,8 +8,14 @@
 
 导演 validate/compile 添加 --screenplay-handoff 与 --screenplay-map；缺一不可。变更任一已审导演字段会使映射过期，应重新审查更新映射，而非改故事。核验不证明自然语言语义等价，评审是有指纹的本地声明。
 
-总工作流第二阶段加载锁定编剧模块，第三阶段强制映射。role-result/5.0 的 handoff 仍是数组，每行除 mapping 字段外包含同一个 review 对象（screenplay_sha256、director_sha256、reviewer、findings）。源主稿不复制成另一份可编辑 Canon。
+总工作流第二阶段加载锁定编剧模块，第三阶段强制映射。role-result/5.1 的 handoff 仍是数组，每行除 mapping 字段外包含同一个 review 对象（screenplay_sha256、director_sha256、reviewer、findings）。源主稿不复制成另一份可编辑 Canon。
 
 新人物或剧情事实先在 canon.proposals 登记；已有授权允许时由当前 Agent 修订唯一 Canon，登记实体 ID，再重绑剧本、清除提案并复核。冲突返回 Canon 所有者；普通创作补充不自动增设用户审批。
 
 旧五模块锁继续旧流程；显式 update-modules 到六模块后，旧式纯文本剧本标记失效，Agent 根据原文整理新 ScriptIR。不会靠包升级自动声称剧情已经通过检查。
+
+## V6 编排任务
+
+总工作流的编剧任务使用 `task-envelope/6.0`，由 Codex 宿主真实派发专业子智能体。信封绑定项目、批次、冻结来源、范围、锁定 Skill、必读文件、目标 ScriptIR 与检查器。只在该批次候选目录创作，实际读取文件后提交输入指纹、ScriptIR 文件哈希、原生检查、来源到导演交接及未决项；不能直接修改正式 Canon 或项目状态。
+
+新增人物与事实以 `BLOCKER` 或 `HANDOFF` 消息交 Canon 所有者，附来源要求、版本和目标字段；获内核新任务后再重绑剧本。专业任务的 `ACK`、`PROGRESS`、`QUESTION`、`BLOCKER`、`HANDOFF`、`RESULT` 和 `CANCEL_ACK` 必须由宿主登记，聊天文本不改变权威输入。独立审阅者核对当前候选与完整检查项；编剧自身不能审结自己的任务。旧 `role-result/5.1` 只用于 V5 项目。

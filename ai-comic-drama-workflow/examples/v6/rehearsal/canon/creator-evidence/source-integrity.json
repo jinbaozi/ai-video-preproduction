@@ -1,0 +1,14 @@
+{
+  "check": "source_integrity",
+  "status": "PASS",
+  "source_registry_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "source_registry_sha256": "84650d2834d0f6a9f5b30f660ebcbb8d6077378c91ba66304c118782a4b78a1a",
+  "frozen_task_uri": "runtime/tasks/TASK_0e0c8a4ca94c8ffdbb7e14ae.json",
+  "frozen_task_sha256": "5a788db27a53f9200ec78547ed4cd7967f27f3bdf1d1ed9bfff5a6401e1e809c",
+  "source_id": "SRC_69a71adcfaca",
+  "source_uri": "sources/SRC_69a71adcfaca/source.txt",
+  "registered_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+  "actual_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+  "source_text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+  "result": "All three frozen input hashes match and the Canon quotes are literal substrings of the registered source."
+}

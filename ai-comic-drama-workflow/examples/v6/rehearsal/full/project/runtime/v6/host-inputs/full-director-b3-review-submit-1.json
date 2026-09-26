@@ -1,0 +1,37 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_REVIEW_SUBMIT_1",
+  "expected_revision": 103,
+  "review": {
+    "at": "2026-09-25T13:03:37.694840Z",
+    "batch": 3,
+    "candidate_digest": "df9dde7df9a54be69d321d8f1e8f6fab13e89e6784079632e6c6abaae53f2b0a",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/3/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/3/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/3/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_76274de274fb6f4113699d98",
+    "reviewer_dispatch_id": "review-9972663b69b269c3375b208f",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf"
+  }
+}

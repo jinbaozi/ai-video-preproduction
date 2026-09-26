@@ -1,0 +1,1 @@
+更新：当前源码 `_native_checks` 已增加 `control_verify` 对单个 ShotControlPack 的锁定 verify 分支（不再是先前的无条件 NATIVE_CHECK）；我刚只读确认。仍需等待 adapter 的 24+8 硬断言修复，再在同一 RUNNING 批次执行真实 build/verify。

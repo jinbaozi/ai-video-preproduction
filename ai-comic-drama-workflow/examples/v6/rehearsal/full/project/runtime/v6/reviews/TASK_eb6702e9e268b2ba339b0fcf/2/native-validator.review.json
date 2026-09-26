@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "method": "Independently reran locked native validator and inspected source semantics, actions, composition and explicit panel states at 6000, 8500 and 9000 ms.",
+  "native_command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/screenplay-map.json"
+  ],
+  "native_exit_code": 0,
+  "native_report": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+      "handoff_sha256": "2f36410b0c139ee6df36281c89f51746c5a651f626ad4032029f3bfa45f8ccc6",
+      "mapping_sha256": "9810784ea8ad90d4cc82fca8481189f8546ac1a2d75ff133494fbe9c730ba453",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  },
+  "semantic_samples": [
+    {
+      "at_ms": 6000,
+      "status": "EXPLICIT",
+      "composition_id": "COMP_S_STOW",
+      "composition_subjects": [
+        "N_CHAR_YI",
+        "N_PROP_LETTER",
+        "N_PROP_BACKPACK"
+      ],
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "status": "EXPLICIT",
+      "composition_id": "COMP_S_STOW_SETTLED",
+      "composition_subjects": [
+        "N_CHAR_YI",
+        "N_PROP_BACKPACK"
+      ],
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "status": "EXPLICIT",
+      "composition_id": "COMP_S_STOW_SETTLED",
+      "composition_subjects": [
+        "N_CHAR_YI",
+        "N_PROP_BACKPACK"
+      ],
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ]
+    }
+  ],
+  "event_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "final_shot_composition_subjects": [
+    "CHAR_YI",
+    "PROP_BACKPACK"
+  ],
+  "media": "NOT_RUN",
+  "limitation": "Static DirectorIR review only; no generated Take or complete playback exists."
+}

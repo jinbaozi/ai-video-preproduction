@@ -1,0 +1,7 @@
+{
+  "channel": "collaboration.send_message",
+  "recipient": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+  "recorded_at": "2026-09-25T10:59:42.125257Z",
+  "speaker": "/root/host_bridge",
+  "text": "目前候选目录仍无文件，若已完成契约分析请优先写出可验证的最小 DirectorIR/RoleResult/candidate 与证据；如遇冻结输入或原生校验阻断，请直接给我错误，不必等待。请保持本次子代理建议的引用与核对记录。"
+}

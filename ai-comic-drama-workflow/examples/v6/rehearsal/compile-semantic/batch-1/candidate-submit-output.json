@@ -1,0 +1,33 @@
+{
+  "status": "AWAITING_HOST",
+  "revision": 502,
+  "actions": [
+    {
+      "schema": "codex-host-action/1.0",
+      "action_id": "dispatch-7f96aab84650bec3d49a4e02",
+      "dispatch_id": "dispatch-7f96aab84650bec3d49a4e02",
+      "task_id": "TASK_ede3a3425d547d3569e53ec4",
+      "batch": 2,
+      "task_digest": "9d82e8c6d2afe2f29ac018e34b3023cf3819ac195797b02dd5c1db789f80166c",
+      "tool": "collaboration.spawn_agent",
+      "task_name": "v6_b66db4112314f4861eb7c0cf",
+      "preflight": {
+        "tool": "collaboration.list_agents",
+        "match_task_name": "v6_b66db4112314f4861eb7c0cf"
+      },
+      "arguments": {
+        "task_name": "v6_b66db4112314f4861eb7c0cf",
+        "agent_type": "worker",
+        "message": "Execute the frozen V6 task below. You are not alone in the codebase; do not revert other agents' edits. Project root: /private/tmp/ai-video-v6-real-efKlQy/project. Resolve every task URI against this root. Own only candidate files under /private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/2. Read every item in envelope.inputs, every listed locked resource, and the relevant Skill before work. If inputs include repair_brief or repair_failure_1/2, read each cited prior review, fix every recorded defect, and report whether each old defect is gone. If inputs include upstream_repair, read the bound independent review and all failed-check evidence, correct the findings owned by this node, and describe the exact changed fields in the candidate. Do not edit another owner's artifacts. Copy RoleResult.validator.status exactly from a fresh locked native validator result; do not infer it from media or visual review status. Record checks and handoffs. Do not write formal artifacts or advance workflow state; submit a candidate result for independent review. If this is an independent review task, review the supplied candidate only and do not create another reviewer.\n\nFrozen task envelope:\n{\n  \"batch\": 2,\n  \"dependencies\": [\n    {\n      \"task_id\": \"V6_compile_3d390e1ba62af9b653ce\"\n    }\n  ],\n  \"execution_class\": \"review\",\n  \"expected_artifacts\": [\n    {\n      \"kind\": \"CompileReview\",\n      \"slot\": \"compile_review:project:project:CompileReview\",\n      \"uri_prefix\": \"runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/2/\"\n    }\n  ],\n  \"handoffs\": [],\n  \"input_digest\": \"b197472dcf75e336430ec2665e4b15fee30ee1ea0995c8b057aa616b441b2912\",\n  \"input_revision\": 499,\n  \"inputs\": [\n    {\n      \"sha256\": \"24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33\",\n      \"slot\": \"compile:project:project:AVIR\",\n      \"uri\": \"runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/avir.json\",\n      \"version\": 13\n    },\n    {\n      \"sha256\": \"e534f7d00ca740af8e26485cd4aab579b3be22742e70f9c70f489b68cde3a199\",\n      \"slot\": \"compile:project:project:CompilePackage\",\n      \"uri\": \"runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/compile-manifest.json\",\n      \"version\": 13\n    },\n    {\n      \"sha256\": \"c26e10011d6b38b920cba433fdf1f338e43c59589c6aee8738933d9fdec93258\",\n      \"slot\": \"frozen_task\",\n      \"uri\": \"runtime/tasks/TASK_ede3a3425d547d3569e53ec4.json\",\n      \"version\": 0\n    }\n  ],\n  \"module\": {\n    \"name\": \"video-prompt-compiler\",\n    \"sha256\": \"ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b\",\n    \"version\": \"1.17.6\"\n  },\n  \"node_id\": \"compile_review\",\n  \"project_id\": \"LETTER_DEMO\",\n  \"resources\": [\n    {\n      \"sha256\": \"5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff\",\n      \"uri\": \"runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md\"\n    },\n    {\n      \"sha256\": \"28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d\",\n      \"uri\": \"runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md\"\n    },\n    {\n      \"sha256\": \"9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1\",\n      \"uri\": \"runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md\"\n    },\n    {\n      \"sha256\": \"f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996\",\n      \"uri\": \"runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md\"\n    },\n    {\n      \"sha256\": \"0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14\",\n      \"uri\": \"runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md\"\n    },\n    {\n      \"sha256\": \"6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a\",\n      \"uri\": \"runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md\"\n    }\n  ],\n  \"role\": \"compiler_reviewer\",\n  \"schema\": \"task-envelope/6.0\",\n  \"scope\": {\n    \"ids\": [],\n    \"kind\": \"project\"\n  },\n  \"task_id\": \"TASK_ede3a3425d547d3569e53ec4\",\n  \"validators\": [\n    {\n      \"id\": \"module_receipt\",\n      \"kind\": \"hash\"\n    },\n    {\n      \"id\": \"compile_semantics\",\n      \"kind\": \"manual\"\n    }\n  ]\n}"
+      },
+      "candidate_dir": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/2"
+    }
+  ],
+  "tasks": [
+    {
+      "task_id": "TASK_ede3a3425d547d3569e53ec4",
+      "node_id": "compile_review",
+      "state": "DISPATCHING"
+    }
+  ]
+}

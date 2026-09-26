@@ -1,0 +1,1 @@
+Control 独立审阅进度：锁定 AVIR validate=VALID、原控制包 verify=VERIFIED；从候选 AVIR/config 重新 build 得到 11 个文件逐字节一致，14 个关键帧请求，121 帧 camera.status 全为 PLANNED_PROJECTION。注意 ENV_RAIN_NIGHT 点无数值坐标，evaluation-plan.points 和 frames.points 中该点为 UNDETERMINED；“0 unresolved frames”仅指相机投影状态，不能写成所有点都可投影。继续核对语义 stamp、V5 提升差异和 V6 pre-review。

@@ -1,0 +1,19 @@
+{
+  "command_id": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_COMMAND_1",
+  "expected_revision": 83,
+  "message": {
+    "at": "2026-09-25T12:21:14.788005Z",
+    "batch": 3,
+    "evidence": [],
+    "in_reply_to": "DIRECTOR_B3_REVIEW_DIGEST_CORRECTION_1",
+    "message_id": "DIRECTOR_B3_REVIEW_CORRECTION_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+    "subject_sha256": null,
+    "subject_uri": null,
+    "summary": "Reviewer will preserve original review record as v1, recompute canonical candidate digest from candidate dictionary, change only protocol binding and revalidate identity/schema.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "ACK"
+  }
+}

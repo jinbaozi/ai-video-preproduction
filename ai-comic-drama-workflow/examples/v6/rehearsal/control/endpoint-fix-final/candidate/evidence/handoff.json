@@ -1,0 +1,19 @@
+{
+  "batch": 1,
+  "media": "NOT_RUN",
+  "requirement_id": "UP_8c4b696799e85db8db8972c4",
+  "schema": "control-handoff/1.0",
+  "scope": "S1 / 0–12000 ms fixed camera and action planning",
+  "source_candidate_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "source_promoted_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+  "source_promotion_diff": "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json",
+  "source_slot": "storyboard:project:project:StoryboardIR",
+  "source_version": 12,
+  "target_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "target_manifest_sha256": "2eb0c085230597179ebac8297d8adf6e5274f6659190f9c39be784045e484c2e",
+  "target_manifest_uri": "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/control-pack/package-manifest.json",
+  "target_pointer": "",
+  "target_slot": "control:project:project:ShotControlPack",
+  "task_id": "TASK_eed007d42920d3df5b4f00f7",
+  "terminal_letter_visibility": []
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "ART_REBUILD_REVIEW_DISPATCH_1",
+  "expected_revision": 232,
+  "receipt": {
+    "action_id": "review-ffdb83201c4ee1a7a6058f6d",
+    "agent_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+    "batch": 1,
+    "dispatch_id": "review-ffdb83201c4ee1a7a6058f6d",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:09:51.491207Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:09:51.491207Z",
+    "status": "RUNNING",
+    "task_digest": "d4c74b0957a766bc6412aefa64ccf8df87abdf26d3767b5bd56dfb63fe27a6ec",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "tool_result_sha256": "77ae4d3bb61157db52ff60bf7fdbe7fbffb8e35bfb3208341de95e7780a40ae6",
+    "tool_result_uri": "runtime/v6/host-evidence/77ae4d3bb61157db52ff60bf7fdbe7fbffb8e35bfb3208341de95e7780a40ae6.json"
+  }
+}

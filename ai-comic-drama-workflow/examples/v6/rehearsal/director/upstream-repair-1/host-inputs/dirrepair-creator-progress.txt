@@ -1,0 +1,1 @@
+Director 返修已核对冻结信封及全部 8 个输入/资源哈希、Compile 独立 FAIL 证据。问题确为旧 DirectorIR 静态坐标 X/Y-depth/Z-up 与时间轴 x/y-up/z-depth 混用。拟把本次 Director 候选统一为 X-right/Y-up/Z-depth：固定机位 [0,1.2,-2.8]，看向 [0,1.0,0]，镜头起止态与每个时间样本同坐标，文字机位同步改；保留剧情和动作。正在生成候选，尚未交审。

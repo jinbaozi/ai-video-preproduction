@@ -1,0 +1,81 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_206f1e43fe2d38c84f3fcb2c",
+  "context_fingerprint": "206f1e43fe2d38c84f3fcb2cada6556d365c708dfd641417531f23e23a5f5b1b",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+  "artifact_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "complete": true,
+  "module_receipt": {
+    "name": "screenplay-grammar",
+    "version": "1.0.2",
+    "skill_sha256": "04f9f9b6fbb66c097bb9f5c520270d701a8f0bc5d0d00cf0b102f5221db6368e",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/SKILL.md",
+        "sha256": "04f9f9b6fbb66c097bb9f5c520270d701a8f0bc5d0d00cf0b102f5221db6368e"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/references/contract.md",
+        "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/references/cooperation.md",
+        "sha256": "284750ee9f1a18d6647067e08dbcea74fe68e44d259e031cfaaeaa3b4c194e36"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4/screenplay-grammar/references/writing.md",
+        "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef"
+      }
+    ]
+  },
+  "validator": {
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  },
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "finding": "新锁 Skill 与四份必读资源、冻结 Canon 和冻结 V5 任务字节哈希相符；正式 Canon 字节哈希单独核对。",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/module-receipt.json"
+      ]
+    },
+    {
+      "id": "native_validator",
+      "status": "PASS",
+      "finding": "锁定原生终验 STATIC_VALID、零错误、当前执行者语义复核已绑定内容指纹；编译包 READY，媒体未运行。",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/native-compile.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/semantic-review.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "finding": "冻结 Canon 的三项硬要求、角色和事件顺序映射到 ScriptIR，并保留正式 Canon 的原生字节哈希。",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff-check.json"
+      ]
+    }
+  ],
+  "handoff": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_10aaee2a8411c3ed15da2c11",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "screenplay:project:project:ScriptIR",
+      "evidence": [
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/evidence/handoff-check.json"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolved": []
+}

@@ -12,7 +12,7 @@ ai-comic-drama-workflow V5由当前Agent顺序调用本模块。任务信封给�
 先读原件与当前Schema，再使用现有命令；不要求用户填写JSON，不递归启动另一个总工作流。
 专业包单独发布；总包携带同源构建的锁定副本，不维护第二套专业规则。
 
-结果交回role-result/5.0：task_id、context_fingerprint、原生artifact路径、artifact_sha256、checks、complete，以及conflicts/unresolved；导演/美术下游另提交handoff逐条映射。
+结果交回role-result/5.1：task_id、context_fingerprint、原生artifact路径、artifact_sha256、checks、complete，以及conflicts/unresolved；导演/美术下游另提交handoff逐条映射。
 图像优化任务使用prompt和checks；真实生成由宿主负责。没有外部模型调用也可以完成静态任务。
 
 原文事实、实体ID、真实文件名、版本/哈希、台词和用户锁定项不可静默改写。可复制正文保留图片真实名称及必要槽位；对白采用`说话人：“台词内容”`。
@@ -20,4 +20,14 @@ ai-comic-drama-workflow V5由当前Agent顺序调用本模块。任务信封给�
 矛盾返回owner、来源、字段、现值、建议和影响范围；有效旧决定直接沿用。修订创建新版本，保留旧包和真实媒体记录。
 静态检查、图片审核和视频执行分别记录。submitted=false或NOT_RUN不能由人工改字段冒充执行。
 
-结果格式必须声明`schema: role-result/5.0`。任务内`handoff.required_handoffs`给出上游硬要求及源指纹；交回requirement_id、source_fingerprint、target_checks、reason，分镜另给target_clause。先在目标原生Schema中保留硬合同，再解释语义映射；仅复制文字或留在旁注不算满足执行要求。
+结果格式必须声明`schema: role-result/5.1`，并附`module_receipt`（name、version、skill_sha256、reads）。收据只证明用了哪份锁定资料，不证明理解质量。任务内`handoff.required_handoffs`给出上游硬要求及源指纹；交回requirement_id、source_fingerprint、target_checks、reason，分镜另给target_clause。先在目标原生Schema中保留硬合同，再解释语义映射；仅复制文字或留在旁注不算满足执行要求。
+
+## V6 编排任务
+
+V6 项目由内核返回 `task-envelope/6.0`，Codex 宿主真实派发本专业子智能体。任务信封绑定项目、节点、批次、角色、范围、冻结输入、模块哈希、必读资源、预期产物和检查器。先实际读取锁定文件，只在自己的候选目录写结果；不要直接修改项目正式产物或状态。V6 候选仍包含冻结任务的 `role-result/5.1` 与原生 ArtIR，但须经 `agent-result` 和独立审阅提交，旧 `submit` 命令不适用。
+
+发送 `ACK`、`PROGRESS`、`QUESTION`、`BLOCKER`、`HANDOFF`、`RESULT` 或 `CANCEL_ACK` 时，保留任务与批次关联及证据引用。影响结果的沟通必须由宿主登记为结构化消息；聊天文本本身不改变权威输入。交回候选时绑定当前输入指纹、产物哈希、实际检查、模块读取收据、逐项交接与未决项。模块收据只证明所读版本，质量仍须原生校验与独立审阅。
+
+美术任务按场景和资产范围提交 ArtIR 与视觉约束；同一场景的多项任务可并行，但同一产物或重叠范围的写入必须交由内核串行。美术不能用画面风格覆盖导演的动作时轴或编剧台词。
+
+独立审阅智能体核对候选版本与完整检查项；创作者不得审结自己的任务。内核统一判定 `RESULT_SUBMITTED → VALIDATING → REVIEW_REQUIRED → ACCEPTED`，迟到批次、旧输入、过期审阅和越权范围均不能接受。失败或来源变更时保留历史候选，等待新任务信封，不在旧结果上伪改状态。

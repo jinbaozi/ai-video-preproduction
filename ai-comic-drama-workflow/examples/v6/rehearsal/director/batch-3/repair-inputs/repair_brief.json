@@ -1,0 +1,38 @@
+{
+  "failed_check": "handoff",
+  "failures": [
+    {
+      "batch": 1,
+      "code": "VALUEERROR",
+      "failure_sha256": "3155f67ee805592d576967760d20dd2955abd43540bfeca78739c17950058d62",
+      "failure_uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/1/bd2ffaab8881858b504f48dfb02262b1f30512140076c153ceea6b93140f7602.json",
+      "review_evidence": [
+        {
+          "sha256": "db5f23e4d9ea756a748013263d4998119a438705752fc32494e3d62d2773c65c",
+          "uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json"
+        }
+      ]
+    },
+    {
+      "batch": 2,
+      "code": "VALUEERROR",
+      "failure_sha256": "7d6a58d6a2ae798dd4c54d798ad70d9b6cd92566a1077261b23ef1eefc66b02d",
+      "failure_uri": "runtime/v6/failures/TASK_b1e7ff7ce83d7a32bfa09935/2/cf305579ba23d49b49a568293b870d61800b2016a0624ceac71af50bd0988643.json",
+      "review_evidence": [
+        {
+          "sha256": "1f2aeb91366c4ac0bc2e28d22fd39d56f6ef07a8656c346517ace2f7357857ed",
+          "uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/handoff.review.json"
+        },
+        {
+          "sha256": "5c2ea5d84b021ca2eb1faac37d72a4db8b77f8762b64458058eca92ebbf396a2",
+          "uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/review-record.json"
+        }
+      ]
+    }
+  ],
+  "instruction": "Read both failure and review evidence files. Correct every cited issue in a new candidate while preserving the frozen source and upstream contracts.",
+  "next_batch": 3,
+  "node_id": "director",
+  "schema": "repair-brief/6.0",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

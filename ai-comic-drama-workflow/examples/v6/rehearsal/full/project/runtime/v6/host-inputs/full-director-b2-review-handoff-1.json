@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B2_REVIEW_HANDOFF_1",
+  "expected_revision": 84,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B2_REVIEW_HANDOFF_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_cd6e26e1cbeafb65a9918960",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Independent Director batch-2 review ready; all checks PASS",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-b2-review-ready.txt"
+    ],
+    "at": "2026-09-25T12:49:22.226096Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-b2-review-ready.txt",
+    "subject_sha256": "195c6425903250b58be3322bc27621a3bb6728dc1686bcdc6723d53e50639ad2"
+  }
+}

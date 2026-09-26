@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "inputs": [
+    {
+      "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+      "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71"
+    },
+    {
+      "uri": "runtime/tasks/TASK_5975d46bd5020b778eaa0b5b.json",
+      "sha256": "4ba345915355288aa3cfc778f0cad98059fcd36b906e88fc9d7571cb313e70b0"
+    }
+  ],
+  "module_resources": [
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md",
+      "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md",
+      "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md",
+      "sha256": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md",
+      "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+    }
+  ],
+  "note": "Hash matched frozen inputs and locked required reads; content separately read by creator."
+}

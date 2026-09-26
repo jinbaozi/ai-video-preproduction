@@ -1,0 +1,50 @@
+{
+  "compiled_handoff_sha256": "b4963e86a4f8396479b315b9283101416a95b444d0af0994fd0debb392b1e8e4",
+  "compiled_handoff_uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/compiled/handoff.json",
+  "compiled_qa_sha256": "ede5fb76bbc6d50597ab076d62ea9473b4d762c1db93eb6b8d3028bb5a3ce653",
+  "compiled_qa_uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/compiled/qa-report.json",
+  "director_handoff_ownership": "EVENT_HANDOFF contact/support/controller arrays are retained in frozen DirectorIR. Art shot support keeps hands and same letter readable; no fake string event is invented.",
+  "media_review": "NOT_RUN",
+  "shot_terminal_states": {
+    "S_HANDOFF": {
+      "CHAR_YI": {
+        "condition": "尚未确认封口",
+        "wardrobe": "深蓝灰无标识外层（设计提案）"
+      },
+      "PROP_BACKPACK": null,
+      "PROP_LETTER": {
+        "condition": "同一封未拆、封口完整"
+      },
+      "events": []
+    },
+    "S_SEAL": {
+      "CHAR_YI": {
+        "condition": "已确认同一封信封口完整",
+        "wardrobe": "深蓝灰无标识外层（设计提案）"
+      },
+      "PROP_BACKPACK": null,
+      "PROP_LETTER": {
+        "condition": "同一封未拆、封口完整"
+      },
+      "events": [
+        "ART_SEAL_CONFIRMED"
+      ]
+    },
+    "S_STOW": {
+      "CHAR_YI": {
+        "condition": "已确认同一封信封口完整",
+        "wardrobe": "深蓝灰无标识外层（设计提案）"
+      },
+      "PROP_BACKPACK": {
+        "condition": "收纳同一封信"
+      },
+      "PROP_LETTER": {
+        "condition": "同一封未拆、封口完整"
+      },
+      "events": [
+        "ART_BACKPACK_STOWED"
+      ]
+    }
+  },
+  "status": "PASS_STATIC"
+}

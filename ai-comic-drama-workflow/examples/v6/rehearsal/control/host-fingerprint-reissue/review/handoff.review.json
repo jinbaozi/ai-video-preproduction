@@ -1,0 +1,39 @@
+{
+  "camera_track_matches_locked_operation": true,
+  "candidate_digest": "b297108233a8e1f71ba11a91b10acf9d36f40893f46f7e5f87c0c268c3fb4d96",
+  "director_camera_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "director_coordinate_system": "right-handed:X-right,Y-depth,Z-up;meters",
+  "letter_boundary_visible_parts": {
+    "avir_shot_end": [],
+    "avir_timeline_12000ms": [],
+    "control_frame_12000ms": [],
+    "storyboard_10500ms": [],
+    "storyboard_12000ms": []
+  },
+  "mapping": "storyboard [x,y,z] = director [X,Z,Y]",
+  "media": "NOT_RUN",
+  "requirement_id": "UP_8c4b696799e85db8db8972c4",
+  "result": "PASS",
+  "schema": "control-handoff-review/1.0",
+  "source_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+  "source_slot": "storyboard:project:project:StoryboardIR",
+  "source_task_id": "TASK_4f81cc62bc1b268a8f8be7b0",
+  "source_version": 12,
+  "storyboard_camera_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "storyboard_coordinate_system": {
+    "axes": "x=world-right,y=up,z=depth",
+    "origin": "当前 DirectorIR 静态场景坐标为 X右、Y深、Z上：[0,-2.8,1.2] 米；StoryboardIR 时间轴坐标为 x右、y上、z深：[0,1.2,-2.8] 米。两者按轴序 (X,Z,Y) 换算为同一物理固定机位；均为预演意图，不是实测。",
+    "unit": "m"
+  },
+  "target_avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "target_manifest_sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+  "target_slot": "control:project:project:ShotControlPack"
+}

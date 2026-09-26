@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "requirement_id": "UP_8efe8edf383f6de7f9bd2036",
+  "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+  "source_version": 11,
+  "source_art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "source_asset_id": "PROP_BACKPACK",
+  "identity_locks": [
+    "同一实体 PROP_BACKPACK 外观与包口位置连续",
+    "包口可被乙右手触及；EVENT_STOW 后 condition 为收纳同一封信，信由包内承托且不外露"
+  ],
+  "target_slot": "visual_prompts:asset:33x41535345545f5343454e455f48414e444f46465f50524f505f4241434b5041434b:VisualImagePrompt",
+  "target_artifact_sha256": "faaa6dd8c725b277885314496220f0633fae0953be5d7dafbe4b96c9016d8d2b",
+  "finding": "Same backpack, usable opening, and later hidden-letter condition retained in static prompt."
+}

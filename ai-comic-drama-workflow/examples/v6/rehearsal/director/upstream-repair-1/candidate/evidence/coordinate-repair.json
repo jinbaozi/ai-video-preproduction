@@ -1,0 +1,37 @@
+{
+  "all_six_samples_checked": true,
+  "conversion_static_to_timeline": "[x,y,z] -> [x,z,y]",
+  "downstream_rebuild_and_independent_review": "PENDING",
+  "error_code": "CAMERA_COORDINATE_CONFLICT",
+  "failure_corrected_in_director_candidate": true,
+  "new_camera_operation_text": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+  "new_director_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+  "new_director_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+  "old_director_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "old_director_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+  "shot_boundary_positions_convert_to_timeline": true,
+  "static_axes": "X-right,Y-depth,Z-up",
+  "static_camera_at_0_and_12000_ms_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "static_look_at_m": [
+    0,
+    0,
+    1.0
+  ],
+  "status": "PASS",
+  "timeline_axes": "x-right,y-up,z-depth",
+  "timeline_camera_at_0_and_12000_ms_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "timeline_look_at_m": [
+    0,
+    1.0,
+    0
+  ],
+  "upstream_repair_evidence_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/upstream-repair.json"
+}

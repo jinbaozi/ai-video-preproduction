@@ -1,0 +1,1 @@
+Batch-2 ScriptIR now binds registered V5 Canon SHA ec1a717d; the locked sg.py final validator returns STATIC_VALID with REVIEW_ATTESTED and compiler returns READY. I am writing candidate evidence, RoleResult, and CandidateResult with fresh hashes; formal state remains untouched.

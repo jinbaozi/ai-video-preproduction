@@ -1,0 +1,1 @@
+PROGRESS: I have completed static inspection and written an independent check script under the assigned review directory. It validates V6 identity and frozen hashes, rederives AVIR from accepted StoryboardIR, runs locked AVIR and control validators, rebuilds the control package in review space, and checks 10.5/12 s visibility and handoff. Running it now; no blocker.

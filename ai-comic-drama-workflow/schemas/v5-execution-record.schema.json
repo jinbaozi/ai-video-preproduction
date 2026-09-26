@@ -2,14 +2,27 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "v5-execution-record",
   "type": "object",
-  "required": ["schema_version", "id", "job_id", "state", "automatic"],
+  "required": ["schema_version", "id", "job_id", "state", "task_id", "automatic", "version", "created_at"],
   "properties": {
     "schema_version": {"const": "v5-execution-record/1.0"},
-    "id": {"type": "string"},
-    "job_id": {"type": "string"},
-    "state": {"enum": ["FROZEN", "SUBMITTING", "SUBMITTED", "SUCCEEDED", "FAILED", "UNKNOWN"]},
+    "id": {"type": "string", "pattern": "^EXE_[A-Za-z0-9_-]+$"},
+    "job_id": {"type": "string", "minLength": 1},
+    "state": {"enum": ["SUBMITTING", "SUBMITTED", "SUCCEEDED", "FAILED", "UNKNOWN"]},
     "task_id": {"type": ["string", "null"]},
-    "automatic": {"type": "boolean"}
+    "automatic": {"type": "boolean"},
+    "version": {"type": "integer", "minimum": 0},
+    "created_at": {"type": "string", "minLength": 1},
+    "updated_at": {"type": "string", "minLength": 1},
+    "take_id": {"type": "string", "minLength": 1},
+    "error": {"type": "string", "minLength": 1},
+    "reason": {"type": "string", "minLength": 1},
+    "resubmit": {"type": "boolean"}
   },
-  "additionalProperties": true
+  "allOf": [
+    {"if": {"properties": {"state": {"const": "SUBMITTED"}}}, "then": {"properties": {"task_id": {"type": "string", "minLength": 1}}}},
+    {"if": {"properties": {"state": {"const": "SUCCEEDED"}}}, "then": {"required": ["take_id"]}},
+    {"if": {"properties": {"state": {"const": "FAILED"}}}, "then": {"required": ["error"]}},
+    {"if": {"properties": {"state": {"const": "UNKNOWN"}}}, "then": {"required": ["reason", "resubmit"], "properties": {"resubmit": {"const": false}}}}
+  ],
+  "additionalProperties": false
 }

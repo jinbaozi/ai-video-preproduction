@@ -1,0 +1,23 @@
+{
+  "command_id": "HOSTFIX-CONTROL-REVIEW_DISPATCH_1",
+  "expected_revision": 645,
+  "receipt": {
+    "action_id": "review-5d0ef8d940c1a4f3bc57622c",
+    "agent_id": "/root/host_bridge/v6_92b84faa63ee0c7816752382",
+    "batch": 1,
+    "dispatch_id": "review-5d0ef8d940c1a4f3bc57622c",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T17:22:05.886600Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T17:22:05.886600Z",
+    "status": "RUNNING",
+    "task_digest": "bcd6acd2d3df7a62f36eb44ec4753e5f935b0f286fe7ec40510365ca75ddcb66",
+    "task_id": "TASK_f2d0f9805f575ed23ebfdb6d",
+    "tool_result_sha256": "a9d9575848cc8b525f3aeb9309498eadd19e172cb49b48745b47de71c5dd4518",
+    "tool_result_uri": "runtime/v6/host-evidence/a9d9575848cc8b525f3aeb9309498eadd19e172cb49b48745b47de71c5dd4518.json"
+  }
+}

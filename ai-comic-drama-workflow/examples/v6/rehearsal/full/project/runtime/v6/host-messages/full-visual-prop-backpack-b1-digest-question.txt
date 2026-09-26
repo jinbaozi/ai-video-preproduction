@@ -1,0 +1,1 @@
+背包资产任务 TASK_5975d46bd5020b778eaa0b5b 的候选内容、合同与原生只读预检已完成；但冻结 envelope.input_digest 在 runtime/v6/state.json 里只有 62 个十六进制字符（acd6b26fc943e25584b86ae4f6afa8c47467a9b8dae5ace4d4ff8d6e86056f）。v6-candidate-result schema 强制 64 位，照抄冻结值会 SCHEMA_INVALID；我不会更改权威 state。正在核对 envelope_input_digest 的应得值，请根/宿主检查是否是派发时脱漏并决定正式修复路径。

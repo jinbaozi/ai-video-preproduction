@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "scope": "creator static semantic audit; no media or reference-image observation",
+  "assertions": [
+    {
+      "source": "ArtIR /assets/3",
+      "requirement": "Same PROP_BACKPACK, dark unbranded soft matte fabric; no invented brand or carrying style",
+      "finding": "PASS; prompt states same backpack, dark unbranded soft matte fabric and no labels; carrying style unspecified."
+    },
+    {
+      "source": "ArtIR /assets/3 identity_locks/0",
+      "requirement": "Same appearance and opening location across shots",
+      "finding": "PASS; prompt explicitly anchors same appearance and opening position for later shots."
+    },
+    {
+      "source": "ArtIR /assets/3 identity_locks/1",
+      "requirement": "Opening reachable by Yi right hand; later stow holds same letter internally with no exposure",
+      "finding": "PASS for prompt semantics; current image is pre-stow only, and future condition is separately stated."
+    },
+    {
+      "source": "ArtIR /references/3",
+      "requirement": "PLAN_PROP_BACKPACK is planned with null file/hash",
+      "finding": "PASS; prompt and manifest bind no reference image or attachment slot."
+    },
+    {
+      "source": "ArtIR /world and /shots/2",
+      "requirement": "Rain night remains low frequency, letter outside only before stow",
+      "finding": "PASS; background has no location assertion, current asset image shows no person or letter, after-stow instruction has no exposed paper."
+    }
+  ],
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN"
+}

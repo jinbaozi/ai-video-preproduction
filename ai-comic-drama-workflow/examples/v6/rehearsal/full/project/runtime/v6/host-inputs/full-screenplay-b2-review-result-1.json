@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_B2_REVIEW_RESULT_1",
+  "expected_revision": 49,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_B2_REVIEW_RESULT_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_246b5841b65e96879b2a2a6c",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_B2_REVIEW_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Reviewer submits independent batch-2 screenplay review",
+    "evidence": [
+      "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/2/review-record.json"
+    ],
+    "at": "2026-09-25T11:25:37.932293Z",
+    "subject_uri": "runtime/v6/reviews/TASK_20dbe9991f545d5fe05e55e7/2/review-record.json",
+    "subject_sha256": "04b3f5a92587ead67a65cc34e184e8f6a9bf7306989be3f5187aca144cb6f504"
+  }
+}

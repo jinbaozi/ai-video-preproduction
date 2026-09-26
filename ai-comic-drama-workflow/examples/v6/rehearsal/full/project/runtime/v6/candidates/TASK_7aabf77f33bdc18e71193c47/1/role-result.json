@@ -1,0 +1,82 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_7aabf77f33bdc18e71193c47",
+  "context_fingerprint": "7aabf77f33bdc18e71193c47a48ce7233564e401fa74eb8edc03ddc9b2061f19",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/visual-image-prompt.json",
+  "artifact_sha256": "18252d14a5feaba69c3798764e8393248fb4d86585bc05513b0348c6a3fee615",
+  "production_contract": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/production-contract.json",
+  "understanding": [
+    "甲的衣装与右手递信动作来自已接受 ArtIR，服装外观应在三镜连续。",
+    "PLAN_CHAR_JIA 只是 planned 文字参考，脸部身份尚未锁定；本张裁至颈部以下。"
+  ],
+  "prompt": "为角色资产 CHAR_JIA「甲」制作一张单一静态的服装与递信动作参考图，作为三镜沿用的同一位甲、同一套服装的造型锚点。雨夜低饱和蓝灰、低纹理且无地标的背景，不表明具体地点或室内外。画面只取甲颈部以下至腰部的躯干、双臂和完整右手，面部留在画外；不替未绑定身份参考的甲指定脸、年龄、性别或职业。甲穿无标识深石墨灰哑面平织外层，袖口收紧但不覆盖右手，衣料褶皱顺着抬臂与腕部受力自然延展。甲右手稳稳夹持同一封中性偏暖哑面纸质的未拆信，闭合封口完整可见、无可读文字，正向画面另一侧递出；只呈现乙接稳前的一个瞬间，信封主体和封口、甲的指节与袖口互不遮挡，手指围绕纸封边缘受力合理，对侧保留接手净空。视点与手部接近齐平，让右手、袖口及完整信封处于清晰区，纸色与深色衣袖分离，雨夜背景退后。本图不展示验封、拆信或放入背包，不加入品牌、贴章、额外道具、可辨建筑或文字。",
+  "params": {
+    "target_model": null,
+    "surface": "generic",
+    "aspect_ratio": "3:4",
+    "requested_pixels": null,
+    "reference_files": []
+  },
+  "quality_check": "静态核对甲的深石墨灰衣装、完整右手与不遮信的袖口、未拆且完整可见的封口、单一递出时刻及无地点/身份臆造；图片尚未生成，图像质量和跨镜身份一致性待实际媒体审阅。",
+  "checks": [
+    {
+      "ref": "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+      "finding": "正文以同一位甲和同一套深石墨灰无标识外层作为三镜锚点；面部留在画外，未将未核面容固定为身份。"
+    },
+    {
+      "ref": "右手及袖口不遮住交接的信封",
+      "finding": "正文显式展示甲的完整右手与收紧袖口，信封主体和闭合封口不被指节或袖口遮挡；单帧只在乙接稳前。"
+    },
+    {
+      "ref": "/references/0 PLAN_CHAR_JIA",
+      "finding": "ArtIR 中此参考 status=planned，file/sha256 均为 null；当前没有真实参考图文件、哈希或附件槽位，也没有宣称身份视觉验收。"
+    },
+    {
+      "ref": "/assets/0 design",
+      "finding": "深石墨灰无标识哑面平织外层保留；未为甲补写年龄、性别、职业或人物关系。"
+    }
+  ],
+  "validator": {
+    "status": "STATIC_VALID",
+    "report_uri": "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/evidence/contract-validation.json",
+    "report_sha256": "80937e259f6475cd53aa0626527f3176a736fa40b05959aff7523dd65581ec8c"
+  },
+  "module_receipt": {
+    "name": "image-prompt-optimizer",
+    "version": "1.15.7",
+    "skill_sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md",
+        "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md",
+        "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md",
+        "sha256": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/character-appearance.md",
+        "sha256": "b3cb6fafc16e207b8ee64cfc4d50d797c73eebdd1c8728d5d5e6cff4cd151631"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/templates/production-contract.md",
+        "sha256": "8f156b9ccf183bbeda62260fc5fb94bcb50d4d6e731c51bd2407bca253c0a8d0"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md",
+        "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+      }
+    ]
+  },
+  "conflicts": [],
+  "unresolved": [],
+  "complete": true
+}

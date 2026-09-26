@@ -1,0 +1,23 @@
+{
+  "command_id": "STATUSFIX-CONTROL_DISPATCH_1",
+  "expected_revision": 769,
+  "receipt": {
+    "action_id": "dispatch-7f1769452450ce2faf2007c4",
+    "agent_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+    "batch": 1,
+    "dispatch_id": "dispatch-7f1769452450ce2faf2007c4",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T18:00:28.590935Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T18:00:28.590935Z",
+    "status": "RUNNING",
+    "task_digest": "0dcfaaceb50b4f449eff70320e888057a31213f4f351f2c75f524983050f08d8",
+    "task_id": "TASK_4c69e10662f9834bb335155d",
+    "tool_result_sha256": "15ed20fa59715840b2ead5dffdce68bc7e31bf28a8c78906eaccf5226e777d5a",
+    "tool_result_uri": "runtime/v6/host-evidence/15ed20fa59715840b2ead5dffdce68bc7e31bf28a8c78906eaccf5226e777d5a.json"
+  }
+}

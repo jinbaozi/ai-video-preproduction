@@ -1,0 +1,16 @@
+{
+  "artifact_sha256": "d90e8c3ba2288f97f79393bebdf3262958d00057656d6d23bf5b299c4e7afd4b",
+  "artifact_uri": "runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/art-ir.json",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py",
+    "validate",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_f43c3388a29f02af7a8fc90a/1/art-ir.json"
+  ],
+  "exit_code": 0,
+  "stderr": "",
+  "stdout": {
+    "art_sha256": "d90e8c3ba2288f97f79393bebdf3262958d00057656d6d23bf5b299c4e7afd4b",
+    "status": "STATIC_VALID"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "account_verified": false,
+  "backend": "prompt_plan",
+  "duration_ms": {
+    "allowed": [],
+    "max": 15000,
+    "min": 4000,
+    "scope": "model",
+    "step": null
+  },
+  "entry_point": "model_prompt_plan; current transport unresolved",
+  "evidence_level": "official_model",
+  "id": "seedance2.0",
+  "max_prompt_chars": null,
+  "max_refs": {
+    "audio": null,
+    "image": null,
+    "total": null,
+    "video": null
+  },
+  "model": "Seedance 2.0",
+  "modes": [
+    "text",
+    "keyframe",
+    "reference"
+  ],
+  "native_audio": true,
+  "native_reference_syntax": "unresolved",
+  "native_tokenizer": null,
+  "ratios": [],
+  "region": "unverified",
+  "resolutions": [],
+  "source_refs": [
+    "SEED20",
+    "SEED20_PAPER"
+  ],
+  "template": "seedance20",
+  "verified_at": "2026-09-19",
+  "version": "2026.09.19.1"
+}

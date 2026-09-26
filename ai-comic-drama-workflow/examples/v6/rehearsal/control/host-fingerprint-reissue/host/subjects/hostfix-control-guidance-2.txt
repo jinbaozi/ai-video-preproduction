@@ -1,0 +1,1 @@
+补充核验要求：只读对照冻结 DirectorIR、StoryboardIR、AVIR 12000ms timeline sample、当前锁定 v5_adapters.py 和 `_verify_control_package` 输出，判定 visible_parts 是起始继承还是终态。若与冻结 Storyboard 语义矛盾，提交 QUESTION/BLOCKER 和字段映射证据交上游责任节点，不能在下游候选擅自补写。若静态控制包校验器并不消费该旧字段，也请给出文件/字段映射证据。Control 仍保持 RUNNING，暂缓 RESULT。

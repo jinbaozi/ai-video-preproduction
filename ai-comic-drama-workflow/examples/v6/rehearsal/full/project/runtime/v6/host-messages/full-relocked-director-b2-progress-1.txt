@@ -1,0 +1,1 @@
+已读取冻结输入和四份锁定 Director 资源，SHA 全部匹配；也读取上一批独审与失败记录。缺陷确认为 /timeline/camera_operations/2/end_framing 终帧描述，与 8500–9000 ms 已入包的状态冲突。我将仅在 batch 2 候选改该视听字段，重新生成映射、收据和原生校验，保留 batch 1 原件。

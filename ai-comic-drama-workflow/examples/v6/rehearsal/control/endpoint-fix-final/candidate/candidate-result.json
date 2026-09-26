@@ -1,0 +1,75 @@
+{
+  "agent_id": "/root/host_bridge/v6_838bd03108d80bdf753fc1b2",
+  "artifacts": [
+    {
+      "kind": "ShotControlPack",
+      "sha256": "2eb0c085230597179ebac8297d8adf6e5274f6659190f9c39be784045e484c2e",
+      "slot": "control:project:project:ShotControlPack",
+      "uri": "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/control-pack/package-manifest.json"
+    }
+  ],
+  "batch": 1,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/module-receipt.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/adapter-report.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/native-av-validation.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/control-build.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/control-verify.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/projection-limit.json"
+      ],
+      "id": "control_verify",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/promotion-diff.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/boundary-visibility.json",
+        "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/evidence/coordinate-consistency.json"
+      ],
+      "requirement_id": "UP_8c4b696799e85db8db8972c4",
+      "source_slot": "storyboard:project:project:StoryboardIR",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "control:project:project:ShotControlPack"
+    }
+  ],
+  "input_digest": "cbc3a729c86c20f7bcfe3aecedd1a2245233030820984e42b9062b02f217cfdd",
+  "module_receipts": [
+    {
+      "name": "video-prompt-compiler",
+      "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+      "version": "1.17.6"
+    }
+  ],
+  "result_sha256": "92c24b93f557da063e18e9e43a3e3faec261afa27b30aba6ee3fe4212d77445e",
+  "result_uri": "runtime/v6/candidates/TASK_eed007d42920d3df5b4f00f7/1/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_eed007d42920d3df5b4f00f7",
+  "unresolved": []
+}

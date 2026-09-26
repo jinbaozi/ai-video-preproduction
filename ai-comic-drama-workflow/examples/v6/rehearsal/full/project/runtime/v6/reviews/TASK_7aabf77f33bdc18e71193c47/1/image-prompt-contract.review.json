@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "native_validator": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "scope": "schema, references, locks, coverage and state; not semantic or visual proof"
+  },
+  "production_contract_sha256": "53e0a43a6246d0c4d56a079232d89a7321867536f91897804e8a9b36d735d375",
+  "prompt_document_sha256": "477236efd1ac117481bea71d8fd81e3d70c1ff5060cc6bb3d12410021126e3b7",
+  "frozen_reference": "PLAN_CHAR_JIA planned; no file or hash",
+  "verified_semantic_phrases": [
+    "同一位甲",
+    "同一套服装",
+    "深石墨灰",
+    "无标识",
+    "袖口收紧",
+    "右手",
+    "未拆信",
+    "闭合封口完整可见",
+    "无可读文字",
+    "雨夜",
+    "面部留在画外",
+    "只呈现乙接稳前的一个瞬间",
+    "不展示验封、拆信或放入背包",
+    "不表明具体地点或室内外"
+  ],
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN",
+  "scope": "Independent static prompt and contract review; no image generated or viewed"
+}

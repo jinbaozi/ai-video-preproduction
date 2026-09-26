@@ -1,0 +1,197 @@
+{
+  "checks": [
+    {
+      "assertions": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/heading",
+          "value": "雨夜"
+        },
+        {
+          "op": "contains",
+          "path": "/scenes/0/blocks/0/text",
+          "value": "雨夜"
+        }
+      ],
+      "blocking": true,
+      "evidence_required": "ScriptIR JSON Pointer 断言",
+      "id": "RAIN_STATIC",
+      "method": "static",
+      "predicate": "场景与动作都明确为雨夜。"
+    },
+    {
+      "assertions": [],
+      "blocking": true,
+      "evidence_required": "当前执行者对 Canon 与全文的语义核对",
+      "id": "RAIN_SEMANTIC",
+      "method": "semantic",
+      "predicate": "是否保留雨夜，且未擅定地点及室内外？"
+    },
+    {
+      "assertions": [
+        {
+          "op": "contains",
+          "path": "/scenes/0/blocks/0/text",
+          "value": "一封未拆的信"
+        },
+        {
+          "op": "contains",
+          "path": "/scenes/0/blocks/1/text",
+          "value": "这封信"
+        },
+        {
+          "op": "contains",
+          "path": "/scenes/0/blocks/1/text",
+          "value": "信仍未拆开"
+        },
+        {
+          "op": "contains",
+          "path": "/scenes/0/blocks/2/text",
+          "value": "同一封信"
+        }
+      ],
+      "blocking": true,
+      "evidence_required": "ScriptIR JSON Pointer 断言",
+      "id": "LETTER_STATIC",
+      "method": "static",
+      "predicate": "三段动作都指向同一封未拆的信。"
+    },
+    {
+      "assertions": [],
+      "blocking": true,
+      "evidence_required": "当前执行者对 Canon 与全文的语义核对",
+      "id": "LETTER_SEMANTIC",
+      "method": "semantic",
+      "predicate": "交接、验封和收存是否同一封信，过程中是否保持未拆？"
+    },
+    {
+      "assertions": [
+        {
+          "op": "equals",
+          "path": "/narrative/reveal_order",
+          "value": [
+            "EVT_HANDOFF",
+            "EVT_SEAL_CHECK",
+            "EVT_STOW"
+          ]
+        },
+        {
+          "op": "equals",
+          "path": "/scenes/0/blocks/0/id",
+          "value": "B_HANDOFF"
+        },
+        {
+          "op": "equals",
+          "path": "/scenes/0/blocks/1/id",
+          "value": "B_SEAL_CHECK"
+        },
+        {
+          "op": "equals",
+          "path": "/scenes/0/blocks/2/id",
+          "value": "B_STOW"
+        }
+      ],
+      "blocking": true,
+      "evidence_required": "ScriptIR JSON Pointer 断言",
+      "id": "ORDER_STATIC",
+      "method": "static",
+      "predicate": "事件与场景动作顺序一致。"
+    },
+    {
+      "assertions": [],
+      "blocking": true,
+      "evidence_required": "当前执行者对 Canon 与全文的语义核对",
+      "id": "ORDER_SEMANTIC",
+      "method": "semantic",
+      "predicate": "是否先交信、再确认封口，最后才收进背包？"
+    }
+  ],
+  "clauses": [
+    {
+      "change_policy": "preserve",
+      "check_ids": [
+        "RAIN_STATIC",
+        "RAIN_SEMANTIC"
+      ],
+      "id": "REQ_RAIN_NIGHT",
+      "owner": "screenplay",
+      "paths": [
+        "/scenes/0/heading",
+        "/scenes/0/blocks/0/text"
+      ],
+      "priority": "hard",
+      "realization": "action",
+      "requirement": "保留雨夜。",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_V12"
+      ],
+      "steps": [
+        "agent_write",
+        "static_validate",
+        "semantic_review",
+        "text_compile",
+        "director_realize"
+      ]
+    },
+    {
+      "change_policy": "preserve",
+      "check_ids": [
+        "LETTER_STATIC",
+        "LETTER_SEMANTIC"
+      ],
+      "id": "REQ_SAME_UNOPENED_LETTER",
+      "owner": "screenplay",
+      "paths": [
+        "/scenes/0/blocks/0/text",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text"
+      ],
+      "priority": "hard",
+      "realization": "action",
+      "requirement": "交接、检查和收存的是同一封未拆的信。",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_V12"
+      ],
+      "steps": [
+        "agent_write",
+        "static_validate",
+        "semantic_review",
+        "text_compile",
+        "director_realize"
+      ]
+    },
+    {
+      "change_policy": "preserve",
+      "check_ids": [
+        "ORDER_STATIC",
+        "ORDER_SEMANTIC"
+      ],
+      "id": "REQ_EVENT_ORDER",
+      "owner": "screenplay",
+      "paths": [
+        "/narrative/reveal_order",
+        "/scenes/0/blocks"
+      ],
+      "priority": "hard",
+      "realization": "action",
+      "requirement": "甲交给乙，乙确认封口完整，之后乙将信收进背包。",
+      "source_refs": [
+        "SRC_69a71adcfaca",
+        "CANON_V12"
+      ],
+      "steps": [
+        "agent_write",
+        "static_validate",
+        "semantic_review",
+        "text_compile",
+        "director_realize"
+      ]
+    }
+  ],
+  "deliverables": [
+    "screenplay"
+  ],
+  "scope": "依据来源和当前 Canon 整理单场短剧本，只呈现已给定的事件及顺序。"
+}

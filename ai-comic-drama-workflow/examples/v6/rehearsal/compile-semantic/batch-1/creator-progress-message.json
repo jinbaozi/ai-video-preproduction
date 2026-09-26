@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILEQA_CREATOR_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 495,
+  "message": {
+    "at": "2026-09-25T16:02:16.055165Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/compileqa-creator-progress.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "COMPILEQA_CREATOR_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_42abfe0c85c46ba290a73be2",
+    "subject_sha256": "1c46d472125faf582fb5b1cf843fcab961daba323e57efd9b350410110b751fa",
+    "subject_uri": "runtime/v6/host-inputs/compileqa-creator-progress.txt",
+    "summary": "Compile-review 发现候选 AVIR 镜头终态信可见部分与时间轴 12 秒收包遮蔽不一致，正查 adapter 语义后判定。",
+    "task_id": "TASK_ede3a3425d547d3569e53ec4",
+    "type": "PROGRESS"
+  }
+}

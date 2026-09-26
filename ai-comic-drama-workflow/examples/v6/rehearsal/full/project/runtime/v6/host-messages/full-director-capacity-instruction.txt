@@ -1,0 +1,1 @@
+Please complete the frozen DirectorIR task directly without spawning auxiliary agents; current host capacity must leave room for an independent reviewer. Keep all work in your assigned candidate directory and preserve formal state.

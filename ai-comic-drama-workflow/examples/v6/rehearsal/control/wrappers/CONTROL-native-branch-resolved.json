@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_NATIVE_BRANCH_RESOLVED_COMMAND_1",
+  "expected_revision": 173,
+  "message": {
+    "at": "2026-09-25T13:24:24.442413Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-native-branch-resolved.txt"
+    ],
+    "in_reply_to": "CONTROL_NATIVE_BRANCH_FOLLOWUP_1",
+    "message_id": "CONTROL_NATIVE_BRANCH_RESOLVED_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "e5e79d748bce84ce544f0d6f91cee85318e69254141e6ac9398a42c6a88fcf62",
+    "subject_uri": "runtime/v6/host-inputs/control-native-branch-resolved.txt",
+    "summary": "Host confirmed V6 control_verify now runs locked ShotControlPack verification; adapter repair remains outstanding.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "agent_id": "/root/host_bridge/full_rehearsal/v6_83a899880d2e84fbf7f0a5a4",
+  "artifacts": [
+    {
+      "kind": "DirectorIR",
+      "sha256": "72b516cfd2a50886b01ab7a78e2761e0ee09b8b2aea7b92429759f81f108bcca",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/director-ir.json"
+    }
+  ],
+  "batch": 1,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/native-validator.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-check.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_9574ea9e1502535dcd879c58",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_84941d3b7d9370ab514cb086",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_version": 16,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    }
+  ],
+  "input_digest": "2b00777d35fa703103ba03c9c7ffc2546b117bd3fcf93e59caab0810ae355e79",
+  "module_receipts": [
+    {
+      "name": "director-grammar",
+      "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+      "version": "1.4.2"
+    }
+  ],
+  "result_sha256": "07c6e5a5ab6c028dd7e24c06ba725b96b8c57d1999eee93a3400f945765a8fc0",
+  "result_uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+  "unresolved": []
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_CANON_REVIEW_HANDOFF_1",
+  "expected_revision": 14,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_CANON_REVIEW_HANDOFF_1",
+    "task_id": "TASK_5ae2734678bb041b76474d34",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_87ed0bec9a9bde5ccfd08bac",
+    "recipient_id": "kernel",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Reviewer reports Canon checks PASS",
+    "evidence": [
+      "runtime/v6/host-messages/full-canon-review-ready.txt"
+    ],
+    "at": "2026-09-25T10:53:57.321594Z",
+    "subject_uri": "runtime/v6/host-messages/full-canon-review-ready.txt",
+    "subject_sha256": "408016fed60f11f1ec5386fbaecca9e91c0154327cdd8ca16d7ac9519859ea37"
+  }
+}

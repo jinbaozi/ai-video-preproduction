@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B2_REVIEW_RESULT_1",
+  "expected_revision": 85,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B2_REVIEW_RESULT_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_cd6e26e1cbeafb65a9918960",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_B2_REVIEW_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Reviewer submits Director batch-2 review record",
+    "evidence": [
+      "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/2/review-record.json"
+    ],
+    "at": "2026-09-25T12:49:31.685617Z",
+    "subject_uri": "runtime/v6/reviews/TASK_eb6702e9e268b2ba339b0fcf/2/review-record.json",
+    "subject_sha256": "f11c6b7036621059e9fe442b83333a7ef2e5575b193d00204c613e82cf4ac4b5"
+  }
+}

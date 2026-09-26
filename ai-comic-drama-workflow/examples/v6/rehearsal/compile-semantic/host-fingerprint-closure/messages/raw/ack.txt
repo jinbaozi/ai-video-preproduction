@@ -1,0 +1,1 @@
+ACK：已读取冻结 action，确认任务 TASK_01b83d9bf3bd9032fd655d18 batch 1、角色 compiler_reviewer、候选目录及输入哈希。现在读取全部锁定资源、AVIR、编译包并做独立语义复核；不触碰正式状态。

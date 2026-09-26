@@ -1,0 +1,7 @@
+RESULT task=V6_compile_6d907d52041427c68f2a batch=1 agent=/root/host_bridge/v6_fb8dfae8c3b131fa26afba79
+Candidate: runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/candidate-result.json
+Candidate SHA-256: 97ed96b991cd6eed67a0f31c993ea4962d1735f0d000f355c95f53fbdf4e3a8c
+RoleResult: runtime/v6/candidates/V6_compile_6d907d52041427c68f2a/1/role-result.json
+RoleResult SHA-256: 56611be8872b01254f7ec2b72f511d6db819a7351b979ea78e23ccc672bd6151
+All 28 frozen inputs and 19 locked resources match hashes. The exact current build AVIR SHA-256 is 923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c; manifest SHA-256 is 001626391cb8c293b2c9f67abb9e702a79242294c5dc137490c7c56fa896f892. Locked validate=VALID, verify=VERIFIED, replay=COMPILED; all 20 compiled replay files and manifest match exact build bytes.
+Prior AVIR end_state[4].visible_parts was [body,prop], current is []; current StoryboardIR, AVIR 10500/12000 ms samples, and prompt lines 328/346/356 agree the letter is hidden in the backpack. The adapter mapping points from /timeline/state_samples/5/entities/PROP_LETTER/visible_parts to /shots/0/end_state/4/visible_parts with equal hashes. The prior camera coordinate finding remains closed. All 17 hard-clause static assertions pass; media realization is NOT_RUN. Prompt-plan transport remains unresolved, segment is DRAFT_REQUIRES_TARGET_CHECK, post obligations AUD_RAIN and SB_MEDIA_BOUNDARY are PLANNED, submitted=false, runnable=false. Independent compiler semantic review remains pending.

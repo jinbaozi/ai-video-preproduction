@@ -1,0 +1,22 @@
+{
+  "command_id": "STORYBOARD_B2_REVIEW_GUIDANCE_COMMAND_1",
+  "expected_revision": 153,
+  "message": {
+    "at": "2026-09-25T13:02:40.615825Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-b2-review-spawn-actual-message.txt",
+      "runtime/v6/host-inputs/storyboard-b2-review-pending-action.json"
+    ],
+    "in_reply_to": null,
+    "message_id": "STORYBOARD_B2_REVIEW_GUIDANCE_1",
+    "recipient_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "a6b4c743447e1a4205ed9ff7370deb9c6d3e91a6b7d1f37cf26b4398dedf3310",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-b2-review-spawn-actual-message.txt",
+    "summary": "Host sent actual independent-review prompt and frozen pending action to the registered reviewer; candidate byte identity and media boundary stated.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "HANDOFF"
+  }
+}

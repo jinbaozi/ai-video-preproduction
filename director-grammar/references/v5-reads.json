@@ -1,0 +1,11 @@
+{
+  "always": ["SKILL.md", "references/current-contract.md", "references/cooperation-v5.md"],
+  "kinds": {
+    "director": ["references/screenplay-handoff.md"]
+  },
+  "when": {
+    "dialogue": ["references/performance.md"],
+    "camera_motion": ["references/spatial-composition.md"],
+    "multi_subject": ["references/spatial-composition.md"]
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_PRIOR_REFERENCE_1",
+  "expected_revision": 182,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B1_PRIOR_REFERENCE_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_6cd3cfdd715fd5aa4f9956a2",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Recheck current Director lock, timeline pointers, and native six-row screenplay handoff",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-director-b1-prior-reference.txt"
+    ],
+    "at": "2026-09-25T14:16:48.164978Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-director-b1-prior-reference.txt",
+    "subject_sha256": "ed17b01caec580a0d77dce1c053414d22f529b1fb4383c7417eddba75d4e74f6"
+  }
+}

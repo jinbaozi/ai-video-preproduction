@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_NATIVE_BRANCH_FOLLOWUP_COMMAND_1",
+  "expected_revision": 172,
+  "message": {
+    "at": "2026-09-25T13:23:07.109228Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-native-branch-followup.txt"
+    ],
+    "in_reply_to": "CONTROL_CONFIG_STATUS_1",
+    "message_id": "CONTROL_NATIVE_BRANCH_FOLLOWUP_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "1be679c509bceedd843f92fa6777791151e9552b919ef6643e2ded9c22c80b51",
+    "subject_uri": "runtime/v6/host-inputs/control-native-branch-followup.txt",
+    "summary": "Host warned creator that current native-check loop still lacks ShotControlPack branch and asked to preserve blocker until adapter and gates pass.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

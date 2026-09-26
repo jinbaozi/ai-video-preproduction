@@ -16,33 +16,33 @@
     "modules": {
       "director-grammar": {
         "archive": "director-grammar.skill",
-        "sha256": "73607770967a5c4b8b69305a32d6793af4ed418faa7763a651d8dcd3dbef594d",
-        "version": "1.4.1"
+        "sha256": "1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1",
+        "version": "1.4.4"
       },
       "image-prompt-optimizer": {
         "archive": "image-prompt-optimizer.skill",
-        "sha256": "f8122fec4a989284f474cb97bdb6227d13a13248892e8b73252e7e6ae134146b",
-        "version": "1.15.5"
+        "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+        "version": "1.15.7"
       },
       "production-design-grammar": {
         "archive": "production-design-grammar.skill",
-        "sha256": "b53b8b48c8a5eba6d8fa90bc02cfd956aed46c6d0977d35eb34089ac65c4f7ea",
-        "version": "1.3.0"
+        "sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+        "version": "1.3.3"
       },
       "screenplay-grammar": {
         "archive": "screenplay-grammar.skill",
-        "sha256": "427185d66d3354cf404c6ff29fce8acc12f9f4294f3dac88b73026f3c0ffde3a",
-        "version": "1.0.0"
+        "sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
+        "version": "1.0.2"
       },
       "storyboard-grammar": {
         "archive": "storyboard-grammar.skill",
-        "sha256": "e1b7b6a932d2870e726ffaf53687b38a7c50573e01f979912dc680d1115a8310",
-        "version": "1.3.1"
+        "sha256": "5c989032511440fb847af093bf73167ebd58c60f4f4c6ef0174416ae2b731a6f",
+        "version": "1.3.3"
       },
       "video-prompt-compiler": {
         "archive": "video-prompt-compiler.skill",
-        "sha256": "30ed6aec9860cf5852057a8ce9a46f5bf9739722056d6ba0759b72e431c3c17d",
-        "version": "1.17.5"
+        "sha256": "a1794915e5ddcc4962c699af3f07cfe238954524c99be3b6f4cc3c33a4d68237",
+        "version": "1.17.7"
       }
     },
     "schema": "skill-modules/1.0"
@@ -50,44 +50,44 @@
   "packages": [
     {
       "archive": "screenplay-grammar.skill",
-      "files": 55,
-      "sha256": "427185d66d3354cf404c6ff29fce8acc12f9f4294f3dac88b73026f3c0ffde3a",
+      "files": 56,
+      "sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
       "status": "VERIFIED"
     },
     {
       "archive": "director-grammar.skill",
-      "files": 63,
-      "sha256": "73607770967a5c4b8b69305a32d6793af4ed418faa7763a651d8dcd3dbef594d",
+      "files": 64,
+      "sha256": "1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1",
       "status": "VERIFIED"
     },
     {
       "archive": "production-design-grammar.skill",
-      "files": 36,
-      "sha256": "b53b8b48c8a5eba6d8fa90bc02cfd956aed46c6d0977d35eb34089ac65c4f7ea",
+      "files": 37,
+      "sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
       "status": "VERIFIED"
     },
     {
       "archive": "storyboard-grammar.skill",
-      "files": 58,
-      "sha256": "e1b7b6a932d2870e726ffaf53687b38a7c50573e01f979912dc680d1115a8310",
+      "files": 59,
+      "sha256": "5c989032511440fb847af093bf73167ebd58c60f4f4c6ef0174416ae2b731a6f",
       "status": "VERIFIED"
     },
     {
       "archive": "video-prompt-compiler.skill",
-      "files": 122,
-      "sha256": "30ed6aec9860cf5852057a8ce9a46f5bf9739722056d6ba0759b72e431c3c17d",
+      "files": 123,
+      "sha256": "a1794915e5ddcc4962c699af3f07cfe238954524c99be3b6f4cc3c33a4d68237",
       "status": "VERIFIED"
     },
     {
       "archive": "image-prompt-optimizer.skill",
-      "files": 108,
-      "sha256": "f8122fec4a989284f474cb97bdb6227d13a13248892e8b73252e7e6ae134146b",
+      "files": 109,
+      "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
       "status": "VERIFIED"
     },
     {
       "archive": "ai-comic-drama-workflow.skill",
-      "files": 103,
-      "sha256": "9ac161297856ff1c1be23c33d8c381f99b0a5914bca5fbdaff4de4bc3d287941",
+      "files": 2262,
+      "sha256": "985b2afe25c9a7313477653c8acb340c72c998957badaba912ffd521235dd329",
       "status": "VERIFIED"
     }
   ],

@@ -1,0 +1,100 @@
+{
+  "action_order": "Handoff complete by 4000 ms, seal check 4500–7500 ms, stow 8000–11000 ms.",
+  "actual_media": "NOT_RUN",
+  "artifact_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "candidate_digest": "e6e8e0e4f7e57a20dfc62f067c9e25bca67a20290abc5f368ec06745c9d8c10c",
+  "check": "handoff",
+  "current_screenplay_mapping_content": "82957e19257a10dd3cd05d41b5adebd0d479979ccea3cfc29416cd014e147796",
+  "current_semantic_stamp": "8e00dd171e659070e2ac063479f5e3b4284a177d0ce17ff25c1d169950545ea3",
+  "finding": "All six V5 screenplay requirements retain source fingerprints and are asserted against native hard clauses. Both V6 handoffs bind frozen source versions and this exact artifact. The old V5 relocated snapshot has a historical stale stamp; current candidate stamps and mapping are freshly bound and valid.",
+  "prior_promoted_actual_content": "e29dd6c3d8de14ee63e24074d2d8ac3a276116f971a88c9fa75e69f1f837dcf9",
+  "prior_promoted_stamp": "3b3c2e6917a63d910033192cbba2d88038039e91f5649cee8300184395cca3ea",
+  "reviewed_at": "2026-09-25T13:58:27.695636Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+  "source_text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+  "status": "PASS",
+  "v5_mappings": [
+    {
+      "checked_target_pointers": [
+        "/scenes/0/space"
+      ],
+      "id": "screenplay:REQ_RAIN_NIGHT",
+      "native_hard_clause": "D_RAIN",
+      "source_fingerprint": "b60d473b93e0128c877075bb361cdf0a7354d9d5fc800c059068a6f438772991"
+    },
+    {
+      "checked_target_pointers": [
+        "/entities/2/id",
+        "/timeline/actions/3/operation",
+        "/timeline/actions/4/operation"
+      ],
+      "id": "screenplay:REQ_SINGLE_LETTER",
+      "native_hard_clause": "D_SINGLE_LETTER",
+      "source_fingerprint": "f71a2edda35cedc6ce71ec44bd1df6a7cb787ea8afca919ec19d393a53032c84"
+    },
+    {
+      "checked_target_pointers": [
+        "/timeline/actions/2/end_ms",
+        "/timeline/actions/3/start_ms",
+        "/timeline/actions/4/start_ms"
+      ],
+      "id": "screenplay:REQ_ACTION_ORDER",
+      "native_hard_clause": "D_ACTION_ORDER",
+      "source_fingerprint": "d16a6d14b489ffdc6dc97fac71785ddd73384b0e51a38eec503b5d015fd906b3"
+    },
+    {
+      "checked_target_pointers": [
+        "/shots/0/narrative/audience_after/2",
+        "/timeline/actions/4/settle"
+      ],
+      "id": "screenplay:NARRATIVE_ending",
+      "native_hard_clause": "D_ENDING",
+      "source_fingerprint": "a4757060eefb52f53bc99fd4399e9421014bd0f2941545ab004073d1e1d37ebd"
+    },
+    {
+      "checked_target_pointers": [
+        "/beats/0/id",
+        "/beats/1/id",
+        "/beats/2/id",
+        "/timeline/actions/3/semantic_id"
+      ],
+      "id": "screenplay:NARRATIVE_events",
+      "native_hard_clause": "D_EVENTS",
+      "source_fingerprint": "deab1f993a22dbdaede72c7e71c179e08cfbc776f2511efa71dbd8004a568f97"
+    },
+    {
+      "checked_target_pointers": [
+        "/shots/0/narrative/audience_after",
+        "/timeline/actions/4/depends_on/0/action_id"
+      ],
+      "id": "screenplay:NARRATIVE_reveal_order",
+      "native_hard_clause": "D_REVEAL_ORDER",
+      "source_fingerprint": "5d111409a58e28710f3d91c7d722f9b588d35a6d9b19f7e730cbc3df8358600a"
+    }
+  ],
+  "v5_screenplay_content_sha256": "84abfa798eaaefa96f042ae737d02cb1915815c03c91cceb57cb041b82efbf14",
+  "v6_handoffs": [
+    {
+      "id": "UP_9fcd7950eb5d010a1a08b1d5",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_version": 12,
+      "target_pointers": [
+        "/scenes/0/space",
+        "/contract/clauses/0",
+        "/timeline/actions",
+        "/shots/0/end_state"
+      ]
+    },
+    {
+      "id": "UP_9569ed7fedf5c8746c5c2cd2",
+      "source_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "source_version": 14,
+      "target_pointers": [
+        "/contract/clauses",
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ]
+    }
+  ]
+}

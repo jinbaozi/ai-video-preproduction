@@ -1,0 +1,1 @@
+ACK V6_compile_297e4d54680b970deaed batch 1. 已读取真实冻结派发动作；现核对全部 27 项输入与 17 项锁定资源、编译 Skill 及语义失败记录，然后仅在指定候选目录生成 graph-only Compile 候选。

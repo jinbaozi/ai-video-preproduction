@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_REVIEW_PROGRESS_REPLY_1",
+  "expected_revision": 30,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_REVIEW_PROGRESS_REPLY_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_85f01703433be9e02caabf7d",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_SCREENPLAY_REVIEW_PROGRESS_QUESTION_1",
+    "type": "PROGRESS",
+    "summary": "Reviewer checks pass and review record is being written",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-review-progress-reply.txt"
+    ],
+    "at": "2026-09-25T11:09:38.733329Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-review-progress-reply.txt",
+    "subject_sha256": "0cc379575921d785fda8e8102d8de37bcbf03e88f906bdb6a4a79ca7f27a83c5"
+  }
+}

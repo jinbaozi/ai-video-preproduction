@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_SCREENPLAY_PROGRESS_QUESTION_1",
+  "expected_revision": 21,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_SCREENPLAY_PROGRESS_QUESTION_1",
+    "task_id": "TASK_20dbe9991f545d5fe05e55e7",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_a7e8818a9865c8d5c564ee39",
+    "in_reply_to": null,
+    "type": "QUESTION",
+    "summary": "Host requests screenplay progress or exact blocker",
+    "evidence": [
+      "runtime/v6/host-messages/full-screenplay-progress-request.txt"
+    ],
+    "at": "2026-09-25T10:59:50.558186Z",
+    "subject_uri": "runtime/v6/host-messages/full-screenplay-progress-request.txt",
+    "subject_sha256": "53158decf73718853db0a8dc74f05ef8ae34f945f5ef0cdf8a9e54da5d6ef3f4"
+  }
+}

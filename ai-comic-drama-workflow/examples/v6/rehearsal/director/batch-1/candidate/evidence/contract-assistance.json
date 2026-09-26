@@ -1,0 +1,24 @@
+{
+  "agent_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37/contracts",
+  "my_verification": [
+    "我亲自读取上述锁定契约、V5/V6 代码和两个 Schema；字段要求相符。",
+    "我独自编写 DirectorIR 和两层交接；原生 dg.py 与 V5 handoff 检查已返回通过。",
+    "contracts 辅代理建议仅用于契约核对，不作为独立专业盲评证据。"
+  ],
+  "original_advice_summary": [
+    "V5 RoleResult 需六条 screenplay 语义 handoff，逐条包含源指纹、原生 hard clause、target_checks、reason 和相同 review stamp。",
+    "V6 candidate-result 需两条冻结 predecessor handoff；module_receipts 必须逐字段等于冻结 V6 module。",
+    "V5 module_receipt 需 name/version/skill_sha256 和四份必读资源的 path/sha256；原生 dg.py validate 应带 screenplay handoff/map。",
+    "V5 native_validate 与 V5 validate_handoff 是两个不同检查；V6 result URI/hash、输出 slot 和 evidence 需与 envelope 绑定。"
+  ],
+  "reported_sources": [
+    "locked director-grammar/references/cooperation-v5.md:15-25",
+    "locked director-grammar/references/screenplay-handoff.md:5-17",
+    "locked director-grammar/scripts/screenplay_protocol.py:212-245",
+    "ai_comic_drama_workflow/v5_handoff.py:73-84",
+    "ai_comic_drama_workflow/v5.py:684-700",
+    "ai_comic_drama_workflow/v6_kernel.py:481-490"
+  ],
+  "role": "只读契约核对；未写候选或正式状态，未担任独立 reviewer",
+  "status": "READ_ONLY_ADVICE_VERIFIED_BY_AUTHOR"
+}

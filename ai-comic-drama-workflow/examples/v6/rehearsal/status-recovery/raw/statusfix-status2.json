@@ -1,0 +1,546 @@
+{
+  "status": "AWAITING_HOST",
+  "project": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "execution_mode": "codex-agents",
+  "artifacts": {
+    "art:SC_RAIN_NIGHT": "READY",
+    "canon": "READY",
+    "director": "READY",
+    "qa": "STALE",
+    "screenplay": "READY",
+    "storyboard": "READY"
+  },
+  "media": {},
+  "active_task": "TASK_4c69e10662f9834bb335155d",
+  "required_reads": [
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+      "relative": "SKILL.md",
+      "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+      "relative": "references/current-contract.md",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+      "relative": "references/cooperation-v5.md",
+      "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+    },
+    {
+      "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md",
+      "relative": "references/shot-control.md",
+      "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+    }
+  ],
+  "control": {
+    "audit": "audited",
+    "keyframe_requests": "artifacts/control/keyframe-requests.json",
+    "status": "INVALIDATED",
+    "storyboard_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+    "uri": "artifacts/control"
+  },
+  "decision": null,
+  "delivery": "text-only",
+  "production_target": "none",
+  "preproduction_complete": false,
+  "video_complete": false,
+  "video_generated": false,
+  "orchestration_protocol": "6.0",
+  "v6_revision": 769,
+  "v6_tasks": {
+    "TASK_01b83d9bf3bd9032fd655d18": {
+      "node_id": "compile_review",
+      "state": "STALE"
+    },
+    "TASK_0560d46ecc764c68ee9a590e": {
+      "node_id": "art",
+      "state": "STALE"
+    },
+    "TASK_0e0c8a4ca94c8ffdbb7e14ae": {
+      "node_id": "canon",
+      "state": "ACCEPTED"
+    },
+    "TASK_19a3cd14f25bf90e50215d4d": {
+      "node_id": "director",
+      "state": "ACCEPTED"
+    },
+    "TASK_1b94794070565f70c7f697a7": {
+      "node_id": "screenplay",
+      "state": "ACCEPTED"
+    },
+    "TASK_3240f8bc6a9896032b95d091": {
+      "node_id": "storyboard",
+      "state": "STALE"
+    },
+    "TASK_4c69e10662f9834bb335155d": {
+      "node_id": "control",
+      "state": "DISPATCHING"
+    },
+    "TASK_4f81cc62bc1b268a8f8be7b0": {
+      "node_id": "storyboard",
+      "state": "ACCEPTED"
+    },
+    "TASK_536f58cce58a7823bdf4a3f3": {
+      "node_id": "art",
+      "state": "ACCEPTED"
+    },
+    "TASK_5940525a2a35543b33e08b18": {
+      "node_id": "preproduction_qa",
+      "state": "STALE"
+    },
+    "TASK_60ca76854c7350d8a40f1c72": {
+      "node_id": "control",
+      "state": "CANCELLED"
+    },
+    "TASK_71abb1f14640b94809ef3db2": {
+      "node_id": "art",
+      "state": "STALE"
+    },
+    "TASK_92a2f36e9b05a414fec43209": {
+      "node_id": "control",
+      "state": "STALE"
+    },
+    "TASK_a956f0b50a44008d6467b92e": {
+      "node_id": "control",
+      "state": "STALE"
+    },
+    "TASK_ae94f4322a77ebd18dbb635d": {
+      "node_id": "director",
+      "state": "STALE"
+    },
+    "TASK_afc04f54b23b01071a0b14e3": {
+      "node_id": "storyboard",
+      "state": "STALE"
+    },
+    "TASK_b1e7ff7ce83d7a32bfa09935": {
+      "node_id": "director",
+      "state": "STALE"
+    },
+    "TASK_ddd2a77146e2ddd7866420cb": {
+      "node_id": "control",
+      "state": "STALE"
+    },
+    "TASK_ede3a3425d547d3569e53ec4": {
+      "node_id": "compile_review",
+      "state": "STALE"
+    },
+    "TASK_eed007d42920d3df5b4f00f7": {
+      "node_id": "control",
+      "state": "STALE"
+    },
+    "TASK_f2d0f9805f575ed23ebfdb6d": {
+      "node_id": "control",
+      "state": "STALE"
+    },
+    "V6_compile_3d390e1ba62af9b653ce": {
+      "node_id": "compile",
+      "state": "STALE"
+    },
+    "V6_compile_6d907d52041427c68f2a": {
+      "node_id": "compile",
+      "state": "STALE"
+    },
+    "V6_compile_8cb5698095d1a70e0b6b": {
+      "node_id": "compile",
+      "state": "STALE"
+    },
+    "V6_compile_ee07749c72a2525a571b": {
+      "node_id": "compile",
+      "state": "STALE"
+    },
+    "V6_observation_7698e00209ef2e4a78e4": {
+      "node_id": "reference_observation",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_preproduction_13e89f5eb81bc5856bc8": {
+      "node_id": "preproduction_delivery",
+      "state": "STALE"
+    },
+    "V6_skip_063d7a697a209a072977d11f": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_093c7f254e27ffaa1abf099b": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_0e51f1e2c2db2fd92b23a126": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_1077b2db142f888f23c24938": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_11cabd8a18ce841c02c62ac3": {
+      "node_id": "visual_media",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_1373031d665928b731765892": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_166c9abb6d93883bdad69489": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_1d4296043870fc6c36d9f52b": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_25389aab08c2e6f4766044cf": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_255d0aea025897f1f04e0a3a": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_2c23744725ae8d6f6e560210": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_2cd82e8f96ae71c2375364ff": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_2de8dc7accb8e722fccf86b2": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_2e543b365a5c48dd61c3056b": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_2ec893c17d11e715810e1a34": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_30bc75b38e9e88d377545d1e": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_3be37d0355be9e3c221d2ca3": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_3c88ed20c5c05ef3a106368c": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_41a862f68c6b4670aa8c32dc": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_41e77664632fd57cd287fca6": {
+      "node_id": "adjacent_acceptance",
+      "state": "STALE"
+    },
+    "V6_skip_43938b45853e13a18995521d": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_4a6fa2ae7c553c0efd6e54f7": {
+      "node_id": "visual_media",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_4b230fdc07c72782f102e2ba": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_50bb5189ee0b2249e0e494c0": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_51b9636f85c3325bac7d09ac": {
+      "node_id": "whole_acceptance",
+      "state": "STALE"
+    },
+    "V6_skip_532491bae3efcede8c5da6e3": {
+      "node_id": "visual_media",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_595f13ac28799d71b26f7cec": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_59c2adc68c7c8d9ca114a7d6": {
+      "node_id": "take_selection",
+      "state": "STALE"
+    },
+    "V6_skip_5a1516ad96d0aa6406d2c1db": {
+      "node_id": "visual_prompts",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_5dc78c9ae16131a48dc70c0d": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_5f4b7493f22d9a87e4efb3f0": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_60efc6bfc29aa3df1789ad23": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_6193e6182edb67785c9fec09": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_63a287e0d3997da9804b99e4": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_6689c2b19a7605ff75bdf951": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_69d8ae56426827bff054cfd8": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_6ba3baeac0809fcc49befb4a": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_6f5dabcdd4d116b941faf7a9": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_720becb43f58ee10393bc998": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_720d53af605926c454a1679f": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_770fa1f1e8dceea0650056c9": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_7dacb7edae3d721963003fe1": {
+      "node_id": "visual_media",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_86624e523637425b6279bdc9": {
+      "node_id": "visual_prompts",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_8761de96eae9289c0e191a13": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_89fef2c6b9daaff1a5eb249f": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_8af0906d3233c8e3e47d0511": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_8afb21df1f81d2d01776a279": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_8bc795beb8a57e4d4b58faaf": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_8d6cfae212e486949cf1c2f7": {
+      "node_id": "visual_prompts",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_90db23cef7404681cdd3ddb2": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_927c205e6ee2d8411ce0f7c3": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_99ec3e03afe91188cf84925a": {
+      "node_id": "assembly",
+      "state": "STALE"
+    },
+    "V6_skip_9b2c26a2fe5103850c05ef72": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_a0e26ca1baada0e5d73afd9c": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_a2cd5ef7c1951fd71fe732a4": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_a81ab5ffd457c0e43664375d": {
+      "node_id": "video_execution",
+      "state": "STALE"
+    },
+    "V6_skip_a8b7a0fb2cba8859780e91ba": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_aadd1c81f3cf22d7427541b3": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_ac924e5e0f8a733e1d1928cd": {
+      "node_id": "visual_media",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_ae09b2d083ad33abcb18f59f": {
+      "node_id": "take_recovery",
+      "state": "STALE"
+    },
+    "V6_skip_afe89ccad9710aa7eedd690d": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_b010cf93c8a8cdcb06a49567": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_b079f7c0588262aa778feaac": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_b0c8d697bf41888dec94455f": {
+      "node_id": "visual_media",
+      "state": "STALE"
+    },
+    "V6_skip_b33bc581d277b293aed79e47": {
+      "node_id": "shot_acceptance",
+      "state": "STALE"
+    },
+    "V6_skip_b9a46074cc2be1441c4573b9": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_bc08d5c019f3a3f68d49f804": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_bda1f83a5199e74831fa50a7": {
+      "node_id": "video_freeze",
+      "state": "STALE"
+    },
+    "V6_skip_c16ee44e87d1ee551e7a8961": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_c245b88491be4ddd3c007c24": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_c491d0e6d266efe17798afa9": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_c64ecb34b4f6676cd0e7b7f4": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_cb2ab3325976dd667766da62": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_cd0beec473ba5f8267ed09c7": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_cd6df184cd229e75181ca5c9": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_d648e2e8383da8cf62584eae": {
+      "node_id": "video_delivery",
+      "state": "STALE"
+    },
+    "V6_skip_d6b5e3db6dc6ed9a3473c56d": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_d74a592b1a308bce2a5a9eb1": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_d8f381571839645e5b01455e": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_d9da2e8277443d6379d0c9ce": {
+      "node_id": "visual_prompts",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_dabee055707f69304cf643d3": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_dc4c94791ce68626f89a59d0": {
+      "node_id": "visual_prompts",
+      "state": "NOT_APPLICABLE"
+    },
+    "V6_skip_de9129bf7691a922c2aaf16c": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_de9e40e99c4f6d3a10d16a56": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_e4d6b6c3d712a5f31dd78a10": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_ea279525080f2727f4766418": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_ee8a705a096afdd06995e393": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_f03d9075011676d63f3d7b18": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_f082e8b8f919ae66a34f352d": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_f0ebfc7f69279521201609f1": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_f1418d63ffa6430438e26b5f": {
+      "node_id": "visual_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_f46438f3b1d99b6305169e10": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_f5f24f073e7f4c69801130d3": {
+      "node_id": "board_prompts",
+      "state": "STALE"
+    },
+    "V6_skip_fbc32befb55cf08e431dd255": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_skip_fc2813cbb3786e08c01d7b04": {
+      "node_id": "board_media",
+      "state": "STALE"
+    },
+    "V6_sources_e1f2b74e6cc76e1ddb24": {
+      "node_id": "sources",
+      "state": "ACCEPTED"
+    }
+  }
+}

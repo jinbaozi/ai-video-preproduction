@@ -1,0 +1,20 @@
+{
+  "check": "module_receipt",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T14:14:34.625Z",
+  "candidate_digest": "65d5038b454e4fa731d1aa2b289496df83b51edac2f843d6c7a287fa3ac7e17a",
+  "method": "Independently verified the frozen V6 schemas, input and resource file bytes, module lock and creator read receipt.",
+  "module": {
+    "name": "screenplay-grammar",
+    "sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
+    "version": "1.0.2"
+  },
+  "resource_files_verified": 4,
+  "frozen_inputs_verified": [
+    "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+    "runtime/tasks/TASK_206f1e43fe2d38c84f3fcb2c.json"
+  ],
+  "creator_result_sha256": "a7391d3c539b1f3362b47d645e20897af12224cd4c651ea97bb2364eecb2956e",
+  "script_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "finding": "The ScriptIR and role result are byte-bound to this candidate; all required module resources and frozen inputs match their declared SHA-256 values."
+}

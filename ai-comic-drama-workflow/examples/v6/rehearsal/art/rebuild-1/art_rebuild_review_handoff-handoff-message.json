@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REBUILD_REVIEW_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 235,
+  "message": {
+    "at": "2026-09-25T14:14:40.253078Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-rebuild-reviewer-report.txt"
+    ],
+    "in_reply_to": "ART_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "message_id": "ART_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_ac99209e150410231f8e3c21",
+    "subject_sha256": "3979660b0abd892fd138e47d03232200039bce8010f067d5f15e155e928fc0f4",
+    "subject_uri": "runtime/v6/host-inputs/art-rebuild-reviewer-report.txt",
+    "summary": "独立 Art 审阅三项 PASS，fresh locked STATIC_VALID；Canon promoted URI 对象等价及 V5/V6 映射已逐项核对，媒体 NOT_RUN。",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "type": "HANDOFF"
+  }
+}

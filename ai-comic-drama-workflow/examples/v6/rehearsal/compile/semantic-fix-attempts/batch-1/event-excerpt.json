@@ -1,0 +1,205 @@
+{
+  "source": "runtime/v6/events.json",
+  "source_sha256": "a96eb7093a417713909ad40ebc7e61d032a3c5a79fe24cc9fc6c353dca0589e5",
+  "events": [
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "8fe52f149226398d62a3365860c15d96964fff07226e3d8e4004809984897635",
+      "hash": "a769efeae26181c241f50bb6993ed1fb0043220b409c0e2162455e32bc5bce72",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:56:37.407240Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "ready-V6_compile_6d907d52041427c68f2a-1",
+          "evidence": [
+            "runtime/v6/task-briefs/V6_compile_6d907d52041427c68f2a.json"
+          ],
+          "expected_revision": 596,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "0420d9c0f8b28d68bf4818596cfd3639de85997c2c39b76a3c82de299706e085",
+      "revision": 597,
+      "state_digest": "920b2f05a2a90cf57a20eabb2f317f910fbd82bd72c1acef908b7f2fd9b291ab"
+    },
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "4adb2353544d6b404e47d1077dc3b28adbfb3a3b37cad1216c7c79a5108c4728",
+      "hash": "559bde1031dbf069b1161ef9396f967420a113699bad3d897fa373a0567169e7",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:56:37.913594Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "dispatch-V6_compile_6d907d52041427c68f2a-1",
+          "evidence": [
+            "runtime/v6/task-briefs/V6_compile_6d907d52041427c68f2a.json"
+          ],
+          "expected_revision": 597,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "a769efeae26181c241f50bb6993ed1fb0043220b409c0e2162455e32bc5bce72",
+      "revision": 598,
+      "state_digest": "0cc0c6024381e9471dd27ba4c4f8afe40685dbc1a7e5d6590ec346b55a82846a"
+    },
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "6ae96f5ae3a57ee07a726ca0c7411cd0f3336fd14ccf1b529f285fd6965a111a",
+      "hash": "c3126efbdcdc1e2c992239f12fa35787128486df09ce15f4a305d5785faab52f",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:57:21.470081Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-f61909cdb1ca9afa0047f19d",
+                "host-file:972f415f165fc82a323ef7512cfdfb56f63c3362355c308effdf1da86462a280"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "COMPILE-SEMANTIC-FIX_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-f61909cdb1ca9afa0047f19d",
+            "host-file:972f415f165fc82a323ef7512cfdfb56f63c3362355c308effdf1da86462a280"
+          ],
+          "expected_revision": 598,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-f61909cdb1ca9afa0047f19d",
+          "agent_id": "/root/host_bridge/v6_fb8dfae8c3b131fa26afba79",
+          "batch": 1,
+          "dispatch_id": "dispatch-f61909cdb1ca9afa0047f19d",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T16:57:21.470081Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T16:57:21.470081Z",
+          "status": "RUNNING",
+          "task_digest": "5e9b1f351fa1ad6c283f797e3389432044e6b2166b972e6f1e5aaf9925648be0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "tool_result_sha256": "972f415f165fc82a323ef7512cfdfb56f63c3362355c308effdf1da86462a280",
+          "tool_result_uri": "runtime/v6/host-evidence/972f415f165fc82a323ef7512cfdfb56f63c3362355c308effdf1da86462a280.json"
+        },
+        "review": null
+      },
+      "previous_hash": "559bde1031dbf069b1161ef9396f967420a113699bad3d897fa373a0567169e7",
+      "revision": 599,
+      "state_digest": "c3c341a3c9e4dd28574f439683dc08bed0b777bcb13bbd8ba411be1dd340b732"
+    },
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "1b52a20a4de2b817cb49cf162a21f3d6e698f4d9b461d44f767da4f9cbc1497b",
+      "hash": "576980f94fbdc22f8dc116bb7159ab64836f152d424fa0e9b15285ea6177f289",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:01:54.763912Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json"
+              ],
+              "id": "module_receipt",
+              "status": "FAIL"
+            },
+            {
+              "evidence": [
+                "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json"
+              ],
+              "id": "native_validator",
+              "status": "BLOCKED"
+            },
+            {
+              "evidence": [
+                "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json"
+              ],
+              "id": "compile_manifest",
+              "status": "BLOCKED"
+            },
+            {
+              "evidence": [
+                "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json"
+              ],
+              "id": "handoff",
+              "status": "BLOCKED"
+            }
+          ],
+          "command_id": "COMPILE-SEMANTIC-FIX-CREATOR-RESULT_SUBMIT_1-failed",
+          "error": {
+            "code": "VALUEERROR",
+            "evidence": [
+              "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json"
+            ],
+            "failed_check": "module_receipt",
+            "owner_node": "compile",
+            "recovery_action": "RETRY",
+            "retryable": true
+          },
+          "evidence": [
+            "runtime/v6/failures/V6_compile_6d907d52041427c68f2a/1/52deb9bd6da84b3dcc65b13cb719350d45373f7c82cafff28f21f3affa0114f3.json"
+          ],
+          "expected_revision": 604,
+          "from_state": "RUNNING",
+          "object_version": 8,
+          "reason": "VALIDATION_FAILED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "FAILED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "59bdeb075643b956a06d79ab78a36f67c194e10d72cb8ef48734341802b74c5f",
+      "revision": 605,
+      "state_digest": "ddcdc300f720ad66c434f355b7b845badc45cc560c5db77fff6dae65910f2653"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_VISUAL_PROP_LETTER_B1_RESULT_1",
+  "expected_revision": 245,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_PROP_LETTER_B1_RESULT_1",
+    "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_798026e1f345ab3c91601691",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_VISUAL_PROP_LETTER_B1_PROGRESS_1",
+    "type": "RESULT",
+    "summary": "PROP_LETTER visual prompt candidate STATIC_VALID; media NOT_RUN.",
+    "evidence": [
+      "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/candidate-result.json",
+      "runtime/v6/host-messages/full-visual-prop-letter-b1-result.txt"
+    ],
+    "at": "2026-09-25T15:18:33.803453Z",
+    "subject_uri": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/candidate-result.json",
+    "subject_sha256": "8ffb70f2f06252d4713cbdaddd6a9ca222f07c5ea1039d1d24a659ed5db3cd90"
+  }
+}

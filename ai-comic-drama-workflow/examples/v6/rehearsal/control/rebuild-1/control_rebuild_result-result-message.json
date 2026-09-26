@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_REBUILD_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 283,
+  "message": {
+    "at": "2026-09-25T14:36:47.926474Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/candidate-result.json"
+    ],
+    "in_reply_to": "CONTROL_REBUILD_HANDOFF_HANDOFF_1",
+    "message_id": "CONTROL_REBUILD_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+    "subject_sha256": "a448a800a61de15fdc806ab3df8e767fb08c6e6cc131714bb9d56f3906beb37d",
+    "subject_uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/candidate-result.json",
+    "summary": "Control candidate-result/6.0 完成；ShotControlPack 与当前 AVIR/config 绑定，媒体及真实轨迹 NOT_RUN。",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "type": "RESULT"
+  }
+}

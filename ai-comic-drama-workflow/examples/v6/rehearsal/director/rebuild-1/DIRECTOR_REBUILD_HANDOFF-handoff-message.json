@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_REBUILD_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 209,
+  "message": {
+    "at": "2026-09-25T13:51:03.594495Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/director-rebuild-creator-report.txt"
+    ],
+    "in_reply_to": "DIRECTOR_REBUILD_STAMP_RESOLVED_1",
+    "message_id": "DIRECTOR_REBUILD_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "subject_sha256": "89718651cdf187b6a34b60149f79e58bf9a9ee1e1344b79ae2e9670b41a3bec1",
+    "subject_uri": "runtime/v6/host-inputs/director-rebuild-creator-report.txt",
+    "summary": "Creator reports current-input Director candidate with locked native and V5/V6 handoff checks PASS; old promotion mismatch preserved as evidence.",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "type": "HANDOFF"
+  }
+}

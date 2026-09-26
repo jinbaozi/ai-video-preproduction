@@ -1,0 +1,44 @@
+{
+  "archive_sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+  "archive_uri": "runtime/module-archives/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf.skill",
+  "frozen_inputs": [
+    {
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+      "version": 12
+    },
+    {
+      "sha256": "a6c5a65e9d439faf14c95492264c5396d3205613c34554351dcccfe1c76a6799",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_20dbe9991f545d5fe05e55e7.json",
+      "version": 0
+    }
+  ],
+  "input_digest": "c669370e5a380de6e9c23ca3d7cd9a3cce08ddd5aff849f83e4c0c4a0be32ec8",
+  "module": {
+    "name": "screenplay-grammar",
+    "sha256": "88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf",
+    "version": "1.0.1"
+  },
+  "required_reads": [
+    {
+      "sha256": "9568c01b23989d10304580858da91aaebe658bc8e8d9f4707f4d0e785d1183fa",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/SKILL.md"
+    },
+    {
+      "sha256": "20b11441224c6580ed72e95a34a55b974e51f796c03fc1ca6424b7335bc5dfd7",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/contract.md"
+    },
+    {
+      "sha256": "291aaa96e8f548c187a8e2c0439d00e5c979c2ca90063c46108cda6644059392",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/cooperation.md"
+    },
+    {
+      "sha256": "45d2c8ec96d4f6ad686f38e4f7ca798ce5006dd4b66608d6f36c0cc3addc4bef",
+      "uri": "runtime/modules/88e2ae965fbbbeb1fcb7a8c58466a4124831b750d83b83ce697be597f4e5eccf/screenplay-grammar/references/writing.md"
+    }
+  ],
+  "status": "PASS",
+  "task_id": "TASK_20dbe9991f545d5fe05e55e7"
+}

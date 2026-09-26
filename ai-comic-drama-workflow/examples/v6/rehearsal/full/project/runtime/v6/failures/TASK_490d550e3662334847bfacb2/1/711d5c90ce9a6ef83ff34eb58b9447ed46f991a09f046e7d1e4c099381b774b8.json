@@ -1,0 +1,14 @@
+{
+  "batch": 1,
+  "candidate_digest": "69d4887727e1a0f943234bc06e3d638ecf97d7b5f79865b0ef0ebc152fa75e7d",
+  "check_evidence": [
+    "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/read-audit.json"
+  ],
+  "code": "JSONDECODEERROR",
+  "failed_check": "module_receipt",
+  "message": "Expecting value: line 1 column 1 (char 0)",
+  "node_id": "visual_prompts",
+  "reviewer_failure_owner": null,
+  "submission_digest": "69d4887727e1a0f943234bc06e3d638ecf97d7b5f79865b0ef0ebc152fa75e7d",
+  "task_id": "TASK_490d550e3662334847bfacb2"
+}

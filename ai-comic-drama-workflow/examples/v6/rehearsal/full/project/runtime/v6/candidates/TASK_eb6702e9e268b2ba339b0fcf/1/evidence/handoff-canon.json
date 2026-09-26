@@ -1,0 +1,41 @@
+{
+  "channel": "artifact",
+  "finding": "雨夜、同一封未拆信及交接→验封→入包顺序进入原生导演合同、动作和关键状态。",
+  "mapping": [
+    {
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/space",
+        "/timeline/audio_events/0/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/entities/2",
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/beats",
+        "/timeline/actions"
+      ]
+    }
+  ],
+  "requirement_id": "UP_9574ea9e1502535dcd879c58",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "source_slot": "canon:project:project:Canon",
+  "source_uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+  "source_version": 12,
+  "target_pointer": "",
+  "target_sha256": "72b516cfd2a50886b01ab7a78e2761e0ee09b8b2aea7b92429759f81f108bcca",
+  "target_slot": "director:project:project:DirectorIR",
+  "target_uri": "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/director-ir.json"
+}

@@ -1,0 +1,1 @@
+I had interrupted the read-only helper on receiving your earlier instruction, then resumed that same helper per your latest note. No additional helper was spawned. I have read batch-1 independent review; the defect is the exposed letter in the stow composition at 9000 ms. I’m patching only batch-2 candidate files and will record the exact continuity check.

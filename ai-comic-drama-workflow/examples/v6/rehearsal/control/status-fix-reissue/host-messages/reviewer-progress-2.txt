@@ -1,0 +1,1 @@
+PROGRESS Control independent checks: locked AVIR validate returns VALID; locked package verify returns VERIFIED; independent locked rebuild and verify both succeed. I am completing byte comparison, source/receipt hashes, and handoff evidence before writing review record.

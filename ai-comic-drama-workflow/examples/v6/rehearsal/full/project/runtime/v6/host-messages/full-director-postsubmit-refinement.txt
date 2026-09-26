@@ -1,0 +1,1 @@
+I spotted one visual-continuity refinement before independent review: the final shot should stop showing the letter once it is fully inside the backpack. I am splitting that shot’s composition interval and adding an explicit settled key state, then will resend the updated hash shortly.

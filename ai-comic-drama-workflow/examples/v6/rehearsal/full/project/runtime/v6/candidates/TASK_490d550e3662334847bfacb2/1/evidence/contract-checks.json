@@ -1,0 +1,16 @@
+{
+  "status": "STATIC_VALID",
+  "native_validator_uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/evidence/native-validator.json",
+  "production_contract_uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/production-contract.json",
+  "production_contract_sha256": "9fa0b50d4ca4a7e29e8c551501febebedafd225a9ace3fc79a4fcec9212ec161",
+  "prompt_uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/prompt.txt",
+  "prompt_sha256": "8e13f02621f16192f882e8b3c26e140263279009664eeeec6887386544e07c99",
+  "lock_refs": [
+    "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+    "眼部、右手与包口接触面不被衣袖或头饰遮挡"
+  ],
+  "static_lock_coverage": "PASS",
+  "reference_plan": "PLAN_CHAR_YI is planned; no file or sha256 exists",
+  "image_generation": "NOT_RUN",
+  "visual_review": "NOT_RUN"
+}

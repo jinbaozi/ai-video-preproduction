@@ -1,0 +1,85 @@
+{
+  "candidate_digest": "de5f59bd0a9319f8280f17ef652347c9f88bbfdfdeb473d6b0515c8edd326799",
+  "candidate_file_sha256": "3a25fc100c48cd80ab9c7d16fae9aa99fdc67df28784c8a0aa9b2a4321d562a4",
+  "candidate_matches_frozen_action": true,
+  "check": "module_receipt",
+  "contracts_assistance": {
+    "evidence_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/1/evidence/contract-assistance.json",
+    "reported_role": "只读契约核对；未写候选或正式状态，未担任独立 reviewer",
+    "reported_status": "READ_ONLY_ADVICE_VERIFIED_BY_AUTHOR",
+    "review_treatment": "Read-only contract advice; creator disclosed and verified it, but it is not independent reviewer evidence."
+  },
+  "dependency_states": {
+    "TASK_0e0c8a4ca94c8ffdbb7e14ae": "ACCEPTED",
+    "TASK_1b94794070565f70c7f697a7": "ACCEPTED"
+  },
+  "director_ir_sha256": "67ab67ab9ab6065f097b0bdff9b27e354a138f19be9b66532f21001e4150126c",
+  "finding": "Frozen module, required reads, upstream bytes, DirectorIR, RoleResult and submitted CandidateResult are bound correctly. Receipt proves provenance only.",
+  "frozen_inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "expected_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json"
+    },
+    {
+      "actual_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "expected_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "slot": "screenplay:project:project:ScriptIR",
+      "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json"
+    },
+    {
+      "actual_sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+      "expected_sha256": "ef8bc4489a85632fc3568f0af0445b67296716358dd316b098aaa640146da4c6",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+    }
+  ],
+  "frozen_resources": [
+    {
+      "actual_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "expected_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "expected_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+    },
+    {
+      "actual_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "expected_sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+    },
+    {
+      "actual_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "expected_sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+      "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+    }
+  ],
+  "input_digest": "67cfef6783874f9f62f4eb63022caeb08b31bef38ffefbb2d4bbab5cda6d9c42",
+  "module_archive": {
+    "actual_sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "expected_sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+    "uri": "runtime/module-archives/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64.skill"
+  },
+  "reviewed_at": "2026-09-25T11:05:56.560227Z",
+  "role_receipt_matches_four_required_reads": true,
+  "role_result_sha256": "1fde03848a4e1702be07225870a71060cf4153755293e28608cc395aa9ff1b51",
+  "schemas": {
+    "v5_role_result": {
+      "errors": [],
+      "status": "PASS"
+    },
+    "v6_candidate_result": {
+      "errors": [],
+      "status": "PASS"
+    },
+    "v6_task_envelope": {
+      "errors": [],
+      "status": "PASS"
+    }
+  },
+  "status": "PASS",
+  "task_digest": "ea1933fcbc7fcff4e691eccbb7e99ed7c9c8f20b72bbeeddeb809eb7546117ac"
+}

@@ -1,0 +1,1 @@
+已将你真实核验结果作为正式 PROGRESS 登记 rev640。按当前冻结输入和锁定链继续构建新 Control 候选，不复用旧包；提交前请 fresh verify、核对 production-specification 与当前 AVIR 字节及 12000ms 终态，并在候选证据中保留 `NOT_RUN` 媒体边界。完成后只通知 RESULT 文件/哈希，由宿主通过内核登记。

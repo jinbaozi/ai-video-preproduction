@@ -1,0 +1,51 @@
+{
+  "batch": 1,
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "native_validator_status": "VALID",
+      "requirement_id": "UP_14ccecf60174e51512f867f2",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_slot": "canon:project:project:Canon",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "source_version": 12,
+      "target_binding": "/upstreams/0",
+      "target_pointer": "",
+      "target_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+      "target_slot": "storyboard:project:project:StoryboardIR",
+      "target_uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json"
+    },
+    {
+      "channel": "artifact",
+      "native_validator_status": "VALID",
+      "requirement_id": "UP_e37b0cb2e9d1248a942637bf",
+      "source_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+      "source_version": 18,
+      "target_binding": "/upstreams/1",
+      "target_pointer": "",
+      "target_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+      "target_slot": "storyboard:project:project:StoryboardIR",
+      "target_uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json"
+    },
+    {
+      "channel": "artifact",
+      "native_validator_status": "VALID",
+      "requirement_id": "UP_3def006c4a06342fc38a9a7b",
+      "source_sha256": "df69d5d5899dc7f9d3732a5b11374cc97ff991a77002148c4d27f0dbbca14909",
+      "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+      "source_uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/art-ir.json",
+      "source_version": 17,
+      "target_binding": "/upstreams/2",
+      "target_pointer": "",
+      "target_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+      "target_slot": "storyboard:project:project:StoryboardIR",
+      "target_uri": "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json"
+    }
+  ],
+  "input_digest": "5c74881f3c75fdee55e551d1a134197df25d39c25e0a43fa9e32d3453dc09100",
+  "source_version_semantics": "frozen V6 artifact version",
+  "status": "PASS",
+  "task_id": "TASK_afc04f54b23b01071a0b14e3"
+}

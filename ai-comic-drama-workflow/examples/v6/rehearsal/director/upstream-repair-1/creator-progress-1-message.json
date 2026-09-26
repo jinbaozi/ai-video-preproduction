@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRREPAIR_CREATOR_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 373,
+  "message": {
+    "at": "2026-09-25T15:13:10.222084Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/dirrepair-creator-progress.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "DIRREPAIR_CREATOR_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_859d227c7d730ab3b9722469",
+    "subject_sha256": "52904619a0b5f0d2444be1138bd5d0a5fc507f367715b419c41caec8161a0e4d",
+    "subject_uri": "runtime/v6/host-inputs/dirrepair-creator-progress.txt",
+    "summary": "Creator核对冻结输入并统一导演坐标，候选仍在制作。",
+    "task_id": "TASK_19a3cd14f25bf90e50215d4d",
+    "type": "PROGRESS"
+  }
+}

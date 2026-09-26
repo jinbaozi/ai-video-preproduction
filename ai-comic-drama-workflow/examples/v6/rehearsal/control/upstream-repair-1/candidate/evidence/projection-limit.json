@@ -1,0 +1,23 @@
+{
+  "actual_3d_geometry_collision_review": "NOT_RUN",
+  "actual_camera_trajectory_validation": "NOT_RUN",
+  "actual_media_review": "NOT_RUN",
+  "camera_position_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "camera_start_equals_end": true,
+  "camera_track_rule": "CAMERA.LOCKED.HOLD.1.2",
+  "controls": [],
+  "generated_images": false,
+  "generated_video": false,
+  "lens_basis": "authored_proxy",
+  "meaning": "Static fixed-camera planning projection. No proof of real model trajectory control, character gait, hand contact, physical reachability, or video quality.",
+  "planned_frames": 121,
+  "schema": "control-projection-limit/1.0",
+  "source": "Current accepted StoryboardIR 1.2, V5 promoted SHA 48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+  "status": "PLANNED_PROJECTION",
+  "undetermined_frames": 0,
+  "vertical_fov_deg": 50
+}

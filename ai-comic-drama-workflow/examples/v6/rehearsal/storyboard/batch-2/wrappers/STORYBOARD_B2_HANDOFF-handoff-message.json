@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_B2_HANDOFF_HANDOFF_COMMAND_1",
+  "expected_revision": 147,
+  "message": {
+    "at": "2026-09-25T13:01:31.036162Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/host-inputs/storyboard-b2-creator-report.txt"
+    ],
+    "in_reply_to": "STORYBOARD_B2_GUIDANCE_1",
+    "message_id": "STORYBOARD_B2_HANDOFF_HANDOFF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+    "subject_sha256": "6ca54deb0f439e45065f67ab1f8d0c4ae88a87b6c10f99647e3bf110514f3e9f",
+    "subject_uri": "runtime/v6/host-inputs/storyboard-b2-creator-report.txt",
+    "summary": "Creator reports batch-2 candidate and exact fresh-validator correction, with no media generation.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "HANDOFF"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "account_verified": false,
+  "artifact_status": "COMPILED",
+  "attachments": {
+    "attachments": [],
+    "submitted": false
+  },
+  "build_files_verified": 24,
+  "build_id": "f40ef8bd754111ae1923d3bf8fbfee7465f8d312e3a0c8bab9684581b9b3bea5",
+  "capability_backend": "prompt_plan",
+  "capability_snapshot_sha256": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+  "command": "locked scripts/vpc.py verify frozen compiled package",
+  "compiled_files_verified": 20,
+  "constraint_count": 17,
+  "constraint_static_assertions_pass": 17,
+  "constraint_statuses": {
+    "EMITTED": 16,
+    "PLANNED": 1
+  },
+  "detail_coverage_count": 2478,
+  "entry_point": "model_prompt_plan; current transport unresolved",
+  "execution": {
+    "media_qa": "NOT_RUN",
+    "next_steps": [
+      "静态编译不证明生成质量；外部执行另存真实证据。"
+    ],
+    "runnable": false,
+    "submitted": false
+  },
+  "exit_code": 0,
+  "locked_runtime_files_verified": 77,
+  "loss_count": 0,
+  "media_qa": "NOT_RUN",
+  "note": "PASS proves frozen static package integrity; target submission, prompt body review, geometry in media and post audio remain separate gates.",
+  "planned_post_constraint_ids": [
+    "SB_MEDIA_BOUNDARY"
+  ],
+  "post_obligations": [
+    {
+      "channel": "post",
+      "id": "AUD_RAIN",
+      "status": "PLANNED"
+    },
+    {
+      "channel": "post",
+      "id": "SB_MEDIA_BOUNDARY",
+      "status": "PLANNED"
+    }
+  ],
+  "prompt_coverage_count": 1349,
+  "prompt_review_status": "PENDING_AGENT_REVIEW",
+  "result": {
+    "build_id": "f40ef8bd754111ae1923d3bf8fbfee7465f8d312e3a0c8bab9684581b9b3bea5",
+    "status": "VERIFIED"
+  },
+  "segment_count": 1,
+  "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+  "spatial_statuses": [
+    {
+      "continuous_geometry": "NOT_PROVEN",
+      "id": "REL_JIA_LEFT_YI",
+      "status": "CHECKPOINTS_PASS"
+    }
+  ],
+  "status": "PASS",
+  "target_routing_evidence_sha256": "b197cdd2c82d97f7ea12af2bda450a155eaa5f59cdd2839e7f15af25feed40e0",
+  "target_routing_evidence_uri": "runtime/v6/host-inputs/target-routing-evidence.json"
+}

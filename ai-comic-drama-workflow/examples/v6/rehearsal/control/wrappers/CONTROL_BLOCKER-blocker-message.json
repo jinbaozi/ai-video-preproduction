@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_BLOCKER_BLOCKER_COMMAND_1",
+  "expected_revision": 164,
+  "message": {
+    "at": "2026-09-25T13:12:11.565539Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-native-gate-blocker.txt"
+    ],
+    "in_reply_to": "CONTROL_ACTION_ID_CORRECTION_1",
+    "message_id": "CONTROL_BLOCKER_BLOCKER_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "82fd453410132deb7a2566b31014c4683b9f9a3b184cd7f2a0ce23f5311ad19d",
+    "subject_uri": "runtime/v6/host-inputs/control-native-gate-blocker.txt",
+    "summary": "Creator identified deterministic V6 native-check gate failure for ShotControlPack before candidate; requires real locked control verify path.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "BLOCKER"
+  }
+}

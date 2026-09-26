@@ -23,7 +23,10 @@
       "minLength": 1
     },
     "execution_mode": {
-      "const": "current-agent"
+      "enum": ["current-agent", "codex-agents"]
+    },
+    "orchestration_protocol": {
+      "const": "6.0"
     },
     "delivery": {
       "enum": [
@@ -51,5 +54,15 @@
       "description": "none keeps the preproduction endpoint. video adds a separate VIDEO_DELIVERED endpoint. Omitted values mean none."
     }
   },
+  "allOf": [
+    {
+      "if": {"properties": {"execution_mode": {"const": "codex-agents"}}},
+      "then": {"required": ["orchestration_protocol"]}
+    },
+    {
+      "if": {"required": ["orchestration_protocol"]},
+      "then": {"properties": {"execution_mode": {"const": "codex-agents"}}}
+    }
+  ],
   "additionalProperties": true
 }

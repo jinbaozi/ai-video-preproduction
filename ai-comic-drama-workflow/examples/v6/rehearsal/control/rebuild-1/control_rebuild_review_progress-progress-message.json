@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_REBUILD_REVIEW_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 289,
+  "message": {
+    "at": "2026-09-25T14:39:55.073308Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-rebuild-review-progress.txt"
+    ],
+    "in_reply_to": "CONTROL_REBUILD_REVIEW_GUIDANCE_1",
+    "message_id": "CONTROL_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_6f5268ee7ffad993d58af61b",
+    "subject_sha256": "d3712780613b39b18bcb51bb149ddc7bc492679b9eedda8f948faeee43a42705",
+    "subject_uri": "runtime/v6/host-inputs/control-rebuild-review-progress.txt",
+    "summary": "独审 AVIR VALID/包 VERIFIED，11文件重 build 字节一致；121 帧相机 PLANNED_PROJECTION，但 ENV_RAIN_NIGHT 点 UNDETERMINED，不能泛称所有点已投影。",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "type": "PROGRESS"
+  }
+}

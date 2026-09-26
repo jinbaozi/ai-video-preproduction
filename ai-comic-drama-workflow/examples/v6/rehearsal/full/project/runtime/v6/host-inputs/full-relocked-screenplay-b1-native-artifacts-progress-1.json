@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_SCREENPLAY_B1_NATIVE_ARTIFACTS_PROGRESS_1",
+  "expected_revision": 170,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_SCREENPLAY_B1_NATIVE_ARTIFACTS_PROGRESS_1",
+    "task_id": "TASK_206f1e43fe2d38c84f3fcb2c",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_89ee5d36eed7d88d30b16458",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_SCREENPLAY_B1_HANDOFF_1",
+    "type": "PROGRESS",
+    "summary": "Native screenplay artifacts prepared; candidate wrapper still pending",
+    "evidence": [
+      "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/messages/result.txt"
+    ],
+    "at": "2026-09-25T14:07:51.499492Z",
+    "subject_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/messages/result.txt",
+    "subject_sha256": "e76aefa73ca5e351c79cb23b42e70873c7551bdf318cefaa197813312f73fd0e"
+  }
+}

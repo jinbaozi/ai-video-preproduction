@@ -1,0 +1,200 @@
+{
+  "asset_registry": {
+    "media_assets": [],
+    "note": "登记来源仅为文本，未提供图片或视频资产。"
+  },
+  "content": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+  "decisions": [],
+  "entities": [
+    {
+      "description": "把未拆的信交给乙；其他身份、外观与动机未给出。",
+      "id": "CHAR_JIA",
+      "kind": "character",
+      "name": "甲",
+      "source_refs": [
+        "SRC_69a71adcfaca"
+      ]
+    },
+    {
+      "description": "接信、确认封口完整，随后将信收进背包；其他身份与外观未给出。",
+      "id": "CHAR_YI",
+      "kind": "character",
+      "name": "乙",
+      "source_refs": [
+        "SRC_69a71adcfaca"
+      ]
+    },
+    {
+      "description": "同一封未拆的信；乙确认其封口完整。内容、样式和来历未给出。",
+      "id": "PROP_LETTER",
+      "kind": "prop",
+      "name": "信",
+      "source_refs": [
+        "SRC_69a71adcfaca"
+      ]
+    },
+    {
+      "description": "乙收存信的背包；外观和归属未给出。",
+      "id": "PROP_BACKPACK",
+      "kind": "prop",
+      "name": "背包",
+      "source_refs": [
+        "SRC_69a71adcfaca"
+      ]
+    },
+    {
+      "description": "事件发生在雨夜；具体地点及室内外状态未给出。",
+      "id": "ENV_RAIN_NIGHT",
+      "kind": "setting",
+      "name": "雨夜",
+      "source_refs": [
+        "SRC_69a71adcfaca"
+      ]
+    }
+  ],
+  "event_order": [
+    {
+      "actor_id": "CHAR_JIA",
+      "id": "EVT_HANDOFF",
+      "object_id": "PROP_LETTER",
+      "recipient_id": "CHAR_YI",
+      "requirement": "甲向乙交付一封未拆的信",
+      "source_fact_ids": [
+        "FACT_HANDOFF"
+      ]
+    },
+    {
+      "actor_id": "CHAR_YI",
+      "after": [
+        "EVT_HANDOFF"
+      ],
+      "id": "EVT_SEAL_CHECK",
+      "object_id": "PROP_LETTER",
+      "requirement": "乙确认同一封信的封口完整",
+      "source_fact_ids": [
+        "FACT_SEAL"
+      ]
+    },
+    {
+      "actor_id": "CHAR_YI",
+      "after": [
+        "EVT_SEAL_CHECK"
+      ],
+      "destination_id": "PROP_BACKPACK",
+      "id": "EVT_STOW",
+      "object_id": "PROP_LETTER",
+      "requirement": "确认后乙将同一封信收进背包",
+      "source_fact_ids": [
+        "FACT_STOW"
+      ]
+    }
+  ],
+  "locks": [],
+  "project_id": "LETTER_FULL_DEMO",
+  "revision": 1,
+  "source_facts": [
+    {
+      "assertion": "事件发生在雨夜。",
+      "char_span": [
+        0,
+        2
+      ],
+      "id": "FACT_RAIN_NIGHT",
+      "kind": "setting",
+      "provenance": "source_text",
+      "quote": "雨夜",
+      "source_id": "SRC_69a71adcfaca"
+    },
+    {
+      "assertion": "甲把一封未拆的信交给乙。",
+      "char_span": [
+        3,
+        14
+      ],
+      "id": "FACT_HANDOFF",
+      "kind": "action",
+      "provenance": "source_text",
+      "quote": "甲把一封未拆的信交给乙",
+      "source_id": "SRC_69a71adcfaca"
+    },
+    {
+      "assertion": "乙确认这封信的封口完整。",
+      "char_span": [
+        15,
+        22
+      ],
+      "id": "FACT_SEAL",
+      "kind": "state_check",
+      "provenance": "source_text",
+      "quote": "乙确认封口完整",
+      "source_id": "SRC_69a71adcfaca"
+    },
+    {
+      "assertion": "乙在确认后将同一封信收进背包。",
+      "char_span": [
+        22,
+        27
+      ],
+      "id": "FACT_STOW",
+      "kind": "action",
+      "provenance": "source_text",
+      "quote": "后收进背包",
+      "source_id": "SRC_69a71adcfaca"
+    }
+  ],
+  "source_refs": [
+    "SRC_69a71adcfaca"
+  ],
+  "source_requirements": [
+    {
+      "fact_ids": [
+        "FACT_RAIN_NIGHT"
+      ],
+      "id": "REQ_RAIN_NIGHT",
+      "statement": "保留雨夜。",
+      "strength": "hard"
+    },
+    {
+      "fact_ids": [
+        "FACT_HANDOFF",
+        "FACT_SEAL",
+        "FACT_STOW"
+      ],
+      "id": "REQ_SAME_UNOPENED_LETTER",
+      "statement": "交接的是一封未拆的信；后续检查和收存指向同一封信。",
+      "strength": "hard"
+    },
+    {
+      "fact_ids": [
+        "FACT_HANDOFF",
+        "FACT_SEAL",
+        "FACT_STOW"
+      ],
+      "id": "REQ_EVENT_ORDER",
+      "statement": "甲交给乙，乙确认封口完整，之后乙将信收进背包。",
+      "strength": "hard"
+    }
+  ],
+  "unspecified": [
+    {
+      "field": "具体地点、室内外状态和视觉材质",
+      "owner": "art",
+      "reason": "原文仅指明雨夜。"
+    },
+    {
+      "field": "甲乙身份、外观及关系",
+      "owner": "canon",
+      "reason": "原文只有甲、乙代称。"
+    },
+    {
+      "field": "交信动机、信件内容、对白和后续结果",
+      "owner": "screenplay",
+      "reason": "原文未提供。"
+    },
+    {
+      "field": "镜头、表演和声音实现",
+      "owner": "director",
+      "reason": "原文未锁定视听设计。"
+    }
+  ]
+}

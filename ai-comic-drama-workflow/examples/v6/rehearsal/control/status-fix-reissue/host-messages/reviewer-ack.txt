@@ -1,0 +1,1 @@
+ACK Control review TASK_4c69e10662f9834bb335155d batch 1. Exact frozen action read. I am recomputing hashes and reviewing the candidate independently; will write only review_dir and return review SHA.

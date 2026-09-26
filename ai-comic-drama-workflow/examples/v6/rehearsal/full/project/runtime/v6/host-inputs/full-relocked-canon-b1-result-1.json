@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B1_RESULT_1",
+  "expected_revision": 147,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_CANON_B1_RESULT_1",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_9d397fb30b8b5c68c296b7ef",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_CANON_B1_CANDIDATE_HANDOFF_1",
+    "type": "RESULT",
+    "summary": "Creator submits current-lock Canon candidate",
+    "evidence": [
+      "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/candidate-result.json"
+    ],
+    "at": "2026-09-25T13:49:19.433906Z",
+    "subject_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/1/candidate-result.json",
+    "subject_sha256": "22475764d1eaf22718e10530b9829a980216845a058fce37ae0bd1b76d46baac"
+  }
+}

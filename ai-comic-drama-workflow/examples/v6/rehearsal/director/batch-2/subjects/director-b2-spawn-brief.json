@@ -1,0 +1,14 @@
+{
+  "batch": 2,
+  "delivered_via": [
+    "collaboration.spawn_agent",
+    "collaboration.send_message"
+  ],
+  "dispatch_id": "dispatch-170f01b0b05c6d53096de3b2",
+  "kind": "spawn_and_repair_guidance",
+  "prior_failure_evidence_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/handoff.review.json",
+  "prior_review_uri": "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/1/review-record.json",
+  "schema": "host-message-subject/1.0",
+  "summary": "Read frozen batch-2 envelope and locked director-grammar resources. Own only candidate directory. Previous independent review failed handoff: after the letter is in Yi backpack, end state and later state samples still show Jia holding the same letter and Yi about to receive it. Correct the timeline and end state against source and ScriptIR, run native validator, produce fresh DirectorIR, RoleResult, evidence, and candidate. Do not spawn helper agents. ACK before candidate RESULT.",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

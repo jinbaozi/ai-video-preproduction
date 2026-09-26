@@ -1,0 +1,48 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+    "artifacts": [
+      {
+        "kind": "CompileReview",
+        "sha256": "39918409ba98e131b8befbbee30613188c976190f7eacfc968feaefd88919fab",
+        "slot": "compile_review:project:project:CompileReview",
+        "uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/compile-review.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/module-receipt.evidence.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/compile-semantics.evidence.json",
+          "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/avir-validator.stdout.json",
+          "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/build-verify.stdout.json"
+        ],
+        "id": "compile_semantics",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [],
+    "input_digest": "c9dd9f9475e8ae59db2eb38541ba485312542357fd7bf7ed9908eaa982f622b8",
+    "module_receipts": [
+      {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      }
+    ],
+    "result_sha256": "49cf83cea2b906a7b92c7e5ab5de134d8d30484e3549e66fe0129996484a1c0c",
+    "result_uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_6cac2b25585760d16bce096d",
+    "unresolved": []
+  },
+  "command_id": "REVIEWFIX-COMPILE-SEMANTIC_SUBMIT_1",
+  "expected_revision": 851
+}

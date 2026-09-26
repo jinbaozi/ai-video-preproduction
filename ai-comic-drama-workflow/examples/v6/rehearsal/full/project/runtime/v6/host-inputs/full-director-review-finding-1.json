@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVIEW_FINDING_1",
+  "expected_revision": 67,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVIEW_FINDING_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_6db57255928bfb85051137ff",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVIEW_SCOPE_1",
+    "type": "PROGRESS",
+    "summary": "Reviewer found final-shot letter visibility defect",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-review-finding.txt"
+    ],
+    "at": "2026-09-25T12:31:07.708818Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-review-finding.txt",
+    "subject_sha256": "4362f1e654b157f65fb4f5c0e0ebc8e3fbb58f3462ec1b3f7423c95d13e79a4c"
+  }
+}

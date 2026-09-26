@@ -1,0 +1,69 @@
+{
+  "agent_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+  "artifacts": [
+    {
+      "kind": "ShotControlPack",
+      "sha256": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+      "slot": "control:project:project:ShotControlPack",
+      "uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/control-pack/package-manifest.json"
+    }
+  ],
+  "batch": 1,
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/module-receipt.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/adapter-report.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/native-av-validation.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-build.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-verify.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/projection-limit.json"
+      ],
+      "id": "control_verify",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json"
+      ],
+      "requirement_id": "UP_d337fbf818938e402c0af332",
+      "source_slot": "storyboard:project:project:StoryboardIR",
+      "source_version": 17,
+      "target_pointer": "",
+      "target_slot": "control:project:project:ShotControlPack"
+    }
+  ],
+  "input_digest": "0937057b7d6b2d1757fc620d90e208238723999d7b4c3ecf7a3c57ad06088f1a",
+  "module_receipts": [
+    {
+      "name": "video-prompt-compiler",
+      "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+      "version": "1.17.6"
+    }
+  ],
+  "result_sha256": "aa2768e59dc0d8903b1e238cb6a965571f7025f99df901507893e03135c707c3",
+  "result_uri": "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/role-result.json",
+  "schema": "candidate-result/6.0",
+  "task_id": "TASK_a956f0b50a44008d6467b92e",
+  "unresolved": []
+}

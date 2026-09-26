@@ -1,0 +1,133 @@
+{
+  "source": "runtime/v6/events.json",
+  "source_sha256": "a96eb7093a417713909ad40ebc7e61d032a3c5a79fe24cc9fc6c353dca0589e5",
+  "events": [
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "8bfe3604e5edb0b6b563ddcd640b20a3237cb591e6d0620bf08d77313d50c8c8",
+      "hash": "c4c1beb99eea00ea7bd40c1194c8332034d4c0bfffa484742d9abbc1786e005f",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:02:40.008773Z",
+          "batch": 2,
+          "check_results": [],
+          "command_id": "ready-V6_compile_6d907d52041427c68f2a-2",
+          "evidence": [
+            "runtime/v6/task-briefs/V6_compile_6d907d52041427c68f2a.json"
+          ],
+          "expected_revision": 606,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "895b52438faa045554685e3711d7c5f53730f0e039a78656abe17fa9a7c241e2",
+      "revision": 607,
+      "state_digest": "554eec4c5feee3d982c819b5b549a3631b72c0bb810ebfccf63fd410e02ddf73"
+    },
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "be3a917153b84a2447e216da184709886852eafb341452b56f3a83d37897a82a",
+      "hash": "c1dced1e0971294f9ae9bc762321592707694d9a88749be8386417197259839a",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:02:40.495108Z",
+          "batch": 2,
+          "check_results": [],
+          "command_id": "dispatch-V6_compile_6d907d52041427c68f2a-2",
+          "evidence": [
+            "runtime/v6/task-briefs/V6_compile_6d907d52041427c68f2a.json"
+          ],
+          "expected_revision": 607,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "c4c1beb99eea00ea7bd40c1194c8332034d4c0bfffa484742d9abbc1786e005f",
+      "revision": 608,
+      "state_digest": "532defe5595e7d9d9d4b9e06bbf5a193c9cc47ba51227d57e55da0fb14138c44"
+    },
+    {
+      "artifacts_digest": "2085b3e674fcba844fea3dc036182f8104d111c1c31be8289773bd153a8f9b1a",
+      "commands_digest": "169c18a3b85f40cea7c235c1bbb0633af1fab848fb367a045a852f24f1f112f8",
+      "hash": "6168af5ee007b1a65fff7b9d878e88df759844966c1f638d03c0c45e58547d6c",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:03:10.044907Z",
+          "batch": 2,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-30cafbac55fb958008a897ea",
+                "host-file:486560476a2c2a31a6b889eb52761b0999ef4224d655f74aa6a777ede91def8d"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "COMPILE-SEMANTIC-FIX-RETRY_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-30cafbac55fb958008a897ea",
+            "host-file:486560476a2c2a31a6b889eb52761b0999ef4224d655f74aa6a777ede91def8d"
+          ],
+          "expected_revision": 608,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-30cafbac55fb958008a897ea",
+          "agent_id": "/root/host_bridge/v6_ba7af3d2cb79b6770440ba0b",
+          "batch": 2,
+          "dispatch_id": "dispatch-30cafbac55fb958008a897ea",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T17:03:10.044907Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T17:03:10.044907Z",
+          "status": "RUNNING",
+          "task_digest": "1a3c51f905e9aea55281a20f32f1a1cfbd72f359c74f8600164f976628e7b782",
+          "task_id": "V6_compile_6d907d52041427c68f2a",
+          "tool_result_sha256": "486560476a2c2a31a6b889eb52761b0999ef4224d655f74aa6a777ede91def8d",
+          "tool_result_uri": "runtime/v6/host-evidence/486560476a2c2a31a6b889eb52761b0999ef4224d655f74aa6a777ede91def8d.json"
+        },
+        "review": null
+      },
+      "previous_hash": "c1dced1e0971294f9ae9bc762321592707694d9a88749be8386417197259839a",
+      "revision": 609,
+      "state_digest": "499101549fd739bb2a69c3f49fe89f8f334b76859e437e256aeb49ba42d04d95"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "channel": "collaboration.message",
+  "recipient": "/root/host_bridge",
+  "recorded_at": "2026-09-25T10:46:07.938123Z",
+  "speaker": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+  "text": "ACK。已核对 action 中四份锁定 Skill 资源及 Canon、ScriptIR、V5 task 的 SHA-256，均与冻结输入一致。contracts 子代理仅做只读契约核对；我独自写候选 DirectorIR、RoleResult、V6 candidate 与 evidence，并记录它的建议、来源及我自己的核对结论。不会写正式状态或派 reviewer。"
+}

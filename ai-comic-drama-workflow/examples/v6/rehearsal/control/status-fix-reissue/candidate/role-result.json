@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/module-receipt.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json"
+      ],
+      "finding": "Frozen inputs and locked resource bytes match; V5 promotion changes only source/review binding metadata.",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/adapter-report.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/native-av-validation.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/prior-defect-closure.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/control-build.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/control-verify.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/projection-limit.json"
+      ],
+      "finding": "Current locked adapter MAPPED with zero loss; native AVIR VALID, new control pack VERIFIED, exact 12000ms letter visibility matches timeline; media NOT_RUN.",
+      "id": "control_verify",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/handoff.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json"
+      ],
+      "finding": "Accepted StoryboardIR maps into current ShotControlPack with exact boundary visibility and stable camera point.",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "config": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/control-config.json",
+  "conflicts": [],
+  "context_fingerprint": "4c69e10662f9834bb335155d9a09fe3819d70e781eaaaa6467d10fbda85e3c38",
+  "handoff": [],
+  "module_receipt": {
+    "name": "video-prompt-compiler",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md",
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+      }
+    ],
+    "skill_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "version": "1.17.6"
+  },
+  "reused": false,
+  "schema": "role-result/5.1",
+  "task_id": "TASK_4c69e10662f9834bb335155d",
+  "unresolved": [],
+  "validator": {
+    "camera_trajectory_media_review": "NOT_RUN",
+    "media_review": "NOT_RUN",
+    "projection_status": "PLANNED_PROJECTION",
+    "projection_unresolved_frames": 0,
+    "status": "VERIFIED",
+    "visual_review": "NOT_RUN"
+  }
+}

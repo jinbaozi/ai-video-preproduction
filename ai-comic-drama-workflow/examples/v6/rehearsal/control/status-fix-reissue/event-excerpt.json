@@ -1,0 +1,802 @@
+[
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "9f46b0234b82572c3a2cc1e4b2cebaf116cdb4389ffbd98c734c18b958c4ca36",
+    "hash": "1625eaf097bb0f89b938880816e64fa017052e7c51634861d9ac8825f104f8f5",
+    "op": "create_task",
+    "payload": {
+      "batch": 1,
+      "dependencies": [
+        {
+          "task_id": "TASK_4f81cc62bc1b268a8f8be7b0"
+        }
+      ],
+      "execution_class": "professional",
+      "expected_artifacts": [
+        {
+          "kind": "ShotControlPack",
+          "slot": "control:project:project:ShotControlPack",
+          "uri_prefix": "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/"
+        }
+      ],
+      "handoffs": [
+        {
+          "channel": "artifact",
+          "requirement_id": "UP_8c4b696799e85db8db8972c4",
+          "source_slot": "storyboard:project:project:StoryboardIR",
+          "source_version": 12,
+          "target_pointer": "",
+          "target_slot": "control:project:project:ShotControlPack"
+        }
+      ],
+      "input_digest": "c6ca61de7fdcaea995e35fae48f53d1305b808b1a1747afab05c961038d68d12",
+      "input_revision": 766,
+      "inputs": [
+        {
+          "sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+          "slot": "storyboard:project:project:StoryboardIR",
+          "uri": "runtime/v6/candidates/TASK_4f81cc62bc1b268a8f8be7b0/1/storyboard-ir.json",
+          "version": 12
+        },
+        {
+          "sha256": "e960b1bc34276428d3a21c93a8f9b0609c67e6183bef4532fdf5ea02298956f3",
+          "slot": "frozen_task",
+          "uri": "runtime/tasks/TASK_4c69e10662f9834bb335155d.json",
+          "version": 0
+        }
+      ],
+      "module": {
+        "name": "video-prompt-compiler",
+        "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+        "version": "1.17.6"
+      },
+      "node_id": "control",
+      "project_id": "LETTER_DEMO",
+      "resources": [
+        {
+          "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+        },
+        {
+          "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+        },
+        {
+          "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+        },
+        {
+          "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+          "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+        },
+        {
+          "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc",
+          "uri": "runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py"
+        },
+        {
+          "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2",
+          "uri": "runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py"
+        },
+        {
+          "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0",
+          "uri": "runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py"
+        },
+        {
+          "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae",
+          "uri": "runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py"
+        },
+        {
+          "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+          "uri": "runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py"
+        },
+        {
+          "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+          "uri": "runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py"
+        },
+        {
+          "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343",
+          "uri": "runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py"
+        },
+        {
+          "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0",
+          "uri": "runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py"
+        },
+        {
+          "sha256": "cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be",
+          "uri": "runtime/v6/runtime-resources/cf51dfeccb9e851219cdbea02e4493cc29c1e62b02d197112ec2621913d137be/v6_runtime.py"
+        },
+        {
+          "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2",
+          "uri": "runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py"
+        },
+        {
+          "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b",
+          "uri": "runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py"
+        },
+        {
+          "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11",
+          "uri": "runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py"
+        },
+        {
+          "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da",
+          "uri": "runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py"
+        },
+        {
+          "sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+          "uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py"
+        },
+        {
+          "sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+          "uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py"
+        }
+      ],
+      "role": "control",
+      "schema": "task-envelope/6.0",
+      "scope": {
+        "ids": [],
+        "kind": "project"
+      },
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "validators": [
+        {
+          "id": "module_receipt",
+          "kind": "hash"
+        },
+        {
+          "id": "control_verify",
+          "kind": "evidence"
+        },
+        {
+          "id": "handoff",
+          "kind": "handoff"
+        }
+      ]
+    },
+    "previous_hash": "69a15ca44796b3f2a937b5ad5ccfaa1031813b64ac0a2213598a0751702b3c9c",
+    "revision": 767,
+    "state_digest": "8e88d9295e63199f107c0279bf6984141bdf2a06aad1cf5ffbe280633c9db7d7"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "170a4f72b82f13774413768a9a20fdc89523ef589a65c4054ddf8a10d9d93968",
+    "hash": "a79a7304a8c06e6708f7436175d0178fb8ce6bcb6e6a436bd2c33becd811db17",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:59:28.089945Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-TASK_4c69e10662f9834bb335155d-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_4c69e10662f9834bb335155d.json"
+        ],
+        "expected_revision": 767,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "1625eaf097bb0f89b938880816e64fa017052e7c51634861d9ac8825f104f8f5",
+    "revision": 768,
+    "state_digest": "19220125123ca789e3b3e24ac5d5473e7b16688ef6b9a842f5cb3d9f3d2602e5"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "bbba302cd4429a5991ded8206616813bffc06f712e4b73f13b7ba1646aae0fbd",
+    "hash": "a736b6e8f4d7570e68efceb16ed4162b21f2a4aac4619bca037107633f311bae",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:59:28.348165Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-TASK_4c69e10662f9834bb335155d-1",
+        "evidence": [
+          "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_4c69e10662f9834bb335155d.json"
+        ],
+        "expected_revision": 768,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "a79a7304a8c06e6708f7436175d0178fb8ce6bcb6e6a436bd2c33becd811db17",
+    "revision": 769,
+    "state_digest": "875741b45a907256950064e6fc2c3cff35287e3aa7db61638d7de79ca64eb632"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "5c95d8464bd10fee07bb15797f41699bdf967ab202b05b6794b6e5db4c9814d0",
+    "hash": "15761f0fbc13e325f7decfd9be1f7e687c2c66b63339bfa28f96594071dfe1c9",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:00:28.590935Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-7f1769452450ce2faf2007c4",
+              "host-file:15ed20fa59715840b2ead5dffdce68bc7e31bf28a8c78906eaccf5226e777d5a"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "STATUSFIX-CONTROL_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-7f1769452450ce2faf2007c4",
+          "host-file:15ed20fa59715840b2ead5dffdce68bc7e31bf28a8c78906eaccf5226e777d5a"
+        ],
+        "expected_revision": 769,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-7f1769452450ce2faf2007c4",
+        "agent_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+        "batch": 1,
+        "dispatch_id": "dispatch-7f1769452450ce2faf2007c4",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T18:00:28.590935Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T18:00:28.590935Z",
+        "status": "RUNNING",
+        "task_digest": "0dcfaaceb50b4f449eff70320e888057a31213f4f351f2c75f524983050f08d8",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "tool_result_sha256": "15ed20fa59715840b2ead5dffdce68bc7e31bf28a8c78906eaccf5226e777d5a",
+        "tool_result_uri": "runtime/v6/host-evidence/15ed20fa59715840b2ead5dffdce68bc7e31bf28a8c78906eaccf5226e777d5a.json"
+      },
+      "review": null
+    },
+    "previous_hash": "a736b6e8f4d7570e68efceb16ed4162b21f2a4aac4619bca037107633f311bae",
+    "revision": 770,
+    "state_digest": "eb5d27dff97fd0663431296813ff2fbb3ffc869ae5b4e4b1244760f3dd4b4903"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "fe9ad76598fee4d71f10f4b4b21d190b9fe5046633b259863b7ac98be9fdfffb",
+    "hash": "671271fbd774d73c62da03460977fe8dcf399a19bfa1317246bef23ef18c60e9",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:00:40.565464Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/statusfix-control-ack.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "STATUSFIX-CONTROL-ACK_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator acknowledged frozen Control action, current StoryboardIR v12 and candidate ownership.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "ACK"
+    },
+    "previous_hash": "15761f0fbc13e325f7decfd9be1f7e687c2c66b63339bfa28f96594071dfe1c9",
+    "revision": 771,
+    "state_digest": "61fe69186d6be6f04910aa907b9ca197b8e3ad71032c8c947ffd46dc761a6d04"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "ddcc1209e8219ad47c1344ed45b36ad1543798e9beeabf4a0d218973d1d4a861",
+    "hash": "de916443a7b74594fba25e567b5f9e314c09bb13f20d9a8688406d82e144568c",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:00:59.188501Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/statusfix-control-progress.txt"
+      ],
+      "in_reply_to": "STATUSFIX-CONTROL-ACK_ACK_1",
+      "message_id": "STATUSFIX-CONTROL-PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Creator matched StoryboardIR v12, frozen task and twenty resources, read locked Control contracts, and is preparing fresh candidate.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "671271fbd774d73c62da03460977fe8dcf399a19bfa1317246bef23ef18c60e9",
+    "revision": 772,
+    "state_digest": "e380a9dbf77c67e113a2c18fa50f7201ac16a48fdde87253970bcdb552e356dd"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "ea8f2eafbfab43208ae4638f91534e1209bde47232882b2972a4bdc276681b86",
+    "hash": "ddd2d3755b0d56b55d85ac236b1061595399c935bd3f68b718e90e2c8e1af275",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:02:08.084983Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/candidate-result.json",
+        "runtime/v6/host-inputs/statusfix-control-result-raw.txt"
+      ],
+      "in_reply_to": "STATUSFIX-CONTROL-PROGRESS_PROGRESS_1",
+      "message_id": "STATUSFIX-CONTROL-RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+      "subject_sha256": "d44e3b7847f7ab2166357468dfe392a1f155e21363a7362e650fa5dabb85c605",
+      "subject_uri": "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/candidate-result.json",
+      "summary": "Fresh Control candidate passed native AVIR and locked package verification; endpoint visibility aligned, media NOT_RUN.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "RESULT"
+    },
+    "previous_hash": "de916443a7b74594fba25e567b5f9e314c09bb13f20d9a8688406d82e144568c",
+    "revision": 773,
+    "state_digest": "7490536b5609f7a7200e551ea46f2ead8dba097f7d0883ea59970665097162fe"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "eaa1e50f7425d9d80b6920f349d3634dc63cb59cfdb93679a89ddff04a011691",
+    "hash": "12aace23ac3af1f05ac865f1f081b704bac1fdadd669f095e160c5653e283316",
+    "op": "transition",
+    "payload": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+        "artifacts": [
+          {
+            "kind": "ShotControlPack",
+            "sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+            "slot": "control:project:project:ShotControlPack",
+            "uri": "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/control-pack/package-manifest.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/source-integrity.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/module-receipt.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/adapter-report.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/native-av-validation.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/prior-defect-closure.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/control-build.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/control-verify.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/projection-limit.json"
+            ],
+            "id": "control_verify",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/handoff.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/handoff.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json"
+            ],
+            "requirement_id": "UP_8c4b696799e85db8db8972c4",
+            "source_slot": "storyboard:project:project:StoryboardIR",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "control:project:project:ShotControlPack"
+          }
+        ],
+        "input_digest": "c6ca61de7fdcaea995e35fae48f53d1305b808b1a1747afab05c961038d68d12",
+        "module_receipts": [
+          {
+            "name": "video-prompt-compiler",
+            "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+            "version": "1.17.6"
+          }
+        ],
+        "result_sha256": "20bb9462260f5588498078ef0f54120e977481f373bb954c1a5f06f1d9b6c9b2",
+        "result_uri": "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/role-result.json",
+        "schema": "candidate-result/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "unresolved": []
+      },
+      "event": {
+        "actor_id": "/root/host_bridge/v6_b98c8a672df44df0318bff26",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:02:14.451202Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "STATUSFIX-CONTROL_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/role-result.json"
+        ],
+        "expected_revision": 773,
+        "from_state": "RUNNING",
+        "object_version": 6,
+        "reason": "RESULT_RECEIVED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "RESULT_SUBMITTED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "ddd2d3755b0d56b55d85ac236b1061595399c935bd3f68b718e90e2c8e1af275",
+    "revision": 774,
+    "state_digest": "38502d7f729cc6cb054651decb4763deba6d1007df5e0246b611fd7443b9d974"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "f854b6b1b72a4a02d58c946c3003210342ec1570ddacd4e031ecb92a8e679c0f",
+    "hash": "fa028d8292d0ad9fdd9ee746a011a2597a3c915e5bc0a2d0d01ebdc999929d50",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:02:14.882035Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "STATUSFIX-CONTROL_SUBMIT_1-validate",
+        "evidence": [],
+        "expected_revision": 774,
+        "from_state": "RESULT_SUBMITTED",
+        "object_version": 7,
+        "reason": "VALIDATION_STARTED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "VALIDATING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "12aace23ac3af1f05ac865f1f081b704bac1fdadd669f095e160c5653e283316",
+    "revision": 775,
+    "state_digest": "91580e4d6a91f952e3cdac2e465d5ef2bc9625d74378af65cde284563eaf5aea"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "49a8c19b7ccd92faa9cfcced5675f9d3170fd75d99f800016c252b86117d0fc2",
+    "hash": "e1c0c0a8c2ccc97389a4f129495e7573bfe32cec7a30da98b4e12d87539862bc",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:02:15.617432Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/source-integrity.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/module-receipt.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/adapter-report.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/native-av-validation.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/prior-defect-closure.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/control-build.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/control-verify.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/projection-limit.json"
+            ],
+            "id": "control_verify",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/handoff.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/promotion-diff.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/boundary-visibility.json",
+              "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/evidence/coordinate-consistency.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "STATUSFIX-CONTROL_SUBMIT_1-validation",
+        "evidence": [
+          "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/role-result.json"
+        ],
+        "expected_revision": 775,
+        "from_state": "VALIDATING",
+        "object_version": 8,
+        "reason": "VALIDATION_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "REVIEW_REQUIRED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "fa028d8292d0ad9fdd9ee746a011a2597a3c915e5bc0a2d0d01ebdc999929d50",
+    "revision": 776,
+    "state_digest": "f3f5de17c08770d0a47b71ee3edf1738bcc70d7df3990149f240cd56dc63d953"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "6e0e149c538764cfe6d5a29a3c929e99b0d5bb1eb5c42c2a6283f4f6e69c74b7",
+    "hash": "57b776d32d9c9d3a80a63e8a0bc993ea9276b410347bfa6174f37d946733531c",
+    "op": "review_dispatch",
+    "payload": {
+      "evidence": [],
+      "receipt": {
+        "action_id": "review-7f1769452450ce2faf2007c4",
+        "agent_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+        "batch": 1,
+        "dispatch_id": "review-7f1769452450ce2faf2007c4",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T18:02:36.672942Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T18:02:36.672942Z",
+        "status": "RUNNING",
+        "task_digest": "0dcfaaceb50b4f449eff70320e888057a31213f4f351f2c75f524983050f08d8",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "tool_result_sha256": "b3467e4f985e5713a9f130c77eb1fd5efa3e712fa677afb0f0445916c7c04ca1",
+        "tool_result_uri": "runtime/v6/host-evidence/b3467e4f985e5713a9f130c77eb1fd5efa3e712fa677afb0f0445916c7c04ca1.json"
+      }
+    },
+    "previous_hash": "e1c0c0a8c2ccc97389a4f129495e7573bfe32cec7a30da98b4e12d87539862bc",
+    "revision": 777,
+    "state_digest": "b86670605abe04c956fcf5a290778457d61ec9e01b66f1a877aff2bfd90feaed"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "1775f4d1a89cef253356151523a49f6a625ddc0741dd4b31debd65564672aa59",
+    "hash": "1ee6f1f93fa5faf6cc1bcfb24492a4440be0741dd72f7dd3d1c8c77cf2bb621e",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:02:45.395984Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/statusfix-control-review-ack.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "STATUSFIX-CONTROL-REVIEW-ACK_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Independent Control reviewer acknowledged exact frozen action and is recomputing candidate hashes and checks.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "ACK"
+    },
+    "previous_hash": "57b776d32d9c9d3a80a63e8a0bc993ea9276b410347bfa6174f37d946733531c",
+    "revision": 778,
+    "state_digest": "92c11957221b1bd623b520a4c7a5e4815d57cd2d919ad84976574c3fa890b3e3"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "e2453df7112570003727c3deb230c583b3959103b5304a116f9b04c84f8a3d33",
+    "hash": "5598df4bea3c675df4383b5c283ce14be54295c50e9c5a0f292c7cad74cb8f17",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:02:58.786568Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/statusfix-control-review-progress.txt"
+      ],
+      "in_reply_to": "STATUSFIX-CONTROL-REVIEW-ACK_ACK_1",
+      "message_id": "STATUSFIX-CONTROL-REVIEW-PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Independent reviewer is checking locked hashes, AVIR, package, handoff and 10.5–12s boundary before conclusion.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "1ee6f1f93fa5faf6cc1bcfb24492a4440be0741dd72f7dd3d1c8c77cf2bb621e",
+    "revision": 779,
+    "state_digest": "e91d3135909b40c8920eb00922db618de1ac69775c66c2b219eba4ac5938e658"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "d05be18414e6405487555e5c455fadbb73deafda7a8a4214f1674038f83ff0c1",
+    "hash": "49e6de7079488d56d7af2c658af9be1d4fd6c4513f863aaf9a8b29a793d3cd98",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:04:20.670518Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/statusfix-control-review-progress-2.txt"
+      ],
+      "in_reply_to": "STATUSFIX-CONTROL-REVIEW-PROGRESS_PROGRESS_1",
+      "message_id": "STATUSFIX-CONTROL-REVIEW-PROGRESS2_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Independent AVIR validate VALID, package verify VERIFIED, locked rebuild succeeded; byte and handoff comparison ongoing.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "PROGRESS"
+    },
+    "previous_hash": "5598df4bea3c675df4383b5c283ce14be54295c50e9c5a0f292c7cad74cb8f17",
+    "revision": 780,
+    "state_digest": "574689a118bb6c133e1b5361e30357c523eebbbf52a44064ff747540e1717ec0"
+  },
+  {
+    "artifacts_digest": "42da99da8e4ce4a354059fd7943494f6bd990e01a92fc9740a41a366e6e0b23f",
+    "commands_digest": "e20bef60c0b55f541c0e5e8eca884db823d0edc4d8f2ba276a0ec51ffd6426ff",
+    "hash": "066d0a48f0a228960feb06719ef114e722a5bf66da2486ee547ac950a3be6d1f",
+    "op": "agent_message",
+    "payload": {
+      "at": "2026-09-25T18:05:40.749517Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/review-record.json",
+        "runtime/v6/host-inputs/statusfix-control-review-result-raw.txt"
+      ],
+      "in_reply_to": "STATUSFIX-CONTROL-REVIEW-PROGRESS2_PROGRESS_1",
+      "message_id": "STATUSFIX-CONTROL-REVIEW-RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+      "subject_sha256": "59c409c3dd0810741af0b7e352d8048562b6cbbbe22264f16a7143ad5aaeb67d",
+      "subject_uri": "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/review-record.json",
+      "summary": "Independent Control reviewer passed all three checks, rebuilt package byte-equal and confirmed planned-only media boundary.",
+      "task_id": "TASK_4c69e10662f9834bb335155d",
+      "type": "RESULT"
+    },
+    "previous_hash": "49e6de7079488d56d7af2c658af9be1d4fd6c4513f863aaf9a8b29a793d3cd98",
+    "revision": 781,
+    "state_digest": "e61a06041b15510229f6bc69e37c4fe6e900d2c2d71ef8075131304e9c9803fd"
+  },
+  {
+    "artifacts_digest": "4a940636322fa484b906b9cf87050b22de41e1725a4a5f0d96ab0d7c490cfd55",
+    "commands_digest": "7257a9620a1d47a4f053aa61c4bdd51658866e8db3f0e61c02400a7ed40fb08d",
+    "hash": "2b6996817bb1221ddaea204d26df6ed1dc6189c2d0b1fe524173c7a1289127d8",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T18:05:51.675777Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-verify.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/native-validator.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-verify-command.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-build-command.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/independent-control-verify.review.json"
+            ],
+            "id": "control_verify",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "STATUSFIX-CONTROL-REVIEW_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/TASK_4c69e10662f9834bb335155d/1/control-pack/package-manifest.json"
+        ],
+        "expected_revision": 781,
+        "from_state": "REVIEW_REQUIRED",
+        "object_version": 14,
+        "reason": "REVIEW_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d",
+        "to_state": "ACCEPTED"
+      },
+      "receipt": null,
+      "review": {
+        "at": "2026-09-25T18:05:13.645826+00:00",
+        "batch": 1,
+        "candidate_digest": "9b8d5c622246119d5e241f6161ecf17c5839e7e1bd5898f4b9b59d0d29667090",
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-verify.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/native-validator.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-verify-command.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/control-build-command.review.json",
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/independent-control-verify.review.json"
+            ],
+            "id": "control_verify",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/TASK_4c69e10662f9834bb335155d/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "failure_owner": null,
+        "reviewer_agent_id": "/root/host_bridge/v6_c32efbecddd260be4b585eee",
+        "reviewer_dispatch_id": "review-7f1769452450ce2faf2007c4",
+        "schema": "review-record/6.0",
+        "task_id": "TASK_4c69e10662f9834bb335155d"
+      }
+    },
+    "previous_hash": "066d0a48f0a228960feb06719ef114e722a5bf66da2486ee547ac950a3be6d1f",
+    "revision": 782,
+    "state_digest": "aa16b04d6838c73b7e9fc3a7f8da7aeeced88e1e5174dda01aabf7c18f28c9c3"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REBUILD_BINDING_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 226,
+  "message": {
+    "at": "2026-09-25T14:04:52.945552Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-rebuild-binding-progress.txt"
+    ],
+    "in_reply_to": "ART_REBUILD_PROGRESS_PROGRESS_1",
+    "message_id": "ART_REBUILD_BINDING_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+    "subject_sha256": "43d38b4fe1a45840b9d9cbeed197f5e746efe25d43a01c8a575198d1d59218d9",
+    "subject_uri": "runtime/v6/host-inputs/art-rebuild-binding-progress.txt",
+    "summary": "原生 Art 校验指出 DirectorIR.canon_ref 与 V6 Canon 输入的字节路径差异；创作者绑定确切 Director ref 并保留冻结 V6 Canon handoff 证据，正重验。",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "type": "PROGRESS"
+  }
+}

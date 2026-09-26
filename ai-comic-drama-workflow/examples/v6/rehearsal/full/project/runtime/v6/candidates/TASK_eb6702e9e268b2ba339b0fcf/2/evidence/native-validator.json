@@ -1,0 +1,31 @@
+{
+  "command_argv": [
+    "python3.12",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/2/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/2/screenplay-map.json"
+  ],
+  "director_sha256": "6725c568baba23c007ce0742815a73320a1ae69bcdb4cd7f7ae0c3d5789e8ffc",
+  "exit_code": 0,
+  "media": "NOT_RUN",
+  "note": "原生静态校验及当前 Agent 语义复核；8500/9000毫秒 panel_state 连续性见 stow-continuity.json。真实媒体尚未执行。",
+  "professional_blind_review": "NOT_RUN",
+  "report": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "cc0a286d7eecf6cf4beeddd6dc9d0c50c91ea9acbc90544bdc142be323184ba6",
+      "handoff_sha256": "2f36410b0c139ee6df36281c89f51746c5a651f626ad4032029f3bfa45f8ccc6",
+      "mapping_sha256": "9810784ea8ad90d4cc82fca8481189f8546ac1a2d75ff133494fbe9c730ba453",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  },
+  "screenplay_map_sha256": "9810784ea8ad90d4cc82fca8481189f8546ac1a2d75ff133494fbe9c730ba453",
+  "semantic_review": "CURRENT_AGENT_ATTESTED",
+  "status": "PASS",
+  "validator": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py validate"
+}

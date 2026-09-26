@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "requirement_id": "UP_befb112ede63262763f36e44",
+  "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+  "source_version": 11,
+  "source_art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "source_asset_id": "CHAR_JIA",
+  "identity_locks": [
+    "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+    "右手及袖口不遮住交接的信封"
+  ],
+  "target_slot": "visual_prompts:asset:28x41535345545f5343454e455f48414e444f46465f434841525f4a4941:VisualImagePrompt",
+  "target_artifact_sha256": "18252d14a5feaba69c3798764e8393248fb4d86585bc05513b0348c6a3fee615",
+  "finding": "Frozen wardrobe and right-hand letter visibility are preserved; face identity and media results remain unverified."
+}

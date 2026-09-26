@@ -1,0 +1,1 @@
+PROGRESS: Frozen input hashes (3/3) and locked resource hashes (21/21) match. Current accepted Compile manifest is build 1f2df827…; I am checking the source/storyboard, AVIR, compiled text, post obligations, and the historical visibility defect against this exact build.

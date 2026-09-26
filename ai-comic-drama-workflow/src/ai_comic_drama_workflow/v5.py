@@ -18,6 +18,7 @@ from .v5_protocol import validate_protocol
 from .v5_handoff import briefing, requirements, validate_handoff
 from .v5_adapters import VERSION as ADAPTER_VERSION
 from .v5_modules import ROOT, MODULES, read, digest_file, default_lock, module_path, native_validate, load_python, verify_archive, verify_module
+from .v6_runtime_fingerprint import runtime_code_hashes
 
 STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay','screenplay-grammar'),
           (3,'导演方案','director','director-grammar'), (4,'美术方案','art','production-design-grammar'),
@@ -25,6 +26,21 @@ STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screen
           (7,'分镜图片','boards','image-prompt-optimizer'), (8,'视频提示词','compile','video-prompt-compiler'),
           (9,'验收与交付','qa',None)]
 STAGE_BY_KIND={'canon':1,'screenplay':2,'director':3,'art':4,'storyboard':6,'avir':8,'qa':9}
+WORKFLOW_RELEASE='0.10.0'
+AUDIT_RELEASES={'0.9.0','0.10.0'}
+NATIVE_KINDS=('director','screenplay','art','storyboard','avir')
+
+
+def lock_refs(job):
+    brief=(job or {}).get('brief') or {}
+    refs=[str(item) for item in brief.get('locks') or [] if str(item).strip()]
+    if not refs:
+        refs=[str(brief.get('id') or (job or {}).get('key') or 'asset')]
+    return refs
+
+
+def identity_job(job):
+    return (job or {}).get('role')=='identity' or str((job or {}).get('key','')).startswith('ASSET_SHOW_')
 
 
 def mutate(method):
@@ -33,6 +49,8 @@ def mutate(method):
         self.require_v5()
         with transaction(self.root):
             self.project=read(self.root/'project.json')
+            if self.project.get('orchestration_protocol')=='6.0' and not getattr(self,'_v6_gateway',False):
+                raise ValueError('V6 project mutations require the orchestration gateway')
             if self.state.get('inflight') and method.__name__ not in ('run','submit','recover_image','host'):
                 raise ValueError('Recover the in-flight image result before changing this project')
             return method(self,*args,**kwargs)
@@ -98,7 +116,7 @@ class V5Kernel:
         kernel.project={'schema_version':'5.0','workflow_id':'ai-comic-drama-v5','project_id':project_id,
             'execution_mode':'current-agent','delivery':delivery,'target':target,'mode':mode or ('reference' if delivery=='full' else 'text'),
             'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
-            'production_target':production_target}
+            'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
         validate_protocol('project',kernel.project,kernel.skill_root)
         kernel.write('project.json',kernel.project)
         lock=default_lock(skill_root);kernel.write('modules.lock.json',lock)
@@ -217,21 +235,86 @@ class V5Kernel:
             return deps
         return []
 
+    def audit_required(self):
+        return self.project.get('workflow_release') in AUDIT_RELEASES
+
+    def current_release(self):
+        return self.project.get('workflow_release')==WORKFLOW_RELEASE
+
+    def read_conditions(self,kind,job=None):
+        names=[]
+        if identity_job(job):names.append('identity')
+        if job and len(lock_refs(job))>1:names.append('multi_subject')
+        storyboard=None
+        if kind in ('storyboard','control','compile-review','qa') and self.valid('storyboard'):
+            storyboard=self.data('storyboard')
+        if self.control_applicable(storyboard):names.append('camera_motion')
+        if self.has_dialogue(storyboard):names.append('dialogue')
+        return names
+
+    def control_applicable(self,storyboard):
+        if not isinstance(storyboard,dict):return False
+        if storyboard.get('schema_version') not in ('storyboard-ir/1.2','1.2'):return False
+        timeline=storyboard.get('timeline') or {}
+        ops=timeline.get('camera_operations') or []
+        if any(isinstance(op,dict) and op.get('operation') not in ('locked','static',None,'') for op in ops):return True
+        actions=timeline.get('actions') or []
+        if any(isinstance(item,dict) and (item.get('contact') or item.get('kind') in ('contact','hold')) for item in actions):return True
+        movers={item.get('node_id') for item in timeline.get('motion_tracks') or []
+                if isinstance(item,dict) and item.get('property') in ('position','translation') and item.get('node_id')}
+        return len(movers)>1
+
+    def has_dialogue(self,storyboard):
+        if isinstance(storyboard,dict):
+            events=(storyboard.get('timeline') or {}).get('audio_events') or []
+            if any(isinstance(item,dict) and item.get('kind')=='dialogue' for item in events):return True
+        if self.valid('screenplay'):
+            text=json.dumps(self.data('screenplay'),ensure_ascii=False)
+            if '"dialogue"' in text or 'DIALOGUE_' in text:return True
+        return False
+
+    def required_reads(self,module,job=None,kind=None):
+        root=self.modules(module)
+        manifest_path=root/'references'/'v5-reads.json'
+        if not manifest_path.is_file():
+            raise ValueError('Locked module does not declare required reads: '+module)
+        manifest=read(manifest_path)
+        relative=[]
+        def add(items):
+            for item in items or []:
+                if item not in relative:relative.append(item)
+        add(manifest.get('always'))
+        add((manifest.get('kinds') or {}).get(kind or ''))
+        for name in self.read_conditions(kind,job):
+            add((manifest.get('when') or {}).get(name))
+        reads=[]
+        for item in relative:
+            path=root/item
+            if not path.is_file():raise ValueError('Locked module is missing a required read: '+module+'/'+item)
+            reads.append({'path':str(path),'relative':item,'sha256':digest_file(path)})
+        return reads
+
     def task(self,kind,slot,stage,module,dependencies,scope=None,extra=None):
         state=self.state
         extra=extra or {}
+        reads=self.required_reads(module,(extra or {}).get('job'),kind) if module else []
         context={'kind':kind,'slot':slot,'dependencies':dependencies,'scope':scope or {},
                  'modules':read(self.root/'modules.lock.json'),'extra':extra,'project':self.project,
                  'completed_count':len(state['completed_tasks']),
+                 'required_read_hashes':[item['sha256'] for item in reads],
                  'previous':state['artifacts'].get(slot) or state['media'].get(slot)}
         task_id='TASK_'+digest(context)[:24]
+        expected='role-result/5.1' if module and self.audit_required() else 'role-result/5.0'
+        module_info=None
+        if module:
+            module_info={'name':module,'path':str(self.modules(module)),'skill_sha256':reads[0]['sha256'],
+                         'required_reads':reads,**context['modules']['modules'][module]}
         task={'schema':'task-envelope/5.0','task_id':task_id,'context_fingerprint':digest(context),
               'project_id':self.project['project_id'],'stage':stage,'kind':kind,'slot':slot,
               'execution_mode':'current-agent','scope':scope or {},'dependencies':dependencies,
               'inputs':self.input_records(dependencies,state),'sources':state['sources'],
-              'module':{'name':module,'path':str(self.modules(module)),
-                        **context['modules']['modules'][module]} if module else None,
-              'max_shots_per_task':5,'expected_result':'role-result/5.0','output_contract':{'kind':kind,'format':'native artifact + role-result/5.0'},
+              'module':module_info,
+              'max_shots_per_task':5,'expected_result':expected,'output_contract':{'kind':kind,'format':'native artifact + '+expected},
               'brief':role_brief(kind,self.input_records(dependencies,state),scope),
               'project':self.project,'handoff':briefing(kind,self.handoff_inputs(dependencies),scope,self.screenplay_protocol() if kind=='director' else None),**extra}
         task['handoff']['reference_observations']=self.observation_status()
@@ -245,7 +328,8 @@ class V5Kernel:
         self.write('runtime/tasks/'+task_id+'.json',task)
         state.update(active_task=task_id,active_task_sha256=digest(task),status='AWAITING_CURRENT_AGENT')
         self.save(state)
-        return {'status':state['status'],'task':task,'task_file':str(self.path('runtime/tasks/'+task_id+'.json'))}
+        return {'status':state['status'],'task':task,'required_reads':reads,
+                'task_file':str(self.path('runtime/tasks/'+task_id+'.json'))}
 
     def decision(self,key,question,context,options):
         state=self.state
@@ -259,11 +343,13 @@ class V5Kernel:
         return self.project.get('production_target') or 'none'
 
     @mutate
-    def host(self,image_capability,evidence,video_capabilities=None):
+    def host(self,image_capability,evidence,video_capabilities=None,image_tools=None):
         if image_capability not in ('available','unavailable','unknown') or not evidence:
             raise ValueError('Host capability and evidence are required')
         state=self.state
-        state['host']={'image_capability':image_capability,'evidence':evidence}
+        tools=[str(item) for item in (image_tools or []) if str(item).strip()]
+        providers=['provided']+(['image_gen'] if image_capability=='available' else [])
+        state['host']={'image_capability':image_capability,'evidence':evidence,'image_tools':tools,'providers':providers}
         if video_capabilities is not None:
             from .production import normalize_video_capabilities
             state['host']['video_capabilities']=normalize_video_capabilities(video_capabilities, skill_root=self.skill_root)
@@ -330,8 +416,10 @@ class V5Kernel:
             if state['host']['image_capability']!='available' and job['key'] not in state.get('provided_jobs',[]):
                 return self.decision('image-capability','宿主未证明生图能力可用；可提供真实图片、配置能力后继续，或明确选择纯文本。',
                     {'job':job['key'],'capability':state['host']},['provide-media','text-only'])
-            return self.task('image',job['key'],stage,None,job['dependencies'],
-                extra={'job':job,'prompt':prompt,'host_action':'generate-or-import-image'})
+            image_module='image-prompt-optimizer' if self.current_release() else None
+            extra={'job':job,'prompt':prompt,'host_action':'generate-or-import-image'}
+            if stage==7:extra['control']=self.state.get('control')
+            return self.task('image',job['key'],stage,image_module,job['dependencies'],extra=extra)
         return None
 
     def prompt_valid(self,prompt):
@@ -408,6 +496,9 @@ class V5Kernel:
         if step:return step
         if not self.valid('storyboard'):
             return self.task('storyboard','storyboard',6,'storyboard-grammar',self.role_dependencies('storyboard'),state['revision_scope'])
+        if self.current_release():
+            step=self.control_step()
+            if step:return step
         step=self.images_step(7)
         if step:return step
         if state['artifacts'].get('avir',{}).get('invalidated'):
@@ -419,8 +510,15 @@ class V5Kernel:
         if not state['build'] or state['build']['input_fingerprint']!=build:
             compiled=self.compile()
             if compiled['status']=='BLOCKED':return compiled
+        if self.current_release():
+            step=self.compile_review_step()
+            if step:return step
         if not self.valid('qa'):
-            return self.task('qa','qa',9,None,self.role_dependencies('qa'),extra={'build':self.state['build']})
+            module='video-prompt-compiler' if self.current_release() else None
+            return self.task('qa','qa',9,module,self.role_dependencies('qa'),extra=self.qa_extra())
+        if self.current_release():
+            pending=self.review_task()
+            if pending:return pending
         return self.export()
 
     def snapshot(self,kind,path):
@@ -452,6 +550,10 @@ class V5Kernel:
             source=source.resolve()
             if str(source) in cache:return cache[str(source)]
             obj=read(source)
+            review_valid=False
+            if isinstance(obj.get('timeline'),dict) and isinstance(obj['timeline'].get('semantic_review'),dict):
+                from .v51_detail_runtime import semantic_status
+                review_valid=semantic_status(obj)
             raw_name=prefix+'/raw/'+digest_file(source)[:16]+'_'+source.name
             self.write(raw_name,source.read_bytes());copies[raw_name]=digest_file(source)
             working=prefix+'/native/'+digest_file(source)[:16]+'_'+source.name
@@ -475,6 +577,9 @@ class V5Kernel:
                 entry[field]=dest
                 if nested and 'sha256' in entry:entry['sha256']=digest_file(dest)
                 rebases.append({'source':old,'destination':dest})
+            if review_valid:
+                from .v51_detail_runtime import content_hash
+                obj['timeline']['semantic_review']['input_sha256']=content_hash(obj)
             self.write(working,obj);copies[working]=digest_file(self.path(working))
             return str(self.path(working))
         captured=Path(capture(path,kind))
@@ -519,6 +624,12 @@ class V5Kernel:
         elif kind=='qa':
             if value.get('passed') is not True or not value.get('checks') or value.get('build_id')!=self.state['build']['build_id']:
                 raise ValueError('QA must check the current build and contain actual review findings')
+            if self.current_release():
+                if value.get('compile_review_build_id')!=self.state['build']['build_id']:
+                    raise ValueError('QA must cite the compile review for this build')
+                blob=json.dumps(value.get('checks'),ensure_ascii=False)
+                missing=[item['id'] for item in self.hard_clauses() if item['id'] not in blob]
+                if missing:raise ValueError('QA misses a hard clause: '+missing[0])
         canon=self.data('canon') if kind not in ('canon','screenplay','qa') and self.valid('canon') else None
         if canon and kind=='art':
             known={e['id'] for e in canon.get('entities',[])}
@@ -535,7 +646,7 @@ class V5Kernel:
                 if lock['kind']==kind and not assert_check(value,lock['check']):raise ValueError('Canon hard lock fails: '+lock['check']['path'])
 
     @mutate
-    def import_artifact(self,kind,path,*,slot=None,scope=None,dependencies=None,complete=True,locks=None,handoff=None):
+    def import_artifact(self,kind,path,*,slot=None,scope=None,dependencies=None,complete=True,locks=None,handoff=None,trusted=False):
         if kind not in STAGE_BY_KIND:raise ValueError('Unknown native artifact kind')
         source=Path(path).expanduser().resolve();value=read(source)
         slot=slot or ('art:'+value['set']['scene_id'] if kind=='art' else kind)
@@ -556,13 +667,23 @@ class V5Kernel:
         required=requirements(kind,self.handoff_inputs(dependencies),protocol)
         screenplay=(self.data('screenplay'),protocol) if protocol and self.valid('screenplay') else None
         review=validate_handoff(kind,value,required,handoff,screenplay)
+        if kind=='director' and screenplay:
+            # Snapshot rebases local source URIs, changing the DirectorIR content
+            # fingerprint. Keep the approved mapping bound to the promoted bytes.
+            promoted=self.data_from_uri(uri)
+            promoted_sha=protocol.content_hash(promoted)
+            for row in review:
+                row['review']['director_sha256']=promoted_sha
+            review=validate_handoff(kind,promoted,required,review,screenplay)
         module=self.stage_module(kind)
         record={'kind':kind,'slot':slot,'stage':STAGE_BY_KIND[kind],'uri':uri,'sha256':digest_file(self.path(uri)),
             'original_sha256':digest_file(source),'revision':(old or {}).get('revision',0)+1,'scope':scope or {},
             'dependencies':dependencies,'files':files,'locks':locks if locks is not None else (old or {}).get('locks',[]),
             'complete':complete,'invalidated':False,'needs_reconciliation':not ready,
             'handoff':review,'module':read(self.root/'modules.lock.json')['modules'].get(module),
-            'adapter_version':ADAPTER_VERSION}
+            'adapter_version':ADAPTER_VERSION,'audit':getattr(self,'_submit_audit',None)}
+        if self.current_release() and not trusted and (getattr(self,'_submit_origin',None)!='submit' or getattr(self,'_submit_reused',False)):
+            record['needs_review']=True;record['audit']='needs_review'
         if old:self.write('history/'+digest(old)+'.json',old)
         state['artifacts'][slot]=record;state['active_task']=None;state['status']='RUNNING'
         if kind=='director':
@@ -575,6 +696,198 @@ class V5Kernel:
         return record
 
     def data_from_uri(self,uri):return read(self.path(uri))
+
+    def receipt_audit(self,task,result):
+        module=task.get('module')
+        if not module:return None
+        receipt=result.get('module_receipt')
+        if not self.audit_required():
+            return 'audited' if receipt else 'unaudited'
+        if result.get('schema')!='role-result/5.1' or not isinstance(receipt,dict):
+            raise ValueError('Module tasks require role-result/5.1 and module_receipt')
+        if receipt.get('name')!=module['name'] or receipt.get('version')!=module['version']:
+            raise ValueError('module_receipt does not match the locked module')
+        if receipt.get('skill_sha256')!=module.get('skill_sha256'):
+            raise ValueError('module_receipt skill hash does not match the locked Skill')
+        reads={item.get('path'):item.get('sha256') for item in receipt.get('reads') or [] if isinstance(item,dict)}
+        for item in module.get('required_reads') or []:
+            if reads.get(item['path'])!=item['sha256']:
+                raise ValueError('Required module read missing or hash differs: '+item['relative'])
+        return 'audited'
+
+    def accept_prompt(self,task,result,state):
+        prompt=str(result.get('prompt') or '').strip()
+        checks=result.get('checks')
+        if not self.audit_required():
+            if not checks or not prompt:raise ValueError('Prompt text and actual constraint findings are required')
+            return
+        understanding=result.get('understanding')
+        if not prompt or not understanding or not result.get('params') or not str(result.get('quality_check') or '').strip():
+            raise ValueError('Image prompt requires understanding, prompt, params, quality_check and checks')
+        if not isinstance(understanding,(str,list)) or not isinstance(result.get('params'),dict):
+            raise ValueError('Image prompt understanding and params have the wrong shape')
+        refs=lock_refs(task['job'])
+        covered=[]
+        if not isinstance(checks,list) or not checks:raise ValueError('Image prompt checks must cite each locked item')
+        for item in checks:
+            if not isinstance(item,dict) or not str(item.get('ref') or '').strip() or not str(item.get('finding') or '').strip():
+                raise ValueError('Each image prompt check needs a lock ref and a finding')
+            covered.append(item['ref'])
+        missing=[ref for ref in refs if ref not in covered]
+        if missing:raise ValueError('Image prompt checks miss a locked item: '+missing[0])
+        signature=json.dumps(checks,ensure_ascii=False,sort_keys=True)
+        for slot,saved in state['prompts'].items():
+            if slot!=task['slot'] and json.dumps(saved.get('checks'),ensure_ascii=False,sort_keys=True)==signature:
+                raise ValueError('Image prompt checks duplicate another slot; template reuse is rejected')
+        needs_contract=identity_job(task['job']) or (self.current_release() and self.project.get('delivery')=='full')
+        if needs_contract:
+            contract=result.get('production_contract')
+            if not contract or not Path(contract).is_file():
+                raise ValueError('Full-delivery image prompts require a production contract file')
+            script=self.modules('image-prompt-optimizer')/'scripts'/'validate_production_contract.py'
+            proc=subprocess.run([sys.executable,str(script),str(contract)],capture_output=True,text=True)
+            if proc.returncode:
+                raise ValueError('Production contract is not valid: '+proc.stdout[-500:])
+
+    def check_image_host(self,media):
+        if not self.audit_required():return
+        host=self.state['host']
+        providers=host.get('providers') or ['provided']
+        if media.get('provider') not in providers:
+            raise ValueError('Image provider is not registered for this host')
+        if media.get('provider')=='image_gen':
+            tools=host.get('image_tools') or []
+            evidence=str(media.get('call_evidence') or '')
+            if not any(tool and tool in evidence for tool in tools):
+                raise ValueError('call_evidence tool is not a registered host image tool')
+
+    @staticmethod
+    def check_findings(findings,refs):
+        covered=[]
+        for item in findings:
+            if not isinstance(item,dict) or not str(item.get('ref') or '').strip() or not str(item.get('observation') or '').strip():
+                raise ValueError('Each visual finding needs a lock ref and an observation')
+            covered.append(item['ref'])
+        missing=[ref for ref in refs if ref not in covered]
+        if missing:raise ValueError('Visual review misses locked item: '+missing[0])
+
+    def review_task(self):
+        for slot,record in self.state['artifacts'].items():
+            if record.get('needs_review') and not record.get('needs_reconciliation') and not record.get('invalidated'):
+                return self.task(record['kind'],slot,record['stage'],self.stage_module(record['kind']),
+                    record.get('dependencies') or [],record.get('scope') or {})
+        return None
+
+    def control_step(self):
+        storyboard=self.data('storyboard')
+        fingerprint=self.state['artifacts']['storyboard']['sha256']
+        record=self.state.get('control') or {}
+        if record.get('storyboard_sha256')==fingerprint and record.get('status') in ('NOT_APPLICABLE','READY'):
+            return None
+        if not self.control_applicable(storyboard):
+            state=self.state
+            state['control']={'status':'NOT_APPLICABLE','reason':'分镜时间轨没有机位运动、多人走位或接触事件','storyboard_sha256':fingerprint}
+            self.save(state);return None
+        return self.task('control','control',6,'video-prompt-compiler',[self.dependency('storyboard')],
+            extra={'storyboard_sha256':fingerprint})
+
+    def compile_review_step(self):
+        build=self.state.get('build') or {}
+        review=self.state.get('compile_review') or {}
+        if review.get('status')=='ACCEPTED' and review.get('build_id')==build.get('build_id'):return None
+        return self.task('compile-review','compile-review',8,'video-prompt-compiler',[self.dependency('storyboard')],extra=self.qa_extra())
+
+    def qa_extra(self):
+        build=self.state.get('build') or {}
+        review=self.state.get('compile_review') or {}
+        return {'build':build,'hard_clauses':[item['id'] for item in self.hard_clauses()],
+            'blocked_segments':self.blocked_segments(),'compile_review_build_id':review.get('build_id')}
+
+    def hard_clauses(self):
+        build=self.state.get('build') or {}
+        if not build.get('uri'):return []
+        avir=read(self.path(build['uri']+'/avir.json'))
+        return [item for item in avir.get('contract') or [] if isinstance(item,dict) and item.get('level')!='soft' and item.get('id')]
+
+    def blocked_segments(self):
+        build=self.state.get('build') or {}
+        if not build.get('uri'):return []
+        found=[]
+        for path in self.path(build['uri']).rglob('*.json'):
+            if 'segment' not in path.name:continue
+            try:data=read(path)
+            except (OSError,ValueError):continue
+            if isinstance(data,dict) and data.get('status')=='BLOCKED':found.append(data.get('id') or path.stem)
+        return found
+
+    def check_validator(self,kind,artifact,result):
+        declared=result.get('validator')
+        if not isinstance(declared,dict) or not declared.get('status'):
+            raise ValueError('Creative tasks require the module validator summary')
+        report=native_validate(kind,artifact,self.modules)
+        if declared.get('status')!=report.get('status'):
+            raise ValueError('Validator summary does not match a fresh run')
+
+    def check_verbatim(self,task,result):
+        slot=task['slot'];previous=self.state['artifacts'].get(slot)
+        if not previous:return
+        if digest_file(Path(result['artifact']))!=previous.get('original_sha256'):return
+        blob=json.dumps(result.get('checks') or [],ensure_ascii=False)
+        for dep in task.get('dependencies') or []:
+            name=dep.get('slot')
+            if name and not str(name).startswith('@') and name not in blob:
+                raise ValueError('Unchanged artifact must re-check the current upstream: '+name)
+
+    def accept_compile_review(self,result,state):
+        review=result.get('semantic_review') or {}
+        build=self.state['build']
+        if review.get('build_id')!=build['build_id'] or review.get('equivalent') is not True:
+            raise ValueError('Compile review must bind the current build and state semantic equivalence')
+        covered={item.get('id') for item in review.get('clauses') or [] if isinstance(item,dict) and str(item.get('finding') or '').strip()}
+        missing=[item['id'] for item in self.hard_clauses() if item['id'] not in covered]
+        if missing:raise ValueError('Compile review misses a hard clause: '+missing[0])
+        dispositions={item.get('id'):item.get('disposition') for item in review.get('blocked') or [] if isinstance(item,dict)}
+        for segment in self.blocked_segments():
+            if not dispositions.get(segment):raise ValueError('BLOCKED segment has no disposition: '+segment)
+        state['compile_review']={'status':'ACCEPTED','build_id':build['build_id'],'audit':getattr(self,'_submit_audit',None)}
+
+    def accept_control(self,result,state):
+        config_path=result.get('config')
+        if not config_path or not Path(config_path).is_file():
+            raise ValueError('Shot control requires a control config file')
+        storyboard=self.data('storyboard')
+        avir,report=storyboard_to_avir(storyboard,self.root)
+        if report.get('status')=='BLOCKED':
+            raise ValueError('Shot control needs a storyboard that converts to AVIR')
+        source=self.root/'runtime'/'control-source.json'
+        self.write('runtime/control-source.json',avir)
+        compiler=self.modules('video-prompt-compiler')
+        out=self.root/'artifacts'/'control'
+        if out.exists():shutil.rmtree(out)
+        build=subprocess.run([sys.executable,str(compiler/'scripts'/'vpc.py'),'control','build',str(source),'--config',str(config_path),'--out',str(out)],capture_output=True,text=True)
+        if build.returncode:raise ValueError('Shot control build failed: '+(build.stderr or build.stdout)[-800:])
+        verify=subprocess.run([sys.executable,str(compiler/'scripts'/'control_cli.py'),'verify',str(out)],capture_output=True,text=True)
+        if verify.returncode:raise ValueError('Shot control verify failed: '+(verify.stderr or verify.stdout)[-800:])
+        declared=result.get('validator') or {}
+        fresh=json.loads(verify.stdout)
+        if declared.get('status')!=fresh.get('status'):
+            raise ValueError('Shot control verify summary does not match a fresh run')
+        state['control']={'status':'READY','storyboard_sha256':state['artifacts']['storyboard']['sha256'],
+            'uri':'artifacts/control','keyframe_requests':'artifacts/control/keyframe-requests.json','audit':'audited'}
+
+    def audit_delivery_errors(self,errors):
+        state=self.state
+        for slot,record in state['artifacts'].items():
+            if record.get('needs_review') or record.get('audit') in ('unaudited','needs_review'):
+                errors.append('Unaudited artifact: '+slot)
+        for key,prompt in state['prompts'].items():
+            if prompt.get('audit') in ('unaudited','needs_review'):errors.append('Unaudited prompt: '+key)
+        for media in state['media'].values():
+            if media.get('audit') in ('unaudited','needs_review'):errors.append('Unaudited image: '+media['key'])
+        review=state.get('compile_review') or {}
+        build=state.get('build') or {}
+        if review.get('status')!='ACCEPTED' or review.get('build_id')!=build.get('build_id'):
+            errors.append('Compile review is missing for the current build')
 
     @mutate
     def submit(self,result):
@@ -593,16 +906,28 @@ class V5Kernel:
             uri='runtime/conflicts/'+task_id+'/'+digest(result)+'.json';self.write(uri,result)
             return {'status':'BLOCKED','conflicts':result.get('conflicts',[]),'unresolved':result.get('unresolved',[]),'result_file':str(self.path(uri))}
         kind=task['kind']
+        audit=self.receipt_audit(task,result)
+        self._submit_audit=audit
+        self._submit_origin='submit'
+        self._submit_reused=bool(result.get('reused')) and self.current_release()
+        if self.current_release() and kind in NATIVE_KINDS and result.get('artifact'):
+            self.check_verbatim(task,result)
         if kind=='image-prompt':
-            if not result.get('checks') or not str(result.get('prompt','')).strip():raise ValueError('Prompt text and actual constraint findings are required')
+            self.accept_prompt(task,result,state)
             uri='prompts/'+task['slot']+'/'+digest(result)+'.txt';self.write(uri,result['prompt'].encode())
             state['prompts'][task['slot']]={'uri':uri,'sha256':digest_file(self.path(uri)),
-                'input_fingerprint':task['job']['fingerprint'],'checks':result['checks']}
+                'input_fingerprint':task['job']['fingerprint'],'checks':result['checks'],
+                'understanding':result.get('understanding'),'params':result.get('params'),
+                'quality_check':result.get('quality_check'),'audit':audit}
         elif kind=='image':
             media=self.accept_media(task,result)
             old=state['media'].get(task['slot'])
             if old:self.write('history/media-'+digest(old)+'.json',old)
             state['media'][task['slot']]=media;state['inflight']=None;state['build']=None
+        elif kind=='compile-review':
+            self.accept_compile_review(result,state)
+        elif kind=='control':
+            self.accept_control(result,state)
         else:
             path=Path(result['artifact']).resolve()
             if result.get('artifact_sha256')!=digest_file(path):raise ValueError('Native result artifact hash differs')
@@ -622,8 +947,17 @@ class V5Kernel:
                 if len(changed)>5:raise ValueError('A creative result may change at most five shots; submit a partial revision or import a reviewed existing package')
                 allowed=task.get('scope',{}).get('shot_ids')
                 if allowed and not set(changed)<=set(allowed):raise ValueError('Changes exceed the scoped shot revision')
-            self.import_artifact(kind,path,slot=task['slot'],scope=task['scope'],dependencies=task['dependencies'],
-                complete=result.get('complete',True),locks=result.get('locks'),handoff=result.get('handoff'))
+            self._submit_audit=audit
+            try:
+                self.import_artifact(kind,path,slot=task['slot'],scope=task['scope'],dependencies=task['dependencies'],
+                    complete=result.get('complete',True),locks=result.get('locks'),handoff=result.get('handoff'))
+                module_name=self.stage_module(kind)
+                locked=read(self.root/'modules.lock.json')['modules']
+                if self.current_release() and kind in NATIVE_KINDS and module_name in locked:
+                    self.check_validator(kind,path,result)
+            finally:
+                self._submit_origin=None
+                self._submit_audit=None
             state=self.state
         state['completed_tasks'][task_id]=digest(result);state['active_task']=None
         if result.get('complete',True):state['revision_scope']={}
@@ -638,12 +972,14 @@ class V5Kernel:
             raise ValueError('A still PNG, JPEG or WebP image is required')
         if media.get('provider') not in ('image_gen','provided') or not media.get('call_evidence'):
             raise ValueError('Media requires a real provider/import and call evidence')
+        self.check_image_host(media)
         if media.get('sha256')!=digest_file(path):raise ValueError('Media hash differs')
         expected=[{'key':r['key'],'sha256':r['sha256']} for r in job['references']]
         if media.get('input_bindings')!=expected:raise ValueError('Actual image references do not match the job')
         review=media.get('visual_review',{})
         if review.get('status')!='PASS' or not review.get('findings') or review.get('sha256')!=media['sha256']:
             raise ValueError('Visual review must inspect and bind the actual image bytes')
+        if self.audit_required():self.check_findings(review['findings'],lock_refs(job))
         probe=subprocess.run(['ffprobe','-v','error','-show_entries','stream=codec_type,width,height','-of','json',str(path)],capture_output=True,text=True)
         try:streams=json.loads(probe.stdout)['streams']
         except (ValueError,KeyError):streams=[]
@@ -660,7 +996,8 @@ class V5Kernel:
             'frame':job['brief'].get('frame'),'moment':job['brief'].get('moment'),
             'input_fingerprint':job['fingerprint'],'dependencies':job['dependencies'],
             'input_bindings':expected,'visual_review':review,'provider':media['provider'],
-            'call_evidence':media['call_evidence'],'prompt':task['prompt'],'invalidated':False}
+            'call_evidence':media['call_evidence'],'prompt':task['prompt'],'invalidated':False,
+            'audit':getattr(self,'_submit_audit',None)}
 
     @mutate
     def begin_image(self,task_id):
@@ -793,13 +1130,22 @@ class V5Kernel:
         self.save(state);return self.status()
 
     def build_fingerprint(self):
+        control = self.state.get('control') or {}
+        control_files = {}
+        if control.get('status') == 'READY' and control.get('uri'):
+            control_root = self.path(control['uri'])
+            if control_root.is_dir():
+                control_files = {path.relative_to(control_root).as_posix(): digest_file(path)
+                                 for path in sorted(control_root.rglob('*')) if path.is_file()}
         return digest({'storyboard':self.state['artifacts']['storyboard']['sha256'],
             'imported_avir':self.state['artifacts'].get('avir',{}).get('sha256') if self.valid('avir') else None,
             'compiled_import':self.state.get('compiled_import',{}).get('manifest_sha256'),
             'mapping':self.state.get('mapping_overrides'),
             'media':{k: v['sha256'] for k,v in self.state['media'].items() if self.media_valid(v)},
             'target':[self.project['target'],self.project['mode'],self.project['delivery']],
-            'modules':read(self.root/'modules.lock.json')})
+            'modules':read(self.root/'modules.lock.json'),
+            'control': {'state': control, 'files': control_files},
+            'runtime_code':runtime_code_hashes()})
 
     @mutate
     def compile(self,mapping=None):
@@ -868,7 +1214,7 @@ class V5Kernel:
             if imported_record.get('needs_reconciliation'):
                 if self.portable_content(self.data('avir'))!=self.portable_content(avir):
                     return {'status':'BLOCKED','reason':'Independent AVIR needs semantic reconciliation with the now-available storyboard'}
-                self.import_artifact('avir',self.path(imported_record['uri']))
+                self.import_artifact('avir',self.path(imported_record['uri']),trusted=True)
                 state=self.state
             elif imported_record.get('invalidated'):
                 return {'status':'BLOCKED','reason':'Explicit AVIR revision must be submitted before compilation'}
@@ -997,6 +1343,7 @@ class V5Kernel:
             build=state['build']
             if not build or build['input_fingerprint']!=self.build_fingerprint():errors.append('Current compiled build is missing')
             elif any(not self.path(p).is_file() or digest_file(self.path(p))!=h for p,h in build['files'].items()):errors.append('Compiled files were modified')
+            if self.current_release():self.audit_delivery_errors(errors)
         return {'valid':not errors,'errors':errors,'delivery':self.project['delivery'],
                 'production_target':self.production_target(),'preproduction_complete':False,
                 'video_generated':False,'video_qa':'NOT_RUN'}
@@ -1025,10 +1372,15 @@ class V5Kernel:
             return {'status':'LEGACY_READ_ONLY','project':str(self.root),'schema_version':self.project.get('schema_version'),
                     'instruction':'Use copy-project --destination NEW_DIR to import into V5.'}
         state=self.state
+        reads=[]
+        if state.get('active_task'):
+            envelope=self.path('runtime/tasks/'+state['active_task']+'.json')
+            if envelope.is_file():
+                reads=((read(envelope).get('module') or {}).get('required_reads') or [])
         return {'status':state['status'],'project':str(self.root),'execution_mode':'current-agent',
             'artifacts':{k:('READY' if self.valid(k,state) else 'STALE') for k in state['artifacts']},
             'media':{k:('READY' if self.media_valid(v,state) else 'STALE') for k,v in state['media'].items()},
-            'active_task':state['active_task'],'decision':state['active_decision'],
+            'active_task':state['active_task'],'required_reads':reads,'control':state.get('control'),'decision':state['active_decision'],
             'delivery':self.project['delivery'],'production_target':self.production_target(),
             'preproduction_complete':state['status'] in ('DELIVERED','VIDEO_DELIVERED'),
             'video_complete':state['status']=='VIDEO_DELIVERED','video_generated':False}

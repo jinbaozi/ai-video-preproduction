@@ -1,0 +1,685 @@
+{
+  "source": "runtime/v6/events.json",
+  "source_sha256_at_archive": "7f81e6b6353290db2eb04b2f8f25217cfacd2bc718e86631685a2738b89fc2ed",
+  "revisions": [
+    695,
+    707
+  ],
+  "events": [
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "a4ecb1853b58072c7a83c169cd79df5685b49775727003070c1b37e43848eb16",
+      "hash": "5aa385674986b54b38a438efed5d6c2b29309686d491e7bc956d974cc4e6253d",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:33:58.180959Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/module-receipt.review.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/native-validator.review.json"
+              ],
+              "id": "native_validator",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/compile-manifest.review.json"
+              ],
+              "id": "compile_manifest",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/handoff.review.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "HOSTFIX-COMPILE-REVIEW_SUBMIT_1",
+          "evidence": [
+            "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/avir.json",
+            "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/compile-manifest.json"
+          ],
+          "expected_revision": 694,
+          "from_state": "REVIEW_REQUIRED",
+          "object_version": 15,
+          "reason": "REVIEW_PASSED",
+          "schema": "state-event/6.0",
+          "task_id": "V6_compile_ee07749c72a2525a571b",
+          "to_state": "ACCEPTED"
+        },
+        "receipt": null,
+        "review": {
+          "at": "2026-09-25T17:33:13.889178Z",
+          "batch": 1,
+          "candidate_digest": "1bede9a0e2c22624d98f3eafa3934af1a6dd0e009b11789f7565189857af0df5",
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/module-receipt.review.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/native-validator.review.json"
+              ],
+              "id": "native_validator",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/compile-manifest.review.json"
+              ],
+              "id": "compile_manifest",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/handoff.review.json"
+              ],
+              "id": "handoff",
+              "status": "PASS"
+            }
+          ],
+          "failure_owner": null,
+          "reviewer_agent_id": "/root/host_bridge/v6_dd023c3fdf9093c33af62abe",
+          "reviewer_dispatch_id": "review-682ecb3fdb5cef0457be15a6",
+          "schema": "review-record/6.0",
+          "task_id": "V6_compile_ee07749c72a2525a571b"
+        }
+      },
+      "previous_hash": "fbe1b610ce8ede3561d751ef14cd2c16dc9cb571df42a938d2403d3d7a91b1a4",
+      "revision": 695,
+      "state_digest": "d0e9f27405296da573c2cb474dcb13704823b40926fb76c84536074d24d1475c"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "19ed96095047824afdf6cbdf09af19f0e26d2a25e3dc7193d4d190b5a7d66c58",
+      "hash": "353f2b04fa4dafc0f3e6fc9c734af8ef19e54a63b5dd0618c0d16bf7412b904e",
+      "op": "create_task",
+      "payload": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "V6_compile_ee07749c72a2525a571b"
+          }
+        ],
+        "execution_class": "review",
+        "expected_artifacts": [
+          {
+            "kind": "CompileReview",
+            "slot": "compile_review:project:project:CompileReview",
+            "uri_prefix": "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/"
+          }
+        ],
+        "handoffs": [],
+        "input_digest": "d2166514e8c91be915678c2279735827cecf88963ec3dea2c991d087592327ef",
+        "input_revision": 695,
+        "inputs": [
+          {
+            "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+            "slot": "compile:project:project:AVIR",
+            "uri": "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/avir.json",
+            "version": 16
+          },
+          {
+            "sha256": "cf3a13eeed1c9374a86dc08f3864fb492d0a6e7a97b109855d4a4f81cbaf9fb3",
+            "slot": "compile:project:project:CompilePackage",
+            "uri": "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/compile-manifest.json",
+            "version": 16
+          },
+          {
+            "sha256": "67f7beeacfe167c94b208a10c5d9b0b1ac28811a84c376f548e27552e00b09d0",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_01b83d9bf3bd9032fd655d18.json",
+            "version": 0
+          }
+        ],
+        "module": {
+          "name": "video-prompt-compiler",
+          "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+          "version": "1.17.6"
+        },
+        "node_id": "compile_review",
+        "project_id": "LETTER_DEMO",
+        "resources": [
+          {
+            "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md"
+          },
+          {
+            "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md"
+          },
+          {
+            "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md"
+          },
+          {
+            "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md"
+          },
+          {
+            "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md"
+          },
+          {
+            "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+            "uri": "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md"
+          },
+          {
+            "sha256": "61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc",
+            "uri": "runtime/v6/runtime-resources/61a0a0a2242635df79c5e2f2762dcad64990b72f9979da3d74e526e0286704fc/v5.py"
+          },
+          {
+            "sha256": "cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2",
+            "uri": "runtime/v6/runtime-resources/cb9e7623c9a97971be0fbac021271ec433ec0069368edd229b948d9873239dd2/v5_adapters.py"
+          },
+          {
+            "sha256": "9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0",
+            "uri": "runtime/v6/runtime-resources/9a2fffe5ee387b0b47a94061485fd4f9adad8eed6ab23634a29728ec2bcc06d0/v51_adapters.py"
+          },
+          {
+            "sha256": "fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae",
+            "uri": "runtime/v6/runtime-resources/fc064cdb1a0a3ae12f9d2add2b17e0de875fd75afe192a0f9c1dec14771c74ae/v52_adapters.py"
+          },
+          {
+            "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+            "uri": "runtime/v6/runtime-resources/c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7/v51_detail_runtime.py"
+          },
+          {
+            "sha256": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+            "uri": "runtime/v6/runtime-resources/df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549/v52_spatial_runtime.py"
+          },
+          {
+            "sha256": "573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343",
+            "uri": "runtime/v6/runtime-resources/573061342c77f6858a6628c1cd9e70892fdd8b0229fdacec512c694239e3a343/v5_protocol.py"
+          },
+          {
+            "sha256": "887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0",
+            "uri": "runtime/v6/runtime-resources/887011807c166eae5346178254d91ee1547d1959a76ce82f31399ad6355091b0/v5_handoff.py"
+          },
+          {
+            "sha256": "6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45",
+            "uri": "runtime/v6/runtime-resources/6f763946439d79c8957a23215c25219325cbb74ada3865b5d0a33206b4dc1a45/v6_runtime.py"
+          },
+          {
+            "sha256": "f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2",
+            "uri": "runtime/v6/runtime-resources/f04a4bd3b7c29d26d2317f8764c6af6d1052141d6d35d1708e724564f34d25c2/v6_kernel.py"
+          },
+          {
+            "sha256": "b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b",
+            "uri": "runtime/v6/runtime-resources/b51c0abec7d90aacab769b4826c1568dc12b5fcfc9a57bfc3af5b75f27df979b/v6_protocol.py"
+          },
+          {
+            "sha256": "cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11",
+            "uri": "runtime/v6/runtime-resources/cbd2aedb1b43b1d79b928d4cd9ca3e5c1e4c187632953f021657be435c13aa11/v6_graph.py"
+          },
+          {
+            "sha256": "cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da",
+            "uri": "runtime/v6/runtime-resources/cfbedafb56086a36bb457c0fd70c9f6714474d220a5847b76c949a3f8afc27da/v6_stage_adapter.py"
+          },
+          {
+            "sha256": "a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6",
+            "uri": "runtime/v6/runtime-resources/a4c90c285cf96a08156cdf8030d65c6de7d8cd1f72bc6cd74b00defeecc5d2a6/v6_codex_host.py"
+          },
+          {
+            "sha256": "8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94",
+            "uri": "runtime/v6/runtime-resources/8541665a846e3d0d3343021e3f3cb20b64f571d110bb43a6a33737f7ae2a7a94/v6_runtime_fingerprint.py"
+          }
+        ],
+        "role": "compiler_reviewer",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "validators": [
+          {
+            "id": "module_receipt",
+            "kind": "hash"
+          },
+          {
+            "id": "compile_semantics",
+            "kind": "manual"
+          }
+        ]
+      },
+      "previous_hash": "5aa385674986b54b38a438efed5d6c2b29309686d491e7bc956d974cc4e6253d",
+      "revision": 696,
+      "state_digest": "15cc06d64ad1cdcef82e84326c0c85de0811b21148a0e8298328a5cc64657f9e"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "8a60e6bd5561be4a2a9d493e32e8bd2cae53d8be0dcd05c6f16e686b2e90a3a4",
+      "hash": "e93b4f569a1570e0100ee68620fc3efead852724a0bba99897e6a69e2a47f0b9",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:34:03.814448Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "ready-TASK_01b83d9bf3bd9032fd655d18-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_01b83d9bf3bd9032fd655d18.json"
+          ],
+          "expected_revision": 696,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "353f2b04fa4dafc0f3e6fc9c734af8ef19e54a63b5dd0618c0d16bf7412b904e",
+      "revision": 697,
+      "state_digest": "57b8d53689ef4b710c351d1de0be629a0d08afbde2081b66df2f5c3e8b10e130"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "5f90f6eac5b4077c177756e7947d3edceec000d10dcbfc6d0eba4fef206ba156",
+      "hash": "8865ba7a9d0577eca192f97a4d4b5abc597136006fe439ed154398aef6045c68",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:34:04.055912Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "dispatch-TASK_01b83d9bf3bd9032fd655d18-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_01b83d9bf3bd9032fd655d18.json"
+          ],
+          "expected_revision": 697,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "e93b4f569a1570e0100ee68620fc3efead852724a0bba99897e6a69e2a47f0b9",
+      "revision": 698,
+      "state_digest": "ca51d748b2825cf787df3d418f8bab7e2945473581080ae7fc5ae8217423e805"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "a5d6f32fcf53cad36ac20d6b7edfcdc8762b46d5c6b7f3d6472fe91487f8eabd",
+      "hash": "d13ab5eae292a9b84277ae9adde8994f9695064d604d73046182b0d272bb15a0",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:34:39.048956Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-e783bc94a611f7425f684a77",
+                "host-file:b6a255908caeeaae2599a4a2c5e0471a262a57a13d9820c3c2898ab8290a11e6"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "HOSTFIX-COMPILE-SEMANTICS_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-e783bc94a611f7425f684a77",
+            "host-file:b6a255908caeeaae2599a4a2c5e0471a262a57a13d9820c3c2898ab8290a11e6"
+          ],
+          "expected_revision": 698,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-e783bc94a611f7425f684a77",
+          "agent_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+          "batch": 1,
+          "dispatch_id": "dispatch-e783bc94a611f7425f684a77",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T17:34:39.048956Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T17:34:39.048956Z",
+          "status": "RUNNING",
+          "task_digest": "495409fedc344fb6fdddc30f57e8fcbe56b245a4d69ca59b8d45bcf0672e7e22",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "tool_result_sha256": "b6a255908caeeaae2599a4a2c5e0471a262a57a13d9820c3c2898ab8290a11e6",
+          "tool_result_uri": "runtime/v6/host-evidence/b6a255908caeeaae2599a4a2c5e0471a262a57a13d9820c3c2898ab8290a11e6.json"
+        },
+        "review": null
+      },
+      "previous_hash": "8865ba7a9d0577eca192f97a4d4b5abc597136006fe439ed154398aef6045c68",
+      "revision": 699,
+      "state_digest": "466e6a35fbf9f91a9b302e9d1a5d72612ce7493e0f04ba7c1bef5e465763c9b5"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "c69502b797496190dab6e8fe28cb12edfd68a7035a36ff8d8a31aad91c27dc43",
+      "hash": "17a9702729d923ab6074e3ac5f73d90a49398fadf26852d928b94f21f366dceb",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:34:52.088200Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-compile-semantics-ack.txt"
+        ],
+        "in_reply_to": null,
+        "message_id": "HOSTFIX-COMPILE-SEMANTICS-ACK_ACK_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "Graph compile reviewer acknowledged frozen action and is reading locked resources, AVIR and accepted compile package for independent semantic review.",
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "type": "ACK"
+      },
+      "previous_hash": "d13ab5eae292a9b84277ae9adde8994f9695064d604d73046182b0d272bb15a0",
+      "revision": 700,
+      "state_digest": "9d09bc6c471b1e0c35dd3b39f80ab6e237544434e6f6f4684a7882a7a376d4bd"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "fe3c4fe9a56a261e1686ffeed1019d8bd05304e9cf7873e254b87ef6a7b9a116",
+      "hash": "1875aaa7aba1a43fc40fe8c18b0bb21c60f9d71d12bca5aeb3e159e5fe91e601",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:35:15.754999Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-compile-semantics-progress.txt"
+        ],
+        "in_reply_to": "HOSTFIX-COMPILE-SEMANTICS-ACK_ACK_1",
+        "message_id": "HOSTFIX-COMPILE-SEMANTICS-PROGRESS_PROGRESS_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "Graph semantic reviewer verified three frozen inputs and nineteen resources; checking prior endpoint conflict, current prompt, hard clauses and post obligations.",
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "type": "PROGRESS"
+      },
+      "previous_hash": "17a9702729d923ab6074e3ac5f73d90a49398fadf26852d928b94f21f366dceb",
+      "revision": 701,
+      "state_digest": "57635a50bb5c8a826f9fe404f9c06f4979c08eec11d41ff53ce5b38b2dff2a59"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "8093ff8b1c57f0e5b2e4d08b289df6cf11a48b51797da5fcdd1cbcf482fca8c1",
+      "hash": "e476d56e457d23d60dfcc184d7d1a8264437fc1edfccee8b8c333ea8517f60be",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:37:00.367265Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-compile-semantics-progress-2.txt"
+        ],
+        "in_reply_to": "HOSTFIX-COMPILE-SEMANTICS-PROGRESS_PROGRESS_1",
+        "message_id": "HOSTFIX-COMPILE-SEMANTICS-PROGRESS2_PROGRESS_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "Graph semantic reviewer matched new build and twenty files; endpoint visibility conflict closed, checking seventeen hard clauses and post obligations.",
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "type": "PROGRESS"
+      },
+      "previous_hash": "1875aaa7aba1a43fc40fe8c18b0bb21c60f9d71d12bca5aeb3e159e5fe91e601",
+      "revision": 702,
+      "state_digest": "36993fe68403c6064a6e4ec4937a5817fed08eb836dfe3aa52c72c7e250a93f6"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "390f8af97825160055f4224eb7b235b5eddf8f9d079b9f9e0a1f31d1aa492371",
+      "hash": "af6f160284ca8dd4113f376c6ae87f2bb539cbb78f6ad078c7f7f833a0a5febf",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:39:11.108988Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/host-inputs/hostfix-compile-semantics-status-request.txt"
+        ],
+        "in_reply_to": "HOSTFIX-COMPILE-SEMANTICS-PROGRESS2_PROGRESS_1",
+        "message_id": "HOSTFIX_COMPILE_SEMANTICS_STATUS_1",
+        "recipient_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+        "schema": "agent-message/6.0",
+        "sender_id": "kernel",
+        "subject_sha256": null,
+        "subject_uri": null,
+        "summary": "Host requested current semantic review status without changing task scope or redispatching.",
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "type": "PROGRESS"
+      },
+      "previous_hash": "e476d56e457d23d60dfcc184d7d1a8264437fc1edfccee8b8c333ea8517f60be",
+      "revision": 703,
+      "state_digest": "99d0733779decb4278ddf534abd37b1ae2217bf92a03cb4336d2b5a3a68c1470"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "e87d588deb31fc45eb535a39762184bbc2f12cdccf8674367beecad574ad5286",
+      "hash": "2737477bbf83b310bfc4610e8a945df3f55be4c6d7722a3a080d7ee8c69ca473",
+      "op": "agent_message",
+      "payload": {
+        "at": "2026-09-25T17:39:38.923506Z",
+        "batch": 1,
+        "evidence": [
+          "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/candidate-result.json",
+          "runtime/v6/host-inputs/hostfix-compile-semantics-result-raw.txt"
+        ],
+        "in_reply_to": "HOSTFIX_COMPILE_SEMANTICS_STATUS_1",
+        "message_id": "HOSTFIX-COMPILE-SEMANTICS-RESULT_RESULT_1",
+        "recipient_id": "kernel",
+        "schema": "agent-message/6.0",
+        "sender_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+        "subject_sha256": "467920298872bbd2d13204318507e0f9aeddbf65d9acce6d56d7e2eba639f734",
+        "subject_uri": "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/candidate-result.json",
+        "summary": "Independent graph compile_review passed static semantic equivalence and all seventeen hard clauses; old endpoint conflict closed, media/post obligations remain NOT_RUN or PLANNED.",
+        "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+        "type": "RESULT"
+      },
+      "previous_hash": "af6f160284ca8dd4113f376c6ae87f2bb539cbb78f6ad078c7f7f833a0a5febf",
+      "revision": 704,
+      "state_digest": "a2e99c361032f00add00d6f6991cf14bbf92b1aa9cf1471b449f3da15efbdd04"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "11ecc33392ed5ae8cd49659cb24ed645a5bb066d72daad4cb1ec2035a2d842c1",
+      "hash": "5c7b5f60cdce88d113d0c143371cc008e4b4c2319b532bbb3cd0455fd534d06e",
+      "op": "transition",
+      "payload": {
+        "candidate": {
+          "agent_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+          "artifacts": [
+            {
+              "kind": "CompileReview",
+              "sha256": "cccbecbebfea36fb4639c9d08db48868e16e696a9cc9efb54cc91f52367ffba7",
+              "slot": "compile_review:project:project:CompileReview",
+              "uri": "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json"
+            }
+          ],
+          "batch": 1,
+          "checks": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/module-receipt.evidence.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/compile-semantics.evidence.json",
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/avir-validator.stdout.json",
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/build-verify.stdout.json"
+              ],
+              "id": "compile_semantics",
+              "status": "PASS"
+            }
+          ],
+          "handoffs": [],
+          "input_digest": "d2166514e8c91be915678c2279735827cecf88963ec3dea2c991d087592327ef",
+          "module_receipts": [
+            {
+              "name": "video-prompt-compiler",
+              "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+              "version": "1.17.6"
+            }
+          ],
+          "result_sha256": "bd6021f743edf0f0d262f368c47a49fd87f7784de2b2e44f3dc52027d3c83d8b",
+          "result_uri": "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/role-result.json",
+          "schema": "candidate-result/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "unresolved": []
+        },
+        "event": {
+          "actor_id": "/root/host_bridge/v6_6c3f3e0d88d5182c5cb2b850",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:39:45.767427Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "HOSTFIX-COMPILE-SEMANTICS_SUBMIT_1",
+          "evidence": [
+            "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/role-result.json"
+          ],
+          "expected_revision": 704,
+          "from_state": "RUNNING",
+          "object_version": 8,
+          "reason": "RESULT_RECEIVED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "to_state": "RESULT_SUBMITTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "2737477bbf83b310bfc4610e8a945df3f55be4c6d7722a3a080d7ee8c69ca473",
+      "revision": 705,
+      "state_digest": "b8a1000aa960f4fb4005ad3089207bd22a2108e809f4e2a24b9ba6b0e8a4f459"
+    },
+    {
+      "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+      "commands_digest": "3bbc15fb036e9c5135d952cb7db279ecbfabcfdad7c26f6b42e7ddda2176cd8a",
+      "hash": "b32959a112706293e21679d50baf2dcd724122b0f32ffdfeb7a59ac789e8b1fb",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:39:45.930397Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "HOSTFIX-COMPILE-SEMANTICS_SUBMIT_1-validate",
+          "evidence": [],
+          "expected_revision": 705,
+          "from_state": "RESULT_SUBMITTED",
+          "object_version": 9,
+          "reason": "VALIDATION_STARTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "to_state": "VALIDATING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "5c7b5f60cdce88d113d0c143371cc008e4b4c2319b532bbb3cd0455fd534d06e",
+      "revision": 706,
+      "state_digest": "b1447f1487a2d6be339a10484fc2a0424a0cc39a379dd95fc914895ba49c0052"
+    },
+    {
+      "artifacts_digest": "e680db610ed9af9b69f35ad8d5e3f72d3c13ad0628e3f5f0bcdd889c0d17e445",
+      "commands_digest": "27f5281683ce7507da0c6aea63ff4c9d7765370ade95b543785802560acee92d",
+      "hash": "a82f3adce625bb8d5c36b8dabe96a503649d9711237a22aea2dde6bb42b14e8c",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T17:39:46.135493Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/module-receipt.evidence.json"
+              ],
+              "id": "module_receipt",
+              "status": "PASS"
+            },
+            {
+              "evidence": [
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/compile-semantics.evidence.json",
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/avir-validator.stdout.json",
+                "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/evidence/build-verify.stdout.json"
+              ],
+              "id": "compile_semantics",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "HOSTFIX-COMPILE-SEMANTICS_SUBMIT_1-validation",
+          "evidence": [
+            "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/role-result.json"
+          ],
+          "expected_revision": 706,
+          "from_state": "VALIDATING",
+          "object_version": 10,
+          "reason": "VALIDATION_PASSED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_01b83d9bf3bd9032fd655d18",
+          "to_state": "ACCEPTED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "b32959a112706293e21679d50baf2dcd724122b0f32ffdfeb7a59ac789e8b1fb",
+      "revision": 707,
+      "state_digest": "23dffa421ed108e32b5792a5527cb3c787fe1157ada7ed1426bcce79596ba642"
+    }
+  ]
+}

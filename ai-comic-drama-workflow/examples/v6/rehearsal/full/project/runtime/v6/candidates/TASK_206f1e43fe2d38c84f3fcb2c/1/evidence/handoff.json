@@ -1,0 +1,41 @@
+{
+  "channel": "artifact",
+  "requirement_id": "UP_10aaee2a8411c3ed15da2c11",
+  "source_slot": "canon:project:project:Canon",
+  "source_version": 12,
+  "target_pointer": "",
+  "target_slot": "screenplay:project:project:ScriptIR",
+  "source_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "target_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+  "target_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "mapping": [
+    {
+      "source_pointer": "/source_requirements/0",
+      "target_pointers": [
+        "/contract/clauses/0",
+        "/scenes/0/heading",
+        "/scenes/0/blocks/0/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/1",
+      "target_pointers": [
+        "/contract/clauses/1",
+        "/scenes/0/blocks/0/text",
+        "/scenes/0/blocks/1/text",
+        "/scenes/0/blocks/2/text"
+      ]
+    },
+    {
+      "source_pointer": "/source_requirements/2",
+      "target_pointers": [
+        "/contract/clauses/2",
+        "/narrative/events",
+        "/narrative/reveal_order",
+        "/scenes/0/blocks"
+      ]
+    }
+  ],
+  "finding": "冻结 V6 Canon 的三项硬要求逐项落在 ScriptIR；原生 Canon 引用使用当前正式 V5 字节哈希。"
+}

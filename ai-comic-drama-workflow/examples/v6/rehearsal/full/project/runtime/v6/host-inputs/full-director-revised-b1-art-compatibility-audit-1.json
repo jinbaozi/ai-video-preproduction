@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVISED_B1_ART_COMPATIBILITY_AUDIT_1",
+  "expected_revision": 131,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVISED_B1_ART_COMPATIBILITY_AUDIT_1",
+    "task_id": "TASK_eb40ac04d3e0f0c02f0bfb76",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_dce1b005afdfe69d9209785e",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVISED_B1_V1_AUDIT_1",
+    "type": "PROGRESS",
+    "summary": "Read-only Art compiler compatibility path for Director 1.2 timeline actions",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-revised-b1-art-compatibility-audit.txt"
+    ],
+    "at": "2026-09-25T13:36:06.312428Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-revised-b1-art-compatibility-audit.txt",
+    "subject_sha256": "a3e26a250df601239422478ebb069648987d3490f36776ac8b2571c987879032"
+  }
+}

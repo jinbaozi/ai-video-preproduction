@@ -1,0 +1,37 @@
+{
+  "art_source": {
+    "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+    "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71"
+  },
+  "target_artifact": {
+    "uri": "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/visual-image-prompt.json",
+    "sha256": "18252d14a5feaba69c3798764e8393248fb4d86585bc05513b0348c6a3fee615"
+  },
+  "locks": [
+    {
+      "ref": "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+      "finding": "正文以同一位甲和同一套深石墨灰无标识外层作为三镜锚点；面部留在画外，未将未核面容固定为身份。"
+    },
+    {
+      "ref": "右手及袖口不遮住交接的信封",
+      "finding": "正文显式展示甲的完整右手与收紧袖口，信封主体和闭合封口不被指节或袖口遮挡；单帧只在乙接稳前。"
+    },
+    {
+      "ref": "/references/0 PLAN_CHAR_JIA",
+      "finding": "ArtIR 中此参考 status=planned，file/sha256 均为 null；当前没有真实参考图文件、哈希或附件槽位，也没有宣称身份视觉验收。"
+    },
+    {
+      "ref": "/assets/0 design",
+      "finding": "深石墨灰无标识哑面平织外层保留；未为甲补写年龄、性别、职业或人物关系。"
+    }
+  ],
+  "contract": {
+    "uri": "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/production-contract.json",
+    "sha256": "53e0a43a6246d0c4d56a079232d89a7321867536f91897804e8a9b36d735d375",
+    "validator_status": "STATIC_VALID"
+  },
+  "prompt_text_matches_contract": true,
+  "reference_file_binding": "NONE_PLANNED_ONLY",
+  "image_generation": "NOT_RUN",
+  "visual_review": "NOT_RUN"
+}

@@ -1,0 +1,21 @@
+{
+  "actual_camera_trajectory_validation": "NOT_RUN",
+  "actual_character_motion_review": "NOT_RUN",
+  "actual_contact_review": "NOT_RUN",
+  "actual_media_review": "NOT_RUN",
+  "camera_position_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "control_assets": [],
+  "generated_images": false,
+  "generated_video": false,
+  "keyframe_requests": 14,
+  "lens_basis": "authored_proxy",
+  "planned_frames": 121,
+  "schema": "control-projection-limit/1.0",
+  "status": "PLANNED_PROJECTION",
+  "undetermined_camera_frames": 0,
+  "vertical_fov_deg": 50
+}

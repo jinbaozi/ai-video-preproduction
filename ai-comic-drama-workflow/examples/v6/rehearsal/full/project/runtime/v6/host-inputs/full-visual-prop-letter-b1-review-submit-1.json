@@ -1,0 +1,38 @@
+{
+  "command_id": "FULL_VISUAL_PROP_LETTER_B1_REVIEW_SUBMIT_1",
+  "expected_revision": 257,
+  "review": {
+    "schema": "review-record/6.0",
+    "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+    "batch": 1,
+    "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_1e5cb2388223de5fbb590de3",
+    "reviewer_dispatch_id": "review-c8e74a8d5ee785984f6ab12f",
+    "candidate_digest": "5ac9f8113f0141f4b4ac8339361c1427baa6b5cc9c2e4b63c2e2e6fea08d06ac",
+    "checks": [
+      {
+        "id": "module_receipt",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/module-receipt.review.json"
+        ]
+      },
+      {
+        "id": "image_prompt_contract",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/image-prompt-contract.review.json",
+          "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/native-contract-validation.raw.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/handoff.review.json"
+        ]
+      }
+    ],
+    "failure_owner": null,
+    "at": "2026-09-25T15:21:27.405500Z"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "art_source": {
+    "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+    "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71"
+  },
+  "target_artifact": {
+    "uri": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/visual-image-prompt.json",
+    "sha256": "1bb1b80a9216b11980f26eb0e8c82a37ca040026a2db1e08a66f04b2c7608b6a"
+  },
+  "locks": [
+    {
+      "ref": "同一实体 PROP_LETTER 跨交接、验封、入包三镜连续",
+      "finding": "正文把同一 PROP_LETTER 的纸色、轮廓、纸纹和闭合折叠封口指定为 S_HANDOFF、S_SEAL、S_STOW 的共同外观锚点；本图只呈现一封。"
+    },
+    {
+      "ref": "封口从头至尾完整且未拆；不露出内页",
+      "finding": "正文要求封舌平贴、边缘连续、封口从头至尾完整未拆，且无掀起、破口或内页外露；没有可读文字。"
+    },
+    {
+      "ref": "8500毫秒后完全在背包内，9000毫秒终帧不外露",
+      "finding": "正文将 8500 毫秒后完全在背包内及 9000 毫秒终帧不外露保留为后续镜头连续性约束；这张静态道具图只展示入包前，实际终帧尚未审阅。"
+    },
+    {
+      "ref": "/references/2 PLAN_PROP_LETTER",
+      "finding": "ArtIR 中 status=planned，file/sha256 均为 null；没有虚构参考文件、哈希、附件槽位或视觉验收。"
+    },
+    {
+      "ref": "/assets/2 design and MAT_PAPER",
+      "finding": "中性偏暖哑面纸质、普通折叠封口、无可读文字；未加入信件内容、来历或可辨地点。"
+    }
+  ],
+  "contract": {
+    "uri": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/production-contract.json",
+    "sha256": "ff0498d54ae862d2ba9f344df7deaafd136de3b8bde86b1ea95ef6f67528d401",
+    "validator_status": "STATIC_VALID"
+  },
+  "prompt_text_matches_contract": true,
+  "reference_file_binding": "NONE_PLANNED_ONLY",
+  "image_generation": "NOT_RUN",
+  "visual_review": "NOT_RUN",
+  "temporal_lock_interpretation": "The single still shows the pre-stow asset; 8500 ms and 9000 ms are bound as downstream continuity, with no video outcome claimed."
+}

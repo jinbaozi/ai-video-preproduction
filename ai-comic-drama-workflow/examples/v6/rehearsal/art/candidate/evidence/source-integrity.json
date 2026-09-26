@@ -1,0 +1,89 @@
+{
+  "binding": {
+    "canon_revision": "1",
+    "canon_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+    "director_revision": 3,
+    "director_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+    "director_uri": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json"
+  },
+  "inputs": [
+    {
+      "actual_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "verified": true,
+      "version": 12
+    },
+    {
+      "actual_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+      "verified": true,
+      "version": 21
+    },
+    {
+      "actual_sha256": "15bab14a9feac3670afc5000536f9beb444b7b1ee2b41af33f154e905b92dc80",
+      "sha256": "15bab14a9feac3670afc5000536f9beb444b7b1ee2b41af33f154e905b92dc80",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_0560d46ecc764c68ee9a590e.json",
+      "verified": true,
+      "version": 0
+    }
+  ],
+  "notes": [
+    "V5 formal input bytes and V6 candidate input bytes are separately frozen; ArtIR binds the V6 candidate inputs from this dispatch.",
+    "DirectorIR has no shot phases; art events are empty and the action sequence remains in the bound DirectorIR timeline."
+  ],
+  "original_source": {
+    "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "uri": "sources/SRC_69a71adcfaca/source.txt"
+  },
+  "resources": [
+    {
+      "actual_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md",
+      "verified": true
+    },
+    {
+      "actual_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md",
+      "verified": true
+    },
+    {
+      "actual_sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md",
+      "verified": true
+    },
+    {
+      "actual_sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md",
+      "verified": true
+    }
+  ],
+  "scope": "SC_RAIN_NIGHT",
+  "status": "PASS",
+  "v5_formal_inputs": [
+    {
+      "actual_sha256": "4642c6289965a0335f0ff6450f3e20aaea375383d2a56ec0464cea462987aa8d",
+      "expected_sha256": "4642c6289965a0335f0ff6450f3e20aaea375383d2a56ec0464cea462987aa8d",
+      "slot": "director",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/director/1af0791d746091fcf7027a41af573532c196d843be156afdc7572e18d9024f04/native/262e23f487752f69_director-ir.json",
+      "verified": true
+    },
+    {
+      "actual_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "expected_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+      "slot": "canon",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/canon/4bbb635979d6feb720b76de93a3e508572b5751b3c06670dc4886061248692c2/native/befdfe311a8fed6f_canon.json",
+      "verified": true
+    }
+  ],
+  "v6_input_digest": "9e3d7e2becb98d9775c71657a1c656d4abf3235710c31223a214ee06a4aa000b",
+  "v6_input_revision": 86
+}

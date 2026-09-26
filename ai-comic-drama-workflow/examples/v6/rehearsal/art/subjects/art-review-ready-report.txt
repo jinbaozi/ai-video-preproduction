@@ -1,0 +1,1 @@
+The three evidence files and review-record.json are now written under runtime/v6/reviews/TASK_0560d46ecc764c68ee9a590e/1. All three checks are PASS, failure_owner=null. I’m doing the strict review-record schema check and SHA confirmation now; no write blocker.

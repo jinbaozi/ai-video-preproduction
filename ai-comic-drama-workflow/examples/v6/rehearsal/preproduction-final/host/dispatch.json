@@ -1,0 +1,23 @@
+{
+  "command_id": "HOSTFIX-PREPRODUCTION-QA_DISPATCH_1",
+  "expected_revision": 710,
+  "receipt": {
+    "action_id": "dispatch-3b5c74395ace78b141d2a3d1",
+    "agent_id": "/root/host_bridge/v6_8831cca9ea8430c5dd325247",
+    "batch": 1,
+    "dispatch_id": "dispatch-3b5c74395ace78b141d2a3d1",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T17:40:34.197449Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T17:40:34.197449Z",
+    "status": "RUNNING",
+    "task_digest": "d8a28269be690901a8f31ba50bd8bbc626b82257748843048d8ce82477fa52e0",
+    "task_id": "TASK_5940525a2a35543b33e08b18",
+    "tool_result_sha256": "6270942cf223c133c45f5d76249d61ac9a312dd3366fe30779731984ccb5cdaf",
+    "tool_result_uri": "runtime/v6/host-evidence/6270942cf223c133c45f5d76249d61ac9a312dd3366fe30779731984ccb5cdaf.json"
+  }
+}

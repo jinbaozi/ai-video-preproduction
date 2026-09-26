@@ -1,0 +1,1 @@
+发现锁定原生 DirectorIR 1.2 校验器强制 `/scenes/0/coordinate_system` 为 `right-handed:X-right,Y-depth,Z-up;meters`；时间轴 1.2 又固定 `x-right,y-up,z-depth`，因此不能把两个原生表示的轴顺序改成字面相同而仍通过当前锁定 Schema。我将保持 schema 必需的静态坐标 [0,-2.8,1.2]，明确换算到时间轴 [0,1.2,-2.8]，把所有可进入编译正文的 camera_operations 起止文字改成时间轴坐标，并用逐项证据证明同一物理机位。这样处理原始 FAIL 的正文数值冲突，且原生 STATIC_VALID。

@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_CAMERA_DECISION_COMMAND_1",
+  "expected_revision": 177,
+  "message": {
+    "at": "2026-09-25T13:28:00.073262Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-camera-decision.txt"
+    ],
+    "in_reply_to": "CONTROL_CAMERA_NODE_BLOCKER_1",
+    "message_id": "CONTROL_CAMERA_DECISION_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "24a21298ba9b1345bd4c3bd91a0f7c6383c1dab48f3affc102583181bd135940",
+    "subject_uri": "runtime/v6/host-inputs/control-camera-decision.txt",
+    "summary": "Kernel owner held Control RUNNING and forbade final PASS until deterministic camera-track derivation or explicit upstream revision.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

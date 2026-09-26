@@ -1,0 +1,142 @@
+{
+  "avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+  "corrected_end_pointer": "/shots/0/end_state/4/visible_parts",
+  "corrected_end_value": [],
+  "letter_10500ms_visible_parts": [],
+  "letter_12000ms_visible_parts": [],
+  "mapping_rule": "STATE_SAMPLE.BOUNDARY_VISIBILITY.1.1",
+  "media_review": "NOT_RUN",
+  "prior_accepted_control_avir_sha256": "24088aeb070d1a0a3b84a9692a0cf9a62f70085afaf576eb3db8ffc034ec0a33",
+  "prior_wrong_end_value": [
+    "body",
+    "prop"
+  ],
+  "rows": [
+    {
+      "at_ms": 0,
+      "avir_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ],
+      "entity_id": "CHAR_JIA",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ]
+    },
+    {
+      "at_ms": 0,
+      "avir_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ],
+      "entity_id": "CHAR_YI",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ]
+    },
+    {
+      "at_ms": 0,
+      "avir_visible_parts": [],
+      "entity_id": "ENV_RAIN_NIGHT",
+      "status": "MATCH",
+      "timeline_visible_parts": []
+    },
+    {
+      "at_ms": 0,
+      "avir_visible_parts": [
+        "body"
+      ],
+      "entity_id": "PROP_BACKPACK",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "body"
+      ]
+    },
+    {
+      "at_ms": 0,
+      "avir_visible_parts": [
+        "body",
+        "seal"
+      ],
+      "entity_id": "PROP_LETTER",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "body",
+        "seal"
+      ]
+    },
+    {
+      "at_ms": 12000,
+      "avir_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ],
+      "entity_id": "CHAR_JIA",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ]
+    },
+    {
+      "at_ms": 12000,
+      "avir_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ],
+      "entity_id": "CHAR_YI",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "face",
+        "eyes",
+        "hands",
+        "body"
+      ]
+    },
+    {
+      "at_ms": 12000,
+      "avir_visible_parts": [],
+      "entity_id": "ENV_RAIN_NIGHT",
+      "status": "MATCH",
+      "timeline_visible_parts": []
+    },
+    {
+      "at_ms": 12000,
+      "avir_visible_parts": [
+        "body"
+      ],
+      "entity_id": "PROP_BACKPACK",
+      "status": "MATCH",
+      "timeline_visible_parts": [
+        "body"
+      ]
+    },
+    {
+      "at_ms": 12000,
+      "avir_visible_parts": [],
+      "entity_id": "PROP_LETTER",
+      "status": "MATCH",
+      "timeline_visible_parts": []
+    }
+  ],
+  "schema": "control-boundary-visibility/1.0",
+  "storyboard_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f"
+}

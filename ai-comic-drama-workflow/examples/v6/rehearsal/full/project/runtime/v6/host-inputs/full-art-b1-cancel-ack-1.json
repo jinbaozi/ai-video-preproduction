@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_CANCEL_ACK_1",
+  "expected_revision": 119,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_CANCEL_ACK_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_ART_B1_CANCEL_ACK_REQUEST_1",
+    "type": "CANCEL_ACK",
+    "summary": "Creator stops blocked Art batch-1 candidate before Director-owned upstream repair",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-cancel-ack.txt"
+    ],
+    "at": "2026-09-25T13:22:46.293707Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-cancel-ack.txt",
+    "subject_sha256": "89d2a795a90990f4855bbe45b960e4c4d4bdbc0b062015e607235fb7b7247435"
+  }
+}

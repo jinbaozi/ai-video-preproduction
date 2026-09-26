@@ -1,0 +1,55 @@
+{
+  "bound_artifact_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+  "bound_input_digest": "9beec88c19047a39bc70abdca4fcce5d929b7839f54ed57eac81a820a49f5829",
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/coordinate-repair.json"
+      ],
+      "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+      "source_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "source_slot": "canon:project:project:Canon",
+      "source_uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_pointers": [
+        "/scenes/0/space",
+        "/contract/clauses/0",
+        "/timeline/actions",
+        "/shots/0/end_state"
+      ],
+      "target_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "target_slot": "director:project:project:DirectorIR",
+      "target_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/state-consistency.json",
+        "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/evidence/coordinate-repair.json"
+      ],
+      "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+      "source_sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+      "source_version": 14,
+      "target_pointer": "",
+      "target_pointers": [
+        "/contract/clauses",
+        "/beats",
+        "/timeline/actions",
+        "/shots/0/narrative"
+      ],
+      "target_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+      "target_slot": "director:project:project:DirectorIR",
+      "target_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json"
+    }
+  ],
+  "status": "PASS"
+}

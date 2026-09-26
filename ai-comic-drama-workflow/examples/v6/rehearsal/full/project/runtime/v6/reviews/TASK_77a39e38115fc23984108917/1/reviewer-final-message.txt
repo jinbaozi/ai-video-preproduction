@@ -1,0 +1,3 @@
+独立审阅完成：[review-record.json](/private/tmp/ai-video-v6-full-demo/project/runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/review-record.json)，SHA-256 `70e25ea7ad057559367e6e01a2ed7c3fe77a5b96680ddcc66c8746b4804de435`。`module_receipt`、`image_prompt_contract`、`handoff` 均为 **PASS**。制作合同独立校验为 `STATIC_VALID`；图像生成和视觉审看仍为 `NOT_RUN`。
+
+结果消息原文已保存至 [reviewer-result-message.txt](/private/tmp/ai-video-v6-full-demo/project/runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/reviewer-result-message.txt)。

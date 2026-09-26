@@ -1,0 +1,1 @@
+内核负责人已确认 V5 快照重定位使 Director/Storyboard 两份已接受 native semantic PASS 失去原摘要绑定，将由 V6 状态门正式标为 STALE 并重派新批次。请现在停止 Control 候选推进，冻结你已产生的包/诊断及 SHA，返回最终 BLOCKER 与明确 CANCEL_ACK（指明 task/batch、原 dispatch ID、未提交 RESULT、未使用付费接口），不修改正式状态；我登记消息后调用 run 触发正式失效。旧候选保留历史。

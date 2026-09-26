@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "f8122fec4a989284f474cb97bdb6227d13a13248892e8b73252e7e6ae134146b",
-  "file_count": 108,
+  "archive_sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+  "file_count": 109,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 28670,
-      "sha256": "42e35a22b97f8c01914524ad070504ebedefdc584752de9978fcd49e7e0823ad"
+      "bytes": 29752,
+      "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -84,8 +84,8 @@
       "sha256": "7c7a99904463d5e1d1f23ab2a482250a353e420fe89ad301500648dbae74ae52"
     },
     "image-prompt-optimizer/references/cooperation-v5.md": {
-      "bytes": 2705,
-      "sha256": "8e74b3a9687124c3be11adb47b0b858c1493264d48e60b6fb0d0d2c4d391985e"
+      "bytes": 4311,
+      "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
     },
     "image-prompt-optimizer/references/current-contract.md": {
       "bytes": 2877,
@@ -152,8 +152,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/shot-control.md": {
-      "bytes": 32265,
-      "sha256": "99992563303662316ac726dd7655c99e512d718c0dd8b8e4374d2a13a131975c"
+      "bytes": 32544,
+      "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
     },
     "image-prompt-optimizer/references/sources.md": {
       "bytes": 19184,
@@ -171,13 +171,17 @@
       "bytes": 5579,
       "sha256": "5ee3c4a8d4021b06e75d5754c62044e5c7fc87b65030337ba2715c1c434dafe0"
     },
+    "image-prompt-optimizer/references/v5-reads.json": {
+      "bytes": 422,
+      "sha256": "c1029702ff3f7543a44d892c857028eb79ff99814bc7d36159d79c6d6ed415ed"
+    },
     "image-prompt-optimizer/references/visual-anchor-styles.md": {
       "bytes": 7711,
       "sha256": "47a40e20a6440e616bc4a76f9351d518b553e2b8f0467d0ad3c05cdc1034d066"
     },
     "image-prompt-optimizer/registries/control-capabilities.json": {
-      "bytes": 3516,
-      "sha256": "4915f01d51c05455093bd1025e5486ad44ac93134084facdf8b9e8856b2bba0a"
+      "bytes": 3515,
+      "sha256": "f4a719b75c1225c9c001f4bc9e53f96a45f9c81e3f5160505d02d05f48b7731d"
     },
     "image-prompt-optimizer/requirements.txt": {
       "bytes": 19,
@@ -437,5 +441,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.15.5"
+  "version": "1.15.7"
 }

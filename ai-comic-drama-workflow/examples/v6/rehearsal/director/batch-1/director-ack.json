@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_ACK_COMMAND_1",
+  "expected_revision": 37,
+  "message": {
+    "at": "2026-09-25T10:46:07.938608Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/tasks/TASK_b1e7ff7ce83d7a32bfa09935.json"
+    ],
+    "in_reply_to": "DIRECTOR_CHILD_GUIDANCE_1",
+    "message_id": "DIRECTOR_ACK_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+    "subject_sha256": "8aa240367a5cea37dae96952766df8729da950a7ee4b335122d68acd9e2350d8",
+    "subject_uri": "runtime/v6/messages/8aa240367a5cea37dae96952766df8729da950a7ee4b335122d68acd9e2350d8.json",
+    "summary": "Director verified four locked Skill resources and input hashes; retained sole candidate authorship and read-only contract assistance.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "ACK"
+  }
+}

@@ -4,7 +4,7 @@ from pathlib import Path
 from ai_comic_drama_workflow.v5 import V5Kernel
 from ai_comic_drama_workflow.v5_modules import ROOT,read,digest_file,load_python
 from ai_comic_drama_workflow.v5_adapters import encoded
-from test_v5_workflow import save,seed_until,submit_fixture,result_for
+from .test_v5_workflow import save,seed_until,submit_fixture,result_for
 sys.path.insert(0,str(ROOT/'scripts'))
 from screenplay_fixture import screenplay,director_mapping
 
@@ -42,6 +42,8 @@ class ScreenplayIntegrationTests(unittest.TestCase):
  def test_native_roundtrip_snapshots_originals(self):
   task=self.stage('director');self.assertTrue(task['handoff']['required_handoffs']);submit_fixture(self.k,self.author,task)
   self.assertTrue(self.k.valid('screenplay'));self.assertTrue(self.k.valid('director'))
+  promoted=self.k.data('director');record=self.k.state['artifacts']['director']
+  self.assertEqual(record['handoff'][0]['review']['director_sha256'],self.k.screenplay_protocol().content_hash(promoted))
   value=self.k.data('screenplay');self.assertTrue(Path(value['sources'][0]['uri']).is_file());self.assertTrue(Path(value['canon']['ref']['uri']).is_file())
  def test_screenplay_revision_invalidates_director(self):
   task=self.stage('director');submit_fixture(self.k,self.author,task);self.k.revise('screenplay');self.assertFalse(self.k.valid('director'));self.assertEqual(self.k.run()['task']['kind'],'screenplay')

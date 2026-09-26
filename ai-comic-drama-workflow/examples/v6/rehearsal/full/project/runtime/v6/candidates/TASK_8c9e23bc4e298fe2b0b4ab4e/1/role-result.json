@@ -1,0 +1,78 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+  "context_fingerprint": "8c9e23bc4e298fe2b0b4ab4e2343dbc0ccee5c849b1b4bc06350a0803a3dda64",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/visual-image-prompt.json",
+  "artifact_sha256": "1bb1b80a9216b11980f26eb0e8c82a37ca040026a2db1e08a66f04b2c7608b6a",
+  "production_contract": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/production-contract.json",
+  "understanding": [
+    "同一封 PROP_LETTER 跨三镜连续，未拆信的完整闭合封口和中性偏暖纸材来自已接受 ArtIR。",
+    "PLAN_PROP_LETTER 仍为 planned，没有真实参考文件；本张只给入包前的静态外观，8500/9000 毫秒为后续镜头终态锁。"
+  ],
+  "prompt": "为道具资产 PROP_LETTER 制作一张单一静态的信封外观锚图，供 S_HANDOFF、S_SEAL、S_STOW 沿用同一封信的纸色、轮廓、纸纹与封口形制。本张是入包前的道具展示：只见一封普通纸质信封平稳置于无标识的中性承托面，从单一略俯视视点拍摄，使整张信封和朝上的闭合折叠封口完整入画；不表现交接、验封或入包的先后动作。信封采用中性偏暖的哑面纸色与细微纸纹；封舌沿折线平贴，边缘连续，封口从头至尾完整且未拆，无掀起、破口或内页外露。信体上没有可读文字、邮戳、签名、贴纸或图案，也不加入未给出的信件内容或来历。背景以低饱和蓝灰和低频雨夜气氛退后，不出现可辨地点、建筑、年代或室内外线索；柔和画外环境光让封口与纸纹可辨，纸色与背景分离，承托接触自然，不以反光或遮挡吞没封口。画面只呈现这一封，不添加第二封信、背包、人物或其他道具；此图只锁定入包前外观，后续沿用同一实体，8500毫秒后完全在背包内，9000毫秒终帧不再外露。",
+  "params": {
+    "target_model": null,
+    "surface": "generic",
+    "aspect_ratio": "4:3",
+    "requested_pixels": null,
+    "reference_files": []
+  },
+  "quality_check": "静态核对仅一封信、纸材与折叠封口、未拆无内页、无可读文字和地点臆造；8500 毫秒后入包与 9000 毫秒终帧不可见已绑定为后续检查。图片与视频尚未生成，视觉检查均为 NOT_RUN。",
+  "checks": [
+    {
+      "ref": "同一实体 PROP_LETTER 跨交接、验封、入包三镜连续",
+      "finding": "正文把同一 PROP_LETTER 的纸色、轮廓、纸纹和闭合折叠封口指定为 S_HANDOFF、S_SEAL、S_STOW 的共同外观锚点；本图只呈现一封。"
+    },
+    {
+      "ref": "封口从头至尾完整且未拆；不露出内页",
+      "finding": "正文要求封舌平贴、边缘连续、封口从头至尾完整未拆，且无掀起、破口或内页外露；没有可读文字。"
+    },
+    {
+      "ref": "8500毫秒后完全在背包内，9000毫秒终帧不外露",
+      "finding": "正文将 8500 毫秒后完全在背包内及 9000 毫秒终帧不外露保留为后续镜头连续性约束；这张静态道具图只展示入包前，实际终帧尚未审阅。"
+    },
+    {
+      "ref": "/references/2 PLAN_PROP_LETTER",
+      "finding": "ArtIR 中 status=planned，file/sha256 均为 null；没有虚构参考文件、哈希、附件槽位或视觉验收。"
+    },
+    {
+      "ref": "/assets/2 design and MAT_PAPER",
+      "finding": "中性偏暖哑面纸质、普通折叠封口、无可读文字；未加入信件内容、来历或可辨地点。"
+    }
+  ],
+  "validator": {
+    "status": "STATIC_VALID",
+    "report_uri": "runtime/v6/candidates/TASK_8c9e23bc4e298fe2b0b4ab4e/1/evidence/contract-validation.json",
+    "report_sha256": "80937e259f6475cd53aa0626527f3176a736fa40b05959aff7523dd65581ec8c"
+  },
+  "module_receipt": {
+    "name": "image-prompt-optimizer",
+    "version": "1.15.7",
+    "skill_sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md",
+        "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md",
+        "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md",
+        "sha256": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md",
+        "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+      }
+    ]
+  },
+  "conflicts": [],
+  "unresolved": [],
+  "complete": true
+}

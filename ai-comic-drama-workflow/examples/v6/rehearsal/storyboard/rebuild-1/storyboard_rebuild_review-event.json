@@ -1,0 +1,23 @@
+{
+  "command_id": "STORYBOARD_REBUILD_REVIEW_DISPATCH_1",
+  "expected_revision": 270,
+  "receipt": {
+    "action_id": "review-5dbb503b9d53527179e37e01",
+    "agent_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+    "batch": 1,
+    "dispatch_id": "review-5dbb503b9d53527179e37e01",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T14:24:22.182206Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T14:24:22.182206Z",
+    "status": "RUNNING",
+    "task_digest": "8c4847c72053fc08eb7750855da4febbf3b9b4d0e6e797707445792a4d4ef2d7",
+    "task_id": "TASK_afc04f54b23b01071a0b14e3",
+    "tool_result_sha256": "353fbf61ec6cde6cdaf832e8a466e6216887f1b42480908ab532371905e846a5",
+    "tool_result_uri": "runtime/v6/host-evidence/353fbf61ec6cde6cdaf832e8a466e6216887f1b42480908ab532371905e846a5.json"
+  }
+}

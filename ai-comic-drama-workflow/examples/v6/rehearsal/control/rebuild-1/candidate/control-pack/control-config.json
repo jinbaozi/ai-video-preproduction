@@ -1,0 +1,12 @@
+{
+  "controls": [],
+  "lenses": {
+    "S1": {
+      "aspect": 1.7777777777777777,
+      "basis": "authored_proxy",
+      "evidence": "Current accepted StoryboardIR S1 explicitly fixes start_m=end_m=[0,1.2,-2.8], look_at_m=[0,1.0,0], locked operation CAM_LOCKED, and 1280x720 output. This 50-degree vertical FOV is an authored review proxy; no calibrated sensor or focal length is supplied. It does not prove native model control or measured projection.",
+      "vertical_fov_deg": 50
+    }
+  },
+  "schema": "shot-control-config/0.2"
+}

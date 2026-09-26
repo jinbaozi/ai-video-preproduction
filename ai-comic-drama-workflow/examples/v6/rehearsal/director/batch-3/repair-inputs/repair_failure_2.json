@@ -1,0 +1,14 @@
+{
+  "batch": 2,
+  "candidate_digest": null,
+  "check_evidence": [
+    "runtime/v6/reviews/TASK_b1e7ff7ce83d7a32bfa09935/2/handoff.review.json"
+  ],
+  "code": "VALUEERROR",
+  "failed_check": "handoff",
+  "message": "Independent review failed",
+  "node_id": "director",
+  "reviewer_failure_owner": "director",
+  "submission_digest": "ac61ff4c11e397dd4d36608a39c652799c29a735eb3425afc6a65b562cfa9080",
+  "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+}

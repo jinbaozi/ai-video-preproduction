@@ -1,0 +1,34 @@
+{
+  "schema": "review-record/6.0",
+  "task_id": "TASK_77a39e38115fc23984108917",
+  "batch": 1,
+  "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_0b1cc97fa601a675d86e59c8",
+  "reviewer_dispatch_id": "review-8b198aac69acdc1439c9b8fb",
+  "candidate_digest": "7b6a62734a962db4f09e13bc743013befaa730ea13338a29db6e0a3798946bed",
+  "checks": [
+    {
+      "id": "module_receipt",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/module-receipt.review.json"
+      ]
+    },
+    {
+      "id": "image_prompt_contract",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/image-prompt-contract.review.json",
+        "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/native-contract-validation.raw.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/reviews/TASK_77a39e38115fc23984108917/1/handoff.review.json"
+      ]
+    }
+  ],
+  "failure_owner": null,
+  "at": "2026-09-25T15:33:00.400648Z"
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B2_PROGRESS_1",
+  "expected_revision": 196,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_DIRECTOR_B2_PROGRESS_1",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "batch": 2,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_ae88af1ac4163d4e37222aa4",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_DIRECTOR_B2_REPAIR_1",
+    "type": "PROGRESS",
+    "summary": "Creator verified frozen inputs and reviewer defect; batch 2 repair in progress",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-director-b2-progress-1.txt"
+    ],
+    "at": "2026-09-25T14:35:45.277077Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-director-b2-progress-1.txt",
+    "subject_sha256": "b119a47346f858ccc7de830646b5520310dcf2f84fef8720469be44fbc828a1f"
+  }
+}

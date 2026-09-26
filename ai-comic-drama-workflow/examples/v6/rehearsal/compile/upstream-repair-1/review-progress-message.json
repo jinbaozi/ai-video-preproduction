@@ -1,0 +1,21 @@
+{
+  "command_id": "COMPILEREPAIR_REVIEWER_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 487,
+  "message": {
+    "at": "2026-09-25T15:56:54.287479Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/compilerepair-reviewer-progress.txt"
+    ],
+    "in_reply_to": null,
+    "message_id": "COMPILEREPAIR_REVIEWER_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_3d81cafa7cc516bd7f459aaf",
+    "subject_sha256": "1586e32419a6b529be9424357c6bbf636d7f67c7b8f93b1947bcfeace0a8f64a",
+    "subject_uri": "runtime/v6/host-inputs/compilerepair-reviewer-progress.txt",
+    "summary": "Compile reviewer locked validate/verify/replay 均通过、旧机位冲突行已一致，正在核全部输入/资源/文件/交接。",
+    "task_id": "V6_compile_3d390e1ba62af9b653ce",
+    "type": "PROGRESS"
+  }
+}

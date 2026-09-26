@@ -1,5 +1,6 @@
 {
   "schema_version": "5.0",
+  "release": "0.10.0",
   "workflow_id": "ai-comic-drama-v5",
   "execution_mode": "current-agent",
   "phases": [

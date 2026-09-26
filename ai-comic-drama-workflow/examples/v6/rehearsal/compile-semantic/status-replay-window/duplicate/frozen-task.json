@@ -1,0 +1,280 @@
+{
+  "blocked_segments": [],
+  "brief": {
+    "inputs": [
+      {
+        "pointers": [
+          ""
+        ],
+        "sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+        "slot": "storyboard",
+        "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/a2a95587db81b0ac_storyboard-ir.json"
+      }
+    ],
+    "instructions": [
+      "Read the referenced native files and their schemas.",
+      "Reuse IDs and declared locks; report owner conflicts by field.",
+      "Keep source facts, observations and design additions distinct."
+    ],
+    "ownership": {
+      "art": "world, set topology, costume, material and practical light sources",
+      "canon": "source facts, stable IDs, user decisions and asset registry",
+      "compiler": "loss-aware model adaptation; no semantic invention",
+      "director": "audiovisual realization of screenplay constraints, blocking and explicitly locked shot/performance fields",
+      "screenplay": "story causality, character choices, knowledge, reveal constraints, dialogue and outcomes",
+      "storyboard": "unlocked shot/panel/timing details and continuity"
+    },
+    "role": "compile-review",
+    "schema": "role-brief/1.0",
+    "scope": {}
+  },
+  "build": {
+    "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+    "files": {
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/attachments.json": "5d7e757f1b79ef1ae7e3b2e5cd233e280542cadfea91c4b5347e99c596d4173e",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/avir.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/artifact.json": "5cfd141e07964f5a6977c6472d3b72b6d6cfd288c346a1ed23e6c649c3b85148",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/avir.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/capability-snapshot.json": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/compile-manifest.json": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/constraint-coverage.json": "72e1ae71f01a18ac18489852df0f71d45f57e124df97cef61c7b9f8052cf418b",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/context-ir.json": "7d2e2717d80727f9c197c1bfaee7bfe177a47732208109de833ed68dc2110264",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/detail-coverage.json": "9c3894fb04f392595517a0dd0bc79beb86e017be480ae012a4da363aa09c0104",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/loss-report.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/post-001_000000-012000ms.txt": "8597c2855d9fa678266666317470f66210ee5ee65293214cbbf90801d2b6a404",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/post-production.json": "5ff6d16237c98f2c2ffd3ddc0b65af1a5e74f584b6695090ae124f40e9b3c988",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/production-contract.md": "c8cca586c8f9c9c380740a596e2c57add777491420becca584ba7430f1a27d0a",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/production-specification.json": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-001_000000-012000ms.txt": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-coverage-001_000000-012000ms.json": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-coverage.json": "a4bfc14551c4ff55de2b971e2ab2c39e6fb5cdc83f255f07f2a1c72e4d4c79fb",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt-review.json": "b7c8d0c6d30bb7b9b9863a7025fb803dc336cd4305a310fd736ead5e6192ea5b",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/prompt.txt": "72fe66a15c952c2b580ee0f660d4b524d9f4926189a7e2e996f782dd32232034",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-delivery.json": "47c9315135d89a896d56770234e9df6aa39c7d7e887ee5c8a7f1791569ecf8f2",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-plan.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/segment-proposals.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/compiled/spatial-checks.json": "da56881aaf5af87ec77c66b52d9b7b8c6aebaec1c10305659c3c1b5fef144d60",
+      "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c/mapping.json": "e99cd86c4063bfe5c1178ed977919613f4b6fc74d4a9321cc9305cf87b4a0972"
+    },
+    "input_fingerprint": "99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c",
+    "submitted": false,
+    "uri": "builds/99a4e889069740b797654891d4c7acc18866380e438a4a86d5311b47b467754c",
+    "video_qa": "NOT_RUN"
+  },
+  "compile_review_build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "context_fingerprint": "b093572942cdfdfa08f184e740f75f7fce722cec15f021c8aaddd244ec1119c7",
+  "dependencies": [
+    {
+      "fingerprint": "e77537410eb4905bff4ff1fd078108fd269ce4eda39c3b41895304a5e7607d74",
+      "pointers": [
+        ""
+      ],
+      "slot": "storyboard"
+    }
+  ],
+  "execution_mode": "current-agent",
+  "existing_media": [],
+  "expected_result": "role-result/5.1",
+  "handoff": {
+    "inputs": [
+      {
+        "coordinates": null,
+        "fields": {
+          "entities": {
+            "pointer": "/entities",
+            "value": [
+              {
+                "appearance": "中性、无年代和职业标识的外观建议；袖口不遮握信的右手。",
+                "id": "CHAR_JIA",
+                "identity_locks": [
+                  "沿用 CHAR_JIA 身份；不发明年龄、性别、关系或表情",
+                  "本镜衣装外观连续；不遮甲右手与信纸边接触"
+                ],
+                "kind": "person",
+                "name": "甲",
+                "source_refs": [
+                  "CANON_INPUT",
+                  "DIRECTOR_INPUT",
+                  "ART_INPUT"
+                ]
+              },
+              {
+                "appearance": "中性、无年代和职业标识的外观建议；袖口和发丝不遮右手验封、左手在背包开口的动作。",
+                "id": "CHAR_YI",
+                "identity_locks": [
+                  "沿用 CHAR_YI 身份；不发明年龄、性别、关系或动机",
+                  "本镜衣装连续；右手、左手、眼部按导演可见范围保持清楚"
+                ],
+                "kind": "person",
+                "name": "乙",
+                "source_refs": [
+                  "CANON_INPUT",
+                  "DIRECTOR_INPUT",
+                  "ART_INPUT"
+                ]
+              },
+              {
+                "appearance": "单件哑光浅纸色信件；封口折线完整且能被乙检查，外观无字、印章或特殊来历线索。",
+                "id": "PROP_LETTER",
+                "identity_locks": [
+                  "全程只有 PROP_LETTER 这一封信",
+                  "封口在交接、确认、入包过程中保持未拆且完整",
+                  "不得增加文字、印章、撕裂或信件内容；控制权和位置变化只读 DirectorIR 时间线"
+                ],
+                "kind": "prop",
+                "name": "同一封信",
+                "source_refs": [
+                  "CANON_INPUT",
+                  "DIRECTOR_INPUT",
+                  "ART_INPUT"
+                ]
+              },
+              {
+                "appearance": "乙身上的同一背包；开口能由左手撑持，包腔可容纳同一封信，开口边缘与信形成明度差。",
+                "id": "PROP_BACKPACK",
+                "identity_locks": [
+                  "始终为 PROP_BACKPACK，归乙使用",
+                  "不增加品牌、图案或来源未给的独特形制；收存动作以 DirectorIR 为准"
+                ],
+                "kind": "prop",
+                "name": "背包",
+                "source_refs": [
+                  "CANON_INPUT",
+                  "DIRECTOR_INPUT",
+                  "ART_INPUT"
+                ]
+              },
+              {
+                "appearance": "无具体地点标识的低频雨夜后景；雨的可见线索与导演雨声计划兼容，不推定室内或室外。",
+                "id": "ENV_RAIN_NIGHT",
+                "identity_locks": [
+                  "雨夜事实稳定",
+                  "地点、室内外、年代均未指定；不可加入门窗、街牌或地标作为事实"
+                ],
+                "kind": "environment",
+                "name": "雨夜",
+                "source_refs": [
+                  "CANON_INPUT",
+                  "DIRECTOR_INPUT",
+                  "ART_INPUT"
+                ]
+              }
+            ]
+          }
+        },
+        "native_sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+        "native_uri": "artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/a2a95587db81b0ac_storyboard-ir.json",
+        "slot": "storyboard"
+      }
+    ],
+    "kind": "compile-review",
+    "reference_observations": [],
+    "required_handoffs": [],
+    "scope": {},
+    "semantic_action": "Current Agent records target assertions and rationale; unresolved interpretation is a conflict, never silently guessed."
+  },
+  "hard_clauses": [
+    "SB_A_RAIN",
+    "SB_A_SINGLE_LETTER",
+    "SB_A_ORDER",
+    "SB_A_ENDING",
+    "SB_A_EVENTS",
+    "SB_A_REVEAL",
+    "SB_A_ASSET_LOCKS",
+    "SB_D_RAIN",
+    "SB_D_SINGLE_LETTER",
+    "SB_D_ACTION_ORDER",
+    "SB_D_ENDING",
+    "SB_D_EVENTS",
+    "SB_D_REVEAL_ORDER",
+    "SB_FIXED_AXIS",
+    "SB_CONTACT_CONTROL",
+    "SB_SEAL_VISIBILITY",
+    "SB_MEDIA_BOUNDARY"
+  ],
+  "inputs": [
+    {
+      "pointers": [
+        ""
+      ],
+      "sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+      "slot": "storyboard",
+      "uri": "/private/tmp/ai-video-v6-real-efKlQy/project/artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/a2a95587db81b0ac_storyboard-ir.json"
+    }
+  ],
+  "kind": "compile-review",
+  "max_shots_per_task": 5,
+  "module": {
+    "archive": "video-prompt-compiler.skill",
+    "name": "video-prompt-compiler",
+    "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler",
+    "required_reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md",
+        "relative": "SKILL.md",
+        "sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md",
+        "relative": "references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md",
+        "relative": "references/cooperation-v5.md",
+        "sha256": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/verification.md",
+        "relative": "references/verification.md",
+        "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/avir-and-contract.md",
+        "relative": "references/avir-and-contract.md",
+        "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md",
+        "relative": "references/shot-control.md",
+        "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
+      }
+    ],
+    "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+    "skill_sha256": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "version": "1.17.6"
+  },
+  "output_contract": {
+    "format": "native artifact + role-result/5.1",
+    "kind": "compile-review"
+  },
+  "project": {
+    "adapter_version": "1.2.0",
+    "delivery": "text-only",
+    "execution_mode": "codex-agents",
+    "legacy_constraints": {},
+    "max_shots_per_task": 5,
+    "mode": "text",
+    "orchestration_protocol": "6.0",
+    "production_target": "none",
+    "project_id": "LETTER_DEMO",
+    "schema_version": "5.0",
+    "target": "seedance2.0",
+    "workflow_id": "ai-comic-drama-v5",
+    "workflow_release": "0.10.0"
+  },
+  "project_id": "LETTER_DEMO",
+  "schema": "task-envelope/5.0",
+  "scope": {},
+  "slot": "compile-review",
+  "sources": [
+    {
+      "id": "SRC_69a71adcfaca",
+      "original": "user-text",
+      "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+      "uri": "sources/SRC_69a71adcfaca/source.txt"
+    }
+  ],
+  "stage": 8,
+  "task_id": "TASK_b093572942cdfdfa08f184e7"
+}

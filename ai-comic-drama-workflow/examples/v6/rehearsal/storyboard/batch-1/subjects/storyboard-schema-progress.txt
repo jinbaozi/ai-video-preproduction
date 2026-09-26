@@ -1,0 +1,1 @@
+收到。候选 checks 和三条冻结 handoffs 都会引用本批次实际生成、非空且逐字节校验的证据文件；V5 1437 条细节映射会逐项做原生字段断言。当前第一次 native inspect 仅报 schema 形状问题（style forbidden ID、resolution 字符串、旧静态 gaze ID、audio 空对象）；正按锁定 1.2 Schema 修复。

@@ -1,0 +1,19 @@
+{
+  "locked_vpc_sha256": "3567568e700d6973f6bbb70f7868c6673c4ef686b53b40110d4ed92441aa040a",
+  "validate": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": {
+      "diagnostics": [],
+      "status": "VALID"
+    }
+  },
+  "verify": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": {
+      "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+      "status": "VERIFIED"
+    }
+  }
+}

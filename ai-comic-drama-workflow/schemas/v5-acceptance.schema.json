@@ -5,11 +5,23 @@
   "required": ["schema_version", "id", "level", "plan_sha256", "items", "status"],
   "properties": {
     "schema_version": {"const": "v5-acceptance/1.0"},
-    "id": {"type": "string"},
+    "id": {"type": "string", "minLength": 1},
     "level": {"enum": ["shot", "adjacent", "sequence"]},
-    "plan_sha256": {"type": "string"},
-    "items": {"type": "array"},
-    "status": {"enum": ["PASS", "FAIL", "INCOMPLETE"]}
+    "plan_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "items": {"type": "array", "items": {"type": "object", "required": ["id", "result", "hard"], "properties": {"id": {"type": "string", "minLength": 1}, "result": {"enum": ["PASS", "FAIL", "UNDETERMINED"]}, "hard": {"type": "boolean"}, "evidence": {"type": "string", "minLength": 1}}, "additionalProperties": false}},
+    "status": {"enum": ["PASS", "FAIL", "INCOMPLETE"]},
+    "observation_status": {"const": "OBSERVATIONS_RECORDED"},
+    "shot_id": {"type": "string", "minLength": 1},
+    "left": {"type": "string", "minLength": 1},
+    "right": {"type": "string", "minLength": 1},
+    "checks": {"type": "array", "items": {"type": "string"}},
+    "take_ids": {"type": "object", "additionalProperties": {"type": "string", "minLength": 1}},
+    "assembly_id": {"type": "string", "minLength": 1},
+    "output_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
   },
-  "additionalProperties": true
+  "allOf": [
+    {"if": {"properties": {"level": {"const": "shot"}}}, "then": {"required": ["shot_id"]}},
+    {"if": {"properties": {"level": {"const": "adjacent"}}}, "then": {"required": ["left", "right"]}}
+  ],
+  "additionalProperties": false
 }

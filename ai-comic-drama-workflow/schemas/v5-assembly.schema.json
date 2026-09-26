@@ -5,13 +5,16 @@
   "required": ["schema_version", "id", "project_timeline", "media_timeline", "post_timeline", "edl", "tool", "status"],
   "properties": {
     "schema_version": {"const": "v5-assembly/1.0"},
-    "id": {"type": "string"},
-    "project_timeline": {"type": "object"},
-    "media_timeline": {"type": "object"},
-    "post_timeline": {"type": "object"},
-    "edl": {"type": "array"},
+    "id": {"type": "string", "minLength": 1},
+    "project_timeline": {"type": "object", "required": ["ranges", "unit"], "properties": {"ranges": {"type": "array"}, "unit": {"const": "project_ms"}}, "additionalProperties": false},
+    "media_timeline": {"type": "object", "required": ["ranges", "unit"], "properties": {"ranges": {"type": "array"}, "unit": {"const": "media_frame"}}, "additionalProperties": false},
+    "post_timeline": {"type": "object", "required": ["ranges", "unit"], "properties": {"ranges": {"type": "array"}, "unit": {"const": "post_ms"}}, "additionalProperties": false},
+    "edl": {"type": "array", "minItems": 1, "items": {"type": "object", "required": ["take_id", "source", "src_in_frame", "src_out_frame", "fps", "record_in_frame"], "properties": {"shot_id": {"type": "string"}, "take_id": {"type": "string"}, "source": {"type": "string"}, "src_in_frame": {"type": "integer", "minimum": 0}, "src_out_frame": {"type": "integer", "minimum": 1}, "fps": {"type": "number", "exclusiveMinimum": 0}, "record_in_frame": {"type": "integer", "minimum": 0}, "speed": {"const": 1}, "frames": {"type": "integer", "minimum": 1}}, "additionalProperties": false}},
     "tool": {"enum": ["ffmpeg", "jianying", "hypit"]},
-    "status": {"type": "string"}
+    "status": {"enum": ["CHECKED", "TOOL_UNAVAILABLE", "PENDING"]},
+    "probe": {"type": ["object", "null"]},
+    "output_uri": {"type": "string", "minLength": 1},
+    "output_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

@@ -2,14 +2,18 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "v5-take",
   "type": "object",
-  "required": ["schema_version", "id", "job_id", "sha256", "automatic", "probe"],
+  "required": ["schema_version", "id", "job_id", "record_id", "sha256", "uri", "automatic", "probe", "probe_verified", "accepted"],
   "properties": {
     "schema_version": {"const": "v5-take/1.0"},
-    "id": {"type": "string"},
-    "job_id": {"type": "string"},
-    "sha256": {"type": "string"},
+    "id": {"type": "string", "pattern": "^TAKE_[A-Za-z0-9_-]+$"},
+    "job_id": {"type": "string", "minLength": 1},
+    "record_id": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "uri": {"type": "string", "pattern": "^runtime/production/media/"},
     "automatic": {"type": "boolean"},
-    "probe": {"type": "object"}
+    "probe": {"type": "object"},
+    "probe_verified": {"type": "boolean"},
+    "accepted": {"type": "boolean"}
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }

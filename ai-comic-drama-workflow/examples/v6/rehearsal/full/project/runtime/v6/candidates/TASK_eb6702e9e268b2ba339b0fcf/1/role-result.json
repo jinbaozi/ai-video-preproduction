@@ -1,0 +1,94 @@
+{
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/director-ir.json",
+  "artifact_sha256": "72b516cfd2a50886b01ab7a78e2761e0ee09b8b2aea7b92429759f81f108bcca",
+  "checks": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/module-receipt.json"
+      ],
+      "finding": "冻结模块四份必读资源和三项冻结输入哈希吻合。",
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/native-validator.json"
+      ],
+      "finding": "DirectorIR 1.2 原生静态校验无错误，编剧绑定为 REVIEW_ATTESTED；媒体未执行。",
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-check.json"
+      ],
+      "finding": "Canon 三项硬要求与 ScriptIR 六条交接均映射到原生导演字段。",
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "complete": true,
+  "conflicts": [],
+  "context_fingerprint": "eb6702e9e268b2ba339b0fcf3cae95297aa618712d0a06fc0510c6d1cb93f566",
+  "handoff": [
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-canon.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_9574ea9e1502535dcd879c58",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    },
+    {
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-screenplay.json",
+        "runtime/v6/candidates/TASK_eb6702e9e268b2ba339b0fcf/1/evidence/handoff-check.json"
+      ],
+      "requirement_id": "UP_84941d3b7d9370ab514cb086",
+      "source_slot": "screenplay:project:project:ScriptIR",
+      "source_version": 16,
+      "target_pointer": "",
+      "target_slot": "director:project:project:DirectorIR"
+    }
+  ],
+  "module_receipt": {
+    "name": "director-grammar",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md",
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md",
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md",
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504"
+      }
+    ],
+    "skill_sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+    "version": "1.4.2"
+  },
+  "schema": "role-result/5.1",
+  "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+  "unresolved": [],
+  "validator": {
+    "errors": [],
+    "media": "NOT_RUN",
+    "screenplay_binding": "REVIEW_ATTESTED",
+    "semantic_review": "REVIEW_ATTESTED",
+    "status": "STATIC_VALID"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_ART_B1_VISUAL_SCOPE_1",
+  "expected_revision": 108,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_ART_B1_VISUAL_SCOPE_1",
+    "task_id": "TASK_f43c3388a29f02af7a8fc90a",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_f35d6d105d97b99707b9c9e7",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Clarify source-bound visual asset scope for full delivery",
+    "evidence": [
+      "runtime/v6/host-messages/full-art-b1-visual-scope.txt"
+    ],
+    "at": "2026-09-25T13:06:15.059687Z",
+    "subject_uri": "runtime/v6/host-messages/full-art-b1-visual-scope.txt",
+    "subject_sha256": "dde2c0c3d5099ad768aa6d6c8fba09bd8ccdb8ab0337f17d3296d24530f92f7a"
+  }
+}

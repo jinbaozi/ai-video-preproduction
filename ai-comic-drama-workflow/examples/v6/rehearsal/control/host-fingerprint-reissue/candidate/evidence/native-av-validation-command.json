@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/scripts/vpc.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_f2d0f9805f575ed23ebfdb6d/1/native-av-ir.json"
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "stdout": "{\n  \"status\": \"VALID\",\n  \"diagnostics\": []\n}\n"
+}

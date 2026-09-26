@@ -1,0 +1,191 @@
+{
+  "source": "runtime/v6/events.json",
+  "source_sha256": "0a857a6ae4fcdf0ad27f5fb9d713a48397ac92e815ee6ab2159c768c644793ba",
+  "events": [
+    {
+      "artifacts_digest": "e13d70c343c7e6ec5ca7bd6072584ede6c647ba420750b1dbbb2a2f4672ec7d8",
+      "commands_digest": "a481f01b9f2364b27b987b434c85d1c93cbfb4f8008dcadc443366e650c0b307",
+      "hash": "c6c5a5e18bf369d17b6209b082bb698ea9ee4dcbd2b2ebd8bb963277b1c0a773",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T15:59:48.606303Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "ready-TASK_ede3a3425d547d3569e53ec4-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_ede3a3425d547d3569e53ec4.json"
+          ],
+          "expected_revision": 491,
+          "from_state": "PENDING",
+          "object_version": 0,
+          "reason": "DEPENDENCIES_SATISFIED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_ede3a3425d547d3569e53ec4",
+          "to_state": "READY"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "a1761fd3a2934bb08ba5b187cb78e8cc68d420f28bb98e12740e0942bfadc295",
+      "revision": 492,
+      "state_digest": "76610274f13017ee0c1b10e98a4ff793f451b48d8ac627b30c944e120d6032ac"
+    },
+    {
+      "artifacts_digest": "e13d70c343c7e6ec5ca7bd6072584ede6c647ba420750b1dbbb2a2f4672ec7d8",
+      "commands_digest": "5bcd6cdf03742bd6062de84530e06b6f2a80bc1e5258d0409646e819da01514f",
+      "hash": "0c3d5f861ed53d9cc6bdd6ff60325e7acada3ff2729f68e6b06a7f61d0aaf74b",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T15:59:48.803147Z",
+          "batch": 1,
+          "check_results": [],
+          "command_id": "dispatch-TASK_ede3a3425d547d3569e53ec4-1",
+          "evidence": [
+            "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/tasks/TASK_ede3a3425d547d3569e53ec4.json"
+          ],
+          "expected_revision": 492,
+          "from_state": "READY",
+          "object_version": 1,
+          "reason": "DISPATCH_REQUESTED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_ede3a3425d547d3569e53ec4",
+          "to_state": "DISPATCHING"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "c6c5a5e18bf369d17b6209b082bb698ea9ee4dcbd2b2ebd8bb963277b1c0a773",
+      "revision": 493,
+      "state_digest": "1edb9ede9818b9f5d98837993431665cb7eca94d8fb013df571b2ed4fd3868e6"
+    },
+    {
+      "artifacts_digest": "e13d70c343c7e6ec5ca7bd6072584ede6c647ba420750b1dbbb2a2f4672ec7d8",
+      "commands_digest": "36bdeb92c4f006d6e5cbd4e53dc32bdaeca0b4751a4c4b95eae1cbfe6e5519fc",
+      "hash": "cc9100b233cd312bdee5bce713488901f534b60e7d907b36e8baf42f28c21b03",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "codex",
+          "actor_kind": "host",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:00:47.293687Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "dispatch:dispatch-a880111379b4fd71d779591d",
+                "host-file:2c40fa4f2ed4e63c02a8ff4ea6a2e59e4d950f7ef8ca6edfb3380230e5e54c8b"
+              ],
+              "id": "host-evidence",
+              "status": "PASS"
+            }
+          ],
+          "command_id": "COMPILEQA_DISPATCH_1",
+          "evidence": [
+            "dispatch:dispatch-a880111379b4fd71d779591d",
+            "host-file:2c40fa4f2ed4e63c02a8ff4ea6a2e59e4d950f7ef8ca6edfb3380230e5e54c8b"
+          ],
+          "expected_revision": 493,
+          "from_state": "DISPATCHING",
+          "object_version": 2,
+          "reason": "DISPATCH_CONFIRMED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_ede3a3425d547d3569e53ec4",
+          "to_state": "RUNNING"
+        },
+        "receipt": {
+          "action_id": "dispatch-a880111379b4fd71d779591d",
+          "agent_id": "/root/host_bridge/v6_42abfe0c85c46ba290a73be2",
+          "batch": 1,
+          "dispatch_id": "dispatch-a880111379b4fd71d779591d",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T16:00:47.293687Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T16:00:47.293687Z",
+          "status": "RUNNING",
+          "task_digest": "4e2e660f3c01f0be24d9737d587d0e08bfbe2016d6bcf2a3c2de1f594cecabc4",
+          "task_id": "TASK_ede3a3425d547d3569e53ec4",
+          "tool_result_sha256": "2c40fa4f2ed4e63c02a8ff4ea6a2e59e4d950f7ef8ca6edfb3380230e5e54c8b",
+          "tool_result_uri": "runtime/v6/host-evidence/2c40fa4f2ed4e63c02a8ff4ea6a2e59e4d950f7ef8ca6edfb3380230e5e54c8b.json"
+        },
+        "review": null
+      },
+      "previous_hash": "0c3d5f861ed53d9cc6bdd6ff60325e7acada3ff2729f68e6b06a7f61d0aaf74b",
+      "revision": 494,
+      "state_digest": "d2f4ee9c55fba5ade8b8c0b002320f5fe58beb61bf0c51af71c6f1531021b2e3"
+    },
+    {
+      "artifacts_digest": "e13d70c343c7e6ec5ca7bd6072584ede6c647ba420750b1dbbb2a2f4672ec7d8",
+      "commands_digest": "37bc27b087df79c1db05d90be270776f6a4ab0e3333dd96e5096ff90e6262bfb",
+      "hash": "a6a25c23f897da1fc961c60ce8fdb0c0055a69d68f4354bf230d0a652342a0cc",
+      "op": "transition",
+      "payload": {
+        "candidate": null,
+        "event": {
+          "actor_id": "v6-runtime",
+          "actor_kind": "kernel",
+          "affected_outputs": [],
+          "at": "2026-09-25T16:05:48.642804Z",
+          "batch": 1,
+          "check_results": [
+            {
+              "evidence": [
+                "runtime/v6/failures/TASK_ede3a3425d547d3569e53ec4/1/85a6f6e5d772413d5405a1d5a5d6b0119dae4ef9db9795f792b76ac1eedfab78.json"
+              ],
+              "id": "module_receipt",
+              "status": "BLOCKED"
+            },
+            {
+              "evidence": [
+                "runtime/v6/failures/TASK_ede3a3425d547d3569e53ec4/1/85a6f6e5d772413d5405a1d5a5d6b0119dae4ef9db9795f792b76ac1eedfab78.json"
+              ],
+              "id": "compile_semantics",
+              "status": "FAIL"
+            }
+          ],
+          "command_id": "COMPILEQA-CREATOR-RESULT_SUBMIT_1-failed",
+          "error": {
+            "code": "VALUEERROR",
+            "evidence": [
+              "runtime/v6/failures/TASK_ede3a3425d547d3569e53ec4/1/85a6f6e5d772413d5405a1d5a5d6b0119dae4ef9db9795f792b76ac1eedfab78.json"
+            ],
+            "failed_check": "compile_semantics",
+            "owner_node": "compile_review",
+            "recovery_action": "RETRY",
+            "retryable": true
+          },
+          "evidence": [
+            "runtime/v6/failures/TASK_ede3a3425d547d3569e53ec4/1/85a6f6e5d772413d5405a1d5a5d6b0119dae4ef9db9795f792b76ac1eedfab78.json"
+          ],
+          "expected_revision": 498,
+          "from_state": "RUNNING",
+          "object_version": 7,
+          "reason": "VALIDATION_FAILED",
+          "schema": "state-event/6.0",
+          "task_id": "TASK_ede3a3425d547d3569e53ec4",
+          "to_state": "FAILED"
+        },
+        "receipt": null,
+        "review": null
+      },
+      "previous_hash": "5a7baca5dd8cb9a1f439d27fb46cf6b8662feaead7c7b46dbc59cf343a1161ec",
+      "revision": 499,
+      "state_digest": "7e6fb8c4a6a3f1bd7798c981b088065a38d7e77daed5bf6bd67a07155a1818df"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_B2_REVIEW_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 156,
+  "message": {
+    "at": "2026-09-25T13:08:46.032420Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/review-record.json"
+    ],
+    "in_reply_to": "STORYBOARD_B2_REVIEW_HANDOFF_HANDOFF_1",
+    "message_id": "STORYBOARD_B2_REVIEW_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+    "subject_sha256": "96e77d73253137964339af3dcaae2c541917bea35a3bca067624b3e66b6decfc",
+    "subject_uri": "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/review-record.json",
+    "summary": "Independent reviewer submitted PASS review for all three declared checks; media NOT_RUN.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "RESULT"
+  }
+}

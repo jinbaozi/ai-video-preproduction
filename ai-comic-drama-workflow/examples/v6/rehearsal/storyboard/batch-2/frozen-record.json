@@ -1,0 +1,819 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+    "artifacts": [
+      {
+        "kind": "StoryboardIR",
+        "sha256": "a328c6560e7e9d2dd289178f5e48a6bc1469691df62a84759887ca628204b582",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/storyboard-ir.json"
+      }
+    ],
+    "batch": 2,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/native-validator.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/storyboard-review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json"
+        ],
+        "requirement_id": "UP_14ccecf60174e51512f867f2",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json"
+        ],
+        "requirement_id": "UP_470e86ea8851d087c4f51d74",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 21,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json"
+        ],
+        "requirement_id": "UP_039d6bab6cbb61c8733568c8",
+        "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "source_version": 22,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      }
+    ],
+    "input_digest": "3ce095f955c88c6542e6299c66a310aa96f003a23d6378b495c2abd3694648b9",
+    "module_receipts": [
+      {
+        "name": "storyboard-grammar",
+        "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+        "version": "1.3.2"
+      }
+    ],
+    "result_sha256": "fae632cf8cb0bc92abc5d16da4e82d562fcee75282c792d238bfe525ec7af35d",
+    "result_uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "unresolved": []
+  },
+  "envelope": {
+    "batch": 2,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+      },
+      {
+        "task_id": "TASK_0560d46ecc764c68ee9a590e"
+      },
+      {
+        "task_id": "V6_skip_2de8dc7accb8e722fccf86b2"
+      },
+      {
+        "task_id": "V6_skip_6193e6182edb67785c9fec09"
+      },
+      {
+        "task_id": "V6_skip_50bb5189ee0b2249e0e494c0"
+      },
+      {
+        "task_id": "V6_skip_255d0aea025897f1f04e0a3a"
+      },
+      {
+        "task_id": "V6_skip_063d7a697a209a072977d11f"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "StoryboardIR",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_14ccecf60174e51512f867f2",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_470e86ea8851d087c4f51d74",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 21,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_039d6bab6cbb61c8733568c8",
+        "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "source_version": 22,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      }
+    ],
+    "input_digest": "3ce095f955c88c6542e6299c66a310aa96f003a23d6378b495c2abd3694648b9",
+    "input_revision": 142,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+        "version": 21
+      },
+      {
+        "sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+        "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+        "version": 22
+      },
+      {
+        "sha256": "c9ff0259ed0199c94f7610fe464f1edd8e1242f5262eb15964bfc403b5f929bf",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "storyboard-grammar",
+      "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+      "version": "1.3.2"
+    },
+    "node_id": "storyboard",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md"
+      }
+    ],
+    "role": "storyboard",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "evidence_hashes": {
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/module-receipt.json": "8c2217a43e9865fbd32a442af6e1dcb00668cd03408a18fcf477dd6455a77d71",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/native-validator.json": "f2ac19359f6537e842d3374d1da468b3a2e9580c76d9ebba797ea0ffb6d4e3db",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/source-integrity.json": "ed05964728decbbae198d2f242c397994774df325ffd692f581bf3d6420e0854",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/storyboard-review.json": "9039c8b76fb5177479761792376ca73bcb1828a4d386f0bce2e7161e2d1c9aa6",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json": "f29da4751ffbd0f46d0b423dc4d206ed1eb760b334fd6740de34c4c2d612759d",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v5-handoff.json": "ea2f900b735aa443251e01307f380d21b3a5b38d01f21760862e59ec8cc158fc",
+    "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v6-handoffs.json": "14d76ed86833fa5f96f7fa52b5f89221757d91c2d0bda35206d7127815ceaf1d",
+    "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/handoff.review.json": "b58621e1ca31bc8a62f3cd8c9a7a189fdaa5711a5161e2979cc3eb3c7d928dc3",
+    "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/module-receipt.review.json": "01fcae67b55797ac8bf2f41fb893bae32cc17db673c25e5db4cbd42f91a972eb",
+    "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/native-validator.review.json": "eddbe1b8bcb3440220f4a0f6b302c9295d8dc57fa7e37bb8311950911bd24025"
+  },
+  "failure_counts": {
+    "module_receipt": 1
+  },
+  "history": [
+    {
+      "candidate": null,
+      "envelope": {
+        "batch": 1,
+        "dependencies": [
+          {
+            "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+          },
+          {
+            "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+          },
+          {
+            "task_id": "TASK_0560d46ecc764c68ee9a590e"
+          },
+          {
+            "task_id": "V6_skip_2de8dc7accb8e722fccf86b2"
+          },
+          {
+            "task_id": "V6_skip_6193e6182edb67785c9fec09"
+          },
+          {
+            "task_id": "V6_skip_50bb5189ee0b2249e0e494c0"
+          },
+          {
+            "task_id": "V6_skip_255d0aea025897f1f04e0a3a"
+          },
+          {
+            "task_id": "V6_skip_063d7a697a209a072977d11f"
+          }
+        ],
+        "execution_class": "professional",
+        "expected_artifacts": [
+          {
+            "kind": "StoryboardIR",
+            "slot": "storyboard:project:project:StoryboardIR",
+            "uri_prefix": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_14ccecf60174e51512f867f2",
+            "source_slot": "canon:project:project:Canon",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "storyboard:project:project:StoryboardIR"
+          },
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_470e86ea8851d087c4f51d74",
+            "source_slot": "director:project:project:DirectorIR",
+            "source_version": 21,
+            "target_pointer": "",
+            "target_slot": "storyboard:project:project:StoryboardIR"
+          },
+          {
+            "channel": "artifact",
+            "requirement_id": "UP_039d6bab6cbb61c8733568c8",
+            "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+            "source_version": 22,
+            "target_pointer": "",
+            "target_slot": "storyboard:project:project:StoryboardIR"
+          }
+        ],
+        "input_digest": "6e0692452ece358689793f82767e71503e060b5e0e30a4ae58e4ffe18fa2409e",
+        "input_revision": 129,
+        "inputs": [
+          {
+            "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+            "slot": "canon:project:project:Canon",
+            "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+            "version": 12
+          },
+          {
+            "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+            "slot": "director:project:project:DirectorIR",
+            "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+            "version": 21
+          },
+          {
+            "sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+            "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+            "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+            "version": 22
+          },
+          {
+            "sha256": "c9ff0259ed0199c94f7610fe464f1edd8e1242f5262eb15964bfc403b5f929bf",
+            "slot": "frozen_task",
+            "uri": "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json",
+            "version": 0
+          }
+        ],
+        "module": {
+          "name": "storyboard-grammar",
+          "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+          "version": "1.3.2"
+        },
+        "node_id": "storyboard",
+        "project_id": "LETTER_DEMO",
+        "resources": [
+          {
+            "sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+            "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md"
+          },
+          {
+            "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+            "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md"
+          },
+          {
+            "sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+            "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md"
+          },
+          {
+            "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+            "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md"
+          }
+        ],
+        "role": "storyboard",
+        "schema": "task-envelope/6.0",
+        "scope": {
+          "ids": [],
+          "kind": "project"
+        },
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "validators": [
+          {
+            "id": "module_receipt",
+            "kind": "hash"
+          },
+          {
+            "id": "native_validator",
+            "kind": "native"
+          },
+          {
+            "id": "handoff",
+            "kind": "handoff"
+          }
+        ]
+      },
+      "evidence_hashes": {},
+      "failure_counts": {
+        "module_receipt": 1
+      },
+      "messages": [
+        {
+          "at": "2026-09-25T12:41:56.607703Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+            "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+            "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+            "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json"
+          ],
+          "in_reply_to": null,
+          "message_id": "STORYBOARD_GUIDANCE_1",
+          "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "f48d61f6606510034167fcee3152f58826297066d7e44c0ed209229be617cd6f",
+          "subject_uri": "runtime/v6/host-inputs/storyboard-spawn-action.json",
+          "summary": "Actual storyboard spawn carried frozen inputs/resources, accepted upstream IRs, candidate-only ownership, text-only media boundary and blocking/control contract.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "HANDOFF"
+        },
+        {
+          "at": "2026-09-25T12:42:08.152065Z",
+          "batch": 1,
+          "evidence": [],
+          "in_reply_to": "STORYBOARD_GUIDANCE_1",
+          "message_id": "STORYBOARD_ACK_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "subject_sha256": null,
+          "subject_uri": null,
+          "summary": "Storyboard creator acknowledged frozen action, input hashes, locked contract and accepted upstream IRs; writing only batch-1 candidate and will return result path/SHA.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "ACK"
+        },
+        {
+          "at": "2026-09-25T12:45:20.048495Z",
+          "batch": 1,
+          "evidence": [],
+          "in_reply_to": "STORYBOARD_ACK_1",
+          "message_id": "STORYBOARD_PROGRESS_REQUEST_1",
+          "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "94e78f9b7ce10c66ec33a9ed9f563d2cb5ed95d1300cf37bd39c3ec510c30665",
+          "subject_uri": "runtime/v6/host-inputs/storyboard-progress-request.txt",
+          "summary": "Host requested precise storyboard/Director/Art contract blocker if any, with shot-to-overhead blocking evidence and no media claim.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "QUESTION"
+        },
+        {
+          "at": "2026-09-25T12:45:35.510025Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/host-inputs/storyboard-progress-report.txt"
+          ],
+          "in_reply_to": "STORYBOARD_PROGRESS_REQUEST_1",
+          "message_id": "STORYBOARD_PROGRESS_PROGRESS_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "subject_sha256": "ec3b6a7ce094b7f8bf0f16ee57c93a2538108c8343ca6d562d1336d297db2533",
+          "subject_uri": "runtime/v6/host-inputs/storyboard-progress-report.txt",
+          "summary": "Storyboard creator verified frozen hashes and accepted Canon/ScriptIR/DirectorIR/ArtIR; no blocker, preserving Director timeline and explicitly mapping coordinates, camera/visibility and overhead handoff; media NOT_RUN.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T12:49:58.812667Z",
+          "batch": 1,
+          "evidence": [],
+          "in_reply_to": "STORYBOARD_PROGRESS_PROGRESS_1",
+          "message_id": "STORYBOARD_EVIDENCE_GUIDANCE_1",
+          "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "schema": "agent-message/6.0",
+          "sender_id": "kernel",
+          "subject_sha256": "db95284097b42468c2f661470534e6ea019b3510c478e592fed39c8f99465002",
+          "subject_uri": "runtime/v6/host-inputs/storyboard-evidence-guidance.txt",
+          "summary": "Host relayed current kernel requirement for nonempty existing per-check and per-handoff candidate evidence, no placeholder URI.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "HANDOFF"
+        },
+        {
+          "at": "2026-09-25T12:50:15.264293Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/host-inputs/storyboard-schema-progress.txt"
+          ],
+          "in_reply_to": "STORYBOARD_EVIDENCE_GUIDANCE_1",
+          "message_id": "STORYBOARD_SCHEMA_PROGRESS_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "subject_sha256": "2913effba19ba881884421dde2cd6d78ddc7fd615f70d2a51e62d41860979ba3",
+          "subject_uri": "runtime/v6/host-inputs/storyboard-schema-progress.txt",
+          "summary": "Storyboard creator confirmed nonempty existing evidence for checks and three handoffs; first native inspect found schema shape errors in style ID, resolution type, gaze ID and audio empty object, now correcting against locked 1.2 schema.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T12:55:58.435425Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/host-inputs/storyboard-lighting-caveat.txt"
+          ],
+          "in_reply_to": "STORYBOARD_SCHEMA_PROGRESS_1",
+          "message_id": "STORYBOARD_LIGHTING_PROGRESS_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "subject_sha256": "e63a81d8f3cfc3b6567e4aaa22751cda079ae1f6e206c5ccf09ddec476fdf0a2",
+          "subject_uri": "runtime/v6/host-inputs/storyboard-lighting-caveat.txt",
+          "summary": "Creator disclosed Schema-required lighting position as non-binding design anchor; real source location and media effect remain unresolved.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "PROGRESS"
+        },
+        {
+          "at": "2026-09-25T12:56:08.953737Z",
+          "batch": 1,
+          "evidence": [
+            "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/candidate-result.json"
+          ],
+          "in_reply_to": "STORYBOARD_LIGHTING_PROGRESS_1",
+          "message_id": "STORYBOARD_RESULT_RESULT_1",
+          "recipient_id": "kernel",
+          "schema": "agent-message/6.0",
+          "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "subject_sha256": "301dd866c94b906a67bcf12eed2356df59ed8930dcca76b8c5a0577ade307e0d",
+          "subject_uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/candidate-result.json",
+          "summary": "Creator submitted StoryboardIR candidate, native package and evidence for independent review; media NOT_RUN.",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "type": "RESULT"
+        }
+      ],
+      "receipt": {
+        "action_id": "dispatch-2897aa32166b120d4fcc903a",
+        "agent_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+        "batch": 1,
+        "dispatch_id": "dispatch-2897aa32166b120d4fcc903a",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T12:41:37.435599Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T12:41:37.435599Z",
+        "status": "RUNNING",
+        "task_digest": "82e2515f57d805ac33afefa09ba2195a58460b4bd6a35ff22edf2ce56c92e9f2",
+        "task_id": "TASK_3240f8bc6a9896032b95d091",
+        "tool_result_sha256": "08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568",
+        "tool_result_uri": "runtime/v6/host-evidence/08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568.json"
+      },
+      "receipt_history": [
+        {
+          "action_id": "dispatch-2897aa32166b120d4fcc903a",
+          "agent_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+          "batch": 1,
+          "dispatch_id": "dispatch-2897aa32166b120d4fcc903a",
+          "error": null,
+          "host": "codex",
+          "host_call_id": null,
+          "host_tool": "collaboration.spawn_agent",
+          "observed_at": "2026-09-25T12:41:37.435599Z",
+          "result_uri": null,
+          "schema": "dispatch-receipt/6.0",
+          "sent_at": "2026-09-25T12:41:37.435599Z",
+          "status": "RUNNING",
+          "task_digest": "82e2515f57d805ac33afefa09ba2195a58460b4bd6a35ff22edf2ce56c92e9f2",
+          "task_id": "TASK_3240f8bc6a9896032b95d091",
+          "tool_result_sha256": "08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568",
+          "tool_result_uri": "runtime/v6/host-evidence/08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568.json"
+        }
+      ],
+      "review": null,
+      "review_dispatch": null,
+      "state": "FAILED",
+      "validation": [],
+      "version": 12
+    }
+  ],
+  "messages": [
+    {
+      "at": "2026-09-25T12:58:56.583053Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-b2-spawn-actual-message.txt",
+        "runtime/v6/host-inputs/storyboard-b2-pending-action.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "STORYBOARD_B2_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "bb7aec6940e5b34e36165079d90aff6bbbafc3a65a0f03ad440c29065b0687d7",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-b2-spawn-actual-message.txt",
+      "summary": "Host sent actual batch-2 spawn text pointing to the frozen pending action and exact fresh-validator failure; original batch-1 candidate is immutable history.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:01:31.036162Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-b2-creator-report.txt"
+      ],
+      "in_reply_to": "STORYBOARD_B2_GUIDANCE_1",
+      "message_id": "STORYBOARD_B2_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+      "subject_sha256": "6ca54deb0f439e45065f67ab1f8d0c4ae88a87b6c10f99647e3bf110514f3e9f",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-b2-creator-report.txt",
+      "summary": "Creator reports batch-2 candidate and exact fresh-validator correction, with no media generation.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:01:40.000008Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/candidate-result.json"
+      ],
+      "in_reply_to": "STORYBOARD_B2_HANDOFF_HANDOFF_1",
+      "message_id": "STORYBOARD_B2_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+      "subject_sha256": "54face9787065a0b697d733b51dbe175eb39ca98ece780a86066192238028509",
+      "subject_uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/candidate-result.json",
+      "summary": "Creator submitted batch-2 StoryboardIR candidate with fresh native validator status VALID; media NOT_RUN.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T13:02:40.615825Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-b2-review-spawn-actual-message.txt",
+        "runtime/v6/host-inputs/storyboard-b2-review-pending-action.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "STORYBOARD_B2_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "a6b4c743447e1a4205ed9ff7370deb9c6d3e91a6b7d1f37cf26b4398dedf3310",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-b2-review-spawn-actual-message.txt",
+      "summary": "Host sent actual independent-review prompt and frozen pending action to the registered reviewer; candidate byte identity and media boundary stated.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:07:51.165042Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-b2-review-progress-request.txt"
+      ],
+      "in_reply_to": "STORYBOARD_B2_REVIEW_GUIDANCE_1",
+      "message_id": "STORYBOARD_B2_REVIEW_PROGRESS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "198b6913b4b52e7cbb8e60976e1418f5025512e82299b27bed54d407946dab8f",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-b2-review-progress-request.txt",
+      "summary": "Host requested reviewer status or blocker while preserving independent judgment and media NOT_RUN boundary.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T13:08:37.822789Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-b2-reviewer-report.txt"
+      ],
+      "in_reply_to": "STORYBOARD_B2_REVIEW_PROGRESS_REQUEST_1",
+      "message_id": "STORYBOARD_B2_REVIEW_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+      "subject_sha256": "92ae4cc125bffd178c635b5c1669cbf5792551733fccb183d70404600e8eece3",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-b2-reviewer-report.txt",
+      "summary": "Independent reviewer reports all three checks PASS and explicit media NOT_RUN boundary, with detailed native and handoff evidence.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:08:46.032420Z",
+      "batch": 2,
+      "evidence": [
+        "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/review-record.json"
+      ],
+      "in_reply_to": "STORYBOARD_B2_REVIEW_HANDOFF_HANDOFF_1",
+      "message_id": "STORYBOARD_B2_REVIEW_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+      "subject_sha256": "96e77d73253137964339af3dcaae2c541917bea35a3bca067624b3e66b6decfc",
+      "subject_uri": "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/review-record.json",
+      "summary": "Independent reviewer submitted PASS review for all three declared checks; media NOT_RUN.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-39a2673646933b53d0b0fa39",
+    "agent_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+    "batch": 2,
+    "dispatch_id": "dispatch-39a2673646933b53d0b0fa39",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T12:58:31.570188Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T12:58:31.570188Z",
+    "status": "RUNNING",
+    "task_digest": "4dbba2cda3a38f27e377ef7baef3c453111cdae3b93e58d6e2b925f36937c6c4",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "tool_result_sha256": "bf681aec3b88bac39191aa86902eccb9435bece594ea261cf162f5ce88769f13",
+    "tool_result_uri": "runtime/v6/host-evidence/bf681aec3b88bac39191aa86902eccb9435bece594ea261cf162f5ce88769f13.json"
+  },
+  "receipt_history": [
+    {
+      "action_id": "dispatch-39a2673646933b53d0b0fa39",
+      "agent_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+      "batch": 2,
+      "dispatch_id": "dispatch-39a2673646933b53d0b0fa39",
+      "error": null,
+      "host": "codex",
+      "host_call_id": null,
+      "host_tool": "collaboration.spawn_agent",
+      "observed_at": "2026-09-25T12:58:31.570188Z",
+      "result_uri": null,
+      "schema": "dispatch-receipt/6.0",
+      "sent_at": "2026-09-25T12:58:31.570188Z",
+      "status": "RUNNING",
+      "task_digest": "4dbba2cda3a38f27e377ef7baef3c453111cdae3b93e58d6e2b925f36937c6c4",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "tool_result_sha256": "bf681aec3b88bac39191aa86902eccb9435bece594ea261cf162f5ce88769f13",
+      "tool_result_uri": "runtime/v6/host-evidence/bf681aec3b88bac39191aa86902eccb9435bece594ea261cf162f5ce88769f13.json"
+    }
+  ],
+  "review": {
+    "at": "2026-09-25T13:07:43.866406Z",
+    "batch": 2,
+    "candidate_digest": "095ddb6a4ed9eb3e1d80d0a63f3cc6766b0e8dcf23a728c62564858f3f733822",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_3240f8bc6a9896032b95d091/2/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+    "reviewer_dispatch_id": "review-39a2673646933b53d0b0fa39",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_3240f8bc6a9896032b95d091"
+  },
+  "review_dispatch": {
+    "action_id": "review-39a2673646933b53d0b0fa39",
+    "agent_id": "/root/host_bridge/v6_7af76bdbcbd4487c49300d75",
+    "batch": 2,
+    "dispatch_id": "review-39a2673646933b53d0b0fa39",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T13:02:25.240669Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T13:02:25.240669Z",
+    "status": "RUNNING",
+    "task_digest": "4dbba2cda3a38f27e377ef7baef3c453111cdae3b93e58d6e2b925f36937c6c4",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "tool_result_sha256": "80f44bbf8e234f99b2132ffddcdfd951e68e7b85a0cfbf1d7de687335d6c3d02",
+    "tool_result_uri": "runtime/v6/host-evidence/80f44bbf8e234f99b2132ffddcdfd951e68e7b85a0cfbf1d7de687335d6c3d02.json"
+  },
+  "state": "ACCEPTED",
+  "validation": [
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/source-integrity.json",
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/module-receipt.json"
+      ],
+      "id": "module_receipt",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/native-validator.json",
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json",
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/storyboard-review.json"
+      ],
+      "id": "native_validator",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v5-handoff.json",
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/v6-handoffs.json",
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/evidence/topdown-control.json"
+      ],
+      "id": "handoff",
+      "status": "PASS"
+    }
+  ],
+  "version": 15
+}

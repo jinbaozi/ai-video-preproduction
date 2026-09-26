@@ -1,0 +1,15 @@
+{
+  "brief_file_count": 24,
+  "build_manifest_file_count": 20,
+  "control_file_count": 10,
+  "frozen_candidate_identical_to_file": true,
+  "frozen_input_count": 28,
+  "graph_only_result_null": true,
+  "input_digest_verified": true,
+  "locked_resource_count": 20,
+  "module": {
+    "name": "video-prompt-compiler",
+    "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+    "version": "1.17.6"
+  }
+}

@@ -1,0 +1,280 @@
+{
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_45ee8a42c29a42e91b5d05e0",
+    "artifacts": [
+      {
+        "kind": "ArtIR",
+        "sha256": "a73ce04fd18258d3ce35f7a69b9ab95bf67da9d69acaa995f25aca839de51aa7",
+        "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/art-ir.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+        ],
+        "requirement_id": "UP_f92e6f7860d8d51c527afd32",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/evidence/native-validator.json"
+        ],
+        "requirement_id": "UP_671ea8754cf2e57a5e495051",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR"
+      }
+    ],
+    "input_digest": "8921a2f5204e244bf56640fb781f61603fecb2985b2a9be63a22263946f32f8e",
+    "module_receipts": [
+      {
+        "name": "production-design-grammar",
+        "sha256": "34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019",
+        "version": "1.3.1"
+      }
+    ],
+    "result_sha256": "c9beac0fb0bfe095ada613e129010983b15723a29bb369ddc5943b0686b570fe",
+    "result_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+    "unresolved": []
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T15:24:07.046679Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/artrepair-spawn-brief.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "ARTREPAIR_HOST_BRIEF_1",
+      "recipient_id": "/root/host_bridge/v6_45ee8a42c29a42e91b5d05e0",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "69dcf6c17f0ed210f1fbd5a65725839fb5cf3927c806e7dbca3ccb1fbf5b954c",
+      "subject_uri": "runtime/v6/host-inputs/artrepair-spawn-brief.txt",
+      "summary": "\u771f\u5b9e Art \u8fd4\u4fee\u4e0b\u6e38\u6d3e\u53d1\u8bf4\u660e\uff1b\u5b8c\u6574\u539f\u6587\u89c1 subject\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:28:11.712760Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/candidate-result.json",
+        "runtime/v6/host-inputs/artrepair-creator-result.txt"
+      ],
+      "in_reply_to": "ARTREPAIR_HOST_BRIEF_1",
+      "message_id": "ARTREPAIR_CREATOR_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_45ee8a42c29a42e91b5d05e0",
+      "subject_sha256": "16cab8935e525cf37469b766ea3d9b9916e6ad9b695643f89abc854e654a64d1",
+      "subject_uri": "runtime/v6/candidates/TASK_536f58cce58a7823bdf4a3f3/1/candidate-result.json",
+      "summary": "Art \u5019\u9009\u53ca\u539f\u751f STATIC_VALID\u3001\u516d\u6761 V5/\u4e24\u6761 V6 \u4ea4\u63a5\u8bc1\u636e\u5df2\u63d0\u4ea4\uff0c\u5a92\u4f53 NOT_RUN\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T15:28:48.668351Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/artrepair-review-brief.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "ARTREPAIR_REVIEW_HOST_BRIEF_1",
+      "recipient_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "e96999f39c03c6eeefef606fa3cd0b75f756de1b87929ce00e495c41d032a3f2",
+      "subject_uri": "runtime/v6/host-inputs/artrepair-review-brief.txt",
+      "summary": "\u771f\u5b9e Art \u72ec\u7acb\u5ba1\u9605\u6d3e\u53d1\u8bf4\u660e\uff1b\u6838\u5bf9\u65b0 Director \u4ea4\u63a5\u4e0e\u6e90\u91cd\u7ed1\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:29:31.507487Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/artrepair-review-clarify.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "ARTREPAIR_REVIEW_CLARIFY_1",
+      "recipient_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "c96e64997ee7a38f4be88a33a94d5282e2d1ef145f8cb24c30c83b3e6d41c0d3",
+      "subject_uri": "runtime/v6/host-inputs/artrepair-review-clarify.txt",
+      "summary": "\u8bf7\u6c42\u72ec\u7acb\u5ba1\u9605\u8005\u7ed9\u51fa\u5177\u4f53\u5750\u6807\u5b57\u6bb5\u548c\u8d23\u4efb\u6765\u6e90\u8bc1\u636e\uff0c\u533a\u5206\u5408\u6cd5\u8f74\u5e8f\u6362\u7b97\u4e0e\u5b9e\u9645\u8bef\u7528\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T15:29:45.095922Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/artrepair-reviewer-progress.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "ARTREPAIR_REVIEWER_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+      "subject_sha256": "acaece8f889099c8914ef2892111abad32c5f7d5ec91937c712361ba8ba2d26a",
+      "subject_uri": "runtime/v6/host-inputs/artrepair-reviewer-progress.txt",
+      "summary": "\u72ec\u7acb\u5ba1\u9605\u53d1\u73b0 Art \u5019\u9009\u91c7\u7528 Director \u9759\u6001\u5750\u6807\u800c\u4e0b\u6e38\u65f6\u95f4\u8f74\u5750\u6807\u53ef\u80fd\u4e0d\u4e00\u81f4\uff0c\u7ee7\u7eed\u6838\u5bf9\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:30:08.603357Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/artrepair-reviewer-progress-2.txt"
+      ],
+      "in_reply_to": null,
+      "message_id": "ARTREPAIR_REVIEWER_PROGRESS2_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+      "subject_sha256": "d4785acda8edd7edb052f1656c512bc6e2360c7526d9faed1fc3b6089a7c8435",
+      "subject_uri": "runtime/v6/host-inputs/artrepair-reviewer-progress-2.txt",
+      "summary": "\u72ec\u5ba1\u6838\u5bf9\u540e\u786e\u8ba4 Art \u4ec5\u663e\u5f0f\u4f7f\u7528\u5408\u6cd5\u9759\u6001\u573a\u666f\u5750\u6807\uff0c\u672a\u6539\u5199\u65f6\u95f4\u8f74\u673a\u4f4d\uff1b\u521d\u6b65\u7591\u8651\u64a4\u56de\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T15:31:02.308305Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/review-record.json",
+        "runtime/v6/host-inputs/artrepair-reviewer-result.txt"
+      ],
+      "in_reply_to": "ARTREPAIR_REVIEW_HOST_BRIEF_1",
+      "message_id": "ARTREPAIR_REVIEWER_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+      "subject_sha256": "0f376a22b93406f39066d13984ef89dd9e5d6d26167881fee3ea8b83fe198057",
+      "subject_uri": "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/review-record.json",
+      "summary": "Art \u72ec\u5ba1\u4e09\u9879 PASS\uff1b\u6838\u5bf9\u9759\u6001/\u65f6\u95f4\u8f74\u5750\u6807\u6362\u7b97\u4e0e\u5168\u90e8 V5/V6 \u4ea4\u63a5\uff0c\u5a92\u4f53 NOT_RUN\u3002",
+      "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-ae36c50928a68e33a352bda0",
+    "agent_id": "/root/host_bridge/v6_45ee8a42c29a42e91b5d05e0",
+    "batch": 1,
+    "dispatch_id": "dispatch-ae36c50928a68e33a352bda0",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:23:49.155178Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:23:49.155178Z",
+    "status": "RUNNING",
+    "task_digest": "f033e95835bd069b69f09f0d27f0cce7b9534d01bdb3b974f535db2c2de641a5",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+    "tool_result_sha256": "48eec9e26d254d329641739195068f130877f95034c3bdde6d8a21a796a5e36e",
+    "tool_result_uri": "runtime/v6/host-evidence/48eec9e26d254d329641739195068f130877f95034c3bdde6d8a21a796a5e36e.json"
+  },
+  "review": {
+    "at": "2026-09-25T15:30:36.951975Z",
+    "batch": 1,
+    "candidate_digest": "64ea5bf23363b4c7656efa806c0c7049095b2ec6ed7953537c58bbd3e1e4fa83",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_536f58cce58a7823bdf4a3f3/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+    "reviewer_dispatch_id": "review-ae36c50928a68e33a352bda0",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3"
+  },
+  "review_dispatch": {
+    "action_id": "review-ae36c50928a68e33a352bda0",
+    "agent_id": "/root/host_bridge/v6_e6d5d7272377d7fa95042b27",
+    "batch": 1,
+    "dispatch_id": "review-ae36c50928a68e33a352bda0",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T15:28:36.175432Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T15:28:36.175432Z",
+    "status": "RUNNING",
+    "task_digest": "f033e95835bd069b69f09f0d27f0cce7b9534d01bdb3b974f535db2c2de641a5",
+    "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+    "tool_result_sha256": "9a1f5139b173a62ca0235a06ac786b461ff4c6f9ced6e94eb8f977c2a58218ce",
+    "tool_result_uri": "runtime/v6/host-evidence/9a1f5139b173a62ca0235a06ac786b461ff4c6f9ced6e94eb8f977c2a58218ce.json"
+  },
+  "revision_at_archive": 430,
+  "state": "ACCEPTED",
+  "task_id": "TASK_536f58cce58a7823bdf4a3f3",
+  "version": 15
+}

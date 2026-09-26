@@ -1,0 +1,324 @@
+{
+  "candidate": null,
+  "envelope": {
+    "batch": 1,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_b1e7ff7ce83d7a32bfa09935"
+      },
+      {
+        "task_id": "TASK_0560d46ecc764c68ee9a590e"
+      },
+      {
+        "task_id": "V6_skip_2de8dc7accb8e722fccf86b2"
+      },
+      {
+        "task_id": "V6_skip_6193e6182edb67785c9fec09"
+      },
+      {
+        "task_id": "V6_skip_50bb5189ee0b2249e0e494c0"
+      },
+      {
+        "task_id": "V6_skip_255d0aea025897f1f04e0a3a"
+      },
+      {
+        "task_id": "V6_skip_063d7a697a209a072977d11f"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "StoryboardIR",
+        "slot": "storyboard:project:project:StoryboardIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_14ccecf60174e51512f867f2",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_470e86ea8851d087c4f51d74",
+        "source_slot": "director:project:project:DirectorIR",
+        "source_version": 21,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_039d6bab6cbb61c8733568c8",
+        "source_slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "source_version": 22,
+        "target_pointer": "",
+        "target_slot": "storyboard:project:project:StoryboardIR"
+      }
+    ],
+    "input_digest": "6e0692452ece358689793f82767e71503e060b5e0e30a4ae58e4ffe18fa2409e",
+    "input_revision": 129,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+        "version": 21
+      },
+      {
+        "sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+        "slot": "art:scene:13x53435f5241494e5f4e49474854:ArtIR",
+        "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+        "version": 22
+      },
+      {
+        "sha256": "c9ff0259ed0199c94f7610fe464f1edd8e1242f5262eb15964bfc403b5f929bf",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "storyboard-grammar",
+      "sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+      "version": "1.3.2"
+    },
+    "node_id": "storyboard",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "71f945be8bde98ef198f6a89684be3d742f8881a6c94d3e2952ab0afbc04331f",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "0ff61822a329e035afd766389704841ec0abe47cf44316c843fb1fe959efeda2",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "531b21f162bcba4b85167c1fd26d42199225772ce21238b25c3448d8b9fcc1e3",
+        "uri": "runtime/modules/dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8/storyboard-grammar/references/continuity-and-qa.md"
+      }
+    ],
+    "role": "storyboard",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "evidence_hashes": {},
+  "failure_counts": {
+    "module_receipt": 1
+  },
+  "messages": [
+    {
+      "at": "2026-09-25T12:41:56.607703Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+        "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json",
+        "runtime/tasks/TASK_3240f8bc6a9896032b95d091.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "STORYBOARD_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "f48d61f6606510034167fcee3152f58826297066d7e44c0ed209229be617cd6f",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-spawn-action.json",
+      "summary": "Actual storyboard spawn carried frozen inputs/resources, accepted upstream IRs, candidate-only ownership, text-only media boundary and blocking/control contract.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T12:42:08.152065Z",
+      "batch": 1,
+      "evidence": [],
+      "in_reply_to": "STORYBOARD_GUIDANCE_1",
+      "message_id": "STORYBOARD_ACK_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "subject_sha256": null,
+      "subject_uri": null,
+      "summary": "Storyboard creator acknowledged frozen action, input hashes, locked contract and accepted upstream IRs; writing only batch-1 candidate and will return result path/SHA.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "ACK"
+    },
+    {
+      "at": "2026-09-25T12:45:20.048495Z",
+      "batch": 1,
+      "evidence": [],
+      "in_reply_to": "STORYBOARD_ACK_1",
+      "message_id": "STORYBOARD_PROGRESS_REQUEST_1",
+      "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "94e78f9b7ce10c66ec33a9ed9f563d2cb5ed95d1300cf37bd39c3ec510c30665",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-progress-request.txt",
+      "summary": "Host requested precise storyboard/Director/Art contract blocker if any, with shot-to-overhead blocking evidence and no media claim.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "QUESTION"
+    },
+    {
+      "at": "2026-09-25T12:45:35.510025Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-progress-report.txt"
+      ],
+      "in_reply_to": "STORYBOARD_PROGRESS_REQUEST_1",
+      "message_id": "STORYBOARD_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "subject_sha256": "ec3b6a7ce094b7f8bf0f16ee57c93a2538108c8343ca6d562d1336d297db2533",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-progress-report.txt",
+      "summary": "Storyboard creator verified frozen hashes and accepted Canon/ScriptIR/DirectorIR/ArtIR; no blocker, preserving Director timeline and explicitly mapping coordinates, camera/visibility and overhead handoff; media NOT_RUN.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T12:49:58.812667Z",
+      "batch": 1,
+      "evidence": [],
+      "in_reply_to": "STORYBOARD_PROGRESS_PROGRESS_1",
+      "message_id": "STORYBOARD_EVIDENCE_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "db95284097b42468c2f661470534e6ea019b3510c478e592fed39c8f99465002",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-evidence-guidance.txt",
+      "summary": "Host relayed current kernel requirement for nonempty existing per-check and per-handoff candidate evidence, no placeholder URI.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T12:50:15.264293Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-schema-progress.txt"
+      ],
+      "in_reply_to": "STORYBOARD_EVIDENCE_GUIDANCE_1",
+      "message_id": "STORYBOARD_SCHEMA_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "subject_sha256": "2913effba19ba881884421dde2cd6d78ddc7fd615f70d2a51e62d41860979ba3",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-schema-progress.txt",
+      "summary": "Storyboard creator confirmed nonempty existing evidence for checks and three handoffs; first native inspect found schema shape errors in style ID, resolution type, gaze ID and audio empty object, now correcting against locked 1.2 schema.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T12:55:58.435425Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/storyboard-lighting-caveat.txt"
+      ],
+      "in_reply_to": "STORYBOARD_SCHEMA_PROGRESS_1",
+      "message_id": "STORYBOARD_LIGHTING_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "subject_sha256": "e63a81d8f3cfc3b6567e4aaa22751cda079ae1f6e206c5ccf09ddec476fdf0a2",
+      "subject_uri": "runtime/v6/host-inputs/storyboard-lighting-caveat.txt",
+      "summary": "Creator disclosed Schema-required lighting position as non-binding design anchor; real source location and media effect remain unresolved.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T12:56:08.953737Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/candidate-result.json"
+      ],
+      "in_reply_to": "STORYBOARD_LIGHTING_PROGRESS_1",
+      "message_id": "STORYBOARD_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "subject_sha256": "301dd866c94b906a67bcf12eed2356df59ed8930dcca76b8c5a0577ade307e0d",
+      "subject_uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/1/candidate-result.json",
+      "summary": "Creator submitted StoryboardIR candidate, native package and evidence for independent review; media NOT_RUN.",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "type": "RESULT"
+    }
+  ],
+  "receipt": {
+    "action_id": "dispatch-2897aa32166b120d4fcc903a",
+    "agent_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+    "batch": 1,
+    "dispatch_id": "dispatch-2897aa32166b120d4fcc903a",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T12:41:37.435599Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T12:41:37.435599Z",
+    "status": "RUNNING",
+    "task_digest": "82e2515f57d805ac33afefa09ba2195a58460b4bd6a35ff22edf2ce56c92e9f2",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "tool_result_sha256": "08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568",
+    "tool_result_uri": "runtime/v6/host-evidence/08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568.json"
+  },
+  "receipt_history": [
+    {
+      "action_id": "dispatch-2897aa32166b120d4fcc903a",
+      "agent_id": "/root/host_bridge/v6_e0041350e919d17d3e00433f",
+      "batch": 1,
+      "dispatch_id": "dispatch-2897aa32166b120d4fcc903a",
+      "error": null,
+      "host": "codex",
+      "host_call_id": null,
+      "host_tool": "collaboration.spawn_agent",
+      "observed_at": "2026-09-25T12:41:37.435599Z",
+      "result_uri": null,
+      "schema": "dispatch-receipt/6.0",
+      "sent_at": "2026-09-25T12:41:37.435599Z",
+      "status": "RUNNING",
+      "task_digest": "82e2515f57d805ac33afefa09ba2195a58460b4bd6a35ff22edf2ce56c92e9f2",
+      "task_id": "TASK_3240f8bc6a9896032b95d091",
+      "tool_result_sha256": "08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568",
+      "tool_result_uri": "runtime/v6/host-evidence/08ace91473e569556c90ce5c41d60fc66c08b909265464ead56a2a5851c42568.json"
+    }
+  ],
+  "review": null,
+  "review_dispatch": null,
+  "state": "FAILED",
+  "validation": [],
+  "version": 12
+}

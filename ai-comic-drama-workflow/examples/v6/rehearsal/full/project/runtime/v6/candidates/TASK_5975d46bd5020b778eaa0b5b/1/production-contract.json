@@ -1,0 +1,476 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "PC_PROP_BACKPACK_V6_1",
+  "versions": {
+    "skill": "1.15.7",
+    "compiler": "agent-icir-1.0",
+    "packs": [
+      "image-prompt-optimizer/1.15.7"
+    ]
+  },
+  "sources": [
+    {
+      "id": "ART",
+      "kind": "document",
+      "locator": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+      "excerpt": "ArtIR /assets/3、/world、/references/3：深色无标识软质织物背包；可触及包口及可容信内腔，外观与包口连续，入包后信完全不外露；PLAN_PROP_BACKPACK 仅 planned。",
+      "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+      "reviewed": true
+    },
+    {
+      "id": "TASK",
+      "kind": "document",
+      "locator": "runtime/tasks/TASK_5975d46bd5020b778eaa0b5b.json",
+      "excerpt": "冻结的 ASSET_SCENE_HANDOFF_PROP_BACKPACK 任务只允许改写提示词表达，保留美术设计及 identity_locks。",
+      "sha256": "4ba345915355288aa3cfc778f0cad98059fcd36b906e88fc9d7571cb313e70b0",
+      "reviewed": true
+    },
+    {
+      "id": "LAYOUT",
+      "kind": "assumption",
+      "locator": "creator composition within frozen prompt scope",
+      "excerpt": "单张道具锚图使用中性承托面与略高于包口的视点；3:4 画幅只是建议，不声明模型控制或实际像素。",
+      "sha256": null,
+      "reviewed": true
+    }
+  ],
+  "icir": {
+    "locale": "zh-CN",
+    "intent": "为 PROP_BACKPACK 形成有来源的静态道具造型提示词，锁定材质、包口功能和后续连续性，不冒称已有参考图或媒体。",
+    "mode": "text_to_image",
+    "entities": [
+      {
+        "id": "PROP_BACKPACK",
+        "kind": "object",
+        "description": "乙收信所用的同一只 PROP_BACKPACK；深色无标识软质织物，低反光哑面；包体形状与包口位置在后续镜头连续。 不加品牌、贴章、可读文字或明显破损。",
+        "source_ids": [
+          "ART",
+          "TASK"
+        ]
+      },
+      {
+        "id": "ENV_RAIN_NIGHT",
+        "kind": "scene_anchor",
+        "description": "低饱和蓝灰雨夜低频背景，不呈现可识别城市、建筑、具体地点或室内外断言。",
+        "source_ids": [
+          "ART"
+        ]
+      }
+    ],
+    "references": [],
+    "frames": [
+      {
+        "id": "F_BACKPACK_ANCHOR",
+        "entity_ids": [
+          "PROP_BACKPACK",
+          "ENV_RAIN_NIGHT"
+        ],
+        "scene": "低饱和蓝灰雨夜低频背景，不呈现可识别城市、建筑、具体地点或室内外断言。",
+        "moment": "单一静态待收纳状态，包内尚无信；不同时呈现入包前后状态。",
+        "composition": "背包全貌与包口同时可见，包口边缘和暗色内腔分离；中性平整承托面稳定支撑包体。 包口在乙右手可触及位置，内腔足以容纳并承托同一封普通纸质信。",
+        "camera": {
+          "viewpoint": "略高于包口的单一静态视点",
+          "framing": "背包完整入画、包口明确可见",
+          "equipment_intent": "无指定器材",
+          "derived_visual_intent": "包体轮廓、包口位置和可用内腔可辨",
+          "focus_depth": "包体与包口在清晰区，雨夜背景低频后退"
+        },
+        "performance": [],
+        "lighting": {
+          "key": "柔和环境光，服务包口和材质识别",
+          "exposure_intent": "低反光织物仍能辨认包口边缘与内腔"
+        },
+        "color": {
+          "palette": "深色哑面包体，低饱和蓝灰雨夜背景"
+        },
+        "quality": {
+          "realism": "写实静态道具资产",
+          "detail_budget": "优先包体外观、包口结构、织物受力和内腔容量"
+        },
+        "continuity": {
+          "invariants": [
+            "沿用同一背包外观和包口位置；EVENT_STOW 后同一封信由包内承托且完全不外露。"
+          ]
+        }
+      }
+    ],
+    "relations": [],
+    "texts": [],
+    "output": {
+      "aspect_ratio": "3:4",
+      "requested_pixels": null,
+      "delivered_pixels": null,
+      "native_resolution": "unknown",
+      "crop_safe_area": "背包轮廓和包口均完整入画",
+      "format": null
+    }
+  },
+  "facts": [
+    {
+      "path": "/icir/entities/0/description",
+      "value": "乙收信所用的同一只 PROP_BACKPACK；深色无标识软质织物，低反光哑面；包体形状与包口位置在后续镜头连续。 不加品牌、贴章、可读文字或明显破损。",
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ],
+      "reason": "将背包的材质、同一实体和跨镜外观锁写成资产规格"
+    },
+    {
+      "path": "/icir/frames/0/scene",
+      "value": "低饱和蓝灰雨夜低频背景，不呈现可识别城市、建筑、具体地点或室内外断言。",
+      "origin": "derived",
+      "source_ids": [
+        "ART"
+      ],
+      "reason": "保留雨夜色材而不推断地点"
+    },
+    {
+      "path": "/icir/frames/0/composition",
+      "value": "背包全貌与包口同时可见，包口边缘和暗色内腔分离；中性平整承托面稳定支撑包体。 包口在乙右手可触及位置，内腔足以容纳并承托同一封普通纸质信。",
+      "origin": "assumed",
+      "source_ids": [
+        "LAYOUT"
+      ],
+      "reason": "用单一可实现视点观察包口和包体"
+    },
+    {
+      "path": "/icir/frames/0/moment",
+      "value": "单一静态待收纳状态，包内尚无信；不同时呈现入包前后状态。",
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ],
+      "reason": "资产锚图选待收纳时刻，后续入包状态作为连续性要求"
+    },
+    {
+      "path": "/icir/output/aspect_ratio",
+      "value": "3:4",
+      "origin": "assumed",
+      "source_ids": [
+        "LAYOUT"
+      ],
+      "reason": "建议画幅，不当成模型已执行的参数"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "H1",
+      "level": "hard",
+      "requirement": "同一背包外观与包口位置跨镜连续，深色无标识软质织物且低反光",
+      "path": "/icir/entities/0/description",
+      "value": "乙收信所用的同一只 PROP_BACKPACK；深色无标识软质织物，低反光哑面；包体形状与包口位置在后续镜头连续。 不加品牌、贴章、可读文字或明显破损。",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H2",
+      "level": "hard",
+      "requirement": "包口可由乙右手触及，内腔可容纳并承托同一封信",
+      "path": "/icir/frames/0/composition",
+      "value": "背包全貌与包口同时可见，包口边缘和暗色内腔分离；中性平整承托面稳定支撑包体。 包口在乙右手可触及位置，内腔足以容纳并承托同一封普通纸质信。",
+      "source_ids": [
+        "ART",
+        "TASK",
+        "LAYOUT"
+      ]
+    },
+    {
+      "id": "H3",
+      "level": "hard",
+      "requirement": "后续 EVENT_STOW 后同一封信在包内承托且完全不外露",
+      "path": "/icir/frames/0/continuity/invariants/0",
+      "value": "沿用同一背包外观和包口位置；EVENT_STOW 后同一封信由包内承托且完全不外露。",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H4",
+      "level": "hard",
+      "requirement": "资产锚图只呈现待收纳的单一状态，不提前显示信或人物",
+      "path": "/icir/frames/0/moment",
+      "value": "单一静态待收纳状态，包内尚无信；不同时呈现入包前后状态。",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H5",
+      "level": "hard",
+      "requirement": "低频雨夜不推断具体地点或室内外",
+      "path": "/icir/frames/0/scene",
+      "value": "低饱和蓝灰雨夜低频背景，不呈现可识别城市、建筑、具体地点或室内外断言。",
+      "source_ids": [
+        "ART"
+      ]
+    },
+    {
+      "id": "H6",
+      "level": "hard",
+      "requirement": "无品牌、贴章、可读文字、明显破损或无关道具",
+      "path": "/icir/entities/0/description",
+      "value": "乙收信所用的同一只 PROP_BACKPACK；深色无标识软质织物，低反光哑面；包体形状与包口位置在后续镜头连续。 不加品牌、贴章、可读文字或明显破损。",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    }
+  ],
+  "compilations": [
+    {
+      "id": "OUT_BACKPACK",
+      "target": "通用自然语言（未指定目标图像模型）",
+      "surface": "generic",
+      "adapter_version": "generic/1.0",
+      "status": "READY",
+      "prompt": "为资产 PROP_BACKPACK 制作一张单一静态的背包造型参考图：同一只乙收信所用背包，深色无标识软质织物，低反光哑面，包体形状和包口位置清楚，作为后续镜头沿用的外观锚点。背包稳定置于中性平整承托面；包口处于乙右手能够触及的位置，开口结构与可容纳一封普通纸质信的内腔清楚可辨，包口边缘与暗色内腔有足够明度分离。本图只表现尚待收纳信件的同一只背包，不出现人物、手或信，不拼接入包前后两个时刻。后续 EVENT_STOW 镜头须沿用同一背包外观与同一包口位置；乙右手把同一封信送入后，信由包内承托且完全不外露，终帧不留信纸在包口。低饱和蓝灰雨夜氛围退到背景，不表现可识别城市、建筑或具体室内外；以柔和环境光显示织物哑面和可用开口，不增加品牌、贴章、可读文字、明显破损或妨碍包口的其他道具。",
+      "negative_prompt": null,
+      "native_params": {},
+      "capability": {
+        "status": "unknown",
+        "checked_at": null,
+        "source_ids": [],
+        "negative_mode": "positive_only",
+        "allowed_native_params": []
+      },
+      "constraint_clauses": {
+        "H1": "同一只乙收信所用背包，深色无标识软质织物，低反光哑面",
+        "H2": "包口处于乙右手能够触及的位置，开口结构与可容纳一封普通纸质信的内腔清楚可辨",
+        "H3": "信由包内承托且完全不外露",
+        "H4": "本图只表现尚待收纳信件的同一只背包，不出现人物、手或信",
+        "H5": "低饱和蓝灰雨夜氛围退到背景，不表现可识别城市、建筑或具体室内外",
+        "H6": "不增加品牌、贴章、可读文字、明显破损或妨碍包口的其他道具"
+      },
+      "trace": [
+        {
+          "operation": "preserve",
+          "path": "/icir/entities/0",
+          "reason": "沿用已接受 ArtIR 的背包材质及连续性锁"
+        },
+        {
+          "operation": "derive",
+          "path": "/icir/frames/0/continuity",
+          "reason": "把包口与收纳结果落实为后续镜头的明确条件"
+        },
+        {
+          "operation": "add",
+          "path": "/icir/frames/0/composition",
+          "reason": "选择能看到背包全貌和包口的单一静态资产视图"
+        }
+      ],
+      "warnings": [
+        "PLAN_PROP_BACKPACK 只是 planned 文字参考，没有实际图像文件、哈希或附件槽位。",
+        "本任务不生成图片；视觉质量、实际入包遮挡与跨镜一致性待真实媒体审核。"
+      ]
+    }
+  ],
+  "execution": [
+    {
+      "id": "S1",
+      "owner": "image-prompt-optimizer creator",
+      "action": "按 ArtIR 编译静态提示词并运行锁定合同校验",
+      "depends_on": [],
+      "inputs": [
+        "ART",
+        "TASK"
+      ],
+      "outputs": [
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/production-contract.json"
+      ],
+      "status": "DONE",
+      "stop_condition": "来源或硬锁冲突则停止该资产提示词交付"
+    },
+    {
+      "id": "S2",
+      "owner": "host image executor",
+      "action": "在已授权且已确认的图像入口生成背包资产图",
+      "depends_on": [
+        "S1"
+      ],
+      "inputs": [
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ],
+      "outputs": [
+        "image artifact"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "无已指定图像模型或调用记录，不报告生成结果"
+    },
+    {
+      "id": "S3",
+      "owner": "independent visual reviewer",
+      "action": "核验实际背包图与后续镜头连续性",
+      "depends_on": [
+        "S2"
+      ],
+      "inputs": [
+        "image artifact"
+      ],
+      "outputs": [
+        "visual review"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "没有真实图像不评价画面"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "STATIC_H1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、任务、ICIR 与主提示词",
+      "expected": "同一背包外观与包口位置跨镜连续，深色无标识软质织物且低反光",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查",
+      "expected": "同一背包外观与包口位置跨镜连续，深色无标识软质织物且低反光",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、任务、ICIR 与主提示词",
+      "expected": "包口可由乙右手触及，内腔可容纳并承托同一封信",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查",
+      "expected": "包口可由乙右手触及，内腔可容纳并承托同一封信",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、任务、ICIR 与主提示词",
+      "expected": "后续 EVENT_STOW 后同一封信在包内承托且完全不外露",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查",
+      "expected": "后续 EVENT_STOW 后同一封信在包内承托且完全不外露",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、任务、ICIR 与主提示词",
+      "expected": "资产锚图只呈现待收纳的单一状态，不提前显示信或人物",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查",
+      "expected": "资产锚图只呈现待收纳的单一状态，不提前显示信或人物",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、任务、ICIR 与主提示词",
+      "expected": "低频雨夜不推断具体地点或室内外",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查",
+      "expected": "低频雨夜不推断具体地点或室内外",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H6",
+      "constraint_ids": [
+        "H6"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、任务、ICIR 与主提示词",
+      "expected": "无品牌、贴章、可读文字、明显破损或无关道具",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H6",
+      "constraint_ids": [
+        "H6"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查",
+      "expected": "无品牌、贴章、可读文字、明显破损或无关道具",
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "unresolved": []
+}

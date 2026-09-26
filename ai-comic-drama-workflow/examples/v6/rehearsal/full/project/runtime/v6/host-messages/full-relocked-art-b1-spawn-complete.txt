@@ -1,0 +1,112 @@
+Execute the frozen V6 task below. You are not alone in the codebase; do not revert other agents' edits. Project root: /private/tmp/ai-video-v6-full-demo/project. Resolve every task URI against this root. Own only candidate files under /private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1. Read every item in envelope.inputs, every listed locked resource, and the relevant Skill before work. If inputs include repair_brief or repair_failure_1/2, read each cited prior review, fix every recorded defect, and report whether each old defect is gone. Copy RoleResult.validator.status exactly from a fresh locked native validator result; do not infer it from media or visual review status. Record checks and handoffs. Do not write formal artifacts or advance workflow state; submit a candidate result for independent review. If this is an independent review task, review the supplied candidate only and do not create another reviewer.
+
+Frozen task envelope:
+{
+  "batch": 1,
+  "dependencies": [
+    {
+      "task_id": "TASK_44ed8445ba9b638fcd7e9fe8"
+    },
+    {
+      "task_id": "TASK_bf0865334b4a88be570a164a"
+    }
+  ],
+  "execution_class": "professional",
+  "expected_artifacts": [
+    {
+      "kind": "ArtIR",
+      "slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+      "uri_prefix": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/"
+    }
+  ],
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_736fae98163757821a66afe6",
+      "source_slot": "canon:project:project:Canon",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR"
+    },
+    {
+      "channel": "artifact",
+      "requirement_id": "UP_c3003e890d5b8acf8bc952ef",
+      "source_slot": "director:project:project:DirectorIR",
+      "source_version": 13,
+      "target_pointer": "",
+      "target_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR"
+    }
+  ],
+  "input_digest": "be1e826a855dcf3750bffd9bda6191ee11926f89a52564236abec6a00e9baf5e",
+  "input_revision": 205,
+  "inputs": [
+    {
+      "sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+      "version": 12
+    },
+    {
+      "sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/2/director-ir.json",
+      "version": 13
+    },
+    {
+      "sha256": "b116baafc9318be8878e219f4f7c99079a34113a4ee805081f304108a42c5282",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_4de99276d376cc50c61527d6.json",
+      "version": 0
+    }
+  ],
+  "module": {
+    "name": "production-design-grammar",
+    "sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+    "version": "1.3.3"
+  },
+  "node_id": "art",
+  "project_id": "LETTER_FULL_DEMO",
+  "resources": [
+    {
+      "sha256": "43a4f38ebf9271892d6c489f57e31408ad655b01fdecda4700b9018f105a2b10",
+      "uri": "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/SKILL.md"
+    },
+    {
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/current-contract.md"
+    },
+    {
+      "sha256": "029d4196062a8794b515a85c337f592f5d5b447ec0bcf7b002486c08af4dc863",
+      "uri": "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/cooperation-v5.md"
+    },
+    {
+      "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "uri": "runtime/modules/6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9/production-design-grammar/references/world-and-assets.md"
+    }
+  ],
+  "role": "art",
+  "schema": "task-envelope/6.0",
+  "scope": {
+    "ids": [
+      "SCENE_HANDOFF"
+    ],
+    "kind": "scene"
+  },
+  "task_id": "TASK_4de99276d376cc50c61527d6",
+  "validators": [
+    {
+      "id": "module_receipt",
+      "kind": "hash"
+    },
+    {
+      "id": "native_validator",
+      "kind": "native"
+    },
+    {
+      "id": "handoff",
+      "kind": "handoff"
+    }
+  ]
+}
+
+Native handoff reminder: read the frozen runtime/tasks/<task_id>.json handoff.required_handoffs. The V5 RoleResult.handoff must cover those native requirements, including screenplay review bindings for a Director task. candidate.handoffs separately covers the V6 envelope.handoffs; neither list substitutes for the other.

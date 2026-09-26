@@ -1,0 +1,163 @@
+{
+  "affected_handoffs": [
+    "UP_9fcd7950eb5d010a1a08b1d5",
+    "UP_9569ed7fedf5c8746c5c2cd2",
+    "screenplay:REQ_SINGLE_LETTER",
+    "screenplay:NARRATIVE_ending"
+  ],
+  "blockers": [
+    {
+      "id": "CONTRADICTORY_FINAL_CUSTODY",
+      "paths": [
+        "/shots/0/end_state/0/pose",
+        "/shots/0/end_state/1/pose",
+        "/shots/0/end_state/2/pose",
+        "/timeline/actions/4/settle"
+      ],
+      "reason": "One final state says Jia still holds the same letter and Yi has yet to receive it, while the same letter has already been stowed in the backpack. This violates the one-letter custody and ending handoff.",
+      "values": [
+        "站立；右手持同一封未拆信",
+        "站立；右手准备接信；背包可及",
+        "同一封未拆信在背包内",
+        "乙松手，信留在背包内；镜头到此结束，不呈现后续。"
+      ]
+    },
+    {
+      "id": "STALE_CHECKPOINT_POSES",
+      "paths": [
+        "/timeline/state_samples/1/entities/CHAR_YI/pose",
+        "/timeline/state_samples/2/entities/CHAR_JIA/pose",
+        "/timeline/state_samples/2/entities/CHAR_YI/pose",
+        "/timeline/state_samples/5/entities/CHAR_JIA/pose",
+        "/timeline/state_samples/5/entities/CHAR_YI/pose"
+      ],
+      "reason": "Character pose text stays at the initial holding/ready-to-receive state after dual contact, after transfer to Yi, and after stow, conflicting with the letter contacts/controllers in the same checkpoint.",
+      "samples": [
+        {
+          "at_ms": 2500,
+          "jia_pose": "站立；右手持同一封未拆信",
+          "letter_contacts": [
+            "CHAR_JIA.right_hand",
+            "CHAR_YI.right_hand"
+          ],
+          "letter_controllers": [
+            "CHAR_JIA.right_hand"
+          ],
+          "letter_pose": "未拆；封口朝上",
+          "yi_pose": "站立；右手准备接信；背包可及"
+        },
+        {
+          "at_ms": 4000,
+          "jia_pose": "站立；右手持同一封未拆信",
+          "letter_contacts": [
+            "CHAR_YI.right_hand"
+          ],
+          "letter_controllers": [
+            "CHAR_YI.right_hand"
+          ],
+          "letter_pose": "未拆；封口朝上",
+          "yi_pose": "站立；右手准备接信；背包可及"
+        },
+        {
+          "at_ms": 7500,
+          "jia_pose": "站立；右手持同一封未拆信",
+          "letter_contacts": [
+            "CHAR_YI.right_hand"
+          ],
+          "letter_controllers": [
+            "CHAR_YI.right_hand"
+          ],
+          "letter_pose": "未拆；封口朝乙且完整可见",
+          "yi_pose": "站立；右手准备接信；背包可及"
+        },
+        {
+          "at_ms": 10500,
+          "jia_pose": "站立；右手持同一封未拆信",
+          "letter_contacts": [
+            "PROP_BACKPACK.interior"
+          ],
+          "letter_controllers": [],
+          "letter_pose": "同一封未拆信在背包内",
+          "yi_pose": "站立；右手准备接信；背包可及"
+        },
+        {
+          "at_ms": 12000,
+          "jia_pose": "站立；右手持同一封未拆信",
+          "letter_contacts": [
+            "PROP_BACKPACK.interior"
+          ],
+          "letter_controllers": [],
+          "letter_pose": "同一封未拆信在背包内",
+          "yi_pose": "站立；右手准备接信；背包可及"
+        }
+      ]
+    }
+  ],
+  "canon_requirements": [
+    {
+      "id": "REQ_RAIN_NIGHT",
+      "statement": "保留雨夜这一时空事实。"
+    },
+    {
+      "id": "REQ_SINGLE_LETTER",
+      "statement": "交接对象是一封未拆的信，后续封口检查与收存指向同一封信。"
+    },
+    {
+      "id": "REQ_ACTION_ORDER",
+      "statement": "甲交给乙；乙确认封口完整；确认后乙将信收进背包，顺序不可颠倒。"
+    }
+  ],
+  "check": "handoff",
+  "creator_evidence_limit": "V5 map assertions resolve and the locked validator passes because neither checks the conflicting character pose strings. Creator PASS is therefore insufficient.",
+  "positive_semantics": "The declared action sequence and one-letter identity match source/Canon/ScriptIR; no extra character, dialogue, motive, letter content, or later event is stated. Fixed camera and 12-second budget are labeled director design.",
+  "repair_owner": "director",
+  "repair_required": "Revise the character poses in the actual shot end state and relevant state samples to agree with contact/control changes; create a new candidate and repeat static plus independent semantic review.",
+  "reviewed_at": "2026-09-25T11:05:56.560227Z",
+  "script_reveal_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "source_text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+  "status": "FAIL",
+  "v5_mapping_rows": [
+    {
+      "assertions_pass": true,
+      "requirement_id": "screenplay:REQ_RAIN_NIGHT",
+      "source_fingerprint_matches": true,
+      "target_clause_hard": true
+    },
+    {
+      "assertions_pass": true,
+      "requirement_id": "screenplay:REQ_SINGLE_LETTER",
+      "source_fingerprint_matches": true,
+      "target_clause_hard": true
+    },
+    {
+      "assertions_pass": true,
+      "requirement_id": "screenplay:REQ_ACTION_ORDER",
+      "source_fingerprint_matches": true,
+      "target_clause_hard": true
+    },
+    {
+      "assertions_pass": true,
+      "requirement_id": "screenplay:NARRATIVE_ending",
+      "source_fingerprint_matches": true,
+      "target_clause_hard": true
+    },
+    {
+      "assertions_pass": true,
+      "requirement_id": "screenplay:NARRATIVE_events",
+      "source_fingerprint_matches": true,
+      "target_clause_hard": true
+    },
+    {
+      "assertions_pass": true,
+      "requirement_id": "screenplay:NARRATIVE_reveal_order",
+      "source_fingerprint_matches": true,
+      "target_clause_hard": true
+    }
+  ],
+  "v5_required_mapping_count": 6,
+  "v6_frozen_candidate_evidence_tuples_match": true
+}

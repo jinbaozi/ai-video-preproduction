@@ -1,0 +1,57 @@
+{
+  "art_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "receipt_sha256": "0abc65ec7416bc751eb4800d13532bdf1fb58fb5c0e8e26260658d5e80a673a2",
+  "records": [
+    {
+      "check_id": "G0INPUT",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "G1DESIGN",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "G2MAP",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "G3_HANDOFF",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "G3_SEAL",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "G3_STOW",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "G4FINAL",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    }
+  ],
+  "schema_version": "1.0",
+  "status": "NOT_RUN"
+}

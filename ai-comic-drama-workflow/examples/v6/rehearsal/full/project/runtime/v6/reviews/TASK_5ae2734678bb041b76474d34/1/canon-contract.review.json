@@ -1,0 +1,56 @@
+{
+  "check": "canon_contract",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T10:53:34.221615Z",
+  "method": "Validated V6 task and candidate JSON Schemas and V5 RoleResult JSON Schema; checked the V5 native Canon fields, IDs, source references, semantic claims and event order against the original text.",
+  "schema_validation": {
+    "v6_task_envelope": "PASS",
+    "v6_candidate_result": "PASS",
+    "v5_role_result": "PASS",
+    "canon_standalone_schema": "not_declared"
+  },
+  "native_contract": {
+    "project_id_matches": true,
+    "revision_positive": true,
+    "content_nonempty": true,
+    "source_refs_registered": true,
+    "entity_ids_unique_safe": true,
+    "all_fact_quotes_exact": true,
+    "event_entity_and_fact_refs_resolve": true,
+    "event_order_valid": true,
+    "source_requirement_fact_refs_resolve": true
+  },
+  "source_bound_semantics": {
+    "setting": "Rainy night retained without inventing a location or indoor/outdoor status.",
+    "handoff": "Jia hands Yi one unopened letter.",
+    "seal_check": "Yi confirms that same letter has an intact seal.",
+    "stow": "Yi then puts that same letter into a backpack.",
+    "invented_dialogue_or_motive": false,
+    "unbound_media_claim": false
+  },
+  "entity_ids": [
+    "CHAR_JIA",
+    "CHAR_YI",
+    "ENV_RAIN_NIGHT",
+    "PROP_BACKPACK",
+    "PROP_LETTER"
+  ],
+  "fact_ids": [
+    "FACT_RAIN_NIGHT",
+    "FACT_HANDOFF",
+    "FACT_SEAL",
+    "FACT_STOW"
+  ],
+  "event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "creator_evidence_read": [
+    {
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/evidence/canon-contract.json",
+      "sha256": "cad8b274f391a2697815a967943571f9e4a976a7204ef38df5b5bd637dffcb28"
+    }
+  ],
+  "finding": "Canon preserves all four source facts and the required sequence with consistent IDs. Unspecified creative details remain explicitly unspecified."
+}

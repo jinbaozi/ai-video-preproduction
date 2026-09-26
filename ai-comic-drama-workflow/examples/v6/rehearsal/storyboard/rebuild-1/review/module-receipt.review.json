@@ -1,0 +1,18 @@
+{
+  "artifact_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+  "candidate_digest": "b2087c5689b8a12cdb611577436c4508cd92d2c08042f64539fbd2e884f3cca2",
+  "creator_and_reviewer_distinct": true,
+  "frozen_input_count": 4,
+  "frozen_resource_count": 4,
+  "hash_verification": "all exact SHA-256 byte matches; frozen input_digest recomputed",
+  "module_archive_sha256": "dde48be75afdb1f12dadbc01e2cbf26c2ea67de691c8d605db7912ebb241ceb8",
+  "module_name": "storyboard-grammar",
+  "module_receipt_reads": 4,
+  "module_version": "1.3.2",
+  "original_v5_input_count": 3,
+  "receipt_matches_frozen_resources": true,
+  "reviewer_agent_id": "/root/host_bridge/v6_4469254c72c22e300bc9dc4c",
+  "role_result_sha256": "c1b691cd823ec5a9d4bfd7b7c1a80ee2153928ef4947d255522800a1fc9326a1",
+  "source_text_sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+  "status": "PASS"
+}

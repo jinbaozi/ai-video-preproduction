@@ -1,0 +1,38 @@
+{
+  "command_id": "DIRREPAIR-REVIEW_SUBMIT_1",
+  "expected_revision": 382,
+  "review": {
+    "at": "2026-09-25T15:22:33.942016Z",
+    "batch": 1,
+    "candidate_digest": "f9c4ae3d48ce1a1de1f652c7f7bc9bc5087c52a1b02929644bafb8a003847aaf",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_19a3cd14f25bf90e50215d4d/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_19a3cd14f25bf90e50215d4d/1/native-validator.review.json",
+          "runtime/v6/reviews/TASK_19a3cd14f25bf90e50215d4d/1/coordinate-semantics.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_19a3cd14f25bf90e50215d4d/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_df80385afeacb4a6056c235f",
+    "reviewer_dispatch_id": "review-b2675e0a86b84995c72fed2c",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_19a3cd14f25bf90e50215d4d"
+  }
+}

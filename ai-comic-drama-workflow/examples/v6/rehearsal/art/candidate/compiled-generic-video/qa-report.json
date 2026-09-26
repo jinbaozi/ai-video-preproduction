@@ -1,0 +1,43 @@
+{
+  "art_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+  "receipt_sha256": "992cdea949081d9881d7c0cc659188d21b0653ca121947d6fc6c4512ecc35dec",
+  "records": [
+    {
+      "check_id": "C_INPUT",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "C_DESIGN",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "C_MAP",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "C_MEDIA",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    },
+    {
+      "check_id": "C_FINAL",
+      "evidence": [],
+      "observation": null,
+      "result": "NOT_RUN",
+      "reviewer": null
+    }
+  ],
+  "schema_version": "1.0",
+  "status": "NOT_RUN"
+}

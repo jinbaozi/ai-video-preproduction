@@ -1,0 +1,37 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B2_REVIEW_SUBMIT_1",
+  "expected_revision": 161,
+  "review": {
+    "schema": "review-record/6.0",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 2,
+    "reviewer_agent_id": "/root/host_bridge/full_rehearsal/v6_eeec77fc69b9cf207546f6fc",
+    "reviewer_dispatch_id": "review-e8166a197121d4f68fbc7bdc",
+    "candidate_digest": "29f1eb51f353a2ebc1ee7d7c782d1d35adb7044660f0ff1bb1a04274d9476f56",
+    "checks": [
+      {
+        "id": "source_integrity",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_44ed8445ba9b638fcd7e9fe8/2/source-integrity.review.json"
+        ]
+      },
+      {
+        "id": "canon_contract",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_44ed8445ba9b638fcd7e9fe8/2/canon-contract.review.json"
+        ]
+      },
+      {
+        "id": "handoff",
+        "status": "PASS",
+        "evidence": [
+          "runtime/v6/reviews/TASK_44ed8445ba9b638fcd7e9fe8/2/handoff.review.json"
+        ]
+      }
+    ],
+    "failure_owner": null,
+    "at": "2026-09-25T13:59:49.879Z"
+  }
+}

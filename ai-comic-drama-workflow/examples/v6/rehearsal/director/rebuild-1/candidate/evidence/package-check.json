@@ -1,0 +1,16 @@
+{
+  "actual_media": "NOT_RUN",
+  "candidate_result_sha256": "0308126d1e8204fddc48f21ab66cc420d1b3bd9ae23eee8edbca8178c69fda8f",
+  "director_ir_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "formal_state_modified": false,
+  "role_result_sha256": "63ca7c96bca0b2c5301fc565585ccc0a92070d4ca2b49ecce9dd0480645dd89a",
+  "status": "PASS",
+  "v5_handoff": "PASS",
+  "v5_module_receipt": "audited",
+  "v5_native_validator": "STATIC_VALID",
+  "v5_role_schema": "PASS",
+  "v6_candidate_schema": "PASS",
+  "v6_check_ids": "PASS",
+  "v6_handoff_ids": "PASS",
+  "v6_input_digest": "PASS"
+}

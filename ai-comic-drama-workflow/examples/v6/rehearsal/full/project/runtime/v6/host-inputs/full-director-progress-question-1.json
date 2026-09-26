@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_PROGRESS_QUESTION_1",
+  "expected_revision": 57,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_PROGRESS_QUESTION_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_83a899880d2e84fbf7f0a5a4",
+    "in_reply_to": "FULL_DIRECTOR_RESUME_AFTER_LIMIT_1",
+    "type": "QUESTION",
+    "summary": "Host requests resumed DirectorIR progress or exact blocker",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-progress-request.txt"
+    ],
+    "at": "2026-09-25T12:19:36.481853Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-progress-request.txt",
+    "subject_sha256": "e17f05475991e6e8ba2a1ddcec0a0c957539fa51842c6729271342a1f354424e"
+  }
+}

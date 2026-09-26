@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_REVIEW_HANDOFF_1",
+  "expected_revision": 68,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_REVIEW_HANDOFF_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_6db57255928bfb85051137ff",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_REVIEW_FINDING_1",
+    "type": "HANDOFF",
+    "summary": "Reviewer submits Director continuity FAIL record",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-review-ready.txt"
+    ],
+    "at": "2026-09-25T12:33:03.075922Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-review-ready.txt",
+    "subject_sha256": "1c7ed27c9c1d5ccc49bc35f3a33ce80f8e5954066b9cc4ba5a8739259542a14e"
+  }
+}

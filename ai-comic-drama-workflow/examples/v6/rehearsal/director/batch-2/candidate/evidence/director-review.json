@@ -1,0 +1,66 @@
+{
+  "G3": "NOT_RUN",
+  "G4": "NOT_RUN",
+  "actual_video_or_audio": "NOT_RUN",
+  "artifact_sha256": "d7fc28b7d3207d0beadb14f286e9bffd302a2fdab918dfd54190f515f1355364",
+  "batch_1_repair": "已按上一轮独立复核修复所有检查点和镜头终态的甲乙持信文字；对应信件接触和控制权在各时点一致。",
+  "boundary_checks": [
+    "未补地点或室内外",
+    "未补人物外观与关系",
+    "未补动机和信件内容",
+    "无对白、开封、额外人物和后续事件"
+  ],
+  "design_additions": [
+    "单镜固定机位",
+    "甲乙相对站位",
+    "右手交接和乙左手保持背包开口",
+    "12 秒/24fps/16:9 暂定预算",
+    "用于预演的世界坐标和画面框"
+  ],
+  "limitation": "静态合同与语义复核不证明生成媒体已经满足镜头。",
+  "reviewer": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+  "source_facts_preserved": [
+    {
+      "fact": "雨夜",
+      "target": [
+        "/scenes/0/space",
+        "/shots/0/sound/ambience",
+        "/contract/clauses/0"
+      ]
+    },
+    {
+      "fact": "甲交一封未拆信给乙",
+      "target": [
+        "/timeline/actions/0",
+        "/timeline/actions/1",
+        "/timeline/actions/2",
+        "/contract/clauses/1"
+      ]
+    },
+    {
+      "fact": "乙确认该信封口完整",
+      "target": [
+        "/timeline/actions/3",
+        "/timeline/performances/2",
+        "/contract/clauses/2"
+      ]
+    },
+    {
+      "fact": "乙确认后把同一封信收进背包",
+      "target": [
+        "/timeline/actions/4",
+        "/shots/0/end_state/2",
+        "/contract/clauses/3"
+      ]
+    }
+  ],
+  "state_checkpoints_ms": [
+    0,
+    2500,
+    4000,
+    7500,
+    10500,
+    12000
+  ],
+  "status": "SOURCE_BOUND_STATIC_REVIEW"
+}

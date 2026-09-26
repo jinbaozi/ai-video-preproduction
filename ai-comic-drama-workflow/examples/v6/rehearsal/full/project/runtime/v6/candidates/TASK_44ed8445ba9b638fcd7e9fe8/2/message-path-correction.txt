@@ -1,0 +1,1 @@
+Correction to my previous RESULT message: the exact text I sent is saved at runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/creator-result-message-actual.txt, SHA-256 dc5f7fe91656ed45d8316e43dc3d4062048e3842416f935ec611a01fcdb55e2f. Please bind that file as the direct message provenance; the earlier creator-result-message.txt omits its final sentence.

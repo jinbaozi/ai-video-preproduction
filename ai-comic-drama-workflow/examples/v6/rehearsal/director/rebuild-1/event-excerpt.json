@@ -1,0 +1,446 @@
+{
+  "batch": 1,
+  "candidate": {
+    "agent_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "artifacts": [
+      {
+        "kind": "DirectorIR",
+        "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/source-integrity.json",
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/native-validator.json",
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/state-consistency.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/v5-handoff.json",
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/prior-stamp-difference.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/v5-handoff.json"
+        ],
+        "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/v6-handoffs.json",
+          "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/evidence/v5-handoff.json"
+        ],
+        "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "5de30c5ff1c790bd581ce0431e7022952794fb9386dcab2c65eff75d0c4f0aa1",
+    "module_receipts": [
+      {
+        "name": "director-grammar",
+        "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+        "version": "1.4.2"
+      }
+    ],
+    "result_sha256": "63ca7c96bca0b2c5301fc565585ccc0a92070d4ca2b49ecce9dd0480645dd89a",
+    "result_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "unresolved": []
+  },
+  "captured_revision": 225,
+  "dispatch_receipt": {
+    "action_id": "dispatch-b3f83e98b868ad4066b4cdf1",
+    "agent_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+    "batch": 1,
+    "dispatch_id": "dispatch-b3f83e98b868ad4066b4cdf1",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T13:42:51.067053Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T13:42:51.067053Z",
+    "status": "RUNNING",
+    "task_digest": "10094fa0f4aa4adf6d48bd2069d262cce97f2db3faae288930b7dbec5feec01c",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "tool_result_sha256": "0213aafebbfdff4a7a1a75a8d04997a01e39d45fb119a300d6f766c6ade9afe0",
+    "tool_result_uri": "runtime/v6/host-evidence/0213aafebbfdff4a7a1a75a8d04997a01e39d45fb119a300d6f766c6ade9afe0.json"
+  },
+  "envelope": {
+    "batch": 1,
+    "dependencies": [
+      {
+        "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae"
+      },
+      {
+        "task_id": "TASK_1b94794070565f70c7f697a7"
+      }
+    ],
+    "execution_class": "professional",
+    "expected_artifacts": [
+      {
+        "kind": "DirectorIR",
+        "slot": "director:project:project:DirectorIR",
+        "uri_prefix": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_9fcd7950eb5d010a1a08b1d5",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "requirement_id": "UP_9569ed7fedf5c8746c5c2cd2",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 14,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "5de30c5ff1c790bd581ce0431e7022952794fb9386dcab2c65eff75d0c4f0aa1",
+    "input_revision": 201,
+    "inputs": [
+      {
+        "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+        "slot": "canon:project:project:Canon",
+        "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+        "version": 12
+      },
+      {
+        "sha256": "3a01072f7456716a3d3316bc98047d1e602a46b04950cdcab885e8d5a75c7c0d",
+        "slot": "screenplay:project:project:ScriptIR",
+        "uri": "runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/script-ir.json",
+        "version": 14
+      },
+      {
+        "sha256": "ba333d039d7a61dbc0083fdac22fb95cf784ebefabaf8ea127613b1ab2aba833",
+        "slot": "frozen_task",
+        "uri": "runtime/tasks/TASK_ae94f4322a77ebd18dbb635d.json",
+        "version": 0
+      }
+    ],
+    "module": {
+      "name": "director-grammar",
+      "sha256": "0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64",
+      "version": "1.4.2"
+    },
+    "node_id": "director",
+    "project_id": "LETTER_DEMO",
+    "resources": [
+      {
+        "sha256": "7808183b7dfb5e9decd530501f340cb07fa5cb6cb80e67995343998221a0ca1b",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/SKILL.md"
+      },
+      {
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/current-contract.md"
+      },
+      {
+        "sha256": "7333b5651811b28b72a14dd5ef0240ea5edb62dbe9c2adb6283cd740d95226b6",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/cooperation-v5.md"
+      },
+      {
+        "sha256": "bc7faaecb662bfed362cbe94697c1d7cfffa813f3f58b79c156c29d1b9344504",
+        "uri": "runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/references/screenplay-handoff.md"
+      }
+    ],
+    "role": "director",
+    "schema": "task-envelope/6.0",
+    "scope": {
+      "ids": [],
+      "kind": "project"
+    },
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "validators": [
+      {
+        "id": "module_receipt",
+        "kind": "hash"
+      },
+      {
+        "id": "native_validator",
+        "kind": "native"
+      },
+      {
+        "id": "handoff",
+        "kind": "handoff"
+      }
+    ]
+  },
+  "history": [],
+  "messages": [
+    {
+      "at": "2026-09-25T13:43:05.702303Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-spawn-actual-message.txt",
+        "runtime/v6/host-inputs/director-rebuild-pending-action.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_REBUILD_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "68e40486070d7d20cb57a18a412417bdbc2c6151a31c899234e68c740a36bcce",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-spawn-actual-message.txt",
+      "summary": "Host sent exact new Director task identity and frozen action; prior candidate may be source material but new semantic/handoff validation is required.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:45:31.633905Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-binding-finding.txt"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_GUIDANCE_1",
+      "message_id": "DIRECTOR_REBUILD_BINDING_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+      "subject_sha256": "5423b46f68ab954d656f99314cc3de96531fb795b5254215caeb94b8fc41c70e",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-binding-finding.txt",
+      "summary": "Creator verified frozen hashes and identified V5 rebase mismatch between Director semantic input hash and screenplay handoff review director SHA.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T13:46:14.907954Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-stamp-hold.txt"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_BINDING_PROGRESS_1",
+      "message_id": "DIRECTOR_REBUILD_STAMP_HOLD_1",
+      "recipient_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "81f3e1cb193f346669a0a68b99c4811dc3a3d20560c21f5fcddd80862543a7f1",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-stamp-hold.txt",
+      "summary": "Kernel owner is repairing synchronized V5 semantic and native handoff stamp rebinding; host held formal candidate submission while creator prepares current-input evidence.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:47:09.136402Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-stamp-resolved.txt"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_STAMP_HOLD_1",
+      "message_id": "DIRECTOR_REBUILD_STAMP_RESOLVED_1",
+      "recipient_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "c9f35cbf7e4632f3c6cf77c93092af22082cf4a6bfd7ee3e7e72e75148aa1dfa",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-stamp-resolved.txt",
+      "summary": "Kernel owner fixed V5 snapshot handoff review stamp rebinding with fresh promoted IR validation; host released same Director creator to finish candidate.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:51:03.594495Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-creator-report.txt"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_STAMP_RESOLVED_1",
+      "message_id": "DIRECTOR_REBUILD_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+      "subject_sha256": "89718651cdf187b6a34b60149f79e58bf9a9ee1e1344b79ae2e9670b41a3bec1",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-creator-report.txt",
+      "summary": "Creator reports current-input Director candidate with locked native and V5/V6 handoff checks PASS; old promotion mismatch preserved as evidence.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:51:12.164794Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/candidate-result.json"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_HANDOFF_HANDOFF_1",
+      "message_id": "DIRECTOR_REBUILD_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_ce1e26fc5f43d8275517e59e",
+      "subject_sha256": "0308126d1e8204fddc48f21ab66cc420d1b3bd9ae23eee8edbca8178c69fda8f",
+      "subject_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/candidate-result.json",
+      "summary": "Creator submitted current-input Director candidate with native and all frozen handoff checks PASS; media NOT_RUN.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "RESULT"
+    },
+    {
+      "at": "2026-09-25T13:52:08.385439Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-review-spawn-actual-message.txt",
+        "runtime/v6/host-inputs/director-rebuild-review-pending-action.json"
+      ],
+      "in_reply_to": null,
+      "message_id": "DIRECTOR_REBUILD_REVIEW_GUIDANCE_1",
+      "recipient_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+      "schema": "agent-message/6.0",
+      "sender_id": "kernel",
+      "subject_sha256": "6f8a923b54082088cab318b92a72df9d31c307ab976eac5bfe86b04d4a66edca",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-review-spawn-actual-message.txt",
+      "summary": "Host sent actual independent-review prompt and frozen action, binding current candidate digest and historical V5 rebase limitation.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T13:54:00.265866Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-review-progress.txt"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_REVIEW_GUIDANCE_1",
+      "message_id": "DIRECTOR_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+      "subject_sha256": "b6dcde96c6cf085704f22de93225c722e0c11891f9e83bb6b84e97d1edfd4b21",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-review-progress.txt",
+      "summary": "Independent reviewer reran locked Director native validation STATIC_VALID and is checking handoffs/time samples before formal record.",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "PROGRESS"
+    },
+    {
+      "at": "2026-09-25T14:00:15.622273Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/host-inputs/director-rebuild-reviewer-report.txt"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_REVIEW_PROGRESS_PROGRESS_1",
+      "message_id": "DIRECTOR_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+      "subject_sha256": "a0a3e4be315679957d981b2d6ba8724f3673d7685786d5ef604e6eca0b92d5f0",
+      "subject_uri": "runtime/v6/host-inputs/director-rebuild-reviewer-report.txt",
+      "summary": "独立审阅报告：三项 PASS；真实媒体 NOT_RUN；旧 promoted stamp 历史不匹配，当前候选绑定正确。",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "HANDOFF"
+    },
+    {
+      "at": "2026-09-25T14:00:27.096362Z",
+      "batch": 1,
+      "evidence": [
+        "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/review-record.json"
+      ],
+      "in_reply_to": "DIRECTOR_REBUILD_REVIEW_HANDOFF_HANDOFF_1",
+      "message_id": "DIRECTOR_REBUILD_REVIEW_RESULT_RESULT_1",
+      "recipient_id": "kernel",
+      "schema": "agent-message/6.0",
+      "sender_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+      "subject_sha256": "d4b11354a091ec5e00cda42d7e5de5aea3f1b9ff43f49764fd1e0000ee1eff75",
+      "subject_uri": "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/review-record.json",
+      "summary": "独立审阅记录已写入，三项检查 PASS；真实媒体 NOT_RUN。",
+      "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+      "type": "RESULT"
+    }
+  ],
+  "project_id": "LETTER_DEMO",
+  "project_root_at_rehearsal": "/private/tmp/ai-video-v6-real-efKlQy/project",
+  "published_artifact": {
+    "batch": 1,
+    "candidate_digest": "e6e8e0e4f7e57a20dfc62f067c9e25bca67a20290abc5f368ec06745c9d8c10c",
+    "kind": "DirectorIR",
+    "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+    "slot": "director:project:project:DirectorIR",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json"
+  },
+  "review": {
+    "at": "2026-09-25T13:58:27.695636Z",
+    "batch": 1,
+    "candidate_digest": "e6e8e0e4f7e57a20dfc62f067c9e25bca67a20290abc5f368ec06745c9d8c10c",
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/module-receipt.review.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/native-validator.review.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/reviews/TASK_ae94f4322a77ebd18dbb635d/1/handoff.review.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "failure_owner": null,
+    "reviewer_agent_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+    "reviewer_dispatch_id": "review-b3f83e98b868ad4066b4cdf1",
+    "schema": "review-record/6.0",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d"
+  },
+  "review_dispatch": {
+    "action_id": "review-b3f83e98b868ad4066b4cdf1",
+    "agent_id": "/root/host_bridge/v6_2f376a7f208dfc8de4329c5c",
+    "batch": 1,
+    "dispatch_id": "review-b3f83e98b868ad4066b4cdf1",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T13:51:54.964392Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T13:51:54.964392Z",
+    "status": "RUNNING",
+    "task_digest": "10094fa0f4aa4adf6d48bd2069d262cce97f2db3faae288930b7dbec5feec01c",
+    "task_id": "TASK_ae94f4322a77ebd18dbb635d",
+    "tool_result_sha256": "bb18168ef6582113676e162ea75c7a7a567985cd1ba43b943b0da243e349049e",
+    "tool_result_uri": "runtime/v6/host-evidence/bb18168ef6582113676e162ea75c7a7a567985cd1ba43b943b0da243e349049e.json"
+  },
+  "state": "ACCEPTED",
+  "task_id": "TASK_ae94f4322a77ebd18dbb635d"
+}

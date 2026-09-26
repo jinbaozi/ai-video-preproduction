@@ -1,0 +1,22 @@
+{
+  "requirement_id": "UP_0af56be83b7ef933e42debd3",
+  "source_slot": "art:scene:13x5343454e455f48414e444f4646:ArtIR",
+  "source_version": 11,
+  "source_uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+  "source_sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+  "source_pointers": [
+    "/assets/1",
+    "/world",
+    "/references/1"
+  ],
+  "target_slot": "visual_prompts:asset:27x41535345545f5343454e455f48414e444f46465f434841525f5949:VisualImagePrompt",
+  "target_uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/prompt.txt",
+  "target_sha256": "8e13f02621f16192f882e8b3c26e140263279009664eeeec6887386544e07c99",
+  "mapping": {
+    "CHAR_YI": "same-person and wardrobe continuity remains a downstream check",
+    "PLAN_CHAR_YI": "planned text reference only; no invented file or binding",
+    "identity_locks": "both exact lock refs are checked in RoleResult"
+  },
+  "status": "STATIC_MAPPED",
+  "media_status": "NOT_RUN"
+}

@@ -1,0 +1,443 @@
+[
+  {
+    "artifacts_digest": "7be19aab9bda2bc6c838c15e69142984dd636247c5aac784056af012ee057706",
+    "commands_digest": "215a190d6c96618098699cc5953d7c38f0cb0924483d5f5dbcc20d26648bb090",
+    "hash": "ebe905c5cb88da70fbb647a54bcf1f9e78a2e640c1c7ea9e97b3c075629cb160",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:25:02.816211Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "ready-V6_compile_ee07749c72a2525a571b-1",
+        "evidence": [
+          "runtime/v6/task-briefs/V6_compile_ee07749c72a2525a571b.json"
+        ],
+        "expected_revision": 679,
+        "from_state": "PENDING",
+        "object_version": 0,
+        "reason": "DEPENDENCIES_SATISFIED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "READY"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "f49f64b79c7490795c761af9e4ee8b1d357702571378fb0da2845dad4bf209f1",
+    "revision": 680,
+    "state_digest": "6dd3cc559cc832d8083f56ba157e40811495379c56e4e3edae330e2483a27029"
+  },
+  {
+    "artifacts_digest": "7be19aab9bda2bc6c838c15e69142984dd636247c5aac784056af012ee057706",
+    "commands_digest": "45d88056f5131cafea8dece2702d745b6950c9b9593d28e6c46454a63eb9a9b2",
+    "hash": "775233dec0749e52f54738dc76dbe538bfed4c8a115b77e3ae43eea239ca794d",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:25:03.324312Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "dispatch-V6_compile_ee07749c72a2525a571b-1",
+        "evidence": [
+          "runtime/v6/task-briefs/V6_compile_ee07749c72a2525a571b.json"
+        ],
+        "expected_revision": 680,
+        "from_state": "READY",
+        "object_version": 1,
+        "reason": "DISPATCH_REQUESTED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "DISPATCHING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "ebe905c5cb88da70fbb647a54bcf1f9e78a2e640c1c7ea9e97b3c075629cb160",
+    "revision": 681,
+    "state_digest": "9cd7d64e14ea1af44dadf8df8a1ef3a192bb5b8eac71592ceeb00f7da0019a3f"
+  },
+  {
+    "artifacts_digest": "7be19aab9bda2bc6c838c15e69142984dd636247c5aac784056af012ee057706",
+    "commands_digest": "b763e241b8043799f61cf3c3591ac6fbb0d586be409bc2cd3a00bb7c985662a1",
+    "hash": "8bb1b580383921cf76bcef196949437071b4791b0f4dd80b04122134dd7e7550",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "codex",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:25:47.775925Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "dispatch:dispatch-682ecb3fdb5cef0457be15a6",
+              "host-file:a6271ed347be24ffa00955e3789bb9e47b1e6799b9e8296f07f6d7afdaeafc63"
+            ],
+            "id": "host-evidence",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "HOSTFIX-COMPILE_DISPATCH_1",
+        "evidence": [
+          "dispatch:dispatch-682ecb3fdb5cef0457be15a6",
+          "host-file:a6271ed347be24ffa00955e3789bb9e47b1e6799b9e8296f07f6d7afdaeafc63"
+        ],
+        "expected_revision": 681,
+        "from_state": "DISPATCHING",
+        "object_version": 2,
+        "reason": "DISPATCH_CONFIRMED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "RUNNING"
+      },
+      "receipt": {
+        "action_id": "dispatch-682ecb3fdb5cef0457be15a6",
+        "agent_id": "/root/host_bridge/v6_ac68989ddc22986a6c713a9b",
+        "batch": 1,
+        "dispatch_id": "dispatch-682ecb3fdb5cef0457be15a6",
+        "error": null,
+        "host": "codex",
+        "host_call_id": null,
+        "host_tool": "collaboration.spawn_agent",
+        "observed_at": "2026-09-25T17:25:47.775925Z",
+        "result_uri": null,
+        "schema": "dispatch-receipt/6.0",
+        "sent_at": "2026-09-25T17:25:47.775925Z",
+        "status": "RUNNING",
+        "task_digest": "ac5397f7730311b31c2801f8b0c83ff2728424e12ed8ad95b9a682ac5b981343",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "tool_result_sha256": "a6271ed347be24ffa00955e3789bb9e47b1e6799b9e8296f07f6d7afdaeafc63",
+        "tool_result_uri": "runtime/v6/host-evidence/a6271ed347be24ffa00955e3789bb9e47b1e6799b9e8296f07f6d7afdaeafc63.json"
+      },
+      "review": null
+    },
+    "previous_hash": "775233dec0749e52f54738dc76dbe538bfed4c8a115b77e3ae43eea239ca794d",
+    "revision": 682,
+    "state_digest": "7302c665c9233a84ac009ae9362c47e50679bb11dea42f387fd88ef862f7cc90"
+  },
+  {
+    "artifacts_digest": "7be19aab9bda2bc6c838c15e69142984dd636247c5aac784056af012ee057706",
+    "commands_digest": "8a72ca7cc1cca3f2bf3bea5b12f4fd4c0560cd07919939f7d2a92b993e1afdaa",
+    "hash": "9675c4b4cfb766d1b8042bcfc9c3a01019399ac0912abd6b08ca8bfa46386997",
+    "op": "transition",
+    "payload": {
+      "candidate": {
+        "agent_id": "/root/host_bridge/v6_ac68989ddc22986a6c713a9b",
+        "artifacts": [
+          {
+            "kind": "AVIR",
+            "sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+            "slot": "compile:project:project:AVIR",
+            "uri": "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/avir.json"
+          },
+          {
+            "kind": "CompilePackage",
+            "sha256": "cf3a13eeed1c9374a86dc08f3864fb492d0a6e7a97b109855d4a4f81cbaf9fb3",
+            "slot": "compile:project:project:CompilePackage",
+            "uri": "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/compile-manifest.json"
+          }
+        ],
+        "batch": 1,
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/module-receipt.json",
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/input-integrity.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/native-validator.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/compile-manifest.json",
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/semantic-closure.json",
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/constraint-clauses.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/handoff.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "handoffs": [
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/handoff.json"
+            ],
+            "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+            "source_slot": "storyboard:project:project:StoryboardIR",
+            "source_version": 12,
+            "target_pointer": "",
+            "target_slot": "compile:project:project:AVIR"
+          },
+          {
+            "channel": "artifact",
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/handoff.json"
+            ],
+            "requirement_id": "UP_4b84d71046e8b9c2f571029f",
+            "source_slot": "control:project:project:ShotControlPack",
+            "source_version": 19,
+            "target_pointer": "",
+            "target_slot": "compile:project:project:AVIR"
+          }
+        ],
+        "input_digest": "549858b735f8fc175611621602d5cde62ab8ca36fd4c7f3ea3246bbe55888386",
+        "module_receipts": [
+          {
+            "name": "video-prompt-compiler",
+            "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+            "version": "1.17.6"
+          }
+        ],
+        "result_sha256": null,
+        "result_uri": null,
+        "schema": "candidate-result/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "unresolved": []
+      },
+      "event": {
+        "actor_id": "/root/host_bridge/v6_ac68989ddc22986a6c713a9b",
+        "actor_kind": "host",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:29:10.021117Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "HOSTFIX-COMPILE_SUBMIT_1",
+        "evidence": [],
+        "expected_revision": 686,
+        "from_state": "RUNNING",
+        "object_version": 7,
+        "reason": "RESULT_RECEIVED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "RESULT_SUBMITTED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "f42a714be30095c3688a5a70ea39fbbc4b2f71406f2fd9051b9384fbfe0fa9b2",
+    "revision": 687,
+    "state_digest": "f324899be25d399565d721291263821f59641d566cc15ce6824f126e1df8b4fa"
+  },
+  {
+    "artifacts_digest": "7be19aab9bda2bc6c838c15e69142984dd636247c5aac784056af012ee057706",
+    "commands_digest": "5ac3203dac2fd458b3fe8e052750bd713dcff994ecdda13fd1dd6284d801363c",
+    "hash": "9094912de79dbe3a9b1b80d9898e8332cd4f07e54b91e8cc74af3bc545228325",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:29:10.445266Z",
+        "batch": 1,
+        "check_results": [],
+        "command_id": "HOSTFIX-COMPILE_SUBMIT_1-validate",
+        "evidence": [],
+        "expected_revision": 687,
+        "from_state": "RESULT_SUBMITTED",
+        "object_version": 8,
+        "reason": "VALIDATION_STARTED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "VALIDATING"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "9675c4b4cfb766d1b8042bcfc9c3a01019399ac0912abd6b08ca8bfa46386997",
+    "revision": 688,
+    "state_digest": "74aad826a1225befeb94d383842c272877d3a5cbd8f444b922234d48908115a9"
+  },
+  {
+    "artifacts_digest": "7be19aab9bda2bc6c838c15e69142984dd636247c5aac784056af012ee057706",
+    "commands_digest": "0deede5c02776a10849bbdb4c30ccf870c1afe6a233cd247e42074503e49e53b",
+    "hash": "662913c7206ed631c788f7a3933af559984cb1ecb56e609106e25c65552d6c79",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:29:11.006168Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/module-receipt.json",
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/input-integrity.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/native-validator.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/compile-manifest.json",
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/semantic-closure.json",
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/constraint-clauses.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/evidence/handoff.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "HOSTFIX-COMPILE_SUBMIT_1-validation",
+        "evidence": [],
+        "expected_revision": 688,
+        "from_state": "VALIDATING",
+        "object_version": 9,
+        "reason": "VALIDATION_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "REVIEW_REQUIRED"
+      },
+      "receipt": null,
+      "review": null
+    },
+    "previous_hash": "9094912de79dbe3a9b1b80d9898e8332cd4f07e54b91e8cc74af3bc545228325",
+    "revision": 689,
+    "state_digest": "70b62ec19ef4ed0db30c048b41700e52d89daca11115a3825e98127221fbd9d1"
+  },
+  {
+    "artifacts_digest": "d9dc27954d4bbdda9dd8a4102f6abca916edf080f3ff81d2e0808a5d2e233440",
+    "commands_digest": "a4ecb1853b58072c7a83c169cd79df5685b49775727003070c1b37e43848eb16",
+    "hash": "5aa385674986b54b38a438efed5d6c2b29309686d491e7bc956d974cc4e6253d",
+    "op": "transition",
+    "payload": {
+      "candidate": null,
+      "event": {
+        "actor_id": "v6-runtime",
+        "actor_kind": "kernel",
+        "affected_outputs": [],
+        "at": "2026-09-25T17:33:58.180959Z",
+        "batch": 1,
+        "check_results": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/compile-manifest.review.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "command_id": "HOSTFIX-COMPILE-REVIEW_SUBMIT_1",
+        "evidence": [
+          "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/avir.json",
+          "runtime/v6/candidates/V6_compile_ee07749c72a2525a571b/1/compile-manifest.json"
+        ],
+        "expected_revision": 694,
+        "from_state": "REVIEW_REQUIRED",
+        "object_version": 15,
+        "reason": "REVIEW_PASSED",
+        "schema": "state-event/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b",
+        "to_state": "ACCEPTED"
+      },
+      "receipt": null,
+      "review": {
+        "at": "2026-09-25T17:33:13.889178Z",
+        "batch": 1,
+        "candidate_digest": "1bede9a0e2c22624d98f3eafa3934af1a6dd0e009b11789f7565189857af0df5",
+        "checks": [
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/module-receipt.review.json"
+            ],
+            "id": "module_receipt",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/native-validator.review.json"
+            ],
+            "id": "native_validator",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/compile-manifest.review.json"
+            ],
+            "id": "compile_manifest",
+            "status": "PASS"
+          },
+          {
+            "evidence": [
+              "runtime/v6/reviews/V6_compile_ee07749c72a2525a571b/1/handoff.review.json"
+            ],
+            "id": "handoff",
+            "status": "PASS"
+          }
+        ],
+        "failure_owner": null,
+        "reviewer_agent_id": "/root/host_bridge/v6_dd023c3fdf9093c33af62abe",
+        "reviewer_dispatch_id": "review-682ecb3fdb5cef0457be15a6",
+        "schema": "review-record/6.0",
+        "task_id": "V6_compile_ee07749c72a2525a571b"
+      }
+    },
+    "previous_hash": "fbe1b610ce8ede3561d751ef14cd2c16dc9cb571df42a938d2403d3d7a91b1a4",
+    "revision": 695,
+    "state_digest": "d0e9f27405296da573c2cb474dcb13704823b40926fb76c84536074d24d1475c"
+  }
+]

@@ -1,0 +1,4 @@
+独立审阅完成：PROP_LETTER 候选的 module_receipt、image_prompt_contract、handoff 均为 PASS。冻结 ArtIR 的同一封未拆信、完整封口和 8500/9000 毫秒后续连续性约束得到保留；制作合同原生校验为 STATIC_VALID。真实图像、视频及视觉审阅仍为 NOT_RUN。
+审阅记录：runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/review-record.json
+SHA-256：03be1109f57194f6fad4fcd05322fbbd3afc7fd216184660c7a820d33f0ecc9c
+candidate_digest：5ac9f8113f0141f4b4ac8339361c1427baa6b5cc9c2e4b63c2e2e6fea08d06ac

@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_VISUAL_CHAR_YI_B1_RESULT_1",
+  "expected_revision": 227,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_CHAR_YI_B1_RESULT_1",
+    "task_id": "TASK_490d550e3662334847bfacb2",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_a845ef66576a5cddd55a6125",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_VISUAL_CHAR_YI_NATIVE_CONTRACT_1",
+    "type": "RESULT",
+    "summary": "CHAR_YI image-prompt candidate passes locked native preflight; media NOT_RUN",
+    "evidence": [
+      "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/candidate-result.json",
+      "runtime/v6/host-messages/full-visual-char-yi-b1-result.txt"
+    ],
+    "at": "2026-09-25T15:01:50.531388Z",
+    "subject_uri": "runtime/v6/candidates/TASK_490d550e3662334847bfacb2/1/candidate-result.json",
+    "subject_sha256": "0fd9bca00bdf33279ff488d409b0bdf87580ead18fca4b5f43728b025a147570"
+  }
+}

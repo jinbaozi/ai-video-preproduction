@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_DIRECTOR_B3_NATIVE_BINDING_ACK_1",
+  "expected_revision": 93,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_DIRECTOR_B3_NATIVE_BINDING_ACK_1",
+    "task_id": "TASK_eb6702e9e268b2ba339b0fcf",
+    "batch": 3,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_19f7d0afd51ff59e575a24ec",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_DIRECTOR_B3_REPAIR_INSTRUCTION_1",
+    "type": "ACK",
+    "summary": "Creator confirms native V5 six-row binding defect and batch-3 repair",
+    "evidence": [
+      "runtime/v6/host-messages/full-director-b3-native-binding-ack.txt"
+    ],
+    "at": "2026-09-25T12:54:38.264310Z",
+    "subject_uri": "runtime/v6/host-messages/full-director-b3-native-binding-ack.txt",
+    "subject_sha256": "378d7b630659f28e7cb45fb26d7e81ed7e18245b2948f7e075a03504ef68be99"
+  }
+}

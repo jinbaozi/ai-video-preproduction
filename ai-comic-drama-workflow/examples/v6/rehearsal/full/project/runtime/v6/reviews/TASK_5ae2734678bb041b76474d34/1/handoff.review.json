@@ -1,0 +1,29 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T10:53:34.221615Z",
+  "method": "Compared the frozen handoff tuple with CandidateResult and RoleResult; resolved source mapping and checked dependency states in V6 state.",
+  "requirement_id": "UP_02899a994552add4610374b6",
+  "source_slot": "sources:project:project:SourceRegistry",
+  "source_version": 1,
+  "target_slot": "canon:project:project:Canon",
+  "target_pointer": "",
+  "source_uri": "runtime/v6/candidates/V6_sources_e1f2b74e6cc76e1ddb24/1/source-registry.json",
+  "target_uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/canon.json",
+  "mapping_pointers": [
+    "/source_refs/0",
+    "/source_facts",
+    "/entities",
+    "/event_order",
+    "/source_requirements"
+  ],
+  "source_dependency_state": "ACCEPTED",
+  "observation_dependency_state": "NOT_APPLICABLE",
+  "creator_evidence_read": [
+    {
+      "uri": "runtime/v6/candidates/TASK_5ae2734678bb041b76474d34/1/evidence/handoff.json",
+      "sha256": "98f61be85eac8d90b749d688d3bb6eb0a11755020556549aa1a69d4a101073b2"
+    }
+  ],
+  "finding": "SourceRegistry version 1 maps to the whole Canon artifact; source facts, entities and ordered events resolve to the registered source ID."
+}

@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_REBUILD_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 281,
+  "message": {
+    "at": "2026-09-25T14:33:02.586561Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-rebuild-progress.txt"
+    ],
+    "in_reply_to": "CONTROL_REBUILD_GUIDANCE_1",
+    "message_id": "CONTROL_REBUILD_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4e2efc056bc6fb4a51013cf5",
+    "subject_sha256": "43fe50f01a931f73816271e7bdce246d1072e7e5c542df4407f40e86514f4d2c",
+    "subject_uri": "runtime/v6/host-inputs/control-rebuild-progress.txt",
+    "summary": "已核对两项冻结输入与四份锁定资源；V5 提升版 StoryboardIR 与 V6 候选版 SHA 不同，从当前正式 IR 确定性导出 AVIR，MAPPED/0 loss，静态相机轨道1条。",
+    "task_id": "TASK_a956f0b50a44008d6467b92e",
+    "type": "PROGRESS"
+  }
+}

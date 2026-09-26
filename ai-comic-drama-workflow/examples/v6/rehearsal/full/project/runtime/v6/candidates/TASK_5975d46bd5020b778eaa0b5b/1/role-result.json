@@ -1,0 +1,82 @@
+{
+  "schema": "role-result/5.1",
+  "task_id": "TASK_5975d46bd5020b778eaa0b5b",
+  "context_fingerprint": "5975d46bd5020b778eaa0b5b2a25c6dcf39af4f913f2cdcd9692a31734ae78fa",
+  "artifact": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/visual-image-prompt.json",
+  "artifact_sha256": "faaa6dd8c725b277885314496220f0633fae0953be5d7dafbe4b96c9016d8d2b",
+  "production_contract": "/private/tmp/ai-video-v6-full-demo/project/runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/production-contract.json",
+  "understanding": [
+    "背包的材质、可用包口、同一实体连续性来自已接受 ArtIR；此图仅为待收纳时刻的静态道具锚图。",
+    "PLAN_PROP_BACKPACK 只是 planned 文字参考，无真实图像文件、哈希、附件绑定或已看图结论。"
+  ],
+  "prompt": "为资产 PROP_BACKPACK 制作一张单一静态的背包造型参考图：同一只乙收信所用背包，深色无标识软质织物，低反光哑面，包体形状和包口位置清楚，作为后续镜头沿用的外观锚点。背包稳定置于中性平整承托面；包口处于乙右手能够触及的位置，开口结构与可容纳一封普通纸质信的内腔清楚可辨，包口边缘与暗色内腔有足够明度分离。本图只表现尚待收纳信件的同一只背包，不出现人物、手或信，不拼接入包前后两个时刻。后续 EVENT_STOW 镜头须沿用同一背包外观与同一包口位置；乙右手把同一封信送入后，信由包内承托且完全不外露，终帧不留信纸在包口。低饱和蓝灰雨夜氛围退到背景，不表现可识别城市、建筑或具体室内外；以柔和环境光显示织物哑面和可用开口，不增加品牌、贴章、可读文字、明显破损或妨碍包口的其他道具。",
+  "params": {
+    "target_model": null,
+    "surface": "generic",
+    "aspect_ratio": "3:4",
+    "requested_pixels": null,
+    "reference_files": []
+  },
+  "quality_check": "静态核对深色无标识软质织物、包口位置与可容信内腔、同一实体连续性、后续入包不外露、无虚构地点或文字；图片未生成，视觉质量和实际收存遮挡待媒体审核。",
+  "checks": [
+    {
+      "ref": "同一实体 PROP_BACKPACK 外观与包口位置连续",
+      "finding": "正文锁定同一背包的深色无标识软质织物外观和同一包口位置，作为后续镜头锚点。"
+    },
+    {
+      "ref": "包口可被乙右手触及；EVENT_STOW 后 condition 为收纳同一封信，信由包内承托且不外露",
+      "finding": "正文区分本张待收纳状态与后续 EVENT_STOW：包口可触及且容信；后续信由内腔承托、完全不外露。"
+    },
+    {
+      "ref": "/references/3 PLAN_PROP_BACKPACK",
+      "finding": "planned 文字参考，file/sha256 为 null；没有真实图像、绑定槽位、实际像素或视觉审核。"
+    },
+    {
+      "ref": "/assets/3 design",
+      "finding": "深色无标识软质织物背包、可用包口和可容信内腔均写入正文；未设品牌或背法。"
+    }
+  ],
+  "validator": {
+    "status": "STATIC_VALID",
+    "report_uri": "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/evidence/contract-validation.json",
+    "report_sha256": "80937e259f6475cd53aa0626527f3176a736fa40b05959aff7523dd65581ec8c"
+  },
+  "module_receipt": {
+    "name": "image-prompt-optimizer",
+    "version": "1.15.7",
+    "skill_sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "reads": [
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md",
+        "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md",
+        "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md",
+        "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md",
+        "sha256": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md",
+        "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/templates/production-contract.md",
+        "sha256": "8f156b9ccf183bbeda62260fc5fb94bcb50d4d6e731c51bd2407bca253c0a8d0"
+      },
+      {
+        "path": "/private/tmp/ai-video-v6-full-demo/project/runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/schemas/production-contract.schema.json",
+        "sha256": "b6a6ae186e76643fb4698f6c5bb0868828328a1c05602f45975a19d9c071fd76"
+      }
+    ]
+  },
+  "conflicts": [],
+  "unresolved": [],
+  "complete": true
+}

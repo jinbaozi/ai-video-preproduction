@@ -1,0 +1,1 @@
+项目已有依赖环境：`/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python`。请使用该现有解释器重跑锁定 native validator，保留第一次 `ModuleNotFoundError` 与重跑输出为证据；不安装或改模块。

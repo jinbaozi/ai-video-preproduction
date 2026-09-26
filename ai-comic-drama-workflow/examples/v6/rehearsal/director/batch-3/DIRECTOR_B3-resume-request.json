@@ -1,0 +1,19 @@
+{
+  "command_id": "DIRECTOR_B3_RESUME_REQUEST_COMMAND_1",
+  "expected_revision": 72,
+  "message": {
+    "at": "2026-09-25T12:13:02.363072Z",
+    "batch": 3,
+    "evidence": [],
+    "in_reply_to": "DIRECTOR_B3_PROGRESS_PROGRESS_1",
+    "message_id": "DIRECTOR_B3_RESUME_REQUEST_1",
+    "recipient_id": "/root/host_bridge/v6_1af50fa814913a44aa4f78df",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "d373f129711ed4c64ccd8fabdcad0dacea54e23693346cbc3cdbaac29fbbac19",
+    "subject_uri": "runtime/v6/host-inputs/director-b3-resume-request.txt",
+    "summary": "Host followup to already registered creator after transient Codex usage-limit error; verify existing candidate bytes and report genuine RESULT or exact limit error, without redispatch.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "QUESTION"
+  }
+}

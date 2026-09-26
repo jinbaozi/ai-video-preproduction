@@ -1,0 +1,1 @@
+ACK：已读取冻结 Control 审阅动作；我将逐项重算候选与输入 SHA、原生 Control 校验及 12000ms 终点可见性，只写指定 review 目录。

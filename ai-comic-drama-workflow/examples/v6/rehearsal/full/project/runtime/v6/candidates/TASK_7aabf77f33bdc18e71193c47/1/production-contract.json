@@ -1,0 +1,508 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "TASK_7aabf77f33bdc18e71193c47-CHAR_JIA-b1",
+  "versions": {
+    "skill": "1.15.7",
+    "compiler": "agent-icir-1.0",
+    "packs": [
+      "image-prompt-optimizer/1.15.7"
+    ]
+  },
+  "sources": [
+    {
+      "id": "ART",
+      "kind": "document",
+      "locator": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+      "excerpt": "ArtIR /assets/0、/world、/references/0：甲的深石墨灰无标识外层、右手和袖口不遮信，三镜连续；脸部身份未锁定，PLAN_CHAR_JIA 为 planned，无文件。",
+      "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+      "reviewed": true
+    },
+    {
+      "id": "TASK",
+      "kind": "document",
+      "locator": "runtime/tasks/TASK_7aabf77f33bdc18e71193c47.json",
+      "excerpt": "冻结的 ASSET_SCENE_HANDOFF_CHAR_JIA 任务仅允许改写提示词表达，保留美术设计与两个 identity_locks。",
+      "sha256": "4d6415c7bc7d3e0e876577b8458211924a1a3629c0d710b86831b9aac3d8c156",
+      "reviewed": true
+    },
+    {
+      "id": "CROP",
+      "kind": "assumption",
+      "locator": "creator design decision within frozen prompt scope",
+      "excerpt": "为避免凭空固定未锁定的脸部身份，造型锚图取颈部以下至腰部；3:4 画幅为可修改的构图建议。",
+      "sha256": null,
+      "reviewed": true
+    }
+  ],
+  "icir": {
+    "locale": "zh-CN",
+    "intent": "为 CHAR_JIA 形成有来源的服装与递信动作图像提示词，不替未锁定面容建立身份事实。",
+    "mode": "text_to_image",
+    "entities": [
+      {
+        "id": "CHAR_JIA",
+        "kind": "person",
+        "description": "甲；三镜沿用同一人物和无标识深石墨灰哑面外层，袖口收紧，右手完整可见；脸部身份、年龄、性别、职业未锁。",
+        "source_ids": [
+          "ART",
+          "TASK"
+        ]
+      },
+      {
+        "id": "PROP_LETTER",
+        "kind": "object",
+        "description": "同一封中性偏暖哑面纸质未拆信；闭合封口完整，无可读文字。",
+        "source_ids": [
+          "ART"
+        ]
+      },
+      {
+        "id": "ENV_RAIN_NIGHT",
+        "kind": "scene_anchor",
+        "description": "低饱和蓝灰雨夜、低纹理无地标背景；具体地点和室内外未指定。",
+        "source_ids": [
+          "ART"
+        ]
+      }
+    ],
+    "references": [],
+    "frames": [
+      {
+        "id": "F_JIA_ANCHOR",
+        "entity_ids": [
+          "CHAR_JIA",
+          "PROP_LETTER",
+          "ENV_RAIN_NIGHT"
+        ],
+        "scene": "雨夜低饱和蓝灰、低纹理且无地标的背景，不表明具体地点或室内外",
+        "moment": "乙接稳前，甲右手递出同一封未拆信的单一瞬间；不展示验封、拆信或入包",
+        "composition": "画面只取甲颈部以下至腰部的躯干、双臂和完整右手，面部留在画外；接手侧留净空",
+        "camera": {
+          "viewpoint": "与手部接近齐平",
+          "framing": "颈部以下至腰部静态近中景",
+          "equipment_intent": "无指定器材",
+          "derived_visual_intent": "右手、袖口及信封完整可见",
+          "focus_depth": "右手、袖口和封口在清晰区，低纹理雨夜背景退后"
+        },
+        "performance": [
+          {
+            "entity_id": "CHAR_JIA",
+            "action": "甲右手稳稳夹持未拆信并向画面另一侧递出，右手及袖口不遮挡信封和完整封口",
+            "support_contact": "右手指腹夹住纸封边缘，纸封由右手承托；不展示对方接稳后的控制权转移"
+          }
+        ],
+        "lighting": {
+          "key": "雨夜柔和环境主光",
+          "exposure_intent": "纸色与深石墨灰袖口分离，手部接触可辨"
+        },
+        "color": {
+          "palette": "低饱和蓝灰背景、深石墨灰衣装、中性偏暖纸色"
+        },
+        "quality": {
+          "realism": "写实静态角色资产",
+          "detail_budget": "当前画格集中在衣料、袖口、右手及信封闭合状态"
+        },
+        "continuity": {
+          "invariants": [
+            "同一位甲与同一套服装供三镜连续使用；脸部身份尚待已核参考绑定"
+          ]
+        }
+      }
+    ],
+    "relations": [
+      {
+        "frame_id": "F_JIA_ANCHOR",
+        "from": "CHAR_JIA",
+        "relation": "holds",
+        "to": "PROP_LETTER",
+        "coordinate_system": "screen",
+        "description": "甲右手夹持并承托同一封未拆信"
+      }
+    ],
+    "texts": [],
+    "output": {
+      "aspect_ratio": "3:4",
+      "requested_pixels": null,
+      "delivered_pixels": null,
+      "native_resolution": "unknown",
+      "crop_safe_area": "完整右手、袖口和信封主体及封口不能裁切",
+      "format": null
+    }
+  },
+  "facts": [
+    {
+      "path": "/icir/entities/0/description",
+      "value": "甲；三镜沿用同一人物和无标识深石墨灰哑面外层，袖口收紧，右手完整可见；脸部身份、年龄、性别、职业未锁。",
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ],
+      "reason": "将美术衣装和身份未锁限制纳入同一人物资产规格"
+    },
+    {
+      "path": "/icir/entities/1/description",
+      "value": "同一封中性偏暖哑面纸质未拆信；闭合封口完整，无可读文字。",
+      "origin": "derived",
+      "source_ids": [
+        "ART"
+      ],
+      "reason": "保留同一未拆信的材质与闭合封口"
+    },
+    {
+      "path": "/icir/frames/0/scene",
+      "value": "雨夜低饱和蓝灰、低纹理且无地标的背景，不表明具体地点或室内外",
+      "origin": "derived",
+      "source_ids": [
+        "ART"
+      ],
+      "reason": "雨夜色材不推出地点或室内外"
+    },
+    {
+      "path": "/icir/frames/0/composition",
+      "value": "画面只取甲颈部以下至腰部的躯干、双臂和完整右手，面部留在画外；接手侧留净空",
+      "origin": "assumed",
+      "source_ids": [
+        "CROP"
+      ],
+      "reason": "避免将未核面容误固化为角色身份"
+    },
+    {
+      "path": "/icir/frames/0/performance/0/action",
+      "value": "甲右手稳稳夹持未拆信并向画面另一侧递出，右手及袖口不遮挡信封和完整封口",
+      "origin": "derived",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ],
+      "reason": "将右手与袖口不遮信落实到单一接触时刻"
+    },
+    {
+      "path": "/icir/output/aspect_ratio",
+      "value": "3:4",
+      "origin": "assumed",
+      "source_ids": [
+        "CROP"
+      ],
+      "reason": "建议画幅，不冒称已知接口控制或实际像素"
+    }
+  ],
+  "constraints": [
+    {
+      "id": "H1",
+      "level": "hard",
+      "requirement": "同一位甲与同一套深石墨灰无标识外层跨三镜连续",
+      "path": "/icir/entities/0/description",
+      "value": "甲；三镜沿用同一人物和无标识深石墨灰哑面外层，袖口收紧，右手完整可见；脸部身份、年龄、性别、职业未锁。",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H2",
+      "level": "hard",
+      "requirement": "甲右手和收紧袖口不遮交接信封",
+      "path": "/icir/frames/0/performance/0/action",
+      "value": "甲右手稳稳夹持未拆信并向画面另一侧递出，右手及袖口不遮挡信封和完整封口",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    },
+    {
+      "id": "H3",
+      "level": "hard",
+      "requirement": "不凭空固定脸、年龄、性别或职业",
+      "path": "/icir/frames/0/composition",
+      "value": "画面只取甲颈部以下至腰部的躯干、双臂和完整右手，面部留在画外；接手侧留净空",
+      "source_ids": [
+        "ART",
+        "TASK",
+        "CROP"
+      ]
+    },
+    {
+      "id": "H4",
+      "level": "hard",
+      "requirement": "同一封未拆信且封口完整、没有可读文字",
+      "path": "/icir/entities/1/description",
+      "value": "同一封中性偏暖哑面纸质未拆信；闭合封口完整，无可读文字。",
+      "source_ids": [
+        "ART"
+      ]
+    },
+    {
+      "id": "H5",
+      "level": "hard",
+      "requirement": "雨夜背景低频，不加入具体地点或室内外断言",
+      "path": "/icir/frames/0/scene",
+      "value": "雨夜低饱和蓝灰、低纹理且无地标的背景，不表明具体地点或室内外",
+      "source_ids": [
+        "ART"
+      ]
+    },
+    {
+      "id": "H6",
+      "level": "hard",
+      "requirement": "静态图只呈现递出前的单一瞬间，不提前出现验封或入包",
+      "path": "/icir/frames/0/moment",
+      "value": "乙接稳前，甲右手递出同一封未拆信的单一瞬间；不展示验封、拆信或入包",
+      "source_ids": [
+        "ART",
+        "TASK"
+      ]
+    }
+  ],
+  "compilations": [
+    {
+      "id": "OUT_JIA",
+      "target": "通用自然语言（未指定目标图像模型）",
+      "surface": "generic",
+      "adapter_version": "generic/1.0",
+      "status": "READY",
+      "prompt": "为角色资产 CHAR_JIA「甲」制作一张单一静态的服装与递信动作参考图，作为三镜沿用的同一位甲、同一套服装的造型锚点。雨夜低饱和蓝灰、低纹理且无地标的背景，不表明具体地点或室内外。画面只取甲颈部以下至腰部的躯干、双臂和完整右手，面部留在画外；不替未绑定身份参考的甲指定脸、年龄、性别或职业。甲穿无标识深石墨灰哑面平织外层，袖口收紧但不覆盖右手，衣料褶皱顺着抬臂与腕部受力自然延展。甲右手稳稳夹持同一封中性偏暖哑面纸质的未拆信，闭合封口完整可见、无可读文字，正向画面另一侧递出；只呈现乙接稳前的一个瞬间，信封主体和封口、甲的指节与袖口互不遮挡，手指围绕纸封边缘受力合理，对侧保留接手净空。视点与手部接近齐平，让右手、袖口及完整信封处于清晰区，纸色与深色衣袖分离，雨夜背景退后。本图不展示验封、拆信或放入背包，不加入品牌、贴章、额外道具、可辨建筑或文字。",
+      "negative_prompt": null,
+      "native_params": {},
+      "capability": {
+        "status": "unknown",
+        "checked_at": null,
+        "source_ids": [],
+        "negative_mode": "positive_only",
+        "allowed_native_params": []
+      },
+      "constraint_clauses": {
+        "H1": "作为三镜沿用的同一位甲、同一套服装的造型锚点",
+        "H2": "信封主体和封口、甲的指节与袖口互不遮挡",
+        "H3": "面部留在画外；不替未绑定身份参考的甲指定脸、年龄、性别或职业",
+        "H4": "同一封中性偏暖哑面纸质的未拆信，闭合封口完整可见、无可读文字",
+        "H5": "雨夜低饱和蓝灰、低纹理且无地标的背景，不表明具体地点或室内外",
+        "H6": "只呈现乙接稳前的一个瞬间"
+      },
+      "trace": [
+        {
+          "operation": "preserve",
+          "path": "/icir/entities/0",
+          "reason": "沿用甲的美术衣装和跨镜连续锁，不新增面容身份"
+        },
+        {
+          "operation": "derive",
+          "path": "/icir/frames/0/performance/0/action",
+          "reason": "将右手和袖口不遮信落实为单一可见接触时刻"
+        },
+        {
+          "operation": "add",
+          "path": "/icir/frames/0/composition",
+          "reason": "选择颈部以下裁切，使尚未绑定的脸部身份不被提示词擅定"
+        }
+      ],
+      "warnings": [
+        "PLAN_CHAR_JIA 只有文字计划，没有实际图像文件、哈希或附件槽位；当前图只锚定服装与右手。",
+        "未指定生成模型；未生成图像，视觉质量和跨镜身份仍需后续真实媒体验收。"
+      ]
+    }
+  ],
+  "execution": [
+    {
+      "id": "S1",
+      "owner": "image-prompt-optimizer creator",
+      "action": "按 ArtIR 编译提示词并校验制作合同",
+      "depends_on": [],
+      "inputs": [
+        "ART",
+        "TASK"
+      ],
+      "outputs": [
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/production-contract.json"
+      ],
+      "status": "DONE",
+      "stop_condition": "来源或硬锁冲突则停止该资产提示词交付"
+    },
+    {
+      "id": "S2",
+      "owner": "host image executor",
+      "action": "使用获授权的图像入口生成资产",
+      "depends_on": [
+        "S1"
+      ],
+      "inputs": [
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ],
+      "outputs": [
+        "image artifact"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "未指定/未调用图像模型时不报告生成结果"
+    },
+    {
+      "id": "S3",
+      "owner": "independent visual reviewer",
+      "action": "审阅实际图像及三镜连续性",
+      "depends_on": [
+        "S2"
+      ],
+      "inputs": [
+        "image artifact"
+      ],
+      "outputs": [
+        "visual review"
+      ],
+      "status": "NOT_RUN",
+      "stop_condition": "没有真实图像不评价画面"
+    }
+  ],
+  "acceptance": [
+    {
+      "id": "STATIC_H1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、ICIR 与主提示词",
+      "expected": "同一位甲与同一套深石墨灰无标识外层跨三镜连续",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H1",
+      "constraint_ids": [
+        "H1"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查；必要时检查图片尺寸",
+      "expected": "同一位甲与同一套深石墨灰无标识外层跨三镜连续",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、ICIR 与主提示词",
+      "expected": "甲右手和收紧袖口不遮交接信封",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H2",
+      "constraint_ids": [
+        "H2"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查；必要时检查图片尺寸",
+      "expected": "甲右手和收紧袖口不遮交接信封",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、ICIR 与主提示词",
+      "expected": "不凭空固定脸、年龄、性别或职业",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H3",
+      "constraint_ids": [
+        "H3"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查；必要时检查图片尺寸",
+      "expected": "不凭空固定脸、年龄、性别或职业",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、ICIR 与主提示词",
+      "expected": "同一封未拆信且封口完整、没有可读文字",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H4",
+      "constraint_ids": [
+        "H4"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查；必要时检查图片尺寸",
+      "expected": "同一封未拆信且封口完整、没有可读文字",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、ICIR 与主提示词",
+      "expected": "雨夜背景低频，不加入具体地点或室内外断言",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H5",
+      "constraint_ids": [
+        "H5"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查；必要时检查图片尺寸",
+      "expected": "雨夜背景低频，不加入具体地点或室内外断言",
+      "status": "NOT_RUN",
+      "evidence": []
+    },
+    {
+      "id": "STATIC_H6",
+      "constraint_ids": [
+        "H6"
+      ],
+      "stage": "static",
+      "method": "逐条对照锁定 ArtIR、ICIR 与主提示词",
+      "expected": "静态图只呈现递出前的单一瞬间，不提前出现验封或入包",
+      "status": "PASS",
+      "evidence": [
+        "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+        "runtime/v6/candidates/TASK_7aabf77f33bdc18e71193c47/1/prompt.md"
+      ]
+    },
+    {
+      "id": "VISUAL_H6",
+      "constraint_ids": [
+        "H6"
+      ],
+      "stage": "visual",
+      "method": "真实图像生成后人工检查；必要时检查图片尺寸",
+      "expected": "静态图只呈现递出前的单一瞬间，不提前出现验封或入包",
+      "status": "NOT_RUN",
+      "evidence": []
+    }
+  ],
+  "unresolved": []
+}

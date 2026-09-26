@@ -1,0 +1,32 @@
+{
+  "build_id": "c51cae7ea461fe92ed69cbb482628a6f2e10c59c23217b3657cb4dc488ee7b9f",
+  "compiler": "storyboard-grammar@1.3.2",
+  "files": {
+    "compiler-handoff.json": "10f3a8d38e4c6756d99403671b5c170ef854344e9361ef06e610dc9c5e2d2c8b",
+    "detail-coverage.json": "2b81f15487c495ee37a81c8033752e977a99ac112093f8385186fb8656b4fdff",
+    "loss.report.json": "66b795693b51cfcc75c311a46707700e5e2bbfc3dc83b90819ea9a7416467ff5",
+    "panel-briefs.json": "91b3b75f04a49a62eba3381f19aeedc63081ed7a6c519e27f3e6150ec0c9fa70",
+    "production-contract.json": "8b6bb1d93701af8ff607837613f3dd6ad27a3794761bcd1bb856971a6a8a7def",
+    "qa.report.json": "e4949f8c38feaf9599a3771f8a33d8672331de8041cd0d833d44e4b1b2d6973a",
+    "storyboard.ir.json": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+    "storyboard.md": "e8c6f2cc9c75e365ea8ef6596b051a5199034e602a6cf832b056802f63891125"
+  },
+  "input_hash": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a",
+  "runtime_files": {
+    "schemas/handoff.schema.json": "56aae4a21db62bf6d52ebbe8cddf662610867a2d1c9d30d21666a3ab426fd71f",
+    "schemas/production-contract.schema.json": "28475b964d75073f37347595f80078a41deb79fbfb0911042a04e29e40f6e4b1",
+    "schemas/qa-report.schema.json": "ce2e25558bfaacd5b5a23accedf5decc3ae3fd54c7e6a6bb7ddb10f8b6931e98",
+    "schemas/storyboard-ir-1.1.schema.json": "8a7970ea804b82edbe283c3d766a418a233ecc8eac0d635aa8dbf477818ca064",
+    "schemas/storyboard-ir-1.2.schema.json": "76e8a594e23bcf017995792fe290b28a8419e0215458cafc052a782881c096f7",
+    "schemas/storyboard-ir.schema.json": "ce90ce55ea293daa1a3c2fd3642a1512f2d5063daab6394b339e265122072a7b",
+    "scripts/detail_runtime.py": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7",
+    "scripts/observe_video.py": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1",
+    "scripts/package_skill.py": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5",
+    "scripts/spatial_runtime.py": "df2444ce0e0e28b6d8506653a9a836117c4e4cbd2be9c1685cd361389a5ed549",
+    "scripts/storyboard.py": "8235500ae71b576611341f3ff9e0ff439b33199cdc218fdef89196d87a450be0",
+    "scripts/upgrade_detail.py": "5d5522c6922745281a02f9f13eb4c953087cab77455145d91e2c1eccd5f1a383",
+    "scripts/upgrade_spatial.py": "f4bec1dcaa87a1a89324c62c57e1df32cdd1be1b17708d0111d365f339ecb0e3",
+    "scripts/v51_support.py": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd",
+    "scripts/v52_support.py": "9acd5489fe8d9b0dd6a772057e667b1761e01050e383dedfc0bf808ea321efd0"
+  }
+}

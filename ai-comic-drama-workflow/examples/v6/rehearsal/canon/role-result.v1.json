@@ -1,0 +1,48 @@
+{
+  "schema": "role-result/5.0",
+  "task_id": "TASK_0e0c8a4ca94c8ffdbb7e14ae",
+  "context_fingerprint": "0e0c8a4ca94c8ffdbb7e14aee2cfbfe477849cbe8262ca4ee98fbe62630e6493",
+  "artifact": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+  "artifact_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+  "complete": true,
+  "checks": [
+    {
+      "id": "source_integrity",
+      "status": "PASS",
+      "finding": "The registered source and frozen task hashes match; the quoted spans occur in the source.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/source-integrity.json"
+      ]
+    },
+    {
+      "id": "canon_contract",
+      "status": "PASS",
+      "finding": "Canon has the required V5 fields, registered source reference, unique stable IDs and source-only assertions.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/canon-contract.json"
+      ]
+    },
+    {
+      "id": "handoff",
+      "status": "PASS",
+      "finding": "The source registry version 1 maps to the complete Canon artifact with field-level provenance.",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "handoff": [
+    {
+      "requirement_id": "UP_02899a994552add4610374b6",
+      "source_version": 1,
+      "target_slot": "canon:project:project:Canon",
+      "target_pointer": "",
+      "channel": "artifact",
+      "evidence": [
+        "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/evidence/handoff.json"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "unresolved": []
+}

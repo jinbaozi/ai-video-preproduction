@@ -1,0 +1,48 @@
+{
+  "art_events": 0,
+  "candidate_digest": "3f2ef52fc28f84e8a5454698807ccd6ca588a20bbee101d68b522805ef9ad253",
+  "check": "native_validator",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/scripts/art_compile.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/art-ir.json"
+  ],
+  "compiled_package": {
+    "coverage": "EXPLICIT_MAPPING_NOT_VISUAL_PASS",
+    "media_acceptance": "NOT_RUN",
+    "qa_records_not_run": 5,
+    "qa_status": "NOT_RUN",
+    "receipt_file_sha256": "992cdea949081d9881d7c0cc659188d21b0653ca121947d6fc6c4512ecc35dec",
+    "receipt_files_verified": 10,
+    "status": "PLANNED",
+    "submitted": false,
+    "uri": "runtime/v6/candidates/TASK_0560d46ecc764c68ee9a590e/1/compiled-generic-video"
+  },
+  "director_shot_phases": 0,
+  "director_timeline_action_ids": [
+    "ACT_EXTEND",
+    "ACT_GRIP",
+    "ACT_RELEASE",
+    "ACT_CONFIRM_SEAL",
+    "ACT_STOW"
+  ],
+  "event_basis": "The locked native validator requires every nonempty ArtIR event to cite /shots/0/phases/N; DirectorIR has no shot phases. Stable Art asset states are kept in ArtIR while timed custody and action changes remain in the pinned DirectorIR /timeline/actions.",
+  "finding": "Fresh locked ArtIR validator returns STATIC_VALID. No ArtIR event can bind to an absent Director shot phase; the five timed actions remain bound by DirectorIR. Offline compilation is PLANNED with intact file hashes, no submission and no media review.",
+  "returncode": 0,
+  "reviewed_at": "2026-09-25T12:39:34.345Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_c67d66bf19aa53d39fb4168d",
+  "scene_support": {
+    "actual_media": "NOT_RUN",
+    "location_and_indoor_outdoor_unspecified": false,
+    "one_letter_and_one_backpack": true,
+    "rain_night_kept": true,
+    "visual_clearance_zone": "HAND_BAG_CLEARANCE"
+  },
+  "status": "PASS",
+  "stderr": "",
+  "stdout": {
+    "art_sha256": "2cf96f2b38b82bdd331538f2c5ca43fd13296f4991d16f716a8cab3ca81c15be",
+    "status": "STATIC_VALID"
+  }
+}

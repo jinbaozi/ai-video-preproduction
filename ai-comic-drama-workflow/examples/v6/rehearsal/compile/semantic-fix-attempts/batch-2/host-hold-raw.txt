@@ -1,0 +1,1 @@
+请暂停本批 Compile 正式候选提交。根代理已发现 Codex 宿主桥对 graph-only 任务的派发文字缺口，正在修源码并将 v6_codex_host 纳入运行码指纹；当前冻结任务预计会正式 STALE。请保留已读证据和诊断，向我发 BLOCKER 与 CANCEL_ACK 原文及文件路径，不要提交 candidate-result、RoleResult 或修改正式状态。等新代码指纹下的真实动作再重派。

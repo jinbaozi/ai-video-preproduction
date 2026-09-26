@@ -1,0 +1,1 @@
+进度：冻结 envelope、6 个 inputs、4 个 resources 的 SHA 全部匹配；两轮 repair failure 和独立 handoff reviews 已读。已定位 batch-2 缺陷：人物 contacts 未镜像同一封信的右手接触，起态还写“无接触”。正生成 batch-3 候选，会按每个样本和镜头 start/end 做双向接触、姿态、控制权核对，再运行锁定 native 校验。目前无校验阻塞。

@@ -1,0 +1,1 @@
+ACK: I have read the exact frozen reviewer action for Control TASK_4064ef49778d32687a4dde42 batch 1. I am independently checking source/resource/candidate hashes and semantic evidence; review files only under the assigned review directory.

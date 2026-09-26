@@ -1,0 +1,82 @@
+{
+  "command_id": "FULL_RELOCKED_DIRECTOR_B1_SUBMIT_1",
+  "expected_revision": 184,
+  "candidate": {
+    "agent_id": "/root/host_bridge/full_rehearsal/v6_6cd3cfdd715fd5aa4f9956a2",
+    "artifacts": [
+      {
+        "kind": "DirectorIR",
+        "sha256": "2e9a0d53be46b56dfbcb9dcf9b5965c23c99f2b20510c7567415b08896297177",
+        "slot": "director:project:project:DirectorIR",
+        "uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/director-ir.json"
+      }
+    ],
+    "batch": 1,
+    "checks": [
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/module-receipt.json"
+        ],
+        "id": "module_receipt",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/native-validator.json",
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/stow-continuity.json"
+        ],
+        "id": "native_validator",
+        "status": "PASS"
+      },
+      {
+        "evidence": [
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-canon.json",
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-screenplay.json",
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-check.json",
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/art-compatibility.json"
+        ],
+        "id": "handoff",
+        "status": "PASS"
+      }
+    ],
+    "handoffs": [
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-canon.json",
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-check.json"
+        ],
+        "requirement_id": "UP_45d4c22d9b47d4c769367b04",
+        "source_slot": "canon:project:project:Canon",
+        "source_version": 12,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      },
+      {
+        "channel": "artifact",
+        "evidence": [
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-screenplay.json",
+          "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/evidence/handoff-check.json"
+        ],
+        "requirement_id": "UP_beaf9e05cc9e0aa9e036f59b",
+        "source_slot": "screenplay:project:project:ScriptIR",
+        "source_version": 15,
+        "target_pointer": "",
+        "target_slot": "director:project:project:DirectorIR"
+      }
+    ],
+    "input_digest": "97b18be01ec64371532a256a8f959cea8b9d0d82fc09d47aca6e79b723bd225d",
+    "module_receipts": [
+      {
+        "name": "director-grammar",
+        "sha256": "1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1",
+        "version": "1.4.4"
+      }
+    ],
+    "result_sha256": "647085faf2f15b86645b8b9bb693c28f87c48897b020511990ebb2c681818ba0",
+    "result_uri": "runtime/v6/candidates/TASK_bf0865334b4a88be570a164a/1/role-result.json",
+    "schema": "candidate-result/6.0",
+    "task_id": "TASK_bf0865334b4a88be570a164a",
+    "unresolved": []
+  }
+}

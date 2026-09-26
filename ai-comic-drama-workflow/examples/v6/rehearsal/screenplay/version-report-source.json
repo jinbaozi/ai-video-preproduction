@@ -1,0 +1,7 @@
+{
+  "channel": "collaboration.message",
+  "recipient": "/root/host_bridge",
+  "recorded_at": "2026-09-25T10:35:28.534715Z",
+  "speaker": "/root/host_bridge/v6_e0ad76147ac04f3d8c0d1d21",
+  "text": "发现一处版本约束：冻结的 V5 task 文件声明 `expected_result: role-result/5.1`，且当前 V5 `receipt_audit` 对锁定 screenplay 模块强制 5.1 + `module_receipt`。我会让主 `role-result.json` 使用 5.1 以便原生提交；如你需要字面 5.0，可另附兼容副本，但不能把 5.0 作为可提升的主结果。ScriptIR 已通过 `sg.py validate --final`。"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "BLOCKED",
+  "reason": "Frozen task input changed",
+  "stale_tasks": [
+    "TASK_f2d0f9805f575ed23ebfdb6d",
+    "V6_compile_ee07749c72a2525a571b",
+    "TASK_01b83d9bf3bd9032fd655d18"
+  ],
+  "revision": 766
+}

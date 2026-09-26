@@ -1,0 +1,201 @@
+{
+  "art_compiler_member": "production-design-grammar/scripts/art_compile.py",
+  "art_module_archive": "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/assets/bundled-skills/production-design-grammar.skill",
+  "art_module_archive_sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
+  "art_module_version": "1.3.3",
+  "available_actions": [
+    {
+      "changes": [
+        {
+          "after": [
+            0.3,
+            0.9,
+            0
+          ],
+          "at_ms": 3000,
+          "before": [
+            -0.35,
+            0.9,
+            0
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "position"
+        },
+        {
+          "after": [
+            "CHAR_YI.right_hand"
+          ],
+          "at_ms": 3000,
+          "before": [
+            "CHAR_JIA.right_hand"
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "contacts"
+        },
+        {
+          "after": [
+            "CHAR_YI.right_hand"
+          ],
+          "at_ms": 3000,
+          "before": [
+            "CHAR_JIA.right_hand"
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "supports"
+        },
+        {
+          "after": [
+            "CHAR_YI.right_hand"
+          ],
+          "at_ms": 3000,
+          "before": [
+            "CHAR_JIA.right_hand"
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "controllers"
+        },
+        {
+          "after": "站定，递信手已放开",
+          "at_ms": 3000,
+          "before": "站定，朝乙方向递信",
+          "entity_id": "CHAR_JIA",
+          "field": "pose"
+        },
+        {
+          "after": [],
+          "at_ms": 3000,
+          "before": [
+            "PROP_LETTER"
+          ],
+          "entity_id": "CHAR_JIA",
+          "field": "contacts"
+        },
+        {
+          "after": [],
+          "at_ms": 3000,
+          "before": [
+            "PROP_LETTER"
+          ],
+          "entity_id": "CHAR_JIA",
+          "field": "controllers"
+        },
+        {
+          "after": "接住信并持稳",
+          "at_ms": 3000,
+          "before": "面向甲，准备接信",
+          "entity_id": "CHAR_YI",
+          "field": "pose"
+        },
+        {
+          "after": [
+            "PROP_LETTER"
+          ],
+          "at_ms": 3000,
+          "before": [],
+          "entity_id": "CHAR_YI",
+          "field": "contacts"
+        }
+      ],
+      "pointer": "/timeline/actions/0",
+      "shot_ids": [
+        "S_HANDOFF"
+      ]
+    },
+    {
+      "changes": [
+        {
+          "after": "已确认同一封信封口完整",
+          "at_ms": 6000,
+          "before": "尚未确认封口",
+          "entity_id": "CHAR_YI",
+          "field": "condition"
+        }
+      ],
+      "pointer": "/timeline/actions/1",
+      "shot_ids": [
+        "S_SEAL"
+      ]
+    },
+    {
+      "changes": [
+        {
+          "after": [
+            0.72,
+            0.45,
+            0
+          ],
+          "at_ms": 8500,
+          "before": [
+            0.3,
+            0.9,
+            0
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "position"
+        },
+        {
+          "after": [
+            "PROP_BACKPACK.interior"
+          ],
+          "at_ms": 8500,
+          "before": [
+            "CHAR_YI.right_hand"
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "contacts"
+        },
+        {
+          "after": [
+            "PROP_BACKPACK.interior"
+          ],
+          "at_ms": 8500,
+          "before": [
+            "CHAR_YI.right_hand"
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "supports"
+        },
+        {
+          "after": [],
+          "at_ms": 8500,
+          "before": [
+            "CHAR_YI.right_hand"
+          ],
+          "entity_id": "PROP_LETTER",
+          "field": "controllers"
+        },
+        {
+          "after": "将信送入背包后手离包口",
+          "at_ms": 8500,
+          "before": "接住信并持稳",
+          "entity_id": "CHAR_YI",
+          "field": "pose"
+        },
+        {
+          "after": [],
+          "at_ms": 8500,
+          "before": [
+            "PROP_LETTER"
+          ],
+          "entity_id": "CHAR_YI",
+          "field": "contacts"
+        },
+        {
+          "after": "收纳同一封信",
+          "at_ms": 8500,
+          "before": "待收纳信",
+          "entity_id": "PROP_BACKPACK",
+          "field": "condition"
+        }
+      ],
+      "pointer": "/timeline/actions/2",
+      "shot_ids": [
+        "S_STOW"
+      ]
+    }
+  ],
+  "contract": "For DirectorIR 1.1/1.2, ArtIR events cite /timeline/actions/N; the cited action must include the shot ID and the asset entity/field/before/after state change.",
+  "director_schema_version": "1.2",
+  "note": "This checks the available director pointers and locked compiler contract. The ArtIR creator must still author matching events and run its own native validator.",
+  "status": "PASS"
+}

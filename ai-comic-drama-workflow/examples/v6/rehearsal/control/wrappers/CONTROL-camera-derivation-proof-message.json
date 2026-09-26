@@ -1,0 +1,22 @@
+{
+  "command_id": "CONTROL_CAMERA_DERIVATION_PROOF_COMMAND_1",
+  "expected_revision": 179,
+  "message": {
+    "at": "2026-09-25T13:30:13.318664Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-camera-derivation-proof.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/evidence/control-projection-blocker.json"
+    ],
+    "in_reply_to": "CONTROL_STRUCTURED_PROJECTION_BLOCKER_1",
+    "message_id": "CONTROL_CAMERA_DERIVATION_PROOF_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "9e037d71979d8711a98e148a231480b580432800ea29ad4d3d935080ee493f1a",
+    "subject_uri": "runtime/v6/host-inputs/control-camera-derivation-proof.txt",
+    "summary": "Creator reports adapter owner in-memory proof that frozen static camera coordinates can deterministically supply N_CAMERA hold track with zero unresolved projections; code placement pending.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "PROGRESS"
+  }
+}

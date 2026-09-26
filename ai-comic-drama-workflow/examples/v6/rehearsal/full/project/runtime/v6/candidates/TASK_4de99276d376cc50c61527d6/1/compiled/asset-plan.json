@@ -1,0 +1,239 @@
+{
+  "assets": [
+    {
+      "design": "Canon只给代称和交信行为。美术提案为无标识深石墨灰哑面外层、袖口收紧，使右手递信接触可见；脸、年龄、性别和职业未由本卡决定。",
+      "entity_id": "CHAR_JIA",
+      "graphic_text": null,
+      "id": "CHAR_JIA",
+      "identity_locks": [
+        "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+        "右手及袖口不遮住交接的信封"
+      ],
+      "initial_state": {
+        "wardrobe": "深石墨灰无标识外层（设计提案）"
+      },
+      "kind": "character",
+      "material_ids": [
+        "MAT_CLOTH"
+      ],
+      "name": "甲",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "DESIGN_ART"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "Canon只给代称、验封与入包行为。美术提案为无标识深蓝灰哑面外层、无遮挡眼部与可活动右袖；脸、年龄、性别和职业未由本卡决定。",
+      "entity_id": "CHAR_YI",
+      "graphic_text": null,
+      "id": "CHAR_YI",
+      "identity_locks": [
+        "同一人物与同一服装外观跨三镜连续；脸部身份仍由Canon或后续已核参考锁定",
+        "眼部、右手与包口接触面不被衣袖或头饰遮挡"
+      ],
+      "initial_state": {
+        "condition": "尚未确认封口",
+        "wardrobe": "深蓝灰无标识外层（设计提案）"
+      },
+      "kind": "character",
+      "material_ids": [
+        "MAT_CLOTH"
+      ],
+      "name": "乙",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "DESIGN_ART"
+      ],
+      "state_rules": [
+        {
+          "allowed_values": [
+            "尚未确认封口",
+            "已确认同一封信封口完整"
+          ],
+          "field": "condition"
+        }
+      ]
+    },
+    {
+      "design": "同一封纸质信封；外观提案为中性偏暖哑面、无可读文字的闭合折叠封口。甲右手交给乙右手，乙仅查看完整封口，随后放入背包；具体信件内容与来历未定。",
+      "entity_id": "PROP_LETTER",
+      "graphic_text": null,
+      "id": "PROP_LETTER",
+      "identity_locks": [
+        "同一实体 PROP_LETTER 跨交接、验封、入包三镜连续",
+        "封口从头至尾完整且未拆；不露出内页",
+        "8500毫秒后完全在背包内，9000毫秒终帧不外露"
+      ],
+      "initial_state": {
+        "condition": "同一封未拆、封口完整"
+      },
+      "kind": "prop",
+      "material_ids": [
+        "MAT_PAPER"
+      ],
+      "name": "同一封未拆的信",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "DESIGN_ART"
+      ],
+      "state_rules": []
+    },
+    {
+      "design": "乙收信所用背包；美术提案为深色无标识软质织物包，包口能让同一封信顺利进入并由内腔承托，具体背法与品牌不定义。",
+      "entity_id": "PROP_BACKPACK",
+      "graphic_text": null,
+      "id": "PROP_BACKPACK",
+      "identity_locks": [
+        "同一实体 PROP_BACKPACK 外观与包口位置连续",
+        "包口可被乙右手触及；EVENT_STOW 后 condition 为收纳同一封信，信由包内承托且不外露"
+      ],
+      "initial_state": {
+        "condition": "待收纳信"
+      },
+      "kind": "prop",
+      "material_ids": [
+        "MAT_BAG"
+      ],
+      "name": "背包",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "DESIGN_ART"
+      ],
+      "state_rules": [
+        {
+          "allowed_values": [
+            "待收纳信",
+            "收纳同一封信"
+          ],
+          "field": "condition"
+        }
+      ]
+    },
+    {
+      "design": "雨夜为源事实；本次只设计低频雨幕、蓝灰夜色和供两人稳定站立的中性平整承托面，具体地点、建筑、地理区域及室内外仍开放。",
+      "entity_id": "ENV_RAIN_NIGHT",
+      "graphic_text": null,
+      "id": "ENV_RAIN_NIGHT",
+      "identity_locks": [
+        "三个镜头持续为同一雨夜",
+        "不得从背景推断未给出的具体地点或室内外状态"
+      ],
+      "initial_state": {
+        "condition": "雨夜持续"
+      },
+      "kind": "set",
+      "material_ids": [
+        "MAT_GROUND"
+      ],
+      "name": "雨夜环境",
+      "origin": "existing",
+      "source_refs": [
+        "CANON",
+        "DIRECTOR",
+        "DESIGN_ART"
+      ],
+      "state_rules": []
+    }
+  ],
+  "references": [
+    {
+      "asset_id": "CHAR_JIA",
+      "exclude": [
+        "来源未给出的年龄、性别、关系或场所背景"
+      ],
+      "file": null,
+      "id": "PLAN_CHAR_JIA",
+      "inherit": [
+        "同一人物外观与灰色衣装的连续性"
+      ],
+      "rights": "尚未制作或登记图像；实际文件、字节哈希和使用权待宿主核验，当前仅为文字参考计划。",
+      "role": "identity",
+      "sha256": null,
+      "source_refs": [
+        "DESIGN_ART"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "CHAR_YI",
+      "exclude": [
+        "来源未给出的年龄、性别、关系或场所背景"
+      ],
+      "file": null,
+      "id": "PLAN_CHAR_YI",
+      "inherit": [
+        "同一人物外观与深蓝灰衣装的连续性"
+      ],
+      "rights": "尚未制作或登记图像；实际文件、字节哈希和使用权待宿主核验，当前仅为文字参考计划。",
+      "role": "identity",
+      "sha256": null,
+      "source_refs": [
+        "DESIGN_ART"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "PROP_LETTER",
+      "exclude": [
+        "信件内容、可读文字、拆封状态"
+      ],
+      "file": null,
+      "id": "PLAN_PROP_LETTER",
+      "inherit": [
+        "同一封未拆信及完整封口"
+      ],
+      "rights": "尚未制作或登记图像；实际文件、字节哈希和使用权待宿主核验，当前仅为文字参考计划。",
+      "role": "prop",
+      "sha256": null,
+      "source_refs": [
+        "DESIGN_ART"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "PROP_BACKPACK",
+      "exclude": [
+        "品牌、归属、未给出的贴章或文字"
+      ],
+      "file": null,
+      "id": "PLAN_PROP_BACKPACK",
+      "inherit": [
+        "可触及包口与可容信内腔"
+      ],
+      "rights": "尚未制作或登记图像；实际文件、字节哈希和使用权待宿主核验，当前仅为文字参考计划。",
+      "role": "prop",
+      "sha256": null,
+      "source_refs": [
+        "DESIGN_ART"
+      ],
+      "status": "planned"
+    },
+    {
+      "asset_id": "ENV_RAIN_NIGHT",
+      "exclude": [
+        "具体地点、可辨城市、建筑及室内外断言"
+      ],
+      "file": null,
+      "id": "PLAN_ENV_RAIN_NIGHT",
+      "inherit": [
+        "雨夜低频背景和跨镜环境连续性"
+      ],
+      "rights": "尚未制作或登记图像；实际文件、字节哈希和使用权待宿主核验，当前仅为文字参考计划。",
+      "role": "scene",
+      "sha256": null,
+      "source_refs": [
+        "DESIGN_ART"
+      ],
+      "status": "planned"
+    }
+  ]
+}

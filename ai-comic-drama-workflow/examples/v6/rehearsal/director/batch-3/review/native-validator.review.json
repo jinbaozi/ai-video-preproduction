@@ -1,0 +1,42 @@
+{
+  "action_changes_replayed": 31,
+  "actual_media": "NOT_RUN",
+  "artifact_sha256": "262e23f487752f69bf6ec031f6e0d7851a2205df482ee5d4cf91755f0bf0c98b",
+  "candidate_digest": "8a63f4c005b0c160690ab7882bbbc241d53c8472ee18f1a7baf55d2f8cf5509b",
+  "check": "native_validator",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_1b94794070565f70c7f697a7/1/compiled/director-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/3/screenplay-map.json"
+  ],
+  "finding": "Locked native validator independently returns STATIC_VALID with REVIEW_ATTESTED screenplay binding and no errors. All 31 action changes replay through six sampled states, reciprocal contacts and shot boundary conversion without mismatch.",
+  "legacy_shot_boundary_coordinate_conversion": "Director static X-right,Y-depth,Z-up to timeline x-right,y-up,z-depth verified at 0 and 12000 ms",
+  "returncode": 0,
+  "reviewed_at": "2026-09-25T12:20:03.267642Z",
+  "reviewer_agent_id": "/root/host_bridge/v6_30bd4ea8422992632401f9cc",
+  "state_samples_checked": [
+    0,
+    2500,
+    4000,
+    7500,
+    10500,
+    12000
+  ],
+  "status": "PASS",
+  "stderr": "",
+  "stdout": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "24a6ef5e11e48f849b53073608eee9f8838cf6903cf8bc236b9cc09c91e3a2d6",
+      "handoff_sha256": "716373601911cbf6bcd4274098162556c84e5b5cfa5202a9a40ac8f88576e11c",
+      "mapping_sha256": "710be9cc4f3fd83977fb16cdee543e14d1f017f0c688c138175407bcde4307f8",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  }
+}

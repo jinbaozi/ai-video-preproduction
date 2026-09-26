@@ -1,0 +1,40 @@
+{
+  "batch": 1,
+  "candidate_digest": "d12680358b20984ae0822a8b6b99fe381910118a412df6ab52d1293a092a54f3",
+  "candidate_evidence_hashes": {
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/adapter-report.json": "75576b190ad3780e2ed076127a2c68938fd1e0bb01d8a47c7cff07022e09d6b9",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-build.json": "e4fb1dc6006194f21ca4970bd3215527966d5466d634907b146b3fcc8b7ebb39",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/control-verify.json": "c5d79cbf1604e58096db5098bcb13f6b5c9db648c61ad043dc6076d8ba4f6153",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/handoff.json": "81db66101c43fd8fb123b0d2fe5cd5c0adb9f09d9af3e77e414a2d1272dd0b78",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/module-receipt.json": "7a6cec9a5d3bf203e487650692e91f3252d4eb277091075f4ac4c71c6311f918",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/native-av-validation.json": "000d91e04e55252099848253a4578098a671ce00d415c6a559007b321de10769",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/projection-limit.json": "2b3227916cef9a131345a8ec04b1950e45d3e3d323e843e4216477ebb5d1bc98",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/promotion-diff.json": "5d0ddfd95db1094d7e269f73955f928cccdfbb4d2331dc5b60fb45e2e6f118e9",
+    "runtime/v6/candidates/TASK_a956f0b50a44008d6467b92e/1/evidence/source-integrity.json": "9de3020c308e1e84c44b8d208cf119843275bfc1bc272c070814a3f2c9724d6e"
+  },
+  "check_id": "module_receipt",
+  "frozen_input_and_resource_hashes": {
+    "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/SKILL.md": "5875a0288ceaf6aa0b2f8c7235ee0f317d1b811e99efc6ad70dad1e7333464ff",
+    "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/cooperation-v5.md": "9341b9b2ee7c7969b9b71719224b22de8bbefa762fda96dcb15d6aa5eab6f7d1",
+    "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/current-contract.md": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+    "runtime/modules/ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b/video-prompt-compiler/references/shot-control.md": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a",
+    "runtime/tasks/TASK_a956f0b50a44008d6467b92e.json": "e4b6e6c3e456040a9c772a2ea1ad78712378e6f76730c8b58f39988a8159ae2d",
+    "runtime/v6/candidates/TASK_afc04f54b23b01071a0b14e3/1/storyboard-ir.json": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a"
+  },
+  "module": {
+    "name": "video-prompt-compiler",
+    "sha256": "ff88d829cbbcb9c724b7afa3e1c85b0310deeb635284241230e3439fb6c41d4b",
+    "version": "1.17.6"
+  },
+  "note": "Module hashes prove locked versions and bytes; native semantics are checked separately.",
+  "result": "PASS",
+  "role_result_sha256": "aa2768e59dc0d8903b1e238cb6a965571f7025f99df901507893e03135c707c3",
+  "schema": "v6-control-review-evidence/1.0",
+  "semantic_review_valid": {
+    "current_accepted": true,
+    "frozen_candidate": true
+  },
+  "task_id": "TASK_a956f0b50a44008d6467b92e",
+  "v5_current_storyboard_sha256": "09cd04e15b3e39ed226b73f7f476c29aacb74853ecaaad57bd4721fa5938fca8",
+  "v6_frozen_storyboard_sha256": "f575158f6608b6abcf1b305e4113342b8a8c2a800a152a21f93ac0788ef3e75a"
+}

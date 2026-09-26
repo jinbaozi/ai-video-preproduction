@@ -1,0 +1,61 @@
+{
+  "director_sha256": "f9a0f95fcffdb914a6c31d842fcdb09b9be3e9f2ad095439ab330a49d4d03c60",
+  "media": "NOT_RUN",
+  "module_source": "runtime/modules/1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1/director-grammar/scripts/spatial_runtime.py panel_state",
+  "panel_samples": [
+    {
+      "at_ms": 6000,
+      "composition_id": "COMP_S_STOW",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_visible_parts": [],
+      "physical_interpolation": false,
+      "status": "EXPLICIT",
+      "subject_nodes": [
+        "N_CHAR_YI",
+        "N_PROP_LETTER",
+        "N_PROP_BACKPACK"
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "composition_id": "COMP_S_STOW_SETTLED",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_visible_parts": [],
+      "physical_interpolation": false,
+      "status": "EXPLICIT",
+      "subject_nodes": [
+        "N_CHAR_YI",
+        "N_PROP_BACKPACK"
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "composition_id": "COMP_S_STOW_SETTLED",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_visible_parts": [],
+      "physical_interpolation": false,
+      "status": "EXPLICIT",
+      "subject_nodes": [
+        "N_CHAR_YI",
+        "N_PROP_BACKPACK"
+      ]
+    }
+  ],
+  "semantic_finding": "8500至9000毫秒，同一封信已经完全入包；镜头末段只保留乙手与包口，不再把信绘为外露主体。",
+  "status": "PASS"
+}

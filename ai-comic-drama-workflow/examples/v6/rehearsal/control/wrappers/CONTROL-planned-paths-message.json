@@ -1,0 +1,22 @@
+{
+  "command_id": "CONTROL_PLANNED_PATHS_COMMAND_1",
+  "expected_revision": 169,
+  "message": {
+    "at": "2026-09-25T13:16:19.093327Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-planned-paths.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-config.json"
+    ],
+    "in_reply_to": "CONTROL_REMEDIATION_DIRECTION_1",
+    "message_id": "CONTROL_PLANNED_PATHS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "dd37c912b486006c6a7d30d9be9d20e9797d9e6a21ff6fc1995e2e0cc42f08e9",
+    "subject_uri": "runtime/v6/host-inputs/control-planned-paths.txt",
+    "summary": "Creator specified exact ShotControlPack package-manifest artifact URI, locked verifier, config path and source-binding checks; adapter blocker remains.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

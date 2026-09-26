@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "schema": "role-result/5.1",
+  "module_receipt": "audited",
+  "native_accept_prompt": "PASS",
+  "scope": "read-only pre-review check"
+}

@@ -1,0 +1,164 @@
+{
+  "account_verified": false,
+  "artifact_status": "COMPILED",
+  "attachments": {
+    "attachments": [],
+    "submitted": false
+  },
+  "build_files_verified": 24,
+  "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+  "camera_coordinate_recheck": {
+    "actual_media_camera_motion_verified": false,
+    "changed_source_fields": [
+      "/scenes/0/coordinates/origin",
+      "/timeline/camera_operations/0/start_position",
+      "/timeline/camera_operations/0/end_position",
+      "/timeline/semantic_review"
+    ],
+    "checked_compiled_fields": [
+      "/shots/0/camera/position",
+      "/timeline/camera_operations/0/start_position",
+      "/timeline/camera_operations/0/end_position",
+      "/timeline/motion_tracks/CAMERA_POSITION_S1/keyframes"
+    ],
+    "new_camera_operation_end": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+    "new_camera_operation_start": "双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）",
+    "old_camera_operation_end": "双人前方同侧示意机位 [0,-2.8,1.2] 米",
+    "old_camera_operation_start": "双人前方同侧示意机位 [0,-2.8,1.2] 米",
+    "old_unlabelled_scene_tuple_in_prompt": false,
+    "permutation": "(X,Z,Y)",
+    "prompt_lines": {
+      "prompt-001_000000-012000ms.txt": {
+        "/shots/0/camera/end_m；数值": {
+          "line": 104,
+          "text": "12秒：冻结分镜 /shots/0/camera/end_m；数值 0、1.2、-2.8 米"
+        },
+        "/shots/0/camera/start_m；数值": {
+          "line": 103,
+          "text": "0秒：冻结分镜 /shots/0/camera/start_m；数值 0、1.2、-2.8 米；保持此值至下一节点"
+        },
+        "固定机位的位置｜": {
+          "line": 99,
+          "text": "固定机位的位置｜0–12秒"
+        },
+        "结束机位：": {
+          "line": 71,
+          "text": "结束机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        },
+        "起始机位：": {
+          "line": 70,
+          "text": "起始机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        }
+      },
+      "prompt.txt": {
+        "/shots/0/camera/end_m；数值": {
+          "line": 104,
+          "text": "12秒：冻结分镜 /shots/0/camera/end_m；数值 0、1.2、-2.8 米"
+        },
+        "/shots/0/camera/start_m；数值": {
+          "line": 103,
+          "text": "0秒：冻结分镜 /shots/0/camera/start_m；数值 0、1.2、-2.8 米；保持此值至下一节点"
+        },
+        "固定机位的位置｜": {
+          "line": 99,
+          "text": "固定机位的位置｜0–12秒"
+        },
+        "结束机位：": {
+          "line": 71,
+          "text": "结束机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        },
+        "起始机位：": {
+          "line": 70,
+          "text": "起始机位：双人前方同侧示意机位 [0,1.2,-2.8] 米（时间轴坐标：x右、y上、z深）"
+        }
+      }
+    },
+    "source_axis": "Director static scene X-right,Y-depth,Z-up",
+    "source_scene_m": [
+      0,
+      -2.8,
+      1.2
+    ],
+    "status": "PASS",
+    "target_axis": "Storyboard and AVIR timeline x-right,y-up,z-depth",
+    "target_timeline_m": [
+      0,
+      1.2,
+      -2.8
+    ]
+  },
+  "capability_backend": "prompt_plan",
+  "capability_snapshot_sha256": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+  "command": "locked scripts/vpc.py verify frozen compiled package",
+  "compiled_files_verified": 20,
+  "constraint_count": 17,
+  "constraint_static_assertions_pass": 17,
+  "constraint_statuses": {
+    "EMITTED": 16,
+    "PLANNED": 1
+  },
+  "detail_coverage_count": 2479,
+  "entry_point": "model_prompt_plan; current transport unresolved",
+  "execution": {
+    "media_qa": "NOT_RUN",
+    "next_steps": [
+      "静态编译不证明生成质量；外部执行另存真实证据。"
+    ],
+    "runnable": false,
+    "submitted": false
+  },
+  "exit_code": 0,
+  "locked_runtime_files_verified": 77,
+  "loss_count": 0,
+  "media_qa": "NOT_RUN",
+  "note": "PASS proves frozen static package integrity; target submission, prompt body review, geometry in media and post audio remain separate gates.",
+  "planned_post_constraint_ids": [
+    "SB_MEDIA_BOUNDARY"
+  ],
+  "post_obligations": [
+    {
+      "channel": "post",
+      "id": "AUD_RAIN",
+      "status": "PLANNED"
+    },
+    {
+      "channel": "post",
+      "id": "SB_MEDIA_BOUNDARY",
+      "status": "PLANNED"
+    }
+  ],
+  "prior_failed_review": {
+    "error_code": "CAMERA_COORDINATE_CONFLICT",
+    "failed_check": "compile_manifest",
+    "failure_owner": "director",
+    "repair_brief_sha256": "43542b5335b3b80b6c6da390c0cdd1c815ea1999dc1d403969362febdd141110",
+    "repair_brief_uri": "runtime/v6/upstream-repair/UPR_7aacd89414612ed785a0480b.json",
+    "review_sha256": "e1f58c8bff362bd6e61c885be553dddc6fc444ae6d87740855cdeadba728d66d",
+    "review_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json"
+  },
+  "prompt_coverage_count": 1349,
+  "prompt_review_status": "PENDING_AGENT_REVIEW",
+  "replay": {
+    "command": "locked scripts/vpc.py replay frozen compiled package into candidate/replay",
+    "compiled_files_exact_match": 20,
+    "manifest_exact_match": true,
+    "result_uri": "runtime/v6/candidates/V6_compile_3d390e1ba62af9b653ce/1/replay-stdout.json",
+    "status": "COMPILED"
+  },
+  "result": {
+    "build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+    "status": "VERIFIED"
+  },
+  "segment_count": 1,
+  "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+  "spatial_statuses": [
+    {
+      "continuous_geometry": "NOT_PROVEN",
+      "id": "REL_JIA_LEFT_YI",
+      "status": "CHECKPOINTS_PASS"
+    }
+  ],
+  "status": "PASS",
+  "target_routing_evidence_sha256": "b197cdd2c82d97f7ea12af2bda450a155eaa5f59cdd2839e7f15af25feed40e0",
+  "target_routing_evidence_uri": "runtime/v6/host-inputs/target-routing-evidence.json"
+}

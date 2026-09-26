@@ -1,0 +1,1 @@
+Please send a brief progress update or the exact blocker for the resumed DirectorIR batch-1 task. If the Codex usage-limit error recurs, report its exact text and stop work.

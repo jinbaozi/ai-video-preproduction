@@ -1,0 +1,21 @@
+{
+  "command_id": "ART_REBUILD_PROGRESS_PROGRESS_COMMAND_1",
+  "expected_revision": 225,
+  "message": {
+    "at": "2026-09-25T14:04:13.822381Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/art-rebuild-progress.txt"
+    ],
+    "in_reply_to": "ART_REBUILD_GUIDANCE_1",
+    "message_id": "ART_REBUILD_PROGRESS_PROGRESS_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4ed3f5b4284a6ca751671f4c",
+    "subject_sha256": "d610b2764813dab49637f1d86205818bb8ffab6eea6f354ac5edd5e595e8abea",
+    "subject_uri": "runtime/v6/host-inputs/art-rebuild-progress.txt",
+    "summary": "已读取全部冻结输入/资源和原始来源，正按当前 DirectorIR SHA 4f30… 创建新 ArtIR 并运行锁定原生校验。",
+    "task_id": "TASK_71abb1f14640b94809ef3db2",
+    "type": "PROGRESS"
+  }
+}

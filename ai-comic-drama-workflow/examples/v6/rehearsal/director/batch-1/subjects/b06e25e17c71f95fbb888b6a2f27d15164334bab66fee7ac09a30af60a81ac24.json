@@ -1,0 +1,7 @@
+{
+  "channel": "collaboration.send_message",
+  "recipient": "/root/host_bridge/v6_06e72da81da7989f0b415f37",
+  "recorded_at": "2026-09-25T10:45:50.082195Z",
+  "speaker": "/root/host_bridge",
+  "text": "看到你派生了 `contracts` 子代理。请仅让它做只读契约核对，保持你本人为冻结任务的唯一候选作者；凡其建议影响 DirectorIR、RoleResult 或交接，请在候选 evidence 中记录子代理 ID、原始建议摘要、来源和你的核对结论，并在最终 RESULT 指出该路径。不要让辅代理写正式状态或代替独立 reviewer。请先回复 ACK 确认冻结输入与这些职责。"
+}

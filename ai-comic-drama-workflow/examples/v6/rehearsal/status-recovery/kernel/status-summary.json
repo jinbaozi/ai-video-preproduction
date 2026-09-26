@@ -1,0 +1,90 @@
+[
+  {
+    "active_task": null,
+    "delivery": "text-only",
+    "focused_tasks": {
+      "TASK_01b83d9bf3bd9032fd655d18": {
+        "node_id": "compile_review",
+        "state": "ACCEPTED"
+      },
+      "TASK_f2d0f9805f575ed23ebfdb6d": {
+        "node_id": "control",
+        "state": "ACCEPTED"
+      },
+      "V6_compile_ee07749c72a2525a571b": {
+        "node_id": "compile",
+        "state": "ACCEPTED"
+      },
+      "V6_preproduction_13e89f5eb81bc5856bc8": {
+        "node_id": "preproduction_delivery",
+        "state": "ACCEPTED"
+      }
+    },
+    "preproduction_complete": true,
+    "raw_file": "raw/hostfix-final-status.json",
+    "read_status": "BLOCKED",
+    "revision": 738,
+    "video_complete": false,
+    "video_generated": false
+  },
+  {
+    "active_task": null,
+    "delivery": "text-only",
+    "focused_tasks": {
+      "TASK_01b83d9bf3bd9032fd655d18": {
+        "node_id": "compile_review",
+        "state": "STALE"
+      },
+      "TASK_f2d0f9805f575ed23ebfdb6d": {
+        "node_id": "control",
+        "state": "STALE"
+      },
+      "V6_compile_ee07749c72a2525a571b": {
+        "node_id": "compile",
+        "state": "STALE"
+      },
+      "V6_preproduction_13e89f5eb81bc5856bc8": {
+        "node_id": "preproduction_delivery",
+        "state": "STALE"
+      }
+    },
+    "preproduction_complete": false,
+    "raw_file": "raw/statusfix-status1.json",
+    "read_status": "BLOCKED",
+    "revision": 766,
+    "video_complete": false,
+    "video_generated": false
+  },
+  {
+    "active_task": "TASK_4c69e10662f9834bb335155d",
+    "delivery": "text-only",
+    "focused_tasks": {
+      "TASK_01b83d9bf3bd9032fd655d18": {
+        "node_id": "compile_review",
+        "state": "STALE"
+      },
+      "TASK_4c69e10662f9834bb335155d": {
+        "node_id": "control",
+        "state": "DISPATCHING"
+      },
+      "TASK_f2d0f9805f575ed23ebfdb6d": {
+        "node_id": "control",
+        "state": "STALE"
+      },
+      "V6_compile_ee07749c72a2525a571b": {
+        "node_id": "compile",
+        "state": "STALE"
+      },
+      "V6_preproduction_13e89f5eb81bc5856bc8": {
+        "node_id": "preproduction_delivery",
+        "state": "STALE"
+      }
+    },
+    "preproduction_complete": false,
+    "raw_file": "raw/statusfix-status2.json",
+    "read_status": "AWAITING_HOST",
+    "revision": 769,
+    "video_complete": false,
+    "video_generated": false
+  }
+]

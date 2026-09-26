@@ -1,0 +1,5740 @@
+{
+  "aspects": {
+    "S1": 1.7777777777777777
+  },
+  "duration_ms": 12000,
+  "events": [
+    {
+      "id": "actions:ACT_EXTEND:start",
+      "planned_ms": 500
+    },
+    {
+      "id": "actions:ACT_EXTEND:end",
+      "planned_ms": 1800
+    },
+    {
+      "id": "actions:ACT_GRIP:start",
+      "planned_ms": 2000
+    },
+    {
+      "id": "actions:ACT_GRIP:end",
+      "planned_ms": 2800
+    },
+    {
+      "id": "actions:ACT_RELEASE:start",
+      "planned_ms": 2800
+    },
+    {
+      "id": "actions:ACT_RELEASE:end",
+      "planned_ms": 4000
+    },
+    {
+      "id": "actions:ACT_CONFIRM_SEAL:start",
+      "planned_ms": 4500
+    },
+    {
+      "id": "actions:ACT_CONFIRM_SEAL:end",
+      "planned_ms": 7500
+    },
+    {
+      "id": "actions:ACT_STOW:start",
+      "planned_ms": 8000
+    },
+    {
+      "id": "actions:ACT_STOW:end",
+      "planned_ms": 11000
+    },
+    {
+      "id": "performances:PERF_JIA:start",
+      "planned_ms": 500
+    },
+    {
+      "id": "performances:PERF_JIA:end",
+      "planned_ms": 4000
+    },
+    {
+      "id": "performances:PERF_YI_RECEIVE:start",
+      "planned_ms": 2000
+    },
+    {
+      "id": "performances:PERF_YI_RECEIVE:end",
+      "planned_ms": 4000
+    },
+    {
+      "id": "performances:PERF_YI_SEAL:start",
+      "planned_ms": 4500
+    },
+    {
+      "id": "performances:PERF_YI_SEAL:end",
+      "planned_ms": 7500
+    },
+    {
+      "id": "performances:PERF_YI_STOW:start",
+      "planned_ms": 8000
+    },
+    {
+      "id": "performances:PERF_YI_STOW:end",
+      "planned_ms": 11000
+    },
+    {
+      "id": "camera_operations:CAM_LOCKED:start",
+      "planned_ms": 0
+    },
+    {
+      "id": "camera_operations:CAM_LOCKED:end",
+      "planned_ms": 12000
+    },
+    {
+      "id": "audio_events:AUD_RAIN:start",
+      "planned_ms": 0
+    },
+    {
+      "id": "audio_events:AUD_RAIN:end",
+      "planned_ms": 12000
+    }
+  ],
+  "points": [
+    {
+      "at_ms": 0,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 0,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 0,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4569185272265778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 0,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 0,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4569185272265778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4569185272265778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4569185272265778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4569185272265778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4569185272265778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.46023248667068717,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.46354644611479656,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.466860405558906,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4701743650030154,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4734883244471248,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4768022838912342,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4801162433353436,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.483430202779453,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.48674416222356237,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4900581216676718,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4933720811117812,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.4966860405558906,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 1900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 1900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 1900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 1900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 2900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 2900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5061544961104889,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 2900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 2900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5123089922209778,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5184634883314667,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5246179844419555,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5307724805524444,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5369269766629333,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 3900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 3900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 3900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 3900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 4900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 4900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 4900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 4900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 5900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 5900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 5900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 5900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 6900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 6900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 6900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 6900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 7900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 7900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 7900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 7900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5430814727734222,
+        0.46180267571611466
+      ]
+    },
+    {
+      "at_ms": 8000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5473727442640037,
+        0.46716199913143525
+      ]
+    },
+    {
+      "at_ms": 8100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5516609605368844,
+        0.47251750691779854
+      ]
+    },
+    {
+      "at_ms": 8200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5559461248536969,
+        0.4778692031486228
+      ]
+    },
+    {
+      "at_ms": 8300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5602282404714323,
+        0.48321709189153
+      ]
+    },
+    {
+      "at_ms": 8400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5645073106424495,
+        0.4885611772083564
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5687833386144827,
+        0.49390146315516276
+      ]
+    },
+    {
+      "at_ms": 8600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5730563276306497,
+        0.49923795378224445
+      ]
+    },
+    {
+      "at_ms": 8700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5773262809294603,
+        0.504570653134142
+      ]
+    },
+    {
+      "at_ms": 8800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 8900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 8900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5815932017448241,
+        0.509899565249651
+      ]
+    },
+    {
+      "at_ms": 8900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 8900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5858570933060595,
+        0.5152246941618326
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5901179588379007,
+        0.5205460438980233
+      ]
+    },
+    {
+      "at_ms": 9100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5943758015605068,
+        0.5258636184798456
+      ]
+    },
+    {
+      "at_ms": 9200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.5986306246894695,
+        0.5311774219232178
+      ]
+    },
+    {
+      "at_ms": 9300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6028824314358209,
+        0.536487458238364
+      ]
+    },
+    {
+      "at_ms": 9400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6071312250060423,
+        0.5417937314298243
+      ]
+    },
+    {
+      "at_ms": 9500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6113770086020717,
+        0.5470962454964654
+      ]
+    },
+    {
+      "at_ms": 9600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6156197854213119,
+        0.5523950044314896
+      ]
+    },
+    {
+      "at_ms": 9700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6198595586566389,
+        0.5576900122224456
+      ]
+    },
+    {
+      "at_ms": 9800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 9900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 9900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6240963314964093,
+        0.5629812728512386
+      ]
+    },
+    {
+      "at_ms": 9900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 9900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6283301071244689,
+        0.5682687902941396
+      ]
+    },
+    {
+      "at_ms": 10000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6325608887201604,
+        0.5735525685217957
+      ]
+    },
+    {
+      "at_ms": 10100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6367886794583311,
+        0.5788326114992405
+      ]
+    },
+    {
+      "at_ms": 10200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6410134825093414,
+        0.5841089231859031
+      ]
+    },
+    {
+      "at_ms": 10300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6452353010390725,
+        0.5893815075356189
+      ]
+    },
+    {
+      "at_ms": 10400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 10900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 10900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 10900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11000,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11000,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11000,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11000,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11000,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11100,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11100,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11100,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11100,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11100,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11200,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11200,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11200,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11200,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11200,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11300,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11300,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11300,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11300,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11300,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11400,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11400,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11400,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11400,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11400,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11500,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11500,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11500,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11500,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11500,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11600,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11600,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11600,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11600,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11600,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11700,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11700,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11700,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11700,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11700,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11800,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11800,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11800,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11800,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11800,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    },
+    {
+      "at_ms": 11900,
+      "node_id": "N_JIA",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.36379749727759025,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11900,
+      "node_id": "N_YI",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6362025027224097,
+        0.8715729812764087
+      ]
+    },
+    {
+      "at_ms": 11900,
+      "node_id": "N_LETTER",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11900,
+      "node_id": "N_BACKPACK",
+      "shot_id": "S1",
+      "status": "IN_FRAME",
+      "xy": [
+        0.6494541382089338,
+        0.5946503684966388
+      ]
+    },
+    {
+      "at_ms": 11900,
+      "node_id": "N_ENV",
+      "shot_id": "S1",
+      "status": "UNDETERMINED",
+      "xy": null
+    }
+  ],
+  "schema": "control-evaluation-plan/0.2",
+  "time_map": "identity_milliseconds"
+}

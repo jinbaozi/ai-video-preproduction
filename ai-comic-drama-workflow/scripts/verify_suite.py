@@ -47,9 +47,13 @@ def verify(packages,out,quick_validator=None):
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'scripts/control_cli.py','--help'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])
             if name=='ai-comic-drama-workflow':
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v6_*.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_screenplay_integration.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52_workflow.py','-v'])
                 commands.insert(1,[sys.executable,'scripts/run_v5_example.py','--version','v52','--out',str(base/'example-v52')])
+                for command in commands:
+                    if command[1:4]==['-m','unittest','discover']:
+                        command.extend(['-t','.'])
             if quick_validator:commands.insert(0,[sys.executable,str(Path(quick_validator).resolve()),str(skill)])
             if name=='ai-comic-drama-workflow':
                 commands.insert(1,[sys.executable,'scripts/run_v5_example.py','--out',str(base/'example')])
@@ -70,7 +74,8 @@ def verify(packages,out,quick_validator=None):
                             'single_install':'PASS','repeat_build':'IDENTICAL','checks':results})
     result={'schema':'suite-verification/1.0','status':'PASS','packages':records,
             'bundled_modules_equal_standalone':True,'real_media_acceptance':'SEPARATE_RECORD_REQUIRED',
-            'video_execution':'NOT_RUN','legacy_tests':'Frozen legacy runtime is outside these V5 acceptance tests; compare its separately recorded baseline.'}
+            'video_execution':'NOT_RUN','real_codex_agent_dispatch':'NOT_RUN',
+            'legacy_tests':'Frozen legacy runtime is outside these V5/V6 acceptance tests; compare its separately recorded baseline.'}
     (out/'report.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     return result
 

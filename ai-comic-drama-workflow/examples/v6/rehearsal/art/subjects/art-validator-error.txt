@@ -1,0 +1,1 @@
+Native validator first attempt failed before reading ArtIR: system python3 lacks `jsonschema` (`ModuleNotFoundError: No module named 'jsonschema'`). I’m locating an existing local Python runtime with that dependency, then will rerun; no source/module changes.

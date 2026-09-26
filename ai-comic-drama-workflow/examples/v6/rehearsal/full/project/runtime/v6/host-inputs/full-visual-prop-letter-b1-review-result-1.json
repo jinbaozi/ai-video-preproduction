@@ -1,0 +1,23 @@
+{
+  "command_id": "FULL_VISUAL_PROP_LETTER_B1_REVIEW_RESULT_1",
+  "expected_revision": 256,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_VISUAL_PROP_LETTER_B1_REVIEW_RESULT_1",
+    "task_id": "TASK_8c9e23bc4e298fe2b0b4ab4e",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_1e5cb2388223de5fbb590de3",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_VISUAL_PROP_LETTER_B1_RESULT_1",
+    "type": "RESULT",
+    "summary": "PROP_LETTER independent review: three declared checks PASS; static contract VALID; media NOT_RUN.",
+    "evidence": [
+      "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/review-record.json",
+      "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/reviewer-result-message.txt",
+      "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/reviewer-final-message.txt"
+    ],
+    "at": "2026-09-25T15:22:05.112239Z",
+    "subject_uri": "runtime/v6/reviews/TASK_8c9e23bc4e298fe2b0b4ab4e/1/review-record.json",
+    "subject_sha256": "03be1109f57194f6fad4fcd05322fbbd3afc7fd216184660c7a820d33f0ecc9c"
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "checks": [
+    {
+      "evidence": [
+        "sources/SRC_69a71adcfaca/source.txt",
+        "runtime/v6/state.json"
+      ],
+      "finding": "源文哈希有效；当前前期图各要求范围均为 ACCEPTED 或有条件的 NOT_APPLICABLE；V5 原生产物均有效。",
+      "id": "SOURCE_AND_CHAIN",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/compile-manifest.json",
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json"
+      ],
+      "finding": "当前构建、控制包、AVIR 和编译包的静态校验通过；独立 CompileReview 对当前 build 的 17 条硬要求逐项给出语义判断。",
+      "id": "BUILD_AND_COMPILE_REVIEW",
+      "status": "PASS"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "源文雨夜进入场景与正文；未指定具体地点、年代或室内外。",
+      "id": "SB_A_RAIN",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "AVIR 唯一 PROP_LETTER，正文锁定同一封未拆且完整封口的信。",
+      "id": "SB_A_SINGLE_LETTER",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "交接在 0.5–4 秒，验封在 4.5–7.5 秒，收存从 8 秒开始；顺序与源文一致。",
+      "id": "SB_A_ORDER",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "10.5 秒信已入同一背包，12 秒保持结果；正文不延伸剧情。",
+      "id": "SB_A_ENDING",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "P_GRIP、P_SEAL、P_STOWED 分别对应交接、封口确认、入包；仍需真实媒体审查可见性。",
+      "id": "SB_A_EVENTS",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "关键画格 84、144、252 帧依次给出控制权、完整封口和入包证据。",
+      "id": "SB_A_REVEAL",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "甲乙、唯一信、同一背包与雨夜连续性在 AVIR 和正文保留；实际资产和图像审查未发生。",
+      "id": "SB_A_ASSET_LOCKS",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "正文保留雨夜，未补写地点或室内外事实。",
+      "id": "SB_D_RAIN",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "同一信件先由甲右手、再由乙右手控制，最终进入同一背包且未拆。",
+      "id": "SB_D_SINGLE_LETTER",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "ACT_RELEASE 在 ACT_CONFIRM_SEAL 前，ACT_CONFIRM_SEAL 在 ACT_STOW 前。",
+      "id": "SB_D_ACTION_ORDER",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "末段仅保持信在背包内；不新增动作、对白或后续情节。",
+      "id": "SB_D_ENDING",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "三项源事件有对应动作与反馈，未添加其他故事事件。",
+      "id": "SB_D_EVENTS",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "P_RELEASE 84 帧、P_SEAL 144 帧、P_STOWED 252 帧，正文顺序相同。",
+      "id": "SB_D_REVEAL_ORDER",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "AVIR 机位 [0,1.2,-2.8] 与正文起止机位一致，固定在负 Z 轴侧。",
+      "id": "SB_FIXED_AXIS",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "2.5 秒甲乙右手共同接触而甲仍控制；3.5 秒甲松手后乙独占，早于验封。",
+      "id": "SB_CONTACT_CONTROL",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "验封时封口、乙眼部和右手都规划为可读；实际模型成片可见性尚未验证。",
+      "id": "SB_SEAL_VISIBILITY",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/prompt-001_000000-012000ms.txt"
+      ],
+      "finding": "无真实参考或媒体执行；雨声与画格/参考义务仍为后期 PLANNED，媒体 QA 为 NOT_RUN。",
+      "id": "SB_MEDIA_BOUNDARY",
+      "media_status": "NOT_RUN",
+      "status": "PASS_STATIC"
+    },
+    {
+      "evidence": [
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/segment-delivery.json",
+        "builds/99259f5ba9dd4c89d0c2ee2b5b19c0f7c79a8d38afb64a279090aea8c4f12175/compiled/post-production.json"
+      ],
+      "finding": "本项目仅交付 text-only 前期包；目标入口和模型媒体执行未发生，逐段仍需目标核验；雨声与媒体/关键帧义务均为 PLANNED。",
+      "id": "MEDIA_AND_POST_BOUNDARY",
+      "status": "PASS_FOR_TEXT_ONLY"
+    }
+  ],
+  "compile_review_build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+  "compile_review_sha256": "cccbecbebfea36fb4639c9d08db48868e16e696a9cc9efb54cc91f52367ffba7",
+  "compile_review_uri": "runtime/v6/candidates/TASK_01b83d9bf3bd9032fd655d18/1/compile-review.json",
+  "evidence_sha256": "00f4126eae38094dd64212f9da997e70c6ee2433767d683403e739dd8c8f8052",
+  "evidence_uri": "runtime/v6/candidates/TASK_5940525a2a35543b33e08b18/1/evidence/preproduction-final.evidence.json",
+  "media_execution": {
+    "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+    "submitted": false,
+    "video_qa": "NOT_RUN"
+  },
+  "passed": true,
+  "post_obligations": [
+    {
+      "id": "AUD_RAIN",
+      "status": "PLANNED"
+    },
+    {
+      "id": "SB_MEDIA_BOUNDARY",
+      "status": "PLANNED"
+    }
+  ],
+  "production_target": "none",
+  "project_id": "LETTER_DEMO",
+  "scope": "text-only preproduction",
+  "video_delivered": false
+}

@@ -752,7 +752,7 @@
             "anyOf": [
               {
                 "type": "string",
-                "pattern": "^/(?:[^~]|~[01])*$"
+                "pattern": "^/(?:shots/(?:0|[1-9][0-9]*)/phases/(?:0|[1-9][0-9]*)|timeline/actions/(?:0|[1-9][0-9]*))$"
               },
               {
                 "type": "null"

@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "candidate_result_sha256": "c7297b859ec94165f4ea393bb17ff2d496b1e9f7ac97828b708f517219c695d6",
+  "role_result_sha256": "279de2b5985cc268703203dc6ba74a2e3c8d167e6365b64bf4263c49a39ee74f",
+  "visual_artifact_sha256": "ed4de0c456d051555121cb7a46a82d6b1d5d7e0a4c033fa663e3fa0e453a3077",
+  "frozen_input_sha256": {
+    "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+    "runtime/tasks/TASK_77a39e38115fc23984108917.json": "432d183e1c1e062640a9567c08289886e101ab0fdc7f3abd50f200474e6bcdb1"
+  },
+  "resource_sha256": {
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/SKILL.md": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/current-contract.md": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/cooperation-v5.md": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/intent-compiler.md": "ef6e47f0063231d8f72320d1a6e7f573da84011c43153514a1232c1b29656b03",
+    "runtime/modules/36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1/image-prompt-optimizer/references/structural-realism.md": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
+  },
+  "candidate_evidence_sha256": {
+    "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/contract-validation.json": "80937e259f6475cd53aa0626527f3176a736fa40b05959aff7523dd65581ec8c",
+    "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/input-integrity.json": "22dbe7da7f748390302b6e391f86c759485d2bea54765acf1e4d5fd4ede1b78f",
+    "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/module-receipt.json": "4861b873c4984821965f780267b751471b8efcb9fabe6eac70798fd3f00da066",
+    "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/native-preflight.json": "506be4c4def0342edb85e2e304f4ee715567655a9a037c77d494668f8d7507ae",
+    "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/evidence/semantic-audit.json": "81651443cdd8026a1b891ff6667a222bd4fc20a934f016fee9dd14317a45a5fc",
+    "runtime/v6/candidates/TASK_77a39e38115fc23984108917/1/visual-image-prompt.json": "ed4de0c456d051555121cb7a46a82d6b1d5d7e0a4c033fa663e3fa0e453a3077"
+  },
+  "module": {
+    "name": "image-prompt-optimizer",
+    "sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+    "version": "1.15.7"
+  }
+}

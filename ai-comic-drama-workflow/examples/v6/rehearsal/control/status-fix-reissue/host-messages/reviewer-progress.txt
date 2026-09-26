@@ -1,0 +1,1 @@
+PROGRESS Control review: frozen task/candidate loaded; candidate declares all three checks PASS and Control verify VERIFIED. I am independently checking locked source hashes, native AVIR, package manifest, handoff, and 10.5–12 s boundary before deciding.

@@ -1,0 +1,21 @@
+{
+  "command_id": "DIRECTOR_B2_RESULT_COMMAND_1",
+  "expected_revision": 54,
+  "message": {
+    "at": "2026-09-25T11:12:46.835961Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json"
+    ],
+    "in_reply_to": "DIRECTOR_B2_ACK_1",
+    "message_id": "DIRECTOR_B2_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_1ca6ab4732989bfd27b839b0",
+    "subject_sha256": "db572f06e28f0c585f48c27e2a912834a39c0c7ce55f23f9497f6a6f87302476",
+    "subject_uri": "runtime/v6/candidates/TASK_b1e7ff7ce83d7a32bfa09935/2/candidate-result.json",
+    "summary": "Batch-2 Director candidate fixes letter transfer continuity, carries exact frozen handoffs, locked module receipt and native validation evidence; submitted for independent review.",
+    "task_id": "TASK_b1e7ff7ce83d7a32bfa09935",
+    "type": "RESULT"
+  }
+}

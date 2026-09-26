@@ -1,0 +1,21 @@
+{
+  "command_id": "CONTROL_BLOCKER_RESPONSE_COMMAND_1",
+  "expected_revision": 165,
+  "message": {
+    "at": "2026-09-25T13:12:25.937549Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-blocker-response.txt"
+    ],
+    "in_reply_to": "CONTROL_BLOCKER_BLOCKER_1",
+    "message_id": "CONTROL_BLOCKER_RESPONSE_1",
+    "recipient_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "schema": "agent-message/6.0",
+    "sender_id": "kernel",
+    "subject_sha256": "ec449b298f9560532b17edd6da3d6a89c0a73deb226695d9ab7e891608b0bfe7",
+    "subject_uri": "runtime/v6/host-inputs/control-blocker-response.txt",
+    "summary": "Host escalated genuine ShotControlPack native-check gap and asked creator for exact locked verify path while preserving candidate ownership.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "HANDOFF"
+  }
+}

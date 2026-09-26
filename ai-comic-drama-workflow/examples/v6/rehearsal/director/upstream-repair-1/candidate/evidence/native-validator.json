@@ -1,0 +1,39 @@
+{
+  "actual_media": "NOT_RUN",
+  "artifact_sha256": "3c47e2922471e46f1ad637587a4be06d30dbf86de3f4790439bfa0ac7803ad0b",
+  "artifact_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+  "command": [
+    "/Users/godxu/101-副业/00-工作流/ai-video-preproduction/ai-comic-drama-workflow/.venv/bin/python",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/modules/0cac239790b608f91542f2902607f91d444ab246be102a4b062448144d08fa64/director-grammar/scripts/dg.py",
+    "validate",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/director-ir.json",
+    "--screenplay-handoff",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/screenplay-handoff.json",
+    "--screenplay-map",
+    "/private/tmp/ai-video-v6-real-efKlQy/project/runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/screenplay-map.json"
+  ],
+  "independent_review": "PENDING",
+  "locked_report": {
+    "errors": [],
+    "screenplay_binding": {
+      "director_content_sha256": "bf720182862e0d6cd5c803bf0fc466716aa80370c0eedeccd22e3f4e9fd2efb4",
+      "handoff_sha256": "e7506e82b7f5505dd1da82c24ad9bbe777529509746b4d3f2d3cc1082795f6fb",
+      "mapping_sha256": "f1c682149aca0c7376a329fd1eea9620acce0b4e4e3b740716eca1fd6d17f5b4",
+      "status": "REVIEW_ATTESTED"
+    },
+    "status": "STATIC_VALID"
+  },
+  "returncode": 0,
+  "screenplay_handoff_sha256": "e7506e82b7f5505dd1da82c24ad9bbe777529509746b4d3f2d3cc1082795f6fb",
+  "screenplay_handoff_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/screenplay-handoff.json",
+  "screenplay_map_sha256": "f1c682149aca0c7376a329fd1eea9620acce0b4e4e3b740716eca1fd6d17f5b4",
+  "screenplay_map_uri": "runtime/v6/candidates/TASK_19a3cd14f25bf90e50215d4d/1/screenplay-map.json",
+  "status": "PASS",
+  "v5_native_report": {
+    "errors": [],
+    "screenplay_binding": {
+      "status": "NOT_CHECKED"
+    },
+    "status": "STATIC_VALID"
+  }
+}

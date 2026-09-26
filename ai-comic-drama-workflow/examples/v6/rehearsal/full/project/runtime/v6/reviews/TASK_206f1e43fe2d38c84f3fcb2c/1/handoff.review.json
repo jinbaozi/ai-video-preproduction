@@ -1,0 +1,50 @@
+{
+  "check": "handoff",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T14:14:34.625Z",
+  "method": "Compared frozen Canon, formal native Canon, CandidateResult and RoleResult handoff tuples; resolved every source and target pointer and independently read event and action semantics.",
+  "binding": {
+    "channel": "artifact",
+    "requirement_id": "UP_10aaee2a8411c3ed15da2c11",
+    "source_slot": "canon:project:project:Canon",
+    "source_version": 12,
+    "target_pointer": "",
+    "target_slot": "screenplay:project:project:ScriptIR"
+  },
+  "source_uri": "runtime/v6/candidates/TASK_44ed8445ba9b638fcd7e9fe8/2/canon.json",
+  "source_sha256": "0cc4aebffda6a714d5c58695c11f7d70b96359d930125b04edb8fe14abfc4ef9",
+  "target_uri": "runtime/v6/candidates/TASK_206f1e43fe2d38c84f3fcb2c/1/script-ir.json",
+  "target_sha256": "8e51d23ea14ac97ebdbba754d2be77e8694dbc9bb1a3a89d3b9cb1ca5d3d6c93",
+  "dependency_state": "ACCEPTED",
+  "mapping_pointers_exist": true,
+  "source_requirement_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "target_clause_ids": [
+    "REQ_RAIN_NIGHT",
+    "REQ_SAME_UNOPENED_LETTER",
+    "REQ_EVENT_ORDER"
+  ],
+  "source_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "target_event_ids": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "registered_canon_json_matches_frozen": true,
+  "source_semantics": {
+    "rainy_night_retained": true,
+    "same_unopened_letter_retained": true,
+    "seal_confirmation_before_stow": true,
+    "canon_character_ids_reused": true,
+    "invented_dialogue_or_motive": false,
+    "invented_location_or_indoor_outdoor_state": false
+  },
+  "finding": "The three Canon hard requirements reach clauses and scene/event content. Rainy night and the same unopened letter persist through handoff, seal confirmation and backpack stow in that order."
+}

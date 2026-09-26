@@ -1,0 +1,27 @@
+{
+  "check": "native_validator",
+  "status": "PASS",
+  "reviewed_at": "2026-09-25T11:10:15.615221Z",
+  "method": "Validated V6 task/candidate JSON Schemas and reran screenplay-grammar/scripts/sg.py validate --final using a read-only cached jsonschema import; independently verified content fingerprint and every compiled manifest file size/hash.",
+  "v6_task_schema": "PASS",
+  "v6_candidate_schema": "PASS",
+  "native_final_report": {
+    "status": "STATIC_VALID",
+    "errors": [],
+    "semantic_review": "REVIEW_ATTESTED"
+  },
+  "script_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/script-ir.json",
+  "script_sha256": "205d0961e84576e6326d70e900ab4491e7122bc96014fea0bfa22c28fc1dfc54",
+  "content_sha256": "aa12af5f56912c2c9f524e6bfcb3679b2b87d204304be6ddaaace699fe99066b",
+  "compiled_manifest_sha256": "4fbab859a9d472bbb0d1b1a62ce58e1c45f1274bbc5192e01018e25fd9f7f5b1",
+  "compiled_files_verified": 12,
+  "compiled_status": "READY",
+  "director_handoff_ready": true,
+  "compiled_script_ref_sha256": "e238920280a28777d65bf1f437c4759b9ea2754a1c1ed6c9820c0b4c49a3f34b",
+  "compiled_script_ref_hash_matches": true,
+  "representation_note": "The compiled ScriptIR copy changes only hashed source and Canon transport URIs; the native content fingerprint remains the same.",
+  "professional_blind_review": "NOT_RUN",
+  "media": "NOT_RUN",
+  "creator_evidence_uri": "runtime/v6/candidates/TASK_20dbe9991f545d5fe05e55e7/1/evidence/native-validator.json",
+  "finding": "Native final validation is clear and the compiled READY handoff binds the same reviewed content. Static validation and the current agent semantic attestation have been kept distinct from a professional blind review or media acceptance."
+}

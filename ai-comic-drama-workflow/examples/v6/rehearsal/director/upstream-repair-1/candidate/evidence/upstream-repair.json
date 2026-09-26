@@ -1,0 +1,39 @@
+{
+  "all_six_state_samples_checked": true,
+  "changed_fields": [
+    "/timeline/camera_operations/0/start_position",
+    "/timeline/camera_operations/0/end_position",
+    "/timeline/camera_operations/0/axis"
+  ],
+  "conversion_static_to_timeline": "[x,y,z] -> [x,z,y]",
+  "downstream_status": "Storyboard, control and Compile remain subject to new versions and independent review.",
+  "error_code": "CAMERA_COORDINATE_CONFLICT",
+  "failed_evidence_sha256": "397872eb6a32927d9130c8a8d1ca12aa9dfc163960d42eb49bb98d19d33156fe",
+  "failed_evidence_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/compile-manifest.review.json",
+  "review_sha256": "e1f58c8bff362bd6e61c885be553dddc6fc444ae6d87740855cdeadba728d66d",
+  "review_uri": "runtime/v6/reviews/V6_compile_8cb5698095d1a70e0b6b/1/review-record.json",
+  "route_id": "UPR_7aacd89414612ed785a0480b",
+  "static_camera_at_all_times_m": [
+    0,
+    -2.8,
+    1.2
+  ],
+  "static_look_at_m": [
+    0,
+    0,
+    1.0
+  ],
+  "static_schema_axes": "X-right,Y-depth,Z-up",
+  "status": "CORRECTED_IN_CANDIDATE",
+  "timeline_axes": "x-right,y-up,z-depth",
+  "timeline_camera_at_all_times_m": [
+    0,
+    1.2,
+    -2.8
+  ],
+  "timeline_look_at_m": [
+    0,
+    1.0,
+    0
+  ]
+}

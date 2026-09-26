@@ -1,0 +1,82 @@
+{
+  "actual_3d_geometry_collision_review": "NOT_RUN",
+  "actual_camera_trajectory_validation": "NOT_RUN",
+  "adapter": {
+    "derived_camera_track_ids": [
+      "CAMERA_POSITION_S1"
+    ],
+    "loss_count": 0,
+    "semantic_review": "INHERITED_DETERMINISTICALLY",
+    "status": "MAPPED"
+  },
+  "batch": 1,
+  "check_id": "control_verify",
+  "config_bytes_match_package": true,
+  "control_plan": {
+    "controls": [],
+    "video_generated": false,
+    "video_qa": "NOT_RUN"
+  },
+  "frame_projection": {
+    "camera_status_counts": {
+      "PLANNED_PROJECTION": 121
+    },
+    "camera_undetermined_frames": 0,
+    "frame_count": 121,
+    "geometry": "ROOT_POINTS_ONLY",
+    "occlusion": "NOT_EVALUATED",
+    "physical_interpolation": false,
+    "root_point_status_counts": {
+      "BEHIND_CAMERA": 121,
+      "IN_FRAME": 484,
+      "UNDETERMINED": 121
+    },
+    "undetermined_root_point": "N_ENV"
+  },
+  "independent_build": {
+    "all_file_bytes_match": true,
+    "file_count": 11,
+    "file_sha256": {
+      "artifact-manifest.json": "d049667a30b21964ff38b10151b34042772ea1d8d6c3dee40fe72ad4762ebf90",
+      "control-config.json": "c222b24f9e1637ad534233561df6c230fbaa4d47d5647bb3ccd0f036e6c646eb",
+      "control-coverage.json": "8b6ab8eb8aa4c642ce016b1d6f530f23047d84a2ed009ab24fa4af8c510ab0fa",
+      "control-plan.json": "e3fb6f2536cddce972bc77900ebe6b0e736620f640ed997d8276553d83a741be",
+      "evaluation-plan.json": "5650a0a69700a88a597319c18ce7b417310cb4a9216054f1baf170ffabacf946",
+      "keyframe-requests.json": "c9a73a65e7815990e6cf6e9bc82283e6d587c4977bd0f36d4952941b5bc0c826",
+      "package-manifest.json": "ca95efe626a161946577a2b5416ce72b97cd850ca2972097f7a92cc1795bd76f",
+      "production-specification.json": "4650b2c1bf781ffd90ef249f007c90593ed4ebbf95fcc996e16f36ef77c95ccd",
+      "review/blocking-001.svg": "af21149321e95cd390f3a74c1c76ab34e23ee851af8509816009ddccc6c14e8a",
+      "review/frames.json": "4ceb5b5ecc762e235b34439542115d65c63a880b19297976988e133a96abe8ab",
+      "review/index.html": "6a62b5d9ccc5fdd5298a1497cd3982435675ba62a76cdddf8c3c61cf9f2df0b4"
+    },
+    "status": "DERIVED",
+    "verify_status": "VERIFIED"
+  },
+  "keyframe_requests": {
+    "all_draft_require_host_review": true,
+    "count": 14,
+    "generation_mode": "UNRESOLVED"
+  },
+  "lens": {
+    "aspect": 1.7777777777777777,
+    "basis": "authored_proxy",
+    "evidence": "Current accepted StoryboardIR S1 explicitly fixes start_m=end_m=[0,1.2,-2.8], look_at_m=[0,1.0,0], locked operation CAM_LOCKED, and 1280x720 output. This 50-degree vertical FOV is an authored review proxy; no calibrated sensor or focal length is supplied. It does not prove native model control or measured projection.",
+    "vertical_fov_deg": 50
+  },
+  "locked_validate": {
+    "diagnostics": [],
+    "status": "VALID"
+  },
+  "locked_verify": {
+    "media_review": "NOT_RUN",
+    "status": "VERIFIED"
+  },
+  "media_review": "NOT_RUN",
+  "note": "Static authored proxy and fixed camera plan only. N_ENV has no numeric position, so 121 root-point projections remain UNDETERMINED even though all camera frames have planned intrinsics.",
+  "production_specification_matches_fresh_current_storyboard_conversion": true,
+  "result": "PASS",
+  "schema": "v6-control-review-evidence/1.0",
+  "task_id": "TASK_a956f0b50a44008d6467b92e",
+  "v6_pre_review": "PASS",
+  "visual_review": "NOT_RUN"
+}

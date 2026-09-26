@@ -1,0 +1,1 @@
+已接收真实 Control 返修任务 TASK_f2d0f9805f575ed23ebfdb6d（V6 输入修订 630）。我正在核对冻结 StoryboardIR、锁定 video-prompt-compiler 与运行时资源，候选仅写入该任务目录；完成后报告真实检查结果和哈希。

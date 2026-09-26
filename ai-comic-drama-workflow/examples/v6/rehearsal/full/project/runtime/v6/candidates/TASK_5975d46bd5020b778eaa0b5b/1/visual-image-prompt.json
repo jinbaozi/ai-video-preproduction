@@ -1,0 +1,50 @@
+{
+  "project_id": "LETTER_FULL_DEMO",
+  "task_id": "TASK_5975d46bd5020b778eaa0b5b",
+  "asset_id": "PROP_BACKPACK",
+  "scope_key": "ASSET_SCENE_HANDOFF_PROP_BACKPACK",
+  "art_source": {
+    "uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/art-ir.json",
+    "sha256": "d077e4315fc85728e26fcdcd92eff9a3efcc727af4fdd47808974160c31eae71",
+    "pointer": "/assets/3"
+  },
+  "reference_plan": {
+    "id": "PLAN_PROP_BACKPACK",
+    "status": "planned",
+    "file": null,
+    "sha256": null,
+    "role": "prop",
+    "use_in_this_prompt": "unbound; no actual reference attachment"
+  },
+  "prompt": "为资产 PROP_BACKPACK 制作一张单一静态的背包造型参考图：同一只乙收信所用背包，深色无标识软质织物，低反光哑面，包体形状和包口位置清楚，作为后续镜头沿用的外观锚点。背包稳定置于中性平整承托面；包口处于乙右手能够触及的位置，开口结构与可容纳一封普通纸质信的内腔清楚可辨，包口边缘与暗色内腔有足够明度分离。本图只表现尚待收纳信件的同一只背包，不出现人物、手或信，不拼接入包前后两个时刻。后续 EVENT_STOW 镜头须沿用同一背包外观与同一包口位置；乙右手把同一封信送入后，信由包内承托且完全不外露，终帧不留信纸在包口。低饱和蓝灰雨夜氛围退到背景，不表现可识别城市、建筑或具体室内外；以柔和环境光显示织物哑面和可用开口，不增加品牌、贴章、可读文字、明显破损或妨碍包口的其他道具。",
+  "prompt_document": "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/prompt.md",
+  "production_contract": "runtime/v6/candidates/TASK_5975d46bd5020b778eaa0b5b/1/production-contract.json",
+  "production_contract_sha256": "2abff580348088d358935ae10496fe8ea803f560594c024dac1dc590ab602c58",
+  "params": {
+    "target_model": null,
+    "surface": "generic",
+    "aspect_ratio": "3:4",
+    "requested_pixels": null,
+    "reference_files": []
+  },
+  "static_checks": [
+    {
+      "ref": "同一实体 PROP_BACKPACK 外观与包口位置连续",
+      "finding": "正文锁定同一背包的深色无标识软质织物外观和同一包口位置，作为后续镜头锚点。"
+    },
+    {
+      "ref": "包口可被乙右手触及；EVENT_STOW 后 condition 为收纳同一封信，信由包内承托且不外露",
+      "finding": "正文区分本张待收纳状态与后续 EVENT_STOW：包口可触及且容信；后续信由内腔承托、完全不外露。"
+    },
+    {
+      "ref": "/references/3 PLAN_PROP_BACKPACK",
+      "finding": "planned 文字参考，file/sha256 为 null；没有真实图像、绑定槽位、实际像素或视觉审核。"
+    },
+    {
+      "ref": "/assets/3 design",
+      "finding": "深色无标识软质织物背包、可用包口和可容信内腔均写入正文；未设品牌或背法。"
+    }
+  ],
+  "media_status": "NOT_RUN",
+  "visual_review_status": "NOT_RUN"
+}

@@ -1,0 +1,1 @@
+Please complete batch-2 screenplay within your assigned candidate directory. Do not spawn further auxiliary agents. Have the existing scriptir_contract helper finish promptly, and record any advice that changes the candidate in your evidence. Keep formal project state untouched.

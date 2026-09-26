@@ -1,0 +1,276 @@
+{
+  "actions": [
+    {
+      "end_ms": 1800,
+      "id": "ACT_EXTEND",
+      "start_ms": 500
+    },
+    {
+      "end_ms": 2800,
+      "id": "ACT_GRIP",
+      "start_ms": 2000
+    },
+    {
+      "end_ms": 4000,
+      "id": "ACT_RELEASE",
+      "start_ms": 2800
+    },
+    {
+      "end_ms": 7500,
+      "id": "ACT_CONFIRM_SEAL",
+      "start_ms": 4500
+    },
+    {
+      "end_ms": 11000,
+      "id": "ACT_STOW",
+      "start_ms": 8000
+    }
+  ],
+  "boundaries": {
+    "compiled_status": "COMPILED",
+    "media_qa": "NOT_RUN",
+    "post_obligations": [
+      {
+        "id": "AUD_RAIN",
+        "status": "PLANNED"
+      },
+      {
+        "id": "SB_MEDIA_BOUNDARY",
+        "status": "PLANNED"
+      }
+    ],
+    "runnable": false,
+    "segment_status": "DRAFT_REQUIRES_TARGET_CHECK",
+    "submitted": false,
+    "target": "seedance2.0",
+    "transport": "unresolved"
+  },
+  "camera": {
+    "axis_side": "A",
+    "position": [
+      0,
+      1.2,
+      -2.8
+    ],
+    "prompt_start_end": "[0,1.2,-2.8]"
+  },
+  "current_build": {
+    "avir_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+    "avir_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json",
+    "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+    "compile_review_sha256": "dcb61d729e2be35f3053138ca5f4e2a8bed93bd72ae9fabafcaea66aba51b748",
+    "compile_review_uri": "runtime/v6/reviews/V6_compile_297e4d54680b970deaed/1/review-record.json",
+    "files_checked": 20,
+    "manifest_files_match": true,
+    "manifest_sha256": "e46321aa61a97b3a3c380b06a7ece8573fe706efc33df4859a51c78b25984099",
+    "manifest_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/compile-manifest.json"
+  },
+  "equivalent": true,
+  "hard_clauses": [
+    {
+      "evidence_pointers": [
+        "/scenes/0/description",
+        "prompt:雨夜"
+      ],
+      "finding": "源文雨夜进入场景与正文；未指定具体地点、年代或室内外。",
+      "id": "SB_A_RAIN"
+    },
+    {
+      "evidence_pointers": [
+        "/entities/2/id",
+        "prompt:PROP_LETTER"
+      ],
+      "finding": "AVIR 唯一 PROP_LETTER；正文锁定同一封未拆且完整封口的信。",
+      "id": "SB_A_SINGLE_LETTER"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/actions/0-4",
+        "prompt:动作1-5"
+      ],
+      "finding": "交接在 0.5–4 秒，验封在 4.5–7.5 秒，收存从 8 秒开始。",
+      "id": "SB_A_ORDER"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/state_samples/4-5",
+        "prompt:10.5秒"
+      ],
+      "finding": "10.5 秒信入同一背包，12 秒仅保持结果；无后续剧情。",
+      "id": "SB_A_ENDING"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/extensions/0/payload/panels/0/items",
+        "prompt:扩展要求"
+      ],
+      "finding": "P_GRIP、P_SEAL、P_STOWED 均有相应动作和计划画格。",
+      "id": "SB_A_EVENTS"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/extensions/0/payload/panels/0/items/2-5",
+        "prompt:动作3-5"
+      ],
+      "finding": "交接控制权、完整封口、入包证据按 84、144、252 帧展开。",
+      "id": "SB_A_REVEAL"
+    },
+    {
+      "evidence_pointers": [
+        "/entities",
+        "/assets",
+        "/bindings"
+      ],
+      "finding": "甲乙、唯一信、同一背包和雨夜连续性作为制作约束；参考未生成或审图。",
+      "id": "SB_A_ASSET_LOCKS"
+    },
+    {
+      "evidence_pointers": [
+        "/scenes/0/description",
+        "prompt:场景"
+      ],
+      "finding": "正文保留雨夜且未增补具体地点或室内外事实。",
+      "id": "SB_D_RAIN"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/state_samples",
+        "prompt:同一封信"
+      ],
+      "finding": "同一信从甲右手转乙右手，最终进入同一背包；封口未拆。",
+      "id": "SB_D_SINGLE_LETTER"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/actions/2-4",
+        "prompt:动作3-5"
+      ],
+      "finding": "ACT_RELEASE 在 ACT_CONFIRM_SEAL 前，后者在 ACT_STOW 前。",
+      "id": "SB_D_ACTION_ORDER"
+    },
+    {
+      "evidence_pointers": [
+        "/shots/0/end_state/4",
+        "prompt:10.5–12秒"
+      ],
+      "finding": "终态为信在背包内，镜头只保持结果。",
+      "id": "SB_D_ENDING"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/actions",
+        "/audio"
+      ],
+      "finding": "三项原故事事件各有动作和反馈；未增加对白或后续事件。",
+      "id": "SB_D_EVENTS"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/extensions/0/payload/panels/0/items",
+        "prompt:动作3-5"
+      ],
+      "finding": "P_RELEASE 84 帧、P_SEAL 144 帧、P_STOWED 252 帧与正文顺序相同。",
+      "id": "SB_D_REVEAL_ORDER"
+    },
+    {
+      "evidence_pointers": [
+        "/shots/0/camera",
+        "prompt:摄影机操作"
+      ],
+      "finding": "固定机位 [0,1.2,-2.8] 与正文起止机位一致，位于负 Z 同侧。",
+      "id": "SB_FIXED_AXIS"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/state_samples/1-2",
+        "prompt:2.5秒、3.5秒"
+      ],
+      "finding": "2.5 秒双右手共同接触而甲仍控制；3.5 秒乙独占，早于验封。",
+      "id": "SB_CONTACT_CONTROL"
+    },
+    {
+      "evidence_pointers": [
+        "/timeline/state_samples/3",
+        "prompt:4–8秒构图"
+      ],
+      "finding": "验封时封口、乙眼部和右手规划为可读；真实媒体尚未验证。",
+      "id": "SB_SEAL_VISIBILITY"
+    },
+    {
+      "evidence_pointers": [
+        "/assets",
+        "/bindings",
+        "compiled:post-production.json"
+      ],
+      "finding": "无真实参考或媒体执行；雨声和媒体义务仍为后期 PLANNED。",
+      "id": "SB_MEDIA_BOUNDARY"
+    }
+  ],
+  "key_panels": [
+    {
+      "frame": 0,
+      "id": "P_OPEN"
+    },
+    {
+      "frame": 60,
+      "id": "P_GRIP"
+    },
+    {
+      "frame": 84,
+      "id": "P_RELEASE"
+    },
+    {
+      "frame": 144,
+      "id": "P_SEAL"
+    },
+    {
+      "frame": 204,
+      "id": "P_BAG_OPEN"
+    },
+    {
+      "frame": 252,
+      "id": "P_STOWED"
+    },
+    {
+      "frame": 287,
+      "id": "P_END"
+    }
+  ],
+  "native_validation": {
+    "avir_validator": {
+      "diagnostics": [],
+      "status": "VALID"
+    },
+    "compiled_package_verifier": {
+      "build_id": "1f2df827a47bf738eadadf0799b46fe347c1b64947fb2f5eb81847aec9423ef0",
+      "status": "VERIFIED"
+    },
+    "validator_stdout_uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/avir-validator.stdout.json",
+    "verify_stdout_uri": "runtime/v6/candidates/TASK_6cac2b25585760d16bce096d/1/evidence/build-verify.stdout.json"
+  },
+  "prior_defect": {
+    "current_avir_end_visible_parts": [],
+    "current_timeline_end_visible_parts": [],
+    "finding_code": "AVIR_END_VISIBILITY_CONFLICT",
+    "old_build_id": "79df8e1f4e309b464f717eb2c2f4f341f595f403e9061559cd3743511c2a1c6e",
+    "old_end_visible_parts": [
+      "body",
+      "prop"
+    ],
+    "old_review_sha256": "fc88b45c8ba636b8bf56e388de95146bdda9f6ac760c4c3b284ed47a577ede60",
+    "old_review_uri": "runtime/v6/candidates/TASK_ede3a3425d547d3569e53ec4/1/compile-review.json",
+    "source_storyboard_end_visible_parts": [],
+    "status": "CLOSED_IN_CURRENT_BUILD"
+  },
+  "review_scope": "static preproduction compile semantics",
+  "reviewer_agent_id": "/root/host_bridge/v6_af960c7614b2f0ebf91c02d9",
+  "source": {
+    "sha256": "69a71adcfaca63b093b3e799edb74b3be60505c26e02b32b1603f5de06bb1054",
+    "text": "雨夜，甲把一封未拆的信交给乙；乙确认封口完整后收进背包。",
+    "uri": "sources/SRC_69a71adcfaca/source.txt"
+  },
+  "storyboard": {
+    "sha256": "48c69893445d429805d63314a28c6eef2c45efbb0271a3ee0f5cac19d065b58f",
+    "uri": "artifacts/storyboard/09f614f404fed2c67bf4890b0f6e01fd45311c6ea64e1647893dfd038b91be8d/native/a2a95587db81b0ac_storyboard-ir.json"
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "art_canon_uri_matches_director_canon_ref": true,
+  "candidate_digest": "1c9f4288d79f4aeb016ef90801f113920c1fee2e360bc1589252067038c9af9e",
+  "candidate_evidence": [
+    {
+      "sha256": "f82794fb6069f182b7c5bcad135b42bd254af19be069c90d49d5b4b95c19bd95",
+      "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/module-receipt.json"
+    },
+    {
+      "sha256": "7e6ad2fa388214542a8e0e6b7a6a4d2f0617a36e7f317c7de56e5242535771f6",
+      "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/native-validator.json"
+    },
+    {
+      "sha256": "f5f3ee7ffdce6b2b6e4d1503a62ecdb37cc89bb6e988832ad3d9f29cd60885bd",
+      "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/source-integrity.json"
+    },
+    {
+      "sha256": "2793d62d98440be5e86d868f186c03c18100d5944f3e30c67e229b7014b152d0",
+      "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v5-handoff.json"
+    },
+    {
+      "sha256": "b2b499a8de4a17f0be4aa92612288f07b1da9d4d4c574afa9935d89c7cf33139",
+      "uri": "runtime/v6/candidates/TASK_71abb1f14640b94809ef3db2/1/evidence/v6-handoffs.json"
+    }
+  ],
+  "canon_json_object_equal": true,
+  "frozen_inputs": [
+    {
+      "observed_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c",
+      "slot": "canon:project:project:Canon",
+      "uri": "runtime/v6/candidates/TASK_0e0c8a4ca94c8ffdbb7e14ae/1/canon.json",
+      "version": 12
+    },
+    {
+      "observed_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+      "slot": "director:project:project:DirectorIR",
+      "uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+      "version": 18
+    },
+    {
+      "observed_sha256": "2abd6f8362bf85ff98b2c8de1630a4ee0efbe5c967a35655657d91d0b48576cd",
+      "sha256": "2abd6f8362bf85ff98b2c8de1630a4ee0efbe5c967a35655657d91d0b48576cd",
+      "slot": "frozen_task",
+      "uri": "runtime/tasks/TASK_71abb1f14640b94809ef3db2.json",
+      "version": 0
+    }
+  ],
+  "input_digest": "f489a1813e066f45852f9bd568f187b96710ab5aee7444156c025b044a1bae67",
+  "locked_resources": [
+    {
+      "observed_sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "sha256": "517a9a0f26544f9e7397d11302c62b0c584ab5861ab89868dc059f53b9a34e82",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/SKILL.md"
+    },
+    {
+      "observed_sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/current-contract.md"
+    },
+    {
+      "observed_sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "sha256": "e7874bb9bbf0c4f40c4dc192f5b2c0d3ee4b5ac4e4ac1c272bb1a1722080e5eb",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/cooperation-v5.md"
+    },
+    {
+      "observed_sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "sha256": "93df9ab5755f35c45a27830e32dceeaee0dbddf4e708d913fb8b16bc2e3bc901",
+      "uri": "runtime/modules/34f6b460f4db70acbed406b82edf53b55240fb3f476afd81daeb5c9ac72a8019/production-design-grammar/references/world-and-assets.md"
+    }
+  ],
+  "module_receipt_sha256": "f82794fb6069f182b7c5bcad135b42bd254af19be069c90d49d5b4b95c19bd95",
+  "source_integrity_sha256": "f5f3ee7ffdce6b2b6e4d1503a62ecdb37cc89bb6e988832ad3d9f29cd60885bd",
+  "status": "PASS",
+  "task_id": "TASK_71abb1f14640b94809ef3db2",
+  "v5_promoted_canon_sha256": "cb3b7b27da343690dced74b095e1f778a629487253050c8875dd68e821dcdade",
+  "v6_frozen_canon_sha256": "befdfe311a8fed6f8a82e5c94132d3c43f2b692f792c22c27ddb144817347e2c"
+}

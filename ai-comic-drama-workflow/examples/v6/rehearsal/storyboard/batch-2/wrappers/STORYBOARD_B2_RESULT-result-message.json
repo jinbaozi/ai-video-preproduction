@@ -1,0 +1,21 @@
+{
+  "command_id": "STORYBOARD_B2_RESULT_RESULT_COMMAND_1",
+  "expected_revision": 148,
+  "message": {
+    "at": "2026-09-25T13:01:40.000008Z",
+    "batch": 2,
+    "evidence": [
+      "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/candidate-result.json"
+    ],
+    "in_reply_to": "STORYBOARD_B2_HANDOFF_HANDOFF_1",
+    "message_id": "STORYBOARD_B2_RESULT_RESULT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_d8324e377f8d67ed52a88c10",
+    "subject_sha256": "54face9787065a0b697d733b51dbe175eb39ca98ece780a86066192238028509",
+    "subject_uri": "runtime/v6/candidates/TASK_3240f8bc6a9896032b95d091/2/candidate-result.json",
+    "summary": "Creator submitted batch-2 StoryboardIR candidate with fresh native validator status VALID; media NOT_RUN.",
+    "task_id": "TASK_3240f8bc6a9896032b95d091",
+    "type": "RESULT"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "action_delta_replay": "PASS",
+  "artifact_sha256": "4f30c787cf87f6b0f8732b76f49f619847edca4886f304f55681d3769cd15a1e",
+  "artifact_uri": "runtime/v6/candidates/TASK_ae94f4322a77ebd18dbb635d/1/director-ir.json",
+  "independent_review": "PENDING",
+  "one_unopened_letter_in_backpack_at_end": true,
+  "samples": [
+    {
+      "at_ms": 0,
+      "jia_pose": "站立；右手持同一封未拆信",
+      "letter_contacts": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "letter_supports": [
+        "CHAR_JIA.right_hand"
+      ],
+      "reciprocal_contact": "PASS",
+      "yi_pose": "站立；右手准备接信；背包可及"
+    },
+    {
+      "at_ms": 2500,
+      "jia_pose": "站立；右手仍持同一封未拆信，乙右手已握住另一侧纸边",
+      "letter_contacts": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_JIA.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "letter_supports": [
+        "CHAR_JIA.right_hand",
+        "CHAR_YI.right_hand"
+      ],
+      "reciprocal_contact": "PASS",
+      "yi_pose": "站立；右手已握住同一封信的另一侧纸边，等待甲松手"
+    },
+    {
+      "at_ms": 4000,
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝上",
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "reciprocal_contact": "PASS",
+      "yi_pose": "站立；右手独自持有同一封未拆信"
+    },
+    {
+      "at_ms": 7500,
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_controllers": [
+        "CHAR_YI.right_hand"
+      ],
+      "letter_pose": "未拆；封口朝乙且完整可见",
+      "letter_supports": [
+        "CHAR_YI.right_hand"
+      ],
+      "reciprocal_contact": "PASS",
+      "yi_pose": "站立；右手持同一封未拆信，正查看完整封口"
+    },
+    {
+      "at_ms": 10500,
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "reciprocal_contact": "PASS",
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    },
+    {
+      "at_ms": 12000,
+      "jia_pose": "站立；右手已松开并收回，不再持信",
+      "letter_contacts": [
+        "PROP_BACKPACK.interior"
+      ],
+      "letter_controllers": [],
+      "letter_pose": "同一封未拆信在背包内",
+      "letter_supports": [
+        "PROP_BACKPACK.interior"
+      ],
+      "reciprocal_contact": "PASS",
+      "yi_pose": "站立；右手已松开信，左手在背包开口处；同一封信在包内"
+    }
+  ],
+  "script_reveal_order": [
+    "EVT_HANDOFF",
+    "EVT_SEAL_CHECK",
+    "EVT_STOW"
+  ],
+  "shot_end_matches_12000_ms": true,
+  "shot_start_matches_0_ms": true,
+  "status": "PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "command_id": "CONTROL_PROJECTION_LIMIT_COMMAND_1",
+  "expected_revision": 175,
+  "message": {
+    "at": "2026-09-25T13:27:07.673516Z",
+    "batch": 1,
+    "evidence": [
+      "runtime/v6/host-inputs/control-projection-limit.txt",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/package-manifest.json",
+      "runtime/v6/candidates/TASK_60ca76854c7350d8a40f1c72/1/control-pack/control-coverage.json"
+    ],
+    "in_reply_to": "CONTROL_ADAPTER_FIX_RESUME_1",
+    "message_id": "CONTROL_PROJECTION_LIMIT_1",
+    "recipient_id": "kernel",
+    "schema": "agent-message/6.0",
+    "sender_id": "/root/host_bridge/v6_4deca677dad482965c38a58d",
+    "subject_sha256": "f114ebdfed1f191705c9e088e5d081f2a64c894d5b3152117173de6cfd4e2a47",
+    "subject_uri": "runtime/v6/host-inputs/control-projection-limit.txt",
+    "summary": "Creator reports genuine mapped/verified control pack with 121/121 unresolved perspective projections; overhead roots exist, camera-frame readiness remains undetermined.",
+    "task_id": "TASK_60ca76854c7350d8a40f1c72",
+    "type": "PROGRESS"
+  }
+}

@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 NAME = ROOT.name
 ALLOWED = {'SKILL.md','README.md','requirements.txt','pyproject.toml','agents','scripts','src',
            'schemas','registries','styles','references','templates','presets','examples','tests',
-           'assets','workflow-v5.json','modules.lock.json','suite.json'}
+           'assets','workflow-v5.json','workflow-v6.json','modules.lock.json','suite.json'}
 EXCLUDED = {'.git','.venv','__pycache__','outputs','output','dist','dists','.local-tests','.DS_Store'}
 
 

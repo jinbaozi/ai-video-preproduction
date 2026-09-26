@@ -1,0 +1,19 @@
+{
+  "status": "AWAITING_USER_DECISION",
+  "decision": {
+    "id": "DEC_343911a8e6859b43ddb11899",
+    "key": "image-capability",
+    "question": "宿主未证明生图能力可用；可提供真实图片、配置能力后继续，或明确选择纯文本。",
+    "context": {
+      "job": "ASSET_SCENE_HANDOFF_CHAR_JIA",
+      "capability": {
+        "evidence": null,
+        "image_capability": "unknown"
+      }
+    },
+    "options": [
+      "provide-media",
+      "text-only"
+    ]
+  }
+}

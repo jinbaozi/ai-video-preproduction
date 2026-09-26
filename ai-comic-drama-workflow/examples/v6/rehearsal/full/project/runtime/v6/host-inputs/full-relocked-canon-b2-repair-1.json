@@ -1,0 +1,21 @@
+{
+  "command_id": "FULL_RELOCKED_CANON_B2_REPAIR_1",
+  "expected_revision": 153,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_CANON_B2_REPAIR_1",
+    "task_id": "TASK_44ed8445ba9b638fcd7e9fe8",
+    "batch": 2,
+    "sender_id": "kernel",
+    "recipient_id": "/root/host_bridge/full_rehearsal/v6_24326123ce7bb1eabb4fd0b7",
+    "in_reply_to": null,
+    "type": "HANDOFF",
+    "summary": "Repair REUSE_PROVENANCE from Canon batch 1",
+    "evidence": [
+      "runtime/v6/host-messages/full-relocked-canon-b2-repair.txt"
+    ],
+    "at": "2026-09-25T13:53:02.085904Z",
+    "subject_uri": "runtime/v6/host-messages/full-relocked-canon-b2-repair.txt",
+    "subject_sha256": "ca7a2fb0c0ee28ff63161ef3cab59343f2fe800f2a567da3ff0d71e570267cf5"
+  }
+}

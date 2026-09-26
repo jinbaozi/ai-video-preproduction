@@ -1,0 +1,22 @@
+{
+  "command_id": "FULL_RELOCKED_ART_B1_RESULT_1",
+  "expected_revision": 210,
+  "message": {
+    "schema": "agent-message/6.0",
+    "message_id": "FULL_RELOCKED_ART_B1_RESULT_1",
+    "task_id": "TASK_4de99276d376cc50c61527d6",
+    "batch": 1,
+    "sender_id": "/root/host_bridge/full_rehearsal/v6_ef7e68da05761cf96b9008e1",
+    "recipient_id": "kernel",
+    "in_reply_to": "FULL_RELOCKED_ART_B1_SPAWN_CORRECTION_1",
+    "type": "RESULT",
+    "summary": "Art 1.3.3 candidate with timeline action state bindings and static QA",
+    "evidence": [
+      "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/candidate-result.json",
+      "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/evidence/creator-result-message.txt"
+    ],
+    "at": "2026-09-25T14:51:24.986404Z",
+    "subject_uri": "runtime/v6/candidates/TASK_4de99276d376cc50c61527d6/1/candidate-result.json",
+    "subject_sha256": "0d21aa235335777f44a3d14f49ace85e101e384f6a39c40aed879ea05c333d89"
+  }
+}

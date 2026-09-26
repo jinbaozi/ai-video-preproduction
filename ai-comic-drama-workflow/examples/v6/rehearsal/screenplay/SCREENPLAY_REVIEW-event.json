@@ -1,0 +1,23 @@
+{
+  "command_id": "SCREENPLAY_REVIEW_DISPATCH_1",
+  "expected_revision": 28,
+  "receipt": {
+    "action_id": "review-32fe23325011a1e01de014c5",
+    "agent_id": "/root/host_bridge/v6_e0f12f0efac55ace2c0387d7",
+    "batch": 1,
+    "dispatch_id": "review-32fe23325011a1e01de014c5",
+    "error": null,
+    "host": "codex",
+    "host_call_id": null,
+    "host_tool": "collaboration.spawn_agent",
+    "observed_at": "2026-09-25T10:37:20.194114Z",
+    "result_uri": null,
+    "schema": "dispatch-receipt/6.0",
+    "sent_at": "2026-09-25T10:37:20.194114Z",
+    "status": "RUNNING",
+    "task_digest": "57896c897db7fca0bfd6b99929b4a4f56fddf4d09a65c3c334dbb08cda1400cd",
+    "task_id": "TASK_1b94794070565f70c7f697a7",
+    "tool_result_sha256": "5581f82ee520618ccd71f044f2d1b00a60f33bfb7b6d8f5cd36340107f54ed47",
+    "tool_result_uri": "runtime/v6/host-evidence/5581f82ee520618ccd71f044f2d1b00a60f33bfb7b6d8f5cd36340107f54ed47.json"
+  }
+}

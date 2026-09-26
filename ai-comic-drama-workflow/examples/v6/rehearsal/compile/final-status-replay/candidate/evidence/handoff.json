@@ -1,0 +1,32 @@
+{
+  "handoffs": [
+    {
+      "channel": "artifact",
+      "evidence": "Storyboard hard clauses and 10500/12000ms letter timeline agree with the candidate AVIR.",
+      "requirement_id": "UP_87d3c1dee16c7cb8201ea8b6",
+      "source_sha256": "a2a95587db81b0acb3757e415f3419ce71204cc0e19ed03d4a9ecc00a3868d5c",
+      "source_slot": "storyboard:project:project:StoryboardIR",
+      "source_uri": "runtime/v6/candidates/TASK_4f81cc62bc1b268a8f8be7b0/1/storyboard-ir.json",
+      "source_version": 12,
+      "target_pointer": "",
+      "target_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "target_slot": "compile:project:project:AVIR",
+      "target_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json"
+    },
+    {
+      "channel": "artifact",
+      "evidence": "All Control package file hashes match; its production-specification.json equals candidate AVIR byte for byte.",
+      "requirement_id": "UP_e5288336c739feea7cd2b47d",
+      "source_sha256": "26f1b001fc5bef1454b97040e4ff4625c104a236881fc7ddd2642f6140eebd16",
+      "source_slot": "control:project:project:ShotControlPack",
+      "source_uri": "runtime/v6/candidates/TASK_4064ef49778d32687a4dde42/1/control-pack/package-manifest.json",
+      "source_version": 15,
+      "target_pointer": "",
+      "target_sha256": "923b964738c685fa2f356ba43000f2b43059751b95eb0260d27d1badef38cd1c",
+      "target_slot": "compile:project:project:AVIR",
+      "target_uri": "runtime/v6/candidates/V6_compile_297e4d54680b970deaed/1/avir.json"
+    }
+  ],
+  "media_qa": "NOT_RUN",
+  "source_to_target_verified": true
+}
