@@ -72,7 +72,7 @@ def frame(ir, shot, at, lens):
             'physical_interpolation': False, 'occlusion': 'NOT_EVALUATED'}
 
 
-def event_times(ir, shot):
+def event_times(ir, shot, config=None):
     times = {shot['start_ms'], shot['end_ms']}
     for collection in ('actions', 'performances', 'camera_operations', 'composition_tracks'):
         for item in ir['timeline'][collection]:
@@ -88,6 +88,10 @@ def event_times(ir, shot):
             times.update(t for t in (track['start_ms'], track['end_ms'])
                          if shot['start_ms'] <= t <= shot['end_ms'])
             times.update(k['at_ms'] for k in track['keyframes'] if shot['start_ms'] <= k['at_ms'] <= shot['end_ms'])
+    if config and config.get('adaptive'):
+        from adaptive_control import assess
+        row = next(r for r in assess(ir, config['adaptive'].get('minimum_levels'))['shots'] if r['shot_id']==shot['id'])
+        times.update(row['critical_times_ms'])
     return sorted(times)
 
 
@@ -161,6 +165,9 @@ def _build_into(source, out, config=None):
     shutil.copyfile(source, out/'production-specification.json')
     plan = {'schema': 'shot-control/0.2', 'source': {'kind': 'avir/1.2', 'path': 'production-specification.json', 'sha256': sha(source)},
             'shot_ids': list(s['id'] for s in ir['shots']), 'controls': [], 'video_generated': False, 'video_qa': 'NOT_RUN'}
+    if 'adaptive' in config:
+        from adaptive_control import assess
+        plan['adaptive'] = assess(ir, config['adaptive'].get('minimum_levels'))
     for control in config['controls']:
         plan['controls'].append({**control, 'status': 'PLANNED'})
     frames, requests = derive(ir, config, plan)
@@ -189,7 +196,7 @@ def derive(ir, config, plan):
     frames, requests = [], []
     for index, shot in enumerate(ir['shots']):
         lens = config['lenses'].get(shot['id'], {})
-        events = event_times(ir, shot)
+        events = event_times(ir, shot, config)
         # Uniform review samples supplement event boundaries; no interpolated poses are invented.
         count = math.ceil((shot['end_ms']-shot['start_ms'])/100)
         times = sorted(set(events)|{shot['start_ms']+i*100 for i in range(count)})

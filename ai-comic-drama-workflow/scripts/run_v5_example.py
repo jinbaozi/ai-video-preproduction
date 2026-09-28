@@ -14,12 +14,12 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from screenplay_fixture import screenplay, director_mapping
 
 
-def run_example(out, version='v5', workflow_profile=None):
+def run_example(out, version='v5', workflow_profile=None, control_policy=None):
     out=Path(out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Example output must be empty')
     out.mkdir(parents=True,exist_ok=True)
     author=out/'authored-fixture';shutil.copytree(ROOT/'examples'/version/'cafe',author)
-    k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5',workflow_profile=workflow_profile)
+    k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5',workflow_profile=workflow_profile,control_policy=control_policy)
     for _ in range(16):
         step=k.run()
         if step['status']=='DELIVERED':return step
@@ -33,7 +33,9 @@ def run_example(out, version='v5', workflow_profile=None):
             if kind=='canon':value.update(entities=[{'id':e['id']} for e in read(author/'director.json')['entities']],locks=[])
         elif kind=='control':
             config=author/'control-config.json'
-            config.write_bytes(encoded({'schema':'shot-control-config/0.2','lenses':{},'controls':[]}))
+            config_value={'schema':'shot-control-config/0.2','lenses':{},'controls':[]}
+            if control_policy:config_value['adaptive']={'policy':control_policy}
+            config.write_bytes(encoded(config_value))
             result={'schema':'role-result/5.1','task_id':task['task_id'],'context_fingerprint':task['context_fingerprint'],
                 'checks':['Synthetic shot-control config for the fixture motion.'],'conflicts':[],'unresolved':[],
                 'config':str(config),'validator':{'status':'VERIFIED','tool':'control_cli.py verify'}}

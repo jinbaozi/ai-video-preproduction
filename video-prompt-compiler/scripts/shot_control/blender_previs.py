@@ -7,6 +7,10 @@ import bpy
 from mathutils import Vector, Matrix
 from bpy_extras.object_utils import world_to_camera_view
 
+# Blender runs this file as a script, not as an installed Python package.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from blender_keyframes import constant_keys
+
 
 def convert(v):
     # AVIR screen-right/up/depth -> Blender X/Y/Z. The swap is intentional:
@@ -81,11 +85,7 @@ def run(plan_path, out):
     # Bake only declared/evaluated samples. Never add Bezier motion or interpolate pose.
     for owner in [camera, camera_data, *objects.values()]:
         if owner.animation_data and owner.animation_data.action:
-            for layer in owner.animation_data.action.layers:
-                for strip in layer.strips:
-                    for bag in strip.channelbags:
-                        for curve in bag.fcurves:
-                            for point in curve.keyframe_points: point.interpolation = 'CONSTANT'
+            constant_keys(owner.animation_data.action)
     scene['avir_plan_sha_provenance'] = str(plan_path.name)
     bpy.ops.wm.save_as_mainfile(filepath=str(out/'scene.blend'))
     bpy.ops.wm.open_mainfile(filepath=str(out/'scene.blend'), load_ui=False, use_scripts=False)

@@ -1700,6 +1700,9 @@ class V6Runtime:
                 fresh = self.kernel._verify_control_package(packs[0]['uri'])
                 if (result.get('validator') or {}).get('status') != fresh['status']:
                     raise ValueError('Control RoleResult validator differs from fresh locked verification')
+                self.v5.adaptive_config_check(read(config))
+                if self.v5.project.get('control_policy') and self.v5.project['delivery']=='full':
+                    self.v5.adaptive_material_check(manifest.parent,result)
                 frames = read(manifest.parent/'review/frames.json')
                 if not frames or any(frame['camera']['status'] == 'UNDETERMINED'
                                      for frame in frames):

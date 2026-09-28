@@ -8,7 +8,7 @@ import subprocess
 from .common import read, write, sha, digest, schema_check, confined
 from .camera_projection import vector, unit, cross, project
 from .control_plan import frame, event_times, shot_view
-from .package import verify_package, recipe
+from .package import verify_package, recipe, same_json_value
 
 
 def validate_geometry(ir, geometry):
@@ -51,7 +51,7 @@ def derive(bundle, shot_id, keyframe_id=None):
         frame_count = (end-start)*fps/1000
         if frame_count.denominator != 1: raise ValueError('Shot duration must contain a whole number of frames; no retiming')
         movie_times = [start + Fraction(i*1000, fps) for i in range(frame_count.numerator)]
-        event_ms = event_times(ir, shot)
+        event_ms = event_times(ir, shot, config)
     else:
         request = next((r for r in bundle['requests'] if r['id']==keyframe_id and r['shot_id']==shot_id), None)
         if request is None: raise ValueError('Unknown keyframe in this shot')
@@ -110,19 +110,33 @@ def derive(bundle, shot_id, keyframe_id=None):
     return plan
 
 
+def _readback_vector(value, size):
+    if (not isinstance(value, list) or len(value) != size
+            or any(type(v) not in (int, float) or not math.isfinite(v) for v in value)):
+        raise ValueError('Invalid numeric Blender readback vector')
+    return value
+
+
 def validate_readback(plan, data):
     """Compare Blender's camera projections and evaluated mesh transforms to the plan."""
     if len(data.get('samples', [])) != len(plan['samples']): raise ValueError('Incomplete Blender readback')
     error = 0.0
     for planned, actual in zip(plan['samples'], data['samples']):
+        _readback_vector([actual['at_ms']], 1)
+        _readback_vector(actual['resolution'], 2)
         if actual['at_ms'] != planned['at_ms']: raise ValueError('Blender time mapping mismatch')
         if actual['resolution'] != plan['geometry']['resolution']: raise ValueError('Blender resolution mismatch')
         if set(actual['objects']) != {o['id'] for o in planned['objects']}: raise ValueError('Blender geometry mismatch')
         for obj in planned['objects']:
             got = actual['objects'][obj['id']]
             # Every geometric vertex is a real evaluated mesh vertex, not a plan copy.
-            if not got['vertices'] or any(not all(math.isfinite(v) for v in p) for p in got['vertices']):
+            if not isinstance(got['vertices'], list) or not got['vertices']:
                 raise ValueError('Invalid mesh readback')
+            for vertex in got['vertices']: _readback_vector(vertex, 3)
+            _readback_vector(got['center'], 3)
+            if not isinstance(got['basis_vectors'], list) or len(got['basis_vectors']) != 3:
+                raise ValueError('Incomplete Blender basis readback')
+            for axis in got['basis_vectors']: _readback_vector(axis, 3)
             center = [(x+y)/2 for x,y in zip(obj['position'],obj['end_position'])] if obj['shape'] == 'bone' else obj['position']
             if math.dist(got['center'], center) > 1e-5: raise ValueError('Blender object position mismatch')
             axes = got['basis_vectors']
@@ -139,6 +153,7 @@ def validate_readback(plan, data):
         expected = {p['id']: p for p in planned['source_points'] if p['projection']['xy'] is not None}
         if set(actual['projections']) != set(expected): raise ValueError('Blender projection sample set mismatch')
         for ident, point in expected.items():
+            _readback_vector(actual['projections'][ident], 2)
             difference = math.dist(actual['projections'][ident], point['projection']['xy'])
             error = max(error, difference)
             if difference > 1e-5: raise ValueError(f'Blender camera projection mismatch: {ident} {difference}')
@@ -215,7 +230,7 @@ def verify_render(out):
     for name, expected in manifest['files'].items():
         if sha(confined(out,name)) != expected: raise ValueError('Rendered file changed: '+name)
     package = Path(receipt['source_package']); bundle = verify_package(package)
-    if sha(package/'package-manifest.json') != receipt['source_package_sha256'] or plan != derive(bundle,plan['shot_id']) or digest(plan) != receipt['plan_sha256']:
+    if sha(package/'package-manifest.json') != receipt['source_package_sha256'] or not same_json_value(plan, derive(bundle,plan['shot_id'])) or digest(plan) != receipt['plan_sha256']:
         raise ValueError('Stale render source or plan')
     checks = validate_readback(plan,read(out/'blender-readback.json'))
     info = probe(out/'clay.mp4')

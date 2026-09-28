@@ -28,7 +28,7 @@ def partitions(ir, config, cap, scope):
     times, forced = {start, end}, set()
     keyframe_shots = {sid for c in config['controls'] if c['channel'] in ('first_frame', 'last_frame') for sid in c['shot_ids']}
     for shot in ir['shots']:
-        times.update(t for t in event_times(ir, shot) if start <= t <= end)
+        times.update(t for t in event_times(ir, shot, config) if start <= t <= end)
         if shot['id'] in keyframe_shots:
             forced.update(t for t in (shot['start_ms'], shot['end_ms']) if start < t < end)
     best = {start: []}

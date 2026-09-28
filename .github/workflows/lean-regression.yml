@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        suite: [workflow, compiler, release]
+        suite: [workflow, compiler, release, control-render]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -27,6 +27,9 @@ jobs:
           python -m pip install -e ./ai-comic-drama-workflow
           sudo apt-get update -qq
           sudo apt-get install -y ffmpeg
+      - name: Install real local geometry renderer
+        if: matrix.suite == 'control-render'
+        run: sudo apt-get install -y blender xvfb xauth
       - name: Verify shared sources and deterministic packages
         run: |
           python ai-comic-drama-workflow/scripts/sync_shared.py --check
@@ -42,6 +45,8 @@ jobs:
             workflow) python ai-comic-drama-workflow/scripts/run_tests.py 2>&1 | tee /tmp/lean-validation/workflow.log ;;
             compiler) python -m unittest discover -s video-prompt-compiler/tests -p 'test_*.py' -v 2>&1 | tee /tmp/lean-validation/compiler.log ;;
             release) python ai-comic-drama-workflow/scripts/verify_suite.py --packages dists --out /tmp/lean-validation/suite ;;
+            control-render) xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_adaptive_*.py' -v 2>&1 | tee /tmp/lean-validation/control-render.log
+              xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_previs.py' -v 2>&1 | tee /tmp/lean-validation/previs-render.log ;;
             *) exit 2 ;;
           esac
       - uses: actions/upload-artifact@v4
