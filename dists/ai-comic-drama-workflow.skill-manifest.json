@@ -1,7 +1,7 @@
 {
   "archive": "ai-comic-drama-workflow.skill",
-  "archive_sha256": "6b53b73266d72384f321f9cf22fdbbd72f8f41140882cfb3bd36c730cbc4508f",
-  "file_count": 2307,
+  "archive_sha256": "bcefb5a7fbf0c335f056fad698aade52833329ba887d833098950114a5068091",
+  "file_count": 2302,
   "files": {
     "ai-comic-drama-workflow/README.md": {
       "bytes": 5029,
@@ -8964,8 +8964,8 @@
       "sha256": "dba29ca2d2c790864e7e3aa789b67e15d39e1a6c4d5ebfa9a384d6524648a8c5"
     },
     "ai-comic-drama-workflow/scripts/skill_archive.py": {
-      "bytes": 4678,
-      "sha256": "bff0c63ded3dd992ba0c0683d7049c9f5ebcfd4cf27606df359c2f222e0e0384"
+      "bytes": 4785,
+      "sha256": "1f2173b9bd2876070b55ec675c036fabb130c8661bf4c67a4398355b411eaabd"
     },
     "ai-comic-drama-workflow/scripts/sync_screenplay.py": {
       "bytes": 1150,
@@ -8990,30 +8990,6 @@
     "ai-comic-drama-workflow/scripts/verify_suite.py": {
       "bytes": 7483,
       "sha256": "90a140efd8a38993e60cea672abefdc860403b84888da9d1627b4b127c782942"
-    },
-    "ai-comic-drama-workflow/src/ai_comic_drama_workflow.egg-info/PKG-INFO": {
-      "bytes": 193,
-      "sha256": "fe15e9f1565f9703feae978f2b17e53fa86a9b806fd091b968eae3f438561e45"
-    },
-    "ai-comic-drama-workflow/src/ai_comic_drama_workflow.egg-info/SOURCES.txt": {
-      "bytes": 4538,
-      "sha256": "3661e252f5d3c46556e10d6cfa0825f0b093ed6e389281cc4f3e72ceb5444822"
-    },
-    "ai-comic-drama-workflow/src/ai_comic_drama_workflow.egg-info/dependency_links.txt": {
-      "bytes": 1,
-      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
-    },
-    "ai-comic-drama-workflow/src/ai_comic_drama_workflow.egg-info/entry_points.txt": {
-      "bytes": 68,
-      "sha256": "b05fe46034b0282a2010571be74b1dd1b874efe3a47948c4fa303288da9df95e"
-    },
-    "ai-comic-drama-workflow/src/ai_comic_drama_workflow.egg-info/requires.txt": {
-      "bytes": 19,
-      "sha256": "756cc9e506ae4ee1a6f6c0507088b5cfc0dc8ba350fb2d2d46f1ffa72033adb6"
-    },
-    "ai-comic-drama-workflow/src/ai_comic_drama_workflow.egg-info/top_level.txt": {
-      "bytes": 24,
-      "sha256": "9fdf165a53b5b4a7adc7ddc057e0f6d3148fddc8defcfc6e92d779a4d69ad6c0"
     },
     "ai-comic-drama-workflow/src/ai_comic_drama_workflow/__init__.py": {
       "bytes": 114,
@@ -9174,6 +9150,10 @@
     "ai-comic-drama-workflow/tests/test_screenplay_integration.py": {
       "bytes": 5512,
       "sha256": "bc8d7418ca60581b17ce7ab988989562c01e6513c20f243b161354089de3ae8a"
+    },
+    "ai-comic-drama-workflow/tests/test_skill_archive.py": {
+      "bytes": 1684,
+      "sha256": "3941af2bd3749732122929f5e8fdc487fb09021fecd0cbf8333790885c42b073"
     },
     "ai-comic-drama-workflow/tests/test_v52_workflow.py": {
       "bytes": 13226,
