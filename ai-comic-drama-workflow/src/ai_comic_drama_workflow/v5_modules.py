@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import hashlib
+import io
+from functools import lru_cache
 import importlib.util
 import json
 import re
@@ -37,9 +39,14 @@ def read(path):
 
 def verify_archive(archive, expected=None):
     archive = Path(archive)
-    if expected and digest_file(archive) != expected:
+    data = archive.read_bytes()
+    if expected and hashlib.sha256(data).hexdigest() != expected:
         raise ValueError(f'Module archive hash differs: {archive.name}')
-    with zipfile.ZipFile(archive) as bundle:
+    return _inspect_archive(data)
+
+
+def _inspect_archive(data):
+    with zipfile.ZipFile(io.BytesIO(data)) as bundle:
         names = bundle.namelist()
         if not names or len(names) != len(set(names)) or bundle.testzip():
             raise ValueError('Invalid or duplicate archive members')
@@ -63,14 +70,26 @@ def default_lock(root=ROOT):
     return lock
 
 
-def verify_module(archive,name,item):
-    actual,members=verify_archive(archive,item['sha256'])
-    if actual!=name:raise ValueError('Locked module name differs from archive root')
-    with zipfile.ZipFile(archive) as bundle:
-        version=re.search(r'^  version:\s*[\"\']?([^\"\'\n]+)',bundle.read(name+'/SKILL.md').decode(),re.M)
-    if not version or version.group(1).strip()!=item['version']:
+@lru_cache(maxsize=12)
+def _verified_module_bytes(data, name, expected_version):
+    """One decompression per identical archive, not one per field validation."""
+    actual, members = _inspect_archive(data)
+    if actual != name:
+        raise ValueError('Locked module name differs from archive root')
+    with zipfile.ZipFile(io.BytesIO(data)) as bundle:
+        version = re.search(r"^  version:\s*[\"']?([^\"'\n]+)",
+                            bundle.read(name + '/SKILL.md').decode(), re.M)
+    if not version or version.group(1).strip() != expected_version:
         raise ValueError('Locked module version differs from Skill metadata')
-    return members
+    return tuple(members.items())
+
+
+def verify_module(archive, name, item):
+    data = Path(archive).read_bytes()
+    if hashlib.sha256(data).hexdigest() != item['sha256']:
+        raise ValueError(f'Module archive hash differs: {Path(archive).name}')
+    # Never return the cached mutable object, or trust only path/mtime/size.
+    return dict(_verified_module_bytes(data, name, item['version']))
 
 
 def module_path(project, name, root=ROOT):

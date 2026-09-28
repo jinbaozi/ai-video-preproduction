@@ -1,0 +1,52 @@
+name: Lean workflow regression
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: lean-regression-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  regression:
+    name: ${{ matrix.suite }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        suite: [workflow, compiler, release]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Verify shared sources and deterministic packages
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Run selected validation suite
+        env:
+          SUITE: ${{ matrix.suite }}
+        run: |
+          mkdir -p /tmp/lean-validation
+          set -o pipefail
+          case "$SUITE" in
+            workflow) python ai-comic-drama-workflow/scripts/run_tests.py 2>&1 | tee /tmp/lean-validation/workflow.log ;;
+            compiler) python -m unittest discover -s video-prompt-compiler/tests -p 'test_*.py' -v 2>&1 | tee /tmp/lean-validation/compiler.log ;;
+            release) python ai-comic-drama-workflow/scripts/verify_suite.py --packages dists --out /tmp/lean-validation/suite ;;
+            *) exit 2 ;;
+          esac
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lean-validation-${{ matrix.suite }}
+          path: /tmp/lean-validation
+          retention-days: 14

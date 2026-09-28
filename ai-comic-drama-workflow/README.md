@@ -1,12 +1,13 @@
-# 七技能独立运行与协作工作流 V6
+# 七技能创意到视频工作流
 
-新项目默认使用 V6 编排协议：内核按 [唯一阶段图](workflow-v6.json) 生成任务和检查门，Codex 宿主真实派发专业子智能体，独立审阅后才接受候选。总包携带六个专业 Skill 的锁定发行物；专业模块也可分别安装。`production_target=video` 时继续登记真实执行、媒体回收、验收及总装。
+新的一句话/创意任务默认通过 `start` 使用 lean，当前宿主连续完成原生专业任务，只输出必要交付。`start --profile audited` 或兼容的 `init` 使用 V6 编排协议：内核按 [唯一阶段图](workflow-v6.json) 生成任务和检查门，Codex 宿主真实派发专业子智能体，独立审阅后才接受候选。总包携带六个专业 Skill 的锁定发行物；专业模块也可分别安装。`production_target=video` 时继续登记真实执行、媒体回收、验收及总装。
 
 ## 开始使用
 
 ```text
 使用 $ai-comic-drama-workflow，根据这些资料制作参考图与视频提示词包。
-按 V6 派发专业子智能体并独立审阅；复用已有剧本和资产，保留原文对白与身份。
+默认 lean 自动继续；只制作镜头需要的素材，保留原文对白与身份。
+需要独立审阅时明确选择 audited；要求成片时设置 production_target=video。
 只在角色身份首次定稿、硬冲突、显著费用或能力降级时提出必要决定。
 ```
 
@@ -20,13 +21,13 @@
 
 ```sh
 PYTHONPATH=src python -m ai_comic_drama_workflow doctor
-PYTHONPATH=src python -m ai_comic_drama_workflow init 原文.txt --project /绝对路径/新项目 --project-id MY_STORY --target agnes-video-2.5
-PYTHONPATH=src python -m ai_comic_drama_workflow run /绝对路径/新项目
+PYTHONPATH=src python -m ai_comic_drama_workflow start 原文.txt --project /绝对路径/新项目 --project-id MY_STORY --target agnes-video-2.5
+PYTHONPATH=src python -m ai_comic_drama_workflow step /绝对路径/新项目 --result /绝对路径/当前原生结果.json
 PYTHONPATH=src python -m ai_comic_drama_workflow graph --format mermaid
 PYTHONPATH=src python -m ai_comic_drama_workflow migrate-v6 /绝对路径/旧项目 --destination /绝对路径/迁移副本
 ```
 
-也可 `pip install .` 使用 `ai-comic-drama`。V6 的 `run` 返回待执行的 Codex 宿主动作；宿主用真实协作工具派发、登记回执和结构化消息。Python 本身没有模型调用能力。各登记命令和恢复流程见 [V6 接口](references/v6/runtime.md)。
+也可 `pip install .` 使用 `ai-comic-drama`。先读[轻量执行合同](references/lean.md)；用户不填 JSON，由宿主创作并提交原生结果。`step` 合并提交和取下一任务，默认只返回必要摘要。V6 的 `run` 返回待执行的 Codex 宿主动作；宿主用真实协作工具派发、登记回执和结构化消息。Python 本身没有模型调用能力。各登记命令和恢复流程见 [V6 接口](references/v6/runtime.md)。
 
 `graph` 从 `workflow-v6.json` 直接生成 Mermaid，阶段字段与内核调度使用同一份定义。
 
@@ -49,10 +50,10 @@ python scripts/package_skill.py --out /绝对路径/单包发行
 
 样例使用固定原文和已编写的原生制作包，证明旧协议静态交接和编译可运行，不证明 V6 子智能体派发或媒体质量。完整流程还需要宿主真实工具、实际看图和身份决定。
 
-V5 使用独立的 project/state/任务协议。新项目默认 V6；显式 `init ... --orchestration current-agent` 才使用旧当前 Agent 路径。V4 项目与旧全流程保留各自历史，复制迁移后的旧“通过”状态不自动成为 V6 审阅证据。
+V5 使用独立的 project/state/任务协议。`init` 的旧默认仍为 V6；新 `start` 默认 lean，复用当前 Agent 原生协议但不声称独立审阅。已有项目不会自动切换。V4 项目与旧全流程保留各自历史，复制迁移后的旧“通过”状态不自动成为 V6 审阅证据。
 
 ## V5.2 运动与空间
 
-新完整制作采用 DirectorIR / StoryboardIR / AVIR 1.2，支持部位轨迹、动态构图、时刻画格与 `revise storyboard --node-id ID` / `--track-id ID`。工作流 Skill 0.11.0、转换器 1.2.0；各专业模块版本以 `modules.lock.json` 为准，项目存储仍 5.0。编译器将完整制作合同保留在审计附件，向模型交付按镜头与时间展开的正文及其字段覆盖，并按模型单次时长生成自包含的分段提示词；每段包含该段所需完整图片引用和细节，阻塞片段保留阻塞状态。既有项目模块锁不自动迁移。
+新完整制作采用 DirectorIR / StoryboardIR / AVIR 1.2，支持部位轨迹、动态构图、时刻画格与 `revise storyboard --node-id ID` / `--track-id ID`。工作流 Skill 0.12.0、转换器 1.2.0；各专业模块版本以 `modules.lock.json` 为准，项目存储仍 5.0。编译器将完整制作合同保留在审计附件，向模型交付按镜头与时间展开的正文及其字段覆盖，并按模型单次时长生成自包含的分段提示词；每段包含该段所需完整图片引用和细节，阻塞片段保留阻塞状态。既有项目模块锁不自动迁移。
 
 [当前执行合同](references/current-contract.md)说明明确相对描述、数值依据、无损正文及几何判定边界。旧项目模块锁保持，旧包升级只生成新草案。运行 `python scripts/run_v5_example.py --version v52 --out NEW_DIR` 验证内置模块三镜文本链。

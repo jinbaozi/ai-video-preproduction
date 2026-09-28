@@ -81,8 +81,11 @@ class V5Kernel:
         return target
 
     def write(self,relative,value):
-        target=self.path(relative);before_write(self.root,target)
-        atomic_write(target,encoded(value) if not isinstance(value,bytes) else value)
+        target=self.path(relative)
+        data=encoded(value) if not isinstance(value,bytes) else value
+        if target.is_file() and target.read_bytes()==data:return relative
+        before_write(self.root,target)
+        atomic_write(target,data)
         return relative
 
     @property
@@ -105,11 +108,12 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none'):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
         if production_target not in ('none','video'):raise ValueError('production_target must be none or video')
+        if workflow_profile not in (None,'lean'):raise ValueError('Unknown current-agent workflow profile')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -117,6 +121,7 @@ class V5Kernel:
             'execution_mode':'current-agent','delivery':delivery,'target':target,'mode':mode or ('reference' if delivery=='full' else 'text'),
             'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
+        if workflow_profile:kernel.project['workflow_profile']=workflow_profile
         validate_protocol('project',kernel.project,kernel.skill_root)
         kernel.write('project.json',kernel.project)
         lock=default_lock(skill_root);kernel.write('modules.lock.json',lock)
@@ -1145,6 +1150,7 @@ class V5Kernel:
             'target':[self.project['target'],self.project['mode'],self.project['delivery']],
             'modules':read(self.root/'modules.lock.json'),
             'control': {'state': control, 'files': control_files},
+            'output_profile':self.project.get('workflow_profile','audit'),
             'runtime_code':runtime_code_hashes()})
 
     @mutate
@@ -1251,7 +1257,8 @@ class V5Kernel:
             if output.exists() and any(output.iterdir()):
                 return {'status':'BLOCKED','reason':'Interrupted compiler output; retain evidence and use revise/recompile with a new input revision'}
             proc=subprocess.run([sys.executable,str(compiler/'scripts/vpc.py'),'compile',str(self.path(folder+'/avir.json')),
-                '--target',self.project['target'],'--mode',self.project['mode'],'--out',str(output)],capture_output=True,text=True)
+                '--target',self.project['target'],'--mode',self.project['mode'],'--out',str(output)]
+                +(['--output-profile','lean'] if self.project.get('workflow_profile')=='lean' else []),capture_output=True,text=True)
             if proc.returncode:return {'status':'BLOCKED','compiler_output':proc.stdout,'error':proc.stderr}
         artifact=read(output/'artifact.json')
         if artifact['status']=='BLOCKED':return {'status':'BLOCKED','losses':artifact['losses']}
@@ -1361,6 +1368,22 @@ class V5Kernel:
         video_note='前期交付完成。' if self.production_target()=='video' else '视频未生成，视频验收 NOT_RUN。'
         lines=[f"# {self.project['project_id']} · {status}",f"交付范围：{self.project['delivery']}。生产目标：{self.production_target()}。{video_note}"]
         if state['build']:lines.append('[视频提示词](../'+state['build']['uri']+'/compiled/prompt.txt) · [附件表](../'+state['build']['uri']+'/attachments.json)')
+        if self.project.get('workflow_profile')=='lean' and state['build']:
+            compiled=state['build']['uri']+'/compiled'
+            segment_path=self.path(compiled+'/segment-delivery.json')
+            if segment_path.is_file():
+                delivery=read(segment_path)
+                lines.append('## 实际分段投喂文件')
+                lines.append('分段状态：'+delivery['status']+'。DRAFT / BLOCKED 不能视为已通过目标入口检查；实际视频验收仍为 NOT_RUN。')
+                for part in delivery.get('parts',[]):
+                    lines.append(f"### 片段 {part['number']} · {part['duration_ms']/1000:g} 秒 · {part['status']}")
+                    for key,label in (('prompt_file','视频提示词'),('post_file','后期声音/义务'),('prompt_coverage_file','约束覆盖')):
+                        if part.get(key):lines.append(f"[{label}](../{compiled}/{part[key]})")
+                    if part.get('reasons'):lines.append('待核验：'+'；'.join(part['reasons']))
+                lines.append('[机器可读附件顺序及限制](../'+compiled+'/segment-delivery.json)')
+            lines.append('## 质量控制与验收边界')
+            lines.append('[唯一制作规格 AVIR](../'+compiled+'/avir.json) · [覆盖、损失与检查结果](../'+compiled+'/artifact.json)')
+            lines.append('角色/服饰/道具/空间/动作/声音连续性、光色意图与转焦主体均依冻结规格验收。静态通过不等于模型画质通过；需实际图像审阅、逐镜/相邻/整片视频验收。')
         for m in state['media'].values():lines.append(f"- {m['key']}：[ {m['filename']} ](../{m['uri']})；SHA-256 {m['sha256']}")
         if report['errors']:lines+=['待解决：']+report['errors']
         self.write('delivery/index.md',('\n\n'.join(lines)+'\n').encode())

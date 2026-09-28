@@ -9,6 +9,16 @@ from .v5_modules import ROOT, read, default_lock
 def main(argv=None):
     p=argparse.ArgumentParser(prog='ai-comic-drama')
     commands=p.add_subparsers(dest='command',required=True)
+    start_command=commands.add_parser('start',help='One idea to native workflow; lean host loop by default')
+    start_command.add_argument('inputs',nargs='+');start_command.add_argument('--project',required=True)
+    start_command.add_argument('--project-id',default='PROJECT')
+    start_command.add_argument('--profile',choices=['lean','audited'],default='lean')
+    start_command.add_argument('--delivery',choices=['full','text-only'],default='full')
+    start_command.add_argument('--target');start_command.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'])
+    start_command.add_argument('--production-target',choices=['none','video'],default='none')
+    start_command.add_argument('--verbose',action='store_true')
+    step_command=commands.add_parser('step',help='Accept a native result and get the next host action in one call')
+    step_command.add_argument('project');step_command.add_argument('--result');step_command.add_argument('--verbose',action='store_true')
     init=commands.add_parser('init');init.add_argument('inputs',nargs='+');init.add_argument('--project',required=True)
     init.add_argument('--project-id',default='PROJECT');init.add_argument('--delivery',choices=['full','text-only'],default='full')
     init.add_argument('--target');init.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'],default=None)
@@ -68,7 +78,14 @@ def main(argv=None):
         if name=='post-obligation':sub.add_argument('--id',required=True);sub.add_argument('--evidence',required=True)
     a=p.parse_args(argv)
     try:
-        if a.command=='graph':
+        if a.command=='start':
+            from .lean import start
+            r=start(a.project,a.inputs,profile=a.profile,project_id=a.project_id,delivery=a.delivery,
+                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose)
+        elif a.command=='step':
+            from .lean import step
+            r=step(a.project,result=a.result,verbose=a.verbose)
+        elif a.command=='graph':
             from .v6_graph import graph_to_mermaid, load_graph
             graph=load_graph()
             diagram=graph_to_mermaid(graph)

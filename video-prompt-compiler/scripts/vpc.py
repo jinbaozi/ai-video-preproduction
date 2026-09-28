@@ -28,7 +28,10 @@ def prepare(out):
     return out
 
 
-def run_compile(ir, target, mode, base, out):
+def run_compile(ir, target, mode, base, out, output_profile='audit'):
+    if output_profile not in ('audit', 'lean'):
+        raise ValueError('Unknown output profile')
+    audit = output_profile == 'audit'
     cap=profile(target)
     artifact, context=compile_ir(ir,cap,mode,base)
     out=prepare(out)
@@ -40,26 +43,29 @@ def run_compile(ir, target, mode, base, out):
         return {'status':'INVALID','diagnostics':context},2
     emit(out/'artifact.json',artifact)
     if ir.get('schema') in ('avir/1.1','avir/1.2'):
-        emit(out/'detail-coverage.json', artifact['detail_coverage'])
-        if ir['schema']=='avir/1.2':
-            emit(out/'prompt-coverage.json', artifact['prompt_coverage'])
-            emit(out/'prompt-review.json', artifact['prompt_review'])
-        emit(out/'segment-proposals.json', artifact['segment_proposals'])
+        if audit:
+            emit(out/'detail-coverage.json', artifact['detail_coverage'])
+            emit(out/'segment-proposals.json', artifact['segment_proposals'])
+            emit(out/'production-specification.json', ir)
         if ir['schema']=='avir/1.2':
             import spatial_runtime as spatial
             from prompt_projection import render as render_prompt
             from prompt_projection import verify as verify_prompt
             from segment_delivery import build as build_delivery
-            emit(out/'spatial-checks.json', artifact['spatial_checks'])
-            segments=spatial.segment_plan(ir)
-            for segment in segments:
-                start,end=segment['project_start_ms'],segment['project_end_ms']
-                blocks,coverage=spatial.render(ir,start,end)
-                segment['prompt'],segment['prompt_coverage'],_,gaps=render_prompt(
-                    ir,artifact['asset_bindings'],'unbound',mode,spatial,blocks,coverage,start,end)
-                if gaps:
-                    segment['status']='BLOCKED'
-                    segment['reasons'] += ['PROMPT_COVERAGE:'+path for path in gaps]
+            if audit:
+                emit(out/'prompt-coverage.json', artifact['prompt_coverage'])
+                emit(out/'prompt-review.json', artifact['prompt_review'])
+                emit(out/'spatial-checks.json', artifact['spatial_checks'])
+                segments=spatial.segment_plan(ir)
+                for segment in segments:
+                    start,end=segment['project_start_ms'],segment['project_end_ms']
+                    blocks,coverage=spatial.render(ir,start,end)
+                    segment['prompt'],segment['prompt_coverage'],_,gaps=render_prompt(
+                        ir,artifact['asset_bindings'],'unbound',mode,spatial,blocks,coverage,start,end)
+                    if gaps:
+                        segment['status']='BLOCKED'
+                        segment['reasons'] += ['PROMPT_COVERAGE:'+path for path in gaps]
+                emit(out/'segment-plan.json', segments)
             layout=read(ROOT/'templates/backends.json')['projection_v12'][cap['template']]['layout']
             delivery,prompt_files=build_delivery(ir,cap,mode,artifact,spatial,render_prompt,verify_prompt,
                                                  canonical_count,layout)
@@ -68,13 +74,12 @@ def run_compile(ir, target, mode, base, out):
                 (out/name).write_text(content,encoding='utf-8')
         else:
             from detail_runtime import segment_plan
-            segments=segment_plan(ir)
-        emit(out/'segment-plan.json', segments)
-        emit(out/'production-specification.json', ir)
-    emit(out/'context-ir.json',context)
-    emit(out/'constraint-coverage.json',artifact['coverage'])
-    emit(out/'loss-report.json',artifact['losses'])
-    emit(out/'post-production.json',artifact['post_production'])
+            emit(out/'segment-plan.json', segment_plan(ir))
+    if audit:
+        emit(out/'context-ir.json',context)
+        emit(out/'constraint-coverage.json',artifact['coverage'])
+        emit(out/'loss-report.json',artifact['losses'])
+        emit(out/'post-production.json',artifact['post_production'])
     (out/'prompt.txt').write_text(artifact['prompt']+'\n',encoding='utf-8')
     lines=[f"# {ir['project_id']} 制作合同 · revision {ir['revision']}",
            f"目标：{target} / {mode}；编译状态：{artifact['status']}；提交：否；媒体验收：NOT_RUN。",
@@ -87,8 +92,8 @@ def run_compile(ir, target, mode, base, out):
                   f"验收：{c['acceptance']['method']}；{c['acceptance']['criterion']}",
                   f"不支持时：{c['on_unsupported']}；真实验收：NOT_RUN"]
     lines += ['\n## 来源记录']+[f"- {s['id']}：{s['kind']} / {s['verification']}；{s['uri']}；{s['locator']}；{s['claim']}" for s in ir['sources']]
-    (out/'production-contract.md').write_text('\n\n'.join(lines)+'\n',encoding='utf-8')
-    manifest={'compiler':f'video-prompt-compiler@{VERSION}','avir_schema':ir['schema'],'target':target,'mode':mode,
+    if audit:(out/'production-contract.md').write_text('\n\n'.join(lines)+'\n',encoding='utf-8')
+    manifest={'output_profile':output_profile,'compiler':f'video-prompt-compiler@{VERSION}','avir_schema':ir['schema'],'target':target,'mode':mode,
               'adapter_version':cap['version'],'rulepack':read(ROOT/'registries/rules.json')['version'],
               'templates':read(ROOT/'templates/backends.json')['version'],'retrieval_snapshot':read(ROOT/'registries/sources.json')['version'],
               'optimizer':'rules-only','input_hash':digest(ir),'artifact_hash':digest(artifact),
@@ -108,6 +113,8 @@ def verify(package):
     package=Path(package)
     m=read(package/'compile-manifest.json')
     failures=[]
+    output_profile=m.get('output_profile','audit')
+    if output_profile not in ('audit','lean'):raise ValueError('Unknown output profile')
     for name,expected in m['files'].items():
         p=package/name
         if Path(name).name!=name or not p.is_file() or sha256(p.read_bytes()).hexdigest()!=expected:
@@ -120,9 +127,9 @@ def verify(package):
         ir,artifact=read(package/'avir.json'),read(package/'artifact.json')
         if (package/'prompt.txt').read_text(encoding='utf-8')!=artifact['prompt']+'\n':
             failures.append('prompt.txt')
-        if read(package/'prompt-coverage.json')!=artifact['prompt_coverage']:
+        if output_profile=='audit' and read(package/'prompt-coverage.json')!=artifact['prompt_coverage']:
             failures.append('prompt-coverage.json')
-        if read(package/'prompt-review.json')!=artifact['prompt_review']:
+        if output_profile=='audit' and read(package/'prompt-review.json')!=artifact['prompt_review']:
             failures.append('prompt-review.json')
         if sha256(artifact['prompt'].encode('utf-8')).hexdigest()!=artifact['prompt_review']['prompt_sha256']:
             failures.append('prompt_review_hash')
@@ -130,7 +137,7 @@ def verify(package):
             failures.append('trace')
         if verify_prompt(ir,artifact['prompt'],artifact['prompt_coverage'],spatial):
             failures.append('prompt_coverage')
-        if (package/'segment-delivery.json').is_file():
+        if ir.get('schema')=='avir/1.2':
             from prompt_projection import render as render_prompt
             from segment_delivery import build as build_delivery
             cap=read(package/'capability-snapshot.json')
@@ -158,7 +165,7 @@ def main():
     sub=parser.add_subparsers(dest='command',required=True)
     sub.add_parser('profiles',help='列出精确目标ID与已实现边界')
     p=sub.add_parser('validate');p.add_argument('input')
-    p=sub.add_parser('compile');p.add_argument('input');p.add_argument('--target',required=True);p.add_argument('--mode',choices=['text','keyframe','reference','edit','extend'],default='text');p.add_argument('--out',required=True)
+    p=sub.add_parser('compile');p.add_argument('input');p.add_argument('--target',required=True);p.add_argument('--mode',choices=['text','keyframe','reference','edit','extend'],default='text');p.add_argument('--out',required=True);p.add_argument('--output-profile',choices=['audit','lean'],default='audit')
     p=sub.add_parser('route');p.add_argument('input');p.add_argument('--mode',default='text')
     p=sub.add_parser('batch');p.add_argument('input',help='NDJSON: input,target,mode；相对路径基于批文件');p.add_argument('--out',required=True)
     for name in ('verify','explain','replay'):
@@ -175,7 +182,7 @@ def main():
             result={'status':'INVALID' if any(e['severity']=='error' for e in errors) else 'BLOCKED' if code else 'VALID','diagnostics':errors}
         elif args.command=='compile':
             path=Path(args.input).resolve()
-            result,code=run_compile(read(path),args.target,args.mode,path.parent,args.out)
+            result,code=run_compile(read(path),args.target,args.mode,path.parent,args.out,args.output_profile)
         elif args.command=='route':
             path=Path(args.input).resolve();ir=read(path)
             result={'selection':'USER_DECISION_OR_HOST_POLICY','quality_ranking':None,'candidates':[]}
@@ -202,7 +209,7 @@ def main():
             elif args.command=='explain':result=read(package/'artifact.json')['trace']
             else:
                 if manifest['runtime_files']!=runtime_files():raise ValueError('E_BUILD_DRIFT: 使用与manifest匹配的完整Skill构建包重放，不能混用新规则或新适配器。')
-                result,code=run_compile(read(package/'avir.json'),manifest['target'],manifest['mode'],manifest['asset_base'],args.out)
+                result,code=run_compile(read(package/'avir.json'),manifest['target'],manifest['mode'],manifest['asset_base'],args.out,manifest.get('output_profile','audit'))
                 if read(Path(args.out)/'compile-manifest.json')['artifact_hash']!=manifest['artifact_hash']:
                     raise ValueError('E_REPLAY_CHANGED: 参考素材或编译结果发生变化。')
         print(json.dumps(result,ensure_ascii=False,indent=2));return code

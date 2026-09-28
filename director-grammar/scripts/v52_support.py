@@ -16,7 +16,9 @@ def compile_video(core,ir,cap,mode,base):
  errors=detail.validate(ir,core.ROOT,'avir',base)
  if any(e['severity']=='error' for e in errors):return None,errors
  bindings,be=core.resolve_assets(ir,cap,mode,base);errors+=be+core.target_errors(ir,cap,mode)
- if not detail.semantic_status(ir):errors.append(core.issue('E_SEMANTIC_REVIEW','/timeline/semantic_review','当前时间轨尚无绑定内容指纹的语义复核；完整草案保留。'))
+ # The IR is unchanged throughout this lowering call. Rehash once, not per leaf.
+ reviewed_input=detail.semantic_status(ir)
+ if not reviewed_input:errors.append(core.issue('E_SEMANTIC_REVIEW','/timeline/semantic_review','当前时间轨尚无绑定内容指纹的语义复核；完整草案保留。'))
  for a in ir['timeline']['audio_events']:
   if a['route']=='native' and cap['native_audio'] is not True:errors.append(core.issue('E_AUDIO_UNVERIFIED','/timeline/audio_events/'+a['id'],'入口原生音频未核验；保留原要求，不自动改为后期。'))
  blocks,coverage=detail.render(ir)
@@ -51,7 +53,7 @@ def compile_video(core,ir,cap,mode,base):
  for path,value in detail.leaves(ir):
   if path not in known:coverage.append({'source_path':path,'source_sha256':detail.digest(value),'object_id':None,'disposition':'not_applicable','channel':'review','block':None,'text_sha256':None,'reason':'来源、参数意图、合同及兼容视图保留于完整制作说明；不冒充正文覆盖'})
  errors+=detail.verify_coverage(ir,blocks,coverage)
- for row in coverage:row['semantic_check']='REVIEWED_INPUT' if detail.semantic_status(ir) else 'PENDING_AGENT_REVIEW'
+ for row in coverage:row['semantic_check']='REVIEWED_INPUT' if reviewed_input else 'PENDING_AGENT_REVIEW'
  from prompt_projection import render as render_prompt,verify as verify_prompt
  layout=core.read(core.ROOT/'templates/backends.json')['projection_v12'][cap['template']]['layout']
  prompt,prompt_coverage,prompt_trace,gaps=render_prompt(ir,bindings,cap['id'],mode,detail,blocks,coverage,layout=layout)

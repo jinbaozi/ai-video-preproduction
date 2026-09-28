@@ -14,12 +14,12 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from screenplay_fixture import screenplay, director_mapping
 
 
-def run_example(out, version='v5'):
+def run_example(out, version='v5', workflow_profile=None):
     out=Path(out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Example output must be empty')
     out.mkdir(parents=True,exist_ok=True)
     author=out/'authored-fixture';shutil.copytree(ROOT/'examples'/version/'cafe',author)
-    k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5')
+    k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5',workflow_profile=workflow_profile)
     for _ in range(16):
         step=k.run()
         if step['status']=='DELIVERED':return step
@@ -84,5 +84,5 @@ def run_example(out, version='v5'):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--out',required=True);parser.add_argument('--version',choices=['v5','v51','v52'],default='v5');args=parser.parse_args()
-    print(encoded(run_example(args.out,args.version)).decode())
+    parser=argparse.ArgumentParser();parser.add_argument('--out',required=True);parser.add_argument('--version',choices=['v5','v51','v52'],default='v5');parser.add_argument('--lean',action='store_true');args=parser.parse_args()
+    print(encoded(run_example(args.out,args.version,'lean' if args.lean else None)).decode())
