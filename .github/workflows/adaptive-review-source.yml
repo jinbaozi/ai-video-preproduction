@@ -1,0 +1,31 @@
+name: Adaptive candidate review snapshot
+on:
+  push:
+    branches: ['build/adaptive-control-20260928']
+    paths: ['.github/workflows/adaptive-review-source.yml']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Recover exact baseline and candidate
+        run: |
+          mkdir -p /tmp/adaptive-review
+          git fetch origin 4539ced70047b74b985123ee974282f9d07b22a1
+          git archive --format=tar.gz 4539ced70047b74b985123ee974282f9d07b22a1 > /tmp/adaptive-review/baseline.tar.gz
+          python - <<'PY'
+          import base64,bz2,hashlib,pathlib,subprocess
+          root=pathlib.Path('.github/adaptive-patch')
+          data=bz2.decompress(base64.b64decode(''.join((root/f'{i}.b64').read_text() for i in range(3)),validate=True))
+          assert hashlib.sha256(data).hexdigest()=='94c383dff7e1b9605f768687a31c13d0eec83bb1aa97aee9134134771bbfdbcf'
+          p=pathlib.Path('/tmp/adaptive-review/candidate.patch');p.write_bytes(data)
+          subprocess.run(['git','apply','--check',str(p)],check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: adaptive-review-source
+          path: /tmp/adaptive-review
+          retention-days: 3
