@@ -14,16 +14,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Apply exact reviewed source patch
+      - name: Apply exact candidate and adversarial fixes
         run: |
+          mkdir -p /tmp/adaptive-validation
           python - <<'PY'
           import base64, bz2, hashlib, pathlib, subprocess
           root=pathlib.Path('.github/adaptive-patch')
-          data=bz2.decompress(base64.b64decode(''.join((root/f'{i}.b64').read_text() for i in range(3)),validate=True))
-          assert hashlib.sha256(data).hexdigest()=='94c383dff7e1b9605f768687a31c13d0eec83bb1aa97aee9134134771bbfdbcf'
-          patch=pathlib.Path('/tmp/adaptive-source.patch');patch.write_bytes(data)
-          subprocess.run(['git','apply','--check',str(patch)],check=True)
-          subprocess.run(['git','apply',str(patch)],check=True)
+          patches=[('candidate',''.join((root/f'{i}.b64').read_text() for i in range(3)),'94c383dff7e1b9605f768687a31c13d0eec83bb1aa97aee9134134771bbfdbcf'),('review',(root/'review.b64').read_text(),'2dab600242c53c4b8415f298985cdb2bcd752d36e629608cff48dfe324f3156e')]
+          for name,encoded,expected in patches:
+              data=bz2.decompress(base64.b64decode(encoded,validate=True))
+              assert hashlib.sha256(data).hexdigest()==expected, name+' patch mismatch'
+              patch=pathlib.Path('/tmp/adaptive-validation')/(name+'.patch');patch.write_bytes(data)
+              subprocess.run(['git','apply','--check',str(patch)],check=True)
+              subprocess.run(['git','apply',str(patch)],check=True)
           PY
       - name: Rebuild locked source and release packages
         run: |
@@ -35,15 +38,31 @@ jobs:
           sudo apt-get install -y ffmpeg blender xvfb xauth
       - name: Native adaptive and legacy compatibility regression
         run: |
-          mkdir -p /tmp/adaptive-validation
           set -o pipefail
           (cd ai-comic-drama-workflow && PYTHONPATH=src python -m unittest tests.test_adaptive_workflow tests.test_adaptive_refs tests.test_v5_workflow.V5Tests.test_static_storyboard_records_shot_control_not_applicable -v) 2>&1 | tee /tmp/adaptive-validation/workflow-targeted.log
       - name: Actual geometry rendering and adversarial checks
         run: |
           set -o pipefail
           blender --version | head -5 | tee /tmp/adaptive-validation/blender-version.txt
-          xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_adaptive_control.py' -v 2>&1 | tee /tmp/adaptive-validation/adaptive-render.log
+          xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_adaptive_*.py' -v 2>&1 | tee /tmp/adaptive-validation/adaptive-render.log
           xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_previs.py' -v 2>&1 | tee /tmp/adaptive-validation/previs-render.log
+      - name: Retain actual neutral geometry sample for inspection
+        run: |
+          xvfb-run -a python - <<'PY'
+          import pathlib,sys,shutil
+          sys.path.insert(0,str(pathlib.Path('video-prompt-compiler/scripts').resolve()))
+          from build_previs_example import fixture
+          from shot_control.common import write
+          from shot_control.control_plan import build
+          from shot_control.previs import render,verify_render
+          out=pathlib.Path('/tmp/adaptive-validation/demo');out.mkdir()
+          ir,config=fixture();config['adaptive']={'policy':'adaptive-control/1.0'}
+          config['proxy_scene'].update(fps=2,resolution=[320,180])
+          shutil.copyfile('video-prompt-compiler/examples/v52/cafe.source.txt',out/'cafe.source.txt')
+          write(out/'source.json',ir);build(out/'source.json',out/'package',config)
+          render(out/'package','S1',out/'render','/usr/bin/blender')
+          write(out/'local-verification.json',verify_render(out/'render'))
+          PY
       - name: Publish exact verified tree without temporary build files
         run: |
           test "$GITHUB_REF_NAME" = 'build/adaptive-control-20260928'
@@ -51,13 +70,13 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git fetch origin refs/heads/main
           test "$(git rev-parse FETCH_HEAD)" = '4539ced70047b74b985123ee974282f9d07b22a1'
-          git rm -r .github/adaptive-patch .github/workflows/adaptive-build.yml
+          git rm -r .github/adaptive-patch .github/workflows/adaptive-build.yml .github/workflows/adaptive-review-source.yml
           git add .
           git diff --cached --check
           TREE=$(git write-tree)
           echo "$TREE" | tee /tmp/adaptive-validation/tree.txt
-          test "$TREE" = '51a37b87d5e4e73d73cc53fba609c0d0bdb35a9a'
-          COMMIT=$(git commit-tree "$TREE" -p 4539ced70047b74b985123ee974282f9d07b22a1 -m 'feat: adaptive shot control with adversarial material gates')
+          test "$TREE" = '7a3cb595fb726f83be726e8919abe8ebff3ae173'
+          COMMIT=$(git commit-tree "$TREE" -p 4539ced70047b74b985123ee974282f9d07b22a1 -m 'feat: adaptive shot control with adversarial material gates and portable previs')
           git push origin "$COMMIT":refs/heads/feat/adaptive-control-20260928
           echo "$COMMIT" | tee /tmp/adaptive-validation/commit.txt
           git archive --format=tar.gz "$COMMIT" > /tmp/adaptive-validation/source.tar.gz
