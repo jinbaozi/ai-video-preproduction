@@ -1,0 +1,33 @@
+name: Lean workflow regression
+on:
+  push:
+    branches: [main, 'perf/lean-idea-to-video-20260928']
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: lean-regression-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preserve exact source for reproducible local validation
+        run: git archive --format=tar.gz HEAD > /tmp/source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: source-snapshot
+          path: /tmp/source.tar.gz
+          retention-days: 3
+      - name: Install runtime dependencies
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Runtime regression
+        run: python ai-comic-drama-workflow/scripts/run_tests.py
