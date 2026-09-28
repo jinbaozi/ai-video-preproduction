@@ -233,6 +233,12 @@
           "artifact_sha256"
         ]
       }
+    },
+    "adaptive_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
     }
   },
   "required": [

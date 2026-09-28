@@ -58,6 +58,14 @@
     },
     "workflow_profile": {
       "const": "lean"
+    },
+    "control_policy": {
+      "const": "adaptive-control/1.0"
+    },
+    "control_minimum": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4
     }
   },
   "allOf": [

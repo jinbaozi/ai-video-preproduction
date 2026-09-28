@@ -63,6 +63,9 @@ def validate_source(ir, base=None):
 
 def validate_config(ir, config):
     schema_check(config, 'shot-control-config')
+    if 'adaptive' in config:
+        from adaptive_control import assess
+        assess(ir, config['adaptive'].get('minimum_levels'))
     if 'proxy_scene' in config:
         from .previs import validate_geometry
         validate_geometry(ir, config['proxy_scene'])
@@ -124,6 +127,12 @@ def verify_package(package):
         raise ValueError('Plan source or shot scope mismatch')
     if plan['controls'] != [{**c, 'status': 'PLANNED'} for c in config['controls']]:
         raise ValueError('Plan and config controls differ')
+    if 'adaptive' in config:
+        from adaptive_control import assess
+        if not same_json_value(plan.get('adaptive'), assess(ir, config['adaptive'].get('minimum_levels'))):
+            raise ValueError('Adaptive plan differs from native source')
+    elif 'adaptive' in plan:
+        raise ValueError('Adaptive plan has no frozen policy')
     from .control_plan import derive
     frames, requests = derive(ir, config, plan)
     frozen_frames = read(package/'review/frames.json')
@@ -199,7 +208,7 @@ def recipe(ir, config, control, shot_id, role, start_ms, end_ms, *, frames=None)
         from .control_plan import event_times
         shot = next(s for s in ir['shots'] if s['id'] == shot_id)
         lens = config['lenses'].get(shot_id, {})
-        times = sorted({start_ms, end_ms}|{t for t in event_times(ir, shot) if start_ms <= t <= end_ms})
+        times = sorted({start_ms, end_ms}|{t for t in event_times(ir, shot, config) if start_ms <= t <= end_ms})
         timeline = {}
         for name, items in ir['timeline'].items():
             if isinstance(items, list):

@@ -42,6 +42,10 @@ def lower(package, target, mode, manifest_path, scope=None):
     if len(artifacts) != len(manifest['artifacts']):
         raise ValueError('Duplicate artifact ID')
     reasons, rows, media = [], [], {}
+    if plan.get('adaptive'):
+        from .adaptive_materials import check
+        materials = check(package, manifest, manifest_path.parent, active_shots)
+        reasons.extend('ADAPTIVE:'+reason for reason in materials['blockers'])
     url_hashes, attachment_index = {}, []
     shots = {x['id']: x for x in ir['shots']}
     if route is None:

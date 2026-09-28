@@ -9,8 +9,8 @@ ROOT = Path(__file__).resolve().parents[2]
 def sync(workspace=ROOT, check=False):
     workspace = Path(workspace)
     source, target = workspace/'video-prompt-compiler', workspace/'image-prompt-optimizer'
-    files = [source/'scripts/control_cli.py', source/'registries/control-capabilities.json',
-             source/'references/shot-control.md']
+    files = [source/'scripts/adaptive_control.py', source/'scripts/control_cli.py', source/'registries/control-capabilities.json',
+             source/'references/shot-control.md', source/'references/adaptive-control.md']
     files += list((source/'scripts/shot_control').glob('*.py'))+list((source/'scripts/shot_control').glob('*.html'))
     files += list((source/'scripts/shot_control/lowerers').glob('*.py'))
     files += [source/'schemas'/f'{name}.schema.json' for name in
@@ -34,7 +34,14 @@ def sync(workspace=ROOT, check=False):
         else:
             fixture.parent.mkdir(parents=True, exist_ok=True)
             fixture.write_bytes(example.read_bytes())
-    return len(files)+2
+    shared = source/'scripts/adaptive_control.py'
+    dest = workspace/'ai-comic-drama-workflow/src/ai_comic_drama_workflow/adaptive_control.py'
+    if check:
+        if not dest.is_file() or dest.read_bytes() != shared.read_bytes():
+            raise ValueError('Adaptive routing source drift')
+    else:
+        dest.write_bytes(shared.read_bytes())
+    return len(files)+3
 
 
 

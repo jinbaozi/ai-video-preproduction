@@ -153,6 +153,9 @@
     },
     "video_qa": {
       "const": "NOT_RUN"
+    },
+    "adaptive": {
+      "type": "object"
     }
   },
   "required": [

@@ -12,6 +12,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
     p = sub.add_parser('build'); p.add_argument('input'); p.add_argument('--config'); p.add_argument('--out', required=True)
+    p = sub.add_parser('assess'); p.add_argument('input'); p.add_argument('--config')
+    p = sub.add_parser('material-check'); p.add_argument('package'); p.add_argument('--evidence', required=True); p.add_argument('--base')
     p = sub.add_parser('probe'); p.add_argument('input')
     p = sub.add_parser('edit-check'); p.add_argument('input')
     p = sub.add_parser('keyframe-check'); p.add_argument('input'); p.add_argument('--package', required=True); p.add_argument('--artifacts', required=True)
@@ -39,6 +41,21 @@ def main():
         if args.command == 'build':
             from shot_control.control_plan import build
             result = build(args.input, args.out, read(args.config) if args.config else None)
+        elif args.command == 'assess':
+            from adaptive_control import assess
+            from shot_control.package import validate_source, validate_config
+            source = Path(args.input).resolve(); ir = read(source)
+            validate_source(ir, source.parent)
+            config = read(args.config) if args.config else {}
+            if args.config: validate_config(ir, config)
+            result = assess(ir, (config.get('adaptive') or {}).get('minimum_levels'))
+        elif args.command == 'material-check':
+            from shot_control.adaptive_materials import check
+            if args.evidence == '-':
+                from shot_control.common import _unique
+                evidence = json.load(sys.stdin, object_pairs_hook=_unique, parse_constant=lambda x: (_ for _ in ()).throw(ValueError('Non-finite JSON')))
+            else: evidence = args.evidence
+            result = check(args.package, evidence, args.base)
         elif args.command == 'probe':
             from shot_control.media_probe import probe
             result = probe(args.input)

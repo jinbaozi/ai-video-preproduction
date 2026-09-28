@@ -8,6 +8,8 @@ from .v5_modules import digest_file
 
 RUNTIME_CODE_FILES = (
     "v5.py",
+    "adaptive_control.py",
+    "adaptive_refs.py",
     "v5_adapters.py",
     "v51_adapters.py",
     "v52_adapters.py",

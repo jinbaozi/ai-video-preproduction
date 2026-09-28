@@ -16,6 +16,7 @@ def main(argv=None):
     start_command.add_argument('--delivery',choices=['full','text-only'],default='full')
     start_command.add_argument('--target');start_command.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'])
     start_command.add_argument('--production-target',choices=['none','video'],default='none')
+    start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
     start_command.add_argument('--verbose',action='store_true')
     step_command=commands.add_parser('step',help='Accept a native result and get the next host action in one call')
     step_command.add_argument('project');step_command.add_argument('--result');step_command.add_argument('--verbose',action='store_true')
@@ -81,7 +82,7 @@ def main(argv=None):
         if a.command=='start':
             from .lean import start
             r=start(a.project,a.inputs,profile=a.profile,project_id=a.project_id,delivery=a.delivery,
-                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose)
+                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum)
         elif a.command=='step':
             from .lean import step
             r=step(a.project,result=a.result,verbose=a.verbose)

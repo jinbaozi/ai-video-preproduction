@@ -22,11 +22,11 @@ def compact(result: dict) -> dict:
 
 
 def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='full',
-          target=None, mode=None, production_target='none', verbose=False):
+          target=None, mode=None, production_target='none', verbose=False, control_minimum=0):
     if profile not in ('lean', 'audited'):
         raise ValueError('Unknown workflow profile')
     options = dict(project_id=project_id, delivery=delivery, target=target,
-                   mode=mode, production_target=production_target)
+                   mode=mode, production_target=production_target, control_policy='adaptive-control/1.0',control_minimum=control_minimum)
     if profile == 'audited':
         from .v6_runtime import V6Runtime
         kernel = V6Runtime.initialize(project, inputs, **options)

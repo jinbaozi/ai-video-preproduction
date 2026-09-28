@@ -72,6 +72,11 @@ class V5Kernel:
     def require_v5(self):
         if self.project.get('schema_version')!='5.0':
             raise ValueError('Legacy project is read-only. Use copy-project into a new V5 directory.')
+        if (self.root/'state.json').exists():
+            current=read(self.root/'project.json')
+            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0))
+            if choice(current)!=choice(self.state) or choice(current)!=choice(self.project):
+                raise ValueError('Frozen control policy differs from project/state; no silent downgrade')
 
     def path(self,relative):
         p=Path(relative)
@@ -108,12 +113,15 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
         if production_target not in ('none','video'):raise ValueError('production_target must be none or video')
         if workflow_profile not in (None,'lean'):raise ValueError('Unknown current-agent workflow profile')
+        if control_policy not in (None, 'adaptive-control/1.0'):raise ValueError('Unknown control policy')
+        if type(control_minimum) is not int or not 0<=control_minimum<=4 or (control_minimum and not control_policy):
+            raise ValueError('Control minimum requires adaptive policy and integer 0..4')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -122,6 +130,7 @@ class V5Kernel:
             'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
         if workflow_profile:kernel.project['workflow_profile']=workflow_profile
+        if control_policy:kernel.project.update(control_policy=control_policy,control_minimum=control_minimum)
         validate_protocol('project',kernel.project,kernel.skill_root)
         kernel.write('project.json',kernel.project)
         lock=default_lock(skill_root);kernel.write('modules.lock.json',lock)
@@ -136,6 +145,7 @@ class V5Kernel:
                'completed_tasks':{},'active_task':None,'active_decision':None,'inflight':None,
                'status':'RUNNING','revision_scope':{},'provided_jobs':[],'host':{'image_capability':'unknown','evidence':None},
                'sources':[],'build':None}
+        if control_policy:state.update(control_policy=control_policy,control_minimum=control_minimum)
         kernel.save(state)
         kernel.add(inputs)
         return kernel
@@ -257,7 +267,16 @@ class V5Kernel:
         if self.has_dialogue(storyboard):names.append('dialogue')
         return names
 
+    def adaptive_plan(self,storyboard):
+        self.require_v5()
+        if self.project.get('control_policy') is None:return None
+        from .adaptive_control import POLICY, assess
+        if self.project['control_policy'] != POLICY:raise ValueError('Unknown control policy')
+        return assess(storyboard,{s['id']:self.project.get('control_minimum',0) for s in storyboard['shots']})
+
     def control_applicable(self,storyboard):
+        if isinstance(storyboard,dict) and self.project.get('control_policy'):
+            return self.adaptive_plan(storyboard)['control_required']
         if not isinstance(storyboard,dict):return False
         if storyboard.get('schema_version') not in ('storyboard-ir/1.2','1.2'):return False
         timeline=storyboard.get('timeline') or {}
@@ -301,7 +320,9 @@ class V5Kernel:
 
     def task(self,kind,slot,stage,module,dependencies,scope=None,extra=None):
         state=self.state
-        extra=extra or {}
+        extra=dict(extra or {})
+        if self.project.get('control_policy') and kind=='storyboard':
+            extra['adaptive_instruction']='Use native action statuses and shot-scoped tracks. Do not invent contact, interpolate unknown poses, or count static roots as moving actors. Plan only consumed assets. Unknown control facts must be resolved by the source owner.'
         reads=self.required_reads(module,(extra or {}).get('job'),kind) if module else []
         context={'kind':kind,'slot':slot,'dependencies':dependencies,'scope':scope or {},
                  'modules':read(self.root/'modules.lock.json'),'extra':extra,'project':self.project,
@@ -365,6 +386,13 @@ class V5Kernel:
 
     def image_jobs(self,stage):
         state=self.state;jobs=[]
+        adaptive_refs=None
+        use_adaptive=(stage==7 and getattr(self,'project',{}).get('control_policy') and self.project['delivery']=='full')
+        if use_adaptive:
+            control=state.get('control') or {}
+            if any(r['level']>=3 for r in control.get('adaptive',{}).get('shots',[])):
+                from .adaptive_refs import index
+                adaptive_refs=index(self.root,control)
         kinds=[(k,'art') for k in state['artifacts'] if k.startswith('art:')] if stage==5 else [('storyboard','storyboard')]
         for slot,kind in kinds:
             ir=self.data(slot,state)
@@ -383,6 +411,9 @@ class V5Kernel:
                     refs=[{'key':m['key'],'uri':m['uri'],'sha256':m['sha256'],'entity_id':m.get('entity_id'),
                            'purpose':('identity/wardrobe' if m['role']=='identity' else 'object/scene appearance')+' only; preserve the requested panel composition'}
                           for m in state['media'].values() if m['stage']==5 and m.get('entity_id') in participants and self.media_valid(m,state)]
+                if use_adaptive:
+                    from .adaptive_refs import for_panel
+                    refs=for_panel(self.root,control,brief,adaptive_refs)+refs
                 scoped={k:v for k,v in brief.items() if k!='source_hash'}
                 fingerprint=digest({'brief':self.portable_content(scoped),'references':[{k:v for k,v in r.items() if k!='uri'} for r in refs],'module':read(self.root/'modules.lock.json')['modules']['image-prompt-optimizer']['sha256']})
                 jobs.append({'key':key,'stage':stage,'brief':brief,'dependencies':deps,'references':refs,
@@ -396,6 +427,10 @@ class V5Kernel:
             if media.get('invalidated') or digest_file(self.path(media['uri']))!=media['sha256']:return False
             if not self.dependencies_valid(media['dependencies'],state):return False
             for binding in media.get('input_bindings',[]):
+                if binding['key'].startswith('CONTROL_'):
+                    from .adaptive_refs import binding_valid
+                    if not binding_valid(self.root,state.get('control') or {},binding):return False
+                    continue
                 parent=state['media'].get(binding['key'])
                 if not parent or parent.get('invalidated') or parent['sha256']!=binding['sha256']:return False
                 if digest_file(self.path(parent['uri']))!=parent['sha256']:return False
@@ -405,7 +440,10 @@ class V5Kernel:
     def images_step(self,stage):
         state=self.state
         if self.project['delivery']=='text-only':return None
-        for job in self.image_jobs(stage):
+        try:jobs=self.image_jobs(stage)
+        except (ValueError,OSError,KeyError) as error:
+            return {'status':'BLOCKED','reason':str(error),'repair_owner':'control'}
+        for job in jobs:
             if job['brief'].get('state_evaluation', {}).get('status') == 'NEEDS_KEY_POSE':
                 return {'status':'BLOCKED','reason':'Exact panel key pose is missing; submit an explicit state sample, not inferred interpolation','shot_id':job['shot_id'],'frame':job['brief']['frame']}
             media=state['media'].get(job['key'])
@@ -787,14 +825,24 @@ class V5Kernel:
         storyboard=self.data('storyboard')
         fingerprint=self.state['artifacts']['storyboard']['sha256']
         record=self.state.get('control') or {}
-        if record.get('storyboard_sha256')==fingerprint and record.get('status') in ('NOT_APPLICABLE','READY'):
+        adaptive=self.adaptive_plan(storyboard)
+        if adaptive and adaptive['status']=='BLOCKED':
+            return {'status':'BLOCKED','reason':'Resolve native control facts; do not lower the level',
+                    'repair_owner':'storyboard','adaptive_control':adaptive}
+        if (record.get('storyboard_sha256')==fingerprint and record.get('status') in ('NOT_APPLICABLE','READY')
+                and (not adaptive or record.get('policy')==adaptive['policy'])):
             return None
         if not self.control_applicable(storyboard):
             state=self.state
-            state['control']={'status':'NOT_APPLICABLE','reason':'分镜时间轨没有机位运动、多人走位或接触事件','storyboard_sha256':fingerprint}
+            state['control']={'status':'NOT_APPLICABLE','reason':'No applicable spatial-control task' if adaptive else '分镜时间轨没有机位运动、多人走位或接触事件',
+                              'storyboard_sha256':fingerprint}
+            if adaptive:state['control'].update(policy=adaptive['policy'],adaptive=adaptive)
             self.save(state);return None
-        return self.task('control','control',6,'video-prompt-compiler',[self.dependency('storyboard')],
-            extra={'storyboard_sha256':fingerprint})
+        extra={'storyboard_sha256':fingerprint}
+        if adaptive:
+            extra.update(adaptive_control=adaptive,
+                material_instruction='Build an adaptive control package in a new project-contained directory. For full delivery run selected previs-frame/previs commands, inspect actual renders, and include adaptive_evidence in this RoleResult. Do not submit only a plan. text-only keeps render needs planned. See references/adaptive-control.md in the locked compiler.')
+        return self.task('control','control',6,'video-prompt-compiler',[self.dependency('storyboard')],extra=extra)
 
     def compile_review_step(self):
         build=self.state.get('build') or {}
@@ -856,10 +904,72 @@ class V5Kernel:
             if not dispositions.get(segment):raise ValueError('BLOCKED segment has no disposition: '+segment)
         state['compile_review']={'status':'ACCEPTED','build_id':build['build_id'],'audit':getattr(self,'_submit_audit',None)}
 
+    def adaptive_config_check(self,config):
+        if self.project.get('control_policy'):
+            if (config.get('adaptive') or {}).get('policy')!=self.project['control_policy']:
+                raise ValueError('Adaptive project cannot omit/change the frozen control policy')
+
+            minimum=self.project.get('control_minimum',0)
+            if minimum and any(config['adaptive'].get('minimum_levels',{}).get(s['id'],0)<minimum
+                               for s in self.data('storyboard')['shots']):
+                raise ValueError('Candidate cannot lower the project control minimum')
+            if any(c.get('channel')!='keyframe_input' for c in config.get('controls',[])):
+                raise ValueError('Automatic workflow uses geometry as keyframe_input; direct video controls require the explicit joint compiler and exact target capability check')
+
+    def adaptive_material_check(self,package,evidence):
+        compiler=self.modules('video-prompt-compiler')
+        proc=subprocess.run([sys.executable,str(compiler/'scripts/control_cli.py'),'material-check',
+            str(package),'--evidence','-','--base',str(self.root)],input=json.dumps(evidence),
+            capture_output=True,text=True)
+        if proc.returncode:
+            raise ValueError('Adaptive control materials blocked: '+(proc.stdout or proc.stderr)[-2400:])
+        report=json.loads(proc.stdout)
+        if report.get('status')!='CONTROL_MATERIALS_VERIFIED':raise ValueError('Unexpected control material status')
+        return report
+
+    def adaptive_delivery_gate(self):
+        self.require_v5()
+        if not self.project.get('control_policy'):return None
+        try:
+            if not self.valid('storyboard'):raise ValueError('Current native storyboard required')
+            plan=self.adaptive_plan(self.data('storyboard'))
+            if plan['status']=='BLOCKED':raise ValueError('Unresolved native control facts')
+            if not plan['control_required']:return None
+            record=self.state.get('control') or {}
+            if (record.get('status')!='READY' or record.get('policy')!=plan['policy']
+                    or record.get('storyboard_sha256')!=self.state['artifacts']['storyboard']['sha256']):
+                raise ValueError('Current adaptive control package is not accepted')
+            package=self.path(record['uri'])
+            if digest_file(package/'package-manifest.json')!=record['package_manifest_sha256']:
+                raise ValueError('Accepted control package changed')
+            self.adaptive_config_check(read(package/'control-config.json'))
+            if self.project['delivery']=='full':
+                materials=self.adaptive_material_check(package,{'adaptive_evidence':record.get('adaptive_evidence',[])})
+                if digest(materials)!=record.get('materials_sha256'):
+                    raise ValueError('Accepted render evidence or frame mapping changed')
+                required={r['shot_id'] for r in record['adaptive']['shots'] if r['level']>=3}
+                if any(s['id'] in required and not s.get('panels') for s in self.data('storyboard')['shots']):
+                    raise ValueError('Geometry-controlled shots require consumed clean storyboard panels')
+                state=self.state
+                for job in self.image_jobs(7):
+                    if job['shot_id'] not in required:continue
+                    media=state['media'].get(job['key'])
+                    if not media or not self.media_valid(media,state) or media['input_fingerprint']!=job['fingerprint']:
+                        raise ValueError('Current geometry has not been consumed by reviewed panel: '+job['key'])
+            else:
+                compiler=self.modules('video-prompt-compiler')
+                proc=subprocess.run([sys.executable,str(compiler/'scripts/control_cli.py'),'verify',str(package)],capture_output=True,text=True)
+                if proc.returncode:raise ValueError('Frozen planned control package changed')
+        except (ValueError,OSError,KeyError,TypeError) as error:
+            return {'status':'BLOCKED','reason':str(error),'repair_owner':'control'}
+        return None
+
     def accept_control(self,result,state):
         config_path=result.get('config')
         if not config_path or not Path(config_path).is_file():
             raise ValueError('Shot control requires a control config file')
+        config=read(Path(config_path))
+        self.adaptive_config_check(config)
         storyboard=self.data('storyboard')
         avir,report=storyboard_to_avir(storyboard,self.root)
         if report.get('status')=='BLOCKED':
@@ -868,19 +978,32 @@ class V5Kernel:
         self.write('runtime/control-source.json',avir)
         compiler=self.modules('video-prompt-compiler')
         out=self.root/'artifacts'/'control'
-        if out.exists():shutil.rmtree(out)
-        build=subprocess.run([sys.executable,str(compiler/'scripts'/'vpc.py'),'control','build',str(source),'--config',str(config_path),'--out',str(out)],capture_output=True,text=True)
-        if build.returncode:raise ValueError('Shot control build failed: '+(build.stderr or build.stdout)[-800:])
+        if self.project.get('control_policy'):
+            out=out/digest([avir,config])
+        elif out.exists():shutil.rmtree(out)
+        if not out.exists():
+            build=subprocess.run([sys.executable,str(compiler/'scripts'/'vpc.py'),'control','build',str(source),'--config',str(config_path),'--out',str(out)],capture_output=True,text=True)
+            if build.returncode:raise ValueError('Shot control build failed: '+(build.stderr or build.stdout)[-800:])
         verify=subprocess.run([sys.executable,str(compiler/'scripts'/'control_cli.py'),'verify',str(out)],capture_output=True,text=True)
         if verify.returncode:raise ValueError('Shot control verify failed: '+(verify.stderr or verify.stdout)[-800:])
         declared=result.get('validator') or {}
         fresh=json.loads(verify.stdout)
         if declared.get('status')!=fresh.get('status'):
             raise ValueError('Shot control verify summary does not match a fresh run')
+        uri=out.relative_to(self.root).as_posix()
         state['control']={'status':'READY','storyboard_sha256':state['artifacts']['storyboard']['sha256'],
-            'uri':'artifacts/control','keyframe_requests':'artifacts/control/keyframe-requests.json','audit':'audited'}
+            'uri':uri,'keyframe_requests':uri+'/keyframe-requests.json','audit':'audited'}
+        if self.project.get('control_policy'):
+            materials=({'status':'PLANNED_NOT_RENDERED','model_execution':'NOT_RUN'} if self.project['delivery']=='text-only'
+                else self.adaptive_material_check(out,result))
+            state['control'].update(policy=self.project['control_policy'],
+                package_manifest_sha256=digest_file(out/'package-manifest.json'),
+                adaptive=read(out/'control-plan.json')['adaptive'],
+                adaptive_evidence=result.get('adaptive_evidence',[]),materials=materials,materials_sha256=digest(materials))
 
     def audit_delivery_errors(self,errors):
+        adaptive=self.adaptive_delivery_gate()
+        if adaptive:errors.append(adaptive['reason'])
         state=self.state
         for slot,record in state['artifacts'].items():
             if record.get('needs_review') or record.get('audit') in ('unaudited','needs_review'):
@@ -972,6 +1095,10 @@ class V5Kernel:
 
     def accept_media(self,task,result):
         job=task['job'];media=result['media'];path=Path(media['path']).expanduser().resolve()
+        if self.project.get('control_policy') and job['stage']==7:
+            current=next((j for j in self.image_jobs(7) if j['key']==job['key']),None)
+            if not current or current['fingerprint']!=job['fingerprint']:
+                raise ValueError('Geometry/panel input changed since image dispatch')
         if not self.prompt_valid(task['prompt']):raise ValueError('Image prompt file changed')
         if path.suffix.lower() not in ('.png','.jpg','.jpeg','.webp'):
             raise ValueError('A still PNG, JPEG or WebP image is required')
@@ -1104,6 +1231,13 @@ class V5Kernel:
         state=self.state
         if target:
             self.project.update(target=target,mode=mode or self.project['mode']);self.write('project.json',self.project)
+        elif kind=='control' and self.project.get('control_policy'):
+            if not state.get('control'):raise ValueError('No control package to revise')
+            if shot_id and shot_id not in {s['id'] for s in self.data('storyboard')['shots']}:
+                raise ValueError('Unknown control repair shot')
+            self.write('history/control-'+digest(state['control'])+'.json',state['control'])
+            state['control']['status']='INVALIDATED'
+            state['revision_scope']={'shot_ids':[shot_id] if shot_id else []}
         elif asset_id:
             if asset_id not in state['media']:raise ValueError('Unknown media asset')
             state['media'][asset_id]['invalidated']=True;state['prompts'].pop(asset_id,None)
@@ -1151,11 +1285,14 @@ class V5Kernel:
             'modules':read(self.root/'modules.lock.json'),
             'control': {'state': control, 'files': control_files},
             'output_profile':self.project.get('workflow_profile','audit'),
+            'control_policy':self.project.get('control_policy'),
             'runtime_code':runtime_code_hashes()})
 
     @mutate
     def compile(self,mapping=None):
         if not self.valid('storyboard'):raise ValueError('Current validated storyboard is required')
+        adaptive=self.adaptive_delivery_gate()
+        if adaptive:return adaptive
         state=self.state;sb=self.data('storyboard')
         source=self.path(state['artifacts']['storyboard']['uri'])
         if mapping is not None:
@@ -1326,7 +1463,11 @@ class V5Kernel:
             if not self.prompt_valid(prompt):errors.append('Image prompt missing or changed: '+key)
         for slot,record in state['artifacts'].items():
             if not self.valid(slot,state):errors.append('Missing, changed or stale artifact: '+slot)
-        current_keys={j['key'] for stage in (5,7) for j in self.image_jobs(stage)} if self.valid('storyboard') else set(state['media'])
+        current_jobs=[]
+        if self.valid('storyboard'):
+            try:current_jobs=self.image_jobs(5)+self.image_jobs(7)
+            except (ValueError,OSError,KeyError) as error:errors.append('Control input binding: '+str(error))
+        current_keys={j['key'] for j in current_jobs} if self.valid('storyboard') else set(state['media'])
         for media in state['media'].values():
             if self.project['delivery']=='full' and media['key'] in current_keys and not self.media_valid(media,state):
                 errors.append('Missing, changed or stale media: '+media['key'])
@@ -1339,7 +1480,7 @@ class V5Kernel:
                 for scene in self.data('director')['scenes']:
                     if not self.valid('art:'+scene['id']):errors.append('Missing art scene: '+scene['id'])
             if self.project['delivery']=='full' and self.valid('storyboard'):
-                for job in self.image_jobs(5)+self.image_jobs(7):
+                for job in current_jobs:
                     if job['brief'].get('state_evaluation', {}).get('status') == 'NEEDS_KEY_POSE':
                         errors.append('Panel key pose missing: '+job['key'])
                     media=state['media'].get(job['key'])

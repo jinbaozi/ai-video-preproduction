@@ -24,6 +24,8 @@ ai-comic-drama step ./rain-letter --result ./result.json
 
 最终从 `delivery/index.md` 获取实际分段、投喂正文、附件和验收依据。`step` 不是一次命令自动生成整片的模型客户端。
 
+新 `start` 按镜头风险选择最少控制素材：简单镜头不做白模，接触/遮挡用事件几何帧，耦合运动用连续白模预演。几何帧必须成为分镜图的真实输入，不止存放在目录中；未知轨迹、失效素材和未支持通道仍阻断。详情见[自适应控制](video-prompt-compiler/references/adaptive-control.md)和[对抗审查记录](audit/adaptive-control.md)。
+
 ## 两种执行路径
 
 | 入口 | 用途 | 审阅方式 |

@@ -161,6 +161,26 @@
     },
     "look_design": {
       "type": "object"
+    },
+    "adaptive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy"
+      ],
+      "properties": {
+        "policy": {
+          "const": "adaptive-control/1.0"
+        },
+        "minimum_levels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 4
+          }
+        }
+      }
     }
   },
   "required": [
