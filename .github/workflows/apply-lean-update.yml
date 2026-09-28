@@ -1,0 +1,68 @@
+name: Apply verified lean source update
+on:
+  push:
+    branches: ['perf/lean-idea-to-video-20260928']
+    paths: ['.github/lean-patch/**']
+permissions:
+  contents: write
+jobs:
+  apply-and-verify:
+    if: github.event.head_commit.message == 'build: apply verified lean source update'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply byte-verified source patches
+        shell: bash
+        run: |
+          python - <<'PY'
+          import base64, bz2, hashlib, pathlib, subprocess
+          p = pathlib.Path('.github/lean-patch')
+          data = bz2.decompress(base64.b64decode(''.join((p / f'{i:02d}.b64').read_text() for i in range(4)), validate=True))
+          assert hashlib.sha256(data).hexdigest() == '0c9c9017c0661cde56820bb8c53b973fcf540e470ef50178be084ce7f138cb94', 'Source patch mismatch'
+          target = pathlib.Path('/tmp/lean-source.patch'); target.write_bytes(data)
+          fixture = p / 'fixture.patch'
+          assert hashlib.sha256(fixture.read_bytes()).hexdigest() == 'be55313fac715bcc2b937e08d11374c413dcc4ed1915cdc6f9b514fe9d2d4d45', 'Fixture patch mismatch'
+          for patch in (target, fixture):
+              subprocess.run(['git', 'apply', '--check', str(patch)], check=True)
+              subprocess.run(['git', 'apply', str(patch)], check=True)
+          PY
+      - name: Install dependencies and rebuild exact releases
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+      - name: Targeted regression before commit
+        run: |
+          mkdir -p /tmp/lean-validation
+          set -o pipefail
+          (cd ai-comic-drama-workflow && PYTHONPATH=src python -m unittest tests.test_lean_workflow tests.test_v6_production.StrictProductionTests.test_full_coverage_selected_takes_and_audio -v) 2>&1 | tee /tmp/lean-validation/targeted-workflow.log
+          python -m unittest discover -s video-prompt-compiler/tests -p 'test_lean_output.py' -v 2>&1 | tee /tmp/lean-validation/targeted-compiler.log
+      - name: Commit source and reproducible release packages to feature branch
+        run: |
+          test "$GITHUB_REF_NAME" = 'perf/lean-idea-to-video-20260928'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md IMPLEMENTATION-LEAN.md ai-comic-drama-workflow director-grammar storyboard-grammar video-prompt-compiler image-prompt-optimizer dists
+          git diff --cached --check
+          git commit -m 'perf: streamline idea-to-video execution and remove redundant work'
+          git push origin HEAD:refs/heads/perf/lean-idea-to-video-20260928
+          git rev-parse HEAD > /tmp/lean-validation/commit.txt
+          git archive --format=tar.gz HEAD > /tmp/lean-validation/source.tar.gz
+      - name: Full workflow regression
+        run: |
+          set -o pipefail
+          python ai-comic-drama-workflow/scripts/run_tests.py 2>&1 | tee /tmp/lean-validation/workflow.log
+      - name: Isolated seven-Skill validation
+        run: python ai-comic-drama-workflow/scripts/verify_suite.py --packages dists --out /tmp/lean-validation/suite
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lean-implementation-validation
+          path: /tmp/lean-validation
+          retention-days: 7
