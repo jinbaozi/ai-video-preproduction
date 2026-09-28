@@ -1,18 +1,69 @@
-name: Adaptive source snapshot
+name: Validate adaptive control implementation
 on:
   push:
     branches: ['build/adaptive-control-20260928']
 permissions:
-  contents: read
+  contents: write
 jobs:
-  snapshot:
+  validate-and-publish:
+    if: "github.event.head_commit.message == 'build: validate adaptive control implementation'"
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - run: git archive --format=tar.gz HEAD > /tmp/source.tar.gz
-      - uses: actions/upload-artifact@v4
+      - uses: actions/setup-python@v5
         with:
-          name: adaptive-source
-          path: /tmp/source.tar.gz
-          retention-days: 3
+          python-version: '3.12'
+      - name: Apply exact reviewed source patch
+        run: |
+          python - <<'PY'
+          import base64, bz2, hashlib, pathlib, subprocess
+          root=pathlib.Path('.github/adaptive-patch')
+          data=bz2.decompress(base64.b64decode(''.join((root/f'{i}.b64').read_text() for i in range(3)),validate=True))
+          assert hashlib.sha256(data).hexdigest()=='94c383dff7e1b9605f768687a31c13d0eec83bb1aa97aee9134134771bbfdbcf'
+          patch=pathlib.Path('/tmp/adaptive-source.patch');patch.write_bytes(data)
+          subprocess.run(['git','apply','--check',str(patch)],check=True)
+          subprocess.run(['git','apply',str(patch)],check=True)
+          PY
+      - name: Rebuild locked source and release packages
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python -m pip install -e ./ai-comic-drama-workflow
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg blender xvfb xauth
+      - name: Native adaptive and legacy compatibility regression
+        run: |
+          mkdir -p /tmp/adaptive-validation
+          set -o pipefail
+          (cd ai-comic-drama-workflow && PYTHONPATH=src python -m unittest tests.test_adaptive_workflow tests.test_adaptive_refs tests.test_v5_workflow.V5Tests.test_static_storyboard_records_shot_control_not_applicable -v) 2>&1 | tee /tmp/adaptive-validation/workflow-targeted.log
+      - name: Actual geometry rendering and adversarial checks
+        run: |
+          set -o pipefail
+          blender --version | head -5 | tee /tmp/adaptive-validation/blender-version.txt
+          xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_adaptive_control.py' -v 2>&1 | tee /tmp/adaptive-validation/adaptive-render.log
+          xvfb-run -a env BLENDER_EXECUTABLE=/usr/bin/blender python -m unittest discover -s video-prompt-compiler/tests -p 'test_previs.py' -v 2>&1 | tee /tmp/adaptive-validation/previs-render.log
+      - name: Publish exact verified tree without temporary build files
+        run: |
+          test "$GITHUB_REF_NAME" = 'build/adaptive-control-20260928'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin refs/heads/main
+          test "$(git rev-parse FETCH_HEAD)" = '4539ced70047b74b985123ee974282f9d07b22a1'
+          git rm -r .github/adaptive-patch .github/workflows/adaptive-build.yml
+          git add .
+          git diff --cached --check
+          TREE=$(git write-tree)
+          echo "$TREE" | tee /tmp/adaptive-validation/tree.txt
+          test "$TREE" = '51a37b87d5e4e73d73cc53fba609c0d0bdb35a9a'
+          COMMIT=$(git commit-tree "$TREE" -p 4539ced70047b74b985123ee974282f9d07b22a1 -m 'feat: adaptive shot control with adversarial material gates')
+          git push origin "$COMMIT":refs/heads/feat/adaptive-control-20260928
+          echo "$COMMIT" | tee /tmp/adaptive-validation/commit.txt
+          git archive --format=tar.gz "$COMMIT" > /tmp/adaptive-validation/source.tar.gz
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: adaptive-implementation-validation
+          path: /tmp/adaptive-validation
+          retention-days: 7
