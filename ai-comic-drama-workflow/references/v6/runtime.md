@@ -1,6 +1,6 @@
 # V6 Codex 编排执行接口
 
-V6 是项目的编排协议：项目存储继续使用 `schema_version=5.0`，原生 ScriptIR、DirectorIR、ArtIR、StoryboardIR 和 AVIR 沿用各自版本。发行套装版本为 `0.11.0`，复用的原生 IR 与校验合同仍为 `0.10.0`。新项目默认 `orchestration_protocol=6.0`、`execution_mode=codex-agents`。旧 V5 项目继续原协议；新建项目若明确要旧流程，可用 `init ... --orchestration current-agent`。旧项目通过 `migrate-v6 OLD --destination NEW` 复制进入新协议：保留原件与迁移报告；旧成果只有经过 V6 来源验证和复核才能接受，缺少的执行和审阅证据不能补写成虚构历史。
+V6 是项目的编排协议：项目存储继续使用 `schema_version=5.0`，原生 ScriptIR、DirectorIR、ArtIR、StoryboardIR 和 AVIR 沿用各自版本。发行套装版本为 `0.12.0`，复用的原生 IR 与校验合同仍为 `0.10.0`。`init` 或 `start --profile audited` 新建的项目使用 `orchestration_protocol=6.0`、`execution_mode=codex-agents`；新的 `start` 默认走 [lean 当前 Agent 路径](../lean.md)，不走本页的独立审阅协议。旧 V5 项目继续原协议；新建项目若明确要旧流程，可用 `init ... --orchestration current-agent`。旧项目通过 `migrate-v6 OLD --destination NEW` 复制进入新协议：保留原件与迁移报告；旧成果只有经过 V6 来源验证和复核才能接受，缺少的执行和审阅证据不能补写成虚构历史。
 
 ## 唯一阶段图
 

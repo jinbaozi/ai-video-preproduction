@@ -1,7 +1,7 @@
 interface:
-  display_name: "六技能协作工作流 V5"
-  short_description: "当前 Agent 串联导演、美术、实际参考图、分镜与视频提示词，可恢复并复用独立制作包"
-  default_prompt: "使用 $ai-comic-drama-workflow，根据我的资料完成参考图与视频提示词制作包；复用已有成果，普通阶段自动继续，只在必要决定时询问。"
+  display_name: "七技能创意到视频工作流"
+  short_description: "一句话启动轻量连续执行，保留控制与验收，按需切换独立审阅"
+  default_prompt: "使用 $ai-comic-drama-workflow，从我的创意开始以 lean 模式连续完成参考图、分镜、模型提示词和附件包；只生成镜头所需素材，不输出冗余过程报告。需要独立审阅时用 audited，要求成片时继续实际视频生产与验收。"
 
 policy:
   allow_implicit_invocation: true

@@ -6,10 +6,14 @@ description: >
   模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.17.7"
+  version: "1.18.0"
 ---
 
 # Video Prompt Compiler
+
+## 输出精简
+
+`compile --output-profile lean` 只省略重复审计投影；原生规格、完整正文、约束覆盖、真实分段与校验不变。独立调用默认 `audit` 保持原输出，`replay` 继承原包模式。静态通过不证明视频画质或目标入口执行。
 
 ## V6 总工作流协作
 

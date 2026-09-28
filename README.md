@@ -1,6 +1,19 @@
-# 七技能套装 V6
+# 七技能创意到视频套装
 
-七个入口各自可用，总工作流另外携带六个专业模块的锁定包。新项目默认采用 V6 编排协议：内核确定任务和状态门，Codex 宿主真实派发专业子智能体，独立审阅者复核候选。旧 V5 项目保留原协议。`hypit-ai` 保持原状。
+七个入口各自可用，总工作流另外携带六个专业模块的锁定包。一句话/创意新任务默认用 **lean** 连续执行；需要独立审阅时显式用 **audited/V6**。兼容入口 `init` 仍采用 V6 编排协议：内核确定任务和状态门，Codex 宿主真实派发专业子智能体，独立审阅者复核候选。旧 V5 项目保留原协议。`hypit-ai` 保持原状。
+
+## 一句话启动，少过程文件
+
+```text
+使用 $ai-comic-drama-workflow：成年旅人雨夜拾起信封，街灯由冷转暖，焦点从信封移向他的表情。
+目标入口 Agnes Video 2.5；默认 lean 连续完成参考图、分镜、提示词和附件包。
+只制作镜头实际需要的资产；保留人物、动作、光色、转焦与声音控制。普通阶段不要反复确认。
+```
+
+宿主使用 `ai-comic-drama start "创意" --project ./project --target agnes-video-2.5`，
+按任务创作后以 `step ./project --result result.json` 连续推进。最终打开 `delivery/index.md`。
+Python 不创作故事、不调用未登记模型；缺媒体不自动降级为纯文本，前期完成不冒充真实成片。
+[轻量路径、输出与边界](ai-comic-drama-workflow/references/lean.md) · [本次实施与验证](IMPLEMENTATION-LEAN.md)
 
 ## 完整制作从哪里进
 
@@ -28,7 +41,7 @@
 
 ```text
 使用 $ai-comic-drama-workflow，按这份资料制作完整前期包，目标入口 Agnes Video 2.5。
-按 V6 编排专业子智能体与独立审阅；复用已有有效内容，保留来源、对白与实体 ID。
+默认 lean 连续完成；需要独立审阅时选择 audited。复用已有有效内容，保留来源、对白与实体 ID。
 交付实际参考图、分镜、可复制视频提示词、附件表和验收记录。
 ```
 
@@ -38,7 +51,7 @@
 
 [工作流用法](ai-comic-drama-workflow/README.md) · [V6 执行接口](ai-comic-drama-workflow/references/v6/runtime.md) · [V5 旧接口](ai-comic-drama-workflow/references/v5/runtime.md) · [验收边界](ai-comic-drama-workflow/references/v5/verification.md)
 
-发行目录为 [dists](dists/)，包含 7 个 `.skill`、各自的 manifest 与 SHA-256，以及 suite-manifest。安装时选择需要的入口即可；总工作流无需安装相邻专业目录。V6 源码与文档变更后的发行包须重新构建并验证，不能把旧包当成当前版本。
+发行目录为 [dists](dists/)，包含 7 个 `.skill`、各自的 manifest 与 SHA-256，以及 suite-manifest。安装时选择需要的入口即可；总工作流无需安装相邻专业目录。源码与文档变更后的发行包须重新构建并验证，不能把旧包当成当前版本。
 
 
 ## 两个交付终点
