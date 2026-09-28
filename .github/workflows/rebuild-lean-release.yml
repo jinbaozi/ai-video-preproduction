@@ -1,0 +1,38 @@
+name: Rebuild environment-independent lean release
+on:
+  push:
+    branches: ['perf/lean-idea-to-video-20260928']
+permissions:
+  contents: write
+jobs:
+  package:
+    if: "github.event.head_commit.message == 'build: exclude installation metadata and rebuild clean release'"
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild and verify environment independence
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          (cd ai-comic-drama-workflow && PYTHONPATH=src python -m unittest tests.test_skill_archive -v)
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          cp -a dists /tmp/lean-first-build
+          find ai-comic-drama-workflow/src -name '*.egg-info' -type d -prune -exec rm -r {} +
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          diff -r /tmp/lean-first-build dists
+      - name: Publish clean descendant to feature branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin refs/heads/perf/lean-workflow-20260928
+          test "$(git rev-parse FETCH_HEAD)" = 'a1e00cc1c96d88719ea2414ffce998f9ac6e0144'
+          git rm .github/workflows/rebuild-lean-release.yml
+          git add ai-comic-drama-workflow dists
+          git diff --cached --check
+          TREE=$(git write-tree)
+          COMMIT=$(git commit-tree "$TREE" -p a1e00cc1c96d88719ea2414ffce998f9ac6e0144 -m 'fix: exclude installation metadata from reproducible Skill releases')
+          git push origin "$COMMIT":refs/heads/perf/lean-workflow-20260928
+          echo "Published $COMMIT with tree $TREE"

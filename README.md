@@ -1,123 +1,77 @@
 # 七技能创意到视频套装
 
-七个入口各自可用，总工作流另外携带六个专业模块的锁定包。一句话/创意新任务默认用 **lean** 连续执行；需要独立审阅时显式用 **audited/V6**。兼容入口 `init` 仍采用 V6 编排协议：内核确定任务和状态门，Codex 宿主真实派发专业子智能体，独立审阅者复核候选。旧 V5 项目保留原协议。`hypit-ai` 保持原状。
+从一句话或创意制作参考图、分镜、可复制的视频提示词和附件包；有真实执行入口时，继续生成、回收和验收视频。七个专业职责保留，简单任务不再默认拆成七个子智能体。总工作流自带六个专业模块，`hypit-ai` 保持原状。
 
-## 一句话启动，少过程文件
+## 一句话开始
 
 ```text
 使用 $ai-comic-drama-workflow：成年旅人雨夜拾起信封，街灯由冷转暖，焦点从信封移向他的表情。
-目标入口 Agnes Video 2.5；默认 lean 连续完成参考图、分镜、提示词和附件包。
+目标入口 Agnes Video 2.5；用默认 lean 连续完成参考图、分镜、提示词和附件包。
 只制作镜头实际需要的资产；保留人物、动作、光色、转焦与声音控制。普通阶段不要反复确认。
 ```
 
-宿主使用 `ai-comic-drama start "创意" --project ./project --target agnes-video-2.5`，
-按任务创作后以 `step ./project --result result.json` 连续推进。最终打开 `delivery/index.md`。
-Python 不创作故事、不调用未登记模型；缺媒体不自动降级为纯文本，前期完成不冒充真实成片。
-[轻量路径、输出与边界](ai-comic-drama-workflow/references/lean.md) · [本次实施与验证](IMPLEMENTATION-LEAN.md)
+用户不需要填写 JSON。ChatGPT/Codex 宿主按任务调用专业技能、实际生成并审阅媒体；Python 内核管理原生结果、状态、来源和校验，不代替创作，也不自动调用未登记的模型。
 
-## 完整制作从哪里进
+安装工作流目录后，宿主使用：
 
-完整制作的入口是 [ai-comic-drama-workflow/SKILL.md](ai-comic-drama-workflow/SKILL.md)。阶段、责任、依赖、检查与适用条件来自 [workflow-v6.json](ai-comic-drama-workflow/workflow-v6.json)。
-
-运行 `ai-comic-drama graph --format mermaid` 可从这份可执行定义直接生成 V6 流程图；`--format json` 可同时查看节点字段。
-
-`run` 返回待执行动作；Codex 宿主派发真实子智能体，登记派发回执、消息、候选结果和独立审阅。专业智能体只在自己的候选目录工作，正式产物和状态由内核提交。`ACCEPTED` 需要冻结输入、真实执行身份、专业检查、完整交接与独立审阅都通过；`NOT_APPLICABLE` 也必须有规则与证据。详见 [V6 执行接口](ai-comic-drama-workflow/references/v6/runtime.md)。
-
-| 入口 | 独立使用示例 | 协作职责 |
-|---|---|---|
-| ai-comic-drama-workflow | 根据原文制作参考图、分镜和视频提示词完整包 | 唯一项目入口，管理事实、资产、决定和版本 |
-| screenplay-grammar | 一句话生成中文/国风故事或剧本，补全润色扩写 | 故事因果、人物认知、信息约束与台词 |
-| director-grammar | 为这段剧本设计信息显露、关键表演与镜头原则 | 决定与锁定 |
-| production-design-grammar | 为这个场景设计角色服装、空间、道具与光源 | 世界与逐镜美术约束 |
-| storyboard-grammar | 直接把这段原文细化为三镜分镜 | 细化未锁镜头、动作、画格和连续性 |
-| video-prompt-compiler | 把这条镜头需求编成可复制模型提示词 | 冻结分镜到模型提示词与附件的唯一出口 |
-| image-prompt-optimizer | 优化这张角色参考图的生成或编辑提示词 | 保持设计，改善图片提示表达与约束检查 |
-
-所有专业技能：轻量需求直接给正文；完整任务由Agent整理原生格式并运行脚本，用户不需要填写JSON。没有上游时可以在用户范围内设计补充，并区分事实和设计来源。
-
-复杂镜头的图片交接支持冻结宿主输入和登记实收关键帧：`keyframe-stage` 保存请求、提示词与有序参考副本，`keyframe-receive` 核对返回文件并保留逐项审图状态。它们不调用模型，也不自动写入审核通过或上传成功；详见[镜头控制合同](video-prompt-compiler/references/shot-control.md)。
-
-完整调用：
-
-```text
-使用 $ai-comic-drama-workflow，按这份资料制作完整前期包，目标入口 Agnes Video 2.5。
-默认 lean 连续完成；需要独立审阅时选择 audited。复用已有有效内容，保留来源、对白与实体 ID。
-交付实际参考图、分镜、可复制视频提示词、附件表和验收记录。
+```sh
+python -m pip install -e ./ai-comic-drama-workflow
+ai-comic-drama start '成年旅人雨夜拾起信封，街灯由冷转暖。' \
+  --project ./rain-letter --target agnes-video-2.5 --delivery full
+# 宿主读取返回的 task_file / required_reads，创作当前原生结果，然后连续推进：
+ai-comic-drama step ./rain-letter --result ./result.json
 ```
 
-独立成果接续：保留原生包 `project_id` 和来源证据，进入相应节点验证与复核后复用；导入本身不直接满足完成门。总包内置模块与独立发行包应是同一构建结果，项目不会被全局安装升级静默改变。
+最终从 `delivery/index.md` 获取实际分段、投喂正文、附件和验收依据。`step` 不是一次命令自动生成整片的模型客户端。
 
-旧项目：原件按 V5 协议继续；运行 `ai-comic-drama migrate-v6 OLD --destination NEW` 复制迁移。副本保留原字节、真实图片和原决定证据；旧成果经 V6 来源验证与复核后才能接受，缺少的派发或审阅证据不补写历史。
+## 两种执行路径
 
-[工作流用法](ai-comic-drama-workflow/README.md) · [V6 执行接口](ai-comic-drama-workflow/references/v6/runtime.md) · [V5 旧接口](ai-comic-drama-workflow/references/v5/runtime.md) · [验收边界](ai-comic-drama-workflow/references/v5/verification.md)
+| 入口 | 用途 | 审阅方式 |
+|---|---|---|
+| `start` / `start --profile lean` | 一句话创意、快速连续制作；当前宿主承担专业职责 | 原生检查与当前 Agent 语义/交付复核，不冒充独立审阅 |
+| `start --profile audited` | 明确需要专业子智能体分工和独立审阅 | 完整 V6 派发、候选、交接和独立审阅 |
+| 原 `init` | 兼容现有脚本 | 仍默认 V6，不静默降级 |
 
-发行目录为 [dists](dists/)，包含 7 个 `.skill`、各自的 manifest 与 SHA-256，以及 suite-manifest。安装时选择需要的入口即可；总工作流无需安装相邻专业目录。源码与文档变更后的发行包须重新构建并验证，不能把旧包当成当前版本。
+lean 的宿主节奏是：**创意与镜头收敛 → 必要素材 → 模型编译与交付复核 → 交付/真实生产**。它不是新的内容 IR，也不伪造内核节点合并。Canon、ScriptIR、DirectorIR、ArtIR、StoryboardIR、AVIR 的依赖、锁、原生校验与收据仍逐项执行。
 
+audited/V6 的阶段图来自 [workflow-v6.json](ai-comic-drama-workflow/workflow-v6.json)，可用 `ai-comic-drama graph --format mermaid` 查看。此模式的正式接受要求真实派发身份、候选证据和独立审阅；`NOT_APPLICABLE` 也须有条件和证据。旧 V5/V6 项目保留原协议，不因安装新版而迁移。
+
+[Lean 执行合同](ai-comic-drama-workflow/references/lean.md) · [原生接口](ai-comic-drama-workflow/references/v5/runtime.md) · [V6 接口](ai-comic-drama-workflow/references/v6/runtime.md)
+
+## 七个专业入口
+
+| Skill | 职责 |
+|---|---|
+| [ai-comic-drama-workflow](ai-comic-drama-workflow/SKILL.md) | 唯一项目入口，管理事实、资产、决定、版本和交付 |
+| [screenplay-grammar](screenplay-grammar/SKILL.md) | 故事因果、人物认知、信息约束与台词 |
+| [director-grammar](director-grammar/SKILL.md) | 表演、叙事显露、视听原则与导演锁定 |
+| [production-design-grammar](production-design-grammar/SKILL.md) | 角色服装、空间、道具、材质与光源 |
+| [image-prompt-optimizer](image-prompt-optimizer/SKILL.md) | 保持设计，优化图像表达与参考素材控制 |
+| [storyboard-grammar](storyboard-grammar/SKILL.md) | 逐镜动作、画格、空间和镜头连续性 |
+| [video-prompt-compiler](video-prompt-compiler/SKILL.md) | 冻结分镜到模型提示词与附件的唯一出口 |
+
+各入口可独立使用。没有上游时，允许在用户范围内设计并标明来源；已有成果先验证其原生来源与有效性，再复用，导入不等于通过验收。
+
+## 少文件，不少质量依据
+
+lean 不再默认写出重复的制作规格、上下文、覆盖/损失报告等旁路副本；权威 `avir.json`、完整 `artifact.json`、能力快照、完整性清单和实际分段交付仍保留。成功事务清理自己的恢复备份，失败恢复继续保留证据，不自动删除旧项目或历史原件。
+
+素材按实际消费用途规划，不默认凑齐所有多视图、空镜、LUT 或白模。已经接受为必需的资产不能跳过。多主体交互、接触与复杂运镜继续触发既有 [镜头控制合同](video-prompt-compiler/references/shot-control.md)；来源、身份、动作、光色、转焦、声音及连续性要求不因精简而删除。
+
+未知能力、内容篡改、过期审阅和缺失媒体仍会阻塞。静态检查通过不代表模型已经遵从，也不保证实际画质。
 
 ## 两个交付终点
 
-`full` 与 `text-only` 仍区分前期包是否需要实际参考图。V6 的 `text-only` 对图片提示词与媒体节点留 `NOT_APPLICABLE` 记录，前期检查和审阅通过后记 `DELIVERED`。旧项目没有 `production_target` 时仍按原协议的 `none` 处理。
+`full` 默认需要真实参考图；`text-only` 只有用户明确要求时使用，缺图不能自动降级。
 
-`production_target=video` 才进入成片链：冻结执行请求、真实提交或人工回收、Take 复探测、逐镜与相邻验收、总装和整片审阅。验收计划、选定 Take 与最终输出字节必须仍匹配，通过后才记 `VIDEO_DELIVERED`。编译产物里的 `submitted=false` 保持原样，执行状态写在生产台账。
+`DELIVERED` 表示前期包完成。`production_target=video` 还要完成真实提交或人工回收、Take 复探测、逐镜/相邻验收、总装和整片审阅；当前输出字节与冻结证据一致后才能成为 `VIDEO_DELIVERED`。`DRAFT_REQUIRES_TARGET_CHECK` 不是执行就绪，`submitted=false` 也不能写成已生成。
 
-能力以注册表生成的 [能力矩阵](video-prompt-compiler/references/capability-matrix.md) 为准。文本适配不等于该模型已能执行或已通过质量验证。
+模型能力以锁定注册表及 [能力矩阵](video-prompt-compiler/references/capability-matrix.md) 为准。当前具体执行边界见 [执行合同](video-prompt-compiler/references/current-contract.md)。三镜静态样板在 `ai-comic-drama-workflow/examples/production/envelope-3shot/`；不提供真实入口/媒体时，真实视频状态保持 `NOT_RUN`。
 
-当前规则见 [当前执行合同](video-prompt-compiler/references/current-contract.md)。V5.1 至 V5.3 的增量说明在 [迁移](ai-comic-drama-workflow/references/v5/migration.md)。
+## 安装、验证与历史
 
-三镜样板：`ai-comic-drama-workflow/examples/production/envelope-3shot/`。没有 `AGNES_API_KEY` 和可访问附件时，真实视频保持 NOT_RUN。
+[dists](dists/) 包含七个 `.skill`、各自 manifest/SHA-256 和套装清单。总包内置模块必须与独立包字节一致，源码修改后须重建，不能把旧发行包当作当前版本。具体用法见 [工作流 README](ai-comic-drama-workflow/README.md)。
 
-## 历史增量
+本次方案、变更和静态实测见 [IMPLEMENTATION-LEAN.md](IMPLEMENTATION-LEAN.md)。CI 并行检查原生工作流、编译器与七包隔离安装；基准不包含 LLM 创作、模型排队/推理和最终画质。
 
-以下段落保留给旧项目重放，不是新任务的默认阅读路径。
-
-## V5.2 使用与边界
-
-新完整制作使用 ScriptIR 1.0 → DirectorIR 1.2 → ArtIR 1.0 → StoryboardIR 1.2 → AVIR 1.2。ArtIR 不重复维护动作时间轨；保留导演原文件绑定和空间/服化道约束。轻量独立任务不强制结构化包。
-
-推荐启动提示词：
-
-```text
-使用 ai-comic-drama-workflow V5.2，根据以下原文、参考和已有制作包完成前期制作。
-目标模型/入口：[填写]；画幅与总时长：[填写]；输出目录：[填写]；交付范围：[完整参考图与提示词包 / 仅文本]。
-必须保持：[角色身份、对白原文、关键动作顺序、服化道等]；允许补充：[既定动作的执行细节等]。
-有参考视频时实际抽帧并查看关键变化，单独登记未听审的声音和未观察范围。
-逐动作保留手别、路径、速度、接触、支撑、控制权、表情与视线，摄影机按分时操作展开。
-对白和声音保留起止时间、说话人、画内/画外/旁白及原生/后期渠道；跨镜一句不重复。
-既有决定沿用，普通修正自动继续。缺少中间姿态先补设计并标来源，不假定物理插值。
-交付完整制作说明、可复制正文、覆盖报告和真实文件名附件表；超限保留完整版并提出拆段。
-分别报告静态检查、实际图片审核、参考视频观察和实际视频执行状态。
-```
-
-已安装技能目录中运行 `python scripts/run_v5_example.py --version v52 --out NEW_DIR` 可重现三镜文本协作样例。它使用预先创作的虚构场景，只验证制作链，不生成视频或证明画质。
-
-独立编译器示例：`python scripts/vpc.py compile examples/v51/cafe.avir.json --target agnes-video-2.5 --mode text --out NEW_DIR`。新版正文保持完整，不静默按字数截断；`segment-plan.json` 中缺少相位/关键姿态的切片保持 BLOCKED，完整切片仍需单独核验入口限制。
-
-V6 新项目有适用的视频来源时，阶段图派发 `reference_observation` 专业任务；观察者用锁定模块提帧并实际查看，登记 `observation-register/6.0`、原始观察文件及哈希，再由独立审阅和内核复核。未观看范围及未听审声音仍是未验证。旧 V5 项目才使用 `NEEDS_REFERENCE_OBSERVATION` 与 `ai-comic-drama import-observation PROJECT OBSERVATION_DIR` 入口。
-
-详见各包自带 [V5.1 细节合同](video-prompt-compiler/references/history/detail-contract-v51.md)。老项目不自动升级模块锁；旧协议读取、原版本重放和新标准达成是三种不同状态。当前结构性检查不能替代语义复核和真实媒体验收。
-
-## V5.2 运动与空间使用
-
-使用时说明：需要控制的主体/部位、运动路径与节奏、身体/头部/视线方向、相对位置的坐标依据、动态构图及遮挡、对白和声音时间、锁定项、目标入口、参考文件及允许补充范围。没有数值依据可用明确相对描述，不要求全部填坐标。
-
-```text
-依据所附原文和参考，使用 V5.2 制作完整参考图与视频提示词包。
-只补齐既定行为的执行细节，不增加剧情或情绪转折。
-人物整体、头部、视线、右手与道具分别保留运动；横移、摇摄、转焦分别定时。
-逐动作写起止状态、路径、速度变化、接触/支撑/控制权及收束；逐时段写动态构图和可见性。
-对白原文、归属、口型和声音起止时间不变。缺少坐标依据使用明确相对描述。
-正文保留全部适用细节；超限给完整稿和拆段方案，未知姿态或连续性不猜测。
-分别交付正文、附件表、覆盖/空间检查和真实媒体状态。
-```
-
-详见 [V5.2 空间合同](video-prompt-compiler/references/history/spatial-contract-v52.md)。原生包升级使用各原生技能内 `scripts/upgrade_spatial.py`，输出新目录中的原件、草案和缺项报告。工作流局部修订增加 `--node-id`、`--track-id`，与既有动作/镜头范围互斥。旧模块锁不会静默更新。
-
-## V5.3 独立编剧接入
-
-新增 screenplay-grammar（中文、国风、一句话故事与剧本、补全润色扩写）。新套件为总工作流加六个专业模块；编剧决定剧情语义，导演负责视听实现。旧项目按原锁继续，显式升级才改用原生 ScriptIR。标准发行在 [dists](dists/)，验收方法与边界见 [验证说明](ai-comic-drama-workflow/references/v5/verification.md)。
-
-## 镜头控制资产 0.1
-
-视频编译器 1.11.0、图片优化器 1.9.0 增加同源调度预览、关键帧请求、编辑差量、事件切点、素材核验、Agnes 模式检查、正文/参数/附件联合编译、按用途失效与返修任务，显式几何 Blender 白模渲染、表演排练卡、分责光色资产、实际 LUT 调色，以及二维媒体观察。使用方法与实装边界见 [镜头控制合同](video-prompt-compiler/references/shot-control.md)。旧项目及 AVIR 版本不迁移，旧 `compile` 输出语义保持；显式使用 `vpc.py control` 启用。
-
-这项镜头控制增量是本地前期工具，包含已实测的几何白模渲染入口；该增量本身没有证明生成模型关键帧、远端视频执行或模型效果。分阶段落实情况见 [实施记录](IMPLEMENTATION-SHOT-CONTROL.md)。
+历史协议按需阅读：[迁移说明](ai-comic-drama-workflow/references/v5/migration.md)、[V5.1 细节](video-prompt-compiler/references/history/detail-contract-v51.md)、[V5.2 空间](video-prompt-compiler/references/history/spatial-contract-v52.md)、[镜头控制实施](IMPLEMENTATION-SHOT-CONTROL.md)。旧项目显式迁移使用 `migrate-v6 OLD --destination NEW`，保留原件；缺少的真实派发或审阅证据不补写虚构历史。
