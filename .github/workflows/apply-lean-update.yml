@@ -2,12 +2,11 @@ name: Apply verified lean source update
 on:
   push:
     branches: ['perf/lean-idea-to-video-20260928']
-    paths: ['.github/lean-patch/**']
 permissions:
   contents: write
 jobs:
   apply-and-verify:
-    if: github.event.head_commit.message == 'build: apply verified lean source update'
+    if: "github.event.head_commit.message == 'build: apply verified lean source update'"
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
