@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "36913615596c143f88fc1226e57e8e9090f8f4b037d0f982dfe2f2828862eef1",
+  "archive_sha256": "6e35350169842ee8064af0e9be159a69b282d2f5d5372c8bf12eb9ce8ba90165",
   "file_count": 109,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
       "bytes": 29752,
-      "sha256": "142ceb296fe2af8152a2d4e0197a00867b16a56d0dd1f4883ae5a467dc3aea68"
+      "sha256": "f621af98e7028cce64b3727597aaf65117f70a452b0fb2166a7fd208fe779acc"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -280,8 +280,8 @@
       "sha256": "ef4a9b594b330c1f3422867f777106d59ee91065d62cf2179405727e98e76973"
     },
     "image-prompt-optimizer/scripts/shot_control/control_plan.py": {
-      "bytes": 9872,
-      "sha256": "066bc081e1ef828f568466e47ffc3d7937b06debe592b2b32748b707b2215d7c"
+      "bytes": 12937,
+      "sha256": "d0a19a9d00e2a9e863e99bfb1351c50c8d2f7648cb70676f5334c62782990753"
     },
     "image-prompt-optimizer/scripts/shot_control/craft.py": {
       "bytes": 16218,
@@ -441,5 +441,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.15.7"
+  "version": "1.15.8"
 }

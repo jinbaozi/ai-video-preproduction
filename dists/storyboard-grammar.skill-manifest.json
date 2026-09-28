@@ -1,11 +1,11 @@
 {
   "archive": "storyboard-grammar.skill",
-  "archive_sha256": "5c989032511440fb847af093bf73167ebd58c60f4f4c6ef0174416ae2b731a6f",
+  "archive_sha256": "059edd07557eb4ab7276e71db185597f66fbd8901b7e7a9bc9686528a9a6c7c2",
   "file_count": 59,
   "files": {
     "storyboard-grammar/SKILL.md": {
       "bytes": 6776,
-      "sha256": "0dea89b5fe64014f964c4ddccf65a2845a4836f5fa0fc649422cb6ea09a413ee"
+      "sha256": "a94c470dd8bb4ee4248442aa91b157187d36f55722632a7d2933527e27c41696"
     },
     "storyboard-grammar/agents/openai.yaml": {
       "bytes": 390,
@@ -192,8 +192,8 @@
       "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
     },
     "storyboard-grammar/scripts/v52_support.py": {
-      "bytes": 10133,
-      "sha256": "9acd5489fe8d9b0dd6a772057e667b1761e01050e383dedfc0bf808ea321efd0"
+      "bytes": 10233,
+      "sha256": "05dc323c6d3d3679cd7c29c75d6521470115865f5f4d3cd4d7120a424adfb414"
     },
     "storyboard-grammar/styles/action.json": {
       "bytes": 942,
@@ -241,5 +241,5 @@
     }
   },
   "name": "storyboard-grammar",
-  "version": "1.3.3"
+  "version": "1.3.4"
 }

@@ -603,7 +603,11 @@ class StrictProductionTests(unittest.TestCase):
                       'output_sha256': result['output_sha256']}
             short = root / 'short.mp4'
             subprocess.check_call(['ffmpeg', '-v', 'error', '-y', '-i', str(output),
-                                   '-vf', 'trim=end_frame=47,setpts=PTS-STARTPTS', '-an', str(short)])
+                                   '-vf', 'trim=end_frame=47,setpts=PTS-STARTPTS',
+                                   '-r', '24', '-fps_mode', 'cfr', '-an', str(short)])
+            # Isolate the frame-count gate; encoder defaults vary between FFmpeg releases.
+            self.assertEqual(_probe(short)['fps'], 24)
+            self.assertEqual(_probe(short)['frames'], 47)
             with self.assertRaisesRegex(ValueError, 'decoded frame count'):
                 ledger.save_assembly({**record, 'id': 'ASM_SHORT', 'probe': _probe(short),
                                       'output_sha256': hashlib.sha256(short.read_bytes()).hexdigest()},

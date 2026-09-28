@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "1a3d2e6d95e35195499b2c81ea8f04f979d537bc0fb0522d698c4dc96870d9c1",
+  "archive_sha256": "46171702df668dfd66e297f11c92e0981d83b32505024992f9d05dff3d53102d",
   "file_count": 64,
   "files": {
     "director-grammar/SKILL.md": {
       "bytes": 8566,
-      "sha256": "ca22158b6ca4c0e654e1df66f25cc02bdfa689869df124bb9ae0b201f1ad2f6f"
+      "sha256": "db77ca9d001733346ece2b9a7996d1132ead2abe8a22b7ccb79d2c3c13d1f157"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -240,8 +240,8 @@
       "sha256": "6262d9613ace2b305aa157d67d6f39ff7ac3526a0858467d76d2e3d778d0e0cd"
     },
     "director-grammar/scripts/v52_support.py": {
-      "bytes": 10133,
-      "sha256": "9acd5489fe8d9b0dd6a772057e667b1761e01050e383dedfc0bf808ea321efd0"
+      "bytes": 10233,
+      "sha256": "05dc323c6d3d3679cd7c29c75d6521470115865f5f4d3cd4d7120a424adfb414"
     },
     "director-grammar/templates/production-contract.md": {
       "bytes": 1503,
@@ -261,5 +261,5 @@
     }
   },
   "name": "director-grammar",
-  "version": "1.4.4"
+  "version": "1.4.5"
 }

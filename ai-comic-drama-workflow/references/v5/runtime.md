@@ -1,6 +1,6 @@
-# V5 当前 Agent 执行接口（旧协议）
+# V5 原生当前 Agent 执行接口
 
-本页只用于原有 V5 项目及显式 `init ... --orchestration current-agent` 的项目。新项目默认 V6，实际 Codex 子智能体派发、独立审阅和结构化状态事件见 [V6 执行接口](../v6/runtime.md)。不要将这里的 `role-result/5.1` 直接提交给 V6 项目。
+本页用于原有 V5 项目、`start --profile lean` 与显式 `init ... --orchestration current-agent`。`init` 的兼容默认仍是 V6，实际 Codex 子智能体派发、独立审阅和结构化状态事件见 [V6 执行接口](../v6/runtime.md)。不要将这里的 `role-result/5.1` 直接提交给 V6 项目。
 
 在 Skill 根目录运行 `PYTHONPATH=src python -m ai_comic_drama_workflow`，或安装后的 `ai-comic-drama`。
 Python 3.12+，依赖 jsonschema；图片登记另外需要 ffmpeg/ffprobe。模型、图片工具均由真实宿主提供，不由 Python 模拟。

@@ -23,7 +23,9 @@ def files():
     result=[]
     for path in sorted(ROOT.rglob('*')):
         rel=path.relative_to(ROOT)
-        if rel.parts[0] not in ALLOWED or set(rel.parts)&EXCLUDED or path.suffix in ('.pyc','.pyo'):
+        if (rel.parts[0] not in ALLOWED or set(rel.parts)&EXCLUDED
+                or path.suffix in ('.pyc','.pyo')
+                or any(part.endswith(('.egg-info', '.dist-info')) for part in rel.parts)):
             continue
         if path.is_symlink():raise ValueError('Release source cannot contain symlinks')
         if path.is_file():result.append(path)

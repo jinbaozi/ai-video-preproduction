@@ -78,6 +78,21 @@ def _unlink_durable(path: Path) -> None:
     sync_directory(path.parent)
 
 
+def _discard_backups(root: Path, journal: dict) -> None:
+    """Best-effort GC after the durable commit/rollback point, never before it."""
+    folder = root / 'runtime/transactions' / journal['id']
+    if (root / journal['pending_path']).exists() or folder.is_symlink():
+        return
+    try:
+        if folder.is_dir():
+            shutil.rmtree(folder)
+            sync_directory(folder.parent)
+    except OSError:
+        # A cleanup failure cannot turn an already committed mutation into an
+        # apparent failure/retry. Orphaned backups are safe to collect later.
+        pass
+
+
 def _restore(root: Path, journal: dict) -> None:
     for target, backup in reversed(_validate_journal(root, journal)):
         if backup is None:
@@ -131,6 +146,7 @@ def _recover_pending(root: Path, folder: Path) -> None:
     for path, journal in sorted(pending, key=lambda row: row[1]["created_ns"], reverse=True):
         _restore(root, journal)
         _unlink_durable(path)
+        _discard_backups(root, journal)
 
 
 @contextmanager
@@ -178,6 +194,7 @@ def transaction(root: Path, *, savepoint: bool = False):
                     try:
                         _restore(root, journal)
                         _unlink_durable(root / journal["pending_path"])
+                        _discard_backups(root, journal)
                     except BaseException:
                         _poisoned.add(key)
                         raise
@@ -185,6 +202,7 @@ def transaction(root: Path, *, savepoint: bool = False):
             else:
                 try:
                     _unlink_durable(root / journal["pending_path"])
+                    _discard_backups(root, journal)
                 except BaseException:
                     _poisoned.add(key)
                     raise
