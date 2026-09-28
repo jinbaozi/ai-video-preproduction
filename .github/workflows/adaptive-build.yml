@@ -1,0 +1,18 @@
+name: Adaptive source snapshot
+on:
+  push:
+    branches: ['build/adaptive-control-20260928']
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: git archive --format=tar.gz HEAD > /tmp/source.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: adaptive-source
+          path: /tmp/source.tar.gz
+          retention-days: 3
