@@ -26,6 +26,17 @@ ai-comic-drama step ./rain-letter --result ./result.json
 
 新 `start` 按镜头风险选择最少控制素材：简单镜头不做白模，接触/遮挡用事件几何帧，耦合运动用连续白模预演。几何帧必须成为分镜图的真实输入，不止存放在目录中；未知轨迹、失效素材和未支持通道仍阻断。详情见[自适应控制](video-prompt-compiler/references/adaptive-control.md)和[对抗审查记录](audit/adaptive-control.md)。
 
+## ChatGPT Desktop → RunningHub H3
+
+```text
+使用 video-prompt-compiler，目标 runninghub-h3-fl2va。
+依据我附上的 RunningHub「Export Workflow API」文件，先识别真实节点与首尾帧模式。
+生成 H3 专属提示词：成年工程师右手放下钥匙，暖台灯与冷窗光对照，焦点从钥匙移到眼睛；台词“终于找到了。”原样保留。
+输出可复制提示词、节点修改表和必要风险；不改连线、不自动降步、不提交付费任务。
+```
+
+没有工作流文件也能先制作 H3 文本草案，但不能编造节点编号。使用 [H3 按需入口](video-prompt-compiler/references/models/minimax-h3.md)；Desktop 宿主是否支持工具、脚本或技能安装须以实际能力为准，阅读 Markdown 并复制提示词不依赖模型 API。新增实现与静态验证见 [H3 审查记录](audit/h3-runninghub.md)。
+
 ## 两种执行路径
 
 | 入口 | 用途 | 审阅方式 |

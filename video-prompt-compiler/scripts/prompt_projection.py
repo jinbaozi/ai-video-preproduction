@@ -250,11 +250,16 @@ def render(ir, bindings, target, mode, detail, audit_blocks, audit_coverage,
     entities_seen = set()
     style_seen = {}
     state_seen = {}
-    for shot_number, shot, shot_start, shot_end in shots:
+    for local_number, (shot_number, shot, shot_start, shot_end) in enumerate(shots, 1):
         local_start = max(shot_start, start_ms) - start_ms
         local_end = min(shot_end, end_ms) - start_ms
         if h3:
-            title = f"[Shot {shot_number+1}] At {_seconds(local_start)}s, duration {_seconds(local_end-local_start)}s"
+            title = f"[Shot {local_number}]"
+            if local_number > 1:
+                minutes, remainder = divmod(local_start, 60000)
+                seconds, millis = divmod(remainder, 1000)
+                title += f" At {minutes:02d}:{seconds:02d}.{millis:03d}, the camera cuts to the next shot."
+            title += f" Duration {_seconds(local_end-local_start)}s."
         elif layout == 'kling_multi_shot_plan':
             title = f"Shot {shot_number+1} ({_seconds(local_end-local_start)}s): {shot['id']}，片段{_seconds(local_start)}–{_seconds(local_end)}秒"
         else:

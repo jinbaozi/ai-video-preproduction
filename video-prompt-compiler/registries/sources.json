@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.19.1",
+  "version": "2026.09.29.1",
   "report": {
     "path": "references/research/deep-research-report.md",
     "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6",
@@ -105,6 +105,62 @@
       "url": "https://github.com/Vchitect/VBench",
       "checked_at": "2026-09-19",
       "claim": "多维视频评测作为真实生成后的可选评估；静态编译不能产生这些分数。"
+    },
+    {
+      "id": "H3_PROMPT_SKILL",
+      "kind": "official_docs",
+      "url": "https://github.com/MiniMax-AI/MiniMax-H3/blob/main/skills/h3-prompt-writing/SKILL.md",
+      "checked_at": "2026-09-29",
+      "claim": "可离线使用的官方提示词技能；英文描述、原语言台词、按模式读取三字段/六字段指南。核对 blob b6d9b2839384a588763a9c24315225dd8ce19d56。"
+    },
+    {
+      "id": "H3_BASE_GUIDE",
+      "kind": "official_docs",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md",
+      "checked_at": "2026-09-29",
+      "claim": "T2VA/I2VA/FL2VA/L2VA 三字段、首镜无 At、后续剪切 MM:SS.mmm、<d> 语言标记和关键帧对齐。不是画质保证。"
+    },
+    {
+      "id": "H3_REF_GUIDE",
+      "kind": "official_docs",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/raw/main/docs/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md",
+      "checked_at": "2026-09-29",
+      "claim": "Ref2VA 六字段、Subject 与媒体标签职责、声音独立引用及 retention 标记。"
+    },
+    {
+      "id": "H3_CONTEXT_API",
+      "kind": "official_docs",
+      "url": "https://platform.minimax.io/docs/api-reference/video-generation-v2-h3-context-ir",
+      "checked_at": "2026-09-29",
+      "claim": "托管、未开源 Context-IR；异步 task_id 与 Query Task prompt；本地仅生成请求草案或校验调用方提供的回执，不证明调用真实性。"
+    },
+    {
+      "id": "H3_COMFY_NATIVE",
+      "kind": "official_docs",
+      "url": "https://github.com/Comfy-Org/ComfyUI/blob/a7169322485d0049380fb207fa17e9fb3ec40486/comfy_extras/nodes_minimax_h3.py",
+      "checked_at": "2026-09-29",
+      "claim": "固定源码：原生 H3 输入、17k+5 向上帧对齐、24fps、视频伴随声轨先于视频标记、独立音频最后编号；blob 1ad3c6a4095fdcb756d6222f08ba589452b72091。"
+    },
+    {
+      "id": "H3_COMFY_GUIDE",
+      "kind": "official_docs",
+      "url": "https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native",
+      "checked_at": "2026-09-29",
+      "claim": "原生工作流、基础画布、匹配 LoRA 的 Turbo、参考尺寸及加速前提；不能将某工作流步数当作所有模型通用无损设置。"
+    },
+    {
+      "id": "RUNNINGHUB_API",
+      "kind": "official_docs",
+      "url": "https://www.runninghub.ai/runninghub-api-doc-en/doc-8287464",
+      "checked_at": "2026-09-29",
+      "claim": "Export Workflow API、nodeId/fieldName/fieldValue、显式 seed、上传 fileName；未验证用户账户或其节点版本。"
+    },
+    {
+      "id": "H3_CONTEXT_LOOP",
+      "kind": "community_primary",
+      "url": "https://github.com/ethanfel/ComfyUI-MiniMaxH3-Context-Loop/blob/main/README.md",
+      "checked_at": "2026-09-29",
+      "claim": "作者经验：分场采样、Review Gate、checkpoint 恢复、音轨分离及延后超分；blob 4e3a0bb7a95cec91d245ccf68b62225408dff347。不是官方 Context-IR，不证明 RunningHub 已安装。"
     }
   ]
 }

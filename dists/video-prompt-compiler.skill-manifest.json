@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "b670157f4687c29eea9b0d7485b37dec1bbb76b3592f6922bb34f435febe33a0",
-  "file_count": 130,
+  "archive_sha256": "4d0e2faf74558e2ad1c3ed250a55259d58ce414b5d99eb9e25a95be5c301d5be",
+  "file_count": 145,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 10323,
-      "sha256": "f740fdb7f958fc36b5d8d19d2991805a58a5b14ed5c09d9a0fe5d6a5792d6bca"
+      "bytes": 10916,
+      "sha256": "90f9121bc92d2bb409cb975649174e005ccad5ada872e7b52a2310ee2262ed1d"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -26,6 +26,26 @@
     "video-prompt-compiler/examples/control/cafe-look.json": {
       "bytes": 2110,
       "sha256": "cfd41e1202485c346056d65f51bcc97e2c67b2153911f3a4aa9a07d13dbc2170"
+    },
+    "video-prompt-compiler/examples/h3-runninghub/README.md": {
+      "bytes": 968,
+      "sha256": "6ad2e35f7c4c4075a9deb6e060c0a833783fe737eaff29f56766388c52c6c962"
+    },
+    "video-prompt-compiler/examples/h3-runninghub/ref2va.api.json": {
+      "bytes": 2541,
+      "sha256": "c5a6107e3d4f244df217da4b96613ac41349ec2128cce27203a87790febd46cd"
+    },
+    "video-prompt-compiler/examples/h3-runninghub/ref2va.prompt.txt": {
+      "bytes": 1170,
+      "sha256": "7f0bc1c4347b3db745c03be6e2bf5ae56ffa427ad7fa17c802f4807f15a03812"
+    },
+    "video-prompt-compiler/examples/h3-runninghub/t2va.api.json": {
+      "bytes": 1613,
+      "sha256": "0955debc1990b4d0cd775d9d6025ac2d51b3853f153b175508038e076af33319"
+    },
+    "video-prompt-compiler/examples/h3-runninghub/t2va.prompt.txt": {
+      "bytes": 558,
+      "sha256": "c4e61092d4b8ad7d904b39e0084df31cd66bf86508548b1d81053dfbeebeae6e"
     },
     "video-prompt-compiler/examples/missing-reference.avir.json": {
       "bytes": 18913,
@@ -68,8 +88,8 @@
       "sha256": "0728beec108851c1b4abd4e66745f362288429e97fc214e140a33c19ea3c3c14"
     },
     "video-prompt-compiler/references/capability-matrix.md": {
-      "bytes": 4494,
-      "sha256": "6ed0b1324810f0daf8bcb3d5af6f67978254718ab81419db9fc74760bc4d69b6"
+      "bytes": 5017,
+      "sha256": "380cbd2f84a8763026ac9f1b38d72a545ff4a5e87a71b1fdd0a781e17dee4b15"
     },
     "video-prompt-compiler/references/cooperation-v5.md": {
       "bytes": 3913,
@@ -82,6 +102,26 @@
     "video-prompt-compiler/references/evaluation-and-runtime.md": {
       "bytes": 3387,
       "sha256": "bb2acf387400a1ea286345fa7110e0e2c60163a7f19c4bbac0d9b8cea12a8630"
+    },
+    "video-prompt-compiler/references/h3-runninghub/base.md": {
+      "bytes": 3521,
+      "sha256": "0893c8516ba45781accba7e7e15169edd658e075ff0ccc7496539488ad2f5c1b"
+    },
+    "video-prompt-compiler/references/h3-runninghub/context-ir.md": {
+      "bytes": 3528,
+      "sha256": "ff46b5e0fbd191e42f95bc6d23db20342fad3b79f981de62cd058555aa745ea5"
+    },
+    "video-prompt-compiler/references/h3-runninghub/evidence.md": {
+      "bytes": 4250,
+      "sha256": "838a0b145c92a8ef358f37d72e1e095e27047d8e53e3e74ddac8fb567ab9c99e"
+    },
+    "video-prompt-compiler/references/h3-runninghub/nodes.md": {
+      "bytes": 5076,
+      "sha256": "9da3ae14bcc026e08e07176573fbc584bd33b252a95e85e677ee540aab58cb45"
+    },
+    "video-prompt-compiler/references/h3-runninghub/reference.md": {
+      "bytes": 3222,
+      "sha256": "9ec402aab82670f78aa04e920715b2be302b7e9b160234b7e8879aa0a7c08acf"
     },
     "video-prompt-compiler/references/history/detail-contract-v51.md": {
       "bytes": 8138,
@@ -108,12 +148,16 @@
       "sha256": "ae084166dff9dafdcc1b7217c82024a5e729adb413d862b3bf38c158ccb0d14d"
     },
     "video-prompt-compiler/references/models/index.md": {
-      "bytes": 1415,
-      "sha256": "13f3432a679b8c10c18e2a0374286e4405aaf2534e6349df791f37b3618326d1"
+      "bytes": 1573,
+      "sha256": "8e5dadd6eda0885fb0a4e3702be01a9f2e057cf18c65f5e18b86347b57d325f1"
     },
     "video-prompt-compiler/references/models/kling.md": {
       "bytes": 906,
       "sha256": "fe932fee6d8da8f862f617ffa4427bee98985ba56d4af8525daef56199a4888d"
+    },
+    "video-prompt-compiler/references/models/minimax-h3.md": {
+      "bytes": 2919,
+      "sha256": "9d544e6663b0ce1815786510b741932fb8afb16fee70c49404290703a84e310f"
     },
     "video-prompt-compiler/references/models/seedance.md": {
       "bytes": 1719,
@@ -136,16 +180,16 @@
       "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
     },
     "video-prompt-compiler/references/v5-reads.json": {
-      "bytes": 595,
-      "sha256": "225ed2aa3c3f7dd35cab29f486e0848cd998bf85aad00b5745bdf2ca68202346"
+      "bytes": 654,
+      "sha256": "edeb3d45a6f00546e8878ddaeb3487eec5b4b383016e0b045374198f77ab686a"
     },
     "video-prompt-compiler/references/verification.md": {
       "bytes": 4078,
       "sha256": "f59940392dc4ac6f76c41ee38c602937750739dd97a317ce7086244ac0925996"
     },
     "video-prompt-compiler/registries/capabilities.json": {
-      "bytes": 9996,
-      "sha256": "cf3f9936dab51e9e406319698f0a9d4defcc79bcdcfc41eb1affad30a948b0d2"
+      "bytes": 12079,
+      "sha256": "ddf59f09b49d7eaed54957e23a589bc97ef0ff147a6f404e380e54a452463fb6"
     },
     "video-prompt-compiler/registries/control-capabilities.json": {
       "bytes": 3515,
@@ -156,8 +200,8 @@
       "sha256": "091ac1ab0fc536578d5faad0cab30539c58b6e65b086dae8b85d6b98ffcde946"
     },
     "video-prompt-compiler/registries/sources.json": {
-      "bytes": 4262,
-      "sha256": "c3ba9042f125e3c01291d5542b9640dbcf9408f47aa664dfd1a8105e915b6c15"
+      "bytes": 7296,
+      "sha256": "eaa508f60557bd01aed9632607098ea8d2243e2f8d80e97441abe77dfabc9b39"
     },
     "video-prompt-compiler/requirements.txt": {
       "bytes": 19,
@@ -244,8 +288,8 @@
       "sha256": "cfdff477348b3e70ad893dac05453c735f6536e4c5bff18ab8c0378b2f345375"
     },
     "video-prompt-compiler/scripts/build_capability_matrix.py": {
-      "bytes": 1833,
-      "sha256": "0209d47a4754c47e437831583d2b13aafd44b0ff4777060abda69bd6f8440929"
+      "bytes": 2000,
+      "sha256": "c803159fd51d8c708a2e908e07b782afd1303ab15874090cd922df8a26bb8c88"
     },
     "video-prompt-compiler/scripts/build_previs_example.py": {
       "bytes": 3299,
@@ -259,6 +303,14 @@
       "bytes": 34347,
       "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
     },
+    "video-prompt-compiler/scripts/h3_cli.py": {
+      "bytes": 7058,
+      "sha256": "86c5ebffbd5a5006971a4fbba70a84a92ef841bfc3ccbaea92d0123303e1b557"
+    },
+    "video-prompt-compiler/scripts/h3_runtime.py": {
+      "bytes": 13467,
+      "sha256": "58713388b20fb8c32b2911d4517a8dec2771ae6d6beafb10e9c4e09655ae0679"
+    },
     "video-prompt-compiler/scripts/observe_video.py": {
       "bytes": 4634,
       "sha256": "79bdea473d82edec39dc3515d70812df8961d3b95d92c65be5e7c960d1d19aa1"
@@ -268,8 +320,12 @@
       "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
     },
     "video-prompt-compiler/scripts/prompt_projection.py": {
-      "bytes": 22256,
-      "sha256": "7b5b55dfce806d9a8b1b1bfb2e2d865cab3e4e07efb96108b86e3a37d6af7921"
+      "bytes": 22545,
+      "sha256": "f5d8fb57d37a8665617c1931508cab73c254e646c50cf385cba4d28bcc5ea355"
+    },
+    "video-prompt-compiler/scripts/runninghub_h3.py": {
+      "bytes": 19838,
+      "sha256": "756a255da4c2c6a5d6c9f0773daa7862cc7b4211b2f648ee28c5d1e9c782e96a"
     },
     "video-prompt-compiler/scripts/segment_delivery.py": {
       "bytes": 8871,
@@ -448,8 +504,8 @@
       "sha256": "05dc323c6d3d3679cd7c29c75d6521470115865f5f4d3cd4d7120a424adfb414"
     },
     "video-prompt-compiler/scripts/vpc.py": {
-      "bytes": 13525,
-      "sha256": "a781bd3f4ecd52fae00276301ecb9711bfa5fb6ac5515d189134442911c0aafb"
+      "bytes": 13655,
+      "sha256": "5a42a7b946e914f91df086df955cdd904e24de200fe82a176e0e80cbcb2694ed"
     },
     "video-prompt-compiler/scripts/vpc_core.py": {
       "bytes": 35613,
@@ -478,6 +534,10 @@
     "video-prompt-compiler/tests/test_craft.py": {
       "bytes": 8038,
       "sha256": "09fdba8a6465cd3493593fea12bfb97af8c6f5f0f6e3e3fa3cb7035b65bb55f9"
+    },
+    "video-prompt-compiler/tests/test_h3_runninghub.py": {
+      "bytes": 22075,
+      "sha256": "94dc33482f24e0adef9a4569a396d3173b3c3f7a5a022a374361d1877b4952d6"
     },
     "video-prompt-compiler/tests/test_joint_control.py": {
       "bytes": 13009,
@@ -525,5 +585,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.19.0"
+  "version": "1.20.0"
 }

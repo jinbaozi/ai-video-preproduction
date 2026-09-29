@@ -26,6 +26,8 @@ def build():
                 bound = _layer(route.get('documented') and profile['backend'] == 'agnes_api_draft', '仅文档或非 Agnes API')
                 executed = _layer(bool(route.get('probe_passed')), 'probe_passed=false')
                 quality = _layer(bool(route.get('quality_validated')), 'quality_validated=false')
+            if profile['id'] in ('runninghub-h3-fl2va', 'runninghub-h3-ref2va'):
+                bound = '离线图映射（须 h3 plan；非已验证执行路由）'
             lines.append(f"| {profile['id']} | {mode} | {text} | {bound} | {executed} | {quality} |")
     lines.append('')
     return '\n'.join(lines)

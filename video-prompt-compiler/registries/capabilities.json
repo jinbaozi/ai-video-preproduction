@@ -419,6 +419,87 @@
       "native_reference_syntax": "unresolved",
       "max_prompt_chars": null,
       "native_tokenizer": null
+    },
+    {
+      "id": "runninghub-h3-fl2va",
+      "version": "2026.09.29.1",
+      "model": "MiniMax H3",
+      "entry_point": "RunningHub native ComfyUI API-export prompt plan; h3 inspect/plan required; transport unresolved",
+      "backend": "prompt_plan",
+      "template": "h3",
+      "evidence_level": "official_docs",
+      "verified_at": "2026-09-29",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "H3",
+        "H3_PROMPT_SKILL",
+        "H3_COMFY_NATIVE",
+        "RUNNINGHUB_API"
+      ],
+      "modes": [
+        "text",
+        "keyframe"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 15000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": 2,
+        "audio": 0,
+        "video": 0,
+        "total": 2
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
+    },
+    {
+      "id": "runninghub-h3-ref2va",
+      "version": "2026.09.29.1",
+      "model": "MiniMax H3",
+      "entry_point": "RunningHub native ComfyUI API-export prompt plan; h3 inspect/plan required; transport unresolved",
+      "backend": "prompt_plan",
+      "template": "h3",
+      "evidence_level": "official_docs",
+      "verified_at": "2026-09-29",
+      "region": "unverified",
+      "account_verified": false,
+      "source_refs": [
+        "H3",
+        "H3_PROMPT_SKILL",
+        "H3_COMFY_NATIVE",
+        "RUNNINGHUB_API"
+      ],
+      "modes": [
+        "reference"
+      ],
+      "duration_ms": {
+        "min": 4000,
+        "max": 15000,
+        "allowed": [],
+        "step": null,
+        "scope": "model"
+      },
+      "resolutions": [],
+      "ratios": [],
+      "max_refs": {
+        "image": 9,
+        "audio": 3,
+        "video": 3,
+        "total": 12
+      },
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "max_prompt_chars": null,
+      "native_tokenizer": null
     }
   ]
 }

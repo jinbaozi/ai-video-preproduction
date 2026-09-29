@@ -1,0 +1,14 @@
+subject_definitions:
+<Subject 1> is the adult engineer in <Picture 1>; retain her face and navy jacket, not the source background.
+<Video 1> provides the camera path only.
+<Audio 1> is the enabled soundtrack from the reference video.
+<Audio 2> provides the voice timbre of <Subject 1> (S1).
+summary: [reference generation + audio reuse + audio reference] The engineer places a key on a wooden desk.
+retention_analysis:
+<Subject 1>: fully_preserved - preserve only the declared identity and clothes.
+<Video 1>: weak_reference - reuse the small camera movement, not its people or setting.
+<Audio 1>: partially_copy - reuse the room tone beneath new dialogue.
+<Audio 2>: reference - follow the voice timbre, without copying its words.
+detailed_description: Live-action with warm practical light and a cooler window. [Shot 1] <Subject 1> puts the key down with her right hand. The camera follows the small push in of <Video 1>. Focus moves from key to face after contact. She (S1) says softly: <d>[Chinese] 终于找到了。</d> using the voice timbre of <Audio 2>.
+overall_soundscape: The room tone from <Audio 1> continues under the key's impact.
+non_diegetic_music: N/A

@@ -1,0 +1,153 @@
+{
+  "2": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_ref2va_pruned_int8_convrot.safetensors"
+    }
+  },
+  "17": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax_h3"
+    }
+  },
+  "31": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "40": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 481516
+    }
+  },
+  "64": {
+    "class_type": "MiniMaxH3ReferenceToVideo",
+    "inputs": {
+      "clip": [
+        "17",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "prompt": "old prompt",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "audio_vae": [
+        "32",
+        0
+      ],
+      "ref_image_size": "match",
+      "ref_images": {
+        "ref_image_7": [
+          "201",
+          0
+        ]
+      },
+      "ref_videos": {
+        "ref_video_2": [
+          "250",
+          0
+        ]
+      },
+      "ref_video_audios": {
+        "ref_video_audio_2": [
+          "250",
+          1
+        ]
+      },
+      "ref_audios": {
+        "ref_audio_8": [
+          "251",
+          0
+        ]
+      }
+    }
+  },
+  "80": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "conditioning": [
+        "64",
+        0
+      ]
+    }
+  },
+  "81": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "82": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 20,
+      "denoise": 1.0
+    }
+  },
+  "93": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "40",
+        0
+      ],
+      "guider": [
+        "80",
+        0
+      ],
+      "sampler": [
+        "81",
+        0
+      ],
+      "sigmas": [
+        "82",
+        0
+      ],
+      "latent_image": [
+        "64",
+        1
+      ]
+    }
+  },
+  "32": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_audio_vae_fp32.safetensors"
+    }
+  },
+  "201": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "api/engineer.png"
+    }
+  },
+  "250": {
+    "class_type": "SyntheticVideoFramesAndAudio",
+    "inputs": {
+      "video": "example.mp4"
+    }
+  },
+  "251": {
+    "class_type": "LoadAudio",
+    "inputs": {
+      "audio": "example.wav"
+    }
+  }
+}

@@ -157,6 +157,9 @@ def verify(package):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == 'h3':
+        from h3_cli import main as h3_main
+        return h3_main(sys.argv[2:])
     if len(sys.argv) > 1 and sys.argv[1] == 'control':
         from control_cli import main as control_main
         sys.argv.pop(1)
