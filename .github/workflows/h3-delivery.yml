@@ -1,0 +1,79 @@
+name: H3 source delivery
+on:
+  push:
+    branches: [feat/h3-runninghub-20260929]
+permissions:
+  contents: read
+concurrency:
+  group: h3-source-delivery
+  cancel-in-progress: false
+jobs:
+  deliver:
+    if: github.repository == 'jinbaozi/ai-video-preproduction' && github.ref == 'refs/heads/feat/h3-runninghub-20260929'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Verify base and exact reviewed source patch
+        shell: bash
+        run: |
+          test "$(git rev-parse HEAD^)" = d72bdd72fd90ca23d0d49d72209d31b93021cc9e
+          mkdir -p /tmp/h3-delivery
+          python - <<'PY'
+          import base64, bz2, hashlib, pathlib
+          root = pathlib.Path('.github/h3-delivery')
+          text = ''.join((root / f'part{i}.b64').read_text() for i in range(1, 5))
+          patch = bz2.decompress(base64.b64decode(text, validate=True))
+          expected = 'c1a12517894057febbd9e86ba607a19f5b53eab2e53f648a91a5122eac66c09f'
+          assert hashlib.sha256(patch).hexdigest() == expected, 'source patch mismatch'
+          pathlib.Path('/tmp/h3-delivery/source.patch').write_bytes(patch)
+          PY
+          git apply --check /tmp/h3-delivery/source.patch
+          git apply /tmp/h3-delivery/source.patch
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install project dependencies
+        run: python -m pip install -e ./ai-comic-drama-workflow
+      - name: Validate H3 source and progressive reads
+        shell: bash
+        run: |
+          set -o pipefail
+          python -m unittest discover -s video-prompt-compiler/tests -p 'test_h3*.py' -v 2>&1 | tee /tmp/h3-delivery/h3.log
+          python -m unittest discover -s ai-comic-drama-workflow/tests -p 'test_h3*.py' -v 2>&1 | tee /tmp/h3-delivery/reads.log
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+      - name: Rebuild deterministic distribution packages
+        shell: bash
+        run: |
+          set -o pipefail
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists 2>&1 | tee /tmp/h3-delivery/packages.log
+          python - <<'PY'
+          import pathlib, subprocess, sys, tempfile, zipfile
+          with tempfile.TemporaryDirectory() as directory:
+              with zipfile.ZipFile('dists/video-prompt-compiler.skill') as archive:
+                  archive.extractall(directory)
+              subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_h3*.py', '-v'], cwd=pathlib.Path(directory)/'video-prompt-compiler', check=True)
+          PY
+      - name: Commit validated source and rebuilt packages to feature branch only
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add README.md video-prompt-compiler ai-comic-drama-workflow dists audit/h3-runninghub.md
+          git diff --cached --check
+          git commit -m 'feat: add MiniMax H3 RunningHub native prompt and node optimization'
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+          git push origin HEAD:refs/heads/feat/h3-runninghub-20260929
+          git rev-parse HEAD > /tmp/h3-delivery/commit.txt
+          git archive --format=tar.gz -o /tmp/h3-delivery/source.tar.gz HEAD
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: h3-source-delivery
+          path: /tmp/h3-delivery
+          retention-days: 7
