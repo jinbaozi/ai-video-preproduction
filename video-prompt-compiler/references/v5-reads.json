@@ -26,6 +26,9 @@
     ],
     "dialogue": [
       "references/avir-and-contract.md"
+    ],
+    "h3": [
+      "references/models/minimax-h3.md"
     ]
   }
 }

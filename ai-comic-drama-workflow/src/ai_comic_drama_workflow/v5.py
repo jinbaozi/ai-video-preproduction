@@ -265,6 +265,9 @@ class V5Kernel:
             storyboard=self.data('storyboard')
         if self.control_applicable(storyboard):names.append('camera_motion')
         if self.has_dialogue(storyboard):names.append('dialogue')
+        if kind in ('avir','compile-review','qa') and self.project.get('target') in (
+                'minimax-h3','runninghub-h3-fl2va','runninghub-h3-ref2va'):
+            names.append('h3')
         return names
 
     def adaptive_plan(self,storyboard):

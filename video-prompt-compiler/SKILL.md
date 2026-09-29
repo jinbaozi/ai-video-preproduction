@@ -3,13 +3,19 @@ name: video-prompt-compiler
 description: >
   将视频创意、剧本、分镜及多模态参考转换为类型化AVIR制作合同，经Context-IR整理、
   空间表演与连续性检查，编译为Seedance 2.0/2.5、Agnes Video 2.5、Kling 3.0/Omni等
-  模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
+  MiniMax H3 / RunningHub 模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.19.0"
+  version: "1.20.0"
 ---
 
 # Video Prompt Compiler
+
+## H3 / RunningHub 按需入口
+
+目标涉及 MiniMax H3 或 RunningHub 时，先读 [H3 路由](references/models/minimax-h3.md)，再只读当前模式与操作需要的指南。单条提示词默认由当前宿主直接制作，不需要 API Key 或 JSON；拿到真实 API 工作流后才绑定节点。
+
+`vpc.py h3 inspect/plan/lint` 是离线语法及节点计划；`context-request/context-import` 与官方托管 Context-IR 明确分开。参数、引用、提示词分开交付；未知节点、未核验运行与未审阅候选不能升级为成功状态。
 
 ## 输出精简
 

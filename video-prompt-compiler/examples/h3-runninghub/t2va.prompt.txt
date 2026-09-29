@@ -1,0 +1,3 @@
+integrated_multimodal_description: [Shot 1] Live-action. An adult engineer in a navy jacket stands beside a wooden desk. A warm practical lamp lights her face against a cooler window. The camera makes a slow, small push in as her right hand places a brass key on the desk and releases it only after contact. Focus moves from the key to her eyes. The engineer (S1) says softly: <d>[Chinese] 终于找到了。</d> She holds the settled pose until the clip ends.
+overall_soundscape: The key clicks once on the wood over a low room hum.
+non_diegetic_music: N/A

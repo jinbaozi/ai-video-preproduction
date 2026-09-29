@@ -1,0 +1,100 @@
+{
+  "2": {
+    "class_type": "UNETLoader",
+    "inputs": {
+      "unet_name": "minimax_h3_fl2va_pruned_int8_convrot.safetensors"
+    }
+  },
+  "17": {
+    "class_type": "CLIPLoader",
+    "inputs": {
+      "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+      "type": "minimax_h3"
+    }
+  },
+  "31": {
+    "class_type": "VAELoader",
+    "inputs": {
+      "vae_name": "minimax_h3_video_vae_int8_convrot.safetensors"
+    }
+  },
+  "40": {
+    "class_type": "RandomNoise",
+    "inputs": {
+      "noise_seed": 481516
+    }
+  },
+  "64": {
+    "class_type": "MiniMaxH3ImageToVideo",
+    "inputs": {
+      "clip": [
+        "17",
+        0
+      ],
+      "vae": [
+        "31",
+        0
+      ],
+      "prompt": "old prompt",
+      "width": 1344,
+      "height": 768,
+      "length": 124
+    }
+  },
+  "80": {
+    "class_type": "BasicGuider",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "conditioning": [
+        "64",
+        0
+      ]
+    }
+  },
+  "81": {
+    "class_type": "KSamplerSelect",
+    "inputs": {
+      "sampler_name": "euler"
+    }
+  },
+  "82": {
+    "class_type": "BasicScheduler",
+    "inputs": {
+      "model": [
+        "2",
+        0
+      ],
+      "scheduler": "simple",
+      "steps": 20,
+      "denoise": 1.0
+    }
+  },
+  "93": {
+    "class_type": "SamplerCustomAdvanced",
+    "inputs": {
+      "noise": [
+        "40",
+        0
+      ],
+      "guider": [
+        "80",
+        0
+      ],
+      "sampler": [
+        "81",
+        0
+      ],
+      "sigmas": [
+        "82",
+        0
+      ],
+      "latent_image": [
+        "64",
+        1
+      ]
+    }
+  }
+}

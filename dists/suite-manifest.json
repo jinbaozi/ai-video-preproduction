@@ -41,8 +41,8 @@
       },
       "video-prompt-compiler": {
         "archive": "video-prompt-compiler.skill",
-        "sha256": "b670157f4687c29eea9b0d7485b37dec1bbb76b3592f6922bb34f435febe33a0",
-        "version": "1.19.0"
+        "sha256": "4d0e2faf74558e2ad1c3ed250a55259d58ce414b5d99eb9e25a95be5c301d5be",
+        "version": "1.20.0"
       }
     },
     "schema": "skill-modules/1.0"
@@ -74,8 +74,8 @@
     },
     {
       "archive": "video-prompt-compiler.skill",
-      "files": 130,
-      "sha256": "b670157f4687c29eea9b0d7485b37dec1bbb76b3592f6922bb34f435febe33a0",
+      "files": 145,
+      "sha256": "4d0e2faf74558e2ad1c3ed250a55259d58ce414b5d99eb9e25a95be5c301d5be",
       "status": "VERIFIED"
     },
     {
@@ -86,8 +86,8 @@
     },
     {
       "archive": "ai-comic-drama-workflow.skill",
-      "files": 2306,
-      "sha256": "9f1979e79f7566eda989b17a83392aa58a4650fc67770dc4e0b8c71a66a93a33",
+      "files": 2307,
+      "sha256": "31acb4115cbdea73b69f5c2ea77cb548256206d16b7a699652456ce8bd044621",
       "status": "VERIFIED"
     }
   ],
