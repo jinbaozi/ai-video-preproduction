@@ -1,0 +1,41 @@
+name: H3 RunningHub validation
+on:
+  push:
+    branches: ['feat/h3-runninghub-*']
+  pull_request:
+    paths:
+      - 'video-prompt-compiler/**'
+      - 'ai-comic-drama-workflow/**'
+      - '.github/workflows/h3-runninghub.yml'
+permissions:
+  contents: read
+concurrency:
+  group: h3-runninghub-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  h3:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Export exact source for reproducibility
+        run: git archive --format=tar.gz -o /tmp/h3-source.tar.gz HEAD
+      - uses: actions/upload-artifact@v4
+        with:
+          name: h3-source
+          path: /tmp/h3-source.tar.gz
+          retention-days: 7
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install project dependencies
+        run: python -m pip install -e ./ai-comic-drama-workflow
+      - name: Run H3 adversarial tests
+        run: |
+          test -f video-prompt-compiler/tests/test_h3_runninghub.py
+          python -m unittest discover -s video-prompt-compiler/tests -p 'test_h3*.py' -v
+      - name: Check shared sources and deterministic packages
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
