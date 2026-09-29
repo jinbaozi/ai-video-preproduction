@@ -1,7 +1,7 @@
 name: H3 RunningHub validation
 on:
   push:
-    branches: ['feat/h3-runninghub-*']
+    branches: [main, 'feat/h3-runninghub-*']
   pull_request:
     paths:
       - 'video-prompt-compiler/**'
@@ -18,24 +18,36 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Export exact source for reproducibility
-        run: git archive --format=tar.gz -o /tmp/h3-source.tar.gz HEAD
-      - uses: actions/upload-artifact@v4
-        with:
-          name: h3-source
-          path: /tmp/h3-source.tar.gz
-          retention-days: 7
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Install project dependencies
         run: python -m pip install -e ./ai-comic-drama-workflow
-      - name: Run H3 adversarial tests
+      - name: Run H3 adversarial and progressive-read tests
+        shell: bash
         run: |
-          test -f video-prompt-compiler/tests/test_h3_runninghub.py
-          python -m unittest discover -s video-prompt-compiler/tests -p 'test_h3*.py' -v
+          mkdir -p /tmp/h3-validation
+          set -o pipefail
+          python -m unittest discover -s video-prompt-compiler/tests -p 'test_h3*.py' -v 2>&1 | tee /tmp/h3-validation/compiler.log
+          python -m unittest discover -s ai-comic-drama-workflow/tests -p 'test_h3*.py' -v 2>&1 | tee /tmp/h3-validation/workflow.log
       - name: Check shared sources and deterministic packages
         run: |
           python ai-comic-drama-workflow/scripts/sync_shared.py --check
           python ai-comic-drama-workflow/scripts/package_suite.py --out dists
           git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Check installed compiler archive
+        run: |
+          python - <<'PY'
+          import pathlib, subprocess, sys, tempfile, zipfile
+          with tempfile.TemporaryDirectory() as directory:
+              with zipfile.ZipFile('dists/video-prompt-compiler.skill') as archive:
+                  archive.extractall(directory)
+              subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_h3*.py', '-v'],
+                             cwd=pathlib.Path(directory)/'video-prompt-compiler', check=True)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: h3-validation
+          path: /tmp/h3-validation
+          retention-days: 14

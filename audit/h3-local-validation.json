@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-29",
+  "base_commit": "177a723c21bc0a9dbb8392d08a313582e56fffc3",
+  "source_commit": "b0683fa39cb32b3ab924f4c0657c206eead97774",
+  "reviewed_source_patch_sha256": "c1a12517894057febbd9e86ba607a19f5b53eab2e53f648a91a5122eac66c09f",
+  "environment": {"python": "3.13.5", "jsonschema": "4.26.0"},
+  "compiler": {"command": "python -m unittest discover -s video-prompt-compiler/tests -p 'test_*.py' -v", "total": 278, "passed": 275, "skipped": 3, "failed": 0, "seconds": 566.723, "skipped_reason": "Actual Blender integration runtime unavailable"},
+  "workflow": {"command": "python ai-comic-drama-workflow/scripts/run_tests.py", "total": 226, "passed": 226, "failed": 0, "seconds": 746.614},
+  "h3_focused": {"compiler_passed": 36, "progressive_reads_passed": 2, "included_in_full_suites": true},
+  "github_source_delivery_run": 36551290625,
+  "runtime": {"runninghub_generation": "NOT_RUN", "official_context_ir_request": "NOT_RUN", "video_quality": "NOT_RUN", "speed_benchmark": "NOT_RUN"},
+  "notes": ["Static source/fixture tests do not prove model compliance or cloud execution.", "Final commit CI and isolated package checks are authoritative for released archives.", "The source-delivery build verifies the patch digest and rebuilds packages using the existing deterministic packager."]
+}
