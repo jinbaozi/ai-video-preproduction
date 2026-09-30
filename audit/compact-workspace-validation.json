@@ -1,0 +1,38 @@
+{
+  "date": "2026-09-30",
+  "policy": "compact-workspace/1.0",
+  "workflow_version": "0.15.0",
+  "baseline_main": "fabd5be3a9f15cf3cff90f314dea51df11c07ece",
+  "implementation_commit": "539753169831af240195513b3d0dd31f688574e6",
+  "source_transport_sha256": "b14e47af93409fbd349cb6ca16b16746e03cac5a6f634bd45fb389279269a625",
+  "correction_patch_sha256": "0f8f487b0b17c17430a577639cd521c5cbf287422df5da6589997553dff26085",
+  "remote_validation": {
+    "run_id": 36669679457,
+    "job_id": 109741784796,
+    "artifact_id": 11076733820,
+    "url": "https://github.com/jinbaozi/ai-video-preproduction/actions/runs/36669679457",
+    "compact_workspace": {"run": 27, "passed": 27, "failed": 0, "skipped": 0, "log_sha256": "7a896297be93dc1c7c0fb298991ca81281e619b0b52e33761efb9992a46aaa38"},
+    "lean_workflow": {"run": 16, "passed": 16, "failed": 0, "skipped": 0, "log_sha256": "3e623bffe92cad5a8a7d8cac6ac1d660106f948413509e5df7aca176feda25ac"},
+    "craft_routing": {"run": 56, "passed": 56, "failed": 0, "skipped": 0, "log_sha256": "1a62aa994f2062bff817da32a7fdf055297dca317275c256c745b2a1605e1d48"},
+    "shared_sources_and_seven_package_rebuild": "PASS",
+    "validated_source_commit": "PASS"
+  },
+  "local_validation": {
+    "final_compact_units": {"run": 23, "passed": 23, "failed": 0, "skipped": 0},
+    "full_video_compiler": {"run": 278, "passed": 275, "failed": 0, "skipped": 3},
+    "final_seven_package_repeat_build": "BYTE_IDENTICAL",
+    "six_bundled_modules_equal_standalone": true,
+    "workflow_archive_sha256": "05b42c91567acad9ab3a0b3ec7800a92bc5c6da66d6d7aae4a522541ac277fa6",
+    "suite_manifest_git_blob": "b56079ff75999ee962108e671b055559c505bc46"
+  },
+  "initial_failure_and_fix": {
+    "run_id": 36669458694,
+    "failure": "An empty active task JSON object bypassed the progress view truthiness check; the native result gates were not bypassed.",
+    "fix": "Validate an active task even when empty, missing, unreadable or not an object; add adversarial subcases and rerun the full compact suite.",
+    "final_remote_regression": "PASS"
+  },
+  "full_workflow_note": "The initial local full-workflow run overlaps source iteration and includes the subsequently fixed progress-view defect. It is not reported as a final full-suite PASS; use the final PR commit CI for the full-workflow verdict.",
+  "benchmark": "audit/compact-workspace-benchmark.json",
+  "counts_note": "Suites overlap. Do not sum these as distinct test cases. Text measures are UTF-8 bytes, not metered model tokens.",
+  "not_run": ["user running-task attachment (not present)", "automatic migration or deletion of existing projects", "actual LLM token metering", "real image/video model generation", "paid submission", "finished-film review"]
+}
