@@ -1,22 +1,41 @@
 name: Compact stage output
 on:
   push:
-    branches: ['feat/compact-stage-output-20260930']
+    branches: [main]
+  pull_request:
 permissions:
   contents: read
+concurrency:
+  group: compact-output-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   validation:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
-      - name: Capture source
-        run: |
-          mkdir -p /tmp/compact-output
-          git archive --format=tar.gz HEAD > /tmp/compact-output/source.tar.gz
-          git rev-parse HEAD > /tmp/compact-output/source-commit.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/setup-python@v5
         with:
-          name: compact-output-source
-          path: /tmp/compact-output
-          retention-days: 7
+          python-version: '3.12'
+      - name: Install native validation dependencies
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Check shared sources and reproducible package bytes
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Ordered output, context, recovery and native delivery
+        run: |
+          mkdir -p /tmp/compact-validation
+          set -o pipefail
+          python -m unittest discover -s ai-comic-drama-workflow/tests -p 'test_compact_workspace.py' -v 2>&1 | tee /tmp/compact-validation/tests.log
+          git rev-parse HEAD > /tmp/compact-validation/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: compact-output-validation
+          path: /tmp/compact-validation
+          retention-days: 14
