@@ -1,0 +1,22 @@
+name: Compact stage output
+on:
+  push:
+    branches: ['feat/compact-stage-output-20260930']
+permissions:
+  contents: read
+jobs:
+  validation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Capture source
+        run: |
+          mkdir -p /tmp/compact-output
+          git archive --format=tar.gz HEAD > /tmp/compact-output/source.tar.gz
+          git rev-parse HEAD > /tmp/compact-output/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: compact-output-source
+          path: /tmp/compact-output
+          retention-days: 7
