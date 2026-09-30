@@ -1,15 +1,20 @@
 ---
 name: video-prompt-compiler
 description: >
+  未指定名家时也默认按内容与场景选择专业方法；继承上游锁定，不以人名代替实现。
   将视频创意、剧本、分镜及多模态参考转换为类型化AVIR制作合同，经Context-IR整理、
   空间表演与连续性检查，编译为Seedance 2.0/2.5、Agnes Video 2.5、Kling 3.0/Omni等
   MiniMax H3 / RunningHub 模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.20.0"
+  version: "1.20.1"
 ---
 
 # Video Prompt Compiler
+
+## 默认专业方法路由
+
+默认继承上游选中的具体方法，不再另选名家或重写主风格；独立轻量任务在授权范围内设计，不伪造已执行的上游团队。先读[默认路由合同](references/craft-routing.md)；完整任务遵循 task.craft，提供绑定实际内容的 craft_review。方法不得覆盖 Canon、信息顺序、连续性或用户锁定；静态证据不等于成片画质。
 
 ## H3 / RunningHub 按需入口
 

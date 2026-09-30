@@ -22,11 +22,14 @@ def compact(result: dict) -> dict:
 
 
 def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='full',
-          target=None, mode=None, production_target='none', verbose=False, control_minimum=0):
+          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing='auto'):
     if profile not in ('lean', 'audited'):
         raise ValueError('Unknown workflow profile')
+    if craft_routing not in ('auto', 'off'):
+        raise ValueError('Unknown craft routing mode')
     options = dict(project_id=project_id, delivery=delivery, target=target,
-                   mode=mode, production_target=production_target, control_policy='adaptive-control/1.0',control_minimum=control_minimum)
+                   mode=mode, production_target=production_target, control_policy='adaptive-control/1.0',control_minimum=control_minimum,
+                   craft_policy='craft-routing/1.0' if craft_routing == 'auto' else 'off')
     if profile == 'audited':
         from .v6_runtime import V6Runtime
         kernel = V6Runtime.initialize(project, inputs, **options)

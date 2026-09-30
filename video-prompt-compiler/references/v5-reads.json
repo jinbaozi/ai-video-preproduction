@@ -2,7 +2,8 @@
   "always": [
     "SKILL.md",
     "references/current-contract.md",
-    "references/cooperation-v5.md"
+    "references/cooperation-v5.md",
+    "references/craft-routing.md"
   ],
   "kinds": {
     "avir": [

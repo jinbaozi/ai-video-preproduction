@@ -1,14 +1,19 @@
 ---
 name: storyboard-grammar
 description: >
+  未指定名家时也默认按内容与场景选择专业方法；继承上游锁定，不以人名代替实现。
   将指定原文、导演意图、美术方案及参考资产制作成有来源的叙事节拍、三维调度、
   镜头与画格、可见表演、声画时序和连续性合同，并离线校验、编译为StoryboardIR交接包。
   用于专业分镜制作、分镜修订和一致性审查；具体模型提示词适配与媒体生成交由执行层。
 metadata:
-  version: "1.3.4"
+  version: "1.3.5"
 ---
 
 # Storyboard Grammar
+
+## 默认专业方法路由
+
+未点名也先从内容与观众目标自动选择本职责方法，再按需读命中的人物/技法条目；独立入口使用 scripts/craft_router.py，不能只列姓名而不实施。先读[默认路由合同](references/craft-routing.md)；完整任务遵循 task.craft，提供绑定实际内容的 craft_review。方法不得覆盖 Canon、信息顺序、连续性或用户锁定；静态证据不等于成片画质。
 
 ## V6 总工作流协作
 

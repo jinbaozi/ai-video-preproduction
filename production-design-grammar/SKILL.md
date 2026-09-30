@@ -1,15 +1,20 @@
 ---
 name: production-design-grammar
 description: >
+  未指定名家时也默认按内容与场景选择专业方法；继承上游锁定，不以人名代替实现。
   为影视、AI短剧、动画、产品展示设计可复用的视觉世界、场景空间、色彩材质、道具、服化与美术连续性，
   按风格编译有来源、约束、执行路径和验收条件的 ArtIR 美术制作合同。
   适用于视觉圣经、资产设计、美术提示词、参考审核及美术修订；构图、表情和镜头通过美术支持约束衔接
   director-grammar，不接管其叙事、表演、人物调度、摄影机或剪辑决策。
 metadata:
-  version: "1.3.3"
+  version: "1.3.4"
 ---
 
 # Production Design Grammar
+
+## 默认专业方法路由
+
+未点名也先从内容与观众目标自动选择本职责方法，再按需读命中的人物/技法条目；独立入口使用 scripts/craft_router.py，不能只列姓名而不实施。先读[默认路由合同](references/craft-routing.md)；完整任务遵循 task.craft，提供绑定实际内容的 craft_review。方法不得覆盖 Canon、信息顺序、连续性或用户锁定；静态证据不等于成片画质。
 
 ## V6 总工作流协作
 

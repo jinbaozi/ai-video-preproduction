@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "6a0b876dffa10124d81709a5a78a454d61c32df342a31b6d47a6a45a020eb927",
-  "file_count": 113,
+  "archive_sha256": "1e1c58d0f81346f61171c1056a315d9f6628712b32779857e7510206a436a1ea",
+  "file_count": 114,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 29752,
-      "sha256": "a221c7757c1381fc7bc8826d3a70b75d6cfdb24045fd004bba7e434cf9442051"
+      "bytes": 30183,
+      "sha256": "867a88cbd188c61e5601cf90922af26cf41dd6a01686cd17458b1b41604ed987"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -90,6 +90,10 @@
     "image-prompt-optimizer/references/cooperation-v5.md": {
       "bytes": 4311,
       "sha256": "9cfe4879a072ccdc5eee05467b0cc81bc837224455153a30179bd94f54efbaf2"
+    },
+    "image-prompt-optimizer/references/craft-routing.md": {
+      "bytes": 7137,
+      "sha256": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7"
     },
     "image-prompt-optimizer/references/current-contract.md": {
       "bytes": 2877,
@@ -176,8 +180,8 @@
       "sha256": "5ee3c4a8d4021b06e75d5754c62044e5c7fc87b65030337ba2715c1c434dafe0"
     },
     "image-prompt-optimizer/references/v5-reads.json": {
-      "bytes": 422,
-      "sha256": "c1029702ff3f7543a44d892c857028eb79ff99814bc7d36159d79c6d6ed415ed"
+      "bytes": 533,
+      "sha256": "c8baaff7ea0af802755d39abf1551f89e66f11b1b8549444db4659ed3ee90610"
     },
     "image-prompt-optimizer/references/visual-anchor-styles.md": {
       "bytes": 7711,
@@ -457,5 +461,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.16.0"
+  "version": "1.16.1"
 }

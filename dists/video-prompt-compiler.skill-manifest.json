@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "4d0e2faf74558e2ad1c3ed250a55259d58ce414b5d99eb9e25a95be5c301d5be",
-  "file_count": 145,
+  "archive_sha256": "6a50006989bee6c7e701a4c77c89502a5c05c9aec66ba8ebd13f7bdc9190b80f",
+  "file_count": 146,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 10916,
-      "sha256": "90f9121bc92d2bb409cb975649174e005ccad5ada872e7b52a2310ee2262ed1d"
+      "bytes": 11464,
+      "sha256": "d085bd3c9423c84f27fa1733323fb89bc2548464a50dfe6b5df8c81bdcdf9e2e"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -95,6 +95,10 @@
       "bytes": 3913,
       "sha256": "d5b3a03022634923cf0cb2cf13c91a4634e2b02baaf631dfa39b4e461183fbea"
     },
+    "video-prompt-compiler/references/craft-routing.md": {
+      "bytes": 7137,
+      "sha256": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7"
+    },
     "video-prompt-compiler/references/current-contract.md": {
       "bytes": 2877,
       "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
@@ -180,8 +184,8 @@
       "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
     },
     "video-prompt-compiler/references/v5-reads.json": {
-      "bytes": 654,
-      "sha256": "edeb3d45a6f00546e8878ddaeb3487eec5b4b383016e0b045374198f77ab686a"
+      "bytes": 689,
+      "sha256": "fd92fe2567c690464555b8303386f43f909962ebb64edfa40c2777762364cb21"
     },
     "video-prompt-compiler/references/verification.md": {
       "bytes": 4078,
@@ -585,5 +589,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.20.0"
+  "version": "1.20.1"
 }

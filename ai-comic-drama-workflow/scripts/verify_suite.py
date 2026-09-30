@@ -31,6 +31,8 @@ def verify(packages,out,quick_validator=None):
             if name=='ai-comic-drama-workflow':env['PYTHONPATH']=str(skill/'src')
             commands=[[sys.executable,'-m','unittest','discover','-s','tests','-p',pattern,'-v'],
                       [sys.executable,'scripts/package_skill.py','--out',str(base/'rebuilt'/name)]]
+            if name in ('screenplay-grammar','director-grammar','production-design-grammar','storyboard-grammar'):
+                commands.insert(1,[sys.executable,'scripts/craft_router.py','密室中发现线索，观众逐渐接近真相。'])
             if name=='screenplay-grammar':commands.insert(1,[sys.executable,'scripts/sg.py','compile','examples/lantern.project.json','--out',str(base/'screenplay-lantern')])
             if name=='director-grammar':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_screenplay.py','-v'])
             if name=='director-grammar':commands.insert(1,[sys.executable,'scripts/dg.py','compile','examples/v51/director.json','--target','generic-t2v','--out',str(base/'native-director')])
@@ -47,6 +49,7 @@ def verify(packages,out,quick_validator=None):
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'scripts/control_cli.py','--help'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])
             if name=='ai-comic-drama-workflow':
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_craft*.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_h3_reads.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_adaptive_*.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_lean_workflow.py','-v'])

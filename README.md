@@ -37,6 +37,14 @@ ai-comic-drama step ./rain-letter --result ./result.json
 
 没有工作流文件也能先制作 H3 文本草案，但不能编造节点编号。使用 [H3 按需入口](video-prompt-compiler/references/models/minimax-h3.md)；Desktop 宿主是否支持工具、脚本或技能安装须以实际能力为准，阅读 Markdown 并复制提示词不依赖模型 API。新增实现与静态验证见 [H3 审查记录](audit/h3-runninghub.md)。
 
+## 未点名也默认启用专业方法
+
+新 `start` 的 `craft-routing/1.0` 从原文提取有证据的语义特征，按职责选择方法与参考入口，并要求写进当前原生 IR。它不是关键词命中后列一串名人：任务附带选中方法、适用依据、来源、实际采用位置和可观察检查；没有采用证据不能接受结果。图片和视频编译继承既有规则，不重新决定风格。
+
+主语法在项目/连续场景中保持稳定，当前场/镜按冻结范围细化；硬冲突回到原所有者，不用“自动最优”覆盖锁定项。独立专业技能也默认执行。只读取命中的规则与人物，不加载整个参考库。用户无需点名或填写 JSON；明确关闭时使用 `--craft-routing off`，旧项目保持旧协议。
+
+参见[默认路由合同](ai-comic-drama-workflow/references/craft-routing.md)与[方案/测试记录](audit/automatic-craft-routing.md)。方法证据可检查，电影质量仍须通过真实生成与审片验证；不保证任何模型自动产出大片。
+
 ## 两种执行路径
 
 | 入口 | 用途 | 审阅方式 |
