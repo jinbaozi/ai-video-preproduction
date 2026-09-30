@@ -1,0 +1,29 @@
+name: Professional craft routing
+on:
+  push:
+    branches: ['feat/automatic-craft-routing-20260930']
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: craft-routing-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Capture source audit snapshot
+        run: |
+          mkdir -p /tmp/craft-routing
+          git archive --format=tar.gz HEAD > /tmp/craft-routing/source.tar.gz
+          git rev-parse HEAD > /tmp/craft-routing/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: craft-routing-audit
+          path: /tmp/craft-routing
+          retention-days: 7
