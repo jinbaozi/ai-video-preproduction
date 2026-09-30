@@ -1,9 +1,18 @@
 {
-  "always": ["SKILL.md", "references/contract.md", "references/cooperation.md"],
+  "always": [
+    "SKILL.md",
+    "references/contract.md",
+    "references/cooperation.md",
+    "references/craft-routing.md"
+  ],
   "kinds": {
-    "screenplay": ["references/writing.md"]
+    "screenplay": [
+      "references/writing.md"
+    ]
   },
   "when": {
-    "dialogue": ["references/writing.md"]
+    "dialogue": [
+      "references/writing.md"
+    ]
   }
 }

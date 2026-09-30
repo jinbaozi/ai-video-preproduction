@@ -1,0 +1,29 @@
+{
+  "date": "2026-09-30",
+  "policy": "craft-routing/1.0",
+  "implementation_commit": "4c9cdb2f359b71446d758eddfe4f46b1028f9bb8",
+  "source_patch_bz2_sha256": "5b8e75a068f19b71225983ac1df9f93e97a31a95d1bee717389f2259c4158d41",
+  "local_validation": {
+    "new_routing_and_native_text_e2e": {"run": 56, "passed": 56, "skipped": 0, "failed": 0},
+    "full_workflow": {"run": 275, "passed": 275, "skipped": 0, "failed": 0},
+    "full_video_compiler": {"run": 278, "passed": 275, "skipped": 3, "failed": 0},
+    "screenplay_director_art_storyboard": {"run": 232, "passed": 231, "skipped": 1, "failed": 0},
+    "seven_package_repeat_build": "BYTE_IDENTICAL",
+    "six_bundled_modules_equal_standalone": true,
+    "isolated_workflow_routing_tests": {"run": 55, "passed": 55},
+    "isolated_creative_skill_routing_cli": {"run": 4, "passed": 4}
+  },
+  "counts_note": "Suites overlap; do not sum as distinct tests. Some full-suite execution overlapped final new-test additions; new tests were rerun separately on final implementation.",
+  "remote_validation": {
+    "run_id": 36665220439,
+    "job_id": 109728332387,
+    "log_url": "https://github.com/jinbaozi/ai-video-preproduction/actions/runs/36665220439",
+    "source_apply": "PASS",
+    "synchronized_package_rebuild": "PASS",
+    "new_routing_and_native_text_e2e": "PASS",
+    "four_professional_module_suites": "PASS_WITH_EXISTING_SKIP",
+    "validated_source_and_package_commit": "PASS"
+  },
+  "not_run": ["real LLM end-to-end creative blind evaluation", "real Codex multi-agent dispatch review", "video model generation", "paid submission", "finished-film review"],
+  "quality_boundary": "Static provenance, scope and gate tests are not proof of artistic quality, semantic truth or generated-film quality."
+}

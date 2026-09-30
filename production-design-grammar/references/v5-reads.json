@@ -1,10 +1,20 @@
 {
-  "always": ["SKILL.md", "references/current-contract.md", "references/cooperation-v5.md", "references/world-and-assets.md"],
+  "always": [
+    "SKILL.md",
+    "references/current-contract.md",
+    "references/cooperation-v5.md",
+    "references/world-and-assets.md",
+    "references/craft-routing.md"
+  ],
   "kinds": {
     "art": []
   },
   "when": {
-    "identity": ["references/world-and-assets.md"],
-    "multi_subject": ["references/world-and-assets.md"]
+    "identity": [
+      "references/world-and-assets.md"
+    ],
+    "multi_subject": [
+      "references/world-and-assets.md"
+    ]
   }
 }

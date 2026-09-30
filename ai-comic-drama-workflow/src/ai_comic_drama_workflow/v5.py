@@ -19,6 +19,7 @@ from .v5_handoff import briefing, requirements, validate_handoff
 from .v5_adapters import VERSION as ADAPTER_VERSION
 from .v5_modules import ROOT, MODULES, read, digest_file, default_lock, module_path, native_validate, load_python, verify_archive, verify_module
 from .v6_runtime_fingerprint import runtime_code_hashes
+from . import craft_runtime
 
 STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay','screenplay-grammar'),
           (3,'导演方案','director','director-grammar'), (4,'美术方案','art','production-design-grammar'),
@@ -74,7 +75,7 @@ class V5Kernel:
             raise ValueError('Legacy project is read-only. Use copy-project into a new V5 directory.')
         if (self.root/'state.json').exists():
             current=read(self.root/'project.json')
-            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0))
+            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'))
             if choice(current)!=choice(self.state) or choice(current)!=choice(self.project):
                 raise ValueError('Frozen control policy differs from project/state; no silent downgrade')
 
@@ -113,7 +114,7 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
@@ -122,6 +123,7 @@ class V5Kernel:
         if control_policy not in (None, 'adaptive-control/1.0'):raise ValueError('Unknown control policy')
         if type(control_minimum) is not int or not 0<=control_minimum<=4 or (control_minimum and not control_policy):
             raise ValueError('Control minimum requires adaptive policy and integer 0..4')
+        if craft_policy not in (None, 'off', craft_runtime.POLICY):raise ValueError('Unknown craft policy')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -129,6 +131,7 @@ class V5Kernel:
             'execution_mode':'current-agent','delivery':delivery,'target':target,'mode':mode or ('reference' if delivery=='full' else 'text'),
             'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
+        if craft_policy:kernel.project['craft_policy']=craft_policy
         if workflow_profile:kernel.project['workflow_profile']=workflow_profile
         if control_policy:kernel.project.update(control_policy=control_policy,control_minimum=control_minimum)
         validate_protocol('project',kernel.project,kernel.skill_root)
@@ -145,6 +148,7 @@ class V5Kernel:
                'completed_tasks':{},'active_task':None,'active_decision':None,'inflight':None,
                'status':'RUNNING','revision_scope':{},'provided_jobs':[],'host':{'image_capability':'unknown','evidence':None},
                'sources':[],'build':None}
+        if craft_policy:state['craft_policy']=craft_policy
         if control_policy:state.update(control_policy=control_policy,control_minimum=control_minimum)
         kernel.save(state)
         kernel.add(inputs)
@@ -208,7 +212,7 @@ class V5Kernel:
             if slot=='qa' and (not state['build'] or data.get('build_id')!=state['build']['build_id']):return False
             if any(digest_file(self.path(p))!=h for p,h in record['files'].items()):return False
         except (ValueError,OSError):return False
-        return self.dependencies_valid(record['dependencies'],state)
+        return self.dependencies_valid(record['dependencies'],state) and craft_runtime.proof_valid(self,record)
 
     def prerequisites_ready(self,kind):
         needed={'canon':[],'screenplay':['canon'],'director':['canon','screenplay'],
@@ -327,6 +331,7 @@ class V5Kernel:
         if self.project.get('control_policy') and kind=='storyboard':
             extra['adaptive_instruction']='Use native action statuses and shot-scoped tracks. Do not invent contact, interpolate unknown poses, or count static roots as moving actors. Plan only consumed assets. Unknown control facts must be resolved by the source owner.'
         reads=self.required_reads(module,(extra or {}).get('job'),kind) if module else []
+        craft_runtime.attach(self,kind,slot,dependencies,scope or {},extra,reads)
         context={'kind':kind,'slot':slot,'dependencies':dependencies,'scope':scope or {},
                  'modules':read(self.root/'modules.lock.json'),'extra':extra,'project':self.project,
                  'completed_count':len(state['completed_tasks']),
@@ -744,6 +749,7 @@ class V5Kernel:
     def data_from_uri(self,uri):return read(self.path(uri))
 
     def receipt_audit(self,task,result):
+        craft_runtime.check(self,task,result)
         module=task.get('module')
         if not module:return None
         receipt=result.get('module_receipt')
@@ -1090,6 +1096,7 @@ class V5Kernel:
                 self._submit_origin=None
                 self._submit_audit=None
             state=self.state
+        craft_runtime.record(self,task,result,state)
         state['completed_tasks'][task_id]=digest(result);state['active_task']=None
         if result.get('complete',True):state['revision_scope']={}
         state['status']='RUNNING';self.save(state)

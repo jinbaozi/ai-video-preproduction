@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "46171702df668dfd66e297f11c92e0981d83b32505024992f9d05dff3d53102d",
-  "file_count": 64,
+  "archive_sha256": "000a2b7e05858b760844f0b71585adb541f6fab9e765be676b26fe31aca4fe7d",
+  "file_count": 66,
   "files": {
     "director-grammar/SKILL.md": {
-      "bytes": 8566,
-      "sha256": "db77ca9d001733346ece2b9a7996d1132ead2abe8a22b7ccb79d2c3c13d1f157"
+      "bytes": 9142,
+      "sha256": "29874ea65626b55e674bfba068851bee77a66b89d311ed048b21a431afdf4b84"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -67,6 +67,10 @@
       "bytes": 4268,
       "sha256": "28fb0672d9920bb60bb2800da33cc9ac1d9cd6884d30ceb993fa51672b65bb28"
     },
+    "director-grammar/references/craft-routing.md": {
+      "bytes": 7137,
+      "sha256": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7"
+    },
     "director-grammar/references/current-contract.md": {
       "bytes": 2877,
       "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
@@ -120,8 +124,8 @@
       "sha256": "12ae76f518c39a71aab5940e19548fc6239dcbba0c642f51fc46a979924b6485"
     },
     "director-grammar/references/v5-reads.json": {
-      "bytes": 349,
-      "sha256": "9c1f3581c160459b8bc7a80df47e9dfe321dff3ae9f6565c78113a60aca6d4c9"
+      "bytes": 448,
+      "sha256": "562847617ea5edd5699d391a72eed7590d7f663af9b93f24cbbc6276ad7aa8f2"
     },
     "director-grammar/references/verification.md": {
       "bytes": 3357,
@@ -199,6 +203,10 @@
       "bytes": 28213,
       "sha256": "849d192b7807643c74fc7593b8c406aa1192b51c75ed4e3bd2207de64889589e"
     },
+    "director-grammar/scripts/craft_router.py": {
+      "bytes": 22620,
+      "sha256": "0c278a0eb86cffe96a50235e1bbf3cf0e5fd94962efab4843317118b04490cb8"
+    },
     "director-grammar/scripts/detail_runtime.py": {
       "bytes": 34347,
       "sha256": "c50a2bea84f3df31859d1236cfb2c28bb110c6c8e8c65c643a9b7ab63e6651e7"
@@ -261,5 +269,5 @@
     }
   },
   "name": "director-grammar",
-  "version": "1.4.5"
+  "version": "1.4.6"
 }

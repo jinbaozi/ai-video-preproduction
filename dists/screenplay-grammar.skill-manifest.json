@@ -1,11 +1,11 @@
 {
   "archive": "screenplay-grammar.skill",
-  "archive_sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
-  "file_count": 56,
+  "archive_sha256": "4fd476481f5e87ad6449d646c65293a7fd750ac2b5246fdb6ab846ce0a261ce7",
+  "file_count": 58,
   "files": {
     "screenplay-grammar/SKILL.md": {
-      "bytes": 6356,
-      "sha256": "04f9f9b6fbb66c097bb9f5c520270d701a8f0bc5d0d00cf0b102f5221db6368e"
+      "bytes": 6932,
+      "sha256": "1c371c3773d3a920f9cd212943c11183a8c27ec47ab84737315ac6128b883ba3"
     },
     "screenplay-grammar/agents/openai.yaml": {
       "bytes": 392,
@@ -62,6 +62,10 @@
     "screenplay-grammar/references/cooperation.md": {
       "bytes": 2759,
       "sha256": "284750ee9f1a18d6647067e08dbcea74fe68e44d259e031cfaaeaa3b4c194e36"
+    },
+    "screenplay-grammar/references/craft-routing.md": {
+      "bytes": 7137,
+      "sha256": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7"
     },
     "screenplay-grammar/references/long-form.md": {
       "bytes": 1246,
@@ -164,8 +168,8 @@
       "sha256": "45bbc4b736d647bce06551b6c391eb9785634c8d34cf8631ccb4a67573561f29"
     },
     "screenplay-grammar/references/v5-reads.json": {
-      "bytes": 205,
-      "sha256": "dfed636c0980c40ad5ac364192795478dc8f75fe4fd20ca1f9abf8d69f9c3d9c"
+      "bytes": 280,
+      "sha256": "da873366d6d62c63a6e80a971e8ec533d1c5dea81dbf139a135919c7074ba94f"
     },
     "screenplay-grammar/references/verification.md": {
       "bytes": 593,
@@ -211,6 +215,10 @@
       "bytes": 28213,
       "sha256": "849d192b7807643c74fc7593b8c406aa1192b51c75ed4e3bd2207de64889589e"
     },
+    "screenplay-grammar/scripts/craft_router.py": {
+      "bytes": 22620,
+      "sha256": "0c278a0eb86cffe96a50235e1bbf3cf0e5fd94962efab4843317118b04490cb8"
+    },
     "screenplay-grammar/scripts/package_skill.py": {
       "bytes": 4659,
       "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
@@ -229,5 +237,5 @@
     }
   },
   "name": "screenplay-grammar",
-  "version": "1.0.2"
+  "version": "1.0.3"
 }

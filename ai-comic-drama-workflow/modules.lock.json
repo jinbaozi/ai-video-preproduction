@@ -3,33 +3,33 @@
   "modules": {
     "director-grammar": {
       "archive": "director-grammar.skill",
-      "sha256": "46171702df668dfd66e297f11c92e0981d83b32505024992f9d05dff3d53102d",
-      "version": "1.4.5"
+      "sha256": "000a2b7e05858b760844f0b71585adb541f6fab9e765be676b26fe31aca4fe7d",
+      "version": "1.4.6"
     },
     "image-prompt-optimizer": {
       "archive": "image-prompt-optimizer.skill",
-      "sha256": "6a0b876dffa10124d81709a5a78a454d61c32df342a31b6d47a6a45a020eb927",
-      "version": "1.16.0"
+      "sha256": "1e1c58d0f81346f61171c1056a315d9f6628712b32779857e7510206a436a1ea",
+      "version": "1.16.1"
     },
     "production-design-grammar": {
       "archive": "production-design-grammar.skill",
-      "sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
-      "version": "1.3.3"
+      "sha256": "61c680c0dd3b83d9f5d5c98f3b9bff1c867971fbe8702bb2bea0d2776dc785d9",
+      "version": "1.3.4"
     },
     "screenplay-grammar": {
       "archive": "screenplay-grammar.skill",
-      "sha256": "a2cb49a9096ba696e1db059663fcecbb61c3c102c5c10bcd91047704edafe5d4",
-      "version": "1.0.2"
+      "sha256": "4fd476481f5e87ad6449d646c65293a7fd750ac2b5246fdb6ab846ce0a261ce7",
+      "version": "1.0.3"
     },
     "storyboard-grammar": {
       "archive": "storyboard-grammar.skill",
-      "sha256": "059edd07557eb4ab7276e71db185597f66fbd8901b7e7a9bc9686528a9a6c7c2",
-      "version": "1.3.4"
+      "sha256": "e91392c0114c1d9a9e449a5be52c70cd4b2be84ccaaf5f476f79afad269bd224",
+      "version": "1.3.5"
     },
     "video-prompt-compiler": {
       "archive": "video-prompt-compiler.skill",
-      "sha256": "4d0e2faf74558e2ad1c3ed250a55259d58ce414b5d99eb9e25a95be5c301d5be",
-      "version": "1.20.0"
+      "sha256": "6a50006989bee6c7e701a4c77c89502a5c05c9aec66ba8ebd13f7bdc9190b80f",
+      "version": "1.20.1"
     }
   },
   "schema": "skill-modules/1.0"

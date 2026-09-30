@@ -1,0 +1,41 @@
+name: Professional craft routing
+on:
+  push:
+    branches: [main, 'feat/automatic-craft-routing-20260930']
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: craft-routing-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  routing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install native validators
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Check synchronized sources and release bytes
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Routing, adversarial evidence and native end-to-end tests
+        run: |
+          mkdir -p /tmp/craft-validation
+          set -o pipefail
+          python -m unittest discover -s ai-comic-drama-workflow/tests -p 'test_craft*.py' -v 2>&1 | tee /tmp/craft-validation/tests.log
+          git rev-parse HEAD > /tmp/craft-validation/source-commit.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: craft-routing-validation
+          path: /tmp/craft-validation
+          retention-days: 14

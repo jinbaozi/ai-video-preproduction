@@ -1,11 +1,11 @@
 {
   "archive": "production-design-grammar.skill",
-  "archive_sha256": "6e83e075da45785541fce62f9fcc6ebc8666f48466c382af5980f292613fb5f9",
-  "file_count": 37,
+  "archive_sha256": "61c680c0dd3b83d9f5d5c98f3b9bff1c867971fbe8702bb2bea0d2776dc785d9",
+  "file_count": 39,
   "files": {
     "production-design-grammar/SKILL.md": {
-      "bytes": 7407,
-      "sha256": "43a4f38ebf9271892d6c489f57e31408ad655b01fdecda4700b9018f105a2b10"
+      "bytes": 7983,
+      "sha256": "ba612726bcb4d2a29d499a167fb8d3f7af7aa27c39b3324f84ea2bd3d7bc73d0"
     },
     "production-design-grammar/agents/openai.yaml": {
       "bytes": 426,
@@ -42,6 +42,10 @@
     "production-design-grammar/references/cooperation-v5.md": {
       "bytes": 4003,
       "sha256": "029d4196062a8794b515a85c337f592f5d5b447ec0bcf7b002486c08af4dc863"
+    },
+    "production-design-grammar/references/craft-routing.md": {
+      "bytes": 7137,
+      "sha256": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7"
     },
     "production-design-grammar/references/current-contract.md": {
       "bytes": 2877,
@@ -80,8 +84,8 @@
       "sha256": "4f71171f7fd5a49300b549532c224548caa3f5c68f5e1bb73cd00f1ea0c7e377"
     },
     "production-design-grammar/references/v5-reads.json": {
-      "bytes": 286,
-      "sha256": "0082c6ab434393e2207837f3393789796efb1711c7c69843af3ced0da707b854"
+      "bytes": 365,
+      "sha256": "9a1a765465008666f1c2dfa3b594fd834fffbe5137c124bfb3b8f667e9c64288"
     },
     "production-design-grammar/references/verification.md": {
       "bytes": 2971,
@@ -135,6 +139,10 @@
       "bytes": 32835,
       "sha256": "5be3a4e816259f041b505d56ede5b2bde788091a028def72ebf110d81f5f3071"
     },
+    "production-design-grammar/scripts/craft_router.py": {
+      "bytes": 22620,
+      "sha256": "0c278a0eb86cffe96a50235e1bbf3cf0e5fd94962efab4843317118b04490cb8"
+    },
     "production-design-grammar/scripts/package_skill.py": {
       "bytes": 4659,
       "sha256": "ed9104ad3a0a58f3892892009348344b3a338af1cd65f11c5883301482d1f8f5"
@@ -153,5 +161,5 @@
     }
   },
   "name": "production-design-grammar",
-  "version": "1.3.3"
+  "version": "1.3.4"
 }

@@ -37,11 +37,13 @@ def sync(workspace=ROOT, check=False):
     from sync_v52 import sync as sync_v52
     from sync_screenplay import sync as sync_screenplay
     from sync_shot_control import sync as sync_shot_control
+    from sync_craft import sync as sync_craft
     records = _copy(manifest(workspace), check)
     records['v51'] = sync_v51(workspace, check=check)
     records['v52'] = sync_v52(workspace, check=check)
     records['screenplay'] = sync_screenplay(workspace, check=check)
     records['shot_control'] = sync_shot_control(workspace, check=check)
+    records['craft'] = sync_craft(workspace, check=check)
     return records
 
 
