@@ -22,7 +22,7 @@ ai-comic-drama start '成年旅人雨夜拾起信封，街灯由冷转暖。' \
 ai-comic-drama step ./rain-letter --result ./result.json
 ```
 
-最终从 `delivery/index.md` 获取实际分段、投喂正文、附件和验收依据。`step` 不是一次命令自动生成整片的模型客户端。
+新 lean 项目从 `00-progress.md` 查看阶段，从 `09-delivery/index.md` 获取实际分段、投喂正文、附件和验收依据；旧项目保留 `delivery/index.md`。`step` 不是一次命令自动生成整片的模型客户端。
 
 新 `start` 按镜头风险选择最少控制素材：简单镜头不做白模，接触/遮挡用事件几何帧，耦合运动用连续白模预演。几何帧必须成为分镜图的真实输入，不止存放在目录中；未知轨迹、失效素材和未支持通道仍阻断。详情见[自适应控制](video-prompt-compiler/references/adaptive-control.md)和[对抗审查记录](audit/adaptive-control.md)。
 
@@ -72,6 +72,28 @@ audited/V6 的阶段图来自 [workflow-v6.json](ai-comic-drama-workflow/workflo
 | [video-prompt-compiler](video-prompt-compiler/SKILL.md) | 冻结分镜到模型提示词与附件的唯一出口 |
 
 各入口可独立使用。没有上游时，允许在用户范围内设计并标明来源；已有成果先验证其原生来源与有效性，再复用，导入不等于通过验收。
+
+## 按顺序看进度，不遍历中间文件
+
+新 lean 默认 compact 输出；不用额外配置。从 `00-progress.md` 查看当前阶段、已接受产物、阻塞和下一步。目录仅在进入阶段或产生必要产物时创建：
+
+```text
+00-progress.md
+01-source/          原始资料与项目事实
+02-screenplay/      剧本
+03-director/        导演方案
+04-art/             美术与服化道
+05-assets/          视觉资产
+06-storyboard/      分镜与必要控制素材
+07-boards/          分镜图片
+08-video-prompts/   模型提示词与冻结编译包
+09-delivery/        验收与交付入口
+10-video/           有真实视频字节时创建
+```
+
+权威内容只保留一份；任务按字段指针读取它，不复制上游正文。已经嵌入任务的方法卡不再另存一份。原生依赖按内容去重复用，省去重复 manifest、阶段表和全状态交付副本。宿主按 `task.output_file` 创作，用 `step --result -` 提交 JSON，可省去作者草稿和额外 result 文件。`.runtime/` 只承担必要的模块、任务/结果证据、共享依赖、原件及恢复记录，不是阅读入口。
+
+显式 `--output-profile audit` 保留原布局；已有项目与 audited 不自动改名或清理。文件少不等于上下文截断，也不等于跳过专业验收。参见[输出合同](ai-comic-drama-workflow/references/compact-workspace.md)与[方案及实测](audit/compact-workspace.md)。
 
 ## 少文件，不少质量依据
 

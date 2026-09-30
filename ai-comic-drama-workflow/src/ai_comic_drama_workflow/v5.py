@@ -19,7 +19,7 @@ from .v5_handoff import briefing, requirements, validate_handoff
 from .v5_adapters import VERSION as ADAPTER_VERSION
 from .v5_modules import ROOT, MODULES, read, digest_file, default_lock, module_path, native_validate, load_python, verify_archive, verify_module
 from .v6_runtime_fingerprint import runtime_code_hashes
-from . import craft_runtime
+from . import craft_runtime, workspace
 
 STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay','screenplay-grammar'),
           (3,'导演方案','director','director-grammar'), (4,'美术方案','art','production-design-grammar'),
@@ -54,7 +54,23 @@ def mutate(method):
                 raise ValueError('V6 project mutations require the orchestration gateway')
             if self.state.get('inflight') and method.__name__ not in ('run','submit','recover_image','host'):
                 raise ValueError('Recover the in-flight image result before changing this project')
-            return method(self,*args,**kwargs)
+            outer = not getattr(self, '_workspace_mutating', False)
+            self._workspace_mutating = True
+            try:
+                result = method(self,*args,**kwargs)
+                if outer and workspace.enabled(self.project):
+                    state=self.state
+                    if isinstance(result,dict) and result.get('status') in ('BLOCKED','NEEDS_REFERENCE_OBSERVATION'):
+                        state['workspace_notice']={key:result[key] for key in ('status','reason','conflicts','unresolved','decision','validation') if key in result}
+                        self.save(state)
+                    elif state.pop('workspace_notice',None) is not None:
+                        self.save(state)
+                    progress = workspace.update_progress(self, result)
+                    if isinstance(result, dict):
+                        result['progress'] = progress
+                return result
+            finally:
+                if outer:self._workspace_mutating = False
     return wrapper
 
 
@@ -75,14 +91,14 @@ class V5Kernel:
             raise ValueError('Legacy project is read-only. Use copy-project into a new V5 directory.')
         if (self.root/'state.json').exists():
             current=read(self.root/'project.json')
-            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'))
+            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'))
             if choice(current)!=choice(self.state) or choice(current)!=choice(self.project):
                 raise ValueError('Frozen control policy differs from project/state; no silent downgrade')
 
     def path(self,relative):
         p=Path(relative)
         if p.is_absolute() or '..' in p.parts:raise ValueError('Expected a contained project path')
-        target=(self.root/p).resolve()
+        target=(self.root/workspace.relative(self.project, str(p))).resolve()
         if not target.is_relative_to(self.root):raise ValueError('Path escapes project through a symlink')
         return target
 
@@ -100,7 +116,8 @@ class V5Kernel:
     def save(self,state):
         validate_protocol('state',state,self.skill_root)
         self.write('state.json',state)
-        self.write('manifest.json',{'schema_version':'5.0','artifacts':state['artifacts'],'media':state['media']})
+        if not workspace.enabled(self.project):
+            self.write('manifest.json',{'schema_version':'5.0','artifacts':state['artifacts'],'media':state['media']})
 
     def modules(self,name):return module_path(self.root,name,self.skill_root)
 
@@ -114,7 +131,7 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
@@ -124,6 +141,8 @@ class V5Kernel:
         if type(control_minimum) is not int or not 0<=control_minimum<=4 or (control_minimum and not control_policy):
             raise ValueError('Control minimum requires adaptive policy and integer 0..4')
         if craft_policy not in (None, 'off', craft_runtime.POLICY):raise ValueError('Unknown craft policy')
+        if output_policy not in (None, workspace.POLICY):raise ValueError('Unknown output policy')
+        if output_policy and workflow_profile!='lean':raise ValueError('Compact workspace requires lean; audited evidence must be retained')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -131,6 +150,7 @@ class V5Kernel:
             'execution_mode':'current-agent','delivery':delivery,'target':target,'mode':mode or ('reference' if delivery=='full' else 'text'),
             'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
+        if output_policy:kernel.project['output_policy']=output_policy
         if craft_policy:kernel.project['craft_policy']=craft_policy
         if workflow_profile:kernel.project['workflow_profile']=workflow_profile
         if control_policy:kernel.project.update(control_policy=control_policy,control_minimum=control_minimum)
@@ -140,14 +160,16 @@ class V5Kernel:
         for name in lock['modules']:
             source=Path(skill_root)/'assets/bundled-skills'/(name+'.skill')
             if digest_file(source)!=lock['modules'][name]['sha256']:raise ValueError('Bundled module differs from lock')
-            dest=root/'runtime/module-archives'/(lock['modules'][name]['sha256']+'.skill')
+            dest=kernel.path('runtime/module-archives/'+lock['modules'][name]['sha256']+'.skill')
             dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,dest)
-        kernel.write('phase-index.json',{'schema_version':'5.0','phases':[
-            {'index':i,'name':n,'role':r,'module':m if m in lock['modules'] else None} for i,n,r,m in STAGES]})
+        if not workspace.enabled(kernel.project):
+            kernel.write('phase-index.json',{'schema_version':'5.0','phases':[
+                {'index':i,'name':n,'role':r,'module':m if m in lock['modules'] else None} for i,n,r,m in STAGES]})
         state={'schema_version':'5.0','artifacts':{},'media':{},'prompts':{},'approvals':{},'decisions':[],
                'completed_tasks':{},'active_task':None,'active_decision':None,'inflight':None,
                'status':'RUNNING','revision_scope':{},'provided_jobs':[],'host':{'image_capability':'unknown','evidence':None},
                'sources':[],'build':None}
+        if output_policy:state['output_policy']=output_policy
         if craft_policy:state['craft_policy']=craft_policy
         if control_policy:state.update(control_policy=control_policy,control_minimum=control_minimum)
         kernel.save(state)
@@ -168,7 +190,7 @@ class V5Kernel:
             checksum=hashlib.sha256(data).hexdigest()
             if any(s['sha256']==checksum for s in state['sources']):continue
             ident='SRC_'+checksum[:12]
-            uri='sources/'+ident+'/'+name
+            uri=workspace.relative(self.project,'sources/'+ident+'/'+name)
             self.write(uri,data)
             state['sources'].append({'id':ident,'uri':uri,'sha256':checksum,'original':original})
         state['active_task']=None;state['build']=None;state['status']='RUNNING'
@@ -358,6 +380,16 @@ class V5Kernel:
         if migration.exists():
             task['migration_report']=str(migration)
             task['reusable_media_candidates']=read(migration)['media_candidates']
+        if workspace.enabled(self.project):
+            workspace.slim_handoff(task['handoff'])
+            task['existing_media']=[{k:m[k] for k in ('key','uri','sha256','stage','role','entity_id','shot_id') if k in m}
+                                    for m in task['existing_media']]
+            folder=workspace.STAGES[stage][0]
+            self.path(folder).mkdir(parents=True,exist_ok=True)
+            task['output_directory']=str(self.path(folder))
+            if kind in workspace.KINDS and kind!='control':
+                task['output_file']=str(self.path(workspace.next_artifact_uri(self,kind,slot)))
+            task['storage_instruction']='Author the requested native result directly at output_file when provided; do not overwrite an accepted revision. No separate author draft is required. Generate only required media. Use step --result - for stdin JSON; do not create duplicate plans, context dumps, review reports or copies of upstream artifacts. Reuse hash-checked native source paths. Adopted craft rules are embedded in task.craft.'
         validate_protocol('task-envelope',task,self.skill_root)
         self.write('runtime/tasks/'+task_id+'.json',task)
         state.update(active_task=task_id,active_task_sha256=digest(task),status='AWAITING_CURRENT_AGENT')
@@ -490,7 +522,7 @@ class V5Kernel:
         if not sources:raise ValueError('Observation source is not registered in this project')
         # Validate the original evidence in place, then copy immutable bytes.
         review=record_review(bundle,bundle/'review.json')
-        key=digest({'manifest':manifest,'review':review});prefix='observations/'+manifest['source_sha256']+'/'+key
+        key=digest({'manifest':manifest,'review':review});prefix=workspace.relative(self.project,'observations/'+manifest['source_sha256']+'/'+key)
         for frame in manifest['frames']:
             file=Path(frame['file'])
             if file.name!=frame['file']:raise ValueError('Observation frame path must be a filename')
@@ -572,9 +604,11 @@ class V5Kernel:
             if pending:return pending
         return self.export()
 
-    def snapshot(self,kind,path):
+    def snapshot(self,kind,path,slot=None):
         """Copy native input and local dependencies; preserve raw bytes and report rebasing."""
-        path=Path(path).expanduser().resolve();raw=path.read_bytes()
+        path=Path(path).expanduser().resolve()
+        if workspace.enabled(self.project):return workspace.snapshot(self,kind,path,slot=slot)
+        raw=path.read_bytes()
         closure={}
         def collect(source,native=True):
             source=source.resolve()
@@ -699,7 +733,7 @@ class V5Kernel:
     @mutate
     def import_artifact(self,kind,path,*,slot=None,scope=None,dependencies=None,complete=True,locks=None,handoff=None,trusted=False):
         if kind not in STAGE_BY_KIND:raise ValueError('Unknown native artifact kind')
-        source=Path(path).expanduser().resolve();value=read(source)
+        source=Path(path).expanduser().resolve();value=read(source);original_sha=digest_file(source)
         slot=slot or ('art:'+value['set']['scene_id'] if kind=='art' else kind)
         scope=scope or ({'scene_ids':[value['set']['scene_id']]} if kind=='art' else {})
         self.check_content(kind,value,source)
@@ -709,7 +743,7 @@ class V5Kernel:
             if not assert_check(value,lock):raise ValueError('Previously locked field changed: '+lock['path'])
         for lock in locks or []:
             if not assert_check(value,lock):raise ValueError('Newly declared lock does not hold: '+lock['path'])
-        uri,files=self.snapshot(kind,source)
+        uri,files=self.snapshot(kind,source,slot=slot)
         self.check_content(kind,self.data_from_uri(uri),self.path(uri))
         ready=self.prerequisites_ready(kind)
         if dependencies is None:
@@ -728,14 +762,15 @@ class V5Kernel:
             review=validate_handoff(kind,promoted,required,review,screenplay)
         module=self.stage_module(kind)
         record={'kind':kind,'slot':slot,'stage':STAGE_BY_KIND[kind],'uri':uri,'sha256':digest_file(self.path(uri)),
-            'original_sha256':digest_file(source),'revision':(old or {}).get('revision',0)+1,'scope':scope or {},
+            'original_sha256':original_sha,'revision':(old or {}).get('revision',0)+1,'scope':scope or {},
             'dependencies':dependencies,'files':files,'locks':locks if locks is not None else (old or {}).get('locks',[]),
             'complete':complete,'invalidated':False,'needs_reconciliation':not ready,
             'handoff':review,'module':read(self.root/'modules.lock.json')['modules'].get(module),
             'adapter_version':ADAPTER_VERSION,'audit':getattr(self,'_submit_audit',None)}
+        if workspace.enabled(self.project):record['original_uri']=str(source.resolve())
         if self.current_release() and not trusted and (getattr(self,'_submit_origin',None)!='submit' or getattr(self,'_submit_reused',False)):
             record['needs_review']=True;record['audit']='needs_review'
-        if old:self.write('history/'+digest(old)+'.json',old)
+        if old and not workspace.enabled(self.project):self.write('history/'+digest(old)+'.json',old)
         state['artifacts'][slot]=record;state['active_task']=None;state['status']='RUNNING'
         if kind=='director':
             scenes={s['id'] for s in value['scenes']}
@@ -983,10 +1018,10 @@ class V5Kernel:
         avir,report=storyboard_to_avir(storyboard,self.root)
         if report.get('status')=='BLOCKED':
             raise ValueError('Shot control needs a storyboard that converts to AVIR')
-        source=self.root/'runtime'/'control-source.json'
+        source=self.path('runtime/control-source.json')
         self.write('runtime/control-source.json',avir)
         compiler=self.modules('video-prompt-compiler')
-        out=self.root/'artifacts'/'control'
+        out=self.path('artifacts/control')
         if self.project.get('control_policy'):
             out=out/digest([avir,config])
         elif out.exists():shutil.rmtree(out)
@@ -1051,7 +1086,7 @@ class V5Kernel:
             self.check_verbatim(task,result)
         if kind=='image-prompt':
             self.accept_prompt(task,result,state)
-            uri='prompts/'+task['slot']+'/'+digest(result)+'.txt';self.write(uri,result['prompt'].encode())
+            uri=workspace.relative(self.project,'prompts/'+task['slot']+'/'+digest(result)+'.txt');self.write(uri,result['prompt'].encode())
             state['prompts'][task['slot']]={'uri':uri,'sha256':digest_file(self.path(uri)),
                 'input_fingerprint':task['job']['fingerprint'],'checks':result['checks'],
                 'understanding':result.get('understanding'),'params':result.get('params'),
@@ -1059,7 +1094,7 @@ class V5Kernel:
         elif kind=='image':
             media=self.accept_media(task,result)
             old=state['media'].get(task['slot'])
-            if old:self.write('history/media-'+digest(old)+'.json',old)
+            if old and not workspace.enabled(self.project):self.write('history/media-'+digest(old)+'.json',old)
             state['media'][task['slot']]=media;state['inflight']=None;state['build']=None
         elif kind=='compile-review':
             self.accept_compile_review(result,state)
@@ -1131,7 +1166,7 @@ class V5Kernel:
         if decode.returncode:raise ValueError('Image frame decoding failed')
         old=self.state['media'].get(job['key'],{})
         revision=old.get('revision',0)+1
-        uri=f"assets/{job['key']}/v{revision:03d}/{path.name}"
+        uri=workspace.relative(self.project,f"assets/{job['key']}/v{revision:03d}/{path.name}")
         self.write(uri,path.read_bytes())
         return {'key':job['key'],'uri':uri,'filename':path.name,'sha256':media['sha256'],'revision':revision,
             'stage':job['stage'],'role':job['role'],'entity_id':job['entity_id'],'shot_id':job['shot_id'],
@@ -1177,8 +1212,9 @@ class V5Kernel:
         affected={'screenplay-grammar':'screenplay','director-grammar':'director','production-design-grammar':'art','storyboard-grammar':'storyboard'}
         for record in state['artifacts'].values():
             if record['kind'] in [affected[n] for n in changed if n in affected]:record['invalidated']=True
-        self.write('phase-index.json',{'schema_version':'5.0','phases':[
-            {'index':i,'name':n,'role':r,'module':m} for i,n,r,m in STAGES]})
+        if not workspace.enabled(self.project):
+            self.write('phase-index.json',{'schema_version':'5.0','phases':[
+                {'index':i,'name':n,'role':r,'module':m} for i,n,r,m in STAGES]})
         state.update(active_task=None,build=None,status='RUNNING')
         self.save(state)
         return {'status':'UPDATED','changed':changed,'existing_media':'retained; current dependency and prompt fingerprints will be rechecked'}
@@ -1309,7 +1345,7 @@ class V5Kernel:
             mapping=read(Path(mapping)) if not isinstance(mapping,dict) else mapping
             if mapping.get('storyboard_sha256')!=state['artifacts']['storyboard']['sha256']:
                 raise ValueError('Mapping review binds a different storyboard')
-            self.write('history/mapping-'+digest(mapping)+'.json',mapping)
+            if not workspace.enabled(self.project):self.write('history/mapping-'+digest(mapping)+'.json',mapping)
             state['mapping_overrides']=mapping;state['build']=None;self.save(state)
         mapping=state.get('mapping_overrides')
         if mapping and mapping['storyboard_sha256']!=state['artifacts']['storyboard']['sha256']:
@@ -1372,7 +1408,7 @@ class V5Kernel:
             elif imported_record.get('invalidated'):
                 return {'status':'BLOCKED','reason':'Explicit AVIR revision must be submitted before compilation'}
             else:
-                self.write('history/retired-avir-'+digest(imported_record)+'.json',imported_record)
+                if not workspace.enabled(self.project):self.write('history/retired-avir-'+digest(imported_record)+'.json',imported_record)
                 state['artifacts'].pop('avir');self.save(state)
         if self.valid('avir'):
             imported=self.data('avir')
@@ -1380,7 +1416,7 @@ class V5Kernel:
                 return {'status':'BLOCKED','reason':'Imported AVIR does not match the current frozen storyboard and media; re-review its adaptation'}
             avir=imported
         report['target_hash']=digest(avir)
-        build_hash=self.build_fingerprint();folder='builds/'+build_hash
+        build_hash=self.build_fingerprint();folder=workspace.relative(self.project,'builds/'+build_hash)
         self.write(folder+'/avir.json',avir);self.write(folder+'/mapping.json',report)
         if report['status']=='BLOCKED':return {'status':'BLOCKED','mapping_report':str(self.path(folder+'/mapping.json')),'losses':report['losses']}
         compiler=self.modules('video-prompt-compiler')
@@ -1448,7 +1484,7 @@ class V5Kernel:
                 raise ValueError('Compiled package module version differs from project lock')
         if not manifest['runtime_files']:raise ValueError('Missing compiler provenance')
         self.import_artifact('avir',package/'avir.json')
-        prefix='imports/compiled/'+digest_file(package/'compile-manifest.json')
+        prefix=workspace.relative(self.project,'imports/compiled/'+digest_file(package/'compile-manifest.json'))
         files={}
         for filename in [*manifest['files'],'compile-manifest.json']:
             if Path(filename).name!=filename:raise ValueError('Unsafe native manifest path')
@@ -1515,7 +1551,7 @@ class V5Kernel:
         index={'schema':'delivery/5.0','project_id':self.project['project_id'],'status':status,
             'scope':self.project['delivery'],'validation':report,'artifacts':state['artifacts'],'media':state['media'],
             'reference_observations':self.observation_status(),'build':state['build'],'modules':read(self.root/'modules.lock.json'),'submitted':False,'video_qa':'NOT_RUN'}
-        self.write('delivery/index.json',index)
+        if not workspace.enabled(self.project):self.write('delivery/index.json',index)
         video_note='前期交付完成。' if self.production_target()=='video' else '视频未生成，视频验收 NOT_RUN。'
         lines=[f"# {self.project['project_id']} · {status}",f"交付范围：{self.project['delivery']}。生产目标：{self.production_target()}。{video_note}"]
         if state['build']:lines.append('[视频提示词](../'+state['build']['uri']+'/compiled/prompt.txt) · [附件表](../'+state['build']['uri']+'/attachments.json)')

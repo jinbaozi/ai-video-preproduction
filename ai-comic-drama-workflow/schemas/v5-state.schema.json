@@ -47,6 +47,9 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 4
+    },
+    "output_policy": {
+      "const": "compact-workspace/1.0"
     }
   },
   "additionalProperties": true

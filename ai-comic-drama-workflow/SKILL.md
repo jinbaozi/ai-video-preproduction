@@ -1,15 +1,20 @@
 ---
 name: ai-comic-drama-workflow
 description: >
+  新 lean 项目默认顺序目录与最少持久上下文，从 00-progress.md 查看进度，不复制上游正文。
   未指定名家时也默认按内容与场景选择专业方法；继承上游锁定，不以人名代替实现。
   从一句话、创意或资料连续完成参考图、分镜、模型提示词及附件交付；需要成片时接真实执行与验收。
   新创意默认 lean：当前宿主连续承担七类职责，按需读取锁定模块，保留原生质量检查，少派发、少报告。
   显式需要独立审阅时使用 audited/V6；已有项目保持原协议，不自动降级或迁移。
 metadata:
-  version: "0.14.1"
+  version: "0.15.0"
 ---
 
 # 从创意到视频制作包
+
+## 默认最少输出
+
+新 `start --profile lean` 默认 compact：阶段目录按需创建，`00-progress.md` 是人工进度入口。任务给出 `output_file` 时直接写该原生文件，不另存 author 草稿或独立整包导出；完整上下文保存在原生产物与 state，任务只带上游字段指针。`task.craft` 内嵌方法不重复落盘。RoleResult 可用 `step --result -` 从标准输入提交；需要字段时用 `context --slot SLOT --pointer /field`。不遍历全部历史，不写重复计划、总结、清单或验收报告。详细规则按需读[顺序目录合同](references/compact-workspace.md)。旧项目和 audited 不迁移、不删除；审阅、来源、原文与失败恢复证据保留。
 
 ## 默认专业方法路由
 
@@ -50,7 +55,7 @@ ai-comic-drama step /绝对路径/新项目 --result /绝对路径/当前原生�
 
 ## 交付与真实完成
 
-前期交付只向用户展示 `delivery/index.md` 及实际引用文件；它链接分段提示词、后期义务、附件顺序、参考图、原生规格和检查结果。lean 编译不落盘重复审计投影；全部约束仍在 `avir.json`、`artifact.json` 和逐段覆盖中。BLOCKED、DRAFT_REQUIRES_TARGET_CHECK、UNKNOWN 都必须原样显示，不当作可直接执行。
+前期交付只向用户展示进度页及交付入口（compact 为 `09-delivery/index.md`，旧项目为 `delivery/index.md`）和实际引用文件；它链接分段提示词、后期义务、附件顺序、参考图、原生规格和检查结果。lean 编译不落盘重复审计投影；全部约束仍在 `avir.json`、`artifact.json` 和逐段覆盖中。BLOCKED、DRAFT_REQUIRES_TARGET_CHECK、UNKNOWN 都必须原样显示，不当作可直接执行。
 
 `production_target=none` 到前期包 DELIVERED。用户要求生成成片时使用 `--production-target video`，DELIVERED 后继续原有 `production` 冻结、真实执行或人工回收、逐镜/相邻验收、总装与整片审阅；只有真实当前字节通过后才是 VIDEO_DELIVERED。缺工具或权限说明阻塞，不伪造视频。静态测试通过、几何/摄影意图及提示词编译均不证明模型画质或物理精确控制。
 

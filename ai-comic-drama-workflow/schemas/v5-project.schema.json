@@ -66,6 +66,9 @@
       "type": "integer",
       "minimum": 0,
       "maximum": 4
+    },
+    "output_policy": {
+      "const": "compact-workspace/1.0"
     }
   },
   "allOf": [
@@ -107,6 +110,28 @@
         "properties": {
           "execution_mode": {
             "const": "current-agent"
+          }
+        },
+        "not": {
+          "required": [
+            "orchestration_protocol"
+          ]
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "output_policy"
+        ]
+      },
+      "then": {
+        "required": [
+          "workflow_profile"
+        ],
+        "properties": {
+          "workflow_profile": {
+            "const": "lean"
           }
         },
         "not": {
