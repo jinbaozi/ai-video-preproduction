@@ -33,6 +33,10 @@ jobs:
           patch.write_bytes(bz2.decompress(data))
           subprocess.run(['git', 'apply', '--check', str(patch)], check=True)
           subprocess.run(['git', 'apply', str(patch)], check=True)
+          correction = Path('audit/_compact-transfer/correction.patch')
+          assert hashlib.sha256(correction.read_bytes()).hexdigest() == '0f8f487b0b17c17430a577639cd521c5cbf287422df5da6589997553dff26085', 'Correction checksum mismatch'
+          subprocess.run(['git', 'apply', '--check', str(correction)], check=True)
+          subprocess.run(['git', 'apply', str(correction)], check=True)
           PY
       - name: Install native validation dependencies
         run: |
