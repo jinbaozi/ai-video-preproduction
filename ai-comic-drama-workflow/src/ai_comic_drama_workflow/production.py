@@ -8,6 +8,7 @@ import zipfile
 from .acceptance import verify_plan
 from .assembly import _probe, validate_edl
 from .transactions import transaction
+from . import workspace
 from .v5_modules import digest_file, read
 from .v5_protocol import validate_protocol
 
@@ -78,7 +79,7 @@ def _verify_frozen_post_audio(spec):
 class ProductionLedger:
     def __init__(self, kernel):
         self.kernel = kernel
-        self.root = Path(kernel.root) / 'runtime' / 'production'
+        self.root = kernel.path('runtime/production')
 
     @property
     def strict(self):
@@ -98,6 +99,7 @@ class ProductionLedger:
             if path.exists():
                 raise ValueError('Production records are append-only: ' + relative)
             self.kernel.write('runtime/production/' + relative, value)
+            workspace.update_progress(self.kernel)
         return value
 
     def _load(self, relative):
@@ -318,7 +320,7 @@ class ProductionLedger:
                     if key in probe and actual[key] != probe[key]:
                         raise ValueError('Take declared probe differs from local probe: ' + key)
             take_id = 'TAKE_' + _sha({'job': job_id, 'record': record_id, 'file': digest})[:16]
-            uri = 'runtime/production/media/' + take_id + Path(file_path).suffix
+            uri = self.kernel.path('runtime/production/media/' + take_id + Path(file_path).suffix).relative_to(self.kernel.root).as_posix()
             take = {'schema_version': 'v5-take/1.0', 'id': take_id, 'job_id': job_id,
                     'record_id': record_id, 'sha256': digest, 'uri': uri,
                     'automatic': automatic, 'probe': actual or probe,
@@ -630,7 +632,7 @@ class ProductionLedger:
             if spec.get('preserve_native_audio') and any(self._load('takes/' + row['take_id'] + '.json')['probe'].get('audio_streams', 0) for row in edl) and not observed.get('audio_streams', 0):
                 raise ValueError('Assembly silently dropped native audio')
             record['output_sha256'] = digest
-            record['output_uri'] = 'runtime/production/outputs/' + record['id'] + source.suffix
+            record['output_uri'] = self.kernel.path('runtime/production/outputs/' + record['id'] + source.suffix).relative_to(self.kernel.root).as_posix()
             record['probe'] = observed
             with transaction(self.kernel.root):
                 self._write('assembly/' + record['id'] + '.json', record, 'assembly')
@@ -820,4 +822,5 @@ class ProductionLedger:
         state = self.kernel.state
         state['status'] = 'VIDEO_DELIVERED'
         self.kernel.save(state)
+        workspace.update_progress(self.kernel)
         return {'status': 'VIDEO_DELIVERED'}

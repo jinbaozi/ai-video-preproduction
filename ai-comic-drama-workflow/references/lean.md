@@ -38,6 +38,12 @@ ai-comic-drama start 原文.txt --project ./audited-project --profile audited --
 
 计划保存在现有 control-plan，证据保存在原生 RoleResult/state；没有新阶段或报告目录。控制任务按需读锁定模块的 `references/adaptive-control.md`。旧项目和 `init` 保持原策略，只有新 start 默认启用。
 
+## 工作目录与读取
+
+新 `start` 默认 compact 输出：`00-progress.md` 给出执行位置，`01-source/` 至 `09-delivery/` 按阶段存放必要产物，真实视频使用 `10-video/`。每轮依据 `task.output_file` 直接写原生结果；没有该字段的提示词、媒体或控制任务仍按其原协议提交，不发明额外产物。用 `step --result -` 提交标准输入 JSON，可避免结果镜像。机器上下文留在权威原生文件和 state，handoff 仅存字段指针；`context` 按需读原值，不生成文件。完整规则见[顺序目录合同](compact-workspace.md)。
+
+任务内嵌的 craft 方法不另写相同读取文件。保持来源、原生验证、craft_review、冻结任务和结果收据；不得通过省略字段使检查失去依据。`--output-profile audit` 显式保留原布局；已有项目与 audited 不变，不扫描删除旧文件。
+
 ## 输出策略
 
 lean 只省略可由权威 JSON 恢复的普通编译旁路报告，不删除内容：

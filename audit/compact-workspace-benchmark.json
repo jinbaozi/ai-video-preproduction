@@ -1,0 +1,39 @@
+{
+  "schema": "compact-workspace-benchmark/1.0",
+  "fixture": "examples/v5/cafe",
+  "runs": {
+    "audit": {
+      "task_bytes": 110303,
+      "handoff_bytes": 71686,
+      "files": 432,
+      "content_files": 56,
+      "content_bytes": 924259,
+      "tasks": 7,
+      "status": "DELIVERED",
+      "final_native_validation": true
+    },
+    "compact": {
+      "task_bytes": 70102,
+      "handoff_bytes": 28589,
+      "files": 416,
+      "content_files": 40,
+      "content_bytes": 740072,
+      "tasks": 7,
+      "status": "DELIVERED",
+      "final_native_validation": true
+    }
+  },
+  "reduction_percent": {
+    "content_files": 28.57,
+    "content_bytes": 19.93,
+    "task_bytes": 36.45,
+    "handoff_bytes": 60.12,
+    "files": 3.7
+  },
+  "method": "Same authored native fixture; reopen kernel after each accepted task. content excludes locked runtime modules and archives; files includes them but excludes __pycache__. UTF-8 bytes, not model tokens.",
+  "not_run": [
+    "LLM generation/token metering",
+    "actual video generation",
+    "finished-film review"
+  ]
+}

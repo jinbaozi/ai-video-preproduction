@@ -274,7 +274,8 @@ def attach(kernel, kind, slot, dependencies, scope, extra, reads):
     if plan is None:
         return
     extra['craft'] = plan
-    if kind == 'canon':
+    from .workspace import enabled as compact_workspace
+    if kind == 'canon' or compact_workspace(kernel.project):
         return
     # One selected excerpt, not every referenced full registry. The source hashes are
     # validated against the locked module; the host reads the actual selected rule text.
@@ -345,7 +346,8 @@ def record(kernel, task, result, state):
     target = state['artifacts'].get(task['slot'])
     if target is None:
         raise ValueError('Craft proof needs an accepted native artifact')
-    target['craft_proof'] = {'uri': 'runtime/results/' + task['task_id'] + '.json',
+    from .workspace import relative
+    target['craft_proof'] = {'uri': relative(kernel.project, 'runtime/results/' + task['task_id'] + '.json'),
                              'sha256': digest(result), 'policy': POLICY}
 
 

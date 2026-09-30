@@ -18,6 +18,7 @@ from functools import wraps
 from pathlib import Path
 
 from .utils import atomic_write, canonical_json, ensure_relative_path, sync_directory
+from .workspace import physical
 
 _locks: dict[str, threading.RLock] = {}
 _active: dict[str, list[dict]] = {}
@@ -44,11 +45,11 @@ def _validate_journal(root: Path, journal: dict, observed: Path | None = None) -
             or type(journal["created_ns"]) is not int or journal["created_ns"] < 0
             or not isinstance(journal["entries"], list)):
         raise ValueError("Invalid transaction journal")
-    pending = f"runtime/transactions/{journal['id']}.pending.json"
+    pending = (physical(root, "runtime/transactions") / f"{journal['id']}.pending.json").relative_to(root).as_posix()
     if journal["pending_path"] != pending or (observed is not None and observed != root / pending):
         raise ValueError("Transaction journal identity/path mismatch")
     _contained(root, pending)
-    folder = root / "runtime/transactions"
+    folder = physical(root, "runtime/transactions")
     seen, prepared = set(), []
     for index, entry in enumerate(journal["entries"]):
         if not isinstance(entry, dict) or set(entry) != {"path", "backup"}:
@@ -60,7 +61,7 @@ def _validate_journal(root: Path, journal: dict, observed: Path | None = None) -
         seen.add(canonical)
         backup = None
         if entry["backup"] is not None:
-            expected = f"runtime/transactions/{journal['id']}/{index}.backup"
+            expected = (folder / journal["id"] / f"{index}.backup").relative_to(root).as_posix()
             if entry["backup"] != expected:
                 raise ValueError("Recovery backup does not belong to this transaction entry")
             backup = _contained(root, expected)
@@ -80,7 +81,7 @@ def _unlink_durable(path: Path) -> None:
 
 def _discard_backups(root: Path, journal: dict) -> None:
     """Best-effort GC after the durable commit/rollback point, never before it."""
-    folder = root / 'runtime/transactions' / journal['id']
+    folder = physical(root, 'runtime/transactions') / journal['id']
     if (root / journal['pending_path']).exists() or folder.is_symlink():
         return
     try:
@@ -110,13 +111,13 @@ def before_write(root: Path, target: Path) -> None:
         relative = target.relative_to(root).as_posix()
         for journal in _active.get(key, []):
             _contained(root, relative)
-            if target.resolve().is_relative_to(root / "runtime/transactions"):
+            if target.resolve().is_relative_to(physical(root, "runtime/transactions")):
                 raise ValueError("A transaction cannot modify its own journal")
             if any(entry["path"] == relative for entry in journal["entries"]):
                 continue
             backup = None
             if target.exists():
-                backup = f"runtime/transactions/{journal['id']}/{len(journal['entries'])}.backup"
+                backup = (physical(root, "runtime/transactions") / journal["id"] / f"{len(journal['entries'])}.backup").relative_to(root).as_posix()
                 saved = root / backup
                 saved.parent.mkdir(parents=True, exist_ok=True)
                 # Stream the backup: production media must not be loaded just to journal it.
@@ -160,7 +161,7 @@ def transaction(root: Path, *, savepoint: bool = False):
         if _active.get(key) and not savepoint:
             yield
             return
-        folder = root / "runtime/transactions"
+        folder = physical(root, "runtime/transactions")
         if folder.resolve() != folder:
             raise ValueError("Transaction directory cannot be redirected")
         folder.mkdir(parents=True, exist_ok=True)
@@ -180,7 +181,7 @@ def transaction(root: Path, *, savepoint: bool = False):
         parents = _active.get(key, [])
         created_ns = max(time.time_ns(), parents[-1]["created_ns"] + 1 if parents else 0)
         journal = {"id": identifier, "created_ns": created_ns, "entries": [],
-                   "pending_path": f"runtime/transactions/{identifier}.pending.json"}
+                   "pending_path": (folder / f"{identifier}.pending.json").relative_to(root).as_posix()}
         _active.setdefault(key, []).append(journal)
         try:
             try:

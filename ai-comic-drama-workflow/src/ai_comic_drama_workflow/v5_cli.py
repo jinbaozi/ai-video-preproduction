@@ -1,6 +1,7 @@
 """V6 orchestration commands and the explicit legacy V5 command surface."""
 import argparse
 import json
+import sys
 from pathlib import Path
 from .v5 import V5Kernel
 from .v5_modules import ROOT, read, default_lock
@@ -18,9 +19,12 @@ def main(argv=None):
     start_command.add_argument('--production-target',choices=['none','video'],default='none')
     start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
     start_command.add_argument('--craft-routing',choices=['auto','off'],default='auto',help='Default method routing; off only for explicit user opt-out')
+    start_command.add_argument('--output-profile',choices=['compact','audit'],help='Lean defaults to compact ordered storage; audit preserves legacy evidence/layout')
     start_command.add_argument('--verbose',action='store_true')
     step_command=commands.add_parser('step',help='Accept a native result and get the next host action in one call')
     step_command.add_argument('project');step_command.add_argument('--result');step_command.add_argument('--verbose',action='store_true')
+    context_command=commands.add_parser('context',help='Read exact native context by pointer without writing a copy')
+    context_command.add_argument('project');context_command.add_argument('--slot');context_command.add_argument('--pointer',default='')
     init=commands.add_parser('init');init.add_argument('inputs',nargs='+');init.add_argument('--project',required=True)
     init.add_argument('--project-id',default='PROJECT');init.add_argument('--delivery',choices=['full','text-only'],default='full')
     init.add_argument('--target');init.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'],default=None)
@@ -31,6 +35,7 @@ def main(argv=None):
         sub=commands.add_parser(name);sub.add_argument('project');sub.add_argument('--file',required=True)
     for command in ('run','status','validate','export','submit','resume','request-decision','host','revise','add','import-artifact','import-compiled','compile','begin-image','update-modules','recover-image','import-observation'):
         c=commands.add_parser(command);c.add_argument('project')
+        if command in ('run','status'):c.add_argument('--verbose',action='store_true')
         if command=='validate':c.add_argument('--final',action='store_true')
         if command=='export':c.add_argument('--draft',action='store_true')
         if command in ('submit','resume','host'):
@@ -83,10 +88,13 @@ def main(argv=None):
         if a.command=='start':
             from .lean import start
             r=start(a.project,a.inputs,profile=a.profile,project_id=a.project_id,delivery=a.delivery,
-                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing)
+                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile)
         elif a.command=='step':
             from .lean import step
-            r=step(a.project,result=a.result,verbose=a.verbose)
+            r=step(a.project,result=read_stdin_result(a.result),verbose=a.verbose)
+        elif a.command=='context':
+            from .workspace import context
+            r=context(V5Kernel(a.project),a.slot,a.pointer)
         elif a.command=='graph':
             from .v6_graph import graph_to_mermaid, load_graph
             graph=load_graph()
@@ -152,7 +160,7 @@ def main(argv=None):
             elif a.command=='import-compiled':r=k.import_compiled(a.package)
             elif a.command=='validate':r=k.validate(a.final)
             elif a.command=='export':r=k.export(a.draft)
-            elif a.command=='submit':r=k.submit(a.result)
+            elif a.command=='submit':r=k.submit(read_stdin_result(a.result))
             elif a.command=='resume':r=k.resume(a.decision)
             elif a.command=='request-decision':r=k.request_decision(a.proposal)
             elif a.command=='host':
@@ -166,10 +174,31 @@ def main(argv=None):
             elif a.command=='begin-image':r=k.begin_image(a.task_id)
             elif a.command=='update-modules':r=k.update_modules(a.lock,a.archives)
             elif a.command=='recover-image':r=k.recover_image(a.evidence)
+        if a.command in ('run','status') and not getattr(a,'verbose',False) and not is_v6:
+            from . import workspace
+            if workspace.enabled(k.project):
+                if a.command=='status':
+                    r=workspace.progress(k)
+                    r.pop('stages',None)
+                else:
+                    from .lean import compact
+                    r=compact(r)
         print(json.dumps(r,ensure_ascii=False,indent=2))
         return 2 if r.get('status')=='BLOCKED' or r.get('valid') is False else 0
     except (ValueError,OSError,KeyError,IndexError,StopIteration) as e:
         print(json.dumps({'status':'ERROR','error':str(e)},ensure_ascii=False));return 1
+
+
+def read_stdin_result(value):
+    if value != '-':return value
+    def pairs(items):
+        result={}
+        for key,item in items:
+            if key in result:raise ValueError('Duplicate JSON key: '+key)
+            result[key]=item
+        return result
+    return json.load(sys.stdin,object_pairs_hook=pairs,
+                     parse_constant=lambda value: (_ for _ in ()).throw(ValueError(value)))
 
 
 def _production(a):

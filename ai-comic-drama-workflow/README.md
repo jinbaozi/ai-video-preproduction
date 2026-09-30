@@ -2,6 +2,8 @@
 
 新的一句话/创意任务默认通过 `start` 使用 lean，当前宿主连续完成原生专业任务，只输出必要交付。`start --profile audited` 或兼容的 `init` 使用 V6 编排协议：内核按 [唯一阶段图](workflow-v6.json) 生成任务和检查门，Codex 宿主真实派发专业子智能体，独立审阅后才接受候选。总包携带六个专业 Skill 的锁定发行物；专业模块也可分别安装。`production_target=video` 时继续登记真实执行、媒体回收、验收及总装。
 
+新 lean 的人工入口是 `00-progress.md`，实际产物按 `01-source/` 到 `09-delivery/` 顺序归档。原生结果按任务的 `output_file` 写入，RoleResult 支持标准输入；完整字段使用 `context --slot SLOT --pointer /field` 按需读取，不创建上下文副本。旧项目与 audited 保持原布局。见[最少输出合同](references/compact-workspace.md)。
+
 ## 开始使用
 
 ```text

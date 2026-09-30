@@ -12,6 +12,7 @@ import subprocess
 import sys
 import zipfile
 from pathlib import Path, PurePosixPath
+from .workspace import physical
 
 MODULES = ('screenplay-grammar', 'director-grammar', 'production-design-grammar', 'storyboard-grammar',
            'video-prompt-compiler', 'image-prompt-optimizer')
@@ -98,14 +99,14 @@ def module_path(project, name, root=ROOT):
     project, root = Path(project).resolve(), Path(root).resolve()
     item = read(project / 'modules.lock.json')['modules'][name]
     # Projects retain their archive bytes, so a later Skill upgrade cannot change them.
-    archive = project / 'runtime/module-archives' / (item['sha256'] + '.skill')
+    archive = physical(project, 'runtime/module-archives') / (item['sha256'] + '.skill')
     if not archive.exists():
         bundled = root / 'assets/bundled-skills' / (name + '.skill')
         verify_archive(bundled, item['sha256'])
         archive.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(bundled, archive)
     members = verify_module(archive,name,item)
-    cache = project / 'runtime/modules' / item['sha256']
+    cache = physical(project, 'runtime/modules') / item['sha256']
     module = cache / name
     if not cache.resolve().is_relative_to(project) or module.is_symlink():
         raise ValueError('Module cache must stay inside the project')

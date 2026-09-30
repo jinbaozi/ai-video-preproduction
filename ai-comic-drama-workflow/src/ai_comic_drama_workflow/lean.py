@@ -2,6 +2,7 @@
 from pathlib import Path
 from .v5 import V5Kernel
 from .v5_modules import read
+from . import workspace
 
 
 def compact(result: dict) -> dict:
@@ -15,6 +16,8 @@ def compact(result: dict) -> dict:
         return dict(result)
     view['task'] = {key: task[key] for key in
                     ('task_id', 'kind', 'stage', 'scope', 'expected_result') if key in task}
+    if workspace.enabled(task.get('project') or {}):
+        view['required_read_count'] = len(view.pop('required_reads', []))
     view['instruction'] = ('Read task_file and its required_reads. Author only this native result; '
                            'then use step --result. Hash-identical instructions may be reused '
                            'in the same context; changed hashes must be read again.')
@@ -22,11 +25,14 @@ def compact(result: dict) -> dict:
 
 
 def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='full',
-          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing='auto'):
+          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing='auto', output_profile=None):
     if profile not in ('lean', 'audited'):
         raise ValueError('Unknown workflow profile')
     if craft_routing not in ('auto', 'off'):
         raise ValueError('Unknown craft routing mode')
+    output_profile = output_profile or ('compact' if profile=='lean' else 'audit')
+    if output_profile not in ('compact','audit'):raise ValueError('Unknown output profile')
+    if profile=='audited' and output_profile=='compact':raise ValueError('Audited projects require audit evidence; choose --output-profile audit')
     options = dict(project_id=project_id, delivery=delivery, target=target,
                    mode=mode, production_target=production_target, control_policy='adaptive-control/1.0',control_minimum=control_minimum,
                    craft_policy='craft-routing/1.0' if craft_routing == 'auto' else 'off')
@@ -34,7 +40,7 @@ def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='fu
         from .v6_runtime import V6Runtime
         kernel = V6Runtime.initialize(project, inputs, **options)
     else:
-        kernel = V5Kernel.initialize(project, inputs, workflow_profile='lean', **options)
+        kernel = V5Kernel.initialize(project, inputs, workflow_profile='lean', output_policy=workspace.POLICY if output_profile=='compact' else None, **options)
     result = kernel.run()
     result['workflow_profile'] = profile
     result['review_policy'] = ('independent-per-stage' if profile == 'audited'
