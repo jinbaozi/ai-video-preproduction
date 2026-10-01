@@ -43,7 +43,7 @@ class GraphTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "unknown checker"):
             validate_graph(altered)
         altered = copy.deepcopy(self.graph)
-        altered["nodes"][13]["review"] = "independent"
+        altered["nodes"][-2]["review"] = "independent"
         with self.assertRaisesRegex(ValueError, "cannot recurse"):
             validate_graph(altered)
         altered = copy.deepcopy(self.graph)
