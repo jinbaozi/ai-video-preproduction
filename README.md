@@ -75,7 +75,7 @@ audited/V6 的阶段图来自 [workflow-v6.json](ai-comic-drama-workflow/workflo
 
 ## 按顺序看进度，不遍历中间文件
 
-新 lean 默认 compact 输出；不用额外配置。从 `00-progress.md` 查看当前阶段、已接受产物、阻塞和下一步。目录仅在进入阶段或产生必要产物时创建：
+完整任务默认 **autonomous-until-blocked**：普通阶段由 Agent 自主定稿并连续推进；只有登录/权限、未授权费用、UNKNOWN 执行、能力缺失或有界返修后仍无法通过质量门时才通知用户。\n\n新 lean 默认 compact 输出；不用额外配置。从 `00-progress.md` 查看当前阶段、已接受产物、阻塞和下一步。目录仅在进入阶段或产生必要产物时创建：
 
 ```text
 00-progress.md
@@ -105,9 +105,9 @@ lean 不再默认写出重复的制作规格、上下文、覆盖/损失报告�
 
 ## 两个交付终点
 
-`full` 默认需要真实参考图；`text-only` 只有用户明确要求时使用，缺图不能自动降级。
+`full` 默认需要真实参考图；`text-only` 只有用户明确要求时使用，缺图不能自动降级。实际图片通过原看图审核后，默认经 Google Flow 做保真 2K 派生参考素材，再进入视频模型附件映射；Flow 需要登录或保真/分辨率验收失败时阻断，不用 resize 冒充。
 
-`DELIVERED` 表示前期包完成。`production_target=video` 还要完成真实提交或人工回收、Take 复探测、逐镜/相邻验收、总装和整片审阅；当前输出字节与冻结证据一致后才能成为 `VIDEO_DELIVERED`。`DRAFT_REQUIRES_TARGET_CHECK` 不是执行就绪，`submitted=false` 也不能写成已生成。
+`DELIVERED` 表示前期包完成。`production_target=video` 还要完成真实提交或人工回收、Take 复探测、逐镜/相邻验收、总装和整片审阅。总装默认优先使用 `jinbaozi/jianying-headless` / `yichen-jianying-edit` 构建可编辑剪映草稿；需要成片时原生导出并验证 MP4。当前输出字节与冻结证据一致后才能成为 `VIDEO_DELIVERED`。`DRAFT_REQUIRES_TARGET_CHECK` 不是执行就绪，`submitted=false` 也不能写成已生成。
 
 模型能力以锁定注册表及 [能力矩阵](video-prompt-compiler/references/capability-matrix.md) 为准。当前具体执行边界见 [执行合同](video-prompt-compiler/references/current-contract.md)。三镜静态样板在 `ai-comic-drama-workflow/examples/production/envelope-3shot/`；不提供真实入口/媒体时，真实视频状态保持 `NOT_RUN`。
 

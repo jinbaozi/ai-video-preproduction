@@ -207,7 +207,9 @@
         "field": "visual_jobs_present",
         "reason_code": "NO_APPLICABLE_ASSETS",
         "reason": "The accepted ArtIR has no visual asset image jobs.",
-        "affected_outputs": ["VisualImagePrompt"]
+        "affected_outputs": [
+          "VisualImagePrompt"
+        ]
       }
     },
     {
@@ -245,7 +247,49 @@
         "field": "visual_jobs_present",
         "reason_code": "NO_APPLICABLE_ASSETS",
         "reason": "The accepted ArtIR has no visual asset image jobs.",
-        "affected_outputs": ["ReferenceImage"]
+        "affected_outputs": [
+          "ReferenceImage"
+        ]
+      }
+    },
+    {
+      "id": "reference_2k",
+      "label": "Flow 2K 保真参考素材",
+      "role": "reference_2k_host",
+      "executor_kind": "host",
+      "scope": "asset",
+      "locked_skill": null,
+      "depends_on": [
+        "visual_media"
+      ],
+      "output_types": [
+        "Flow2KReference"
+      ],
+      "checkers": [
+        "flow_2k_provenance",
+        "flow_2k_visual_review"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "delivery",
+        "equals": "full"
+      },
+      "skip": {
+        "reason_code": "TEXT_ONLY",
+        "reason": "The frozen delivery mode is text-only, so Flow 2K reference derivation is outside this deliverable.",
+        "affected_outputs": [
+          "Flow2KReference"
+        ]
+      },
+      "skip_if_empty": {
+        "field": "visual_jobs_present",
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "The accepted ArtIR has no visual reference image jobs.",
+        "affected_outputs": [
+          "Flow2KReference"
+        ]
       }
     },
     {
@@ -259,7 +303,7 @@
         "canon",
         "director",
         "art",
-        "visual_media"
+        "reference_2k"
       ],
       "output_types": [
         "StoryboardIR"
@@ -347,7 +391,9 @@
         "field": "board_jobs_present",
         "reason_code": "NO_APPLICABLE_ASSETS",
         "reason": "The accepted StoryboardIR has no board image jobs.",
-        "affected_outputs": ["BoardImagePrompt"]
+        "affected_outputs": [
+          "BoardImagePrompt"
+        ]
       }
     },
     {
@@ -386,7 +432,49 @@
         "field": "board_jobs_present",
         "reason_code": "NO_APPLICABLE_ASSETS",
         "reason": "The accepted StoryboardIR has no board image jobs.",
-        "affected_outputs": ["BoardImage"]
+        "affected_outputs": [
+          "BoardImage"
+        ]
+      }
+    },
+    {
+      "id": "board_reference_2k",
+      "label": "Flow 2K 分镜参考素材",
+      "role": "reference_2k_host",
+      "executor_kind": "host",
+      "scope": "panel",
+      "locked_skill": null,
+      "depends_on": [
+        "board_media"
+      ],
+      "output_types": [
+        "Flow2KBoardImage"
+      ],
+      "checkers": [
+        "flow_2k_provenance",
+        "flow_2k_visual_review"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "delivery",
+        "equals": "full"
+      },
+      "skip": {
+        "reason_code": "TEXT_ONLY",
+        "reason": "The frozen delivery mode is text-only, so Flow 2K board derivation is outside this deliverable.",
+        "affected_outputs": [
+          "Flow2KBoardImage"
+        ]
+      },
+      "skip_if_empty": {
+        "field": "board_jobs_present",
+        "reason_code": "NO_APPLICABLE_ASSETS",
+        "reason": "The accepted StoryboardIR has no board image jobs.",
+        "affected_outputs": [
+          "Flow2KBoardImage"
+        ]
       }
     },
     {
@@ -399,7 +487,7 @@
       "depends_on": [
         "storyboard",
         "control",
-        "board_media"
+        "board_reference_2k"
       ],
       "output_types": [
         "AVIR",
@@ -714,6 +802,42 @@
       }
     },
     {
+      "id": "jianying_edit",
+      "label": "剪映后期剪辑与原生导出",
+      "role": "editing_host",
+      "executor_kind": "host",
+      "scope": "project",
+      "locked_skill": null,
+      "depends_on": [
+        "assembly"
+      ],
+      "output_types": [
+        "JianyingDraft",
+        "EditedFinalMedia"
+      ],
+      "checkers": [
+        "jianying_doctor",
+        "jianying_plan",
+        "jianying_build",
+        "jianying_export_probe"
+      ],
+      "review": "none",
+      "handoff_required": false,
+      "applicability": {
+        "kind": "equals",
+        "field": "production_target",
+        "equals": "video"
+      },
+      "skip": {
+        "reason_code": "TARGET_NOT_VIDEO",
+        "reason": "The frozen project target ends at the preproduction package.",
+        "affected_outputs": [
+          "JianyingDraft",
+          "EditedFinalMedia"
+        ]
+      }
+    },
+    {
       "id": "whole_acceptance",
       "label": "整片验收",
       "role": "whole_reviewer",
@@ -721,7 +845,7 @@
       "scope": "project",
       "locked_skill": null,
       "depends_on": [
-        "assembly"
+        "jianying_edit"
       ],
       "output_types": [
         "WholeDecision"
