@@ -43,7 +43,7 @@ ai-comic-drama step /绝对路径/新项目 --result /绝对路径/当前原生�
 
 当前宿主连续承担 Canon、编剧、导演、美术、分镜、图片提示词和视频编译职责；不为每种职责默认另开子智能体。**专业边界、原生校验、模块收据和编译语义复核不删；lean 的当前 Agent 复核不冒充独立审阅。** V6 用[宿主桥接](references/v6/codex-host.md)和[执行接口](references/v6/runtime.md)，不能通过 `step --result` 绕过。
 
-普通阶段不逐次征求确认、不输出长篇中间说明；持续执行到交付或真实阻塞。只在硬冲突、身份首次定稿、未授权费用或能力降级时提出必要决定；用户已经给出的决定直接登记，不重复询问。
+普通阶段不逐次征求确认、不输出长篇中间说明；持续执行到交付或真实阻塞。完整工作流默认 `autonomous-until-blocked`：当前 Agent 自主完成阶段定稿、候选选择、有界返修和后期剪辑，不再把“定稿”本身作为审批点。登录/权限、新增付费、UNKNOWN 执行、能力降级或有界返修后仍不合格才通知用户。细则按需读[全自动推进合同](references/autonomous-until-blocked.md)。
 
 ## 最少素材，完整控制
 
@@ -51,13 +51,13 @@ ai-comic-drama step /绝对路径/新项目 --result /绝对路径/当前原生�
 
 持续保留身份/服饰/道具/空间/面向/运动/时间/信息/声音连续性。光色要对应情绪意图；转焦明确起止主体与时间；动作有接触、支撑、路径和收束。多主体、接触或复杂运镜仍按既有规则执行调度控制包；缺中间姿态不假定插值。原生链保持 ScriptIR → DirectorIR → ArtIR → StoryboardIR → AVIR，不增加平行内容账本。
 
-默认 `delivery=full`。只有用户明确只要文字才使用 `--delivery text-only`，不能因为缺少工具偷偷降级。图片先由锁定 image-prompt-optimizer 编写；宿主登记实际工具能力、先 begin-image 后真实调用，实际附带冻结参考，逐项看图并登记哈希与证据。调用未知先回收，不凭超时重生成。禁止其他应用凭证、未登记入口及套用示例的创作/审阅结论。
+默认 `delivery=full`。只有用户明确只要文字才使用 `--delivery text-only`，不能因为缺少工具偷偷降级。图片先由锁定 image-prompt-optimizer 编写；宿主登记实际工具能力、先 begin-image 后真实调用，实际附带冻结参考，逐项看图并登记哈希与证据。调用未知先回收，不凭超时重生成。禁止其他应用凭证、未登记入口及套用示例的创作/审阅结论。\n\n`delivery=full` 中，实际图片通过原有看图审核后、进入视频模型附件映射前，默认再经过 Google Flow 保真 2K 门。Flow 输出必须是真实回收并重新观察的文件，长边至少 2048 像素，身份、服装、姿态、构图/空间、道具、光色和文字不得发生不可接受漂移；失败或需要登录时 BLOCKED，不用本地 resize 冒充。按需读[Flow 2K 参考素材合同](references/flow-2k-reference.md)。
 
 ## 交付与真实完成
 
 前期交付只向用户展示进度页及交付入口（compact 为 `09-delivery/index.md`，旧项目为 `delivery/index.md`）和实际引用文件；它链接分段提示词、后期义务、附件顺序、参考图、原生规格和检查结果。lean 编译不落盘重复审计投影；全部约束仍在 `avir.json`、`artifact.json` 和逐段覆盖中。BLOCKED、DRAFT_REQUIRES_TARGET_CHECK、UNKNOWN 都必须原样显示，不当作可直接执行。
 
-`production_target=none` 到前期包 DELIVERED。用户要求生成成片时使用 `--production-target video`，DELIVERED 后继续原有 `production` 冻结、真实执行或人工回收、逐镜/相邻验收、总装与整片审阅；只有真实当前字节通过后才是 VIDEO_DELIVERED。缺工具或权限说明阻塞，不伪造视频。静态测试通过、几何/摄影意图及提示词编译均不证明模型画质或物理精确控制。
+`production_target=none` 到前期包 DELIVERED。用户要求生成成片时使用 `--production-target video`，DELIVERED 后继续原有 `production` 冻结、真实执行或人工回收、逐镜/相邻验收、总装与整片审阅。总装阶段默认优先接入 `jinbaozi/jianying-headless` 的 `yichen-jianying-edit`：先 doctor，再由已接受 Take 生成隔离剪映草稿并验证；需要成片时从冻结快照原生导出并完整解码验收。不能安装、版本不匹配或导出失败时 BLOCKED，不把简易拼接冒充剪映交付。按需读[剪映后期合同](references/jianying-postproduction.md)。只有真实当前字节通过后才是 VIDEO_DELIVERED。缺工具或权限说明阻塞，不伪造视频。静态测试通过、几何/摄影意图及提示词编译均不证明模型画质或物理精确控制。
 
 局部修订用 `revise` 与已有依赖失效规则；换模型不自动重做无关图片。原文、冻结决定、权威 IR、实际媒体与失败恢复证据保留。成功事务的冗余备份可清理，未完成事务及旧项目不自动清扫。
 
