@@ -23,7 +23,7 @@ CHECKERS = frozenset({
     "image_visual_review", "control_verify", "compile_manifest", "compile_semantics",
     "preproduction_final", "freeze_request", "execution_provenance", "take_probe",
     "shot_coverage", "selected_take", "adjacent_coverage", "assembly_edl",
-    "post_obligations", "whole_review", "video_final",
+    "post_obligations", "whole_review", "video_final",\n    "flow_2k_provenance", "flow_2k_visual_review", "jianying_doctor", "jianying_plan",\n    "jianying_build", "jianying_export_probe",
 })
 CONDITION_FIELDS = {
     "delivery": {"full", "text-only"},
