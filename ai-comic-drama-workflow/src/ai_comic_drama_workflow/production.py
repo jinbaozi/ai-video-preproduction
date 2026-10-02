@@ -79,11 +79,30 @@ def _verify_frozen_post_audio(spec):
 class ProductionLedger:
     def __init__(self, kernel):
         self.kernel = kernel
+        native=getattr(kernel,'v5',kernel)
+        if hasattr(native,'require_v5'):native.require_v5()
         self.root = kernel.path('runtime/production')
 
     @property
     def strict(self):
-        return self.kernel.project.get('orchestration_protocol') == '6.0'
+        return (self.kernel.project.get('orchestration_protocol') == '6.0' or
+                self.kernel.project.get('production_policy') == 'verified-production/1.0')
+
+    def _verify_current_preproduction(self, compile_path=None):
+        # New lean production is bound to accepted current native artifacts,
+        # rather than any externally supplied self-consistent compile file.
+        if (self.kernel.project.get('production_policy')!='verified-production/1.0' or
+                self.kernel.project.get('orchestration_protocol')=='6.0'):
+            return
+        report=self.kernel.validate(final=True)
+        if not report['valid']:
+            raise ValueError('Current preproduction is not ready: '+'; '.join(report['errors']))
+        if compile_path is not None:
+            source=Path(compile_path).resolve()
+            build=self.kernel.state.get('build') or {}
+            files={self.kernel.path(uri):sha for uri,sha in build.get('files',{}).items()}
+            if source not in files or not source.is_file() or digest_file(source)!=files[source]:
+                raise ValueError('Execution compile file is not part of the current accepted build')
 
     def _now(self):
         return datetime.now(timezone.utc).isoformat()
@@ -125,6 +144,7 @@ class ProductionLedger:
         return [json.loads(p.read_text(encoding='utf-8')) for p in sorted(folder.glob('*.json'))]
 
     def plan_job(self, request, compile_sha256, attachments, shot_ids, budget, *, compile_path=None):
+        self._verify_current_preproduction(compile_path)
         if self.strict and self._path('delivery-manifest.json').exists():
             raise ValueError('Cannot add an execution job after delivery scope is frozen')
         payload = request['payload_draft']
@@ -331,6 +351,7 @@ class ProductionLedger:
             return take
 
     def _verify_job(self, job):
+        self._verify_current_preproduction(job.get('compile_uri'))
         validate_protocol('generation-job', job, self.kernel.skill_root)
         if self.strict and job['budget']['max_attempts'] > 1:
             approval_path = Path(job['budget'].get('authorization', ''))
@@ -357,6 +378,7 @@ class ProductionLedger:
         return True
 
     def freeze_delivery_manifest(self, shot_ids, plan, obligations=(), output_spec=None, *, shot_ranges=None):
+        self._verify_current_preproduction()
         verify_plan(plan, plan['sha256'])
         if not isinstance(shot_ids, list) or not shot_ids or len(set(shot_ids)) != len(shot_ids):
             raise ValueError('Delivery needs an ordered set of unique shots')
@@ -585,6 +607,8 @@ class ProductionLedger:
     def save_assembly(self, record, *, output_path=None):
         record = dict(record)
         record.setdefault('schema_version', 'v5-assembly/1.0')
+        from .editing import verify_editing_record
+        verify_editing_record(self.kernel,record)
         if self.strict:
             manifest = self._load('delivery-manifest.json')
             self._verify_manifest(manifest)
@@ -635,6 +659,9 @@ class ProductionLedger:
             record['output_uri'] = self.kernel.path('runtime/production/outputs/' + record['id'] + source.suffix).relative_to(self.kernel.root).as_posix()
             record['probe'] = observed
             with transaction(self.kernel.root):
+                if record.get('editing'):
+                    from .editing import snapshot_editing_record
+                    record['editing']=snapshot_editing_record(self.kernel,record['id'],record['editing'])
                 self._write('assembly/' + record['id'] + '.json', record, 'assembly')
                 self.kernel.write(record['output_uri'], data)
                 return record
@@ -689,6 +716,8 @@ class ProductionLedger:
         return errors
 
     def video_delivery_blockers(self, *, include_whole=True):
+        try:self._verify_current_preproduction()
+        except (ValueError,OSError,KeyError) as error:return ['Current preproduction: '+str(error)]
         if self.strict:
             return self._strict_video_delivery_blockers(include_whole=include_whole)
         decisions = []
@@ -753,6 +782,8 @@ class ProductionLedger:
         if assembly:
             try:
                 validate_protocol('assembly', assembly, self.kernel.skill_root)
+                from .editing import verify_editing_record
+                verify_editing_record(self.kernel,assembly)
                 validate_edl(assembly['edl'])
                 if assembly['status'] != 'CHECKED' or [row['shot_id'] for row in assembly['edl']] != shots:
                     raise ValueError('Assembly scope or status differs from frozen delivery')
@@ -812,7 +843,7 @@ class ProductionLedger:
         errors = self.video_delivery_blockers()
         if errors:
             return {'status': 'BLOCKED', 'errors': errors}
-        if self.strict:
+        if self.kernel.project.get('orchestration_protocol')=='6.0':
             transition = getattr(self.kernel, 'transition_video_delivered', None)
             if transition is None:
                 raise ValueError('Protocol 6.0 requires central VIDEO_DELIVERED transition')

@@ -25,7 +25,7 @@ from .v6_protocol import (compact_json, envelope_input_digest, envelope_digest,
                           validate_v6_protocol)
 from .v6_runtime_fingerprint import (RUNTIME_CODE_FILES, runtime_code_hashes,
                                      runtime_resources_changed)
-from .v6_graph import load_graph, stage_by_id, stage_applicability
+from .v6_graph import load_graph, project_graph, configured_graph, stage_by_id, stage_applicability
 from .v6_stage_adapter import graph_envelope_fields, predecessor_task_ids, slot_for
 
 
@@ -63,7 +63,7 @@ class V6Runtime:
         self.v5._v6_gateway = True
         from .v6_kernel import V6TaskKernel
         self.kernel = V6TaskKernel(self.root, schema_root=self.skill_root)
-        self.graph = load_graph(module_lock=read(self.root/'modules.lock.json'))
+        self.graph = project_graph(self.root, module_lock=read(self.root/'modules.lock.json'))
 
     @property
     def project(self) -> dict:
@@ -124,6 +124,7 @@ class V6Runtime:
         validate_v5('project', kernel.project, skill_root)
         with transaction(kernel.root):
             kernel.write('project.json', kernel.project)
+            kernel.write('runtime/v6/workflow.json', configured_graph(kernel.project, module_lock=read(kernel.root/'modules.lock.json')))
         return cls(kernel.root, skill_root=skill_root)
 
     @classmethod
@@ -234,12 +235,12 @@ class V6Runtime:
             if not self.v5.valid('director'):
                 raise ValueError('DirectorIR is required before expanding art scenes')
             return [{'kind': 'scene', 'ids': [item['id']]} for item in self.v5.data('director')['scenes']]
-        if node_id in ('visual_prompts', 'visual_media'):
+        if node_id in ('visual_prompts', 'visual_media', 'reference_2k'):
             jobs = self.v5.image_jobs(5)
             if not jobs:
                 return [{'kind': 'asset', 'ids': ['ALL']}]
             return [{'kind': 'asset', 'ids': [item['key']]} for item in jobs]
-        if node_id in ('board_prompts', 'board_media'):
+        if node_id in ('board_prompts', 'board_media', 'board_reference_2k'):
             jobs = self.v5.image_jobs(7)
             if not jobs:
                 return [{'kind': 'panel', 'ids': ['ALL']}]
@@ -287,8 +288,8 @@ class V6Runtime:
             evidence = ['project.json']
             if (applicability['reason_code'] == 'NO_APPLICABLE_ASSETS'
                     and node['id'] in ('visual_prompts', 'visual_media',
-                                       'board_prompts', 'board_media')):
-                if node['id'].startswith('visual_'):
+                                       'board_prompts', 'board_media', 'reference_2k', 'board_reference_2k')):
+                if node['id'].startswith('visual_') or node['id'] == 'reference_2k':
                     evidence.extend(item['uri'] for slot, item in self.v5.state['artifacts'].items()
                                     if slot.startswith('art:') and self.v5.valid(slot))
                 else:
@@ -1398,6 +1399,10 @@ class V6Runtime:
             result = self.v5.run()
             task = result.get('task')
             if task is None:
+                if result.get('status') == 'FLOW_REFINEMENT_ACCEPTED':
+                    key = next(key for key, media in self.v5.state['media'].items() if (media.get('flow_refinement') or {}).get('action_id') == result['action_id'])
+                    self.flow_action(key, result=read(self.path(self.v5.state['media'][key]['flow_refinement']['receipt_uri'])))
+                    return self.run()
                 return result
             self._materialize_skips_before(self._node(task))
             if self._node(task) == 'compile_review' and not any(
@@ -1414,6 +1419,60 @@ class V6Runtime:
                                                    command_id='dispatch-'+task['task_id']+'-'+str(envelope['batch']),
                                                    evidence=[task_file_ref(self.root, task)]))
         return self.run()
+
+    def flow_action(self, media_key, *, begin=False, result=None, resume=False):
+        with transaction(self.root):
+            return self._flow_action(media_key, begin=begin, result=result, resume=resume)
+
+    def _flow_action(self, media_key, *, begin=False, result=None, resume=False):
+        from .flow import plan_refinement, begin_refinement, accept_refinement, resume_refinement, FlowBlockedError, refinement_valid
+        from .v6_production_runtime import V6ProductionRuntime
+        state = self.v5.state
+        media = state['media'][media_key]
+        if state.get('inflight'):
+            raise ValueError('Recover the active image call before Flow refinement')
+        replay = media.get('flow_refinement') and result is not None and not resume
+        if (state.get('active_task') or state.get('active_decision')) and not replay:
+            raise ValueError('Finish the active native task or decision before Flow refinement')
+        node_id = 'reference_2k' if media_key in {j['key'] for j in self.v5.image_jobs(5)} else 'board_reference_2k'
+        if not any(n['id'] == node_id for n in self.graph['nodes']):
+            raise ValueError('This project has no frozen Flow gate; legacy projects cannot be silently migrated')
+        if not self.v5.media_valid(media):
+            raise ValueError('Source image is missing, changed or stale')
+        scope = {'kind': stage_by_id(self.graph, node_id)['scope'], 'ids': [media_key]}
+        # Confirm the accepted graph predecessor before any external dispatch intent.
+        predecessor_task_ids(self.graph, node_id, scope, self.kernel.snapshot()['tasks'], self._scope_catalogue(node_id))
+        if result is None:
+            return begin_refinement(self.v5, media) if begin else plan_refinement(self.v5, media)
+        result = read(Path(result)) if not isinstance(result, dict) else result
+        if resume:
+            return resume_refinement(self.v5, media, result)
+        try:
+            promoted = accept_refinement(self.v5, media, result)
+        except FlowBlockedError as error:
+            return error.result
+        if not refinement_valid(self.v5, promoted):
+            raise ValueError('Flow source, export or receipt failed verification')
+        if promoted == media:
+            task_id = 'V6F_' + promoted['flow_refinement']['action_id']
+            existing = self.kernel.snapshot()['tasks'].get(task_id)
+            if existing and existing['state'] == 'ACCEPTED':
+                from .v6_production_runtime import validate_flow_candidate
+                validate_flow_candidate(self.root, existing['envelope'], existing['candidate'])
+                return {'status': 'ALREADY_ACCEPTED', 'media_key': media_key, 'task_id': task_id}
+        with transaction(self.root):
+            state = self.v5.state
+            state['media'][media_key] = promoted
+            state['approvals'].pop(media_key, None)
+            state['build'] = None
+            state.pop('compile_review', None)
+            self.v5.save(state)
+            bridge = object.__new__(V6ProductionRuntime)
+            bridge.runtime, bridge.root = self, self.root
+            bridge._next_task_id = lambda node, scope: 'V6F_' + promoted['flow_refinement']['action_id']
+            bridge._create = lambda node, scope, **kw: self.create_graph_task(node, scope, bridge._next_task_id(node, scope))
+            kind = stage_by_id(self.graph, node_id)['output_types'][0]
+            return bridge._host_task(node_id, scope, promoted['flow_refinement']['record_uri'], {kind: promoted})
 
     def image_begin(self, task_id: str, *, command_id: str, expected_revision: int) -> dict:
         """Record the original host action and V5 in-flight marker before a tool call."""
@@ -1964,7 +2023,7 @@ class V6Runtime:
                 try:
                     if node['id'] in ('video_freeze', 'video_execution', 'take_recovery',
                                       'shot_acceptance', 'take_selection', 'adjacent_acceptance',
-                                      'assembly', 'whole_acceptance', 'video_delivery') and self.production_target() == 'video':
+                                      'assembly', 'jianying_edit', 'whole_acceptance', 'video_delivery') and self.production_target() == 'video':
                         from .v6_production_runtime import V6ProductionRuntime
                         scopes = V6ProductionRuntime(self)._catalogue(node['id'])[node['id']]
                     else:

@@ -15,7 +15,7 @@ import sys
 from .transactions import before_write, transaction
 from .utils import atomic_write, canonical_json, ensure_relative_path
 from .v5_modules import ROOT, digest_file, native_validate, module_path, read
-from .v6_graph import load_graph, stage_applicability, stage_by_id
+from .v6_graph import load_graph, project_graph, stage_applicability, stage_by_id
 from .v6_stage_adapter import predecessor_task_ids
 from .v6_runtime_fingerprint import runtime_resources_changed
 from .v6_protocol import (
@@ -268,7 +268,7 @@ class V6TaskKernel:
         self._file_matches(archive, module["sha256"], label="locked Skill archive")
 
     def _graph_stage(self, node_id: str) -> dict:
-        graph = load_graph(module_lock=read(self.root / "modules.lock.json"))
+        graph = project_graph(self.root, module_lock=read(self.root / "modules.lock.json"))
         try:
             return stage_by_id(graph, node_id)
         except KeyError:
@@ -393,7 +393,7 @@ class V6TaskKernel:
             dependency_nodes.add(dependency["envelope"]["node_id"])
         if dependency_nodes != set(stage["depends_on"]):
             _fail("GRAPH_DEPENDENCIES", "Task dependency nodes do not match workflow graph")
-        graph = load_graph(module_lock=read(self.root / "modules.lock.json"))
+        graph = project_graph(self.root, module_lock=read(self.root / "modules.lock.json"))
         required = {name: self._required_scopes(name)
                     for name in [envelope["node_id"], *stage["depends_on"]]}
         links = self._scope_links(envelope, required)
@@ -874,9 +874,17 @@ class V6TaskKernel:
             inflight = read(self.root / "state.json").get("inflight")
             if not matched or not inflight or inflight.get("task_id") != envelope["task_id"]:
                 _fail("HOST_PROGRESS", "Image host start must bind the action and V5 in-flight record")
+        elif envelope['node_id'] in ('reference_2k', 'board_reference_2k'):
+            from .flow import refinement_valid
+            from .v5 import V5Kernel
+            native = V5Kernel(self.root, self.schema_root)
+            media = native.state['media'].get(envelope['scope']['ids'][0])
+            if (not media or not refinement_valid(native, media) or
+                    native.path(media['flow_refinement']['record_uri']) not in paths):
+                _fail('HOST_PROGRESS', 'Flow gate requires source-bound verified host evidence')
         else:
             prefixes = {"video_execution": "executions", "take_recovery": "takes",
-                        "assembly": "assembly"}
+                        "assembly": "assembly", "jianying_edit": "assembly"}
             folder = self.root / "runtime/production" / prefixes[envelope["node_id"]]
             matched = False
             for path in paths:

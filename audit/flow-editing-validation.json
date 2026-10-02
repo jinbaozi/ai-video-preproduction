@@ -1,0 +1,55 @@
+{
+  "schema": "workflow-flow-editing-validation/1.0",
+  "date": "2026-10-01",
+  "base_commit": "496cdd58a8965a239fb6484180499d37f008d57f",
+  "workflow_version": "0.16.0",
+  "status": "HISTORICAL_PRIOR_IMPLEMENTATION_CHECKS",
+  "checks": {
+    "workflow": {
+      "run": 376,
+      "passed": 376,
+      "failed": 0,
+      "skipped": 0
+    },
+    "video_compiler": {
+      "run": 278,
+      "passed": 275,
+      "failed": 0,
+      "skipped": 3,
+      "skip_reason": "Real Blender integration runtime unavailable"
+    },
+    "new_tests_isolated_skill": {
+      "run": 67,
+      "passed": 67,
+      "failed": 0
+    },
+    "seven_package_isolation": {
+      "packages": 7,
+      "status": "PASS",
+      "repeat_build": "IDENTICAL",
+      "bundled_modules_equal_standalone": true
+    },
+    "shared_sources": "PASS",
+    "python_compileall": "PASS",
+    "git_diff_check": "PASS",
+    "unapproved_install_cli": {
+      "exit_code": 2,
+      "destination_created": false,
+      "core_executed": false
+    }
+  },
+  "independent_review": "Reported concrete integration/recovery defects fixed and covered by final regression",
+  "external_execution": {
+    "google_flow": "NOT_RUN_AUTHENTICATED",
+    "jianying_core": "NOT_RUN",
+    "native_jianying_ui": "NOT_RUN",
+    "real_user_video_qa": "NOT_RUN",
+    "github_push": "BLOCKED_AUTHENTICATION",
+    "github_ci": "NOT_RUN"
+  },
+  "distribution": {
+    "file": "dists/ai-comic-drama-workflow.skill",
+    "sha256": "ffbae3d1acd25f81197178d99c435f87fcca230e8b47ebb3d6d7db4a96e9c17e"
+  },
+  "note": "Archived tests of integrated implementation9cb7e0f on496cdd58, not certification of current repaired tree. See runtime-recovery-validation.json for current checks."
+}

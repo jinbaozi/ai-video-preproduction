@@ -23,7 +23,9 @@ CHECKERS = frozenset({
     "image_visual_review", "control_verify", "compile_manifest", "compile_semantics",
     "preproduction_final", "freeze_request", "execution_provenance", "take_probe",
     "shot_coverage", "selected_take", "adjacent_coverage", "assembly_edl",
-    "post_obligations", "whole_review", "video_final",\n    "flow_2k_provenance", "flow_2k_visual_review", "jianying_doctor", "jianying_plan",\n    "jianying_build", "jianying_export_probe",
+    "post_obligations", "whole_review", "video_final",
+    "flow_2k_provenance", "flow_2k_visual_review", "jianying_doctor", "jianying_plan",
+    "jianying_build", "jianying_export_probe",
 })
 CONDITION_FIELDS = {
     "delivery": {"full", "text-only"},
@@ -47,6 +49,8 @@ NODE_KEYS = frozenset({
 })
 IMAGE_SKIP_FIELDS = {"visual_prompts": "visual_jobs_present",
                      "visual_media": "visual_jobs_present",
+                     "reference_2k": "visual_jobs_present",
+                     "board_reference_2k": "board_jobs_present",
                      "board_prompts": "board_jobs_present",
                      "board_media": "board_jobs_present"}
 GRAPH_KEYS = frozenset({"schema_version", "workflow_id", "execution_mode", "limits", "locked_skills", "nodes"})
@@ -296,3 +300,33 @@ def ready_stages(graph: dict[str, Any], states: dict[str, dict[str, Any]], conte
         if node["id"] in complete and any(dep not in complete for dep in node["depends_on"]):
             raise ValueError(f"{node['id']} completed before a dependency")
     return pending
+
+
+def project_graph(project_root, *, module_lock=None):
+    """Use the creation-time graph. Unversioned projects retain the 25-node contract."""
+    root = Path(project_root)
+    frozen = root / 'runtime/v6/workflow.json'
+    if frozen.is_file():
+        graph = load_graph(frozen, module_lock=module_lock)
+        project = json.loads((root / 'project.json').read_text(encoding='utf-8'))
+        if graph != configured_graph(project, module_lock=module_lock):
+            raise ValueError('Frozen workflow differs from the project creation configuration')
+        return graph
+    project_path = root / 'project.json'
+    project = json.loads(project_path.read_text(encoding='utf-8')) if project_path.is_file() else {}
+    if project.get('flow_refinement') or project.get('editing_backend') == 'jianying-headless':
+        raise ValueError('Extension-enabled project is missing its frozen workflow; restore it before proceeding')
+    return configured_graph({}, module_lock=module_lock)
+
+
+def configured_graph(project, *, module_lock=None):
+    graph = load_graph(module_lock=module_lock)
+    removed = {}
+    if not project.get('flow_refinement'):
+        removed.update(reference_2k='visual_media', board_reference_2k='board_media')
+    if project.get('editing_backend') != 'jianying-headless':
+        removed['jianying_edit'] = 'assembly'
+    graph['nodes'] = [node for node in graph['nodes'] if node['id'] not in removed]
+    for node in graph['nodes']:
+        node['depends_on'] = [removed.get(dep, dep) for dep in node['depends_on']]
+    return validate_graph(graph)

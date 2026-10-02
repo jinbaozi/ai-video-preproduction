@@ -17,6 +17,7 @@ STAGES = {
     5: ('05-assets', '视觉资产'), 6: ('06-storyboard', '分镜与控制素材'),
     7: ('07-boards', '分镜图片'), 8: ('08-video-prompts', '视频提示词'),
     9: ('09-delivery', '验收与交付'), 10: ('10-video', '真实视频制作'),
+    11: ('11-edit', '剪辑与整片验收'),
 }
 KINDS = {'canon': 1, 'screenplay': 2, 'director': 3, 'art': 4,
          'storyboard': 6, 'control': 6, 'avir': 8, 'qa': 9}
@@ -40,6 +41,8 @@ def relative(project: dict, uri: str) -> str:
         return uri
     first, *rest = parts
     if first == 'runtime':
+        if len(rest) >= 2 and rest[0] == 'production' and rest[1] in ('outputs','editing') and project.get('editing_backend'):
+            return '/'.join(['11-edit', rest[1], *rest[2:]])
         if len(rest) >= 2 and rest[0] == 'production' and rest[1] in ('media', 'outputs'):
             return '/'.join(['10-video', rest[1], *rest[2:]])
         return '/'.join(['.runtime', *rest])
@@ -264,7 +267,8 @@ def progress(kernel, outcome=None) -> dict:
         if not build_valid:integrity.append('Compiled build is stale or changed')
     rows = []
     for stage, (directory, name) in STAGES.items():
-        if stage == 10 and kernel.production_target() != 'video':
+        if stage == 11 and not kernel.project.get('editing_backend'):continue
+        if stage in (10,11) and kernel.production_target() != 'video':
             continue
         records = [(slot, r) for slot, r in state['artifacts'].items() if r['stage'] == stage]
         done = bool(records) and all(valid[slot] for slot, _ in records)
@@ -277,6 +281,7 @@ def progress(kernel, outcome=None) -> dict:
                     jobs = kernel.image_jobs(stage) if (stage == 5 and valid.get('director') or stage == 7 and valid.get('storyboard')) else None
                     if jobs is not None:
                         done = all(j['key'] in state['media'] and kernel.media_valid(state['media'][j['key']], state)
+                                   and (not kernel.project.get('flow_refinement') or bool(state['media'][j['key']].get('flow_refinement')))
                                    and state['media'][j['key']]['input_fingerprint'] == j['fingerprint']
                                    and (state['media'][j['key']]['role'] != 'identity'
                                         or state['approvals'].get(j['key'], {}).get('token') == kernel.approval_token(state['media'][j['key']]))
@@ -296,8 +301,13 @@ def progress(kernel, outcome=None) -> dict:
             done = build_valid and review.get('status') == 'ACCEPTED' and review.get('build_id') == build.get('build_id')
         if stage == 9:
             done = state['status'] in ('DELIVERED', 'VIDEO_DELIVERED') and valid.get('qa', False) and build_valid and not integrity
-        if stage == 10:
+        if stage in (10,11):
             done = state['status'] == 'VIDEO_DELIVERED'
+            if stage==10 and kernel.project.get('editing_backend'):
+                manifest=kernel.path('runtime/production/delivery-manifest.json')
+                if manifest.is_file():
+                    shots=read(manifest).get('shot_ids',[])
+                    done=bool(shots) and all(kernel.path('runtime/production/selections/'+shot+'.json').is_file() for shot in shots)
         if done and status == '待执行':
             status = '已完成'
         if records and not all(valid[slot] for slot, _ in records):

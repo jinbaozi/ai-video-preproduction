@@ -4,13 +4,15 @@
 
 新 lean 的人工入口是 `00-progress.md`，实际产物按 `01-source/` 到 `09-delivery/` 顺序归档。原生结果按任务的 `output_file` 写入，RoleResult 支持标准输入；完整字段使用 `context --slot SLOT --pointer /field` 按需读取，不创建上下文副本。旧项目与 audited 保持原布局。见[最少输出合同](references/compact-workspace.md)。
 
+新版 lean/full 默认先生成图片，再通过 Google Flow 重制为有实际像素和对照验收的 2K 参考；视频生成后通过独立 Jianying Headless 核心执行真实剪辑。详见 [Flow 与剪辑合同](references/flow-and-editing.md)。生成/登录/导出未执行时不会声称完成。
+
 ## 开始使用
 
 ```text
 使用 $ai-comic-drama-workflow，根据这些资料制作参考图与视频提示词包。
 默认 lean 自动继续；只制作镜头需要的素材，保留原文对白与身份。
 需要独立审阅时明确选择 audited；要求成片时设置 production_target=video。
-只在角色身份首次定稿、硬冲突、显著费用或能力降级时提出必要决定。
+普通创作和身份定稿自动继续；只在硬冲突、登录/权限、许可、未授权费用或能力降级时提出必要决定。
 ```
 
 只需要文字时明确说“仅生成视频提示词，纯文本交付”。单条提示词、独立导演方案、美术或分镜直接调用对应专业 Skill，不强制建项目。

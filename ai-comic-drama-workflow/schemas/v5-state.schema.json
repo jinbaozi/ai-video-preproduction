@@ -50,6 +50,45 @@
     },
     "output_policy": {
       "const": "compact-workspace/1.0"
+    },
+    "creative_policy": {
+      "enum": [
+        "automatic",
+        "ask"
+      ]
+    },
+    "editing_backend": {
+      "enum": [
+        "jianying-headless",
+        "ffmpeg"
+      ]
+    },
+    "production_policy": {
+      "const": "verified-production/1.0"
+    },
+    "flow_refinement": {
+      "type": "object",
+      "required": [
+        "policy",
+        "max_attempts"
+      ],
+      "properties": {
+        "policy": {
+          "const": "google-flow-2k/1.0"
+        },
+        "account_hint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "max_attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": true

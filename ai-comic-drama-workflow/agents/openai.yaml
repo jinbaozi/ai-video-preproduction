@@ -1,7 +1,7 @@
 interface:
   display_name: "七技能创意到视频工作流"
   short_description: "一句话启动轻量连续执行，保留控制与验收，按需切换独立审阅"
-  default_prompt: "使用 $ai-comic-drama-workflow，从我的创意开始以 lean 模式连续完成参考图、分镜、模型提示词和附件包；只生成镜头所需素材，不输出冗余过程报告。需要独立审阅时用 audited，要求成片时继续实际视频生产与验收。"
+  default_prompt: "使用 $ai-comic-drama-workflow，从我的创意开始以 lean 模式连续完成参考图、分镜、模型提示词和附件包；只生成镜头所需素材，不输出冗余过程报告。需要独立审阅时用 audited，完整参考图通过 Google Flow 真实 2K 重制与对照验收，要求成片时继续实际视频生产、Jianying Headless 剪辑与整片验收；普通创作无需反复定稿确认，权限与真实阻塞须说明。"
 
 policy:
   allow_implicit_invocation: true

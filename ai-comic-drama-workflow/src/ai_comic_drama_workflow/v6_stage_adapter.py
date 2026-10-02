@@ -25,6 +25,9 @@ CHECKER_KINDS = {
     "adjacent_coverage": "manual", "assembly_edl": "media",
     "post_obligations": "manual", "whole_review": "manual",
     "video_final": "evidence",
+    "flow_2k_provenance": "evidence", "flow_2k_visual_review": "media",
+    "jianying_doctor": "evidence", "jianying_plan": "schema",
+    "jianying_build": "evidence", "jianying_export_probe": "media",
 }
 if set(CHECKER_KINDS) != CHECKERS:
     raise RuntimeError("V6 graph checkers and envelope validator kinds have diverged")

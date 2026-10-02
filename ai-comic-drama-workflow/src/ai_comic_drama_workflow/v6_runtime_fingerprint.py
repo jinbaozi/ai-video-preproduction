@@ -9,6 +9,9 @@ from .v5_modules import digest_file
 RUNTIME_CODE_FILES = (
     "v5.py",
     "workspace.py",
+    "flow.py",
+    "editing.py",
+    "jianying.py",
     "craft_router.py",
     "craft_runtime.py",
     "adaptive_control.py",

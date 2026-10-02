@@ -17,6 +17,7 @@ _HOST_RECORD_PREFIX = {
     'video_execution': 'runtime/production/executions/',
     'take_recovery': 'runtime/production/takes/',
     'assembly': 'runtime/production/assembly/',
+    'jianying_edit': 'runtime/production/assembly/',
 }
 
 
@@ -32,6 +33,8 @@ def validate_host_node_candidate(project_root, envelope, candidate):
     production ledger. A claimed PASS in a candidate is never used as proof.
     """
     node_id = envelope['node_id']
+    if node_id in ('reference_2k', 'board_reference_2k'):
+        return validate_flow_candidate(project_root, envelope, candidate)
     prefix = _HOST_RECORD_PREFIX.get(node_id)
     if prefix is None:
         raise ValueError('No production host verifier for ' + node_id)
@@ -54,7 +57,7 @@ def validate_host_node_candidate(project_root, envelope, candidate):
     if set(artifact_by_kind) != {item['kind'] for item in envelope['expected_artifacts']}:
         raise ValueError('Host candidate artifact kinds differ from graph outputs')
     snapshot_kind = {'video_execution': 'ExecutionRecord', 'take_recovery': 'Take',
-                     'assembly': 'AssemblyRecord'}[node_id]
+                     'assembly': 'AssemblyRecord', 'jianying_edit': 'JianyingDraft'}[node_id]
     snapshot = kernel.path(artifact_by_kind[snapshot_kind]['uri'])
     if _digest(snapshot) != _digest(source):
         raise ValueError('Candidate snapshot differs from authoritative production record')
@@ -82,9 +85,14 @@ def validate_host_node_candidate(project_root, envelope, candidate):
         output = kernel.path(record['output_uri'])
         if _digest(output) != record['output_sha256'] or _probe(output) != record['probe']:
             raise ValueError('Assembly final media differs from registered bytes or probe')
-        pointer = read(kernel.path(artifact_by_kind['FinalMedia']['uri']))
+        pointer = read(kernel.path(artifact_by_kind['EditedFinalMedia' if node_id == 'jianying_edit' else 'FinalMedia']['uri']))
         if pointer != {'output_uri': record['output_uri'], 'output_sha256': record['output_sha256']}:
             raise ValueError('FinalMedia pointer does not bind the checked output')
+        if node_id == 'jianying_edit':
+            from .editing import verify_editing_record
+            if record.get('tool') != 'jianying':
+                raise ValueError('Jianying gate requires a real executed edit')
+            verify_editing_record(kernel, record)
         failures = ledger.video_delivery_blockers(include_whole=False)
         if failures:
             raise ValueError('Assembly completion gate failed: ' + '; '.join(failures))
@@ -136,6 +144,7 @@ class V6ProductionRuntime:
             'take_selection': [self._scope('shot', shot) for shot in shots],
             'adjacent_acceptance': [self._project_scope()],
             'assembly': [self._project_scope()],
+            'jianying_edit': [self._project_scope()],
             'whole_acceptance': [self._project_scope()],
             'video_delivery': [self._project_scope()],
             'preproduction_delivery': [self._project_scope()],
@@ -555,7 +564,7 @@ class V6ProductionRuntime:
     def post_obligation(self, obligation_id, evidence):
         return self.ledger.save_post_obligation(obligation_id, evidence)
 
-    def assemble(self, edl, out, spec):
+    def assemble(self, edl, out, spec, **edit_options):
         from .assembly import assemble_ffmpeg, timelines, validate_edl
         manifest = self._manifest()
         if spec != manifest['output_spec']:
@@ -568,13 +577,15 @@ class V6ProductionRuntime:
                 return self._queue_adjacent_review([])
             raise ValueError('Adjacent review task must be accepted before assembly')
         validate_edl(edl)
-        result = assemble_ffmpeg(edl, out, spec)
+        from .editing import execute_edit
+        result = execute_edit(self.runtime, edl, out, spec, **edit_options)
         if result['status'] != 'CHECKED':
             return result
         clocks = timelines(spec.get('project', []), spec.get('media', []), spec.get('post', []))
         record = {'id': 'ASM_'+result['output_sha256'][:12], **clocks, 'edl': edl,
-                  'tool': 'ffmpeg', 'status': result['status'], 'probe': result['probe'],
+                  'tool': result.get('tool', 'ffmpeg'), 'status': result['status'], 'probe': result['probe'],
                   'output_sha256': result['output_sha256']}
+        if result.get('editing'):record['editing']=result['editing']
         with transaction(self.root):
             saved = self.ledger.save_assembly(record, output_path=out)
             uri = 'runtime/production/assembly/'+saved['id']+'.json'
@@ -582,6 +593,9 @@ class V6ProductionRuntime:
                             {'AssemblyRecord': saved, 'FinalMedia': {
                                 'output_uri': saved['output_uri'],
                                 'output_sha256': saved['output_sha256']}})
+            if any(node['id'] == 'jianying_edit' for node in self.runtime.graph['nodes']):
+                self._host_task('jianying_edit', self._project_scope(), uri,
+                    {'JianyingDraft': saved, 'EditedFinalMedia': {'output_uri': saved['output_uri'], 'output_sha256': saved['output_sha256']}})
         return {'status': 'CHECKED', 'assembly': saved, 'output': result}
 
     def review_sequence(self, decision):
@@ -702,3 +716,25 @@ def json_bytes(value):
     import json
     return json.dumps(value, ensure_ascii=False, sort_keys=True,
                       separators=(',', ':')).encode('utf-8')
+
+
+def validate_flow_candidate(project_root, envelope, candidate):
+    from .flow import refinement_valid
+    kernel = V5Kernel(project_root)
+    if len(envelope['scope']['ids']) != 1:
+        raise ValueError('Flow gate requires exactly one image')
+    key = envelope['scope']['ids'][0]
+    media = kernel.state['media'].get(key)
+    if not media or not refinement_valid(kernel, media):
+        raise ValueError('Flow gate requires verified downloaded media and provenance')
+    metadata = media['flow_refinement']
+    if (candidate.get('host_record_uri') != metadata['record_uri'] or
+            candidate.get('host_record_sha256') != metadata['record_sha256']):
+        raise ValueError('Flow gate record differs from canonical reference')
+    expected = 'Flow2KReference' if envelope['node_id'] == 'reference_2k' else 'Flow2KBoardImage'
+    artifacts = candidate['artifacts']
+    if len(artifacts) != 1 or artifacts[0]['kind'] != expected:
+        raise ValueError('Flow gate artifact kind differs')
+    if read(kernel.path(artifacts[0]['uri'])) != media:
+        raise ValueError('Flow candidate differs from canonical downloaded reference')
+    return {'status': 'PASS', 'node_id': envelope['node_id'], 'record_sha256': metadata['record_sha256']}

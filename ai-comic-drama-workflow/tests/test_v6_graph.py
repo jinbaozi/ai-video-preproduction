@@ -95,7 +95,7 @@ class GraphTests(unittest.TestCase):
         for context, expected_skips in (
             (CONTEXT, {
                 "reference_observation", "visual_prompts", "visual_media", "control",
-                "board_prompts", "board_media", *(
+                "board_prompts", "board_media", "reference_2k", "board_reference_2k", "jianying_edit", *(
                     n["id"] for n in self.graph["nodes"] if n["id"].startswith("video_")
                     or n["id"] in {"take_recovery", "shot_acceptance", "take_selection",
                                     "adjacent_acceptance", "assembly", "whole_acceptance"}
