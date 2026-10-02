@@ -8,7 +8,7 @@
       "run": 391,
       "passed": 391,
       "failed": 0,
-      "scope": "final .skill archive extracted in isolated directory; full native suite"
+      "scope": "final .skill archive extracted in isolated directory; full native suite; before subsequent test-import-only CI correction"
     },
     "compiler": {
       "run": 278,
@@ -35,6 +35,15 @@
       "status": "NO_BLOCKER_FOUND",
       "retained_bridge_tests": 2,
       "scope": "actual V6 host transitions and decoded synthetic image source/output; upstream catalogue fixture-patched; no live service"
+    },
+    "ci_import_fix": {
+      "cause": "V6-only isolated discovery does not inherit tests-directory sys.path side effect from full suite",
+      "fix": "package-qualified test fixture import",
+      "isolated_archive_tests": 111,
+      "passed": 111,
+      "archive_sha256": "c8fb8b011b6ddf9a31001fee4352dd849a1944859233e3732e70b5550e63ee17",
+      "repeat_build": "IDENTICAL",
+      "runtime_changes": "NONE; test import only"
     }
   },
   "limitations": [

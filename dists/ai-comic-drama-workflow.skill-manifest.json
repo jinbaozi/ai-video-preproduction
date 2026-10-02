@@ -1,6 +1,6 @@
 {
   "archive": "ai-comic-drama-workflow.skill",
-  "archive_sha256": "c87d7c88f3523c6067f759f1f3115c6eb3be5a61bda8cde0e6f5c77352a84d41",
+  "archive_sha256": "c8fb8b011b6ddf9a31001fee4352dd849a1944859233e3732e70b5550e63ee17",
   "file_count": 2332,
   "files": {
     "ai-comic-drama-workflow/README.md": {
@@ -9288,8 +9288,8 @@
       "sha256": "12b23728aec8b178b45ebb7545b6bf87e04a69f6a3f3fd75806f09e3dd76eefd"
     },
     "ai-comic-drama-workflow/tests/test_v6_flow_bridge_integration.py": {
-      "bytes": 5119,
-      "sha256": "54adf8e0d9ebc3528fca74e2242a0009d1de2178dfd4043c4b889da05162dc68"
+      "bytes": 5130,
+      "sha256": "cbf7419ef739177a10459ea606a0461dca2eeb9db31238c6e33ff7f0b572dcdb"
     },
     "ai-comic-drama-workflow/tests/test_v6_graph.py": {
       "bytes": 8113,

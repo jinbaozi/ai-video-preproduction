@@ -12,7 +12,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-import test_flow_references as flow_fixtures
+from tests import test_flow_references as flow_fixtures
 from ai_comic_drama_workflow.flow import POLICY
 from ai_comic_drama_workflow.v5 import V5Kernel
 from ai_comic_drama_workflow.v5_modules import digest_file
