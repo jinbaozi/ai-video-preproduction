@@ -91,7 +91,7 @@ class V5Kernel:
             raise ValueError('Legacy project is read-only. Use copy-project into a new V5 directory.')
         if (self.root/'state.json').exists():
             current=read(self.root/'project.json')
-            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'))
+            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'),obj.get('creative_policy'),obj.get('flow_refinement'),obj.get('editing_backend'),obj.get('production_policy'))
             if choice(current)!=choice(self.state) or choice(current)!=choice(self.project):
                 raise ValueError('Frozen control policy differs from project/state; no silent downgrade')
 
@@ -131,7 +131,7 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
@@ -143,6 +143,12 @@ class V5Kernel:
         if craft_policy not in (None, 'off', craft_runtime.POLICY):raise ValueError('Unknown craft policy')
         if output_policy not in (None, workspace.POLICY):raise ValueError('Unknown output policy')
         if output_policy and workflow_profile!='lean':raise ValueError('Compact workspace requires lean; audited evidence must be retained')
+        if creative_policy not in (None,'automatic','ask'):raise ValueError('Unknown creative policy')
+        if flow_refinement is not None:
+            from .flow import validate_configuration
+            validate_configuration(flow_refinement)
+        if editing_backend not in (None,'jianying-headless','ffmpeg'):raise ValueError('Unknown editing backend')
+        if production_policy not in (None,'verified-production/1.0'):raise ValueError('Unknown production policy')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -150,6 +156,8 @@ class V5Kernel:
             'execution_mode':'current-agent','delivery':delivery,'target':target,'mode':mode or ('reference' if delivery=='full' else 'text'),
             'max_shots_per_task':5,'legacy_constraints':{},'adapter_version':ADAPTER_VERSION,
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
+        for key,value in {'creative_policy':creative_policy,'flow_refinement':flow_refinement,'editing_backend':editing_backend,'production_policy':production_policy}.items():
+            if value is not None:kernel.project[key]=deepcopy(value)
         if output_policy:kernel.project['output_policy']=output_policy
         if craft_policy:kernel.project['craft_policy']=craft_policy
         if workflow_profile:kernel.project['workflow_profile']=workflow_profile
@@ -169,6 +177,8 @@ class V5Kernel:
                'completed_tasks':{},'active_task':None,'active_decision':None,'inflight':None,
                'status':'RUNNING','revision_scope':{},'provided_jobs':[],'host':{'image_capability':'unknown','evidence':None},
                'sources':[],'build':None}
+        for key in ('creative_policy','flow_refinement','editing_backend','production_policy'):
+            if key in kernel.project:state[key]=deepcopy(kernel.project[key])
         if output_policy:state['output_policy']=output_policy
         if craft_policy:state['craft_policy']=craft_policy
         if control_policy:state.update(control_policy=control_policy,control_minimum=control_minimum)
@@ -350,6 +360,8 @@ class V5Kernel:
     def task(self,kind,slot,stage,module,dependencies,scope=None,extra=None):
         state=self.state
         extra=dict(extra or {})
+        if self.project.get('creative_policy')=='automatic':
+            extra['creative_instruction']='Make and record ordinary creative choices and final identity selection after actual QA, then continue without user sign-off. Never change locked facts, bypass authentication, security, fees, licenses, external tool permissions, or hide a failed quality gate.'
         if self.project.get('control_policy') and kind=='storyboard':
             extra['adaptive_instruction']='Use native action statuses and shot-scoped tracks. Do not invent contact, interpolate unknown poses, or count static roots as moving actors. Plan only consumed assets. Unknown control facts must be resolved by the source owner.'
         reads=self.required_reads(module,(extra or {}).get('job'),kind) if module else []
@@ -465,6 +477,9 @@ class V5Kernel:
         try:
             state=state or self.state
             if media.get('invalidated') or digest_file(self.path(media['uri']))!=media['sha256']:return False
+            if media.get('flow_refinement'):
+                from .flow import refinement_valid
+                if not refinement_valid(self,media):return False
             if not self.dependencies_valid(media['dependencies'],state):return False
             for binding in media.get('input_bindings',[]):
                 if binding['key'].startswith('CONTROL_'):
@@ -487,8 +502,19 @@ class V5Kernel:
             if job['brief'].get('state_evaluation', {}).get('status') == 'NEEDS_KEY_POSE':
                 return {'status':'BLOCKED','reason':'Exact panel key pose is missing; submit an explicit state sample, not inferred interpolation','shot_id':job['shot_id'],'frame':job['brief']['frame']}
             media=state['media'].get(job['key'])
+            if media and media.get('flow_refinement') and not media.get('invalidated'):
+                from .flow import refinement_valid
+                if not refinement_valid(self,media):
+                    return {'status':'BLOCKED','reason':'Accepted Flow reference or provenance changed','media_key':job['key'],'repair_owner':'flow-refinement'}
             if media and self.media_valid(media,state) and media['input_fingerprint']==job['fingerprint']:
+                if self.project.get('flow_refinement') and not media.get('flow_refinement'):
+                    from .flow import plan_refinement
+                    return plan_refinement(self,media)
                 if media['role']=='identity' and state['approvals'].get(job['key'],{}).get('token')!=self.approval_token(media):
+                    if self.project.get('creative_policy')=='automatic':
+                        state['approvals'][job['key']]={'token':self.approval_token(media),'actor':'current-agent','policy':'automatic','evidence':{'visual_review':media['visual_review'],'flow_refinement':media.get('flow_refinement')}}
+                        self.save(state)
+                        continue
                     return self.decision('identity:'+job['key'],'请确认该角色身份参考图是否定稿。',
                         {'media_key':job['key'],'sha256':media['sha256'],'uri':str(self.path(media['uri'])),
                          'token':self.approval_token(media)},['approve','revise'])
@@ -504,6 +530,47 @@ class V5Kernel:
             if stage==7:extra['control']=self.state.get('control')
             return self.task('image',job['key'],stage,image_module,job['dependencies'],extra=extra)
         return None
+
+    @mutate
+    def flow_action(self,media_key,*,begin=False,result=None,resume=False):
+        """Host-mediated real Flow export; never generates or authenticates implicitly."""
+        if self.project.get('orchestration_protocol')=='6.0':
+            raise ValueError('Flow refinement requires a graph-native audited extension; use a new lean project')
+        if not self.project.get('flow_refinement'):
+            raise ValueError('Flow refinement was not enabled at project creation')
+        from .flow import plan_refinement, begin_refinement, accept_refinement, resume_refinement, FlowBlockedError
+        state=self.state
+        media=state['media'][media_key]
+        result=read(Path(result)) if result is not None and not isinstance(result,dict) else result
+        replay=bool(result and result.get('status')=='SUCCEEDED' and media.get('flow_refinement'))
+        if (state.get('active_task') or state.get('active_decision')) and not replay:
+            raise ValueError('Finish the active native task or decision before Flow refinement')
+        if not self.media_valid(media,state):raise ValueError('Source image is missing, changed or stale')
+        if result is None:return begin_refinement(self,media) if begin else plan_refinement(self,media)
+        if resume:return resume_refinement(self,media,result)
+        try:promoted=accept_refinement(self,media,result)
+        except FlowBlockedError as error:return error.result
+        if promoted==media:
+            return {'status':'ALREADY_ACCEPTED','media_key':media_key,'uri':media['uri'],'sha256':media['sha256']}
+        state['media'][media_key]=promoted
+        state['approvals'].pop(media_key,None)
+        state['build']=None
+        state.pop('compile_review',None)
+        state['status']='RUNNING'
+        self.save(state)
+        return {'status':'ACCEPTED','media_key':media_key,'uri':promoted['uri'],'sha256':promoted['sha256'],
+                'next_action':'Continue step; the verified Flow export is the canonical downstream reference.'}
+
+    def flow_delivery_errors(self):
+        if not self.project.get('flow_refinement') or self.project['delivery']=='text-only':return []
+        from .flow import refinement_valid
+        errors=[]
+        for stage in (5,7):
+            for job in self.image_jobs(stage):
+                media=self.state['media'].get(job['key'])
+                if not media or not self.media_valid(media) or media.get('input_fingerprint')!=job['fingerprint'] or not refinement_valid(self,media):
+                    errors.append('Required Google Flow 2K refinement not ready: '+job['key'])
+        return errors
 
     def prompt_valid(self,prompt):
         try:return digest_file(self.path(prompt['uri']))==prompt['sha256']
@@ -1232,6 +1299,12 @@ class V5Kernel:
             if old['path']!=change['check']['path']:raise ValueError('A lock revision must address the same field')
             updates.append({**change,'previous':old,'artifact_sha256':record['sha256']})
         context['lock_updates']=updates
+        if proposal['kind']=='creative' and self.project.get('creative_policy')=='automatic' and not updates:
+            if not proposal.get('rationale'):raise ValueError('Automatic creative choice requires a rationale')
+            state=self.state
+            record={'kind':'creative','actor':'current-agent','policy':'automatic','proposal':proposal,'context':context}
+            state['decisions'].append(record);self.save(state)
+            return {'status':'ACCEPTED','decision':record,'user_approval':False}
         return self.decision('proposal:'+proposal['kind'],proposal['question'],context,['approve','reject'])
 
     @mutate
@@ -1337,6 +1410,8 @@ class V5Kernel:
     @mutate
     def compile(self,mapping=None):
         if not self.valid('storyboard'):raise ValueError('Current validated storyboard is required')
+        flow_errors=self.flow_delivery_errors()
+        if flow_errors:return {'status':'BLOCKED','reason':'; '.join(flow_errors),'repair_owner':'flow-refinement'}
         adaptive=self.adaptive_delivery_gate()
         if adaptive:return adaptive
         state=self.state;sb=self.data('storyboard')
@@ -1518,6 +1593,7 @@ class V5Kernel:
             if self.project['delivery']=='full' and media['key'] in current_keys and not self.media_valid(media,state):
                 errors.append('Missing, changed or stale media: '+media['key'])
         if final:
+            if self.valid('storyboard'):errors.extend(self.flow_delivery_errors())
             for observation in self.observation_status():
                 if observation['status']=='NEEDS_ACTUAL_OBSERVATION':errors.append('Reference video has no scoped actual observation: '+observation['source_id'])
             for slot in ('canon','screenplay','director','storyboard','qa'):

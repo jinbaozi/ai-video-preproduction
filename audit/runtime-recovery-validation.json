@@ -1,0 +1,55 @@
+{
+  "schema": "workflow-runtime-recovery/1.0",
+  "date": "2026-10-02",
+  "base_commit": "cb95e07bce638f52ca51981b2c154843e2244498",
+  "recovery": "Reconstructed from archived9cb7e0f source and fresh fixes; missing0c0ddff bytes were not recovered.",
+  "checks": {
+    "workflow": {
+      "run": 391,
+      "passed": 391,
+      "failed": 0,
+      "scope": "final .skill archive extracted in isolated directory; full native suite; before subsequent test-import-only CI correction"
+    },
+    "compiler": {
+      "run": 278,
+      "passed": 275,
+      "failed": 0,
+      "skipped": 3,
+      "skip_reason": "Blender runtime unavailable"
+    },
+    "packages": {
+      "status": "PASS",
+      "packages": 7,
+      "six_specialist_sha256": {
+        "screenplay-grammar": "4fd476481f5e87ad6449d646c65293a7fd750ac2b5246fdb6ab846ce0a261ce7",
+        "director-grammar": "000a2b7e05858b760844f0b71585adb541f6fab9e765be676b26fe31aca4fe7d",
+        "production-design-grammar": "61c680c0dd3b83d9f5d5c98f3b9bff1c867971fbe8702bb2bea0d2776dc785d9",
+        "storyboard-grammar": "e91392c0114c1d9a9e449a5be52c70cd4b2be84ccaaf5f476f79afad269bd224",
+        "video-prompt-compiler": "6a50006989bee6c7e701a4c77c89502a5c05c9aec66ba8ebd13f7bdc9190b80f",
+        "image-prompt-optimizer": "1e1c58d0f81346f61171c1056a315d9f6628712b32779857e7510206a436a1ea"
+      },
+      "orchestration_final": "runtime-recovery-workflow-package.json",
+      "note": "First suite ran all seven; final orchestration archive was rebuilt after added integration tests, then isolated full391 suite and identical rebuild verified again. Six specialists unchanged."
+    },
+    "independent_review": {
+      "status": "NO_BLOCKER_FOUND",
+      "retained_bridge_tests": 2,
+      "scope": "actual V6 host transitions and decoded synthetic image source/output; upstream catalogue fixture-patched; no live service"
+    },
+    "ci_import_fix": {
+      "cause": "V6-only isolated discovery does not inherit tests-directory sys.path side effect from full suite",
+      "fix": "package-qualified test fixture import",
+      "isolated_archive_tests": 111,
+      "passed": 111,
+      "archive_sha256": "c8fb8b011b6ddf9a31001fee4352dd849a1944859233e3732e70b5550e63ee17",
+      "repeat_build": "IDENTICAL",
+      "runtime_changes": "NONE; test import only"
+    }
+  },
+  "limitations": [
+    "No live Google Flow execution",
+    "No live Jianying core execution",
+    "No generated-media visual certification",
+    "GitHub CI must validate published revision separately"
+  ]
+}

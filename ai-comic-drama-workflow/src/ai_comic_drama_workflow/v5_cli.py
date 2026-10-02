@@ -20,6 +20,10 @@ def main(argv=None):
     start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
     start_command.add_argument('--craft-routing',choices=['auto','off'],default='auto',help='Default method routing; off only for explicit user opt-out')
     start_command.add_argument('--output-profile',choices=['compact','audit'],help='Lean defaults to compact ordered storage; audit preserves legacy evidence/layout')
+    start_command.add_argument('--creative-policy',choices=['automatic','ask'],default='automatic')
+    start_command.add_argument('--reference-refinement',choices=['google-flow-2k','off'])
+    start_command.add_argument('--flow-account',help='Preferred existing Google account; never a password')
+    start_command.add_argument('--editing-backend',choices=['jianying-headless','ffmpeg'],default='jianying-headless')
     start_command.add_argument('--verbose',action='store_true')
     step_command=commands.add_parser('step',help='Accept a native result and get the next host action in one call')
     step_command.add_argument('project');step_command.add_argument('--result');step_command.add_argument('--verbose',action='store_true')
@@ -56,10 +60,13 @@ def main(argv=None):
     c=commands.add_parser('migrate-v6');c.add_argument('project');c.add_argument('--destination',required=True)
     commands.add_parser('doctor')
     graph_command=commands.add_parser('graph');graph_command.add_argument('--format',choices=['mermaid','json'],default='mermaid')
+    reference=commands.add_parser('reference',help='Host-mediated Google Flow refinement and verified import')
+    reference.add_argument('project');reference.add_argument('reference_command',choices=['plan','begin','receive','resume'])
+    reference.add_argument('--media-key',required=True);reference.add_argument('--result')
     prod=commands.add_parser('production');prod.add_argument('project')
     prod_commands=prod.add_subparsers(dest='production_command',required=True)
     for name in ('plan','execute','recover-execution','receive-take','freeze','select','review-take',
-                 'check-adjacent','assemble','review-sequence','post-obligation','deliver','status'):
+                 'check-adjacent','assemble','edit','editing-readiness','editing-install','review-sequence','post-obligation','deliver','status'):
         sub=prod_commands.add_parser(name)
         if name=='plan':
             sub.add_argument('--compile',required=True);sub.add_argument('--request',required=True)
@@ -80,7 +87,12 @@ def main(argv=None):
             sub.add_argument('--plan',required=True);sub.add_argument('--observations',required=True)
             sub.add_argument('--shot',required=True);sub.add_argument('--take')
         if name=='check-adjacent':sub.add_argument('--plan',required=True);sub.add_argument('--observations',required=True);sub.add_argument('--left',required=True);sub.add_argument('--right',required=True)
-        if name=='assemble':sub.add_argument('--edl',required=True);sub.add_argument('--out',required=True);sub.add_argument('--spec',required=True)
+        if name in ('assemble','edit'):
+            sub.add_argument('--edl',required=True);sub.add_argument('--out',required=True);sub.add_argument('--spec',required=True)
+        if name in ('assemble','edit','editing-readiness','editing-install'):
+            sub.add_argument('--core-root');sub.add_argument('--backend',choices=['portable-ffmpeg','native'],default='portable-ffmpeg')
+            sub.add_argument('--authorization');sub.add_argument('--usage',choices=['personal-noncommercial','commercial'],default='personal-noncommercial')
+        if name=='editing-install':sub.add_argument('--destination',required=True)
         if name=='review-sequence':sub.add_argument('--plan',required=True);sub.add_argument('--observations',required=True)
         if name=='post-obligation':sub.add_argument('--id',required=True);sub.add_argument('--evidence',required=True)
     a=p.parse_args(argv)
@@ -88,7 +100,7 @@ def main(argv=None):
         if a.command=='start':
             from .lean import start
             r=start(a.project,a.inputs,profile=a.profile,project_id=a.project_id,delivery=a.delivery,
-                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile)
+                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile,creative_policy=a.creative_policy,reference_refinement=a.reference_refinement,flow_account=a.flow_account,editing_backend=a.editing_backend)
         elif a.command=='step':
             from .lean import step
             r=step(a.project,result=read_stdin_result(a.result),verbose=a.verbose)
@@ -123,6 +135,14 @@ def main(argv=None):
             from .v6_runtime import V6Runtime
             r=V6Runtime.migrate(a.project,a.destination).status()
         elif a.command=='copy-project':r=V5Kernel.copy_project(a.project,a.destination).status()
+        elif a.command=='reference':
+            if a.reference_command in ('receive','resume') and not a.result:raise ValueError('reference '+a.reference_command+' requires --result')
+            if a.reference_command not in ('receive','resume') and a.result:raise ValueError('--result is only valid for reference receive/resume')
+            k=V5Kernel(a.project)
+            if k.project.get('orchestration_protocol')=='6.0':
+                from .v6_runtime import V6Runtime
+                k=V6Runtime(a.project)
+            r=k.flow_action(a.media_key,begin=a.reference_command=='begin',result=read_stdin_result(a.result),resume=a.reference_command=='resume')
         elif a.command=='production':r=_production(a)
         else:
             project=read(Path(a.project)/'project.json')
@@ -184,7 +204,7 @@ def main(argv=None):
                     from .lean import compact
                     r=compact(r)
         print(json.dumps(r,ensure_ascii=False,indent=2))
-        return 2 if r.get('status')=='BLOCKED' or r.get('valid') is False else 0
+        return 2 if str(r.get('status','')).startswith(('BLOCKED','FAILED','TOOL_UNAVAILABLE')) or r.get('valid') is False else 0
     except (ValueError,OSError,KeyError,IndexError,StopIteration) as e:
         print(json.dumps({'status':'ERROR','error':str(e)},ensure_ascii=False));return 1
 
@@ -208,6 +228,12 @@ def _production(a):
     from .executors.manual import ManualExecutor
     from .production import ProductionLedger
     project=read(Path(a.project)/'project.json')
+    if a.production_command=='editing-install':
+        from .jianying import install_core
+        return install_core(a.destination,read(Path(a.authorization)) if a.authorization else None,usage=a.usage)
+    if a.production_command=='editing-readiness':
+        from .jianying import inspect_setup
+        return inspect_setup(a.core_root,backend=a.backend)
     if project.get('orchestration_protocol')=='6.0':
         from .v6_runtime import V6Runtime
         from .v6_production_runtime import V6ProductionRuntime
@@ -262,13 +288,19 @@ def _production(a):
         decision=adjacent_decision(plan,read(Path(a.observations)),a.left,a.right,plan['sha256'])
         decision['id']='ACC_'+a.left+'_'+a.right
         return ledger.save_acceptance(decision)
-    if command=='assemble':
+    if command in ('assemble','edit'):
+        from .editing import execute_edit
         edl=read(Path(a.edl));spec=read(Path(a.spec));validate_edl(edl)
-        result=assemble_ffmpeg(edl,a.out,spec)
+        if ledger.strict and spec!=ledger._load('delivery-manifest.json')['output_spec']:
+            raise ValueError('Editing specification differs from frozen delivery specification')
+        result=execute_edit(k,edl,a.out,spec,core_root=a.core_root,backend=a.backend,
+                            authorization=read(Path(a.authorization)) if a.authorization else None,usage=a.usage)
         if result['status']!='CHECKED':return result
         clocks=timelines(spec.get('project',[]),spec.get('media',[]),spec.get('post',[]))
-        record={'id':'ASM_'+result.get('output_sha256','pending')[:12],**clocks,'edl':edl,'tool':'ffmpeg','status':result['status'],'probe':result.get('probe')}
+        record={'id':'ASM_'+result.get('output_sha256','pending')[:12],**clocks,'edl':edl,'tool':result.get('tool','ffmpeg'),'status':result['status'],'probe':result.get('probe'),'output_sha256':result.get('output_sha256')}
+        if result.get('editing'):record['editing']=result['editing']
         ledger.save_assembly(record,output_path=a.out)
+        if result.get('editing'):return result
         return {**result,'handoff':{'jianying':export_jianying(edl,str(Path(a.out).with_suffix(''))+'-jianying'),'hypit':export_hypit(edl,str(Path(a.out).with_suffix(''))+'-hypit')}}
     if command=='review-sequence':
         source=read(Path(a.plan));plan=freeze_plan(source['contract'] if isinstance(source,dict) else source)
@@ -314,7 +346,8 @@ def _production_v6(a, runtime):
         decision=adjacent_decision(plan,read(Path(a.observations)),a.left,a.right,plan['sha256'])
         decision['id']='ACC_'+a.left+'_'+a.right
         return runtime.check_adjacent(decision)
-    if command=='assemble':return runtime.assemble(read(Path(a.edl)),a.out,read(Path(a.spec)))
+    if command in ('assemble','edit'):return runtime.assemble(read(Path(a.edl)),a.out,read(Path(a.spec)),
+        core_root=a.core_root,backend=a.backend,authorization=read(Path(a.authorization)) if a.authorization else None,usage=a.usage)
     if command=='post-obligation':return runtime.post_obligation(a.id,read(Path(a.evidence)))
     if command=='review-sequence':
         source=read(Path(a.plan));plan=freeze_plan(source['contract'] if isinstance(source,dict) else source)

@@ -28,11 +28,11 @@ class StageAdapterTests(unittest.TestCase):
 
     def test_project_consumer_requires_every_scene_and_asset(self):
         catalogue = {"storyboard": [PROJECT], "canon": [PROJECT], "director": [PROJECT],
-                     "art": [SCENE_A, SCENE_B], "visual_media": [ASSET_A, ASSET_B]}
+                     "art": [SCENE_A, SCENE_B], "reference_2k": [ASSET_A, ASSET_B]}
         rows = [row("canon", PROJECT, "CANON"), row("director", PROJECT, "DIRECTOR"),
                 row("art", SCENE_A, "ART_A"), row("art", SCENE_B, "ART_B"),
-                row("visual_media", ASSET_A, "VIS_A", state="NOT_APPLICABLE"),
-                row("visual_media", ASSET_B, "VIS_B", state="NOT_APPLICABLE")]
+                row("reference_2k", ASSET_A, "VIS_A", state="NOT_APPLICABLE"),
+                row("reference_2k", ASSET_B, "VIS_B", state="NOT_APPLICABLE")]
         self.assertEqual(predecessor_task_ids(self.graph, "storyboard", PROJECT, rows, catalogue),
                          ["CANON", "DIRECTOR", "ART_A", "ART_B", "VIS_A", "VIS_B"])
         with self.assertRaisesRegex(ValueError, "Missing predecessor task"):

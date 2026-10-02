@@ -75,7 +75,9 @@ audited/V6 的阶段图来自 [workflow-v6.json](ai-comic-drama-workflow/workflo
 
 ## 按顺序看进度，不遍历中间文件
 
-完整任务默认 **autonomous-until-blocked**：普通阶段由 Agent 自主定稿并连续推进；只有登录/权限、未授权费用、UNKNOWN 执行、能力缺失或有界返修后仍无法通过质量门时才通知用户。\n\n新 lean 默认 compact 输出；不用额外配置。从 `00-progress.md` 查看当前阶段、已接受产物、阻塞和下一步。目录仅在进入阶段或产生必要产物时创建：
+完整任务默认 **autonomous-until-blocked**：普通阶段由 Agent 自主定稿并连续推进；只有登录/权限、未授权费用、UNKNOWN 执行、能力缺失或有界返修后仍无法通过质量门时才通知用户。
+
+新 lean 默认 compact 输出；不用额外配置。从 `00-progress.md` 查看当前阶段、已接受产物、阻塞和下一步。目录仅在进入阶段或产生必要产物时创建：
 
 ```text
 00-progress.md
@@ -118,3 +120,7 @@ lean 不再默认写出重复的制作规格、上下文、覆盖/损失报告�
 本次方案、变更和静态实测见 [IMPLEMENTATION-LEAN.md](IMPLEMENTATION-LEAN.md)。CI 并行检查原生工作流、编译器与七包隔离安装；基准不包含 LLM 创作、模型排队/推理和最终画质。
 
 历史协议按需阅读：[迁移说明](ai-comic-drama-workflow/references/v5/migration.md)、[V5.1 细节](video-prompt-compiler/references/history/detail-contract-v51.md)、[V5.2 空间](video-prompt-compiler/references/history/spatial-contract-v52.md)、[镜头控制实施](IMPLEMENTATION-SHOT-CONTROL.md)。旧项目显式迁移使用 `migrate-v6 OLD --destination NEW`，保留原件；缺少的真实派发或审阅证据不补写虚构历史。
+
+## Flow 与剪辑运行时修复
+
+工作流 0.16.0 将 Flow 2K 与剪映节点接入真实宿主动作和字节证据校验。新 audited 项目冻结扩展图，旧项目保留原 25 阶段合同；丢失新项目冻结图会阻断。Flow 未知执行只回收，项目搬迁不会生成新请求身份。剪映原生后端与显式 portable-ffmpeg 后端分别报告，后者只交付 JSON 时间线，不冒充原生草稿。见[宿主执行合同](ai-comic-drama-workflow/references/flow-and-editing.md)。
