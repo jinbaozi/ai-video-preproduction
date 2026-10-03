@@ -164,6 +164,10 @@
     },
     "semantic_review": {
       "type": "object"
+    },
+    "prompt_techniques": {
+      "type": "object",
+      "description": "Optional source-scoped method plan; not a model execution or media-quality receipt."
     }
   },
   "required": [

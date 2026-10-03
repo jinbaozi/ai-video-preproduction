@@ -3,6 +3,10 @@
   "$id": "https://video-prompt-compiler.local/compile-artifact-1.3.schema.json",
   "type": "object",
   "properties": {
+    "prompt_techniques": {
+      "type": "object",
+      "description": "Optional source-scoped method plan; not a model execution or media-quality receipt."
+    },
     "schema": {
       "const": "compiled-artifact/1.3"
     },

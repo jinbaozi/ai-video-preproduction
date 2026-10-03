@@ -143,6 +143,10 @@
         "next_steps"
       ],
       "additionalProperties": false
+    },
+    "prompt_techniques": {
+      "type": "object",
+      "description": "Optional source-scoped method plan; not a model execution or media-quality receipt."
     }
   },
   "required": [

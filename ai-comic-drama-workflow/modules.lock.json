@@ -28,8 +28,8 @@
     },
     "video-prompt-compiler": {
       "archive": "video-prompt-compiler.skill",
-      "sha256": "6a50006989bee6c7e701a4c77c89502a5c05c9aec66ba8ebd13f7bdc9190b80f",
-      "version": "1.20.1"
+      "sha256": "bf8f5c7d31260c9c59938a31e6e4c615c07914cfe3beb207818f29b84f5784f6",
+      "version": "1.21.0"
     }
   },
   "schema": "skill-modules/1.0"

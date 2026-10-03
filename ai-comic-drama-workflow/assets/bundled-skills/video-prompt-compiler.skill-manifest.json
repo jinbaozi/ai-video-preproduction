@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "6a50006989bee6c7e701a4c77c89502a5c05c9aec66ba8ebd13f7bdc9190b80f",
-  "file_count": 146,
+  "archive_sha256": "bf8f5c7d31260c9c59938a31e6e4c615c07914cfe3beb207818f29b84f5784f6",
+  "file_count": 150,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 11464,
-      "sha256": "d085bd3c9423c84f27fa1733323fb89bc2548464a50dfe6b5df8c81bdcdf9e2e"
+      "bytes": 12308,
+      "sha256": "be40f3c300762b5bf2c4564701064a674c4831160c079c5ad888fe8b23d3cf7c"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -171,6 +171,10 @@
       "bytes": 3260,
       "sha256": "e6d67399285d6a84f625bb73780e6d84d2cc340314c7dd49438b7f9bc3243940"
     },
+    "video-prompt-compiler/references/prompt-techniques.md": {
+      "bytes": 5872,
+      "sha256": "10fac5a5e8b116da9e4f51846f2f66f0f6aa77324370835ca472bbcc769b2df4"
+    },
     "video-prompt-compiler/references/research-and-scope.md": {
       "bytes": 3101,
       "sha256": "eaba7409121f8d3edff71a3bc94dfb018c8ca3d0c3b858fe814853dca1e83f8d"
@@ -184,8 +188,8 @@
       "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
     },
     "video-prompt-compiler/references/v5-reads.json": {
-      "bytes": 689,
-      "sha256": "fd92fe2567c690464555b8303386f43f909962ebb64edfa40c2777762364cb21"
+      "bytes": 771,
+      "sha256": "4689abb22b5ad0eaecd8618bae8734889f6c28d38ef542e82cf0740f40aebee3"
     },
     "video-prompt-compiler/references/verification.md": {
       "bytes": 4078,
@@ -198,6 +202,10 @@
     "video-prompt-compiler/registries/control-capabilities.json": {
       "bytes": 3515,
       "sha256": "f4a719b75c1225c9c001f4bc9e53f96a45f9c81e3f5160505d02d05f48b7731d"
+    },
+    "video-prompt-compiler/registries/prompt-techniques.json": {
+      "bytes": 41820,
+      "sha256": "1e198c9015b7a4266e1878d54b6b0f4e68384edbfa17ae51583d4871b8f9b5ae"
     },
     "video-prompt-compiler/registries/rules.json": {
       "bytes": 1208,
@@ -228,20 +236,20 @@
       "sha256": "ee75129ec8766627857661ce6a9d4bb7898fd16b6f4964b2797c773b237b9ebf"
     },
     "video-prompt-compiler/schemas/compile-artifact-1.1.schema.json": {
-      "bytes": 3568,
-      "sha256": "23cc0c1cd81542fc80c1055b7c4638f7c031679bdef13809e20254e07ad4bbd0"
+      "bytes": 3733,
+      "sha256": "2ac756059f94d06bb7817f65b2ee6076672e43fc016ade6a68e6ecbebf6ecc71"
     },
     "video-prompt-compiler/schemas/compile-artifact-1.2.schema.json": {
-      "bytes": 3694,
-      "sha256": "45ba24b01a85b265c17a1ade12468fdff4df29051ebd1c28bd354fffa3c1b154"
+      "bytes": 3859,
+      "sha256": "f1bbb046f5668d1e29cb64cdccfc3cf9130437e99d652bc72dbb3ddf7f4bcd96"
     },
     "video-prompt-compiler/schemas/compile-artifact-1.3.schema.json": {
-      "bytes": 5050,
-      "sha256": "e36519a352cee84616114da45ecbbbfc5187daade439e3bec81cb04f33d6b3cd"
+      "bytes": 5215,
+      "sha256": "0a525634b0eb87e7df4a8efedce8b97cfeb3879827a19417faee9cdf98292f39"
     },
     "video-prompt-compiler/schemas/compile-artifact.schema.json": {
-      "bytes": 3106,
-      "sha256": "010675744c96982745e5f5faba0dc861ccbd2c9ccc3167bc593c942e2bed3e5a"
+      "bytes": 3271,
+      "sha256": "01ac03e5369ed4b39aed63ecc22c1dbd9b1f58af75470735339201f088223e99"
     },
     "video-prompt-compiler/schemas/control-artifacts.schema.json": {
       "bytes": 6250,
@@ -326,6 +334,10 @@
     "video-prompt-compiler/scripts/prompt_projection.py": {
       "bytes": 22545,
       "sha256": "f5d8fb57d37a8665617c1931508cab73c254e646c50cf385cba4d28bcc5ea355"
+    },
+    "video-prompt-compiler/scripts/prompt_techniques.py": {
+      "bytes": 11496,
+      "sha256": "de13389d7a34449c9cc72fe788cd3369eaa6a11f29b10d6dbbd31941823b8b3f"
     },
     "video-prompt-compiler/scripts/runninghub_h3.py": {
       "bytes": 19838,
@@ -508,12 +520,12 @@
       "sha256": "05dc323c6d3d3679cd7c29c75d6521470115865f5f4d3cd4d7120a424adfb414"
     },
     "video-prompt-compiler/scripts/vpc.py": {
-      "bytes": 13655,
-      "sha256": "5a42a7b946e914f91df086df955cdd904e24de200fe82a176e0e80cbcb2694ed"
+      "bytes": 14453,
+      "sha256": "dca528c0337660b747f776f7778dee58d1f3cec895bad8fbdf5df5df0905f436"
     },
     "video-prompt-compiler/scripts/vpc_core.py": {
-      "bytes": 35613,
-      "sha256": "ea82415dd830014907391464de1a14d51de578b166ba30a7904f1182748fd2ab"
+      "bytes": 36119,
+      "sha256": "f2aff50b627497ebf34e550dc5f0877cbe6419a55e4114418c06910c6b95fd42"
     },
     "video-prompt-compiler/templates/backends.json": {
       "bytes": 3555,
@@ -567,6 +579,10 @@
       "bytes": 6619,
       "sha256": "d4e7ab2d8fee8d6004b90f99da1a8c3476844a810da0b91c478ab3de109dea7a"
     },
+    "video-prompt-compiler/tests/test_prompt_techniques.py": {
+      "bytes": 11194,
+      "sha256": "04fa8ff9cea4a1094a39c5f6514eb04440ca805b7b21a3f47a4a541a228094af"
+    },
     "video-prompt-compiler/tests/test_segment_delivery.py": {
       "bytes": 4989,
       "sha256": "3ae7931e5929d992d99f0a757dc217dc7acf628cefd0faef3c847de453e819cc"
@@ -589,5 +605,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.20.1"
+  "version": "1.21.0"
 }

@@ -113,6 +113,10 @@ class CraftEndToEndTests(unittest.TestCase):
             final = kernel.validate(True)
             self.assertTrue(final['valid'], final)
             self.assertFalse(final['video_generated'])
+            compiled = kernel.path(kernel.state['build']['uri'] + '/compiled')
+            self.assertEqual(read(compiled/'compile-manifest.json')['template_ids'], ['dialogue-performance-beats'])
+            self.assertEqual(read(compiled/'artifact.json')['prompt_techniques']['templates'][0]['id'], 'dialogue-performance-beats')
+            self.assertFalse(read(compiled/'artifact.json')['prompt_techniques']['execution']['submitted'])
 
 
 if __name__ == '__main__':

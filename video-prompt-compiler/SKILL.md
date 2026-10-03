@@ -7,7 +7,7 @@ description: >
   MiniMax H3 / RunningHub 模型的专属提示词、参数、引用绑定和验收清单。用于提示词生成、跨模型迁移、编译诊断与制作交接；
   编译与实际视频生成分开。
 metadata:
-  version: "1.20.1"
+  version: "1.21.0"
 ---
 
 # Video Prompt Compiler
@@ -15,6 +15,12 @@ metadata:
 ## 默认专业方法路由
 
 默认继承上游选中的具体方法，不再另选名家或重写主风格；独立轻量任务在授权范围内设计，不伪造已执行的上游团队。先读[默认路由合同](references/craft-routing.md)；完整任务遵循 task.craft，提供绑定实际内容的 craft_review。方法不得覆盖 Canon、信息顺序、连续性或用户锁定；静态证据不等于成片画质。
+
+## 通用模板与模型专属方法
+
+先按 [方法分层合同](references/prompt-techniques.md) 区分通用视听方法、当前任务模板和精确模型入口规则。运行 `scripts/vpc.py techniques list` 只列索引，`techniques plan --target 精确ID --template 模板ID` 只取所选条目。完整工作流通过已有 source-bound craft 路由，要求原生字段的采用证据；不把整个案例库加载到上下文。
+
+独立完整编译可用 `compile ... --template food-asmr`，多项重复该参数；不填写则使用通用方法。模板是前端创作指南，编译器不重写冻结AVIR，选择、源指纹、模型规则及客观检查嵌入 `artifact.json` 并随原manifest复核/回放，不额外生成报告副本。案例的引用标记、30秒或多模态宣称均不得绕过当前能力注册表。
 
 ## H3 / RunningHub 按需入口
 
