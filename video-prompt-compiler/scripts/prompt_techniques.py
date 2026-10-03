@@ -6,6 +6,7 @@ patterns; the existing native renderer remains the sole prompt projection.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 from copy import deepcopy
 from hashlib import sha256
 import json
@@ -114,6 +115,13 @@ def plan(cap=None, mode='text', *, role='avir', tags=(), template_ids=None, root
               'execution': {'submitted': False, 'runnable': False, 'media_quality': 'NOT_RUN'},
               'instruction': '将方法写入当前原生字段并用现有 craft_review 说明采用或不适用；模板不能覆盖锁定项。'
                              '编译器只投影冻结字段；案例与静态检查不证明真实生成效果。'}
+    # Import only this trusted runtime from the locked module, never a catalogue path.
+    knowledge_path = Path(root) / 'scripts/community_knowledge.py'
+    spec = importlib.util.spec_from_file_location('local_knowledge_' + digest(str(Path(root).resolve()))[:16], knowledge_path)
+    knowledge = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(knowledge)
+    semantic_tags = sorted(set(tags) | {tag for row in templates for tag in row['tags']} | {row['id'] for row in templates})
+    output['community'] = knowledge.plan(cap, mode, role=role, tags=semantic_tags, root=root)
     output['plan_sha256'] = digest(output)
     return output
 

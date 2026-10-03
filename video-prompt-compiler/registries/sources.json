@@ -1,5 +1,5 @@
 {
-  "version": "2026.09.29.1",
+  "version": "2026.10.03.1",
   "report": {
     "path": "references/research/deep-research-report.md",
     "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6",
@@ -161,6 +161,20 @@
       "url": "https://github.com/ethanfel/ComfyUI-MiniMaxH3-Context-Loop/blob/main/README.md",
       "checked_at": "2026-09-29",
       "claim": "作者经验：分场采样、Review Gate、checkpoint 恢复、音轨分离及延后超分；blob 4e3a0bb7a95cec91d245ccf68b62225408dff347。不是官方 Context-IR，不证明 RunningHub 已安装。"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "claim": "Cloud Omni 文生视频入口与时长；只限Cloud文生视频提示计划，当前账户与实际传输未验证。",
+      "id": "OMNI_CLOUD_T2V",
+      "kind": "official_docs",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "claim": "Cloud Omni 1.1 Flash Preview 模型边界；只限Cloud文生视频提示计划，当前账户与实际传输未验证。",
+      "id": "OMNI_CLOUD_MODEL",
+      "kind": "official_docs",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash"
     }
   ]
 }

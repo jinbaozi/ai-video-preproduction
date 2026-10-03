@@ -1,0 +1,48 @@
+name: Community knowledge closure
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: community-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  source-route-read-adoption:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e ./ai-comic-drama-workflow
+      - name: Audit every local reference and every admitted route
+        run: |
+          mkdir -p /tmp/community-validation
+          python video-prompt-compiler/scripts/reference_audit.py --suite . > /tmp/community-validation/references.json
+          python video-prompt-compiler/scripts/vpc.py knowledge audit > /tmp/community-validation/routes.json
+      - name: Check source synchronization and deterministic distribution
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Reject malformed sources and preserve frozen compiler inputs
+        run: |
+          set -o pipefail
+          python -m unittest discover -s video-prompt-compiler/tests -p 'test_community_knowledge.py' -v 2>&1 | tee /tmp/community-validation/knowledge.log
+      - name: Native seven-role adoption and preproduction delivery
+        env:
+          PYTHONPATH: ai-comic-drama-workflow/src:ai-comic-drama-workflow
+        run: |
+          set -o pipefail
+          python -m unittest tests.test_community_routing tests.test_craft_end_to_end -v 2>&1 | tee /tmp/community-validation/adoption.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: community-closure-evidence
+          path: /tmp/community-validation
+          retention-days: 14

@@ -44,11 +44,13 @@ def verify(packages,out,quick_validator=None):
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52.py','-v'])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_shot_control.py','-v'])
             if name=='video-prompt-compiler':
-                for pattern in ('test_h3_runninghub.py','test_adaptive_control.py','test_adaptive_hardening.py','test_lean_output.py','test_joint_control.py','test_control_repair.py','test_keyframe_handoff.py','test_keyframe_host.py','test_previs.py','test_craft.py','test_control_audit_round2.py','test_prompt_projection.py'):
+                for pattern in ('test_community_knowledge.py','test_prompt_techniques.py','test_h3_runninghub.py','test_adaptive_control.py','test_adaptive_hardening.py','test_lean_output.py','test_joint_control.py','test_control_repair.py','test_keyframe_handoff.py','test_keyframe_host.py','test_previs.py','test_craft.py','test_control_audit_round2.py','test_prompt_projection.py'):
                     commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p',pattern,'-v'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'scripts/control_cli.py','--help'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])
             if name=='ai-comic-drama-workflow':
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_community_routing.py','-v'])
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_prompt_methods.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_craft*.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_h3_reads.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_adaptive_*.py','-v'])

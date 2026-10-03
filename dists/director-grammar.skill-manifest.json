@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "000a2b7e05858b760844f0b71585adb541f6fab9e765be676b26fe31aca4fe7d",
-  "file_count": 66,
+  "archive_sha256": "d096a674b46c6f89c06de41778b94e45908f111c6f24c0f71f8adec9056f329f",
+  "file_count": 67,
   "files": {
     "director-grammar/SKILL.md": {
-      "bytes": 9142,
-      "sha256": "29874ea65626b55e674bfba068851bee77a66b89d311ed048b21a431afdf4b84"
+      "bytes": 9573,
+      "sha256": "a86e6a3a088cb1b332a535af2dc3dac7cc4d959ee15636ee4c3d7013444fb99b"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -106,6 +106,10 @@
     "director-grammar/references/quality-and-repair.md": {
       "bytes": 3115,
       "sha256": "f22ffd50cf56354330c2aa9f5f3d507003121b1db5bb1c6191932bbb7c7e0e6a"
+    },
+    "director-grammar/references/resource-index.md": {
+      "bytes": 1236,
+      "sha256": "2caf07006f7a36b08c68fa873a7de8612dd9bea709744a398263ecb4b6c27c71"
     },
     "director-grammar/references/screenplay-handoff.md": {
       "bytes": 1747,
@@ -269,5 +273,5 @@
     }
   },
   "name": "director-grammar",
-  "version": "1.4.6"
+  "version": "1.4.7"
 }

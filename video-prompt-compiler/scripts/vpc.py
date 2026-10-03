@@ -15,7 +15,7 @@ def emit(path, value):
 
 def runtime_files():
     paths=[ROOT/'SKILL.md',ROOT/'requirements.txt']
-    for folder in ('scripts','schemas','registries','templates'):
+    for folder in ('scripts','schemas','registries','templates','references'):
         paths += [p for p in (ROOT/folder).rglob('*') if p.is_file() and '__pycache__' not in p.parts]
     return {str(p.relative_to(ROOT)):sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
 
@@ -174,6 +174,9 @@ def main():
     if len(sys.argv) > 1 and sys.argv[1] == 'techniques':
         from prompt_techniques import main as techniques_main
         return techniques_main(sys.argv[2:])
+    if len(sys.argv) > 1 and sys.argv[1] == 'knowledge':
+        from community_knowledge import main as knowledge_main
+        return knowledge_main(sys.argv[2:])
     if len(sys.argv) > 1 and sys.argv[1] == 'h3':
         from h3_cli import main as h3_main
         return h3_main(sys.argv[2:])

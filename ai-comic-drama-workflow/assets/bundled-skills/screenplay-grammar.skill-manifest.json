@@ -1,11 +1,11 @@
 {
   "archive": "screenplay-grammar.skill",
-  "archive_sha256": "4fd476481f5e87ad6449d646c65293a7fd750ac2b5246fdb6ab846ce0a261ce7",
-  "file_count": 58,
+  "archive_sha256": "15f6afa22357a1469c7a50ff422279d35e0f89edfc3003b43c1810c6076665d2",
+  "file_count": 59,
   "files": {
     "screenplay-grammar/SKILL.md": {
-      "bytes": 6932,
-      "sha256": "1c371c3773d3a920f9cd212943c11183a8c27ec47ab84737315ac6128b883ba3"
+      "bytes": 7363,
+      "sha256": "4b11380596279b3fc07209c741c0869adad07f8168d0d98eed91bcc9c78f25a9"
     },
     "screenplay-grammar/agents/openai.yaml": {
       "bytes": 392,
@@ -74,6 +74,10 @@
     "screenplay-grammar/references/ownership.md": {
       "bytes": 1024,
       "sha256": "0592e2e198b58fcadebd7028046e4d5dc55c231299e8892baf1ddd6e23a71aeb"
+    },
+    "screenplay-grammar/references/resource-index.md": {
+      "bytes": 1755,
+      "sha256": "bf568197b5ea42581fae2b933a6fbbfe97bb5ede51af27121ab05a8869f48da0"
     },
     "screenplay-grammar/references/revision.md": {
       "bytes": 981,
@@ -237,5 +241,5 @@
     }
   },
   "name": "screenplay-grammar",
-  "version": "1.0.3"
+  "version": "1.0.4"
 }

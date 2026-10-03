@@ -1,11 +1,11 @@
 {
   "archive": "storyboard-grammar.skill",
-  "archive_sha256": "e91392c0114c1d9a9e449a5be52c70cd4b2be84ccaaf5f476f79afad269bd224",
-  "file_count": 61,
+  "archive_sha256": "4c7df125bde32c93694b2f6fd7869e80f1469480d5fdb28590afe377e0d45ff6",
+  "file_count": 62,
   "files": {
     "storyboard-grammar/SKILL.md": {
-      "bytes": 7352,
-      "sha256": "abe51bc8ed4b4951f3881a43bb78bfc7135dbe81ae1f09e8720c2f72b71d7cab"
+      "bytes": 7783,
+      "sha256": "ee98b16951b3849ce76d119cb1ef3309cd214fab53472defe9b7a8b563bdf434"
     },
     "storyboard-grammar/agents/openai.yaml": {
       "bytes": 390,
@@ -106,6 +106,10 @@
     "storyboard-grammar/references/research.md": {
       "bytes": 4448,
       "sha256": "2ff40e4c497c0f0329278e43b85f09fb84ae632e775f4e9ee0e681a8a4dfe7eb"
+    },
+    "storyboard-grammar/references/resource-index.md": {
+      "bytes": 1442,
+      "sha256": "ccbec92011fbdb10ddb84f6989003f06fdc306c462af81e591f041d264561117"
     },
     "storyboard-grammar/references/shot-language.md": {
       "bytes": 2502,
@@ -249,5 +253,5 @@
     }
   },
   "name": "storyboard-grammar",
-  "version": "1.3.5"
+  "version": "1.3.6"
 }

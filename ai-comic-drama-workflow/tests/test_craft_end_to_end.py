@@ -117,6 +117,10 @@ class CraftEndToEndTests(unittest.TestCase):
             self.assertEqual(read(compiled/'compile-manifest.json')['template_ids'], ['dialogue-performance-beats'])
             self.assertEqual(read(compiled/'artifact.json')['prompt_techniques']['templates'][0]['id'], 'dialogue-performance-beats')
             self.assertFalse(read(compiled/'artifact.json')['prompt_techniques']['execution']['submitted'])
+            community = read(compiled/'artifact.json')['prompt_techniques']['community']
+            self.assertTrue(community['cards'])
+            self.assertTrue(all(r['reading']['read_status'] == 'READ_LOCAL_NOTE' for r in community['cards']))
+            self.assertFalse(community['execution']['runnable'])
 
 
 if __name__ == '__main__':
