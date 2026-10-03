@@ -202,6 +202,38 @@ class PromptTechniqueTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'TECHNIQUE_PLAN_CHANGED'):
                 vpc.verify(out)
 
+    def test_new_package_cannot_drop_required_method_report_and_reseal(self):
+        for drop_selection, drop_runtime in ((False, False), (True, False), (True, True)):
+            with self.subTest(selection=drop_selection, runtime=drop_runtime), tempfile.TemporaryDirectory() as d:
+                out = Path(d)/'out';vpc.run_compile(self.ir, self.cap['id'], 'text', ROOT/'examples', out)
+                artifact = core.read(out/'artifact.json');artifact.pop('prompt_techniques');vpc.emit(out/'artifact.json', artifact)
+                manifest = core.read(out/'compile-manifest.json')
+                if drop_selection:manifest.pop('template_ids')
+                if drop_runtime:
+                    for name in ('scripts/prompt_techniques.py', 'registries/prompt-techniques.json'):
+                        manifest['runtime_files'].pop(name)
+                manifest['artifact_hash'] = core.digest(artifact)
+                manifest['files']['artifact.json'] = methods.sha256((out/'artifact.json').read_bytes()).hexdigest()
+                manifest['build_id'] = core.digest({k:v for k,v in manifest.items() if k not in ('asset_base','build_id')})
+                vpc.emit(out/'compile-manifest.json', manifest)
+                with self.assertRaisesRegex(ValueError, 'prompt_techniques_required'):
+                    vpc.verify(out)
+
+    def test_legacy_package_without_method_extension_is_still_readable(self):
+        # Synthetic pre-extension envelope, not a claim of authenticated historic authorship.
+        with tempfile.TemporaryDirectory() as d:
+            out = Path(d)/'out';vpc.run_compile(self.ir, self.cap['id'], 'text', ROOT/'examples', out)
+            artifact = core.read(out/'artifact.json');artifact.pop('prompt_techniques');vpc.emit(out/'artifact.json', artifact)
+            manifest = core.read(out/'compile-manifest.json');manifest.pop('template_ids')
+            manifest['compiler'] = 'video-prompt-compiler@1.20.1'
+            for name in ('scripts/prompt_techniques.py', 'registries/prompt-techniques.json'):
+                manifest['runtime_files'].pop(name)
+            manifest['artifact_hash'] = core.digest(artifact)
+            manifest['files']['artifact.json'] = methods.sha256((out/'artifact.json').read_bytes()).hexdigest()
+            manifest['build_id'] = core.digest({k:v for k,v in manifest.items() if k not in ('asset_base','build_id')})
+            vpc.emit(out/'compile-manifest.json', manifest)
+            self.assertTrue(vpc.verify(out))
+
     def test_cli_list_plan_and_unknown_target(self):
         for args, success in ((['list'], True), (['plan', '--target', 'seedance2.0', '--template', 'food-asmr'], True),
                               (['plan', '--target', 'not-registered'], False), (['check'], False)):

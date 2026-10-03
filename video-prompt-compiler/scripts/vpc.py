@@ -122,6 +122,13 @@ def verify(package):
     if digest(read(package/'avir.json'))!=m['input_hash'] or digest(read(package/'artifact.json'))!=m['artifact_hash']:
         failures.append('semantic_hash')
     artifact = read(package/'artifact.json')
+    recorded_runtime = m.get('runtime_files') or {}
+    technique_runtime = isinstance(recorded_runtime, dict) and any(
+        name in recorded_runtime for name in ('scripts/prompt_techniques.py', 'registries/prompt-techniques.json'))
+    expects_techniques = ('template_ids' in m or technique_runtime
+                         or m.get('compiler') == f'video-prompt-compiler@{VERSION}')
+    if expects_techniques and 'prompt_techniques' not in artifact:
+        failures.append('prompt_techniques_required')
     if 'prompt_techniques' in artifact:
         from prompt_techniques import verify_compiled_report
         verify_compiled_report(artifact['prompt_techniques'], read(package/'avir.json'),
