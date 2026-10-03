@@ -39,3 +39,4 @@
 | runninghub-h3-fl2va | text | 已支持 | 离线图映射（须 h3 plan；非已验证执行路由） | 未支持（无控制路由） | 未支持（无控制路由） |
 | runninghub-h3-fl2va | keyframe | 已支持 | 离线图映射（须 h3 plan；非已验证执行路由） | 未支持（无控制路由） | 未支持（无控制路由） |
 | runninghub-h3-ref2va | reference | 已支持 | 离线图映射（须 h3 plan；非已验证执行路由） | 未支持（无控制路由） | 未支持（无控制路由） |
+| gemini-omni-1.1-flash-preview | text | 已支持 | 未支持（无控制路由） | 未支持（无控制路由） | 未支持（无控制路由） |

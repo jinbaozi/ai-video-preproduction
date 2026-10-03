@@ -348,4 +348,14 @@ def plan(value: dict, prompt: str, node_id: str, expected_sha256: str,
               'prompt_check': checks, 'warnings': warnings, 'link_changes': 0,
               'prompt_origin': 'caller_supplied_candidate', 'official_context_ir_executed': False,
               'submitted': False, 'runnable': False, 'media_qa': 'NOT_RUN'}
+    # The node plan is a real consumer of the same scoped, locally read guidance.
+    # Source text cannot supply node IDs, edits or a paid-generation authorization.
+    from community_knowledge import plan as knowledge_plan
+    from vpc_core import profile
+    target = 'runninghub-h3-' + family
+    knowledge_mode = 'reference' if mode == 'ref2va' else 'text' if mode == 't2va' else 'keyframe'
+    tuning = any(e['fieldName'] in ('steps', 'unet_name', 'ckpt_name', 'shift', 'cfg', 'denoise')
+                 and e['fieldValue'] != e['expectedValue'] for e in edits)
+    result['community'] = knowledge_plan(profile(target), knowledge_mode,
+                                         tags=['参数优化'] if tuning else [])
     return result, graph

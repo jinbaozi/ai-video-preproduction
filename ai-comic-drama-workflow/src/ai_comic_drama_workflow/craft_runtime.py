@@ -263,7 +263,8 @@ def task_plan(kernel, kind, slot, dependencies, scope):
                 'Image tasks may mark narrative timing not_applicable with scope evidence. '
                 'Compile review pointers target the frozen build avir.json, not review prose.'}
     from . import prompt_methods
-    prompt_methods.attach(kernel, kind, plan, features if kind in CREATORS else None)
+    consumer_tags = sorted({tag for entry in context['roles'].values() for tag in entry['features'].get('tags', [])})
+    prompt_methods.attach(kernel, kind, plan, features if kind in CREATORS else {'tags': consumer_tags})
     plan['source_sha256'] = source_hash(kernel)
     plan['input_artifacts'] = [{k: v for k, v in d.items()} for d in dependencies]
     plan.pop('plan_sha256', None)

@@ -1194,6 +1194,27 @@
       "instruction": "沿用现有H3字段投影与按需模式指南；英文场景叙述不翻译原文台词、歌词或画面字样。",
       "mode_guidance": "RunningHub必须依据真实Export Workflow API的节点/连线映射；不从模板猜节点ID、压低采样步数或自动提交。",
       "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "check": "3至10秒整数秒；无参考素材；字幕、对白和切镜服从冻结合同；submitted=false。",
+      "evidence": "official_entrypoint_docs",
+      "family": "gemini-omni-cloud-1.1",
+      "id": "gemini-omni-1.1-flash-preview",
+      "instruction": "仅Cloud文生视频计划；不借用Veo或Developer API的请求格式、引用上限和多轮记录。",
+      "modes": [
+        "text"
+      ],
+      "selector": {
+        "backend": "prompt_plan",
+        "id": "gemini-omni-1.1-flash-preview",
+        "model": "gemini-omni-1.1-flash-preview",
+        "template": "omni11",
+        "version": "2026.10.03.1"
+      },
+      "source_refs": [
+        "OMNI_CLOUD_T2V",
+        "OMNI_CLOUD_MODEL"
+      ]
     }
   ]
 }

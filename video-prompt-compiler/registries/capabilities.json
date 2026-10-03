@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2026.10.03.1",
   "profiles": [
     {
       "id": "seedance2.0",
@@ -500,6 +500,61 @@
       "native_reference_syntax": "unresolved",
       "max_prompt_chars": null,
       "native_tokenizer": null
+    },
+    {
+      "account_verified": false,
+      "backend": "prompt_plan",
+      "duration_ms": {
+        "allowed": [
+          3000,
+          4000,
+          5000,
+          6000,
+          7000,
+          8000,
+          9000,
+          10000
+        ],
+        "max": 10000,
+        "min": 3000,
+        "scope": "entrypoint",
+        "step": 1000
+      },
+      "entry_point": "Google Cloud Agent Platform Interactions API / text-to-video prompt plan",
+      "evidence_level": "official_docs",
+      "id": "gemini-omni-1.1-flash-preview",
+      "max_prompt_chars": null,
+      "max_refs": {
+        "audio": 0,
+        "image": 0,
+        "total": 0,
+        "video": 0
+      },
+      "model": "gemini-omni-1.1-flash-preview",
+      "modes": [
+        "text"
+      ],
+      "native_audio": true,
+      "native_reference_syntax": "unresolved",
+      "native_tokenizer": null,
+      "ratios": [
+        "16:9",
+        "9:16"
+      ],
+      "region": "unverified",
+      "resolutions": [
+        "360p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "source_refs": [
+        "OMNI_CLOUD_T2V",
+        "OMNI_CLOUD_MODEL"
+      ],
+      "template": "omni11",
+      "verified_at": "2026-10-03",
+      "version": "2026.10.03.1"
     }
   ]
 }

@@ -1,0 +1,716 @@
+{
+  "cards": [
+    {
+      "always": true,
+      "check": "核对引用对象、实际输入版本和修复范围；不能用作者列名或方法ID冒充内容实现。",
+      "id": "scoped-handoff",
+      "instruction": "把本阶段输出绑定到既有身份、场景、道具和已接受上游版本。返修只回到拥有失败字段的节点；已有正确内容保持不变，证据失效的下游需重审。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "native source links",
+        "artifact dependencies",
+        "content"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "scoped-handoff"
+      },
+      "roles": [
+        "screenplay",
+        "director",
+        "art",
+        "storyboard",
+        "image-prompt",
+        "avir",
+        "compile-review"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "HUOBAO"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "按责任交接，不重启整条链"
+    },
+    {
+      "always": false,
+      "check": "检查每次变化的剧情原因、时间位置和后续继承；不是给所有单镜任务增建集表。",
+      "id": "episode-state",
+      "instruction": "跨镜或跨集复用稳定角色ID；服装、伤势、持物、地点及人物已知信息是可变化状态。由前段末态承接后段初态，不能因新段生成而重置或合并同名不同人物。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "entities",
+        "start_state",
+        "end_state",
+        "knowledge"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "episode-state"
+      },
+      "roles": [
+        "screenplay",
+        "director"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "HUOBAO",
+        "BIGBANANA"
+      ],
+      "status": "ADMITTED",
+      "tags": [
+        "漫剧",
+        "短剧",
+        "连载",
+        "多集"
+      ],
+      "title": "连载中的状态不是角色名字"
+    },
+    {
+      "always": false,
+      "check": "逐镜检查身份来源、服装状态、道具归属与禁止继承项；无换装需求可给出不适用依据。",
+      "id": "identity-variants",
+      "instruction": "把稳定身份与本镜服装、发型状态、配饰、伤势变体分开。当前镜头只消费实际需要的变体，不把全衣橱或参考背景塞入每镜。保留用户锁定的脸与体态。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "entities",
+        "assets",
+        "bindings",
+        "wardrobe"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "identity-variants"
+      },
+      "roles": [
+        "art",
+        "image-prompt",
+        "storyboard"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "BIGBANANA"
+      ],
+      "status": "ADMITTED",
+      "tags": [
+        "漫剧",
+        "人物",
+        "角色",
+        "服装",
+        "换装"
+      ],
+      "title": "换服装不替换身份"
+    },
+    {
+      "always": true,
+      "check": "核对素材到镜头的真实消费关系；任一绑定变化须失效复核，不能只列附件而没有用途。",
+      "id": "reference-consumption",
+      "instruction": "每张实际素材要对应身份、服装、场景、姿态或运镜职责。已审阅的观察可复用，但只在媒体哈希、顺序、职责、裁切与提示模式未改变时有效。没有看图的缓存不是观察证据。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "assets",
+        "bindings",
+        "shots",
+        "prompt"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "reference-consumption"
+      },
+      "roles": [
+        "image-prompt",
+        "avir",
+        "compile-review"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "H3_PROMPTOR",
+        "BIGBANANA"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "参考职责与观察缓存绑定真实字节"
+    },
+    {
+      "always": false,
+      "check": "检查每格用途、实际资产映射和动作顺序；整图控制须有入口证据，默认复用逐格资产。",
+      "id": "grid-purpose",
+      "instruction": "先辨别网格是同一动作的候选机位还是按时间排列的镜头。候选网格按需要裁选，不把九视角编成九个事件；顺序网格保留已确定次序与动作，去掉不应入成片的框线标号。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "panels",
+        "assets",
+        "bindings",
+        "shots"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "grid-purpose"
+      },
+      "roles": [
+        "storyboard",
+        "image-prompt"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "BIGBANANA",
+        "AWESOME_SEEDANCE"
+      ],
+      "status": "ADMITTED",
+      "tags": [
+        "九宫格",
+        "网格",
+        "分镜网格",
+        "storyboard-grid-to-video"
+      ],
+      "title": "候选角度网格和顺序分镜不是同一任务"
+    },
+    {
+      "always": false,
+      "check": "对照台词原句、时点、口型可见性和声音轨归属；静态字节相同不是口型同步通过。",
+      "id": "dialogue-beat",
+      "instruction": "对话与人物动作、停顿和听者反应绑定。保留原文语言、说话人和信息揭露顺序；不能为套用模板新增对白或把内心活动当旁白。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "dialogue",
+        "actions",
+        "audio_events"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "dialogue-beat"
+      },
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "AWESOME_SEEDANCE"
+      ],
+      "status": "ADMITTED",
+      "tags": [
+        "对话",
+        "对白",
+        "dialogue-performance-beats"
+      ],
+      "title": "台词动作与反应同属一个节拍"
+    },
+    {
+      "always": true,
+      "check": "检查相邻切点与实际媒体字节；对单镜或仅文字交付声明范围，不伪造整片审片通过。",
+      "id": "seam-review",
+      "instruction": "逐对核对相邻镜头末初态、运动方向、镜头轴侧、光色、道具与音频跨切点关系。实际总装使用回收媒体时长，不把请求秒数或缩略图当已生成片段。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "start_state",
+        "end_state",
+        "camera",
+        "audio",
+        "shots"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "seam-review"
+      },
+      "roles": [
+        "storyboard",
+        "compile-review"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "OMNI_GUIDE",
+        "HUOBAO"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "镜头边界同时检查画面和声音"
+    },
+    {
+      "always": true,
+      "check": "比较变化范围及未授权差异；缺真实编辑入口时保留计划并阻塞，不冒充重生成已经保真。",
+      "id": "delta-edit",
+      "instruction": "将修改拆成保留集合与目标变化，明确发生区间和主体。记录父版本和编辑输入；不能因局部修复替换背景、身份、台词或原来正确的动作。",
+      "modes": [
+        "edit"
+      ],
+      "native_fields": [
+        "shots",
+        "contract",
+        "sources"
+      ],
+      "profiles": {},
+      "reading": {
+        "file_sha256": "921ef9e1e03da4c0ea4f73a8c0d5b70c32f7633df5c69311ab1776929cd000d6",
+        "path": "references/community/production.md",
+        "section": "delta-edit"
+      },
+      "roles": [
+        "director",
+        "avir",
+        "compile-review"
+      ],
+      "scope": "portable_method",
+      "sources": [
+        "OMNI_GUIDE"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "只改失败项的增量修复"
+    },
+    {
+      "always": true,
+      "check": "检查真实模式、锚点位置、到达末态的过程与原句；不因范例自动固定15秒或增加切镜。",
+      "id": "h3-base-modes",
+      "instruction": "按真实T2VA、I2VA、FL2VA或L2VA选择输入；起始/结束参考的职责不可反转。Base的integrated_multimodal_description、overall_soundscape、non_diegetic_music与Ref六字段分开；英文叙述保留原语言台词和画面文字。",
+      "modes": [
+        "text",
+        "keyframe"
+      ],
+      "native_fields": [
+        "output",
+        "bindings",
+        "shots",
+        "audio"
+      ],
+      "profiles": {
+        "minimax-h3": "e21bc100a38fee76ee956c451935cfe257fb0ac8508fe2cdbecbe731e834d284",
+        "runninghub-h3-fl2va": "ac95045bf77753eda93df05a113283b811506e90a99971e38a69907a19f58704"
+      },
+      "reading": {
+        "file_sha256": "0344b05ac4ddb9126fac2926110a8f2185c16b66b43e04b6cb95dc7725af7e73",
+        "path": "references/community/h3.md",
+        "section": "h3-base-modes"
+      },
+      "roles": [
+        "avir",
+        "compile-review"
+      ],
+      "scope": "exact_profile",
+      "sources": [
+        "H3_BASE"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "H3 Base三字段与首尾锚点"
+    },
+    {
+      "always": true,
+      "check": "核对引用顺序、留存范围、主体与文件映射及对白原语言；不从Base格式推测Ref解析成功。",
+      "id": "h3-reference-fields",
+      "instruction": "Ref使用subject_definitions、summary、retention_analysis、detailed_description、overall_soundscape、non_diegetic_music。概念主体编号和Picture/Video/Audio素材编号不是同一命名空间；各段引用必须指向同一实际对象。",
+      "modes": [
+        "reference"
+      ],
+      "native_fields": [
+        "entities",
+        "assets",
+        "bindings",
+        "shots",
+        "audio"
+      ],
+      "profiles": {
+        "minimax-h3": "e21bc100a38fee76ee956c451935cfe257fb0ac8508fe2cdbecbe731e834d284",
+        "runninghub-h3-ref2va": "52b38e3b17719fa490fef9764830f3d5cd10e845a3e4525ec98e96bd1f59d5f3"
+      },
+      "reading": {
+        "file_sha256": "0344b05ac4ddb9126fac2926110a8f2185c16b66b43e04b6cb95dc7725af7e73",
+        "path": "references/community/h3.md",
+        "section": "h3-reference-fields"
+      },
+      "roles": [
+        "avir",
+        "compile-review"
+      ],
+      "scope": "exact_profile",
+      "sources": [
+        "H3_REF"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "H3 Ref六字段与概念主体"
+    },
+    {
+      "always": false,
+      "check": "实际工作流未提供时不编节点ID；不自动降步、换权重或提交费用，质量评价保持NOT_RUN。",
+      "id": "h3-recipe-scope",
+      "instruction": "先区分权重、任务模式、精度、硬件与缓存策略，再讨论社区参数。Turbo、少步数、量化与缓存不默认等价质量；每次只变一个因素并与原基线审片对比。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference",
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "sources",
+        "contract",
+        "parameters"
+      ],
+      "profiles": {
+        "minimax-h3": "e21bc100a38fee76ee956c451935cfe257fb0ac8508fe2cdbecbe731e834d284",
+        "runninghub-h3-fl2va": "ac95045bf77753eda93df05a113283b811506e90a99971e38a69907a19f58704",
+        "runninghub-h3-ref2va": "52b38e3b17719fa490fef9764830f3d5cd10e845a3e4525ec98e96bd1f59d5f3"
+      },
+      "reading": {
+        "file_sha256": "0344b05ac4ddb9126fac2926110a8f2185c16b66b43e04b6cb95dc7725af7e73",
+        "path": "references/community/h3.md",
+        "section": "h3-recipe-scope"
+      },
+      "roles": [
+        "avir",
+        "compile-review"
+      ],
+      "scope": "exact_profile",
+      "sources": [
+        "H3_RECIPE",
+        "H3_INTEGRATIONS"
+      ],
+      "status": "ADMITTED",
+      "tags": [
+        "加速",
+        "参数优化",
+        "Turbo"
+      ],
+      "title": "H3加速配方必须锁定实验条件"
+    },
+    {
+      "always": true,
+      "check": "服从当前注册表的本次时长和槽位；2.5产品页的延长能力不升级为本地已实现API。",
+      "id": "seedance-sequence",
+      "instruction": "版本与渠道分别锁定；按原生镜头次序描述动作、摄影机和声音。外观参考与运镜参考分责；长片分段不丢身份和承接状态，延长操作不能偷换成普通生成。",
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "native_fields": [
+        "shots",
+        "bindings",
+        "output",
+        "audio"
+      ],
+      "profiles": {
+        "seedance2.0": "ca932eb2cbe6f4ae70d7d6c01e1cedea7bf1df55972848d1f054f7e43bd3ddf0",
+        "seedance2.5": "62509d1cd6d2f3e51d6323dc92d60d039ea93917991046d60313a3a937fe7968"
+      },
+      "reading": {
+        "file_sha256": "f0b1b4a460272eef30997ab6319d1c65c6d0232b958d8bb4e660d5ede55ae653",
+        "path": "references/community/models.md",
+        "section": "seedance-sequence"
+      },
+      "roles": [
+        "avir",
+        "compile-review"
+      ],
+      "scope": "exact_profile",
+      "sources": [
+        "SEED20",
+        "SEED25",
+        "AWESOME_SEEDANCE"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "Seedance版本、时间段与参考职责隔离"
+    },
+    {
+      "always": true,
+      "check": "拒绝把Developer模型ID、Veo时长或Kling语法换入此入口；模板正文不是Interactions API载荷。",
+      "id": "omni-cloud-generation",
+      "instruction": "本profile仅实现Cloud gemini-omni-1.1-flash-preview文生视频提示计划，单次3至10整数秒。720p/360p与升采样1080p/4k分开，是否一镜到底按冻结合同说明。无媒体参考、上传、账户或提交适配。",
+      "modes": [
+        "text"
+      ],
+      "native_fields": [
+        "output",
+        "shots",
+        "contract",
+        "audio"
+      ],
+      "profiles": {
+        "gemini-omni-1.1-flash-preview": "0e89ea629eac622dc92d87dfffda7058d9cead8f5468b87e895840e51d5673c0"
+      },
+      "reading": {
+        "file_sha256": "f0b1b4a460272eef30997ab6319d1c65c6d0232b958d8bb4e660d5ede55ae653",
+        "path": "references/community/models.md",
+        "section": "omni-cloud-generation"
+      },
+      "roles": [
+        "avir",
+        "compile-review"
+      ],
+      "scope": "exact_profile",
+      "sources": [
+        "OMNI_CLOUD_T2V",
+        "OMNI_CLOUD_MODEL",
+        "OMNI_GUIDE"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "Omni Cloud文生视频独立入口"
+    },
+    {
+      "always": true,
+      "check": "本地edit/extend仍未实现；只能生成边界计划，不能标记已提交或借用他种Omni的操作。",
+      "id": "omni-iteration-boundary",
+      "instruction": "Developer API的previous_interaction_id、存储、视频输入和延长时间原点属该API，不搬入Cloud载荷。所读Developer文档不支持上传音频参考，且忽略参考视频音轨；生成音频与参考音频分开。局部编辑、尾部延长须实际父视频、输入范围与接口证据。",
+      "modes": [
+        "edit",
+        "extend"
+      ],
+      "native_fields": [
+        "sources",
+        "bindings",
+        "audio",
+        "contract"
+      ],
+      "profiles": {
+        "gemini-omni-1.1-flash-preview": "0e89ea629eac622dc92d87dfffda7058d9cead8f5468b87e895840e51d5673c0"
+      },
+      "reading": {
+        "file_sha256": "f0b1b4a460272eef30997ab6319d1c65c6d0232b958d8bb4e660d5ede55ae653",
+        "path": "references/community/models.md",
+        "section": "omni-iteration-boundary"
+      },
+      "roles": [
+        "avir",
+        "compile-review"
+      ],
+      "scope": "exact_profile",
+      "sources": [
+        "OMNI_DEVELOPER",
+        "OMNI_GUIDE"
+      ],
+      "status": "ADMITTED",
+      "tags": [],
+      "title": "Omni迭代保留父视频与输入边界"
+    }
+  ],
+  "hash_boundary": "file_sha256是本地独立归纳材料指纹，不冒充外部网页原始响应哈希。",
+  "refresh_policy": "显式研究并评审新版本；运行期离线读取已锁定快照，不能自行从网页更新能力。",
+  "schema": "community-knowledge/1.0",
+  "sources": [
+    {
+      "checked_at": "2026-10-03",
+      "id": "OMNI_CLOUD_T2V",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "Cloud Omni 文生视频入口与时长",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/video/generate-videos-from-text"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "OMNI_CLOUD_MODEL",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "Cloud Omni 1.1 Flash Preview 模型边界",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/gemini/omni-1-1-flash"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "OMNI_DEVELOPER",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "Gemini Developer API Omni 指南",
+      "url": "https://ai.google.dev/gemini-api/docs/omni"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "OMNI_GUIDE",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "DeepMind Omni 提示指南",
+      "url": "https://deepmind.google/models/gemini-omni/prompt-guide/"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "H3_BASE",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "MiniMax H3 Base 官方三字段指南",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_base_en.md"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "H3_REF",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "MiniMax H3 Ref 官方六字段指南",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/docs/VIDEO_PROMPT_WRITING_GUIDE_ref_en.md"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "H3_PROMPTOR",
+      "kind": "author_documentation",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "revision": "bdbde80b0b7d4600696d2be7eca7eb2e3c10cf1f",
+      "title": "1038lab H3 Vision/Promptor 分离",
+      "url": "https://github.com/1038lab/ComfyUI-MiniMax-H3-Promptor/blob/bdbde80b0b7d4600696d2be7eca7eb2e3c10cf1f/README.md"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "H3_RECIPE",
+      "kind": "author_documentation",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "vLLM-Omni H3部署配方",
+      "url": "https://github.com/vllm-project/vllm-omni/blob/main/recipes/MiniMaxAI/MiniMax-H3.md"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "H3_INTEGRATIONS",
+      "kind": "community_index",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "H3社区集成索引",
+      "url": "https://github.com/MiniMax-AI/awesome-minimax-h3-integration"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "SEED20",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "Seedance 2.0模型页",
+      "url": "https://seed.bytedance.com/en/seedance2_0"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "SEED25",
+      "kind": "official_docs",
+      "read_status": "READ",
+      "reuse": "独立归纳事实与方法，不复制源代码、案例全文或媒体。",
+      "title": "Seedance 2.5模型页",
+      "url": "https://seed.bytedance.com/en/seedance2_5"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "HUOBAO",
+      "kind": "author_documentation",
+      "read_status": "READ",
+      "reuse": "源仓库声明CC BY-NC-SA 4.0；只独立实现职责与资产ID思想，不合入源码或改编模板。",
+      "revision": "f2b4d866e9490f4f71ed4bf14fb7f12648ce1021",
+      "title": "火宝短剧角色分工与镜头交接",
+      "url": "https://github.com/chatfire-AI/huobao-drama/blob/f2b4d866e9490f4f71ed4bf14fb7f12648ce1021/README.md"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "BIGBANANA",
+      "kind": "author_documentation",
+      "read_status": "READ",
+      "reuse": "源仓库声明CC BY-NC-SA 4.0；只独立重述设计思想，不合入代码或改编模板，不转授媒体权利。",
+      "title": "BigBanana资产与服装变体",
+      "url": "https://github.com/shuyu-labs/BigBanana-AI-Director"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "AWESOME_SEEDANCE",
+      "kind": "community_index",
+      "read_status": "READ",
+      "reuse": "沿用已署名CC BY 4.0策展来源；不声称链接的X原帖已读取或真实跨模型复现。",
+      "revision": "9ca56354b3af0d11db22a935a6b831d7d8582c04",
+      "title": "LearnPrompt案例与模板策展",
+      "url": "https://github.com/LearnPrompt/awesome-seedance/tree/9ca56354b3af0d11db22a935a6b831d7d8582c04"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "X_DISCOVERY_1",
+      "kind": "discovery",
+      "read_status": "UNAVAILABLE",
+      "reuse": "检索线索，原帖正文无法读取；不能为自动经验卡或能力断言提供证据。",
+      "title": "X原帖待复核线索",
+      "url": "https://x.com/techhalla/status/2083389002552664385"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "X_DISCOVERY_2",
+      "kind": "discovery",
+      "read_status": "UNAVAILABLE",
+      "reuse": "检索线索，原帖正文无法读取；不能为自动经验卡或能力断言提供证据。",
+      "title": "X原帖待复核线索",
+      "url": "https://x.com/Chengzilhy/status/2087458506123465088"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "X_DISCOVERY_3",
+      "kind": "discovery",
+      "read_status": "UNAVAILABLE",
+      "reuse": "检索线索，原帖正文无法读取；不能为自动经验卡或能力断言提供证据。",
+      "title": "X原帖待复核线索",
+      "url": "https://x.com/aiwarts/status/2085736621685764503"
+    },
+    {
+      "checked_at": "2026-10-03",
+      "id": "X_DISCOVERY_4",
+      "kind": "discovery",
+      "read_status": "UNAVAILABLE",
+      "reuse": "检索线索，原帖正文无法读取；不能为自动经验卡或能力断言提供证据。",
+      "title": "X原帖待复核线索",
+      "url": "https://x.com/GithubProjects/status/2025956343082017008"
+    }
+  ]
+}

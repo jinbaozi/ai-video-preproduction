@@ -52,6 +52,18 @@ def attach(kernel, kind, craft, features=None):
                                               'upstream': row['source']}})
 
 
+    # Source notes are actually read by the locked runtime and embedded in the task.
+    # Consumers owe scoped adoption/NA too; they cannot redesign locked upstream work.
+    for row in selected.get('community', {}).get('cards', []):
+        craft['rules'].append({'id': kind + ':community:' + row['id'],
+            'instruction': row['instruction'], 'check': row['check'],
+            'source': {'module': 'video-prompt-compiler',
+                       'path': row['reading']['path'], 'section': row['reading']['section'],
+                       'sha256': row['reading']['file_sha256'],
+                       'section_sha256': row['reading']['section_sha256'],
+                       'upstream': row['sources']}})
+
+
 def check(kernel, craft):
     selected = craft.get('prompt_methods')
     if selected is None:
@@ -69,6 +81,20 @@ def check(kernel, craft):
         for key, row in expected.items():
             if any(actual[key].get(field) != row[field] for field in ('instruction', 'check')):
                 raise ValueError('Prompt method content changed since selection')
+
+
+    expected_community = {selected['role'] + ':community:' + r['id']: r
+                          for r in selected.get('community', {}).get('cards', [])}
+    community_rows = [r for r in craft.get('rules', []) if ':community:' in r['id']]
+    actual = {r['id']: r for r in community_rows}
+    if len(actual) != len(community_rows) or set(actual) != set(expected_community):
+        raise ValueError('Community rules missing or duplicated in required evidence')
+    for key, row in expected_community.items():
+        source = {'module': 'video-prompt-compiler', 'path': row['reading']['path'],
+                  'section': row['reading']['section'], 'sha256': row['reading']['file_sha256'],
+                  'section_sha256': row['reading']['section_sha256'], 'upstream': row['sources']}
+        if any(actual[key].get(f) != row[f] for f in ('instruction', 'check')) or actual[key].get('source') != source:
+            raise ValueError('Community instruction or read evidence changed')
 
 
 def compiler_template_ids(kernel):

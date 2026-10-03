@@ -1,47 +1,37 @@
 {
-  "version": "1.1.0",
   "projection_v12": {
-    "seedance20": {"layout": "shot_timeline"},
-    "seedance25": {"layout": "shot_timeline"},
-    "agnes": {"layout": "single_prompt_timeline"},
-    "kling": {"layout": "kling_multi_shot_plan"},
-    "kling_omni": {"layout": "kling_multi_shot_plan"},
-    "h3": {"layout": "h3_fields"},
-    "veo": {"layout": "shot_timeline"},
-    "wan": {"layout": "shot_timeline"},
-    "runway": {"layout": "shot_timeline"}
-  },
-  "templates": {
+    "agnes": {
+      "layout": "single_prompt_timeline"
+    },
+    "h3": {
+      "layout": "h3_fields"
+    },
+    "kling": {
+      "layout": "kling_multi_shot_plan"
+    },
+    "kling_omni": {
+      "layout": "kling_multi_shot_plan"
+    },
+    "omni11": {
+      "layout": "shot_timeline"
+    },
+    "runway": {
+      "layout": "shot_timeline"
+    },
     "seedance20": {
-      "guidance": "参考职责明确；按时间段表达动作、摄影机与音画关系。",
-      "sections": [
-        "references",
-        "subjects",
-        "scene",
-        "space",
-        "composition",
-        "camera",
-        "action",
-        "audio",
-        "style",
-        "constraints"
-      ]
+      "layout": "shot_timeline"
     },
     "seedance25": {
-      "guidance": "保留当前时长和叙事节拍；参考分别约束外观、空间、运动与声音。",
-      "sections": [
-        "references",
-        "subjects",
-        "scene",
-        "space",
-        "composition",
-        "camera",
-        "action",
-        "audio",
-        "style",
-        "constraints"
-      ]
+      "layout": "shot_timeline"
     },
+    "veo": {
+      "layout": "shot_timeline"
+    },
+    "wan": {
+      "layout": "shot_timeline"
+    }
+  },
+  "templates": {
     "agnes": {
       "guidance": "按主体、环境、动作、镜头、风格、声音与一致性组织。",
       "sections": [
@@ -54,6 +44,21 @@
         "camera",
         "style",
         "audio",
+        "constraints"
+      ]
+    },
+    "h3": {
+      "guidance": "将主体关系、时间节拍与音画关联组织为结构化上下文描述。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
         "constraints"
       ]
     },
@@ -87,8 +92,53 @@
         "constraints"
       ]
     },
-    "h3": {
-      "guidance": "将主体关系、时间节拍与音画关联组织为结构化上下文描述。",
+    "omni11": {
+      "guidance": "Gemini Omni 1.1 Flash / Cloud 文生视频计划：保留逐镜动作、机位、光源和声音归属；按原合同区分一镜到底与切镜。负向限制写入正文，不伪造negative_prompt参数；高分辨率交付不当作原生细节。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "runway": {
+      "guidance": "以可见主体运动、环境运动和摄影机运动表达；时长比例另行交接。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "seedance20": {
+      "guidance": "参考职责明确；按时间段表达动作、摄影机与音画关系。",
+      "sections": [
+        "references",
+        "subjects",
+        "scene",
+        "space",
+        "composition",
+        "camera",
+        "action",
+        "audio",
+        "style",
+        "constraints"
+      ]
+    },
+    "seedance25": {
+      "guidance": "保留当前时长和叙事节拍；参考分别约束外观、空间、运动与声音。",
       "sections": [
         "references",
         "subjects",
@@ -131,21 +181,7 @@
         "style",
         "constraints"
       ]
-    },
-    "runway": {
-      "guidance": "以可见主体运动、环境运动和摄影机运动表达；时长比例另行交接。",
-      "sections": [
-        "references",
-        "subjects",
-        "scene",
-        "space",
-        "composition",
-        "camera",
-        "action",
-        "audio",
-        "style",
-        "constraints"
-      ]
     }
-  }
+  },
+  "version": "1.2.0"
 }

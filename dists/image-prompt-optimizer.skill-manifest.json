@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "1e1c58d0f81346f61171c1056a315d9f6628712b32779857e7510206a436a1ea",
-  "file_count": 114,
+  "archive_sha256": "ce146f4d1e7156c085cfd9613b4cca935174f331b5431684a4795e369c2aac3c",
+  "file_count": 115,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 30183,
-      "sha256": "867a88cbd188c61e5601cf90922af26cf41dd6a01686cd17458b1b41604ed987"
+      "bytes": 30614,
+      "sha256": "8f9e791c616e01ced5c7aacda45aaf78b742f957278a29eb4acd01a7fba3bab0"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -158,6 +158,10 @@
     "image-prompt-optimizer/references/research-adoption.md": {
       "bytes": 4784,
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
+    },
+    "image-prompt-optimizer/references/resource-index.md": {
+      "bytes": 2199,
+      "sha256": "91790ca866f9624cbca9e9285fabfcbc75db2b7b394b6958a91cd33110e102e4"
     },
     "image-prompt-optimizer/references/shot-control.md": {
       "bytes": 32544,
@@ -461,5 +465,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.16.1"
+  "version": "1.16.2"
 }

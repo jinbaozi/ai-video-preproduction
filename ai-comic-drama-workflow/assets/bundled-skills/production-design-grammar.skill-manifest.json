@@ -1,11 +1,11 @@
 {
   "archive": "production-design-grammar.skill",
-  "archive_sha256": "61c680c0dd3b83d9f5d5c98f3b9bff1c867971fbe8702bb2bea0d2776dc785d9",
-  "file_count": 39,
+  "archive_sha256": "d12c4ad398c5e712d74c2e66db15ceb4d04af81e1e7e3b2c44759d5d20e7f53e",
+  "file_count": 40,
   "files": {
     "production-design-grammar/SKILL.md": {
-      "bytes": 7983,
-      "sha256": "ba612726bcb4d2a29d499a167fb8d3f7af7aa27c39b3324f84ea2bd3d7bc73d0"
+      "bytes": 8414,
+      "sha256": "c55b2b8283d25be9d6090a95da2a67628b25c2e977001d11b99784da53185c57"
     },
     "production-design-grammar/agents/openai.yaml": {
       "bytes": 426,
@@ -70,6 +70,10 @@
     "production-design-grammar/references/production-contract.md": {
       "bytes": 3351,
       "sha256": "c3c9014649fcdb9d6b0a714241fc1c80494e7aa4baffe157c48d9709fc34323d"
+    },
+    "production-design-grammar/references/resource-index.md": {
+      "bytes": 1144,
+      "sha256": "381304d29273468fc548c615af7e0bdd2bc46c808b511312631d37e902ab0a18"
     },
     "production-design-grammar/references/sources.md": {
       "bytes": 2446,
@@ -161,5 +165,5 @@
     }
   },
   "name": "production-design-grammar",
-  "version": "1.3.4"
+  "version": "1.3.5"
 }

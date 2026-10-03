@@ -10,6 +10,7 @@
 | kling-v3 / kling-v3-omni | [Kling](kling.md) | 分镜与音画提示词计划，版本区分；当前渠道槽位未绑定 |
 | minimax-h3 / runninghub-h3-fl2va / runninghub-h3-ref2va | [H3](minimax-h3.md) | 官方语法、离线 Context-IR 草案/导入、原生 API 图检查与安全节点修改计划 |
 | veo3.1 | [扩展模型](extensions.md) | 结构化音画提示词计划和已核验模型时长检查 |
+| gemini-omni-1.1-flash-preview | [Gemini Omni](gemini-omni.md) | 独立Cloud文生视频提示计划；3至10整数秒；无引用/编辑/延长/提交适配 |
 | wan3.0 / runway-gen4.5 | [扩展模型](extensions.md) | 待核验适配候选，输出草案但状态BLOCKED |
 
 `COMPILED`不是“已实现所有厂商API”。相同AVIR产生不同能力检查、逐镜正文布局及参数映射；不能因为版本更高就自动迁移。H3 的原生字段布局不套用其他模型的标题写法。
