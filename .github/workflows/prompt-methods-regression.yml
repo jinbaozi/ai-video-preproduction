@@ -1,0 +1,33 @@
+name: Prompt methods regression
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: prompt-methods-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  method-isolation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e ./ai-comic-drama-workflow
+      - name: Check sources and deterministic distribution
+        run: |
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Model isolation and immutable compiler replay
+        run: python -m unittest discover -s video-prompt-compiler/tests -p 'test_prompt_techniques.py' -v
+      - name: Native adoption evidence through delivery
+        env:
+          PYTHONPATH: ai-comic-drama-workflow/src:ai-comic-drama-workflow
+        run: python -m unittest tests.test_prompt_methods tests.test_craft_end_to_end -v

@@ -1,38 +1,61 @@
-name: Prompt techniques
+name: Materialize reviewed prompt techniques
 on:
   push:
     branches: [feat/prompt-techniques-20261003]
-  pull_request:
-    paths:
-      - 'video-prompt-compiler/**'
-      - 'ai-comic-drama-workflow/**'
-      - '.github/workflows/prompt-techniques.yml'
 permissions:
   contents: read
 jobs:
-  source-snapshot:
+  verified-source-and-release:
+    if: github.repository == 'jinbaozi/ai-video-preproduction' && github.ref == 'refs/heads/feat/prompt-techniques-20261003'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
-      - name: Export tracked source for reproducible review
+          fetch-depth: 2
+      - name: Verify fixed parent and reviewed patch bytes
         run: |
-          mkdir -p /tmp/prompt-techniques-snapshot
-          git archive --format=zip HEAD -o /tmp/prompt-techniques-snapshot/target.zip
-          git rev-parse HEAD > /tmp/prompt-techniques-snapshot/target-commit.txt
-      - uses: actions/checkout@v4
+          test "$(git rev-parse HEAD^)" = '44cadc52568496b4670ff86f3b1277ba819ccafe'
+          python - <<'PY'
+          import bz2, hashlib
+          from pathlib import Path
+          folder = Path('.github/prompt-techniques-payload')
+          data = b''.join((folder / f'part-{i}.bin').read_bytes() for i in range(1, 5))
+          assert len(data) == 27578
+          assert hashlib.sha256(data).hexdigest() == 'c7063eb92067eb3768cc2a1b4fb8f0d3ea371e0d3be74f79003ab2a9ec15e310'
+          decoder = bz2.BZ2Decompressor()
+          patch = decoder.decompress(data, max_length=111672)
+          assert decoder.eof and not decoder.unused_data and len(patch) == 111671
+          assert hashlib.sha256(patch).hexdigest() == '1cb61b61fdc91bd0d9e92606d22921c93398113025481af10b325416a1960589'
+          Path('/tmp/prompt-techniques.patch').write_bytes(patch)
+          PY
+          git apply --check --exclude=.github/workflows/prompt-methods-regression.yml /tmp/prompt-techniques.patch
+          git apply --index --exclude=.github/workflows/prompt-methods-regression.yml /tmp/prompt-techniques.patch
+      - uses: actions/setup-python@v5
         with:
-          repository: LearnPrompt/awesome-seedance
-          ref: 9ca56354b3af0d11db22a935a6b831d7d8582c04
-          path: upstream-reference
-          persist-credentials: false
-      - name: Export reference text without executing upstream code
+          python-version: '3.12'
+      - name: Install and rebuild all seven distributions
         run: |
-          git -C upstream-reference archive --format=zip HEAD -o /tmp/prompt-techniques-snapshot/reference.zip
-          sha256sum /tmp/prompt-techniques-snapshot/*.zip > /tmp/prompt-techniques-snapshot/SHA256SUMS
-      - uses: actions/upload-artifact@v4
-        with:
-          name: prompt-techniques-source
-          path: /tmp/prompt-techniques-snapshot/
-          retention-days: 3
+          python -m pip install -e ./ai-comic-drama-workflow
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+      - name: Test model isolation and immutable compiler replay
+        run: python -m unittest discover -s video-prompt-compiler/tests -p 'test_prompt_techniques.py' -v
+      - name: Test native evidence through delivery
+        env:
+          PYTHONPATH: ai-comic-drama-workflow/src:ai-comic-drama-workflow
+        run: python -m unittest tests.test_prompt_methods tests.test_craft_end_to_end -v
+      - name: Verify exact reviewed final tree and publish feature branch
+        run: |
+          git rm -r .github/prompt-techniques-payload
+          git add dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+          git rm --cached .github/workflows/prompt-techniques.yml
+          test "$(git write-tree)" = '56cf9690a52e3227a54f57a66dec0da2d4711696'
+          git add .github/workflows/prompt-techniques.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'feat: integrate scoped prompt techniques and rebuild seven skills'
+          git push origin HEAD:refs/heads/feat/prompt-techniques-20261003
+          git rev-parse HEAD
