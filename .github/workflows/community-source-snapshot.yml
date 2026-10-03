@@ -1,0 +1,24 @@
+name: Community source snapshot
+on:
+  push:
+    branches: [feat/community-knowledge-20261003]
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - run: |
+          mkdir -p /tmp/community-snapshot
+          git archive --format=zip HEAD -o /tmp/community-snapshot/target.zip
+          git rev-parse HEAD > /tmp/community-snapshot/commit.txt
+          sha256sum /tmp/community-snapshot/target.zip > /tmp/community-snapshot/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: community-source
+          path: /tmp/community-snapshot/
+          retention-days: 3
