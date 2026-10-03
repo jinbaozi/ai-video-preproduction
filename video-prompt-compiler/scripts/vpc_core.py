@@ -359,7 +359,7 @@ RELATIONS={'world_left_of':'在世界坐标左侧于','world_right_of':'在世�
            'world_in_front_of':'在世界坐标前方于','world_behind':'在世界坐标后方于','facing':'面向','touching':'接触'}
 
 
-def compile_ir(ir, cap, mode, base):
+def _compile_native(ir, cap, mode, base):
     if ir.get('schema') in ('avir/1.1','avir/1.2'):
         from types import SimpleNamespace
         return _detail_support(ir.get('schema')).compile_video(SimpleNamespace(**globals()), ir, cap, mode, base)
@@ -510,4 +510,15 @@ def compile_ir(ir, cap, mode, base):
     failures=schema_errors(artifact,'compile-artifact')
     if failures:
         raise ValueError(str(failures))
+    return artifact, context
+
+
+def compile_ir(ir, cap, mode, base, template_ids=None):
+    """Native compilation followed by source-scoped method inspection, never rewriting."""
+    from prompt_techniques import enrich, plan
+    # Validate explicit selection even when the native input later fails.
+    plan(cap, mode, template_ids=template_ids)
+    artifact, context = _compile_native(ir, cap, mode, base)
+    if artifact is not None:
+        artifact = enrich(artifact, ir, cap, mode, template_ids)
     return artifact, context

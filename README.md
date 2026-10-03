@@ -37,6 +37,12 @@ ai-comic-drama step ./rain-letter --result ./result.json
 
 没有工作流文件也能先制作 H3 文本草案，但不能编造节点编号。使用 [H3 按需入口](video-prompt-compiler/references/models/minimax-h3.md)；Desktop 宿主是否支持工具、脚本或技能安装须以实际能力为准，阅读 Markdown 并复制提示词不依赖模型 API。新增实现与静态验证见 [H3 审查记录](audit/h3-runninghub.md)。
 
+## 通用视频模板与模型专属能力
+
+提示词技巧现在分为通用视听方法、27个任务模板和精确模型适配策略。依据已绑定来源的语义标签按需选择，采用证据进入现有 craft_review；分镜实际采用的模板随编译进入 artifact 和 manifest，不增加中间文件。Seedance的引用语法/模态推断不会泄漏到Agnes、Kling、H3或Veo，模板也不会重写冻结AVIR。
+
+查看索引：`python video-prompt-compiler/scripts/vpc.py techniques list`。只读取一个模板：`... techniques plan --target seedance2.5 --template food-asmr`。原文台词、动作、目标模型、时长、声音路由和已锁定风格优先；未知能力及真实媒体验收继续由原门禁裁决。参见[方法分层合同](video-prompt-compiler/references/prompt-techniques.md)及[先行方案](audit/prompt-techniques-plan.md)。
+
 ## 未点名也默认启用专业方法
 
 新 `start` 的 `craft-routing/1.0` 从原文提取有证据的语义特征，按职责选择方法与参考入口，并要求写进当前原生 IR。它不是关键词命中后列一串名人：任务附带选中方法、适用依据、来源、实际采用位置和可观察检查；没有采用证据不能接受结果。图片和视频编译继承既有规则，不重新决定风格。

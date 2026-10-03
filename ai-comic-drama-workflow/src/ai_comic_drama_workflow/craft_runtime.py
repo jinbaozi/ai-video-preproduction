@@ -262,6 +262,8 @@ def task_plan(kernel, kind, slot, dependencies, scope):
                 'instruction': 'Preserve upstream methods in the actual prompt/AVIR; do not invent a new style. '
                 'Image tasks may mark narrative timing not_applicable with scope evidence. '
                 'Compile review pointers target the frozen build avir.json, not review prose.'}
+    from . import prompt_methods
+    prompt_methods.attach(kernel, kind, plan, features if kind in CREATORS else None)
     plan['source_sha256'] = source_hash(kernel)
     plan['input_artifacts'] = [{k: v for k, v in d.items()} for d in dependencies]
     plan.pop('plan_sha256', None)
@@ -315,6 +317,8 @@ def check(kernel, task, result):
                 raise ValueError('Selected craft source bytes changed')
             if source.get('locator'):
                 router.pointer(read(path), source['locator'])
+    from . import prompt_methods
+    prompt_methods.check(kernel, plan)
     artifact = evidence_artifact(kernel, task, result)
     if task['kind'] in CREATORS:
         try:
@@ -365,6 +369,8 @@ def proof_valid(kernel, record):
                 return False
             # Snapshot rebasing can change external paths; bind quoted implementation strings,
             # not absolute originals. Native artifact hash is already checked by V5Kernel.valid.
+            from . import prompt_methods
+            prompt_methods.check(kernel, plan)
             router.validate_review(plan, result.get('craft_review'), kernel.data(record['slot']))
         return True
     except (OSError, KeyError, TypeError, ValueError, IndexError):

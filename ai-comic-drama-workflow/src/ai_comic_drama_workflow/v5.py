@@ -19,7 +19,7 @@ from .v5_handoff import briefing, requirements, validate_handoff
 from .v5_adapters import VERSION as ADAPTER_VERSION
 from .v5_modules import ROOT, MODULES, read, digest_file, default_lock, module_path, native_validate, load_python, verify_archive, verify_module
 from .v6_runtime_fingerprint import runtime_code_hashes
-from . import craft_runtime, workspace
+from . import craft_runtime, workspace, prompt_methods
 
 STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay','screenplay-grammar'),
           (3,'导演方案','director','director-grammar'), (4,'美术方案','art','production-design-grammar'),
@@ -1405,6 +1405,7 @@ class V5Kernel:
             'control': {'state': control, 'files': control_files},
             'output_profile':self.project.get('workflow_profile','audit'),
             'control_policy':self.project.get('control_policy'),
+            'prompt_templates':prompt_methods.compiler_template_ids(self),
             'runtime_code':runtime_code_hashes()})
 
     @mutate
@@ -1504,11 +1505,13 @@ class V5Kernel:
         if reuse:
             imported=self.path(previous['uri'])
             original_ir=read(imported/'avir.json')
+            if read(imported/'compile-manifest.json').get('template_ids') != prompt_methods.compiler_template_ids(self):
+                reuse=False
             if self.portable_content(original_ir)!=self.portable_content(avir):
                 reuse=False  # Changed inputs require a new compilation; historical output remains intact.
             elif any(not self.path(path).is_file() or digest_file(self.path(path))!=checksum for path,checksum in previous['files'].items()):
                 raise ValueError('Imported compiled package changed')
-            elif not output.exists():
+            elif reuse and not output.exists():
                 for file in imported.iterdir():
                     if file.is_file():self.write(folder+'/compiled/'+file.name,file.read_bytes())
         if not output.exists() or not (output/'artifact.json').exists():
@@ -1516,6 +1519,7 @@ class V5Kernel:
                 return {'status':'BLOCKED','reason':'Interrupted compiler output; retain evidence and use revise/recompile with a new input revision'}
             proc=subprocess.run([sys.executable,str(compiler/'scripts/vpc.py'),'compile',str(self.path(folder+'/avir.json')),
                 '--target',self.project['target'],'--mode',self.project['mode'],'--out',str(output)]
+                +prompt_methods.compiler_args(self)
                 +(['--output-profile','lean'] if self.project.get('workflow_profile')=='lean' else []),capture_output=True,text=True)
             if proc.returncode:return {'status':'BLOCKED','compiler_output':proc.stdout,'error':proc.stderr}
         artifact=read(output/'artifact.json')

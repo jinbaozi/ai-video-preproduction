@@ -1,0 +1,1199 @@
+{
+  "schema": "prompt-techniques/1.0",
+  "version": "1.0.0",
+  "source": {
+    "repository": "https://github.com/LearnPrompt/awesome-seedance",
+    "commit": "9ca56354b3af0d11db22a935a6b831d7d8582c04",
+    "curation_license": "CC-BY-4.0",
+    "attribution": "LearnPrompt / awesome-seedance; task structures reinterpreted and narrowed by ai-video-preproduction",
+    "adaptation": "Original Chinese method cards; no third-party media copied. Community observations are not runtime capabilities or measured cross-model success."
+  },
+  "invariants": [
+    "Never mutate frozen AVIR or overwrite Canon, dialogue, model, duration, creative locks or audio routes.",
+    "Capability registry, actual endpoint and asset bindings override community templates.",
+    "Template selection and evidence binding are not media quality approval."
+  ],
+  "methods": [
+    {
+      "id": "state-handoff",
+      "roles": [
+        "screenplay",
+        "director",
+        "art",
+        "storyboard",
+        "image-prompt",
+        "avir",
+        "compile-review"
+      ],
+      "instruction": "固定项与变化项分离，结尾状态成为下一镜头的入口；不改变锁定事实或信息顺序。",
+      "check": "核对身份、服饰、道具、位置、时间和信息状态的承接。",
+      "native_fields": [
+        "/entities",
+        "/shots/*/start_state",
+        "/shots/*/end_state"
+      ],
+      "source": {
+        "path": "docs/templates/en/timeline-shot-script.md",
+        "sha256": "5b3fb24117f20a05b1a3995aaeeb437efb382d19720ae66242e44697e207ff2d"
+      }
+    },
+    {
+      "id": "reference-boundaries",
+      "roles": [
+        "art",
+        "storyboard",
+        "image-prompt",
+        "avir",
+        "compile-review"
+      ],
+      "instruction": "绑定真实素材的主体/场景与职责，明确继承与禁止继承；没有输入素材不发明文件或平台标记。",
+      "check": "复核素材ID/文件/哈希、镜头范围和互斥参考维度。",
+      "native_fields": [
+        "/assets",
+        "/bindings"
+      ],
+      "source": {
+        "path": "docs/templates/en/character-reference-lock.md",
+        "sha256": "48eba087ebe097d089df6d8b3634d1457500b6e8be5837917af4483e843709c8"
+      }
+    },
+    {
+      "id": "causal-beats",
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard",
+        "avir",
+        "compile-review"
+      ],
+      "instruction": "可见刺激、准备、动作、接触或变化、反应与末态构成因果；每节拍一个重点，不抹掉并行动作细节。",
+      "check": "检查触发早于反应、动作所需部位可见、时长足够；无接触也不能捏造接触。",
+      "native_fields": [
+        "/shots/*/purpose",
+        "/timeline/actions",
+        "/timeline/performances"
+      ],
+      "source": {
+        "path": "docs/templates/en/dialogue-performance-beats.md",
+        "sha256": "dd779d73211ec3d5665c7e6310f03f8089d5bddddf415467a09ca936f1cc326b"
+      }
+    },
+    {
+      "id": "camera-body-separation",
+      "roles": [
+        "director",
+        "storyboard",
+        "avir",
+        "compile-review"
+      ],
+      "instruction": "摄影机位置/朝向/路径与身体朝向、视线、持物分开；世界左右、画面左右和自身左右不混用。",
+      "check": "对照安装位置、视点、路径和切点，检查摄影机没有凭空瞬移。",
+      "native_fields": [
+        "/shots/*/camera",
+        "/timeline/camera_operations",
+        "/timeline/motion_tracks"
+      ],
+      "source": {
+        "path": "docs/templates/en/pov-continuous-take.md",
+        "sha256": "8204f99dd81bd26ca6b28f3ae3aff5a44883a39020711266e3ca86cd7b09242c"
+      }
+    },
+    {
+      "id": "sound-ownership",
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard",
+        "avir",
+        "compile-review"
+      ],
+      "instruction": "台词原文、说话人、声源、语言、时间和原生/后期通道保持独立；内心活动不能自动变成旁白。",
+      "check": "按冻结音轨核对可听内容和动作，未提供音轨不许标记同步或音色复刻通过。",
+      "native_fields": [
+        "/audio",
+        "/timeline/audio_events"
+      ],
+      "source": {
+        "path": "docs/templates/en/dialogue-performance-beats.md",
+        "sha256": "dd779d73211ec3d5665c7e6310f03f8089d5bddddf415467a09ca936f1cc326b"
+      }
+    },
+    {
+      "id": "temporal-coverage",
+      "roles": [
+        "storyboard",
+        "avir",
+        "compile-review"
+      ],
+      "instruction": "镜头使用连续半开时间区间并覆盖总时长；跨生成片段重述必要上下文和参考，不自动缩短动作或台词。",
+      "check": "核对零起点、相邻边界、最终时长及安全切点；数值意图不等于帧级控制保证。",
+      "native_fields": [
+        "/output/duration_ms",
+        "/shots",
+        "/timeline/segments"
+      ],
+      "source": {
+        "path": "docs/templates/en/timeline-shot-script.md",
+        "sha256": "5b3fb24117f20a05b1a3995aaeeb437efb382d19720ae66242e44697e207ff2d"
+      }
+    }
+  ],
+  "templates": [
+    {
+      "id": "timeline-shot-script",
+      "title": "逐段时间与动作",
+      "tags": [
+        "时间轴",
+        "timeline"
+      ],
+      "roles": [
+        "storyboard",
+        "avir"
+      ],
+      "dimension": "format",
+      "writing_pattern": "全片时长与冻结恒定项 → 连续时间区间 → 每段主动作、摄影机、声音 → 结束状态",
+      "instruction": "每段明确一个叙事或动作重点，次级动作、镜头与声音仍保留；区间连续覆盖总时长，不把模板节拍当模型上限。",
+      "check": "逐段核对起止时间和承接状态；不得用精确时码宣称生成结果帧级准确。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/timeline-shot-script.md",
+        "sha256": "5b3fb24117f20a05b1a3995aaeeb437efb382d19720ae66242e44697e207ff2d"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "character-reference-lock",
+      "title": "参考分工与身份锁定",
+      "tags": [
+        "身份",
+        "reference",
+        "角色一致性"
+      ],
+      "roles": [
+        "art",
+        "storyboard",
+        "image-prompt",
+        "avir"
+      ],
+      "dimension": "format",
+      "writing_pattern": "真实文件与内部ID → 对象与参考职责 → 继承项和禁止继承项 → 遮挡/转头后复核",
+      "instruction": "人物参考只继承已授权维度；身份、服装、构图与场景分别指定权威来源，禁止无意继承背景和姿势。",
+      "check": "核对每个参考的目标、镜头范围及互斥维度；无参考或无人镜头说明不适用。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/character-reference-lock.md",
+        "sha256": "48eba087ebe097d089df6d8b3634d1457500b6e8be5837917af4483e843709c8"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "handheld-ugc-vlog",
+      "title": "手持日常Vlog",
+      "tags": [
+        "vlog",
+        "手持",
+        "UGC"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "look",
+      "writing_pattern": "持机者与设备感 → 生活场景与人物 → 单个日常事件 → 随动作的同期声",
+      "instruction": "只有任务选择手持真实感时，才设计有物理来源的抖动、对焦和曝光变化；不得默认添加磨皮或故障。",
+      "check": "核对晃动来自手或身体，画面缺陷不掩盖硬要求；不强制禁用用户要求的电影光。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/handheld-ugc-vlog.md",
+        "sha256": "537671e52a4dfd012ecb5f5400b907a9c26798a567f539789216315a1d68f5e6"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "pov-continuous-take",
+      "title": "第一人称连续镜头",
+      "tags": [
+        "POV",
+        "第一人称",
+        "一镜到底"
+      ],
+      "roles": [
+        "director",
+        "storyboard"
+      ],
+      "dimension": "camera",
+      "writing_pattern": "安装位置 → 可见身体与持物 → 实时移动路径 → 显式切点或持续不切 → 末态",
+      "instruction": "摄影机运动由安装身体或载具导出；左右手持物单独写，场景变更需要可走通的路径或明确切点。",
+      "check": "检查没有隐藏切镜、第三视点或空间瞬移；镜面反射按实际构图而非一律排除。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/pov-continuous-take.md",
+        "sha256": "8204f99dd81bd26ca6b28f3ae3aff5a44883a39020711266e3ca86cd7b09242c"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "ugc-creator-review",
+      "title": "人物与商品双重锁定",
+      "tags": [
+        "测评",
+        "开箱",
+        "review"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "人物锁 → 商品几何和材质锁 → 接触/使用过程 → 原文口播 → 放回或展示末态",
+      "instruction": "将商品关键结构和人物身份独立锁定，台词挂在实际使用动作上；不虚构商品功效或强加推荐结论。",
+      "check": "检查手与物品接触、几何及台词原文，关键卖点必须有可见依据。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/ugc-creator-review.md",
+        "sha256": "aacd8a2c685c1f4fe546798cdc7e81c2d89e8545477092c2057e4d5565cb98e8"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "product-commercial-shotlist",
+      "title": "商品证据式广告",
+      "tags": [
+        "商品",
+        "产品",
+        "commercial"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "商品恒定项 → 轮廓/材质证据镜头 → 使用细节 → 品牌文字交接 → 收尾展示",
+      "instruction": "每镜展示一项商品可观察特征；保留材料反光与接触因果，精确文字优先安排独立后期通道。",
+      "check": "核对尺寸、结构、字样和品牌不漂移；不从提示词宣称文字百分百准确。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/product-commercial-shotlist.md",
+        "sha256": "99325ca3a547d6fc0a5b88387a44a67e0306c7d071a311c3fb4614022d5b4810"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "dialogue-performance-beats",
+      "title": "因果表演与对白",
+      "tags": [
+        "对白",
+        "对话",
+        "dialogue"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard",
+        "avir"
+      ],
+      "dimension": "performance",
+      "writing_pattern": "刺激 → 可见微反应 → 动作或抉择 → 说话人原句 → 反应末态",
+      "instruction": "先写角色知道什么及其可见反应，再绑定说话人和原文台词；心理活动不自动变旁白。",
+      "check": "检查说话人、原句、语言、声源与镜内/后期路由；动作和台词在时长内可读。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/dialogue-performance-beats.md",
+        "sha256": "dd779d73211ec3d5665c7e6310f03f8089d5bddddf415467a09ca936f1cc326b"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "cinematic-narrative-short",
+      "title": "因果叙事短片",
+      "tags": [
+        "叙事",
+        "narrative",
+        "剧情"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "既有目标 → 障碍或变化 → 人物选择 → 可见后果 → 明确结尾",
+      "instruction": "在原故事范围组织因果与信息显露；不为套模板向教学或观察任务添加反转、人物或台词。",
+      "check": "检查每个关键变化的前因与后果，并保留用户规定的信息顺序和结束状态。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/cinematic-narrative-short.md",
+        "sha256": "0b364f21b8a6be43f2c2b45bab425fd59309150987d626cded481ee97effa92b"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "anime-style-lock",
+      "title": "二维风格维度锁定",
+      "tags": [
+        "动漫",
+        "anime",
+        "二维"
+      ],
+      "roles": [
+        "art",
+        "image-prompt",
+        "storyboard"
+      ],
+      "dimension": "look",
+      "writing_pattern": "线条 → 阴影层次 → 材质反光 → 角色配色 → 动态表现",
+      "instruction": "用线条、阴影层级与材质维度说明已选二维风格；禁止角色间配色或服饰属性互换。",
+      "check": "逐镜对比相同材质与角色标志，不因新镜头改成别的渲染体系。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/anime-style-lock.md",
+        "sha256": "0d13afcf5143aa1870ec0fc7ad4f6a84734889dd3cd0d09ecd82809fa9e38d47"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "stop-motion-cadence",
+      "title": "定格材质与步进节奏",
+      "tags": [
+        "定格",
+        "stop motion"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "look",
+      "writing_pattern": "实体材料 → 姿态节拍 → 停留意图 → 摄影机 → 姿态变化",
+      "instruction": "将定格材料与姿态停留写成可观察意图；精确抽帧或重复帧交给已验证后期工具，不冒充模型参数。",
+      "check": "检查材料不变形、步进动作与真实导出帧率；用户要求的运动模糊不得静默删除。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/stop-motion-cadence.md",
+        "sha256": "f79069fc736c29239a38c7563edfa4dbf00a9c99cb0eeffc7026bb2133fd22ed"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "process-transformation-montage",
+      "title": "过程与变形蒙太奇",
+      "tags": [
+        "过程",
+        "改造",
+        "transformation"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "不变项 → 初态 → 有方向的顺序变化 → 完成态 → 环境反馈",
+      "instruction": "明确哪些结构不变、哪些发生变化；按空间方向和步骤组织变形，不随切镜重置进度。",
+      "check": "检查中间步骤没有缺失、倒退或无因新增，复杂过程不足时长回到上游处理。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/process-transformation-montage.md",
+        "sha256": "b2a88b4b636a45751145c08974dc322576e05f1dee5490461547f07acb4e335d"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "combat-choreography",
+      "title": "动作接触与攻防",
+      "tags": [
+        "打斗",
+        "战斗",
+        "combat"
+      ],
+      "roles": [
+        "director",
+        "storyboard"
+      ],
+      "dimension": "action",
+      "writing_pattern": "意图与站位 → 准备/发力 → 攻击路径 → 接触或闪避 → 反作用 → 重新站位",
+      "instruction": "把动作串拆为可见的攻防与接触事件；身体自身左右、画面左右、世界方向分别记录。",
+      "check": "检查反应在接触之后，手别、道具数量和重心连续；不删改锁定旋转方向来规避难度。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/combat-choreography.md",
+        "sha256": "b39d38815247b85b88a01eef3a25549c50631b56259e836dfb0286bde0506718"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "music-beat-sync-mv",
+      "title": "音乐锚点与编舞",
+      "tags": [
+        "卡点",
+        "MV",
+        "music"
+      ],
+      "roles": [
+        "director",
+        "storyboard",
+        "avir"
+      ],
+      "dimension": "audio",
+      "writing_pattern": "真实音源 → 经过核验的节拍点 → 动作落点 → 编队与服装锁 → 结尾动作",
+      "instruction": "音频来源和节拍锚点独立于视觉提示；原曲保持要求走可验证音轨/后期路径，不用文字保证采样级同步。",
+      "check": "检查音频哈希、时间偏移与动作落点，原生音频能力未知时不得自行改为生成歌曲。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/music-beat-sync-mv.md",
+        "sha256": "392789d7e60b544cdaec97c5db5d41e7fee28568f71dc2244989f37197953053"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "time-freeze-rewind",
+      "title": "时间冻结与倒放",
+      "tags": [
+        "时间冻结",
+        "倒放",
+        "rewind"
+      ],
+      "roles": [
+        "director",
+        "storyboard"
+      ],
+      "dimension": "action",
+      "writing_pattern": "正常运动 → 冻结边界 → 明确豁免对象 → 摄影机路径 → 逆向回到记录态",
+      "instruction": "区分场景冻结、仍运动对象和摄影机；倒放目标绑定真实起始状态，不能靠补写新姿态伪装复原。",
+      "check": "检查冻结对象没有漂移，倒放顺序与初态一致；精准倒放可提出后期方案但不暗中替换。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/time-freeze-rewind.md",
+        "sha256": "3b3dff89a8283e1feb8da4977d532b6be9477b6c2828442dda0357d03f11561f"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "storyboard-grid-to-video",
+      "title": "分镜画格到视频",
+      "tags": [
+        "分镜网格",
+        "storyboard grid"
+      ],
+      "roles": [
+        "storyboard",
+        "image-prompt",
+        "avir"
+      ],
+      "dimension": "format",
+      "writing_pattern": "画格编号映射 → 镜头与动作 → 单格参考 → 目标入口投喂 → 相邻末/初态",
+      "instruction": "网格是审阅和顺序设计工具，不是所有模型的原生输入；未核验整图控制时按单格或现有分镜附件流程交接。",
+      "check": "检查每格有动作和时长映射，禁止编号/边框误入成片；不得把静态网格当已生成视频。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/storyboard-grid-to-video.md",
+        "sha256": "bb572836cf08d912f575a64160ea45a551470722f5c7c1474fab3977bdba6e14"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "retro-found-footage",
+      "title": "复古家用录像",
+      "tags": [
+        "DV",
+        "VHS",
+        "复古录像"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "look",
+      "writing_pattern": "设备年代 → 生活空间 → 小事件 → 有来源的成像缺陷 → 声音与结尾",
+      "instruction": "用任务选定年代的成像行为与生活痕迹组织画面；场景/人物和缺陷强度仍服从已有美术锁。",
+      "check": "核对时代物件、曝光与对焦变化合理；不自动添加黑场、音乐禁令或时码。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/retro-found-footage.md",
+        "sha256": "4f94270b28d6b5222b5f9687646affbfe0efce418f26669add0819865df614bd"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "travel-city-walk",
+      "title": "旅行城市漫步",
+      "tags": [
+        "旅行",
+        "城市漫步",
+        "travel"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "到达状态 → 地点与空间 → 体验动作 → 时间/服饰承接 → 结束",
+      "instruction": "每个地点给一项实际体验和可辨空间信息；场景切换交代人物、服饰、时间和携带物连续性。",
+      "check": "检查地理位置和事件不冒充实拍事实；台词与日夜变化按故事来源处理。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/travel-city-walk.md",
+        "sha256": "93f1bf0074b6506554e7b324de3e4ce11f1340100abd5b0b382ef4cffc36d548"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "pet-animal",
+      "title": "动物主角",
+      "tags": [
+        "宠物",
+        "动物",
+        "animal"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "已定数量与外形 → 注意目标 → 物种行为 → 环境反应 → 末态",
+      "instruction": "保持用户指定动物数量、外形和物种运动方式；不能照搬案例把多动物场景强改成一只。",
+      "check": "检查四肢、尾部、接触和反射数量，情绪通过物种行为而非强加人类动作表达。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/pet-animal.md",
+        "sha256": "4efe12da9253902653ec295a409cb074d8abbf72f998901fd45fc66cd4bf8d80"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "car-vehicle",
+      "title": "车辆速度与摄影机",
+      "tags": [
+        "汽车",
+        "车辆",
+        "vehicle"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "车辆与驾驶者 → 路面天气 → 车体路径 → 摄影机路径 → 速度线索",
+      "instruction": "车辆运动与拍摄载具分开描述，轮胎/悬挂/路面响应对应转弯、加速或制动事件。",
+      "check": "检查车轮接地、结构与行进方向；不以背景拉伸代替真实运动关系。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/car-vehicle.md",
+        "sha256": "5bbf9fde7da2372ec9878fcadd148c70f2418f123b6020025b88f2a4da9598ee"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "fashion-lookbook",
+      "title": "服装与人物形象片",
+      "tags": [
+        "时装",
+        "穿搭",
+        "fashion"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "image-prompt",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "人物身份 → 各件服饰/配饰 → 动作 → 场景光源 → 关键单品收尾",
+      "instruction": "逐件锁定服装材质、颜色和佩戴归属；姿态让服装与身份同时可读，场景变化不默默换装。",
+      "check": "检查配饰/鞋/包及身体数量，光照导致的颜色变化有光源依据。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/fashion-lookbook.md",
+        "sha256": "b095d3f5bfef29bdb97135185abb907c79de9024992c3894a840cc18e1644d9f"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "meme-comedy",
+      "title": "喜剧铺垫与回收",
+      "tags": [
+        "喜剧",
+        "搞笑",
+        "comedy"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "已定日常情境 → 建立预期 → 有因偏离 → 人物反应 → 笑点回收",
+      "instruction": "在用户授权的喜剧范围内设置预期差和反应停顿；不可为了梗改写硬台词或引入无因瞬移。",
+      "check": "检查笑点有铺垫、反应时机可读且末镜明确，不提前泄露已锁定反转。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/meme-comedy.md",
+        "sha256": "2b310ac7d25a6f9ce037cfe431f793ab715f79aef8adde9aceba336513330ef3"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "horror-suspense",
+      "title": "悬念与渐进显露",
+      "tags": [
+        "悬疑",
+        "惊悚",
+        "horror"
+      ],
+      "roles": [
+        "screenplay",
+        "director",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "日常基线 → 异常线索 → 有限信息 → 升级后果 → 未知或确定的结尾",
+      "instruction": "每次显露推进已选悬念，不照搬案例的感染/怪物情节；镜头和声音控制观众已知信息。",
+      "check": "检查未授权信息没有提前泄露，声音归属及空间位置能解释人物反应。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/horror-suspense.md",
+        "sha256": "e97c61d1e759aada1c7249636f841393654576c2e229d196e4479d449dd4069c"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "3d-cartoon",
+      "title": "三维角色短片",
+      "tags": [
+        "三维动画",
+        "3D cartoon"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "image-prompt",
+        "storyboard"
+      ],
+      "dimension": "look",
+      "writing_pattern": "角色形体与材料 → 动作目标 → 表演 → 环境光影 → 结束",
+      "instruction": "锁定角色形体、材质与渲染方式；动作形变只在已设计风格范围内，不作为身份漂移借口。",
+      "check": "检查轮廓、材料、服装和角色数量跨镜一致，不误改成真人或二维表现。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/3d-cartoon.md",
+        "sha256": "0e5d0a9aa4d24f06cab53c2ffc29309ca6a1ec6f0bb2365c63ed8de77f8f5707"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "epic-fantasy-scifi",
+      "title": "奇幻科幻视效场面",
+      "tags": [
+        "科幻",
+        "奇幻",
+        "仙侠",
+        "spectacle"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard"
+      ],
+      "dimension": "task",
+      "writing_pattern": "实体职责 → 尺度参照 → 能量/力的来源 → 环境反馈 → 稳定结果",
+      "instruction": "用场景尺度参照、可见触发和环境反馈表现视效；一个节拍突出一个主要奇观，不删除既有动作细节。",
+      "check": "检查视效光照影响人物与环境，遮挡/比例及末态一致，不以形容词代替事件。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/epic-fantasy-scifi.md",
+        "sha256": "7578ff3a289aee9d624ac15966d5435ca99fa1e41bf9889d85cf4cb36f2a04c2"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "sports-extreme",
+      "title": "运动与重量感",
+      "tags": [
+        "运动",
+        "滑板",
+        "滑步",
+        "sports"
+      ],
+      "roles": [
+        "director",
+        "storyboard"
+      ],
+      "dimension": "action",
+      "writing_pattern": "准备姿态 → 发力/重心 → 路径 → 接触/压缩 → 反弹或落地 → 收势",
+      "instruction": "动作反应由力源或接触触发，重心、身体路径与镜头分别记录；精确动作规格不足时标阻塞而非降难度。",
+      "check": "检查接触前不反弹，落地有受力反馈，左右腿和旋转方向遵循用户锁定。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/sports-extreme.md",
+        "sha256": "852e67f2a1001feb7cf2f44e98cebdca162a468244620fe012d591c4282a1343"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "game-ui-livestream",
+      "title": "游戏画面与界面层",
+      "tags": [
+        "HUD",
+        "游戏界面",
+        "直播叠层"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard",
+        "avir"
+      ],
+      "dimension": "task",
+      "writing_pattern": "层级与固定位置 → 主体/主播分工 → 操作动作 → 数值状态变化 → 音轨",
+      "instruction": "将游戏世界、主播画面和HUD分层，位置固定与内容变化分开；精确UI字样通过可验证后期路径处理。",
+      "check": "检查数字变化有事件来源，同一人物多层出现须有设计依据，不能把模型乱码当正确文本。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/game-ui-livestream.md",
+        "sha256": "19d943c038a947eee6aa8cea20eb6ecb35b8db02fe7420c2e0339450418d011e"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "food-asmr",
+      "title": "食物状态与动作声音",
+      "tags": [
+        "美食",
+        "烹饪",
+        "吃播",
+        "ASMR"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard",
+        "avir"
+      ],
+      "dimension": "task",
+      "writing_pattern": "食材/菜品锁 → 有序处理或进食 → 接触与质地变化 → 吞咽/反应 → 声音",
+      "instruction": "描述食品质地与变化因果；进食动作、吞咽、表情和说话分时绑定，保留食物、餐具与手别。",
+      "check": "检查食材和餐具未凭空变更，咀嚼与对白不冲突，同期声有事件和明确路由。",
+      "native_fields": [
+        "/intent",
+        "/output",
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline"
+      ],
+      "source": {
+        "path": "docs/templates/en/food-asmr.md",
+        "sha256": "7fbecf5241d829b5fb0a93f00794ea27eece09b0221bb282b1ca9e6c2c66e671"
+      },
+      "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    }
+  ],
+  "adapters": [
+    {
+      "id": "seedance2.0",
+      "selector": {
+        "id": "seedance2.0",
+        "version": "2026.09.19.1",
+        "model": "Seedance 2.0",
+        "backend": "prompt_plan",
+        "template": "seedance20"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "seedance-2.0",
+      "instruction": "按既有逐镜时间轴组织固定项、动作和声音。参考槽位以实际入口绑定为准，案例里的 @ 标记不是本地API参数。",
+      "mode_guidance": "keyframe:核对首尾姿态和镜头边界；reference:人物与分镜职责分离，整页网格消费必须另有入口证据。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "seedance2.5",
+      "selector": {
+        "id": "seedance2.5",
+        "version": "2026.09.19.1",
+        "model": "Seedance 2.5",
+        "backend": "prompt_plan",
+        "template": "seedance25"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "seedance-2.5",
+      "instruction": "使用独立的2.5规则选择，保持逐镜结构和跨段恒定项；不从案例标题的秒数、分辨率或视频/音频引用推断当前账号能力。",
+      "mode_guidance": "reference:音频/视频的身份、风格、节奏或运镜职责逐项绑定；edit/extend沿用当前不支持阻塞，不伪装参考生成。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "agnes-video-2.5",
+      "selector": {
+        "id": "agnes-video-2.5",
+        "version": "2026.09.19.1",
+        "model": "agnes-video-2.5",
+        "backend": "agnes_api_draft",
+        "template": "agnes"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "agnes-2.5",
+      "instruction": "沿用单一自然语言时间轴投影，参数与正文分开；仅使用Agnes已实现的引用绑定，不移植Seedance附件语法。",
+      "mode_guidance": "keyframe与reference入口分开；Flash与非Flash按各自profile限制；原生音频unknown不自动升级。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "agnes-video-2.5-flash",
+      "selector": {
+        "id": "agnes-video-2.5-flash",
+        "version": "2026.09.19.1",
+        "model": "agnes-video-2.5-flash",
+        "backend": "agnes_api_draft",
+        "template": "agnes"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "agnes-2.5",
+      "instruction": "沿用单一自然语言时间轴投影，参数与正文分开；仅使用Agnes已实现的引用绑定，不移植Seedance附件语法。",
+      "mode_guidance": "keyframe与reference入口分开；Flash与非Flash按各自profile限制；原生音频unknown不自动升级。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "kling-v3",
+      "selector": {
+        "id": "kling-v3",
+        "version": "2026.09.19.1",
+        "model": "Kling VIDEO 3.0",
+        "backend": "prompt_plan",
+        "template": "kling"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "kling-v3",
+      "instruction": "沿用Kling多镜头提示计划，每镜保留完整动作及引用；prompt_plan不标成可调用API payload。",
+      "mode_guidance": "keyframe:首尾帧不替代中段动作合同；reference:按当前版本和入口核验附件能力。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "kling-v3-omni",
+      "selector": {
+        "id": "kling-v3-omni",
+        "version": "2026.09.19.1",
+        "model": "Kling VIDEO 3.0 Omni",
+        "backend": "prompt_plan",
+        "template": "kling_omni"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "kling-v3-omni",
+      "instruction": "沿用Omni单独的多镜头提示计划，不从普通Kling名称推断Omni多模态能力。",
+      "mode_guidance": "参考模态、数量和操作入口以冻结profile和真实绑定为准。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "minimax-h3",
+      "selector": {
+        "id": "minimax-h3",
+        "version": "2026.09.19.1",
+        "model": "MiniMax H3",
+        "backend": "prompt_plan",
+        "template": "h3"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "minimax-h3",
+      "instruction": "沿用现有H3字段投影与按需模式指南；英文场景叙述不翻译原文台词、歌词或画面字样。",
+      "mode_guidance": "RunningHub必须依据真实Export Workflow API的节点/连线映射；不从模板猜节点ID、压低采样步数或自动提交。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "veo3.1",
+      "selector": {
+        "id": "veo3.1",
+        "version": "2026.09.19.1",
+        "model": "Veo 3.1",
+        "backend": "prompt_plan",
+        "template": "veo"
+      },
+      "modes": [
+        "text",
+        "keyframe",
+        "reference"
+      ],
+      "family": "veo-3.1",
+      "instruction": "保留Veo既有逐镜投影与离散时长规则；不借用Seedance连续时长或引用标记。",
+      "mode_guidance": "模态和参数仍由Veo入口profile裁决；硬动作切不开时保持阻塞。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "runninghub-h3-fl2va",
+      "selector": {
+        "id": "runninghub-h3-fl2va",
+        "version": "2026.09.29.1",
+        "model": "MiniMax H3",
+        "backend": "prompt_plan",
+        "template": "h3"
+      },
+      "modes": [
+        "text",
+        "keyframe"
+      ],
+      "family": "minimax-h3",
+      "instruction": "沿用现有H3字段投影与按需模式指南；英文场景叙述不翻译原文台词、歌词或画面字样。",
+      "mode_guidance": "RunningHub必须依据真实Export Workflow API的节点/连线映射；不从模板猜节点ID、压低采样步数或自动提交。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    },
+    {
+      "id": "runninghub-h3-ref2va",
+      "selector": {
+        "id": "runninghub-h3-ref2va",
+        "version": "2026.09.29.1",
+        "model": "MiniMax H3",
+        "backend": "prompt_plan",
+        "template": "h3"
+      },
+      "modes": [
+        "reference"
+      ],
+      "family": "minimax-h3",
+      "instruction": "沿用现有H3字段投影与按需模式指南；英文场景叙述不翻译原文台词、歌词或画面字样。",
+      "mode_guidance": "RunningHub必须依据真实Export Workflow API的节点/连线映射；不从模板猜节点ID、压低采样步数或自动提交。",
+      "evidence": "project_adapter_policy_not_vendor_capability_extension"
+    }
+  ]
+}

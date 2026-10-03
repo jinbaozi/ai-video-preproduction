@@ -28,12 +28,12 @@ def prepare(out):
     return out
 
 
-def run_compile(ir, target, mode, base, out, output_profile='audit'):
+def run_compile(ir, target, mode, base, out, output_profile='audit', template_ids=None):
     if output_profile not in ('audit', 'lean'):
         raise ValueError('Unknown output profile')
     audit = output_profile == 'audit'
     cap=profile(target)
-    artifact, context=compile_ir(ir,cap,mode,base)
+    artifact, context=compile_ir(ir,cap,mode,base,template_ids)
     out=prepare(out)
     delivery=None
     emit(out/'avir.json',ir)
@@ -93,7 +93,7 @@ def run_compile(ir, target, mode, base, out, output_profile='audit'):
                   f"不支持时：{c['on_unsupported']}；真实验收：NOT_RUN"]
     lines += ['\n## 来源记录']+[f"- {s['id']}：{s['kind']} / {s['verification']}；{s['uri']}；{s['locator']}；{s['claim']}" for s in ir['sources']]
     if audit:(out/'production-contract.md').write_text('\n\n'.join(lines)+'\n',encoding='utf-8')
-    manifest={'output_profile':output_profile,'compiler':f'video-prompt-compiler@{VERSION}','avir_schema':ir['schema'],'target':target,'mode':mode,
+    manifest={'template_ids':template_ids,'output_profile':output_profile,'compiler':f'video-prompt-compiler@{VERSION}','avir_schema':ir['schema'],'target':target,'mode':mode,
               'adapter_version':cap['version'],'rulepack':read(ROOT/'registries/rules.json')['version'],
               'templates':read(ROOT/'templates/backends.json')['version'],'retrieval_snapshot':read(ROOT/'registries/sources.json')['version'],
               'optimizer':'rules-only','input_hash':digest(ir),'artifact_hash':digest(artifact),
@@ -121,6 +121,20 @@ def verify(package):
             failures.append(name)
     if digest(read(package/'avir.json'))!=m['input_hash'] or digest(read(package/'artifact.json'))!=m['artifact_hash']:
         failures.append('semantic_hash')
+    artifact = read(package/'artifact.json')
+    recorded_runtime = m.get('runtime_files') or {}
+    technique_runtime = isinstance(recorded_runtime, dict) and any(
+        name in recorded_runtime for name in ('scripts/prompt_techniques.py', 'registries/prompt-techniques.json'))
+    expects_techniques = ('template_ids' in m or technique_runtime
+                         or m.get('compiler') == f'video-prompt-compiler@{VERSION}')
+    if expects_techniques and 'prompt_techniques' not in artifact:
+        failures.append('prompt_techniques_required')
+    if 'prompt_techniques' in artifact:
+        from prompt_techniques import verify_compiled_report
+        verify_compiled_report(artifact['prompt_techniques'], read(package/'avir.json'),
+                               read(package/'capability-snapshot.json'), m['mode'])
+        if artifact['prompt_techniques']['explicit_template_ids'] != m.get('template_ids'):
+            failures.append('template_selection')
     if read(package/'artifact.json').get('schema')=='compiled-artifact/1.3':
         from prompt_projection import verify as verify_prompt
         import spatial_runtime as spatial
@@ -157,6 +171,9 @@ def verify(package):
 
 
 def main():
+    if len(sys.argv) > 1 and sys.argv[1] == 'techniques':
+        from prompt_techniques import main as techniques_main
+        return techniques_main(sys.argv[2:])
     if len(sys.argv) > 1 and sys.argv[1] == 'h3':
         from h3_cli import main as h3_main
         return h3_main(sys.argv[2:])
@@ -168,7 +185,7 @@ def main():
     sub=parser.add_subparsers(dest='command',required=True)
     sub.add_parser('profiles',help='列出精确目标ID与已实现边界')
     p=sub.add_parser('validate');p.add_argument('input')
-    p=sub.add_parser('compile');p.add_argument('input');p.add_argument('--target',required=True);p.add_argument('--mode',choices=['text','keyframe','reference','edit','extend'],default='text');p.add_argument('--out',required=True);p.add_argument('--output-profile',choices=['audit','lean'],default='audit')
+    p=sub.add_parser('compile');p.add_argument('input');p.add_argument('--target',required=True);p.add_argument('--mode',choices=['text','keyframe','reference','edit','extend'],default='text');p.add_argument('--out',required=True);p.add_argument('--output-profile',choices=['audit','lean'],default='audit');p.add_argument('--template',action='append',dest='template_ids')
     p=sub.add_parser('route');p.add_argument('input');p.add_argument('--mode',default='text')
     p=sub.add_parser('batch');p.add_argument('input',help='NDJSON: input,target,mode；相对路径基于批文件');p.add_argument('--out',required=True)
     for name in ('verify','explain','replay'):
@@ -185,7 +202,7 @@ def main():
             result={'status':'INVALID' if any(e['severity']=='error' for e in errors) else 'BLOCKED' if code else 'VALID','diagnostics':errors}
         elif args.command=='compile':
             path=Path(args.input).resolve()
-            result,code=run_compile(read(path),args.target,args.mode,path.parent,args.out,args.output_profile)
+            result,code=run_compile(read(path),args.target,args.mode,path.parent,args.out,args.output_profile,args.template_ids)
         elif args.command=='route':
             path=Path(args.input).resolve();ir=read(path)
             result={'selection':'USER_DECISION_OR_HOST_POLICY','quality_ranking':None,'candidates':[]}
@@ -212,7 +229,7 @@ def main():
             elif args.command=='explain':result=read(package/'artifact.json')['trace']
             else:
                 if manifest['runtime_files']!=runtime_files():raise ValueError('E_BUILD_DRIFT: 使用与manifest匹配的完整Skill构建包重放，不能混用新规则或新适配器。')
-                result,code=run_compile(read(package/'avir.json'),manifest['target'],manifest['mode'],manifest['asset_base'],args.out,manifest.get('output_profile','audit'))
+                result,code=run_compile(read(package/'avir.json'),manifest['target'],manifest['mode'],manifest['asset_base'],args.out,manifest.get('output_profile','audit'),manifest.get('template_ids'))
                 if read(Path(args.out)/'compile-manifest.json')['artifact_hash']!=manifest['artifact_hash']:
                     raise ValueError('E_REPLAY_CHANGED: 参考素材或编译结果发生变化。')
         print(json.dumps(result,ensure_ascii=False,indent=2));return code

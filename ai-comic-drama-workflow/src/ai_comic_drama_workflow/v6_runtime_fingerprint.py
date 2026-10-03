@@ -14,6 +14,7 @@ RUNTIME_CODE_FILES = (
     "jianying.py",
     "craft_router.py",
     "craft_runtime.py",
+    "prompt_methods.py",
     "adaptive_control.py",
     "adaptive_refs.py",
     "v5_adapters.py",
