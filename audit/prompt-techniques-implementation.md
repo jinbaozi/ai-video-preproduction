@@ -13,7 +13,7 @@
 
 ## 新增对抗验证
 
-23项编译器测试：完整目录来源、全profile通用语义、精确模型隔离、未知版本/后端/模板、未实现操作、RunningHub模式、自动选择歧义、冲突模板、反向语义标签、源与capability指纹、参考职责矛盾、时间轴缺口、原文及音轨保真、AVIR1.2、lean/audit等价、replay、重新封装的伪造报告拒绝、CLI入口。
+25项编译器测试：完整目录来源、全profile通用语义、精确模型隔离、未知版本/后端/模板、未实现操作、RunningHub模式、自动选择歧义、冲突模板、反向语义标签、源与capability指纹、参考职责矛盾、时间轴缺口、原文及音轨保真、AVIR1.2、lean/audit等价、replay、重新封装的伪造报告拒绝、CLI入口、畸形原生字段的结构化错误、非对象编译报告拒绝。
 
 5项工作流测试：原有采用门、改写/删除规则拒绝、跨目标方案拒绝、旧任务兼容、只传递实际采用的分镜模板。既有原生端到端测试追加检查：从创作到DELIVERED的编译manifest和artifact确实含选中模板，提交状态仍为false。测试作者文字是明确合成夹具，不冒充真实创作或视觉审核。
 
@@ -30,3 +30,5 @@ python ai-comic-drama-workflow/scripts/verify_suite.py --packages dists --out /t
 ```
 
 全量与发行测试结果以最终提交的 GitHub Actions Checks 和所附验证记录为准，不预填通过。Python本地环境无Blender时会明确跳过真实预演；远端control-render任务安装Blender后执行。真实模型生成、Google Flow服务、剪映原生导出与成片主观质量本次均为 NOT_RUN；不得把本功能静态通过解读为这些服务已经执行。
+
+补充异常输入审查发现并修复了 `output` 非对象与 `bindings` 非数组时检查器抛出原始异常的问题；现在返回结构化诊断，损坏的编译报告返回验证错误。新增反例覆盖该路径，不以测试样例正常为由忽略错误处理。

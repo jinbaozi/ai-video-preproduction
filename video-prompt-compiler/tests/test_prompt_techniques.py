@@ -131,6 +131,24 @@ class PromptTechniqueTests(unittest.TestCase):
         ir['bindings'] = [{'roles': ['identity'], 'negative_roles': ['identity']}]
         self.assertIn('E_TECHNIQUE_REFERENCE_ROLE_CONFLICT', [e['code'] for e in methods.inspect_ir(ir)])
 
+    def test_malformed_native_containers_return_structured_diagnostics(self):
+        for field, value in (('output', ['invalid']), ('output', 'invalid'), ('bindings', 7)):
+            with self.subTest(field=field, value=value):
+                ir = deepcopy(self.ir);ir[field] = value
+                self.assertTrue(methods.inspect_ir(ir))
+                with tempfile.TemporaryDirectory() as d:
+                    source = Path(d)/'invalid.json';source.write_bytes(core.encoded(ir))
+                    proc = subprocess.run([sys.executable, str(ROOT/'scripts/vpc.py'), 'techniques',
+                        'check', '--target', self.cap['id'], '--input', str(source)], capture_output=True, text=True)
+                    self.assertEqual(proc.returncode, 2)
+                    self.assertNotIn('Traceback', proc.stdout + proc.stderr)
+                    self.assertIsInstance(json.loads(proc.stdout or proc.stderr), dict)
+
+    def test_malformed_compiled_report_is_rejected_as_validation_error(self):
+        for value in (None, [], 'forged', 7):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'TECHNIQUE_PLAN_CHANGED'):
+                methods.verify_compiled_report(value, self.ir, self.cap, 'text')
+
     def test_timeline_gap_overlap_zero_duration_and_total_mismatch(self):
         for start, end, duration in ((4001, 8000, 8000), (3999, 8000, 8000), (4000, 4000, 8000), (4000, 8000, 9000)):
             ir = deepcopy(self.ir);ir['shots'][1]['start_ms'] = start;ir['shots'][1]['end_ms'] = end;ir['output']['duration_ms'] = duration

@@ -1,6 +1,6 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "bf8f5c7d31260c9c59938a31e6e4c615c07914cfe3beb207818f29b84f5784f6",
+  "archive_sha256": "16957e77ee21ee0d76ffc43e02d58fb0175e3d67e313bf030ab957b43c0acb92",
   "file_count": 150,
   "files": {
     "video-prompt-compiler/SKILL.md": {
@@ -336,8 +336,8 @@
       "sha256": "f5d8fb57d37a8665617c1931508cab73c254e646c50cf385cba4d28bcc5ea355"
     },
     "video-prompt-compiler/scripts/prompt_techniques.py": {
-      "bytes": 11496,
-      "sha256": "de13389d7a34449c9cc72fe788cd3369eaa6a11f29b10d6dbbd31941823b8b3f"
+      "bytes": 11956,
+      "sha256": "952cd4ea1b6e7bfe74200574a337fae471e7c749624e92257f9ee4467f8a0338"
     },
     "video-prompt-compiler/scripts/runninghub_h3.py": {
       "bytes": 19838,
@@ -580,8 +580,8 @@
       "sha256": "d4e7ab2d8fee8d6004b90f99da1a8c3476844a810da0b91c478ab3de109dea7a"
     },
     "video-prompt-compiler/tests/test_prompt_techniques.py": {
-      "bytes": 11194,
-      "sha256": "04fa8ff9cea4a1094a39c5f6514eb04440ca805b7b21a3f47a4a541a228094af"
+      "bytes": 12437,
+      "sha256": "f88bcde642d907328b3d9b72a78748930bd755731d59c8e3d3f3b76d7afe7dd6"
     },
     "video-prompt-compiler/tests/test_segment_delivery.py": {
       "bytes": 4989,

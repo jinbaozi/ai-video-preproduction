@@ -28,7 +28,7 @@
     },
     "video-prompt-compiler": {
       "archive": "video-prompt-compiler.skill",
-      "sha256": "bf8f5c7d31260c9c59938a31e6e4c615c07914cfe3beb207818f29b84f5784f6",
+      "sha256": "16957e77ee21ee0d76ffc43e02d58fb0175e3d67e313bf030ab957b43c0acb92",
       "version": "1.21.0"
     }
   },

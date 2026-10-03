@@ -141,7 +141,11 @@ def inspect_ir(ir):
     if not isinstance(ir, dict):
         fail('E_TECHNIQUE_INPUT', '/', 'Expected native AVIR object')
         return errors
-    for i, binding in enumerate(ir.get('bindings') or []):
+    bindings = ir.get('bindings') or []
+    if not isinstance(bindings, list):
+        fail('E_TECHNIQUE_INPUT', '/bindings', 'Expected native reference-binding list')
+        bindings = []
+    for i, binding in enumerate(bindings):
         if not isinstance(binding, dict):
             continue  # Native schema diagnoses it.
         inherit, exclude = binding.get('roles', []), binding.get('negative_roles', [])
@@ -151,7 +155,11 @@ def inspect_ir(ir):
                      '同一参考职责同时被要求继承与禁止继承；回到原责任节点澄清。')
     end = 0
     shots = ir.get('shots')
-    duration = (ir.get('output') or {}).get('duration_ms')
+    output = ir.get('output') or {}
+    if not isinstance(output, dict):
+        fail('E_TECHNIQUE_INPUT', '/output', 'Expected native output object')
+        output = {}
+    duration = output.get('duration_ms')
     if isinstance(shots, list) and shots:
         for i, shot in enumerate(shots):
             if not isinstance(shot, dict):
@@ -181,6 +189,8 @@ def enrich(artifact, ir, cap, mode, template_ids=None):
 
 
 def verify_compiled_report(report, ir, cap, mode):
+    if not isinstance(report, dict):
+        raise ValueError('E_TECHNIQUE_PLAN_CHANGED: expected compiled technique report object')
     expected = plan(cap, mode, template_ids=report.get('explicit_template_ids'))
     expected['input_sha256'] = digest(ir)
     expected['inspection'] = inspect_ir(ir)
