@@ -1,0 +1,38 @@
+name: Prompt techniques
+on:
+  push:
+    branches: [feat/prompt-techniques-20261003]
+  pull_request:
+    paths:
+      - 'video-prompt-compiler/**'
+      - 'ai-comic-drama-workflow/**'
+      - '.github/workflows/prompt-techniques.yml'
+permissions:
+  contents: read
+jobs:
+  source-snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Export tracked source for reproducible review
+        run: |
+          mkdir -p /tmp/prompt-techniques-snapshot
+          git archive --format=zip HEAD -o /tmp/prompt-techniques-snapshot/target.zip
+          git rev-parse HEAD > /tmp/prompt-techniques-snapshot/target-commit.txt
+      - uses: actions/checkout@v4
+        with:
+          repository: LearnPrompt/awesome-seedance
+          ref: 9ca56354b3af0d11db22a935a6b831d7d8582c04
+          path: upstream-reference
+          persist-credentials: false
+      - name: Export reference text without executing upstream code
+        run: |
+          git -C upstream-reference archive --format=zip HEAD -o /tmp/prompt-techniques-snapshot/reference.zip
+          sha256sum /tmp/prompt-techniques-snapshot/*.zip > /tmp/prompt-techniques-snapshot/SHA256SUMS
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prompt-techniques-source
+          path: /tmp/prompt-techniques-snapshot/
+          retention-days: 3
