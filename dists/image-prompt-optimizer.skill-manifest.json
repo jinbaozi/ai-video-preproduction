@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "ce146f4d1e7156c085cfd9613b4cca935174f331b5431684a4795e369c2aac3c",
-  "file_count": 115,
+  "archive_sha256": "f6d45c361901e4acb2d9f561f18a3c922e0b5bf62879cdcda255a5b0f2d333f6",
+  "file_count": 117,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 30614,
-      "sha256": "8f9e791c616e01ced5c7aacda45aaf78b742f957278a29eb4acd01a7fba3bab0"
+      "bytes": 1630,
+      "sha256": "9808c95ed792acc8be5fa706375aa306addb3f1c0175ca1c7aef5177e7d07203"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
@@ -99,6 +99,10 @@
       "bytes": 2877,
       "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
     },
+    "image-prompt-optimizer/references/detailed-execution.md": {
+      "bytes": 30435,
+      "sha256": "c75f41c40e5080100cfbd8ed2bc7b34a47aba58ebb8c4e0b8d621c478097d59b"
+    },
     "image-prompt-optimizer/references/gpt-image-2-4k.md": {
       "bytes": 4746,
       "sha256": "2941a4aedc46e473752e722ccbd7bf7bf7c6df1f7f43aca81d870cabb22d771b"
@@ -160,8 +164,8 @@
       "sha256": "d3cc75ad5f32039d5c104a5b16e5d64bad84096b39182e2cb03e97aa6e7d8d9f"
     },
     "image-prompt-optimizer/references/resource-index.md": {
-      "bytes": 2199,
-      "sha256": "91790ca866f9624cbca9e9285fabfcbc75db2b7b394b6958a91cd33110e102e4"
+      "bytes": 2319,
+      "sha256": "2657cfa7df4e856762144d61c50d10ee02a65c6d8c0ab573d5cb8bd879f2eb5b"
     },
     "image-prompt-optimizer/references/shot-control.md": {
       "bytes": 32544,
@@ -175,6 +179,10 @@
       "bytes": 5492,
       "sha256": "5e529bd6a73953bf8ea0fc3320d5776d757bd6e497c30491c912185a6b7b88b2"
     },
+    "image-prompt-optimizer/references/stage-core.md": {
+      "bytes": 3365,
+      "sha256": "b21557425899d363369cac774e91bdab277e07badf4ba901b487b8c9057b4c89"
+    },
     "image-prompt-optimizer/references/structural-realism.md": {
       "bytes": 7826,
       "sha256": "333a6cdf6e3060b67aad79566b71e220fde477f8e38762d8181f9559047ef836"
@@ -184,8 +192,8 @@
       "sha256": "5ee3c4a8d4021b06e75d5754c62044e5c7fc87b65030337ba2715c1c434dafe0"
     },
     "image-prompt-optimizer/references/v5-reads.json": {
-      "bytes": 533,
-      "sha256": "c8baaff7ea0af802755d39abf1551f89e66f11b1b8549444db4659ed3ee90610"
+      "bytes": 895,
+      "sha256": "0992db86d2191650d9ab843048aa035a8ec057fd5bef648060407bdb1d8dfa96"
     },
     "image-prompt-optimizer/references/visual-anchor-styles.md": {
       "bytes": 7711,
@@ -465,5 +473,5 @@
     }
   },
   "name": "image-prompt-optimizer",
-  "version": "1.16.2"
+  "version": "1.17.0"
 }

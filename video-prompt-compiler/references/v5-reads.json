@@ -1,6 +1,7 @@
 {
   "always": [
     "SKILL.md",
+    "references/detailed-execution.md",
     "references/current-contract.md",
     "references/cooperation-v5.md",
     "references/craft-routing.md"
@@ -33,5 +34,34 @@
     "h3": [
       "references/models/minimax-h3.md"
     ]
+  },
+  "core": {
+    "always": [
+      "SKILL.md",
+      "references/stage-core.md"
+    ],
+    "kinds": {
+      "control": [
+        "references/shot-control.md",
+        "references/adaptive-control.md"
+      ],
+      "compile-review": [
+        "references/verification.md"
+      ],
+      "qa": [
+        "references/verification.md"
+      ]
+    },
+    "when": {
+      "camera_motion": [
+        "references/shot-control.md"
+      ],
+      "dialogue": [
+        "references/avir-and-contract.md"
+      ],
+      "h3": [
+        "references/models/minimax-h3.md"
+      ]
+    }
   }
 }

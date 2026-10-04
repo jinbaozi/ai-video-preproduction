@@ -1,6 +1,7 @@
 {
   "always": [
     "SKILL.md",
+    "references/detailed-execution.md",
     "references/contract.md",
     "references/cooperation.md",
     "references/craft-routing.md"
@@ -14,5 +15,17 @@
     "dialogue": [
       "references/writing.md"
     ]
+  },
+  "core": {
+    "always": [
+      "SKILL.md",
+      "references/stage-core.md"
+    ],
+    "kinds": {},
+    "when": {
+      "dialogue": [
+        "references/writing.md"
+      ]
+    }
   }
 }

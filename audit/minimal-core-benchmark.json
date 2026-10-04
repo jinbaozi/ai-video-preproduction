@@ -1,0 +1,36 @@
+{
+  "scope": "Same pre-authored text-only cafe fixture, real native gates, no generation",
+  "units": "UTF-8 bytes in compact JSON + raw required read text; NOT tokens",
+  "exclusions": "Native source/IR reads and original input text are still required in both variants; excluded from context totals. No provider/LLM time included.",
+  "baseline_sha": "dc954fe1579a40c50bf0e86d7059c487c8f57b61",
+  "summary": {
+    "baseline": {
+      "seconds": 25.3674,
+      "seven_entry_bytes": 86378,
+      "host_turns": 7,
+      "native_validator_calls": 12,
+      "host_context_bytes": 359751,
+      "host_result_bytes": 89684
+    },
+    "core": {
+      "seconds": 19.3665,
+      "seven_entry_bytes": 11348,
+      "host_turns": 6,
+      "native_validator_calls": 8,
+      "host_context_bytes": 178755,
+      "host_result_bytes": 27476
+    },
+    "reduction_percent": {
+      "seconds": 23.66,
+      "seven_entry_bytes": 86.86,
+      "host_turns": 14.29,
+      "native_validator_calls": 33.33,
+      "host_context_bytes": 50.31,
+      "host_result_bytes": 69.36
+    }
+  },
+  "repetitions": 3,
+  "python": "3.13.5",
+  "command": "python ai-comic-drama-workflow/scripts/benchmark_minimal.py --baseline BASELINE/ai-comic-drama-workflow --out OUT --repeat 3",
+  "full_logs": "GitHub Actions: Minimal core execution / minimal-core-evidence. Wall-clock figures below are this local run only."
+}

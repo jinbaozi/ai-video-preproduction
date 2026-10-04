@@ -19,6 +19,7 @@ def main(argv=None):
     start_command.add_argument('--production-target',choices=['none','video'],default='none')
     start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
     start_command.add_argument('--craft-routing',choices=['auto','off'],default='auto',help='Default method routing; off only for explicit user opt-out')
+    start_command.add_argument('--context-profile',choices=['core','audit'],help='New lean defaults to minimal core context; audit retains full host reads')
     start_command.add_argument('--output-profile',choices=['compact','audit'],help='Lean defaults to compact ordered storage; audit preserves legacy evidence/layout')
     start_command.add_argument('--creative-policy',choices=['automatic','ask'],default='automatic')
     start_command.add_argument('--reference-refinement',choices=['google-flow-2k','off'])
@@ -100,7 +101,7 @@ def main(argv=None):
         if a.command=='start':
             from .lean import start
             r=start(a.project,a.inputs,profile=a.profile,project_id=a.project_id,delivery=a.delivery,
-                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile,creative_policy=a.creative_policy,reference_refinement=a.reference_refinement,flow_account=a.flow_account,editing_backend=a.editing_backend)
+                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile,creative_policy=a.creative_policy,reference_refinement=a.reference_refinement,flow_account=a.flow_account,editing_backend=a.editing_backend,context_profile=a.context_profile)
         elif a.command=='step':
             from .lean import step
             r=step(a.project,result=read_stdin_result(a.result),verbose=a.verbose)

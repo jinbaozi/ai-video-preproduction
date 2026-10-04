@@ -31,7 +31,7 @@ PYTHONPATH=src python -m ai_comic_drama_workflow graph --format mermaid
 PYTHONPATH=src python -m ai_comic_drama_workflow migrate-v6 /绝对路径/旧项目 --destination /绝对路径/迁移副本
 ```
 
-也可 `pip install .` 使用 `ai-comic-drama`。先读[轻量执行合同](references/lean.md)；用户不填 JSON，由宿主创作并提交原生结果。`step` 合并提交和取下一任务，默认只返回必要摘要。V6 的 `run` 返回待执行的 Codex 宿主动作；宿主用真实协作工具派发、登记回执和结构化消息。Python 本身没有模型调用能力。各登记命令和恢复流程见 [V6 接口](references/v6/runtime.md)。
+也可 `pip install .` 使用 `ai-comic-drama`。先读[最小阶段合同](references/stage-core.md)及需要的[宿主结果字段](references/minimal-core.md)；用户不填 JSON，由宿主创作并提交原生结果。`step` 合并提交和取下一任务，新lean默认返回核心任务视图及实际读取的阶段说明。V6 的 `run` 返回待执行的 Codex 宿主动作；宿主用真实协作工具派发、登记回执和结构化消息。Python 本身没有模型调用能力。各登记命令和恢复流程见 [V6 接口](references/v6/runtime.md)。
 
 `graph` 从 `workflow-v6.json` 直接生成 Mermaid，阶段字段与内核调度使用同一份定义。
 

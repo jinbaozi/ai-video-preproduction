@@ -12,6 +12,7 @@
 - [分镜师：独立与协作契约](cooperation-v5.md)
 - [默认专业方法路由 / craft-routing/1.0](craft-routing.md)
 - [当前执行合同](current-contract.md)
+- [完整执行参考（按需）](detailed-execution.md)
 - [StoryboardIR 1.0 字段与时间约定](ir-guide.md)
 - [所有权与当前工作区集成](ownership-and-integration.md)
 - [表演、微表情与动作链](performance-action.md)
@@ -20,6 +21,7 @@
 - [调研方案、来源与本次取舍](research.md)
 - [镜头与画格语言](shot-language.md)
 - [三维空间、人物对应与构图](spatial-composition.md)
+- [分镜最小阶段：核心合同](stage-core.md)
 - [验证记录 · v1.0.0](verification.md)
 - [分镜工作流](workflow.md)
 

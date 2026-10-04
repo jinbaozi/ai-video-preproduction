@@ -2,7 +2,7 @@
 from pathlib import Path
 from .v5 import V5Kernel
 from .v5_modules import read
-from . import workspace
+from . import workspace, minimal
 
 
 def compact(result: dict) -> dict:
@@ -18,6 +18,11 @@ def compact(result: dict) -> dict:
                     ('task_id', 'kind', 'stage', 'scope', 'expected_result') if key in task}
     if workspace.enabled(task.get('project') or {}):
         view['required_read_count'] = len(view.pop('required_reads', []))
+    if minimal.enabled(task.get('project') or {}):
+        view.pop('required_reads',None)
+        view['context']=minimal.packet(task)
+        view['instruction']='Read context and its embedded readings; native inputs remain at their exact paths. task_file is the full audit envelope, not a second required read. Submit core-result/1.0 or a complete native result.'
+        return view
     view['instruction'] = ('Read task_file and its required_reads. Author only this native result; '
                            'then use step --result. Hash-identical instructions may be reused '
                            'in the same context; changed hashes must be read again.')
@@ -25,7 +30,7 @@ def compact(result: dict) -> dict:
 
 
 def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='full',
-          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing='auto', output_profile=None, creative_policy='automatic', reference_refinement=None, flow_account=None, editing_backend='jianying-headless'):
+          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing='auto', output_profile=None, creative_policy='automatic', reference_refinement=None, flow_account=None, editing_backend='jianying-headless', context_profile=None):
     if profile not in ('lean', 'audited'):
         raise ValueError('Unknown workflow profile')
     if craft_routing not in ('auto', 'off'):
@@ -33,6 +38,9 @@ def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='fu
     output_profile = output_profile or ('compact' if profile=='lean' else 'audit')
     if output_profile not in ('compact','audit'):raise ValueError('Unknown output profile')
     if profile=='audited' and output_profile=='compact':raise ValueError('Audited projects require audit evidence; choose --output-profile audit')
+    context_profile=context_profile or ('core' if profile=='lean' else 'audit')
+    if context_profile not in ('core','audit') or (profile=='audited' and context_profile!='audit'):
+        raise ValueError('Audited execution retains full context; choose --context-profile audit')
     reference_refinement=reference_refinement or ('google-flow-2k' if delivery=='full' else 'off')
     if reference_refinement not in ('google-flow-2k','off'):raise ValueError('Unknown reference refinement')
     if delivery=='text-only' and reference_refinement!='off':raise ValueError('Text-only delivery cannot require Flow media')
@@ -46,7 +54,7 @@ def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='fu
         from .v6_runtime import V6Runtime
         kernel = V6Runtime.initialize(project, inputs, **options)
     else:
-        kernel = V5Kernel.initialize(project, inputs, workflow_profile='lean', output_policy=workspace.POLICY if output_profile=='compact' else None, **options)
+        kernel = V5Kernel.initialize(project, inputs, workflow_profile='lean', context_policy=minimal.POLICY if context_profile=='core' else None, output_policy=workspace.POLICY if output_profile=='compact' else None, **options)
     result = kernel.run()
     result['workflow_profile'] = profile
     result['review_policy'] = ('independent-per-stage' if profile == 'audited'
@@ -64,10 +72,17 @@ def step(project, *, result=None, verbose=False):
         kernel = V6Runtime(project)
     else:
         kernel = V5Kernel(project)
-    receipt = kernel.submit(result) if result is not None else None
+    if isinstance(result,(str,Path)) and Path(result).is_file():
+        result=read(Path(result))
+    batched = (not is_v6 and isinstance(result,dict) and result.get('schema')==minimal.RESULT and 'delivery_audit' in result)
+    if batched:
+        receipt, value = minimal.submit_final(kernel,result)
+    else:
+        receipt = kernel.submit(result) if result is not None else None
     if receipt is not None and receipt.get('status') not in ('ACCEPTED', 'ALREADY_ACCEPTED'):
         return receipt
-    value = kernel.run()
+    if not batched:
+        value = kernel.run()
     if receipt is not None:
         value['receipt'] = receipt
     if value.get('status') == 'DELIVERED':

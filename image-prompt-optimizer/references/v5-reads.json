@@ -1,6 +1,7 @@
 {
   "always": [
     "SKILL.md",
+    "references/detailed-execution.md",
     "references/current-contract.md",
     "references/cooperation-v5.md",
     "references/craft-routing.md"
@@ -22,5 +23,21 @@
     "multi_subject": [
       "references/structural-realism.md"
     ]
+  },
+  "core": {
+    "always": [
+      "SKILL.md",
+      "references/stage-core.md"
+    ],
+    "kinds": {},
+    "when": {
+      "identity": [
+        "references/character-appearance.md",
+        "templates/production-contract.md"
+      ],
+      "multi_subject": [
+        "references/structural-realism.md"
+      ]
+    }
   }
 }

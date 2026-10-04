@@ -89,6 +89,9 @@
         }
       },
       "additionalProperties": false
+    },
+    "context_policy": {
+      "const": "minimal-core/1.0"
     }
   },
   "additionalProperties": true

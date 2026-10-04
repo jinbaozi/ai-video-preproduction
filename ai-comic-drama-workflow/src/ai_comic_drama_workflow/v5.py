@@ -91,7 +91,7 @@ class V5Kernel:
             raise ValueError('Legacy project is read-only. Use copy-project into a new V5 directory.')
         if (self.root/'state.json').exists():
             current=read(self.root/'project.json')
-            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'),obj.get('creative_policy'),obj.get('flow_refinement'),obj.get('editing_backend'),obj.get('production_policy'))
+            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'),obj.get('creative_policy'),obj.get('flow_refinement'),obj.get('editing_backend'),obj.get('production_policy'),obj.get('context_policy'))
             if choice(current)!=choice(self.state) or choice(current)!=choice(self.project):
                 raise ValueError('Frozen control policy differs from project/state; no silent downgrade')
 
@@ -131,7 +131,7 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None,context_policy=None):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
@@ -149,6 +149,8 @@ class V5Kernel:
             validate_configuration(flow_refinement)
         if editing_backend not in (None,'jianying-headless','ffmpeg'):raise ValueError('Unknown editing backend')
         if production_policy not in (None,'verified-production/1.0'):raise ValueError('Unknown production policy')
+        if context_policy not in (None,'minimal-core/1.0') or (context_policy and workflow_profile!='lean'):
+            raise ValueError('Minimal context requires a new lean project')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -158,6 +160,7 @@ class V5Kernel:
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
         for key,value in {'creative_policy':creative_policy,'flow_refinement':flow_refinement,'editing_backend':editing_backend,'production_policy':production_policy}.items():
             if value is not None:kernel.project[key]=deepcopy(value)
+        if context_policy:kernel.project['context_policy']=context_policy
         if output_policy:kernel.project['output_policy']=output_policy
         if craft_policy:kernel.project['craft_policy']=craft_policy
         if workflow_profile:kernel.project['workflow_profile']=workflow_profile
@@ -179,6 +182,7 @@ class V5Kernel:
                'sources':[],'build':None}
         for key in ('creative_policy','flow_refinement','editing_backend','production_policy'):
             if key in kernel.project:state[key]=deepcopy(kernel.project[key])
+        if context_policy:state['context_policy']=context_policy
         if output_policy:state['output_policy']=output_policy
         if craft_policy:state['craft_policy']=craft_policy
         if control_policy:state.update(control_policy=control_policy,control_minimum=control_minimum)
@@ -342,6 +346,8 @@ class V5Kernel:
         if not manifest_path.is_file():
             raise ValueError('Locked module does not declare required reads: '+module)
         manifest=read(manifest_path)
+        if self.project.get('context_policy')=='minimal-core/1.0' and 'core' in manifest:
+            manifest=manifest['core']
         relative=[]
         def add(items):
             for item in items or []:
@@ -739,14 +745,15 @@ class V5Kernel:
         return captured.relative_to(self.root).as_posix(),copies
 
     def check_content(self,kind,value,path):
+        report=None
         if value.get('project_id')!=self.project['project_id']:
             raise ValueError('Native project_id differs; use the same project ID or an explicit source-preserving migration')
         if kind in ('director','art','storyboard','avir'):
-            native_validate(kind,path,self.modules)
+            report=native_validate(kind,path,self.modules)
         elif kind=='screenplay' and self.screenplay_protocol():
             if value.get('schema')!='script-ir/1.0':
                 raise ValueError('Legacy screenplay needs source-preserving structuring into ScriptIR; not automatically accepted')
-            native_validate(kind,path,self.modules)
+            report=native_validate(kind,path,self.modules)
             available={s['id']:s for s in self.state['sources']}; hashes={s['sha256'] for s in self.state['sources']}
             original_sources=[s for s in value['sources'] if s['kind'] in ('user','original')]
             if not original_sources:raise ValueError('Screenplay requires a registered original source')
@@ -797,13 +804,17 @@ class V5Kernel:
             for lock in canon.get('locks',[]):
                 if lock['kind']==kind and not assert_check(value,lock['check']):raise ValueError('Canon hard lock fails: '+lock['check']['path'])
 
+        return report
+
     @mutate
     def import_artifact(self,kind,path,*,slot=None,scope=None,dependencies=None,complete=True,locks=None,handoff=None,trusted=False):
         if kind not in STAGE_BY_KIND:raise ValueError('Unknown native artifact kind')
         source=Path(path).expanduser().resolve();value=read(source);original_sha=digest_file(source)
         slot=slot or ('art:'+value['set']['scene_id'] if kind=='art' else kind)
         scope=scope or ({'scene_ids':[value['set']['scene_id']]} if kind=='art' else {})
-        self.check_content(kind,value,source)
+        original_report=self.check_content(kind,value,source)
+        if getattr(self,'_capture_native_report',False):
+            self._fresh_native_report=(kind,str(source),original_sha,original_report)
         state=self.state
         old=state['artifacts'].get(slot)
         for lock in (old or {}).get('locks',[]):
@@ -984,12 +995,21 @@ class V5Kernel:
             if isinstance(data,dict) and data.get('status')=='BLOCKED':found.append(data.get('id') or path.stem)
         return found
 
-    def check_validator(self,kind,artifact,result):
+    def check_validator(self,kind,artifact,result,*,runtime=False):
         declared=result.get('validator')
-        if not isinstance(declared,dict) or not declared.get('status'):
+        if not runtime and (not isinstance(declared,dict) or not declared.get('status')):
             raise ValueError('Creative tasks require the module validator summary')
-        report=native_validate(kind,artifact,self.modules)
-        if declared.get('status')!=report.get('status'):
+        bound=getattr(self,'_fresh_native_report',None)
+        if (self.project.get('context_policy')=='minimal-core/1.0' and bound and bound[3]
+                and getattr(self,'_capture_native_report',False) and getattr(self,'_submit_origin',None)=='submit'):
+            if bound[:3]!=(kind,str(Path(artifact).resolve()),digest_file(Path(artifact))):
+                raise ValueError('Native input changed during submission')
+            report=bound[3]
+        else:
+            report=native_validate(kind,artifact,self.modules)
+        if runtime:
+            result['validator']={'status':report['status'],'origin':'runtime-native-validator'}
+        elif declared.get('status')!=report.get('status'):
             raise ValueError('Validator summary does not match a fresh run')
 
     def check_verbatim(self,task,result):
@@ -1131,6 +1151,18 @@ class V5Kernel:
     @mutate
     def submit(self,result):
         result=read(Path(result)) if not isinstance(result,dict) else result
+        from . import minimal
+        core_input=isinstance(result,dict) and result.get('schema')==minimal.RESULT
+        if core_input:
+            if not minimal.enabled(self.project):
+                raise ValueError('Core result requires a minimal-core project')
+            completed=self.state['completed_tasks'].get(result.get('task_id'))
+            if completed:
+                saved=read(self.path('runtime/results/'+result['task_id']+'.json'))
+                if digest(saved)!=completed or (saved.get('core_audit') or {}).get('host_input_sha256')!=digest(result):
+                    raise ValueError('Conflicting duplicate core result')
+                return {'status':'ALREADY_ACCEPTED','task_id':result['task_id']}
+            _,result=minimal.normalize(self,result)
         validate_protocol('role-result',result,self.skill_root)
         state=self.state;task_id=result['task_id']
         if task_id in state['completed_tasks']:
@@ -1187,14 +1219,18 @@ class V5Kernel:
                 allowed=task.get('scope',{}).get('shot_ids')
                 if allowed and not set(changed)<=set(allowed):raise ValueError('Changes exceed the scoped shot revision')
             self._submit_audit=audit
+            self._capture_native_report=minimal.enabled(self.project)
+            self._fresh_native_report=None
             try:
                 self.import_artifact(kind,path,slot=task['slot'],scope=task['scope'],dependencies=task['dependencies'],
                     complete=result.get('complete',True),locks=result.get('locks'),handoff=result.get('handoff'))
                 module_name=self.stage_module(kind)
                 locked=read(self.root/'modules.lock.json')['modules']
                 if self.current_release() and kind in NATIVE_KINDS and module_name in locked:
-                    self.check_validator(kind,path,result)
+                    self.check_validator(kind,path,result,runtime=core_input)
             finally:
+                self._capture_native_report=False
+                self._fresh_native_report=None
                 self._submit_origin=None
                 self._submit_audit=None
             state=self.state
