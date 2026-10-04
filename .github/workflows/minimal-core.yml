@@ -1,0 +1,65 @@
+name: Minimal core execution
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: minimal-core-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+jobs:
+  core-contract-and-cost:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install local validation dependencies
+        run: |
+          python -m pip install -e ./ai-comic-drama-workflow
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+      - name: Verify reference closure and deterministic distributions
+        run: |
+          mkdir -p /tmp/minimal-validation
+          python ai-comic-drama-workflow/scripts/sync_shared.py --check
+          python video-prompt-compiler/scripts/reference_audit.py --suite . > /tmp/minimal-validation/references.json
+          python video-prompt-compiler/scripts/vpc.py knowledge audit > /tmp/minimal-validation/knowledge.json
+          python ai-comic-drama-workflow/scripts/package_suite.py --out dists
+          git diff --exit-code -- dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+      - name: Test core, standalone routing, unchanged gates and rollback
+        env:
+          PYTHONPATH: ai-comic-drama-workflow/src:ai-comic-drama-workflow
+        run: |
+          set -o pipefail
+          python -m unittest tests.test_minimal_core -v 2>&1 | tee /tmp/minimal-validation/core.log
+      - uses: actions/checkout@v4
+        with:
+          repository: jinbaozi/ai-video-preproduction
+          ref: dc954fe1579a40c50bf0e86d7059c487c8f57b61
+          path: baseline-reference
+          persist-credentials: false
+      - name: Measure same authored fixture in fresh processes
+        run: |
+          python ai-comic-drama-workflow/scripts/benchmark_minimal.py --baseline baseline-reference/ai-comic-drama-workflow --out /tmp/minimal-validation/comparison --repeat 3
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path('/tmp/minimal-validation/comparison/report.json').read_text())
+          before, after = (report['summary'][key] for key in ('baseline', 'core'))
+          for field in ('seven_entry_bytes', 'host_context_bytes', 'host_result_bytes', 'host_turns', 'native_validator_calls'):
+              assert after[field] < before[field], field
+          # No wall-clock threshold: shared CI hosts are noisy; this is NOT a model-token test.
+          assert all(row['real_generation'] == 'NOT_RUN' for row in report['runs'])
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: minimal-core-evidence
+          path: /tmp/minimal-validation
+          retention-days: 14
