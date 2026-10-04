@@ -1,11 +1,11 @@
 {
   "archive": "production-design-grammar.skill",
-  "archive_sha256": "bb9178c491952ceb148bb9a69db4ed81310cda576b0e0d789996961cf425095e",
+  "archive_sha256": "e3f58d839e4824614e6678674237c3633c462cc70e03fc7a80e849c747f18019",
   "file_count": 42,
   "files": {
     "production-design-grammar/SKILL.md": {
-      "bytes": 1466,
-      "sha256": "5eb1d63a90ddbaa91c9d5b6e283c374106c029a24d3d2cc94805f46747f14dd5"
+      "bytes": 1509,
+      "sha256": "df5b39ceee09c51bf8598dc6780f25e4094e8662b2899aef42192872354ebb85"
     },
     "production-design-grammar/agents/openai.yaml": {
       "bytes": 426,

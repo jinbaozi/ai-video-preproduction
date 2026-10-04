@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "919f870318aaf19724af6e88d145a605d8baaa60f76c47d367924f7f2d202f18",
+  "archive_sha256": "0857dbecdee1a56da427a3475337c7cbf247fad59ec841955ade6a258d896daa",
   "file_count": 162,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 1622,
-      "sha256": "220631973e7ce1113d52a4096f34bfa50602dcc207588fc244678c88fcf7caf1"
+      "bytes": 1665,
+      "sha256": "3920e9724e717e92f1695fd5b83dfd8ee076faccc34791b001757d9dc8bd43e8"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,

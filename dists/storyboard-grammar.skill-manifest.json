@@ -1,11 +1,11 @@
 {
   "archive": "storyboard-grammar.skill",
-  "archive_sha256": "87a0f87154d3a68525089d0df7960a86ea3a167a67667fa6f1b2458e55ec8e35",
+  "archive_sha256": "e847b997fc9e90acfc6d00e5d2e8f5d32949feebbfbed9ffc827ca689cc6c41c",
   "file_count": 64,
   "files": {
     "storyboard-grammar/SKILL.md": {
-      "bytes": 1542,
-      "sha256": "b723b40da25448190f8eafade9e2f7a54436fa0b50f67bd79c833adeeb9d27de"
+      "bytes": 1585,
+      "sha256": "82e2c7e3e3f82f65be0079eb1aa9765bfb4bc9a8b2483ac1a10f346e26bd3030"
     },
     "storyboard-grammar/agents/openai.yaml": {
       "bytes": 390,

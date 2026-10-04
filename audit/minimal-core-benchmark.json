@@ -5,7 +5,7 @@
   "baseline_sha": "dc954fe1579a40c50bf0e86d7059c487c8f57b61",
   "summary": {
     "baseline": {
-      "seconds": 24.2851,
+      "seconds": 25.3674,
       "seven_entry_bytes": 86378,
       "host_turns": 7,
       "native_validator_calls": 12,
@@ -13,19 +13,19 @@
       "host_result_bytes": 89684
     },
     "core": {
-      "seconds": 17.947,
-      "seven_entry_bytes": 10843,
+      "seconds": 19.3665,
+      "seven_entry_bytes": 11348,
       "host_turns": 6,
       "native_validator_calls": 8,
-      "host_context_bytes": 178540,
+      "host_context_bytes": 178755,
       "host_result_bytes": 27476
     },
     "reduction_percent": {
-      "seconds": 26.1,
-      "seven_entry_bytes": 87.45,
+      "seconds": 23.66,
+      "seven_entry_bytes": 86.86,
       "host_turns": 14.29,
       "native_validator_calls": 33.33,
-      "host_context_bytes": 50.37,
+      "host_context_bytes": 50.31,
       "host_result_bytes": 69.36
     }
   },

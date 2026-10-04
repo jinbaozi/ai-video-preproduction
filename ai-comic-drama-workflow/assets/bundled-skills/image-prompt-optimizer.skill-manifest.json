@@ -1,11 +1,11 @@
 {
   "archive": "image-prompt-optimizer.skill",
-  "archive_sha256": "772ee73f33e638e9834c6c62956fea70fd26985715199b54b5d91cd2afb49707",
+  "archive_sha256": "f6d45c361901e4acb2d9f561f18a3c922e0b5bf62879cdcda255a5b0f2d333f6",
   "file_count": 117,
   "files": {
     "image-prompt-optimizer/SKILL.md": {
-      "bytes": 1587,
-      "sha256": "a7605895f00ce7301aa146680413c4e6ab96341dd20a6db67fa5d150112ba879"
+      "bytes": 1630,
+      "sha256": "9808c95ed792acc8be5fa706375aa306addb3f1c0175ca1c7aef5177e7d07203"
     },
     "image-prompt-optimizer/agents/openai.yaml": {
       "bytes": 555,
