@@ -1,11 +1,11 @@
 {
   "archive": "screenplay-grammar.skill",
-  "archive_sha256": "15f6afa22357a1469c7a50ff422279d35e0f89edfc3003b43c1810c6076665d2",
-  "file_count": 59,
+  "archive_sha256": "d98a74f88e3865e1641744057a07887fd03581a469694b5141b5152ff5a5bfb0",
+  "file_count": 61,
   "files": {
     "screenplay-grammar/SKILL.md": {
-      "bytes": 7363,
-      "sha256": "4b11380596279b3fc07209c741c0869adad07f8168d0d98eed91bcc9c78f25a9"
+      "bytes": 1459,
+      "sha256": "4cfd7ef40489ae0369953fbf8b991fddc86672f6ff5073674ed4a4ea3980153b"
     },
     "screenplay-grammar/agents/openai.yaml": {
       "bytes": 392,
@@ -67,6 +67,10 @@
       "bytes": 7137,
       "sha256": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7"
     },
+    "screenplay-grammar/references/detailed-execution.md": {
+      "bytes": 7010,
+      "sha256": "19fb20162769ca9a6c8385fc3095538b32c64d141f45d8435e0e9e116479f491"
+    },
     "screenplay-grammar/references/long-form.md": {
       "bytes": 1246,
       "sha256": "140fb6d71655173e7e1c164af0edc54cbb1f009a4a80179c5bdc8ab9a69e5c91"
@@ -76,8 +80,8 @@
       "sha256": "0592e2e198b58fcadebd7028046e4d5dc55c231299e8892baf1ddd6e23a71aeb"
     },
     "screenplay-grammar/references/resource-index.md": {
-      "bytes": 1755,
-      "sha256": "bf568197b5ea42581fae2b933a6fbbfe97bb5ede51af27121ab05a8869f48da0"
+      "bytes": 1866,
+      "sha256": "bfd03203e25b65652200ffddc351d8c274e653bf8dfa64d64a309e5feca16700"
     },
     "screenplay-grammar/references/revision.md": {
       "bytes": 981,
@@ -90,6 +94,10 @@
     "screenplay-grammar/references/sources.md": {
       "bytes": 1186,
       "sha256": "5ccbddeeed877e3ca483f828ce2bcb642551956855435e14357791190a1b0d98"
+    },
+    "screenplay-grammar/references/stage-core.md": {
+      "bytes": 3199,
+      "sha256": "bd69e1ae4bb5e109910b2b8828c60cdf398c883677433f774269c7f390a2964b"
     },
     "screenplay-grammar/references/techniques/adaptation_ledger.md": {
       "bytes": 422,
@@ -172,8 +180,8 @@
       "sha256": "45bbc4b736d647bce06551b6c391eb9785634c8d34cf8631ccb4a67573561f29"
     },
     "screenplay-grammar/references/v5-reads.json": {
-      "bytes": 280,
-      "sha256": "da873366d6d62c63a6e80a971e8ec533d1c5dea81dbf139a135919c7074ba94f"
+      "bytes": 508,
+      "sha256": "73038067de4498efc4a83b415d9727889cdf77750d57535a970b91479b0c8f0b"
     },
     "screenplay-grammar/references/verification.md": {
       "bytes": 593,
@@ -220,8 +228,8 @@
       "sha256": "849d192b7807643c74fc7593b8c406aa1192b51c75ed4e3bd2207de64889589e"
     },
     "screenplay-grammar/scripts/craft_router.py": {
-      "bytes": 22620,
-      "sha256": "0c278a0eb86cffe96a50235e1bbf3cf0e5fd94962efab4843317118b04490cb8"
+      "bytes": 27525,
+      "sha256": "9a941512627dafa1d1c30c0352113e9f407764b2e01483f6b4d591e50a614221"
     },
     "screenplay-grammar/scripts/package_skill.py": {
       "bytes": 4659,
@@ -241,5 +249,5 @@
     }
   },
   "name": "screenplay-grammar",
-  "version": "1.0.4"
+  "version": "1.1.0"
 }

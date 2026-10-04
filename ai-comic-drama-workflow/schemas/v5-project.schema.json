@@ -108,6 +108,9 @@
         }
       },
       "additionalProperties": false
+    },
+    "context_policy": {
+      "const": "minimal-core/1.0"
     }
   },
   "allOf": [
@@ -177,6 +180,26 @@
           "required": [
             "orchestration_protocol"
           ]
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "context_policy"
+        ]
+      },
+      "then": {
+        "required": [
+          "workflow_profile"
+        ],
+        "properties": {
+          "workflow_profile": {
+            "const": "lean"
+          },
+          "execution_mode": {
+            "const": "current-agent"
+          }
         }
       }
     }

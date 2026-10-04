@@ -16,6 +16,7 @@
 - [视频提示词编译器：独立与协作契约](cooperation-v5.md)
 - [默认专业方法路由 / craft-routing/1.0](craft-routing.md)
 - [当前执行合同](current-contract.md)
+- [完整执行参考（按需）](detailed-execution.md)
 - [执行路径与验收](evaluation-and-runtime.md)
 - [H3 基础模式：T2VA / I2VA / FL2VA / L2VA](h3-runninghub/base.md)
 - [官方 H3 Context-IR：显式选择，不冒充](h3-runninghub/context-ir.md)
@@ -36,6 +37,7 @@
 - [视频提示词编译器（SKILL）深度研究与可执行方案](research/deep-research-report.md)
 - [调研来源与实现映射](research-and-scope.md)
 - [镜头控制资产 0.2](shot-control.md)
+- [视频编译最小阶段：核心合同](stage-core.md)
 - [验证记录](verification.md)
 
 ## 历史与兼容资料

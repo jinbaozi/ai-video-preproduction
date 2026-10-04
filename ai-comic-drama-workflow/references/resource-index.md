@@ -9,10 +9,13 @@
 - [顺序目录与最少持久上下文](compact-workspace.md)
 - [默认专业方法路由 / craft-routing/1.0](craft-routing.md)
 - [当前执行合同](current-contract.md)
+- [完整执行参考（按需）](detailed-execution.md)
 - [Google Flow 2K 参考素材门](flow-2k-reference.md)
 - [Flow 参考图与真实剪辑](flow-and-editing.md)
 - [Jianying Headless 后期接入合同](jianying-postproduction.md)
 - [Lean 执行合同](lean.md)
+- [最小阶段执行 / minimal-core/1.0](minimal-core.md)
+- [最小创意到视频流水线：核心合同](stage-core.md)
 
 ## 历史与兼容资料
 

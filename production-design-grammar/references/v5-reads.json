@@ -1,6 +1,7 @@
 {
   "always": [
     "SKILL.md",
+    "references/detailed-execution.md",
     "references/current-contract.md",
     "references/cooperation-v5.md",
     "references/world-and-assets.md",
@@ -16,5 +17,20 @@
     "multi_subject": [
       "references/world-and-assets.md"
     ]
+  },
+  "core": {
+    "always": [
+      "SKILL.md",
+      "references/stage-core.md"
+    ],
+    "kinds": {},
+    "when": {
+      "identity": [
+        "references/world-and-assets.md"
+      ],
+      "multi_subject": [
+        "references/world-and-assets.md"
+      ]
+    }
   }
 }

@@ -1,11 +1,11 @@
 {
   "archive": "production-design-grammar.skill",
-  "archive_sha256": "d12c4ad398c5e712d74c2e66db15ceb4d04af81e1e7e3b2c44759d5d20e7f53e",
-  "file_count": 40,
+  "archive_sha256": "bb9178c491952ceb148bb9a69db4ed81310cda576b0e0d789996961cf425095e",
+  "file_count": 42,
   "files": {
     "production-design-grammar/SKILL.md": {
-      "bytes": 8414,
-      "sha256": "c55b2b8283d25be9d6090a95da2a67628b25c2e977001d11b99784da53185c57"
+      "bytes": 1466,
+      "sha256": "5eb1d63a90ddbaa91c9d5b6e283c374106c029a24d3d2cc94805f46747f14dd5"
     },
     "production-design-grammar/agents/openai.yaml": {
       "bytes": 426,
@@ -51,6 +51,10 @@
       "bytes": 2877,
       "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
     },
+    "production-design-grammar/references/detailed-execution.md": {
+      "bytes": 7951,
+      "sha256": "6b093e90ce1b69894fb23b6b3f89c1e98cade58b5b61a7fe2548faeb07ab415d"
+    },
     "production-design-grammar/references/history/detail-contract-v51.md": {
       "bytes": 8138,
       "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
@@ -72,8 +76,8 @@
       "sha256": "c3c9014649fcdb9d6b0a714241fc1c80494e7aa4baffe157c48d9709fc34323d"
     },
     "production-design-grammar/references/resource-index.md": {
-      "bytes": 1144,
-      "sha256": "381304d29273468fc548c615af7e0bdd2bc46c808b511312631d37e902ab0a18"
+      "bytes": 1255,
+      "sha256": "a15e6c5cafdba4bda3ba282dc55f09caab958ed5e0a55441d54aefbe003391e0"
     },
     "production-design-grammar/references/sources.md": {
       "bytes": 2446,
@@ -83,13 +87,17 @@
       "bytes": 3513,
       "sha256": "bf5c51f24e704cfe1ccdb5b289c1810d404653907acd2608eb32bc3e9121f793"
     },
+    "production-design-grammar/references/stage-core.md": {
+      "bytes": 3220,
+      "sha256": "8c062cd887a454f4d6ca3f0aec0b9b9e6cbe40fcfb7838b5a1d19f916be9f590"
+    },
     "production-design-grammar/references/style-routing.md": {
       "bytes": 1540,
       "sha256": "4f71171f7fd5a49300b549532c224548caa3f5c68f5e1bb73cd00f1ea0c7e377"
     },
     "production-design-grammar/references/v5-reads.json": {
-      "bytes": 365,
-      "sha256": "9a1a765465008666f1c2dfa3b594fd834fffbe5137c124bfb3b8f667e9c64288"
+      "bytes": 677,
+      "sha256": "70ff87e93d6115c9d3bb8b7554622ab9c48e2ce25da61aec5530b9446abd9bf1"
     },
     "production-design-grammar/references/verification.md": {
       "bytes": 2971,
@@ -144,8 +152,8 @@
       "sha256": "5be3a4e816259f041b505d56ede5b2bde788091a028def72ebf110d81f5f3071"
     },
     "production-design-grammar/scripts/craft_router.py": {
-      "bytes": 22620,
-      "sha256": "0c278a0eb86cffe96a50235e1bbf3cf0e5fd94962efab4843317118b04490cb8"
+      "bytes": 27525,
+      "sha256": "9a941512627dafa1d1c30c0352113e9f407764b2e01483f6b4d591e50a614221"
     },
     "production-design-grammar/scripts/package_skill.py": {
       "bytes": 4659,
@@ -165,5 +173,5 @@
     }
   },
   "name": "production-design-grammar",
-  "version": "1.3.5"
+  "version": "1.4.0"
 }

@@ -1,11 +1,11 @@
 {
   "archive": "director-grammar.skill",
-  "archive_sha256": "d096a674b46c6f89c06de41778b94e45908f111c6f24c0f71f8adec9056f329f",
-  "file_count": 67,
+  "archive_sha256": "e4a321e11b0bacb401509f986c1c6c94aed80cc3fba390f3b77b29b2b448fb07",
+  "file_count": 69,
   "files": {
     "director-grammar/SKILL.md": {
-      "bytes": 9573,
-      "sha256": "a86e6a3a088cb1b332a535af2dc3dac7cc4d959ee15636ee4c3d7013444fb99b"
+      "bytes": 1476,
+      "sha256": "031081b6e8ec2f17f39f7dee34a81d5a593f410dbe2ec9510a8fa26893173061"
     },
     "director-grammar/agents/openai.yaml": {
       "bytes": 370,
@@ -75,6 +75,10 @@
       "bytes": 2877,
       "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
     },
+    "director-grammar/references/detailed-execution.md": {
+      "bytes": 9174,
+      "sha256": "86424c824d6c51e6fd8b3ecf5d1d5e8bcfad9048c82874345f08de8e7c290a54"
+    },
     "director-grammar/references/history/detail-contract-v51.md": {
       "bytes": 8138,
       "sha256": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82"
@@ -108,8 +112,8 @@
       "sha256": "f22ffd50cf56354330c2aa9f5f3d507003121b1db5bb1c6191932bbb7c7e0e6a"
     },
     "director-grammar/references/resource-index.md": {
-      "bytes": 1236,
-      "sha256": "2caf07006f7a36b08c68fa873a7de8612dd9bea709744a398263ecb4b6c27c71"
+      "bytes": 1347,
+      "sha256": "f3c68403922ca4ef341eced232c5f7b8ba5ad4df659c621e6bf41b54e134f546"
     },
     "director-grammar/references/screenplay-handoff.md": {
       "bytes": 1747,
@@ -123,13 +127,17 @@
       "bytes": 3466,
       "sha256": "24427cc131e31c4375b81b0f46a49b413485a9056a4dadd563ee10eafa61d94c"
     },
+    "director-grammar/references/stage-core.md": {
+      "bytes": 3219,
+      "sha256": "b73fbe237c9a51f9864e6766e0e0580ca7a57922f1bb8d6e005724385b4a1ef4"
+    },
     "director-grammar/references/style-and-camera.md": {
       "bytes": 3066,
       "sha256": "12ae76f518c39a71aab5940e19548fc6239dcbba0c642f51fc46a979924b6485"
     },
     "director-grammar/references/v5-reads.json": {
-      "bytes": 448,
-      "sha256": "562847617ea5edd5699d391a72eed7590d7f663af9b93f24cbbc6276ad7aa8f2"
+      "bytes": 912,
+      "sha256": "3bc1d703cf895a209eee1461c535d548c9cf3bcfabe93c304e0e47f3e71bdba3"
     },
     "director-grammar/references/verification.md": {
       "bytes": 3357,
@@ -208,8 +216,8 @@
       "sha256": "849d192b7807643c74fc7593b8c406aa1192b51c75ed4e3bd2207de64889589e"
     },
     "director-grammar/scripts/craft_router.py": {
-      "bytes": 22620,
-      "sha256": "0c278a0eb86cffe96a50235e1bbf3cf0e5fd94962efab4843317118b04490cb8"
+      "bytes": 27525,
+      "sha256": "9a941512627dafa1d1c30c0352113e9f407764b2e01483f6b4d591e50a614221"
     },
     "director-grammar/scripts/detail_runtime.py": {
       "bytes": 34347,
@@ -273,5 +281,5 @@
     }
   },
   "name": "director-grammar",
-  "version": "1.4.7"
+  "version": "1.5.0"
 }

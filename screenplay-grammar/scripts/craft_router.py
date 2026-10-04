@@ -311,6 +311,71 @@ def route(root, role, query, analysis=None, *, scope=None, inherited=None):
     return plan
 
 
+def expand_applications(review):
+    """Expand explicitly enumerated equal evidence, without guessing applicability."""
+    if not isinstance(review, dict):
+        raise ValueError('Craft review must be an object')
+    if 'groups' not in review:
+        return review.get('applications')
+    if 'applications' in review or not isinstance(review['groups'], list):
+        raise ValueError('Use applications or groups, not both')
+    rows = []
+    for group in review['groups']:
+        if not isinstance(group, dict):
+            raise ValueError('Craft evidence group must be an object')
+        ids = group.get('rule_ids')
+        if (not isinstance(ids, list) or not ids or any(not isinstance(i, str) or not i or '*' in i for i in ids)
+                or len(ids) != len(set(ids)) or 'id' in group):
+            raise ValueError('Group needs explicit unique rule_ids, never a wildcard')
+        rows.extend({**{k: v for k, v in group.items() if k != 'rule_ids'}, 'id': identifier} for identifier in ids)
+    return rows
+
+
+def bind_review(plan, review, artifact):
+    """Compute bindings of submitted content, not proof the host saw or understood it.
+
+    Authors provide every quote/finding/status. Existing supplied hashes must match;
+    no replacement of stale hashes and no inference of artistic or visual quality.
+    """
+    from copy import deepcopy
+    result = deepcopy(review)
+    if not isinstance(result, dict):
+        raise ValueError('Craft review must be an object')
+    if result.get('plan_sha256', plan['plan_sha256']) != plan['plan_sha256']:
+        raise ValueError('Stale craft plan binding')
+    result['plan_sha256'] = plan['plan_sha256']
+    rules={r['id']:r for r in plan.get('rules',[])+plan.get('inherited',[])}
+    if isinstance(result.get('groups'),list):
+        for group in result['groups']:
+            if not isinstance(group,dict) or not isinstance(group.get('rule_ids'),list):
+                raise ValueError('Craft group must enumerate rule_ids')
+            identifiers=group['rule_ids']
+            if any(not isinstance(i,str) for i in identifiers):
+                raise ValueError('Craft rule_ids must be strings')
+            scopes={digest(rules[i].get('scope',plan.get('scope',{}))) for i in identifiers if i in rules}
+            if len(scopes)>1:
+                raise ValueError('Different rule scopes require separate evidence groups')
+    rows = expand_applications(result)
+    if not isinstance(rows, list):
+        raise ValueError('Craft applications or groups are required')
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError('Craft application must be an object')
+        if row.get('status') == 'applied':
+            try:
+                actual = pointer(artifact, row.get('pointer'))
+            except (KeyError, IndexError, TypeError, ValueError) as error:
+                raise ValueError('Craft evidence pointer does not resolve') from error
+            expected = digest(actual)
+            if row.get('value_sha256', expected) != expected:
+                raise ValueError('Craft evidence content hash changed')
+            row['value_sha256'] = expected
+    result.pop('groups', None)
+    result['applications'] = rows
+    validate_review(plan, result, artifact)
+    return result
+
+
 def validate_review(plan, review, artifact):
     """Verify evidence bindings, never label semantic/visual quality as proven."""
     if not isinstance(review, dict) or review.get('plan_sha256') != plan['plan_sha256']:
@@ -321,7 +386,7 @@ def validate_review(plan, review, artifact):
         raise ValueError('Craft plan integrity changed')
     if review.get('semantic_review') is not True:
         raise ValueError('Host semantic craft review is required')
-    rows = review.get('applications')
+    rows = expand_applications(review)
     if not isinstance(rows, list) or any(not isinstance(r, dict) for r in rows):
         raise ValueError('Craft applications must be objects')
     required = {r['id'] for r in plan.get('rules', [])}
@@ -365,13 +430,35 @@ def validate_review(plan, review, artifact):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('query')
+    parser.add_argument('query', nargs='?', default='')
     parser.add_argument('--role', choices=ROLES)
     parser.add_argument('--root', type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument('--analysis', type=Path, help='Host-authored semantic features; never user-required JSON')
+    parser.add_argument('--plan', type=Path, help='Frozen standalone route plan for evidence binding')
+    parser.add_argument('--review', type=Path, help='Host-authored applications or explicit evidence groups')
+    parser.add_argument('--artifact', type=Path, help='Native content reviewed by the host')
     args = parser.parse_args(argv)
     role = args.role or next((role for role, name in ROLES.items() if args.root.name == name), None)
     try:
+        if args.review or args.artifact or args.plan:
+            if not (args.review and args.artifact and args.plan):
+                raise ValueError('Evidence binding requires --plan, --review and --artifact')
+            plan = read(args.plan)
+            if not isinstance(plan,dict):
+                raise ValueError('Standalone plan must be an object')
+            # Check immutable plan and current source bytes before binding.
+            for source in plan.get('sources', []):
+                if not isinstance(source,dict):
+                    raise ValueError('Standalone source must be an object')
+                relative = source.get('path')
+                path = (args.root / relative).resolve() if isinstance(relative,str) else None
+                if path is None or not path.is_relative_to(args.root.resolve()) or not path.is_file():
+                    raise ValueError('Standalone craft source path is missing or escapes the skill')
+                if source.get('sha256') != hashlib.sha256(path.read_bytes()).hexdigest():
+                    raise ValueError('Standalone craft source changed')
+            result = bind_review(plan, read(args.review), read(args.artifact))
+            print(json.dumps(result, ensure_ascii=False, indent=2))
+            return 0
         if role is None:
             raise ValueError('Use the responsible native Skill root and role; consumers inherit upstream decisions')
         plan = route(args.root, role, args.query, read(args.analysis) if args.analysis else None)

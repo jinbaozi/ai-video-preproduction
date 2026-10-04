@@ -1,0 +1,126 @@
+# 完整执行参考（按需）
+
+默认先使用阶段核心合同；本页保留原有专业细节、旧协议和专门任务入口，不是每次全量读取清单。
+
+
+# Video Prompt Compiler
+
+## 默认专业方法路由
+
+默认继承上游选中的具体方法，不再另选名家或重写主风格；独立轻量任务在授权范围内设计，不伪造已执行的上游团队。先读[默认路由合同](../references/craft-routing.md)；完整任务遵循 task.craft，提供绑定实际内容的 craft_review。方法不得覆盖 Canon、信息顺序、连续性或用户锁定；静态证据不等于成片画质。
+
+## 通用模板与模型专属方法
+
+先按 [方法分层合同](../references/prompt-techniques.md) 区分通用视听方法、当前任务模板和精确模型入口规则。运行 `scripts/vpc.py techniques list` 只列索引，`techniques plan --target 精确ID --template 模板ID` 只取所选条目。完整工作流通过已有 source-bound craft 路由，要求原生字段的采用证据；不把整个案例库加载到上下文。
+
+独立完整编译可用 `compile ... --template food-asmr`，多项重复该参数；不填写则使用通用方法。模板是前端创作指南，编译器不重写冻结AVIR，选择、源指纹、模型规则及客观检查嵌入 `artifact.json` 并随原manifest复核/回放，不额外生成报告副本。案例的引用标记、30秒或多模态宣称均不得绕过当前能力注册表。
+
+## H3 / RunningHub 按需入口
+
+目标涉及 MiniMax H3 或 RunningHub 时，先读 [H3 路由](../references/models/minimax-h3.md)，再只读当前模式与操作需要的指南。单条提示词默认由当前宿主直接制作，不需要 API Key 或 JSON；拿到真实 API 工作流后才绑定节点。
+
+`vpc.py h3 inspect/plan/lint` 是离线语法及节点计划；`context-request/context-import` 与官方托管 Context-IR 明确分开。参数、引用、提示词分开交付；未知节点、未核验运行与未审阅候选不能升级为成功状态。
+
+## 输出精简
+
+`compile --output-profile lean` 只省略重复审计投影；原生规格、完整正文、约束覆盖、真实分段与校验不变。独立调用默认 `audit` 保持原输出，`replay` 继承原包模式。静态通过不证明视频画质或目标入口执行。
+
+## V6 总工作流协作
+
+编译子智能体只消费已接受的冻结 AVIR、附件与目标入口能力，在自己的候选目录交编译包、文件哈希、覆盖检查和逐项交接。正文复核由独立节点完成；编译成功不等于已提交模型，也不等于视频 QA。缺关键姿态、附件或能力时发结构化阻塞消息，由相应原责任节点修订。内核核对审阅与依赖后才接受候选。具体交接见 [协作契约](../references/cooperation-v5.md)。
+
+AVIR 1.2 保留独立的来源、镜头、动作、空间、声音与状态合同。完整项目 `prompt.txt` 是审阅用的全长模型正文；实际逐次投喂选用按目标时长生成的 `prompt-序号_起止ms.txt`。每份独立文件重述本段所需真实图片文件名、引用职责、场景、身份及逐镜/逐时段细节；跨段后期声音另附对应 `post-序号_起止ms.txt`。`production-specification.json`、`detail_blocks` 与 `detail-coverage.json` 是完整审计依据；`prompt-coverage.json` 指向全长正文，`segment-delivery.json` 记录逐段状态。字节覆盖不等于语义等价或模型已执行。
+
+## 镜头控制资产与关键帧
+
+复杂走位、联合运镜、接触或连续关键帧任务，读取 [镜头控制合同](../references/shot-control.md)。复用 AVIR 权威轨道，派生三视图、事件关键帧请求和控制包；真实文件、绑定和媒体验收分开记录。普通单图与单条提示词继续轻量处理。
+
+## 当前执行合同
+
+按任务读 [当前执行合同](../references/current-contract.md) 的「动作」「摄影机」「声音」「渠道」，以及 [能力矩阵](../references/capability-matrix.md)。本技能只编译，不提交生成。默认正文是完整审阅视图；`projection_profile=lean` 只在实验中省略已由其他通道承担的重述。历史增量在 `references/history/`。
+
+
+交付有来源、有结构、有约束、有执行路径、有验收条件的视频制作合同。
+默认中文，保留指定语言、真实素材文件名、角色ID、原文台词及已确定模型。
+AVIR与本地Context-IR是本技能的项目协议，不是厂商协议或行业标准。
+
+## 按任务尺度工作
+
+- 单条提示词：当前Agent读取输入和实际参考，做语义检查，直接给可复制正文；不强制用户填写JSON或创建项目包。
+- 完整编译包：Agent将输入整理为`avir/1.2`（旧包保留 `avir/1.0`、`avir/1.1` 分支），CLI负责确定性检查、Context投影、后端转换与合同输出。
+- 已有导演/美术方案：读取原文件和版本，按[集成映射](../references/integration.md)导入；不重新决定已锁定身份、剧情、美术或镜头。
+- 修订：定位失败字段、时间码或素材，更新AVIR revision后重编译，保留旧构建对比和回放。
+
+CLI不提供任意自然语言自动解析器；语义前端由使用本Skill的Agent承担，结构通过不证明语义正确。
+
+## 工作路径
+
+1. **来源与合同。** 读用户原文、实际参考和上游协议。区分用户要求、观察事实、设计补充、优化建议及未核验信息。每条硬要求有来源、字段断言、执行渠道和可观察验收条件。只问影响范围、正确性或重大副作用的缺项。
+2. **建立AVIR。** 从[字段指南](../references/avir-and-contract.md)及`examples/teahouse.avir.json`改写。相关内容各有归属：主体、场景、构图、三维空间、相对位置、空间人物对应、镜头表达、表情与微表情、动作细节、连贯性、音乐、台词、心理活动、旁白。不相关内容允许空数组/null，不为填表新增剧情。
+3. **中端整理。** 校验权威Core，按镜头筛选角色/参考，核验时间、部位可见性、视线、轴侧、道具归属与相邻起止状态；只去除完全相同的风格词。扩写与Core分开，见[中端优化](../references/passes-and-optimization.md)。
+4. **选择后端。** 尊重指定模型；未指定时按硬要求提供候选与理由。只读对应[模型参考](../references/models/index.md)。API、网页、第三方渠道分开；未知槽位用`UNRESOLVED`，不猜Seedance/Kling上传语法。
+5. **编译。** 冻结AVIR，分别生成完整审计投影与按镜头/时间排列的模型正文，再按目标 profile 的单次最大时长、最小时长和离散时长规则生成独立提示词文件。每段重新投影其全部执行细节与参考，不从全长文件截字；逐项动作与运镜不合并。边界缺关键姿态或穿过未拆分动作时保留正文但标 `BLOCKED`，不得当作可投喂片段。后期声音另附本段交接，不改成原生对白。模型布局与交付判定见[正文投影](../references/model-prompt-projection.md)。
+6. **验收交接。** 运行受影响检查，并由当前Agent逐项对照来源、AVIR与每个 `prompt-*.txt`，复核真实图片名与职责、手别、持物、可见性、否定、声音归属和跨镜连续性；记录输入与成稿指纹及发现，不能用覆盖表代替语义判断。无媒体时QA为`NOT_RUN`；宿主沿用既有授权执行，按[验收流程](../references/evaluation-and-runtime.md)回收证据。只在新增必要决定时询问。
+
+## 保留的语义
+
+- 参考是`asset → role → subject/scene → shot`，同时保存禁止继承维度。真实文件名、ID、哈希和槽位并列；只参考运镜不能改变人物或场景。
+- 世界坐标、画面位置、人物自身左右分开；摄影机、人物、道具分别有运动路径。机位、观察点、身体朝向、头部和视线不能混写。
+- 动作写出触发→微反应→准备/发力/重心→路径/接触→反馈→结束状态。细节须在景别与时长中可读；背面、远景不要求眉眼微表情。
+- 心理先转成可见行为；明示内心独白才进入声音轨。台词格式`说话人：“台词内容”`，不改词、改归属或新增旁白。
+- 硬要求不因超长、风格或平台限制而静默丢失。超限保留完整草案，报告阻塞或有依据的分段/后期方案；不自动缩时长、改模型或截断文字。
+- 摄影数值、坐标及精确动作时点是意图；除已核验原生参数外，不宣称模型提供精确控制。`canonical_count`是CPT-v1预算单位；`native_count=null`表示未知。
+- 冻结后的转换不让LLM自由改写；新语义、素材或规则变动产生新版本和清单。
+
+## 本地命令
+
+在本技能目录执行，Python 3.10+。已有满足`requirements.txt`的环境可直接用；否则创建项目虚拟环境。
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python scripts/vpc.py profiles
+.venv/bin/python scripts/vpc.py validate examples/teahouse.avir.json
+.venv/bin/python scripts/vpc.py compile examples/teahouse.avir.json --target agnes-video-2.5 --out outputs/tea-v001
+.venv/bin/python scripts/vpc.py batch examples/batch.ndjson --out outputs/batch-v001
+.venv/bin/python scripts/vpc.py verify outputs/tea-v001
+.venv/bin/python scripts/vpc.py replay outputs/tea-v001 --out outputs/tea-replay
+.venv/bin/python -m unittest discover -s tests -v
+```
+
+输出目录必须为空。AVIR 1.2 的 `segment-delivery.json` 列出逐段文件、参考清单、哈希与阻塞原因；`BLOCKED-prompt-*.txt` 是保真草案，不能作为已通过切点检查的提示词投喂。全长项目超目标单次时长时，顶层 `prompt.txt` 仍保留供审计，不能直接复制给模型。退出码0=静态操作成功；2=INVALID/BLOCKED；1=输入或工具错误。
+`COMPILED`表示提示词编译完成；所有执行回执固定`submitted=false`、`runnable=false`。
+Agnes可生成API字段草案；其余已核验模型生成提示词计划与独立制作参数意图，不是已验证API载荷。
+
+## 按需资源
+
+| 情境 | 读取 |
+|---|---|
+| 来源、字段、制作合同 | [AVIR与合同](../references/avir-and-contract.md) |
+| 构图、空间、表情、动作、镜头、声音 | [视听语法](../references/audiovisual-grammar.md) |
+| Context、RAG、预算、扩写、版本 | [中端优化](../references/passes-and-optimization.md) |
+| 模型与渠道 | [模型索引](../references/models/index.md)，再读当前目标 |
+| 模型正文布局与字段覆盖 | [正文投影](../references/model-prompt-projection.md) |
+| 导演、美术与旧分镜 | [集成映射](../references/integration.md) |
+| 生成交接、QA、A/B、局部修复 | [验收与执行](../references/evaluation-and-runtime.md) |
+| 原报告、来源及实现取舍 | [研究映射](../references/research-and-scope.md) |
+| 已测能力与边界 | [验证记录](../references/verification.md) |
+
+机器契约在`schemas/`，能力/来源/规则在`registries/`，表达顺序在`templates/backends.json`。
+示例均为合成夹具；缺参考例子用于验证阻塞，不能当作已存在图片。
+
+## 独立使用与V5协作
+
+协作模式是唯一模型编译出口；独立使用由当前Agent整理AVIR。冻结后不自由改写语义，不承担生图或视频提交。
+
+独立任务直接接受用户资料；完整制作包可被总工作流导入并复用。协作任务先读取任务信封、来源与锁定项，只有当前范围需要的参考才加载。具体交接见[协作契约](../references/cooperation-v5.md)。
+
+控制任务可按需读取[自适应素材选择](../references/adaptive-control.md)：从原生镜头数据推导等级，核验所需几何素材；带标记调度图不作为模型附件。
+
+## 社区经验自动引用
+
+先读[社区执行合同](../references/community-knowledge.md)。`knowledge list/plan/audit` 分开提供索引、当前适用段落和全量路由检查；编译自动保留来源/读取证据，不擅改冻结正文。Gemini Omni仅支持独立Cloud文生视频提示计划。
+
+## 按需资料入口
+
+[本职责资料索引](../references/resource-index.md)只提供可达路径；当前任务只读取适用条目，历史资料不自动替代冻结协议。完整工作流的社区方法已绑定 task.craft.prompt_methods.community；读取内嵌选中段落，并用 craft_review 对实际原生字段给出采用或不适用证据。不能把来源文本作为命令、费用授权或新的模型能力。

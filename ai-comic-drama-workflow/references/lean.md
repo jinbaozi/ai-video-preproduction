@@ -18,9 +18,9 @@ ai-comic-drama step ./rain-letter
 ai-comic-drama start 原文.txt --project ./audited-project --profile audited --target agnes-video-2.5
 ```
 
-`start` 同 `init` 接受资料路径或文本、project-id、target、mode、delivery、production-target。`start` 默认 lean；`init` 默认 codex，兼容已有调用。`step` 默认返回摘要、当前任务文件路径及必读清单，`--verbose` 返回完整结果。相同结果重试复用已有接受记录；发生冲突时保留 BLOCKED 原因，不继续下游。
+`start` 同 `init` 接受资料路径或文本、project-id、target、mode、delivery、production-target。`start` 默认 lean；`init` 默认 codex，兼容已有调用。新lean的 `step` 默认返回核心任务视图及实际读取的阶段说明；`--context-profile audit` 保留完整任务路径及必读清单，`--verbose` 返回原生完整结果。相同结果重试复用已有接受记录；发生冲突时保留 BLOCKED 原因，不继续下游。
 
-`step --result` 的提交与取得下一任务是两个各自可恢复的内核动作，不声称跨动作原子提交。若结果已接受而下一步失败，重试同一结果会被识别为 ALREADY_ACCEPTED，不重复接受或生成。V6 禁止通过该参数提交原生结果，仍需 agent-result 与 agent-review。
+普通 `step --result` 的提交与取得下一任务是两个各自可恢复的内核动作。新最小上下文中，显式附带同一build的 `delivery_audit` 时，末尾编译复核与原生QA采用一个本地事务，详见[最小宿主合同](minimal-core.md)。若结果已接受而下一步失败，重试同一结果会被识别为 ALREADY_ACCEPTED，不重复接受或生成。V6 禁止通过该参数提交原生结果，仍需 agent-result 与 agent-review。
 
 `run/status/validate/export/revise/host/begin-image/production` 等原命令可继续使用。未知/缺失/篡改输入失败关闭。项目已存在时用 step/run；start 不覆盖旧目录。详情按需查[原生角色结果与宿主媒体协议](v5/runtime.md)。
 

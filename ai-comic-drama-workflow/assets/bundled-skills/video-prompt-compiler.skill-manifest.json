@@ -1,11 +1,11 @@
 {
   "archive": "video-prompt-compiler.skill",
-  "archive_sha256": "32b4ef01c66852955ca59af4d866e525059a9badea097c83755a6c94500597e8",
-  "file_count": 160,
+  "archive_sha256": "919f870318aaf19724af6e88d145a605d8baaa60f76c47d367924f7f2d202f18",
+  "file_count": 162,
   "files": {
     "video-prompt-compiler/SKILL.md": {
-      "bytes": 13047,
-      "sha256": "a7ce3b6e9859d70cc448a66b33dc62cb99f8b0a7b7ef25cb9c13517e4023a6b8"
+      "bytes": 1622,
+      "sha256": "220631973e7ce1113d52a4096f34bfa50602dcc207588fc244678c88fcf7caf1"
     },
     "video-prompt-compiler/agents/openai.yaml": {
       "bytes": 382,
@@ -119,6 +119,10 @@
       "bytes": 2877,
       "sha256": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d"
     },
+    "video-prompt-compiler/references/detailed-execution.md": {
+      "bytes": 12682,
+      "sha256": "538d77515805e17f0f52aed54cd1d8ac927ed86cd662f61b1f6698c2bf2d7c49"
+    },
     "video-prompt-compiler/references/evaluation-and-runtime.md": {
       "bytes": 3387,
       "sha256": "bb2acf387400a1ea286345fa7110e0e2c60163a7f19c4bbac0d9b8cea12a8630"
@@ -204,16 +208,20 @@
       "sha256": "c6051398911c9ef2219bc01fd04893b097a4a59e4bef87cbe73ea48c0efad0b6"
     },
     "video-prompt-compiler/references/resource-index.md": {
-      "bytes": 2219,
-      "sha256": "751a41003339bd7e27b6dec20abc64d78895a53c269748044a110c65c37b2f63"
+      "bytes": 2336,
+      "sha256": "32b9535816cf4709e5f18baf927653ecc0dce2433f30bb600eec56bfdea5fb7b"
     },
     "video-prompt-compiler/references/shot-control.md": {
       "bytes": 32544,
       "sha256": "6912c73607495674e19102f3f84701d3a491af0214d1a5891ce0e1308b6d389a"
     },
+    "video-prompt-compiler/references/stage-core.md": {
+      "bytes": 3414,
+      "sha256": "fa1a4b8709a0379e05172c782c48a3b0d7f80c32504448ecbfa55161daa8ed33"
+    },
     "video-prompt-compiler/references/v5-reads.json": {
-      "bytes": 771,
-      "sha256": "4689abb22b5ad0eaecd8618bae8734889f6c28d38ef542e82cf0740f40aebee3"
+      "bytes": 1388,
+      "sha256": "c140f764faa78f499178eaed9629be600f389d9759e708fffdb6e0cb0c8758e6"
     },
     "video-prompt-compiler/references/verification.md": {
       "bytes": 4078,
@@ -645,5 +653,5 @@
     }
   },
   "name": "video-prompt-compiler",
-  "version": "1.22.0"
+  "version": "1.23.0"
 }
