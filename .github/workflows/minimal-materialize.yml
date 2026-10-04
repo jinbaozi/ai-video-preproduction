@@ -1,11 +1,11 @@
-name: Materialize reviewed minimal core
+name: Finalize minimal core discoverability
 on:
   push:
     branches: [feat/minimal-core-20261004]
 permissions:
   contents: read
 jobs:
-  source-and-release:
+  verified-source-and-release:
     if: github.repository == 'jinbaozi/ai-video-preproduction' && github.ref == 'refs/heads/feat/minimal-core-20261004'
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -15,33 +15,33 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      - name: Reconstruct exact reviewed source
+      - name: Apply exact reviewed entry corrections
         run: |
-          test "$(git rev-parse HEAD^)" = '26424ebab0bd66569a9c76da84d2fb55b5137ef1'
-          python .github/minimal-payload/materialize.py
+          test "$(git rev-parse HEAD^)" = 'eaeac47c6aec8f985af94d41e23d665bc67b573f'
+          python .github/minimal-finalize.py
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Rebuild seven packages and verify source closure
+      - name: Rebuild all seven distributions and verify references
         run: |
           python -m pip install -e ./ai-comic-drama-workflow
           python ai-comic-drama-workflow/scripts/sync_shared.py --check
           python video-prompt-compiler/scripts/reference_audit.py --suite .
           python video-prompt-compiler/scripts/vpc.py knowledge audit
           python ai-comic-drama-workflow/scripts/package_suite.py --out dists
-      - name: Test minimal native execution and standalone evidence
+      - name: Validate core execution and restored entry contracts
         env:
           PYTHONPATH: ai-comic-drama-workflow/src:ai-comic-drama-workflow
-        run: python -m unittest tests.test_minimal_core -v
-      - name: Verify exact final tree and publish feature branch
+        run: python -m unittest tests.test_minimal_core tests.test_autonomous_delivery_contract tests.test_craft_routing -v
+      - name: Verify exact reviewed tree and publish feature branch
         run: |
-          git rm -r .github/minimal-payload
-          git add dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
+          git rm .github/minimal-finalize.py
+          git add '*/SKILL.md' audit/minimal-core-benchmark.json audit/minimal-core-implementation.md dists ai-comic-drama-workflow/assets/bundled-skills ai-comic-drama-workflow/modules.lock.json
           git rm --cached .github/workflows/minimal-materialize.yml
-          test "$(git write-tree)" = 'd955aa01261bdef96b7f8e9b0d7bb0eb41b2e47c'
+          test "$(git write-tree)" = '92372066fef3bb53375d631db0e4ee9bc8dd28ec'
           git add .github/workflows/minimal-materialize.yml
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'feat: minimize host context and receipts without weakening native stage gates'
+          git commit -m 'fix: preserve default routing and production entries in minimal skills'
           git push origin HEAD:refs/heads/feat/minimal-core-20261004
           git rev-parse HEAD
