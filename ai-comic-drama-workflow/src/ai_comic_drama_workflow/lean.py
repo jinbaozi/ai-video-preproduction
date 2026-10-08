@@ -29,23 +29,27 @@ def compact(result: dict) -> dict:
     return view
 
 
-def start(project, inputs, *, profile='lean', project_id='PROJECT', delivery='full',
-          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing='auto', output_profile=None, creative_policy='automatic', reference_refinement=None, flow_account=None, editing_backend='jianying-headless', context_profile=None):
-    if profile not in ('lean', 'audited'):
+def start(project, inputs, *, profile='studio', project_id='PROJECT', delivery='full',
+          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing=None, output_profile=None, creative_policy='automatic', reference_refinement=None, flow_account=None, editing_backend=None, context_profile=None):
+    if profile not in ('studio', 'lean', 'audited'):
         raise ValueError('Unknown workflow profile')
+    # V2 defaults remove optional process overhead, not native artifact checks.
+    # Explicit lean/audited keep the earlier defaults; existing projects never migrate.
+    craft_routing = craft_routing or ('off' if profile == 'studio' else 'auto')
+    editing_backend = editing_backend or ('ffmpeg' if profile == 'studio' else 'jianying-headless')
     if craft_routing not in ('auto', 'off'):
         raise ValueError('Unknown craft routing mode')
-    output_profile = output_profile or ('compact' if profile=='lean' else 'audit')
+    output_profile = output_profile or ('audit' if profile=='audited' else 'compact')
     if output_profile not in ('compact','audit'):raise ValueError('Unknown output profile')
     if profile=='audited' and output_profile=='compact':raise ValueError('Audited projects require audit evidence; choose --output-profile audit')
-    context_profile=context_profile or ('core' if profile=='lean' else 'audit')
+    context_profile=context_profile or ('audit' if profile=='audited' else 'core')
     if context_profile not in ('core','audit') or (profile=='audited' and context_profile!='audit'):
         raise ValueError('Audited execution retains full context; choose --context-profile audit')
-    reference_refinement=reference_refinement or ('google-flow-2k' if delivery=='full' else 'off')
+    reference_refinement=reference_refinement or ('google-flow-2k' if delivery=='full' and profile!='studio' else 'off')
     if reference_refinement not in ('google-flow-2k','off'):raise ValueError('Unknown reference refinement')
     if delivery=='text-only' and reference_refinement!='off':raise ValueError('Text-only delivery cannot require Flow media')
     if flow_account and reference_refinement=='off':raise ValueError('Flow account requires Flow refinement')
-    options = dict(creative_policy=creative_policy, editing_backend=editing_backend, production_policy='verified-production/1.0',
+    options = dict(creative_policy=creative_policy, editing_backend=editing_backend, production_policy='studio-production/2.0' if profile=='studio' else 'verified-production/1.0',
                    flow_refinement={'policy':'google-flow-2k/1.0','account_hint':flow_account,'max_attempts':2} if reference_refinement!='off' else None,
                    project_id=project_id, delivery=delivery, target=target,
                    mode=mode, production_target=production_target, control_policy='adaptive-control/1.0',control_minimum=control_minimum,

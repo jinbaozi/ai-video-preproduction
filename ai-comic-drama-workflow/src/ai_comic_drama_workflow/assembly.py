@@ -4,9 +4,17 @@ import json
 import shutil
 import subprocess
 import tempfile
+import math
+from collections import OrderedDict
 from pathlib import Path
 
 FORBIDDEN = ('setpts', 'scale', 'crop', 'stretch', 'atempo')
+_PROBE_CACHE = OrderedDict()
+
+
+def _media_digest(path):
+    with open(path, 'rb') as stream:
+        return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
 def validate_edl(edl):
@@ -30,28 +38,66 @@ def validate_edl(edl):
     return True
 
 
+def _decode(path):
+    """Decode all video/audio bytes. ffprobe metadata alone can miss corruption."""
+    if shutil.which('ffmpeg') is None:
+        raise ValueError('ffmpeg is required for full media decoding')
+    try:
+        result = subprocess.run(['ffmpeg', '-nostdin', '-v', 'error', '-xerror',
+                                 '-i', str(path), '-map', '0:v?', '-map', '0:a?',
+                                 '-f', 'null', '-'], capture_output=True, text=True, timeout=300)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise ValueError('Media decode did not complete') from exc
+    if result.returncode or result.stderr.strip():
+        raise ValueError('Media decode failed: ' + result.stderr[-1000:])
+
+
 def _probe(path):
     if shutil.which('ffprobe') is None:
         raise ValueError('ffprobe is required')
-    raw = subprocess.check_output([
-        'ffprobe', '-v', 'error',
-        '-count_frames', '-show_entries', 'stream=codec_type,width,height,avg_frame_rate,duration,nb_read_frames:format=duration',
-        '-of', 'json', str(path),
-    ], text=True)
+    digest = _media_digest(path)
+    if digest in _PROBE_CACHE:
+        _PROBE_CACHE.move_to_end(digest)
+        return dict(_PROBE_CACHE[digest])
+    _decode(path)
+    try:
+        result = subprocess.run([
+            'ffprobe', '-v', 'error', '-count_frames', '-show_entries',
+            'stream=codec_type,width,height,avg_frame_rate,duration,nb_read_frames:format=duration',
+            '-of', 'json', str(path),
+        ], text=True, capture_output=True, timeout=300)
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        raise ValueError('Media probe did not complete') from exc
+    if result.returncode or result.stderr.strip():
+        raise ValueError('Media probe failed: ' + result.stderr[-1000:])
+    raw = result.stdout
     data = json.loads(raw)
     videos = [stream for stream in data['streams'] if stream['codec_type'] == 'video']
     if not videos:
         raise ValueError('Media has no video stream')
     info = videos[0]
     num, den = info['avg_frame_rate'].split('/')
+    if float(den) == 0:
+        raise ValueError('Media frame rate is unknown')
     fps = float(num) / float(den)
-    return {
+    duration = float(info.get('duration') or data['format']['duration'])
+    if not math.isfinite(fps) or fps <= 0 or not math.isfinite(duration) or duration <= 0:
+        raise ValueError('Media timing is invalid')
+    observed = {
         'width': info['width'], 'height': info['height'], 'fps': fps,
-        'duration_ms': int(round(float(info.get('duration') or data['format']['duration']) * 1000)),
+        'duration_ms': int(round(duration * 1000)),
         'aspect': f"{info['width']}:{info['height']}",
         'audio_streams': sum(stream['codec_type'] == 'audio' for stream in data['streams']),
         'frames': int(info['nb_read_frames']) if str(info.get('nb_read_frames', '')).isdigit() else None,
     }
+    if _media_digest(path) != digest:
+        raise ValueError('Media bytes changed while probing')
+    # Same-byte rechecks need hashing, not another full decode. Process-local,
+    # bounded cache never stores semantic/visual approval or crosses restarts.
+    _PROBE_CACHE[digest] = dict(observed)
+    while len(_PROBE_CACHE) > 128:
+        _PROBE_CACHE.popitem(last=False)
+    return observed
 
 
 def assemble_ffmpeg(edl, output, spec, *, runner=None, probe_fn=None):

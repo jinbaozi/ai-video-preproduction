@@ -86,12 +86,12 @@ class ProductionLedger:
     @property
     def strict(self):
         return (self.kernel.project.get('orchestration_protocol') == '6.0' or
-                self.kernel.project.get('production_policy') == 'verified-production/1.0')
+                self.kernel.project.get('production_policy') in ('verified-production/1.0', 'studio-production/2.0'))
 
     def _verify_current_preproduction(self, compile_path=None):
         # New lean production is bound to accepted current native artifacts,
         # rather than any externally supplied self-consistent compile file.
-        if (self.kernel.project.get('production_policy')!='verified-production/1.0' or
+        if (self.kernel.project.get('production_policy') not in ('verified-production/1.0', 'studio-production/2.0') or
                 self.kernel.project.get('orchestration_protocol')=='6.0'):
             return
         report=self.kernel.validate(final=True)
@@ -168,7 +168,8 @@ class ProductionLedger:
             raise ValueError('Attachments require URL and frozen byte hash')
         if self.strict and attachments != request.get('attachment_index', []):
             raise ValueError('Attachments differ from frozen compiled request')
-        if budget['max_attempts'] < 1 or budget['project_cap'] < 1:
+        if (type(budget['max_attempts']) is not int or type(budget['project_cap']) is not int or
+                budget['max_attempts'] < 1 or budget['project_cap'] < 1):
             raise ValueError('Execution budget must be positive')
         authorization_sha256 = None
         if self.strict and budget['max_attempts'] > 1:
@@ -229,7 +230,7 @@ class ProductionLedger:
 
     def _budget_block(self, job):
         attempts = [r for r in self.records(job['id']) if r['state'] in ('SUBMITTED', 'SUCCEEDED', 'FAILED', 'UNKNOWN', 'SUBMITTING')]
-        calls = [r for r in self.records() if r['automatic'] and r['state'] != 'FROZEN']
+        calls = [r for r in self.records() if r['state'] != 'FROZEN']
         if len(attempts) >= job['budget']['max_attempts'] or len(calls) >= job['budget']['project_cap']:
             return {'status': 'BLOCKED_BUDGET', 'remedies': list(REMEDIES), 'job_id': job['id']}
         return None
@@ -245,12 +246,20 @@ class ProductionLedger:
             current = self.records(job_id)
             if any(r['state'] in ('UNKNOWN', 'SUBMITTED', 'SUBMITTING') for r in current):
                 raise ValueError('Unresolved execution must be reconciled before another attempt')
+            # A new request/compile ID must not bypass UNKNOWN for the same shot.
+            jobs = {row['id']: row for row in self.jobs()}
+            for row in self.records():
+                if (row['state'] in ('UNKNOWN', 'SUBMITTED', 'SUBMITTING') and
+                        set(jobs[row['job_id']]['shot_ids']) & set(job['shot_ids'])):
+                    raise ValueError('Unresolved overlapping shot execution must be reconciled')
             if authorized and self.strict:
                 raise ValueError('Authorization does not override an unresolved execution')
             blocked = self._budget_block(job)
             if blocked:
                 return blocked
             record_id = 'EXE_' + _sha({'job': job_id, 'n': len(current)})[:16]
+            from .studio import StudioExecution
+            StudioExecution(self).before_attempt(job, record_id)
             record = {'schema_version': 'v5-execution-record/1.0', 'id': record_id,
                       'job_id': job_id, 'state': 'SUBMITTING', 'task_id': None,
                       'automatic': automatic, 'version': 0, 'created_at': self._now()}
@@ -526,10 +535,24 @@ class ProductionLedger:
         if record['job_id'] != take['job_id'] or record['state'] != 'SUCCEEDED' or record.get('take_id') != take['id']:
             raise ValueError('Take has no successful matching execution')
         if self.strict:
+            if not record['automatic']:
+                self._verify_external_execution(record)
             actual = _probe(path)
             if actual != take['probe']:
                 raise ValueError('Take local probe differs from registered probe')
         return True
+
+    def _verify_external_execution(self, record):
+        receipt = self._load('external-executions/' + record['id'] + '.json')
+        job = self._load('jobs/' + record['job_id'] + '.json')
+        proof = Path(receipt['proof_uri'])
+        if (receipt['external_task_id'] != record['task_id'] or
+                receipt['request_id'] != job['request_id'] or
+                receipt['payload_sha256'] != job['payload_sha256'] or
+                receipt['attachment_sha256s'] != [item['sha256'] for item in job['attachments']] or
+                not proof.is_file() or digest_file(proof) != receipt['proof_sha256']):
+            raise ValueError('External execution proof differs from frozen job')
+        return receipt
 
     def note_continuity(self, take_id, end_state):
         self._verify_take(self._load('takes/' + take_id + '.json'))
@@ -697,15 +720,7 @@ class ProductionLedger:
                 if previous != record['state'] or previous_digest != _sha(record):
                     raise ValueError('Execution snapshot differs from event history')
                 if self.strict and not record['automatic'] and record['state'] in ('SUBMITTED', 'SUCCEEDED'):
-                    receipt = self._load('external-executions/' + record['id'] + '.json')
-                    job = self._load('jobs/' + record['job_id'] + '.json')
-                    proof = Path(receipt['proof_uri'])
-                    if (receipt['external_task_id'] != record['task_id'] or
-                        receipt['request_id'] != job['request_id'] or
-                        receipt['payload_sha256'] != job['payload_sha256'] or
-                        receipt['attachment_sha256s'] != [item['sha256'] for item in job['attachments']] or
-                        hashlib.sha256(proof.read_bytes()).hexdigest() != receipt['proof_sha256']):
-                        raise ValueError('External execution proof differs from frozen job')
+                    self._verify_external_execution(record)
             except (ValueError, OSError, KeyError, IndexError) as exc:
                 errors.append('Execution integrity: ' + record.get('id', '?') + ': ' + str(exc))
         for take in self.takes():

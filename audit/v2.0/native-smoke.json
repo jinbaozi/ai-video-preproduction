@@ -1,0 +1,15 @@
+{
+  "command": "python ai-comic-drama-workflow/scripts/run_v5_example.py --version v52 --studio --out <empty-directory>",
+  "profile": "studio",
+  "fixture": "pre-authored native v52 cafe; synthetic semantic checks",
+  "status": "DELIVERED",
+  "native_validation": {
+    "valid": true,
+    "errors": []
+  },
+  "post_run_status": "DELIVERED",
+  "post_run_video_complete": false,
+  "real_generation": "NOT_RUN",
+  "flow": "NOT_RUN",
+  "jianying": "NOT_RUN"
+}

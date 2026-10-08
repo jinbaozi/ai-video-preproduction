@@ -499,14 +499,33 @@ class V6ProductionRuntime:
                        'failed_check': 'execution_provenance', 'evidence': [uri],
                        'retryable': False, 'recovery_action': 'REVISE'})
 
-    def receive_take(self, job_id, file_path, probe=None, execution_evidence=None):
+    def begin_external(self, job_id):
+        if job_id not in self._manifest()['job_ids']:
+            raise ValueError('Execution job is outside frozen delivery')
+        with transaction(self.root):
+            record = self.ledger.begin_submit(job_id, automatic=False)
+            if record.get('status') != 'BLOCKED_BUDGET':
+                self._prepare_execution(record)
+            return record
+
+    def reconcile_external(self, record_id, evidence):
+        from .studio import StudioExecution
+        with transaction(self.root):
+            record = StudioExecution(self.ledger).reconcile(record_id, evidence)
+            if record['state'] in ('SUBMITTED', 'SUCCEEDED'):
+                self._execution_stage(record)
+            elif record['state'] == 'FAILED':
+                self._mark_execution_failed(record)
+            return record
+
+    def receive_take(self, job_id, file_path, probe=None, execution_evidence=None, record_id=None):
         from .executors.manual import ManualExecutor
         self._manifest()
         if job_id not in self._manifest()['job_ids']:
             raise ValueError('Take job is outside frozen delivery')
         with transaction(self.root):
             result = ManualExecutor(self.ledger).receive(job_id, file_path, probe or {},
-                                    execution_evidence=execution_evidence)
+                                    execution_evidence=execution_evidence, record_id=record_id)
             if result.get('status') != 'SUCCEEDED':
                 return result
             take = result['take']

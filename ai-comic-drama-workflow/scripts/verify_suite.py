@@ -38,7 +38,9 @@ def verify(packages,out,quick_validator=None):
             if name=='director-grammar':commands.insert(1,[sys.executable,'scripts/dg.py','compile','examples/v51/director.json','--target','generic-t2v','--out',str(base/'native-director')])
             if name=='storyboard-grammar':commands.insert(1,[sys.executable,'scripts/storyboard.py','compile','examples/v51/storyboard.json','--out',str(base/'native-storyboard')])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v51.py','-v'])
-            if name=='ai-comic-drama-workflow':commands.insert(1,[sys.executable,'scripts/run_v5_example.py','--version','v51','--out',str(base/'example-v51')])
+            if name=='ai-comic-drama-workflow':
+                commands.insert(1,[sys.executable,'scripts/run_v5_example.py','--version','v51','--out',str(base/'example-v51')])
+                commands.insert(1,[sys.executable,'scripts/run_v5_example.py','--version','v52','--studio','--out',str(base/'example-studio')])
             if name=='director-grammar':commands.insert(1,[sys.executable,'scripts/dg.py','compile','examples/v52/director.json','--target','generic-t2v','--out',str(base/'native-director-v52')])
             if name=='storyboard-grammar':commands.insert(1,[sys.executable,'scripts/storyboard.py','compile','examples/v52/storyboard.json','--out',str(base/'native-storyboard-v52')])
             if name=='video-prompt-compiler':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_v52.py','-v'])
@@ -49,6 +51,7 @@ def verify(packages,out,quick_validator=None):
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'scripts/control_cli.py','--help'])
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])
             if name=='ai-comic-drama-workflow':
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_studio.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_minimal_core.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_community_routing.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_prompt_methods.py','-v'])

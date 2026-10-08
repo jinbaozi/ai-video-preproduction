@@ -148,7 +148,7 @@ class V5Kernel:
             from .flow import validate_configuration
             validate_configuration(flow_refinement)
         if editing_backend not in (None,'jianying-headless','ffmpeg'):raise ValueError('Unknown editing backend')
-        if production_policy not in (None,'verified-production/1.0'):raise ValueError('Unknown production policy')
+        if production_policy not in (None,'verified-production/1.0','studio-production/2.0'):raise ValueError('Unknown production policy')
         if context_policy not in (None,'minimal-core/1.0') or (context_policy and workflow_profile!='lean'):
             raise ValueError('Minimal context requires a new lean project')
         safe_id(project_id)
