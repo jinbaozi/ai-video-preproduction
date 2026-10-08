@@ -1,0 +1,93 @@
+{
+  "checked_at": "2026-10-08",
+  "branch": "V2.0",
+  "base_commit": "b195d583f30b3f62e4d76c8ab229fda741b73ff3",
+  "workflow_package_version": "0.20.0",
+  "source_regression": {
+    "tests": 451,
+    "result": "PASS"
+  },
+  "studio_tests": {
+    "tests": 26,
+    "result": "PASS",
+    "included_in_source_regression": true
+  },
+  "real_provider_canary": "NOT_RUN",
+  "real_episode": "NOT_RUN",
+  "cross_host_smoke": "NOT_RUN",
+  "paid_calls": 0,
+  "evidence_archive": "validation-logs.zip",
+  "logs": [
+    {
+      "kind": "regression",
+      "entry": "studio-release-regression.log",
+      "sha256": "f67d0d36c272723d47cd74c5e77e87b60ed4494d34df13a8dcaa5b717a489b1b",
+      "bytes": 70742
+    },
+    {
+      "kind": "reference-audit",
+      "entry": "studio-references-final.log",
+      "sha256": "3fc33959eb78d3dc6388f1d632cbe3b73906bd76e163bf4a1225352a7dd6aaf9",
+      "bytes": 23002
+    },
+    {
+      "kind": "knowledge-audit",
+      "entry": "studio-knowledge-final.log",
+      "sha256": "99fdaad5b88071851c51ea45ff78b7e383439accfc98dbf6b723224463407910",
+      "bytes": 37042
+    },
+    {
+      "kind": "sync",
+      "entry": "studio-sync.log",
+      "sha256": "6b1ae99725417609578cedabe1742e58c52b300fdc94d4cf072043c7a8a62a3d",
+      "bytes": 36
+    },
+    {
+      "kind": "native-smoke",
+      "entry": "studio-release-native.log",
+      "sha256": "a65f316cbefb2f1ddf40bb50ae35e7892de3f753622721cf2d704a744faa159b",
+      "bytes": 502
+    },
+    {
+      "kind": "package",
+      "entry": "studio-package.log",
+      "sha256": "d6af1fd0fefe789f57e7982fcecaf4f74b133438b1457a31c56cda6297137d73",
+      "bytes": 85
+    },
+    {
+      "kind": "wheel",
+      "entry": "studio-wheel-release.log",
+      "sha256": "fa145ff1054e5e614f2362c388eb5e80cfecb981e52f96dc16cc0f000a6ddf89",
+      "bytes": 733
+    },
+    {
+      "kind": "installation",
+      "entry": "studio-install-release.log",
+      "sha256": "2528dd546b2fd2e6953ce12b00ecffc915b22331ae47c88e3fda82178ac97f8b",
+      "bytes": 428
+    },
+    {
+      "kind": "installed-start",
+      "entry": "studio-release-installed-smoke.json",
+      "sha256": "0b619b0b3205e20878ec2af34837007cbd8dd18be7368b958419960c40bc91fc",
+      "bytes": 5638
+    },
+    {
+      "kind": "targeted",
+      "entry": "studio-targeted-final.log",
+      "sha256": "ad2beb364a1934ce602d60f19696f5c461cedc49196bc4a7960ede0fcf715a11",
+      "bytes": 4044
+    }
+  ],
+  "implementation_commit": "bd068f0243c362077faf209a220ebfe4d9dee0ea",
+  "pull_request": "https://github.com/jinbaozi/ai-video-preproduction/pull/12",
+  "package_verification": {
+    "result": "PASS",
+    "packages": 7,
+    "commands": 59,
+    "repeat_build": "IDENTICAL",
+    "skipped_real_blender_tests": 3,
+    "report": "package-verification.json"
+  },
+  "evidence_archive_sha256": "6b5c61bfac130da4f0e283e47b16d2343800c889b683256374a2859d218be143"
+}
