@@ -9,9 +9,9 @@ ai-comic-drama start '<简报或源文件>' --project ./episode --production-tar
 ai-comic-drama step ./episode --result '<实际原生结果.json>'
 ```
 
-用户不填 JSON。宿主读取当前 `context`，提交 core-result，程序生成哈希和校验回执。每阶段只读必要原生输入，不重复读完整信封。studio 不要求 craft_context/craft_review；技能中的方法库作为按需帮助，不为填表另做方法分析。原句、说话人、动机、身份、场景、道具、起止态与模型硬约束必须保留。
+用户不填 JSON。宿主读取当前 `context`，提交 core-result，程序生成哈希和校验回执。每阶段只读必要原生输入，不重复读完整信封。studio 默认自动选择专业方法和适用人物；宿主提交来源绑定的 craft_context 与实际 craft_review。只精简重复展示，不取消选择和采用证据。原句、说话人、动机、身份、场景、道具、起止态与模型硬约束必须保留。
 
-默认可直接用实际参考图，不强制 Flow 2K；默认通过内置 FFmpeg 编辑。只有用户要求或入口需要时，才显式开启 `--reference-refinement google-flow-2k` / `--editing-backend jianying-headless` / `--craft-routing auto`。目标入口的真实最低规格不能省略。
+默认可直接用实际参考图，不强制 Flow 2K；默认通过内置 FFmpeg 编辑。只有用户要求或入口需要时，才显式开启 `--reference-refinement google-flow-2k` / `--editing-backend jianying-headless`。目标入口的真实最低规格不能省略。
 
 旧配置用 `--profile lean`；独立审阅任务模式用 `--profile audited`。已有项目保持原配置，不自动迁移。`--delivery full` 保留真实图像需求；缺媒体不能改称 text-only 完成。
 
@@ -60,7 +60,7 @@ ai-comic-drama production ./episode measure-dialogue \
 }
 ```
 
-`quotes` 要列齐将执行的真实 job ID，每项是**每次尝试的费用上界**；不知道上界就先查实际价格，不能填零假装免费。金额以所选币种的最小单位计，不混币种、不用浮点数。CNY 的 100 表示 1 元。零仅用于已确认免费的路径。五镜以上要求五种风险各一个不同原生镜头；不足五镜时列出实际相关风险并覆盖所有镜头。
+`quotes` 要列齐将执行的真实 job ID，每项是**每次尝试的费用上界**；不知道上界就先查实际价格，不能填零假装免费。金额以所选币种的最小单位计，不混币种、不用浮点数。CNY 的 100 表示 1 元。零仅用于已确认免费的路径。五镜以上逐项覆盖五种风险：适用项绑定真实试镜，不适用项通过 risk_exclusions 记录原因、完整镜头范围和证据文件；同一镜头可验证多个适用风险。不足五镜时试制覆盖全部实际镜头。不得为凑类别增加双人或交接剧情。
 
 对白戏配置还应附可选字段，内容由宿主根据实际音频整理：
 
@@ -112,7 +112,7 @@ probe 可用 `{}`，严格项目仍由程序实测，不能靠声明跳过探测
 
 自动 API 已有任务 ID 则使用既有 `recover-execution --record ... --out ...` 下载原任务。新证据绑定错误 payload/task、空文件、已结束任务冲突都拒绝。更换 request/job ID 仍不能绕过重叠镜头的未决执行。
 
-## 五镜放行与结算
+## 适用风险放行与结算
 
 先按原生 `review-take` 和 `select` 接受风险镜头；检查项至少覆盖身份、服装、道具左右手/交接、说话人和口型、缺文件。没有实际看见/听见，不提交 PASS。程序只复核证据链与字节，不替代视觉判断。
 

@@ -19,7 +19,7 @@ from .v5_handoff import briefing, requirements, validate_handoff
 from .v5_adapters import VERSION as ADAPTER_VERSION
 from .v5_modules import ROOT, MODULES, read, digest_file, default_lock, module_path, native_validate, load_python, verify_archive, verify_module
 from .v6_runtime_fingerprint import runtime_code_hashes
-from . import craft_runtime, workspace, prompt_methods
+from . import craft_runtime, workspace, prompt_methods, stage_quality
 
 STAGES = [(1,'资料与项目事实','canon',None), (2,'故事与剧本','screenplay','screenplay-grammar'),
           (3,'导演方案','director','director-grammar'), (4,'美术方案','art','production-design-grammar'),
@@ -131,7 +131,7 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None,context_policy=None):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None,context_policy=None,quality_policy=None):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
@@ -151,6 +151,7 @@ class V5Kernel:
         if production_policy not in (None,'verified-production/1.0','studio-production/2.0'):raise ValueError('Unknown production policy')
         if context_policy not in (None,'minimal-core/1.0') or (context_policy and workflow_profile!='lean'):
             raise ValueError('Minimal context requires a new lean project')
+        if quality_policy not in (None, stage_quality.POLICY):raise ValueError('Unknown quality policy')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -160,6 +161,7 @@ class V5Kernel:
             'production_target':production_target,'workflow_release':WORKFLOW_RELEASE}
         for key,value in {'creative_policy':creative_policy,'flow_refinement':flow_refinement,'editing_backend':editing_backend,'production_policy':production_policy}.items():
             if value is not None:kernel.project[key]=deepcopy(value)
+        if quality_policy:kernel.project['quality_policy']=quality_policy
         if context_policy:kernel.project['context_policy']=context_policy
         if output_policy:kernel.project['output_policy']=output_policy
         if craft_policy:kernel.project['craft_policy']=craft_policy
@@ -248,7 +250,7 @@ class V5Kernel:
             if slot=='qa' and (not state['build'] or data.get('build_id')!=state['build']['build_id']):return False
             if any(digest_file(self.path(p))!=h for p,h in record['files'].items()):return False
         except (ValueError,OSError):return False
-        return self.dependencies_valid(record['dependencies'],state) and craft_runtime.proof_valid(self,record)
+        return self.dependencies_valid(record['dependencies'],state) and craft_runtime.proof_valid(self,record) and stage_quality.proof_valid(self,record)
 
     def prerequisites_ready(self,kind):
         needed={'canon':[],'screenplay':['canon'],'director':['canon','screenplay'],
@@ -372,6 +374,8 @@ class V5Kernel:
             extra['adaptive_instruction']='Use native action statuses and shot-scoped tracks. Do not invent contact, interpolate unknown poses, or count static roots as moving actors. Plan only consumed assets. Unknown control facts must be resolved by the source owner.'
         reads=self.required_reads(module,(extra or {}).get('job'),kind) if module else []
         craft_runtime.attach(self,kind,slot,dependencies,scope or {},extra,reads)
+        if stage_quality.enabled(self.project) and kind in stage_quality.CHECKS:
+            extra['quality_contract']=stage_quality.contract(kind)
         context={'kind':kind,'slot':slot,'dependencies':dependencies,'scope':scope or {},
                  'modules':read(self.root/'modules.lock.json'),'extra':extra,'project':self.project,
                  'completed_count':len(state['completed_tasks']),
@@ -579,7 +583,7 @@ class V5Kernel:
         return errors
 
     def prompt_valid(self,prompt):
-        try:return digest_file(self.path(prompt['uri']))==prompt['sha256']
+        try:return digest_file(self.path(prompt['uri']))==prompt['sha256'] and stage_quality.prompt_proof_valid(self,prompt)
         except OSError:return False
 
     @staticmethod
@@ -862,6 +866,7 @@ class V5Kernel:
     def data_from_uri(self,uri):return read(self.path(uri))
 
     def receipt_audit(self,task,result):
+        stage_quality.check(self,task,result)
         craft_runtime.check(self,task,result)
         module=task.get('module')
         if not module:return None
@@ -969,7 +974,7 @@ class V5Kernel:
     def compile_review_step(self):
         build=self.state.get('build') or {}
         review=self.state.get('compile_review') or {}
-        if review.get('status')=='ACCEPTED' and review.get('build_id')==build.get('build_id'):return None
+        if review.get('status')=='ACCEPTED' and review.get('build_id')==build.get('build_id') and stage_quality.compile_proof_valid(self):return None
         return self.task('compile-review','compile-review',8,'video-prompt-compiler',[self.dependency('storyboard')],extra=self.qa_extra())
 
     def qa_extra(self):
@@ -1145,7 +1150,7 @@ class V5Kernel:
             if media.get('audit') in ('unaudited','needs_review'):errors.append('Unaudited image: '+media['key'])
         review=state.get('compile_review') or {}
         build=state.get('build') or {}
-        if review.get('status')!='ACCEPTED' or review.get('build_id')!=build.get('build_id'):
+        if review.get('status')!='ACCEPTED' or review.get('build_id')!=build.get('build_id') or not stage_quality.compile_proof_valid(self):
             errors.append('Compile review is missing for the current build')
 
     @mutate
@@ -1235,6 +1240,7 @@ class V5Kernel:
                 self._submit_audit=None
             state=self.state
         craft_runtime.record(self,task,result,state)
+        stage_quality.record(self,task,result,state)
         state['completed_tasks'][task_id]=digest(result);state['active_task']=None
         if result.get('complete',True):state['revision_scope']={}
         state['status']='RUNNING';self.save(state)
@@ -1703,13 +1709,15 @@ class V5Kernel:
             envelope=self.path('runtime/tasks/'+state['active_task']+'.json')
             if envelope.is_file():
                 reads=((read(envelope).get('module') or {}).get('required_reads') or [])
-        return {'status':state['status'],'project':str(self.root),'execution_mode':'current-agent',
+        effective=workspace.progress(self)['status'] if workspace.enabled(self.project) else state['status']
+        return {'status':effective,'recorded_status':state['status'],'project':str(self.root),'execution_mode':'current-agent',
             'artifacts':{k:('READY' if self.valid(k,state) else 'STALE') for k in state['artifacts']},
             'media':{k:('READY' if self.media_valid(v,state) else 'STALE') for k,v in state['media'].items()},
+            'stage_report':stage_quality.report(self),
             'active_task':state['active_task'],'required_reads':reads,'control':state.get('control'),'decision':state['active_decision'],
             'delivery':self.project['delivery'],'production_target':self.production_target(),
-            'preproduction_complete':state['status'] in ('DELIVERED','VIDEO_DELIVERED'),
-            'video_complete':state['status']=='VIDEO_DELIVERED','video_generated':False}
+            'preproduction_complete':effective in ('DELIVERED','VIDEO_DELIVERED'),
+            'video_complete':effective=='VIDEO_DELIVERED','video_generated':False}
 
     @classmethod
     def copy_project(cls,source,destination,*,skill_root=ROOT):

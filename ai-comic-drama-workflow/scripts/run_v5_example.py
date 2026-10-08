@@ -7,6 +7,7 @@ import sys
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT/'src'))
+sys.path.insert(0,str(ROOT))
 from ai_comic_drama_workflow.v5 import V5Kernel
 from ai_comic_drama_workflow.v5_modules import read,digest_file
 from ai_comic_drama_workflow.v5_adapters import encoded
@@ -60,13 +61,40 @@ def run_example(out, version='v5', workflow_profile=None, control_policy=None, s
             module=task.get('module') or {}
             result['module_receipt']={'name':module['name'],'version':module['version'],'skill_sha256':module['skill_sha256'],
                 'reads':[{'path':item['path'],'sha256':item['sha256']} for item in module.get('required_reads') or []]}
+            if studio:
+                from tests.test_craft_routing import review
+                from tests.test_craft_end_to_end import content_pointer
+                avir=read(k.path(task['build']['uri']+'/avir.json'))
+                result['craft_review']=review(task['craft'],avir,max(content_pointer(avir),key=lambda x:len(x[1]))[0])
+                from tests.test_stage_quality import fixture_quality
+                result['quality_review']=fixture_quality('compile-review',avir,digest_file(k.path(task['build']['uri']+'/avir.json')))
             k.submit(result);continue
         elif kind=='qa':
             build_id=k.state['build']['build_id']
             value={'project_id':'CAFE_DEMO','passed':True,'build_id':build_id,'compile_review_build_id':build_id,
                    'checks':['Fixed fixture: source order, B dialogue, two identities, hand custody and explicit coordinate conversion checked.','Static example only; actual images and video NOT_RUN.',*(task.get('hard_clauses') or [])]}
         else:value=read(author/(kind+'.json'))
+        extras={}
+        if studio:
+            from tests.test_craft_routing import context, review
+            from tests.test_craft_end_to_end import content_pointer
+            from ai_comic_drama_workflow import craft_runtime as rt
+            if kind=='canon':extras['craft_context']=context(k)
+            if kind in rt.CREATORS:
+                target=value;parts=task['craft']['native_primary_pointer'].split('/')[1:]
+                for part in parts[:-1]:target=target[part]
+                target[parts[-1]]=task['craft']['primary']
+                if kind=='screenplay':value['review']['content_sha256']=k.screenplay_protocol().content_hash(value)
+                if kind=='director':
+                    for scene in value['scenes']:scene['style_id']=task['craft']['primary']
+                    features=context(k)['roles']
+                    extras['craft_scene_routes']={scene['id']:{'continuity_group':scene['location_id'],'features':{r:features[r]['features'] for r in ('art','storyboard')},'evidence':{'pointer':f'/scenes/{i}/space','quote':scene['space']}} for i,scene in enumerate(value['scenes'])}
+                if kind=='art':
+                    rec=k.state['artifacts']['director'];value['director'].update(uri=str(k.path(rec['uri'])),sha256=rec['sha256'])
         handoff=director_mapping(task,value) if kind=='director' and k.screenplay_protocol() else []
+        if studio and isinstance(value.get('timeline'),dict) and value['timeline'].get('semantic_review'):
+            from ai_comic_drama_workflow.v52_spatial_runtime import content_hash
+            value['timeline']['semantic_review']['input_sha256']=content_hash(value)
         path=author/('result-'+kind+'.json');path.write_bytes(encoded(value))
         for req in ([] if kind=='director' else task['handoff']['required_handoffs']):
             cid=req['id'].split(':')[-1]
@@ -88,6 +116,12 @@ def run_example(out, version='v5', workflow_profile=None, control_policy=None, s
             result['schema']='role-result/5.1'
             result['module_receipt']={'name':module['name'],'version':module['version'],'skill_sha256':module['skill_sha256'],
                 'reads':[{'path':item['path'],'sha256':item['sha256']} for item in module['required_reads']]}
+        if studio:
+            from ai_comic_drama_workflow import stage_quality
+            from tests.test_stage_quality import fixture_quality
+            if kind in rt.CREATORS:extras['craft_review']=review(task['craft'],value,max(content_pointer(value),key=lambda x:len(x[1]))[0])
+            if kind in stage_quality.CHECKS:extras['quality_review']=fixture_quality(kind,value,digest_file(path))
+            result.update(extras)
         k.submit(result)
     raise ValueError('Example did not converge')
 

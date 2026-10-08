@@ -63,12 +63,14 @@ class StudioExecution:
         if value['sha256'] != _json_hash({k: v for k, v in value.items() if k != 'sha256'}):
             raise ValueError('Studio policy changed')
         _verify_proof(value['authorization'])
+        for proof in value.get('risk_exclusion_proofs', {}).values():
+            _verify_proof(proof)
         return value
 
     def configure(self, config):
         """Opt in before the first attempt. Never changes an existing project policy."""
         required = {'currency', 'cap_minor', 'max_total_attempts', 'authorization_file', 'quotes', 'canary'}
-        if not isinstance(config, dict) or set(config) - {'dialogue'} != required:
+        if not isinstance(config, dict) or set(config) - {'dialogue', 'risk_exclusions'} != required:
             raise ValueError('Studio configuration fields differ from the contract')
         if not isinstance(config['currency'], str) or re.fullmatch('[A-Z]{3}', config['currency']) is None:
             raise ValueError('Use an explicit three-letter currency')
@@ -83,15 +85,31 @@ class StudioExecution:
             _integer(amount, 'quote')
         canary = config['canary']
         known = {shot for job in self.ledger.jobs() for shot in job['shot_ids']}
-        # Five distinct shots test five different failure modes, not five passes
-        # on one easy image. The tags are creative declarations, not media proof.
+        # Cover applicable risks, not invented two-speaker/handoff scenes.
+        # A host exclusion binds an explicit scope and real evidence bytes.
+        exclusions = config.get('risk_exclusions', {})
+        if not isinstance(exclusions, dict) or not set(exclusions) <= RISK_TYPES:
+            raise ValueError('Invalid risk exclusions')
         if (not isinstance(canary, dict) or not canary or not set(canary) <= RISK_TYPES or
-                len(set(canary.values())) != len(canary) or
-                len(known) >= 5 and set(canary) != RISK_TYPES or
-                len(known) < 5 and set(canary.values()) != known):
-            raise ValueError('Canary needs five distinct shots covering the five risk types')
+                not all(isinstance(v, str) for v in canary.values())):
+            raise ValueError('Canary needs native shots for applicable risks')
         if not set(canary.values()) <= known:
             raise ValueError('Canary references unplanned native shots')
+        if set(exclusions) & set(canary):
+            raise ValueError('An applicable risk cannot also be excluded')
+        if len(known) >= 5 and set(canary) | set(exclusions) != RISK_TYPES:
+            raise ValueError('Every risk needs a canary or an evidence-bound exclusion')
+        if len(known) < 5 and set(canary.values()) != known:
+            raise ValueError('Small-project canary must cover every native shot')
+        exclusion_proofs = {}
+        for risk, row in exclusions.items():
+            if (not isinstance(row, dict) or set(row) != {'reason', 'shot_ids', 'proof_file'} or
+                    not isinstance(row['reason'], str) or not row['reason'].strip() or
+                    not isinstance(row['shot_ids'], list) or
+                    not all(isinstance(x, str) for x in row['shot_ids']) or
+                    set(row['shot_ids']) != known):
+                raise ValueError('Risk exclusion needs a reason, all planned shot IDs and proof_file')
+            exclusion_proofs[risk] = _proof(row['proof_file'])
         dialogue = config.get('dialogue')
         measurement = None
         if dialogue is not None:
@@ -108,6 +126,8 @@ class StudioExecution:
             value = {k: v for k, v in config.items() if k != 'authorization_file'}
             value.update(schema='studio-execution/2.0', baseline=BASELINE,
                          authorization=_proof(config['authorization_file']))
+            if exclusion_proofs:
+                value['risk_exclusion_proofs'] = exclusion_proofs
             if measurement is not None:
                 value['dialogue_measurement'] = measurement
             value['sha256'] = _json_hash(value)
@@ -163,7 +183,7 @@ class StudioExecution:
                     raise ValueError('Dialogue time slot exceeds the compiled generation request')
         if not set(job['shot_ids']) <= set(policy['canary'].values()):
             if self.canary_status(policy)['status'] != 'PASS':
-                raise ValueError('Five-shot canary must pass before bulk generation')
+                raise ValueError('Applicable-risk canary must pass before bulk generation')
         report = self.report(include_canary=False)
         reserve = policy['quotes'][job['id']]
         if report['attempts'] >= policy['max_total_attempts']:

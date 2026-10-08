@@ -1,6 +1,6 @@
 # 七技能创意到视频工作流
 
-> **V2.0 默认变更**：新 `start` 使用 `studio`，按需方法、不强制 Flow、默认 FFmpeg，并在视频执行前配置预算。见[制作手册](references/studio-production.md)。下文的 lean/Flow/剪映及 V5/V6 章节仍描述这些显式配置与已有项目；不是新 studio 的默认依赖。
+> **V2.0 默认变更**：新 `start` 使用 `studio`，自动专业路由、不强制 Flow、默认 FFmpeg，并在视频执行前配置预算。见[制作手册](references/studio-production.md)。下文的 lean/Flow/剪映及 V5/V6 章节仍描述这些显式配置与已有项目；不是新 studio 的默认依赖。
 
 
 新的一句话/创意任务默认通过 `start` 使用 lean，当前宿主连续完成原生专业任务，只输出必要交付。`start --profile audited` 或兼容的 `init` 使用 V6 编排协议：内核按 [唯一阶段图](workflow-v6.json) 生成任务和检查门，Codex 宿主真实派发专业子智能体，独立审阅后才接受候选。总包携带六个专业 Skill 的锁定发行物；专业模块也可分别安装。`production_target=video` 时继续登记真实执行、媒体回收、验收及总装。

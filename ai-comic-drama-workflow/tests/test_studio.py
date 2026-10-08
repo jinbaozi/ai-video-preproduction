@@ -115,10 +115,36 @@ class StudioTests(unittest.TestCase):
     def test_bulk_is_blocked_without_real_selected_canary(self):
         self.configure()
         self.assertEqual(self.studio.canary_status()['status'], 'BLOCKED')
-        with self.assertRaisesRegex(ValueError, 'Five-shot'):
+        with self.assertRaisesRegex(ValueError, 'Applicable-risk'):
             self.begin(5)
         self.assertEqual(self.ledger.records(), [])
         self.assertEqual(self.studio.report()['reserved_minor'], 0)
+
+    def risk_config(self):
+        return {'currency':'RHC','cap_minor':200,'max_total_attempts':6,
+            'authorization_file':str(self.proof),'quotes':{j['id']:20 for j in self.jobs},
+            'canary':{'prop_closeup':'S1','single_closeup':'S2'},
+            'risk_exclusions':{risk:{'reason':'SYNTHETIC single-person fixed-camera fixture: risk absent.',
+                'shot_ids':['S'+str(i) for i in range(1,7)],'proof_file':str(self.proof)}
+                for risk in RISK_TYPES-{'prop_closeup','single_closeup'}}}
+
+    def test_single_person_canary_does_not_require_invented_handoff(self):
+        self.studio.configure(self.risk_config())
+        self.assertEqual(self.studio.canary_status()['status'],'BLOCKED')
+        self.assertEqual(self.begin()['state'],'SUBMITTING')
+        with self.assertRaisesRegex(ValueError,'Applicable-risk'):self.begin(5)
+
+    def test_missing_risk_reason_or_scope_is_rejected(self):
+        config=self.risk_config();config['risk_exclusions']['handoff']['reason']=''
+        with self.assertRaisesRegex(ValueError,'Risk exclusion'):self.studio.configure(config)
+        config=self.risk_config();config['risk_exclusions']['handoff']['shot_ids']=['S1']
+        with self.assertRaisesRegex(ValueError,'Risk exclusion'):self.studio.configure(config)
+
+    def test_changed_risk_evidence_blocks_new_spend(self):
+        config=self.risk_config();proof=self.root/'risk-proof.json';proof.write_text('SYNTHETIC risk review')
+        for row in config['risk_exclusions'].values():row['proof_file']=str(proof)
+        self.studio.configure(config);proof.write_text('changed')
+        with self.assertRaisesRegex(ValueError,'Evidence bytes'):self.begin()
 
     def test_policy_and_proof_bytes_are_rechecked(self):
         self.configure()
@@ -220,12 +246,13 @@ class StudioProfileTests(unittest.TestCase):
             result = start(project, ['原创对白'], production_target='video')
             config = read(project/'project.json')
             self.assertEqual(result['workflow_profile'], 'studio')
-            self.assertEqual(config['craft_policy'], 'off')
+            self.assertEqual(config['craft_policy'], 'craft-routing/1.0')
+            self.assertEqual(config['quality_policy'], 'studio-quality/1.0')
             self.assertEqual(config['editing_backend'], 'ffmpeg')
             self.assertFalse(config.get('flow_refinement'))
             self.assertEqual(config['delivery'], 'full')
             self.assertEqual(config['production_policy'], 'studio-production/2.0')
-            self.assertNotIn('craft_review requires', result['context']['result_instruction'])
+            self.assertIn('craft_context', result['context']['result_instruction'])
             before = (project/'project.json').read_bytes()
             step(project)
             self.assertEqual(before, (project/'project.json').read_bytes())

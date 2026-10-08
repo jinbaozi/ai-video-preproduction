@@ -10,3 +10,6 @@ outputs/
 output/
 .local-tests/
 *.egg-info/
+
+# Local wheel intermediates
+ai-comic-drama-workflow/build/
