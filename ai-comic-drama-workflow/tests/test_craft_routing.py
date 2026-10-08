@@ -173,9 +173,9 @@ class RoutingTests(unittest.TestCase):
     def test_deterministic_selection(self):
         self.assertEqual(self.route('director', BRIEF), self.route('director', BRIEF))
 
-    def test_studio_entry_is_optional_and_standalone_entries_keep_routing(self):
+    def test_studio_and_standalone_entries_keep_professional_routing(self):
         for name in ('ai-comic-drama-workflow', *cr.ROLES.values(), 'image-prompt-optimizer', 'video-prompt-compiler'):
-            heading = '## 按需专业方法' if name == 'ai-comic-drama-workflow' else '## 默认专业方法路由'
+            heading = '## 默认专业方法与质量检查' if name == 'ai-comic-drama-workflow' else '## 默认专业方法路由'
             self.assertIn(heading, (SKILL_ROOTS[name]/'SKILL.md').read_text())
             self.assertTrue((SKILL_ROOTS[name]/'references/craft-routing.md').is_file())
 

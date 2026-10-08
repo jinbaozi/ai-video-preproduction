@@ -265,6 +265,11 @@ def progress(kernel, outcome=None) -> dict:
         except (ValueError, OSError, KeyError):
             pass
         if not build_valid:integrity.append('Compiled build is stale or changed')
+    from .stage_quality import compile_proof_valid
+    if state.get('compile_review', {}).get('status') == 'ACCEPTED' and not compile_proof_valid(kernel):
+        integrity.append('Compile review evidence is stale or changed')
+    for key,prompt in state.get('prompts', {}).items():
+        if not kernel.prompt_valid(prompt):integrity.append('Image prompt evidence is stale or changed: '+key)
     rows = []
     for stage, (directory, name) in STAGES.items():
         if stage == 11 and not kernel.project.get('editing_backend'):continue
@@ -298,7 +303,8 @@ def progress(kernel, outcome=None) -> dict:
         if stage == 8:
             build = state.get('build') or {}
             review = state.get('compile_review') or {}
-            done = build_valid and review.get('status') == 'ACCEPTED' and review.get('build_id') == build.get('build_id')
+            from .stage_quality import compile_proof_valid
+            done = build_valid and review.get('status') == 'ACCEPTED' and review.get('build_id') == build.get('build_id') and compile_proof_valid(kernel)
         if stage == 9:
             done = state['status'] in ('DELIVERED', 'VIDEO_DELIVERED') and valid.get('qa', False) and build_valid and not integrity
         if stage in (10,11):

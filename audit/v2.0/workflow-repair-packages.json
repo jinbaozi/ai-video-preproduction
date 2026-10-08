@@ -1,0 +1,909 @@
+{
+  "schema": "suite-verification/1.0",
+  "status": "PASS",
+  "packages": [
+    {
+      "name": "ai-comic-drama-workflow",
+      "archive_sha256": "23144a504f9694fa8284d8f3031dafa742149d8bf5be513f7f55241c1434f29e",
+      "file_count": 2349,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_v5_workflow.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/run_v5_example.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/example"
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/run_v5_example.py",
+            "--version",
+            "v52",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/example-v52"
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-02.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_v52_workflow.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-03.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_screenplay_integration.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-04.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_v6_*.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-05.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/run_v5_example.py",
+            "--version",
+            "v52",
+            "--lean",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/example-lean"
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-06.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_lean_workflow.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-07.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_adaptive_*.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-08.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_h3_reads.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-09.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_craft*.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-10.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_prompt_methods.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-11.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_community_routing.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-12.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_minimal_core.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-13.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_stage_quality.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-14.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_studio.py",
+            "-v",
+            "-t",
+            "."
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-15.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/run_v5_example.py",
+            "--version",
+            "v52",
+            "--studio",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/example-studio"
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-16.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/run_v5_example.py",
+            "--version",
+            "v51",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/example-v51"
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-17.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/ai-comic-drama-workflow"
+          ],
+          "exit_code": 0,
+          "log": "ai-comic-drama-workflow-18.log"
+        }
+      ]
+    },
+    {
+      "name": "screenplay-grammar",
+      "archive_sha256": "8271b1f6011870d1db355134e2226d12750a534ebb5e88e548ea45a292d3e700",
+      "file_count": 61,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_sg.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "screenplay-grammar-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/sg.py",
+            "compile",
+            "examples/lantern.project.json",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/screenplay-lantern"
+          ],
+          "exit_code": 0,
+          "log": "screenplay-grammar-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/craft_router.py",
+            "密室中发现线索，观众逐渐接近真相。"
+          ],
+          "exit_code": 0,
+          "log": "screenplay-grammar-02.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/screenplay-grammar"
+          ],
+          "exit_code": 0,
+          "log": "screenplay-grammar-03.log"
+        }
+      ]
+    },
+    {
+      "name": "director-grammar",
+      "archive_sha256": "76e0f790e337ab0796aff14a40f92c9b5066f0503c125a0fc61c20b2161efe8c",
+      "file_count": 69,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_dg.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "director-grammar-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/dg.py",
+            "compile",
+            "examples/v52/director.json",
+            "--target",
+            "generic-t2v",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/native-director-v52"
+          ],
+          "exit_code": 0,
+          "log": "director-grammar-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/dg.py",
+            "compile",
+            "examples/v51/director.json",
+            "--target",
+            "generic-t2v",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/native-director"
+          ],
+          "exit_code": 0,
+          "log": "director-grammar-02.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_screenplay.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "director-grammar-03.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/craft_router.py",
+            "密室中发现线索，观众逐渐接近真相。"
+          ],
+          "exit_code": 0,
+          "log": "director-grammar-04.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/director-grammar"
+          ],
+          "exit_code": 0,
+          "log": "director-grammar-05.log"
+        }
+      ]
+    },
+    {
+      "name": "production-design-grammar",
+      "archive_sha256": "e3f58d839e4824614e6678674237c3633c462cc70e03fc7a80e849c747f18019",
+      "file_count": 42,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_art_compile.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "production-design-grammar-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/craft_router.py",
+            "密室中发现线索，观众逐渐接近真相。"
+          ],
+          "exit_code": 0,
+          "log": "production-design-grammar-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/production-design-grammar"
+          ],
+          "exit_code": 0,
+          "log": "production-design-grammar-02.log"
+        }
+      ]
+    },
+    {
+      "name": "storyboard-grammar",
+      "archive_sha256": "e847b997fc9e90acfc6d00e5d2e8f5d32949feebbfbed9ffc827ca689cc6c41c",
+      "file_count": 64,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_storyboard.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "storyboard-grammar-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/storyboard.py",
+            "compile",
+            "examples/v52/storyboard.json",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/native-storyboard-v52"
+          ],
+          "exit_code": 0,
+          "log": "storyboard-grammar-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/storyboard.py",
+            "compile",
+            "examples/v51/storyboard.json",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/native-storyboard"
+          ],
+          "exit_code": 0,
+          "log": "storyboard-grammar-02.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/craft_router.py",
+            "密室中发现线索，观众逐渐接近真相。"
+          ],
+          "exit_code": 0,
+          "log": "storyboard-grammar-03.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/storyboard-grammar"
+          ],
+          "exit_code": 0,
+          "log": "storyboard-grammar-04.log"
+        }
+      ]
+    },
+    {
+      "name": "video-prompt-compiler",
+      "archive_sha256": "0857dbecdee1a56da427a3475337c7cbf247fad59ec841955ade6a258d896daa",
+      "file_count": 162,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_vpc.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_prompt_projection.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_control_audit_round2.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-02.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_craft.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-03.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_previs.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-04.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_keyframe_host.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-05.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_keyframe_handoff.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-06.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_control_repair.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-07.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_joint_control.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-08.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_lean_output.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-09.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_adaptive_hardening.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-10.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_adaptive_control.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-11.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_h3_runninghub.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-12.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_prompt_techniques.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-13.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_community_knowledge.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-14.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_shot_control.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-15.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_v52.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-16.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_v51.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-17.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/video-prompt-compiler"
+          ],
+          "exit_code": 0,
+          "log": "video-prompt-compiler-18.log"
+        }
+      ]
+    },
+    {
+      "name": "image-prompt-optimizer",
+      "archive_sha256": "f6d45c361901e4acb2d9f561f18a3c922e0b5bf62879cdcda255a5b0f2d333f6",
+      "file_count": 117,
+      "single_install": "PASS",
+      "repeat_build": "IDENTICAL",
+      "checks": [
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_validate_gpt_image_2_size.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "image-prompt-optimizer-00.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "tests",
+            "-p",
+            "test_control_contracts.py",
+            "-v"
+          ],
+          "exit_code": 0,
+          "log": "image-prompt-optimizer-01.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/control_cli.py",
+            "--help"
+          ],
+          "exit_code": 0,
+          "log": "image-prompt-optimizer-02.log"
+        },
+        {
+          "command": [
+            "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+            "scripts/package_skill.py",
+            "--out",
+            "/tmp/v5-isolated-dka4lo9j/rebuilt/image-prompt-optimizer"
+          ],
+          "exit_code": 0,
+          "log": "image-prompt-optimizer-03.log"
+        }
+      ]
+    }
+  ],
+  "bundled_modules_equal_standalone": true,
+  "real_media_acceptance": "SEPARATE_RECORD_REQUIRED",
+  "video_execution": "NOT_RUN",
+  "real_codex_agent_dispatch": "NOT_RUN",
+  "legacy_tests": "Frozen legacy runtime is outside these V5/V6 acceptance tests; compare its separately recorded baseline."
+}

@@ -52,6 +52,7 @@ def verify(packages,out,quick_validator=None):
             if name=='image-prompt-optimizer':commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_control_contracts.py','-v'])
             if name=='ai-comic-drama-workflow':
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_studio.py','-v'])
+                commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_stage_quality.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_minimal_core.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_community_routing.py','-v'])
                 commands.insert(1,[sys.executable,'-m','unittest','discover','-s','tests','-p','test_prompt_methods.py','-v'])

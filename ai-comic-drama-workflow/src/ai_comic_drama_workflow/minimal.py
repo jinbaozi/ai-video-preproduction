@@ -101,14 +101,18 @@ def packet(task):
         'checks, conflicts, unresolved and the native result fields. Author actual semantics/visual findings. '
         'Hashes, module receipts and native validator reports are computed by the runtime. '
         'Never assert a pass without review.')
-    if task.get('craft'):
+    if task.get('craft') and task['kind'] != 'canon':
         view['result_instruction'] += (' craft_review requires rationale, semantic_review:true and applications OR groups with explicit '
         'rule_ids, status, reason, check, pointer/quote (or not_applicable condition). '
         'Different scope/findings must not share a group.')
+    elif task.get('craft') and task['kind'] == 'canon':
+        view['result_instruction'] += ' Supply source-bound craft_context for all four creative responsibilities; the runtime selects registered methods.'
     elif task.get('project', {}).get('craft_policy') == 'off':
         view['result_instruction'] += (' This project explicitly disables mandatory method routing. '
             'Module method libraries are optional references; do not add craft_context or craft_review paperwork. '
             'Native content, dialogue locks, continuity and media checks still apply.')
+    if task.get('quality_contract'):
+        view['result_instruction'] += ' Supply quality_review per quality_contract with actual scoped findings and native pointer/quote evidence; missing or failing checks block acceptance. This is HOST_DECLARED, not automatic artistic approval.'
     if task['kind']=='compile-review':
         view['delivery_audit_contract'] = {
             'optional':True, 'build_id':task['build']['build_id'],
@@ -181,6 +185,13 @@ def normalize(kernel, submitted):
         from . import craft_runtime, craft_router
         artifact = craft_runtime.evidence_artifact(kernel, task, result)
         result['craft_review'] = craft_router.bind_review(task['craft'], result['craft_review'], artifact)
+    if isinstance(result.get('quality_review'),dict):
+        from . import stage_quality
+        if stage_quality.enabled(kernel.project) and task['kind'] in stage_quality.CHECKS:
+            _,sha=stage_quality.material(task,result,kernel)
+            if result['quality_review'].get('artifact_sha256') not in (None,sha):
+                raise ValueError('Declared quality artifact hash differs')
+            result['quality_review']['artifact_sha256']=sha
     return task, result
 
 

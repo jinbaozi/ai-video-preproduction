@@ -18,7 +18,7 @@ def main(argv=None):
     start_command.add_argument('--target');start_command.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'])
     start_command.add_argument('--production-target',choices=['none','video'],default='none')
     start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
-    start_command.add_argument('--craft-routing',choices=['auto','off'],help='Studio skips method paperwork; lean/audited retain automatic routing')
+    start_command.add_argument('--craft-routing',choices=['auto','off'],help='Automatic professional selection by default; off is an explicit opt-out, not a quality bypass')
     start_command.add_argument('--context-profile',choices=['core','audit'],help='New lean defaults to minimal core context; audit retains full host reads')
     start_command.add_argument('--output-profile',choices=['compact','audit'],help='Lean defaults to compact ordered storage; audit preserves legacy evidence/layout')
     start_command.add_argument('--creative-policy',choices=['automatic','ask'],default='automatic')
@@ -209,6 +209,8 @@ def main(argv=None):
             if workspace.enabled(k.project):
                 if a.command=='status':
                     r=workspace.progress(k)
+                    from .stage_quality import report
+                    r['stage_report']=report(k)
                     r.pop('stages',None)
                 else:
                     from .lean import compact

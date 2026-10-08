@@ -83,7 +83,10 @@
       ]
     },
     "production_policy": {
-      "enum": ["verified-production/1.0", "studio-production/2.0"]
+      "enum": [
+        "verified-production/1.0",
+        "studio-production/2.0"
+      ]
     },
     "flow_refinement": {
       "type": "object",
@@ -111,6 +114,9 @@
     },
     "context_policy": {
       "const": "minimal-core/1.0"
+    },
+    "quality_policy": {
+      "const": "studio-quality/1.0"
     }
   },
   "allOf": [

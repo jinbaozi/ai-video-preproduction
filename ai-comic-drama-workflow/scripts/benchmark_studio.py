@@ -22,6 +22,8 @@ from tests.test_craft_end_to_end import content_pointer
 from tests.test_craft_routing import context, review, save
 from tests.test_v5_workflow import FIXTURE, result_for, review as handoff_review, screenplay
 from tests.test_minimal_core import core_result
+from tests.test_stage_quality import fixture_quality
+from ai_comic_drama_workflow import stage_quality
 
 
 def size(value):
@@ -37,7 +39,7 @@ def run(profile):
         kernel = V5Kernel.initialize(root/'project', [str(author/'cafe.source.txt')],
             project_id='CAFE_DEMO', delivery='text-only', target='agnes-video-2.5',
             workflow_profile='lean', output_policy=workspace.POLICY, context_policy=minimal.POLICY,
-            craft_policy=rt.POLICY if profile=='lean' else 'off')
+            craft_policy=rt.POLICY,quality_policy=stage_quality.POLICY if profile=='studio' else None)
         stages = []
         for _ in range(18):
             response = kernel.run()
@@ -92,6 +94,8 @@ def run(profile):
                 mapping = handoff_review(task, artifact)
                 path = save(author/(kind+'.json'), artifact)
                 result = result_for(task, artifact=str(path), artifact_sha256=digest_file(path), handoff=mapping, **extras)
+            if profile=='studio' and kind in stage_quality.CHECKS:
+                result['quality_review']=fixture_quality(kind,artifact,digest_file(kernel.path(task['build']['uri']+'/avir.json')) if kind=='compile-review' else result['artifact_sha256'])
             value = core_result(result, task.get('craft'))
             if kind == 'compile-review':
                 value['delivery_audit'] = {'build_id':task['build']['build_id'],'passed':True,
@@ -117,7 +121,7 @@ def main():
     parser.add_argument('--out', type=Path, required=True)
     args = parser.parse_args()
     rows = [run('lean'), run('studio')]
-    report = {'scope':'Same authored legacy 1.0 text-only narrative; core transport; craft on/off; real native validators; synthetic semantic findings. Adaptive control and media excluded.',
+    report = {'scope':'Same authored legacy 1.0 text-only narrative; core transport; craft on in both, scoped quality on in studio; real native validators; synthetic semantic findings. Adaptive control and media excluded.',
               'baseline':'Explicit legacy lean, automatic craft routing, minimal core',
               'measurement':'Serialized UTF-8 bytes; native input file reads excluded; not model tokens',
               'real_generation':'NOT_RUN','production_speedup':'NOT_MEASURED','rows':rows,
