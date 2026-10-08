@@ -1,0 +1,58 @@
+{
+  "schema": "workflow-repair-checks/1.0",
+  "implementation_commit": "006bc2621a23ff0aca3838e656aa112d32dd3f3d",
+  "source_tests": 469,
+  "source_tests_status": "PASS",
+  "new_stage_quality_tests": 15,
+  "new_risk_tests": 3,
+  "paid_media_generation": "NOT_RUN",
+  "real_video_acceptance": "NOT_RUN",
+  "wheel_source_byte_comparison": "IDENTICAL",
+  "logs": {
+    "repair-tests-passing.log": {
+      "sha256": "e9c00a2ced1d9ba12de95405836780df9bc45d3b4a05df4d015af4e03281c653"
+    },
+    "repair-release-references.log": {
+      "sha256": "9435646aa8740c66b2ce61627ac70cfbb06d17506e294afb201239303c4a6246"
+    },
+    "repair-release-sync.log": {
+      "sha256": "6b1ae99725417609578cedabe1742e58c52b300fdc94d4cf072043c7a8a62a3d"
+    },
+    "repair-release-knowledge.log": {
+      "sha256": "99fdaad5b88071851c51ea45ff78b7e383439accfc98dbf6b723224463407910"
+    },
+    "repair-wheel.log": {
+      "sha256": "f451e29b4fb7309d9d85299ff09e539e596d336292cb6ae484c91812a71b8e73"
+    },
+    "repair-install.log": {
+      "sha256": "772567032f3bf9b48a2b55cb979cf4b20ee9932f0597abd65a06948ab41b71c8"
+    },
+    "repair-installed-start.json": {
+      "sha256": "65f03392f2de034e6f25572247b4155092df8cb3c9d01c88f513faba9f35cfec"
+    },
+    "repair-installed-status.json": {
+      "sha256": "a244e667aa1eff61ea67894d6fabcc02c55fc661345533caf772affc8b063b71"
+    },
+    "package-verification.json": {
+      "sha256": "07560a28bdbeddd421523e14e62a2cef81da58c84507e8f34e4ec8c029594dd3"
+    }
+  },
+  "isolated_commands": 60,
+  "skill_packages": 7,
+  "package_status": "PASS",
+  "repeat_build": "IDENTICAL",
+  "skipped_optional_tests": [
+    {
+      "log": "video-prompt-compiler-04.log",
+      "test": "test_actual_blender_reopened_scene_render_and_pending_handoff (test_previs.PrevisTests.test_actual_blender_reopened_scene_render_and_pending_handoff) ... skipped 'Requires explicit local Blender integration runtime'"
+    },
+    {
+      "log": "video-prompt-compiler-04.log",
+      "test": "test_actual_single_frame_and_resealed_mapping_tamper (test_previs.PrevisTests.test_actual_single_frame_and_resealed_mapping_tamper) ... skipped 'Requires explicit local Blender integration runtime'"
+    },
+    {
+      "log": "video-prompt-compiler-11.log",
+      "test": "test_actual_render_selected_scope_and_stale_geometry (test_adaptive_control.AdaptiveActualRenderTests.test_actual_render_selected_scope_and_stale_geometry) ... skipped 'Requires actual Blender; never fake render completion'"
+    }
+  ]
+}
