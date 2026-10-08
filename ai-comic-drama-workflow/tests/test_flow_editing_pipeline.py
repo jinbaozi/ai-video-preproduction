@@ -23,6 +23,7 @@ class PipelinePolicies(unittest.TestCase):
         self.root=Path(self.temp.name)/'project'
 
     def kernel(self, **options):
+        options.setdefault('profile', 'lean')
         start(self.root,['Adult traveler finds a letter'],**options)
         return V5Kernel(self.root)
 

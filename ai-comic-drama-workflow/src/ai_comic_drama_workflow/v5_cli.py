@@ -10,21 +10,21 @@ from .v5_modules import ROOT, read, default_lock
 def main(argv=None):
     p=argparse.ArgumentParser(prog='ai-comic-drama')
     commands=p.add_subparsers(dest='command',required=True)
-    start_command=commands.add_parser('start',help='One idea to native workflow; lean host loop by default')
+    start_command=commands.add_parser('start',help='One idea to native workflow; fast studio profile by default')
     start_command.add_argument('inputs',nargs='+');start_command.add_argument('--project',required=True)
     start_command.add_argument('--project-id',default='PROJECT')
-    start_command.add_argument('--profile',choices=['lean','audited'],default='lean')
+    start_command.add_argument('--profile',choices=['studio','lean','audited'],default='studio')
     start_command.add_argument('--delivery',choices=['full','text-only'],default='full')
     start_command.add_argument('--target');start_command.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'])
     start_command.add_argument('--production-target',choices=['none','video'],default='none')
     start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
-    start_command.add_argument('--craft-routing',choices=['auto','off'],default='auto',help='Default method routing; off only for explicit user opt-out')
+    start_command.add_argument('--craft-routing',choices=['auto','off'],help='Studio skips method paperwork; lean/audited retain automatic routing')
     start_command.add_argument('--context-profile',choices=['core','audit'],help='New lean defaults to minimal core context; audit retains full host reads')
     start_command.add_argument('--output-profile',choices=['compact','audit'],help='Lean defaults to compact ordered storage; audit preserves legacy evidence/layout')
     start_command.add_argument('--creative-policy',choices=['automatic','ask'],default='automatic')
     start_command.add_argument('--reference-refinement',choices=['google-flow-2k','off'])
     start_command.add_argument('--flow-account',help='Preferred existing Google account; never a password')
-    start_command.add_argument('--editing-backend',choices=['jianying-headless','ffmpeg'],default='jianying-headless')
+    start_command.add_argument('--editing-backend',choices=['jianying-headless','ffmpeg'])
     start_command.add_argument('--verbose',action='store_true')
     step_command=commands.add_parser('step',help='Accept a native result and get the next host action in one call')
     step_command.add_argument('project');step_command.add_argument('--result');step_command.add_argument('--verbose',action='store_true')
@@ -67,8 +67,16 @@ def main(argv=None):
     prod=commands.add_parser('production');prod.add_argument('project')
     prod_commands=prod.add_subparsers(dest='production_command',required=True)
     for name in ('plan','execute','recover-execution','receive-take','freeze','select','review-take',
-                 'check-adjacent','assemble','edit','editing-readiness','editing-install','review-sequence','post-obligation','deliver','status'):
+                 'check-adjacent','assemble','edit','editing-readiness','editing-install','review-sequence','post-obligation','deliver','status',
+                 'studio-configure','studio-report','settle','reconcile','begin-external','measure-dialogue'):
         sub=prod_commands.add_parser(name)
+        if name=='studio-configure':sub.add_argument('--file',required=True)
+        if name=='begin-external':sub.add_argument('--job',required=True)
+        if name=='settle':
+            sub.add_argument('--record',required=True);sub.add_argument('--amount-minor',type=int,required=True);sub.add_argument('--receipt',required=True)
+        if name=='reconcile':sub.add_argument('--record',required=True);sub.add_argument('--evidence',required=True)
+        if name=='measure-dialogue':
+            sub.add_argument('--script',required=True);sub.add_argument('--bindings',required=True);sub.add_argument('--margin-ms',type=int,default=200)
         if name=='plan':
             sub.add_argument('--compile',required=True);sub.add_argument('--request',required=True)
             sub.add_argument('--manifest-sha',required=True);sub.add_argument('--attachments',required=True)
@@ -79,6 +87,7 @@ def main(argv=None):
         if name=='receive-take':
             sub.add_argument('--job',required=True);sub.add_argument('--file',required=True);sub.add_argument('--probe',required=True)
             sub.add_argument('--execution-evidence')
+            sub.add_argument('--record',help='Recover the original externally submitted attempt without resubmitting')
         if name=='freeze':
             sub.add_argument('--shots',required=True);sub.add_argument('--shot-ranges',required=True)
             sub.add_argument('--plan',required=True);sub.add_argument('--spec',required=True)
@@ -205,7 +214,7 @@ def main(argv=None):
                     from .lean import compact
                     r=compact(r)
         print(json.dumps(r,ensure_ascii=False,indent=2))
-        return 2 if str(r.get('status','')).startswith(('BLOCKED','FAILED','TOOL_UNAVAILABLE')) or r.get('valid') is False else 0
+        return 2 if str(r.get('status','')).startswith(('BLOCKED','FAIL','TOOL_UNAVAILABLE','SPLIT_REQUIRED','OVER_BUDGET')) or r.get('valid') is False else 0
     except (ValueError,OSError,KeyError,IndexError,StopIteration) as e:
         print(json.dumps({'status':'ERROR','error':str(e)},ensure_ascii=False));return 1
 
@@ -229,6 +238,26 @@ def _production(a):
     from .executors.manual import ManualExecutor
     from .production import ProductionLedger
     project=read(Path(a.project)/'project.json')
+    if a.production_command in ('studio-configure','studio-report','settle','reconcile','begin-external','measure-dialogue'):
+        from .studio import StudioExecution, dialogue_timing
+        production_runtime=None
+        if project.get('orchestration_protocol')=='6.0':
+            from .v6_runtime import V6Runtime
+            from .v6_production_runtime import V6ProductionRuntime
+            production_runtime=V6ProductionRuntime(V6Runtime(a.project))
+            ledger=production_runtime.ledger
+        else:
+            ledger=ProductionLedger(V5Kernel(a.project))
+        studio=StudioExecution(ledger)
+        if a.production_command=='studio-configure':return studio.configure(read(Path(a.file)))
+        if a.production_command=='studio-report':return studio.report()
+        if a.production_command=='settle':return studio.settle(a.record,a.amount_minor,a.receipt)
+        if a.production_command=='reconcile':
+            evidence=read(Path(a.evidence))
+            return production_runtime.reconcile_external(a.record,evidence) if production_runtime else studio.reconcile(a.record,evidence)
+        if a.production_command=='begin-external':
+            return production_runtime.begin_external(a.job) if production_runtime else ledger.begin_submit(a.job,automatic=False)
+        return dialogue_timing(a.script,read(Path(a.bindings)),margin_ms=a.margin_ms)
     if a.production_command=='editing-install':
         from .jianying import install_core
         return install_core(a.destination,read(Path(a.authorization)) if a.authorization else None,usage=a.usage)
@@ -265,7 +294,7 @@ def _production(a):
         return executor.recover(a.record)
     if command=='receive-take':
         evidence=read(Path(a.execution_evidence)) if a.execution_evidence else None
-        return ManualExecutor(ledger).receive(a.job,a.file,read(Path(a.probe)),execution_evidence=evidence)
+        return ManualExecutor(ledger).receive(a.job,a.file,read(Path(a.probe)),execution_evidence=evidence,record_id=a.record)
     if command=='freeze':
         source=read(Path(a.plan));contract=source['contract'] if isinstance(source,dict) else source
         plan=freeze_plan(contract)
@@ -279,7 +308,7 @@ def _production(a):
     if command=='review-take':
         source=read(Path(a.plan));plan=freeze_plan(source['contract'] if isinstance(source,dict) else source)
         decision=shot_decision(plan,read(Path(a.observations)),a.shot,plan['sha256'])
-        decision['id']='ACC_'+a.shot
+        decision['id']='ACC_'+a.shot+('_'+a.take if a.take else '')
         if ledger.strict:
             if not a.take:raise ValueError('Protocol 6.0 needs --take for shot review')
             decision['take_ids']={a.shot:a.take}
@@ -332,14 +361,14 @@ def _production_v6(a, runtime):
     if command=='execute':return runtime.execute(a.job,a.out)
     if command=='recover-execution':return runtime.recover_execution(a.record,a.out)
     if command=='receive-take':
-        if not a.execution_evidence:raise ValueError('Protocol 6.0 needs --execution-evidence')
+        if not a.execution_evidence and not a.record:raise ValueError('Protocol 6.0 needs --execution-evidence or --record')
         return runtime.receive_take(a.job,a.file,read(Path(a.probe)),
-                                    read(Path(a.execution_evidence)))
+                                    read(Path(a.execution_evidence)) if a.execution_evidence else None, record_id=a.record)
     if command=='review-take':
         if not a.take:raise ValueError('Protocol 6.0 needs --take for shot review')
         source=read(Path(a.plan));plan=freeze_plan(source['contract'] if isinstance(source,dict) else source)
         decision=shot_decision(plan,read(Path(a.observations)),a.shot,plan['sha256'])
-        decision.update(id='ACC_'+a.shot,take_ids={a.shot:a.take})
+        decision.update(id='ACC_'+a.shot+'_'+a.take,take_ids={a.shot:a.take})
         return runtime.review_take(decision)
     if command=='select':return runtime.select_take(a.shot,a.take)
     if command=='check-adjacent':

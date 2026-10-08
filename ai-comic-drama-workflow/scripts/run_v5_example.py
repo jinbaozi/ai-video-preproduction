@@ -14,12 +14,19 @@ sys.path.insert(0,str(ROOT/'scripts'))
 from screenplay_fixture import screenplay, director_mapping
 
 
-def run_example(out, version='v5', workflow_profile=None, control_policy=None):
+def run_example(out, version='v5', workflow_profile=None, control_policy=None, studio=False):
     out=Path(out).resolve()
     if out.exists() and any(out.iterdir()):raise ValueError('Example output must be empty')
     out.mkdir(parents=True,exist_ok=True)
     author=out/'authored-fixture';shutil.copytree(ROOT/'examples'/version/'cafe',author)
-    k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5',workflow_profile=workflow_profile,control_policy=control_policy)
+    if studio:
+        from ai_comic_drama_workflow.lean import start
+        start(out/'project',[str(author/'cafe.source.txt')],profile='studio',project_id='CAFE_DEMO',
+              delivery='text-only',target='agnes-video-2.5')
+        k=V5Kernel(out/'project')
+        control_policy=k.project['control_policy']
+    else:
+        k=V5Kernel.initialize(out/'project',[str(author/'cafe.source.txt')],project_id='CAFE_DEMO',delivery='text-only',target='agnes-video-2.5',workflow_profile=workflow_profile,control_policy=control_policy)
     for _ in range(16):
         step=k.run()
         if step['status']=='DELIVERED':return step
@@ -86,5 +93,6 @@ def run_example(out, version='v5', workflow_profile=None, control_policy=None):
 
 
 if __name__=='__main__':
-    parser=argparse.ArgumentParser();parser.add_argument('--out',required=True);parser.add_argument('--version',choices=['v5','v51','v52'],default='v5');parser.add_argument('--lean',action='store_true');args=parser.parse_args()
-    print(encoded(run_example(args.out,args.version,'lean' if args.lean else None)).decode())
+    parser=argparse.ArgumentParser();parser.add_argument('--out',required=True);parser.add_argument('--version',choices=['v5','v51','v52'],default='v5');parser.add_argument('--lean',action='store_true');parser.add_argument('--studio',action='store_true');args=parser.parse_args()
+    if args.studio and args.version != 'v52':parser.error('studio example requires the native v52 adaptive-control fixture')
+    print(encoded(run_example(args.out,args.version,'lean' if args.lean else None,studio=args.studio)).decode())

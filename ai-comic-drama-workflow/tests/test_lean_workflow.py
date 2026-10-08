@@ -45,7 +45,7 @@ class LeanEntryTests(unittest.TestCase):
             initialize.assert_called_once()
         with contextlib.redirect_stdout(io.StringIO()) as output:
             self.assertEqual(main(['start', 'idea', '--project', str(self.root), '--delivery', 'text-only']), 0)
-        self.assertEqual(json.loads(output.getvalue())['workflow_profile'], 'lean')
+        self.assertEqual(json.loads(output.getvalue())['workflow_profile'], 'studio')
 
     def test_audited_start_uses_v6_without_lean_native_flag(self):
         with patch('ai_comic_drama_workflow.v6_runtime.V6Runtime.initialize') as initialize:

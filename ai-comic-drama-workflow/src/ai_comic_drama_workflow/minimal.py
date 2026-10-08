@@ -100,9 +100,15 @@ def packet(task):
         'Return core-result/1.0 with task_id, read_ack:true after reading this packet and its readings, '
         'checks, conflicts, unresolved and the native result fields. Author actual semantics/visual findings. '
         'Hashes, module receipts and native validator reports are computed by the runtime. '
-        'craft_review requires rationale, semantic_review:true and applications OR groups with explicit '
+        'Never assert a pass without review.')
+    if task.get('craft'):
+        view['result_instruction'] += (' craft_review requires rationale, semantic_review:true and applications OR groups with explicit '
         'rule_ids, status, reason, check, pointer/quote (or not_applicable condition). '
-        'Different scope/findings must not share a group. Never assert a pass without review.')
+        'Different scope/findings must not share a group.')
+    elif task.get('project', {}).get('craft_policy') == 'off':
+        view['result_instruction'] += (' This project explicitly disables mandatory method routing. '
+            'Module method libraries are optional references; do not add craft_context or craft_review paperwork. '
+            'Native content, dialogue locks, continuity and media checks still apply.')
     if task['kind']=='compile-review':
         view['delivery_audit_contract'] = {
             'optional':True, 'build_id':task['build']['build_id'],

@@ -1,0 +1,105 @@
+{
+  "scope": "Same authored legacy 1.0 text-only narrative; core transport; craft on/off; real native validators; synthetic semantic findings. Adaptive control and media excluded.",
+  "baseline": "Explicit legacy lean, automatic craft routing, minimal core",
+  "measurement": "Serialized UTF-8 bytes; native input file reads excluded; not model tokens",
+  "real_generation": "NOT_RUN",
+  "production_speedup": "NOT_MEASURED",
+  "rows": [
+    {
+      "profile": "lean",
+      "status": "DELIVERED",
+      "seconds": 5.873,
+      "host_turns": 6,
+      "context_bytes": 179189,
+      "result_bytes": 27530,
+      "stages": [
+        {
+          "kind": "canon",
+          "context_bytes": 4461,
+          "result_bytes": 1313,
+          "craft_rule_count": 0
+        },
+        {
+          "kind": "screenplay",
+          "context_bytes": 16398,
+          "result_bytes": 1031,
+          "craft_rule_count": 8
+        },
+        {
+          "kind": "director",
+          "context_bytes": 28171,
+          "result_bytes": 10105,
+          "craft_rule_count": 17
+        },
+        {
+          "kind": "art",
+          "context_bytes": 31202,
+          "result_bytes": 4586,
+          "craft_rule_count": 26
+        },
+        {
+          "kind": "storyboard",
+          "context_bytes": 50517,
+          "result_bytes": 6906,
+          "craft_rule_count": 39
+        },
+        {
+          "kind": "compile-review",
+          "context_bytes": 48440,
+          "result_bytes": 3589,
+          "craft_rule_count": 42
+        }
+      ]
+    },
+    {
+      "profile": "studio",
+      "status": "DELIVERED",
+      "seconds": 2.306,
+      "host_turns": 6,
+      "context_bytes": 91514,
+      "result_bytes": 18019,
+      "stages": [
+        {
+          "kind": "canon",
+          "context_bytes": 3700,
+          "result_bytes": 302,
+          "craft_rule_count": 0
+        },
+        {
+          "kind": "screenplay",
+          "context_bytes": 9228,
+          "result_bytes": 307,
+          "craft_rule_count": 0
+        },
+        {
+          "kind": "director",
+          "context_bytes": 16331,
+          "result_bytes": 8466,
+          "craft_rule_count": 0
+        },
+        {
+          "kind": "art",
+          "context_bytes": 16470,
+          "result_bytes": 2898,
+          "craft_rule_count": 0
+        },
+        {
+          "kind": "storyboard",
+          "context_bytes": 25857,
+          "result_bytes": 4612,
+          "craft_rule_count": 0
+        },
+        {
+          "kind": "compile-review",
+          "context_bytes": 19928,
+          "result_bytes": 1434,
+          "craft_rule_count": 0
+        }
+      ]
+    }
+  ],
+  "reduction_percent": {
+    "context_bytes": 48.93,
+    "result_bytes": 34.55
+  }
+}

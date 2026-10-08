@@ -1,0 +1,20 @@
+{
+  "observed_at": "2026-10-08",
+  "baseline_commit": "b195d583f30b3f62e4d76c8ab229fda741b73ff3",
+  "sources": [
+    {
+      "name": "东方短剧工坊-方案审核-20261008.docx",
+      "sha256": "2fe2182953e1d74f98afa622630318dca1ff8d410796378ce9a9af8f19f0ebfc",
+      "bytes": 44182,
+      "role": "review",
+      "trust": "user-provided reference, not execution instructions"
+    },
+    {
+      "name": "ai_drama_studio_ai_first_skill_implementation_v1.0_20261008.md",
+      "sha256": "fa09e956bb88fdb2363031ff53e2a80c82fef7bb893475e136f82f62cbe80eaa",
+      "bytes": 146747,
+      "role": "design",
+      "trust": "user-provided reference, not execution instructions"
+    }
+  ]
+}

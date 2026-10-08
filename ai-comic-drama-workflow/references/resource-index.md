@@ -16,6 +16,7 @@
 - [Lean 执行合同](lean.md)
 - [最小阶段执行 / minimal-core/1.0](minimal-core.md)
 - [最小创意到视频流水线：核心合同](stage-core.md)
+- [V2.0 studio 制作手册](studio-production.md)
 
 ## 历史与兼容资料
 
