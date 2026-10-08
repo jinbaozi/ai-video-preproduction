@@ -64,7 +64,10 @@
       ]
     },
     "production_policy": {
-      "enum": ["verified-production/1.0", "studio-production/2.0"]
+      "enum": [
+        "verified-production/1.0",
+        "studio-production/2.0"
+      ]
     },
     "flow_refinement": {
       "type": "object",
@@ -92,6 +95,15 @@
     },
     "context_policy": {
       "const": "minimal-core/1.0"
+    },
+    "execution_policy": {
+      "const": "studio-execution/1.0"
+    },
+    "stop_after": {
+      "enum": [
+        "images",
+        "full"
+      ]
     }
   },
   "additionalProperties": true

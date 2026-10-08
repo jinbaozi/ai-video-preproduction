@@ -91,7 +91,7 @@ class V5Kernel:
             raise ValueError('Legacy project is read-only. Use copy-project into a new V5 directory.')
         if (self.root/'state.json').exists():
             current=read(self.root/'project.json')
-            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'),obj.get('creative_policy'),obj.get('flow_refinement'),obj.get('editing_backend'),obj.get('production_policy'),obj.get('context_policy'))
+            choice=lambda obj:(obj.get('control_policy'),obj.get('control_minimum',0),obj.get('craft_policy'),obj.get('output_policy'),obj.get('creative_policy'),obj.get('flow_refinement'),obj.get('editing_backend'),obj.get('production_policy'),obj.get('context_policy'),obj.get('execution_policy'),obj.get('stop_after','full'))
             if choice(current)!=choice(self.state) or choice(current)!=choice(self.project):
                 raise ValueError('Frozen control policy differs from project/state; no silent downgrade')
 
@@ -131,7 +131,7 @@ class V5Kernel:
         return module
 
     @classmethod
-    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None,context_policy=None,quality_policy=None):
+    def initialize(cls,project,inputs,*,project_id='PROJECT',delivery='full',target=None,mode=None,skill_root=ROOT,production_target='none',workflow_profile=None,control_policy=None,control_minimum=0,craft_policy=None,output_policy=None,creative_policy=None,flow_refinement=None,editing_backend=None,production_policy=None,context_policy=None,quality_policy=None,execution_policy=None,stop_after='full'):
         root=Path(project).expanduser().resolve()
         if root.exists() and any(root.iterdir()):raise ValueError('New project directory must be empty')
         if delivery not in ('full','text-only'):raise ValueError('Delivery must be full or text-only')
@@ -152,6 +152,11 @@ class V5Kernel:
         if context_policy not in (None,'minimal-core/1.0') or (context_policy and workflow_profile!='lean'):
             raise ValueError('Minimal context requires a new lean project')
         if quality_policy not in (None, stage_quality.POLICY):raise ValueError('Unknown quality policy')
+        from . import execution_gate
+        if execution_policy not in (None, execution_gate.POLICY):raise ValueError('Unknown execution policy')
+        if stop_after not in ('images','full'):raise ValueError('Unknown delivery endpoint')
+        if stop_after=='images' and (not execution_policy or delivery!='full'):
+            raise ValueError('Images endpoint requires gated full media delivery')
         safe_id(project_id)
         root.mkdir(parents=True,exist_ok=True)
         kernel=cls(root,skill_root)
@@ -162,6 +167,7 @@ class V5Kernel:
         for key,value in {'creative_policy':creative_policy,'flow_refinement':flow_refinement,'editing_backend':editing_backend,'production_policy':production_policy}.items():
             if value is not None:kernel.project[key]=deepcopy(value)
         if quality_policy:kernel.project['quality_policy']=quality_policy
+        if execution_policy:kernel.project.update(execution_policy=execution_policy,stop_after=stop_after)
         if context_policy:kernel.project['context_policy']=context_policy
         if output_policy:kernel.project['output_policy']=output_policy
         if craft_policy:kernel.project['craft_policy']=craft_policy
@@ -185,6 +191,7 @@ class V5Kernel:
         for key in ('creative_policy','flow_refinement','editing_backend','production_policy'):
             if key in kernel.project:state[key]=deepcopy(kernel.project[key])
         if context_policy:state['context_policy']=context_policy
+        if execution_policy:state.update(execution_policy=execution_policy,stop_after=stop_after)
         if output_policy:state['output_policy']=output_policy
         if craft_policy:state['craft_policy']=craft_policy
         if control_policy:state.update(control_policy=control_policy,control_minimum=control_minimum)
@@ -370,6 +377,9 @@ class V5Kernel:
         extra=dict(extra or {})
         if self.project.get('creative_policy')=='automatic':
             extra['creative_instruction']='Make and record ordinary creative choices and final identity selection after actual QA, then continue without user sign-off. Never change locked facts, bypass authentication, security, fees, licenses, external tool permissions, or hide a failed quality gate.'
+        from . import execution_gate
+        if execution_gate.enabled(self.project):
+            extra['execution_instruction']='The current native task is the only production authority. A narrower user deliverable changes the endpoint through scope, not its prerequisites. Inspect unresolved consequences (pending orders, appointments or promised actions) in causal review. Do not weaken locked criteria to fit a generated image; revise the owning native stage first. Export conclusions must come from the current runtime report.'
         if self.project.get('control_policy') and kind=='storyboard':
             extra['adaptive_instruction']='Use native action statuses and shot-scoped tracks. Do not invent contact, interpolate unknown poses, or count static roots as moving actors. Plan only consumed assets. Unknown control facts must be resolved by the source owner.'
         reads=self.required_reads(module,(extra or {}).get('job'),kind) if module else []
@@ -486,6 +496,10 @@ class V5Kernel:
     def media_valid(self,media,state=None):
         try:
             state=state or self.state
+            from . import execution_gate
+            if execution_gate.enabled(self.project):
+                if not execution_gate.receipt_valid(self,media):return False
+                execution_gate.validate_visual_review(media['visual_review'])
             if media.get('invalidated') or digest_file(self.path(media['uri']))!=media['sha256']:return False
             if media.get('flow_refinement'):
                 from .flow import refinement_valid
@@ -537,6 +551,12 @@ class V5Kernel:
                     {'job':job['key'],'capability':state['host']},['provide-media','text-only'])
             image_module='image-prompt-optimizer' if self.current_release() else None
             extra={'job':job,'prompt':prompt,'host_action':'generate-or-import-image'}
+            from . import execution_gate
+            if execution_gate.enabled(self.project):
+                extra['execution_contract']={'policy':execution_gate.POLICY,
+                    'begin_required_for':'image_gen','result_field':'media.execution_record_id',
+                    'visual_checks':list(execution_gate.VISUAL_CHECKS),
+                    'instruction':'Call begin-image before the registered host tool. Bind the returned record ID to the result. Recover UNKNOWN on the same record. Provided imports still need current native prerequisites, explicit provenance and per-check visual observations. A hidden defect is not a verified repair.'}
             if stage==7:extra['control']=self.state.get('control')
             return self.task('image',job['key'],stage,image_module,job['dependencies'],extra=extra)
         return None
@@ -654,6 +674,9 @@ class V5Kernel:
             if not self.valid(slot):return self.task('art',slot,4,'production-design-grammar',self.role_dependencies('art',scope),scope)
         step=self.images_step(5)
         if step:return step
+        from . import execution_gate
+        if execution_gate.enabled(self.project) and execution_gate.endpoint(self.project)=='images':
+            return self.export()
         if not self.valid('storyboard'):
             return self.task('storyboard','storyboard',6,'storyboard-grammar',self.role_dependencies('storyboard'),state['revision_scope'])
         if self.current_release():
@@ -1241,6 +1264,8 @@ class V5Kernel:
             state=self.state
         craft_runtime.record(self,task,result,state)
         stage_quality.record(self,task,result,state)
+        from . import execution_gate
+        if execution_gate.enabled(self.project):execution_gate.finish(self,task,result,state)
         state['completed_tasks'][task_id]=digest(result);state['active_task']=None
         if result.get('complete',True):state['revision_scope']={}
         state['status']='RUNNING';self.save(state)
@@ -1249,6 +1274,8 @@ class V5Kernel:
 
     def accept_media(self,task,result):
         job=task['job'];media=result['media'];path=Path(media['path']).expanduser().resolve()
+        from . import execution_gate
+        if execution_gate.enabled(self.project):execution_gate.check_media(self,task,media)
         if self.project.get('control_policy') and job['stage']==7:
             current=next((j for j in self.image_jobs(7) if j['key']==job['key']),None)
             if not current or current['fingerprint']!=job['fingerprint']:
@@ -1271,6 +1298,9 @@ class V5Kernel:
         except (ValueError,KeyError):streams=[]
         if probe.returncode or not any(s.get('codec_type')=='video' and s.get('width',0)>0 for s in streams):
             raise ValueError('Media cannot be decoded as an image')
+        dimensions=next(s for s in streams if s.get('codec_type')=='video' and s.get('width',0)>0)
+        if execution_gate.enabled(self.project):
+            execution_gate.check_dimensions(task,dimensions['width'],dimensions['height'])
         decode=subprocess.run(['ffmpeg','-v','error','-i',str(path),'-frames:v','1','-f','null','-'],capture_output=True)
         if decode.returncode:raise ValueError('Image frame decoding failed')
         old=self.state['media'].get(job['key'],{})
@@ -1282,6 +1312,7 @@ class V5Kernel:
             'frame':job['brief'].get('frame'),'moment':job['brief'].get('moment'),
             'input_fingerprint':job['fingerprint'],'dependencies':job['dependencies'],
             'input_bindings':expected,'visual_review':review,'provider':media['provider'],
+            'dimensions':{'width':dimensions['width'],'height':dimensions['height']},
             'call_evidence':media['call_evidence'],'prompt':task['prompt'],'invalidated':False,
             'audit':getattr(self,'_submit_audit',None)}
 
@@ -1292,11 +1323,29 @@ class V5Kernel:
         task=read(self.path('runtime/tasks/'+task_id+'.json'))
         if task['kind']!='image':raise ValueError('Only image tasks may be marked in flight')
         if state['inflight']:raise ValueError('A generation is already in flight; recover it first')
+        from . import execution_gate
+        if execution_gate.enabled(self.project):
+            record=execution_gate.begin(self,task)
+            state['inflight']={'task_id':task_id,'key':task['slot'],'input_fingerprint':task['job']['fingerprint'],'record_id':record['id']}
+            self.save(state)
+            return {'status':'AWAITING_MEDIA_RESULT','inflight':state['inflight'],'execution':record,
+                    'dispatch':{'project_root':str(self.root),'execution_record_id':record['id'],
+                                'prompt_file':str(self.path(task['prompt']['uri'])),
+                                'params':task['prompt'].get('params'),
+                                'references':task['job']['references'],
+                                'registered_tools':state['host']['image_tools']},
+                    'boundary':'Host must route tool invocation through this gate; this package cannot intercept unrelated tools.'}
         state['inflight']={'task_id':task_id,'key':task['slot'],'input_fingerprint':task['job']['fingerprint']}
         self.save(state);return {'status':'AWAITING_MEDIA_RESULT','inflight':state['inflight']}
 
     @mutate
     def recover_image(self,evidence):
+        from . import execution_gate
+        if execution_gate.enabled(self.project):
+            if isinstance(evidence,(str,Path)):
+                try:evidence=read(Path(evidence))
+                except (OSError,ValueError):raise ValueError('Image recovery needs a structured evidence file, not retry authorization')
+            return execution_gate.reconcile(self,evidence)
         if not evidence:raise ValueError('Explicit retry authorization/evidence is required')
         state=self.state
         if not state['inflight']:raise ValueError('No uncertain image generation to recover')
@@ -1304,6 +1353,11 @@ class V5Kernel:
                    {'previous':state['inflight'],'retry_decision':evidence})
         state['inflight']=None;self.save(state)
         return {'status':'RETRY_AUTHORIZED','task_id':state['active_task']}
+
+    @mutate
+    def set_scope(self,stop_after,reason):
+        from .execution_gate import change_scope
+        return change_scope(self,stop_after,reason)
 
     @mutate
     def update_modules(self,lock_path,archives):
@@ -1620,6 +1674,9 @@ class V5Kernel:
         self.require_v5();state=self.state;errors=[]
         validate_protocol('project',self.project,self.skill_root)
         validate_protocol('state',state,self.skill_root)
+        from . import execution_gate
+        if final and execution_gate.enabled(self.project) and execution_gate.endpoint(self.project)=='images':
+            return execution_gate.image_report(self)
         for source in state['sources']:
             if not self.path(source['uri']).is_file() or digest_file(self.path(source['uri']))!=source['sha256']:
                 errors.append('Source file missing or changed: '+source['id'])
@@ -1644,6 +1701,9 @@ class V5Kernel:
                 if observation['status']=='NEEDS_ACTUAL_OBSERVATION':errors.append('Reference video has no scoped actual observation: '+observation['source_id'])
             for slot in ('canon','screenplay','director','storyboard','qa'):
                 if not self.valid(slot,state):errors.append('Required stage not complete: '+slot)
+            if execution_gate.enabled(self.project):
+                for slot,record in state['artifacts'].items():
+                    if not execution_gate.receipt_valid(self,record):errors.append('Native acceptance receipt missing or changed: '+slot)
             if self.valid('director'):
                 for scene in self.data('director')['scenes']:
                     if not self.valid('art:'+scene['id']):errors.append('Missing art scene: '+scene['id'])
@@ -1666,6 +1726,9 @@ class V5Kernel:
 
     @mutate
     def export(self,draft=False):
+        from . import execution_gate
+        if execution_gate.enabled(self.project) and execution_gate.endpoint(self.project)=='images':
+            return execution_gate.export_images(self,draft)
         report=self.validate(final=True)
         if not report['valid'] and not draft:return {'status':'BLOCKED','validation':report}
         state=self.state
@@ -1674,7 +1737,7 @@ class V5Kernel:
             'scope':self.project['delivery'],'validation':report,'artifacts':state['artifacts'],'media':state['media'],
             'reference_observations':self.observation_status(),'build':state['build'],'modules':read(self.root/'modules.lock.json'),'submitted':False,'video_qa':'NOT_RUN'}
         if not workspace.enabled(self.project):self.write('delivery/index.json',index)
-        video_note='前期交付完成。' if self.production_target()=='video' else '视频未生成，视频验收 NOT_RUN。'
+        video_note=('前期交付完成。' if report['valid'] else '前期未通过验收，仅为草稿。')+'视频未生成，视频验收 NOT_RUN。'
         lines=[f"# {self.project['project_id']} · {status}",f"交付范围：{self.project['delivery']}。生产目标：{self.production_target()}。{video_note}"]
         if state['build']:lines.append('[视频提示词](../'+state['build']['uri']+'/compiled/prompt.txt) · [附件表](../'+state['build']['uri']+'/attachments.json)')
         if self.project.get('workflow_profile')=='lean' and state['build']:
@@ -1710,12 +1773,18 @@ class V5Kernel:
             if envelope.is_file():
                 reads=((read(envelope).get('module') or {}).get('required_reads') or [])
         effective=workspace.progress(self)['status'] if workspace.enabled(self.project) else state['status']
+        from . import execution_gate
+        image_status=None
+        if execution_gate.enabled(self.project) and execution_gate.endpoint(self.project)=='images':
+            image_status=execution_gate.image_report(self)
+            if effective=='IMAGES_DELIVERED' and not image_status['valid']:effective='STALE'
         return {'status':effective,'recorded_status':state['status'],'project':str(self.root),'execution_mode':'current-agent',
             'artifacts':{k:('READY' if self.valid(k,state) else 'STALE') for k in state['artifacts']},
             'media':{k:('READY' if self.media_valid(v,state) else 'STALE') for k,v in state['media'].items()},
             'stage_report':stage_quality.report(self),
             'active_task':state['active_task'],'required_reads':reads,'control':state.get('control'),'decision':state['active_decision'],
             'delivery':self.project['delivery'],'production_target':self.production_target(),
+            'stop_after':execution_gate.endpoint(self.project),'image_delivery':image_status,
             'preproduction_complete':effective in ('DELIVERED','VIDEO_DELIVERED'),
             'video_complete':effective=='VIDEO_DELIVERED','video_generated':False}
 

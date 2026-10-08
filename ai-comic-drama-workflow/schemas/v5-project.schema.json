@@ -117,6 +117,15 @@
     },
     "quality_policy": {
       "const": "studio-quality/1.0"
+    },
+    "execution_policy": {
+      "const": "studio-execution/1.0"
+    },
+    "stop_after": {
+      "enum": [
+        "images",
+        "full"
+      ]
     }
   },
   "allOf": [
@@ -206,6 +215,36 @@
           "execution_mode": {
             "const": "current-agent"
           }
+        }
+      }
+    },
+    {
+      "if": {
+        "required": [
+          "stop_after"
+        ],
+        "properties": {
+          "stop_after": {
+            "const": "images"
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "execution_policy"
+        ],
+        "properties": {
+          "delivery": {
+            "const": "full"
+          },
+          "execution_mode": {
+            "const": "current-agent"
+          }
+        },
+        "not": {
+          "required": [
+            "orchestration_protocol"
+          ]
         }
       }
     }

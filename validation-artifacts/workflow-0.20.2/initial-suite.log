@@ -1,0 +1,33 @@
+<frozen importlib._bootstrap>:530: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.15; use exec_module() instead
+<frozen importlib._bootstrap>:530: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.15; use exec_module() instead
+<frozen importlib._bootstrap>:530: DeprecationWarning: the load_module() method is deprecated and slated for removal in Python 3.15; use exec_module() instead
+======================================================================
+ERROR: test_all_seven_module_reference_indexes_are_closed_even_when_bundled (test_community_routing.CommunityRoutingTests.test_all_seven_module_reference_indexes_are_closed_even_when_bundled)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/ai-video-preproduction/ai-comic-drama-workflow/tests/test_community_routing.py", line 74, in test_all_seven_module_reference_indexes_are_closed_even_when_bundled
+    result=audit.audit(root);self.assertEqual(result['status'],'PASS')
+           ^^^^^^^^^^^^^^^^^
+  File "/tmp/craft-bundled-tests-buve_kuf/video-prompt-compiler/scripts/reference_audit.py", line 69, in audit
+    raise ValueError('Stale resource index: '+str(root))
+ValueError: Stale resource index: /workspace/ai-video-preproduction/ai-comic-drama-workflow
+
+======================================================================
+ERROR: test_screenplay_integration (unittest.loader._FailedTest.test_screenplay_integration)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_screenplay_integration
+Traceback (most recent call last):
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/workspace/ai-video-preproduction/ai-comic-drama-workflow/tests/test_screenplay_integration.py", line 7, in <module>
+    from .test_v5_workflow import save,seed_until,submit_fixture,result_for
+ImportError: attempted relative import with no known parent package
+
+
+----------------------------------------------------------------------
+Ran 478 tests in 338.139s
+
+FAILED (errors=2)

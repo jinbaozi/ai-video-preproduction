@@ -2,7 +2,11 @@
 
 新 `start` 默认使用 studio：单宿主、原生产物、按镜头制作。普通创作自主完成。先写出对白并量真实时长，再做最少参考和五镜试制，通过后批量。无需八个常驻 Agent 或新的协调 CLI。
 
-## 只保留这些入口
+## 0.20.2 图片阶段门禁
+
+新 studio 另启用 [执行门禁与图片终点](execution-gates.md)。先图片时使用 `--stop-after images` 或原生 `scope`，不跳过编剧、导演、美术；生图先 `begin-image`，结果绑定原记录，实际视觉检查逐项提交。UNKNOWN 只能凭结构化原任务证据回收。成功图片交付状态为 `IMAGES_DELIVERED`，不等于视频前期或成片完成。
+
+## 基础入口
 
 ```sh
 ai-comic-drama start '<简报或源文件>' --project ./episode --production-target video --target '<真实目标>'

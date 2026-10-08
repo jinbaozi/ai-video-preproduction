@@ -238,6 +238,10 @@ def progress(kernel, outcome=None) -> dict:
     from .v5_modules import read, digest_file
     from .v5_adapters import digest
     state = kernel.state
+    from . import execution_gate
+    images_only = execution_gate.enabled(kernel.project) and execution_gate.endpoint(kernel.project) == 'images'
+    image_delivery = (execution_gate.image_report(kernel) if images_only and
+                      state['status'] == 'IMAGES_DELIVERED' else None)
     outcome = outcome or state.get('workspace_notice') or {}
     task = outcome.get('task')
     if not isinstance(task, dict) and state.get('active_task'):
@@ -258,7 +262,7 @@ def progress(kernel, outcome=None) -> dict:
         task = None
     build = state.get('build') or {}
     build_valid = False
-    if build:
+    if build and not images_only:
         try:
             build_valid = build['input_fingerprint']==kernel.build_fingerprint() and all(
                 kernel.path(p).is_file() and digest_file(kernel.path(p))==h for p,h in build['files'].items())
@@ -266,9 +270,10 @@ def progress(kernel, outcome=None) -> dict:
             pass
         if not build_valid:integrity.append('Compiled build is stale or changed')
     from .stage_quality import compile_proof_valid
-    if state.get('compile_review', {}).get('status') == 'ACCEPTED' and not compile_proof_valid(kernel):
+    if not images_only and state.get('compile_review', {}).get('status') == 'ACCEPTED' and not compile_proof_valid(kernel):
         integrity.append('Compile review evidence is stale or changed')
     for key,prompt in state.get('prompts', {}).items():
+        if images_only and key.startswith('BOARD_'):continue
         if not kernel.prompt_valid(prompt):integrity.append('Image prompt evidence is stale or changed: '+key)
     rows = []
     for stage, (directory, name) in STAGES.items():
@@ -320,6 +325,8 @@ def progress(kernel, outcome=None) -> dict:
             status = '待修订'
         if task and task.get('stage') == stage:
             status = '当前执行'
+        if images_only and stage > 5:
+            status = ('已完成' if image_delivery and image_delivery['valid'] else '待执行') if stage == 9 else '范围外（当前仅图片）'
         rows.append({'stage': stage, 'directory': directory, 'name': name, 'status': status,
                      'artifacts': [{'slot': slot, 'uri': row['uri'], 'valid': valid[slot]} for slot, row in records]})
     current = next((row for row in rows if row['status'] == '当前执行'), None)
@@ -327,12 +334,13 @@ def progress(kernel, outcome=None) -> dict:
         current = next((row for row in rows if row['status'] in ('待执行', '待修订', '待处理')), rows[-1])
     status = outcome.get('status', state['status'])
     if integrity:status = 'BLOCKED'
+    elif status == 'IMAGES_DELIVERED' and (not image_delivery or not image_delivery['valid']):status = 'STALE'
     elif status in ('DELIVERED','VIDEO_DELIVERED') and not all(valid.values()):status = 'STALE'
     if status in ('ACCEPTED','ALREADY_ACCEPTED','COMPILED','UPDATED','REGISTERED'):status = state['status']
     return {'status': status, 'stage': current['stage'], 'stage_name': current['name'], 'stages': rows,
             'task_id': state.get('active_task'), 'task_file': str(kernel.path('runtime/tasks/' + state['active_task'] + '.json')) if state.get('active_task') else None,
             'decision': outcome.get('decision') or state.get('active_decision'),
-            'reason': '; '.join(integrity) or outcome.get('reason') or outcome.get('error') or '; '.join((outcome.get('validation') or {}).get('errors', [])) or (str(outcome.get('conflicts') or outcome.get('unresolved')) if outcome.get('conflicts') or outcome.get('unresolved') else None),
+            'reason': '; '.join(integrity) or '; '.join((image_delivery or {}).get('errors', [])) or outcome.get('reason') or outcome.get('error') or '; '.join((outcome.get('validation') or {}).get('errors', [])) or (str(outcome.get('conflicts') or outcome.get('unresolved')) if outcome.get('conflicts') or outcome.get('unresolved') else None),
             'index': str(kernel.root / '00-progress.md'), 'video_complete': status == 'VIDEO_DELIVERED'}
 
 
@@ -359,6 +367,8 @@ def update_progress(kernel, outcome=None):
     if view['task_file']:
         relative_task = Path(view['task_file']).relative_to(kernel.root).as_posix()
         lines.append(f'\n下一步：读取[当前任务]({link(relative_task)})及其必读项，提交本轮原生结果。不要遍历全部历史文件。')
+    elif view['status'] == 'IMAGES_DELIVERED':
+        lines.append('\n[图片与提示词交付入口](09-delivery/index.md)。视频未制作；恢复完整流程请使用 scope --stop-after full。')
     elif kernel.state['status'] == 'DELIVERED':
         lines.append('\n[前期交付入口](09-delivery/index.md)。' + ('继续真实视频制作与验收。' if kernel.production_target() == 'video' else '视频未生成，视频验收 NOT_RUN。'))
     lines.append('\n完整机器上下文：[state.json](state.json)；配置：[project.json](project.json)；模块锁：[modules.lock.json](modules.lock.json)。.runtime/ 保存必要收据、原件、模块及失败恢复证据，不作为默认阅读入口。')

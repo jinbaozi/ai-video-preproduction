@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "modules": [
+    {
+      "module": "ai-comic-drama-workflow",
+      "status": "PASS",
+      "documents": 26,
+      "files": {
+        "references/autonomous-until-blocked.md": "4e751c21eef226e1cfb82415abbeb5d3717ed29550bb1cedd63311b7de8146be",
+        "references/compact-workspace.md": "feeee663bf4ea02081cccaddfab4774d7c18ca68f1165d433441a606dd85cc7a",
+        "references/craft-routing.md": "facf08904741fbbe16d6adaf65a36ee35a340781f950cfc876de57ecb1bedbf7",
+        "references/current-contract.md": "28e679dff03715b08fd5ca1b066eb952b91eaaf74bc44c055118c4b4570a5d1d",
+        "references/detailed-execution.md": "c882dddb3a06598efca282100f3e5129b01965a2606316e6b9f88318d07e49f6",
+        "references/execution-gates.md": "0384ce056603e6a3ad9128688cba10e6d76560caf54e7c68888c6b87ffb10913",
+        "references/flow-2k-reference.md": "fea177749f3e5a0682afddb1dda0da8b996934d1f411cb55302e72e85759d9f0",
+        "references/flow-and-editing.md": "0cc2a1de356bddc1a57920bb8d1f9ecf0b495d753557a3867f70d1645b7f53ba",
+        "references/history/detail-contract-v51.md": "a7a44e972435c7b4e6c7793e73beb3a4985a116735b9b2eaf4243a56a1abac82",
+        "references/history/spatial-contract-v52.md": "d2694b8be52fb4a28314f4cf0844e69c78973edd6fbcc1f35def5f39d12be98f",
+        "references/jianying-postproduction.md": "6cf2f827152461f976c6a72d86b4304fa177f2cf62aea8d84da6258c52fce348",
+        "references/lean.md": "5bfa2f08c8a5eea9ec5acabd9b9ad9d6b33d832d3cddb55527f23aed3fd3d54a",
+        "references/minimal-core.md": "55f6a45f0a7d3aaf64bb392d7401fce7d3beb94c6be1ce49f98656ff11248c2c",
+        "references/resource-index.md": "d03f89e404fb741f5676e6b0e96925b1e116777111da8f64aaa41e7a20bb35d3",
+        "references/stage-core.md": "fbf5966941290794bf3ee6b75032794bafa73861b4842cc064e784d00d59b345",
+        "references/stage-quality.md": "73c87eab4088651f42d97eb480483bbc6a553f627b0cf508c32537823e0e58e0",
+        "references/studio-production.md": "5d047ccc3c89a58d6ff7ebf4e28d4d26d1e474fdfba461c66000dc926449148d",
+        "references/v5/contracts.md": "496177c20133c95af5af7db5b457e4d1cc099dc2c57539989dcec36aaf610d96",
+        "references/v5/migration.md": "b06d8e00350f605360c058c0da444a65632aca35e62c58c752be53d91de36d9a",
+        "references/v5/modules.md": "b7e94036426253c8b82bea3923a731f81ed8758020ec17b90b0f92d9e50a4ef6",
+        "references/v5/retirement.md": "555e1f5d5dfb45ad4917274469af9f35563eb4532f986d53d1b0d98b0534b7b8",
+        "references/v5/runtime.md": "f320f0f9a86cdf54447897343a384825e211f3ca9b59ced1632863cc0168c903",
+        "references/v5/verification.md": "b2bd84c144b22b419ee3fb71fe143b6fd2058bc40be0487a7e11c9af509c8a0c",
+        "references/v6/acceptance.md": "315b16c912fec5de5862fc8639eb9cfc48d4084d8b4d93ce577aeb19f5c16f5c",
+        "references/v6/codex-host.md": "7a342160a3bca19bf3708b2f52fa7b8371d899dbac020310feed17b30497cf9d",
+        "references/v6/runtime.md": "3d70becf4c5da1134e90085f943a151367953aee41c8d131f2a7eac014334081"
+      },
+      "boundary": "Local paths read and link traversal tested; historical commands and external APIs NOT_EXECUTED."
+    }
+  ]
+}

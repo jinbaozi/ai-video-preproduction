@@ -30,9 +30,11 @@ def compact(result: dict) -> dict:
 
 
 def start(project, inputs, *, profile='studio', project_id='PROJECT', delivery='full',
-          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing=None, output_profile=None, creative_policy='automatic', reference_refinement=None, flow_account=None, editing_backend=None, context_profile=None):
+          target=None, mode=None, production_target='none', verbose=False, control_minimum=0, craft_routing=None, output_profile=None, creative_policy='automatic', reference_refinement=None, flow_account=None, editing_backend=None, context_profile=None, stop_after='full'):
     if profile not in ('studio', 'lean', 'audited'):
         raise ValueError('Unknown workflow profile')
+    if stop_after not in ('images','full') or (stop_after=='images' and (profile!='studio' or delivery!='full')):
+        raise ValueError('Images endpoint requires the studio profile and full media delivery')
     # V2 defaults remove optional process overhead, not native artifact checks.
     # Explicit lean/audited keep the earlier defaults; existing projects never migrate.
     craft_routing = craft_routing or 'auto'
@@ -58,7 +60,8 @@ def start(project, inputs, *, profile='studio', project_id='PROJECT', delivery='
         from .v6_runtime import V6Runtime
         kernel = V6Runtime.initialize(project, inputs, **options)
     else:
-        kernel = V5Kernel.initialize(project, inputs, quality_policy='studio-quality/1.0' if profile=='studio' else None, workflow_profile='lean', context_policy=minimal.POLICY if context_profile=='core' else None, output_policy=workspace.POLICY if output_profile=='compact' else None, **options)
+        from .execution_gate import POLICY
+        kernel = V5Kernel.initialize(project, inputs, execution_policy=POLICY if profile=='studio' else None, stop_after=stop_after, quality_policy='studio-quality/1.0' if profile=='studio' else None, workflow_profile='lean', context_policy=minimal.POLICY if context_profile=='core' else None, output_policy=workspace.POLICY if output_profile=='compact' else None, **options)
     result = kernel.run()
     result['workflow_profile'] = profile
     result['review_policy'] = ('independent-per-stage' if profile == 'audited'

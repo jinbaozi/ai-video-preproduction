@@ -1,0 +1,30 @@
+{
+  "fixture_only": true,
+  "archive_sha256": "13e209e787fe47fdff3ab0a97550863223f212c87665f527501a4fcb2a5f8698",
+  "checks": [
+    {
+      "command": "start",
+      "exit_code": 0,
+      "status": "AWAITING_CURRENT_AGENT",
+      "task_kind": "canon"
+    },
+    {
+      "command": "image-report",
+      "exit_code": 2,
+      "status": "BLOCKED",
+      "task_kind": null
+    },
+    {
+      "command": "scope",
+      "exit_code": 0,
+      "status": "SCOPE_CHANGED",
+      "task_kind": null
+    },
+    {
+      "command": "run",
+      "exit_code": 0,
+      "status": "AWAITING_CURRENT_AGENT",
+      "task_kind": "canon"
+    }
+  ]
+}

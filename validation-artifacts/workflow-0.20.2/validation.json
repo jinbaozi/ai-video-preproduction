@@ -1,0 +1,44 @@
+{
+  "scope": "Local implementation and synthetic fixture tests; no paid or live provider calls",
+  "initial_suite": {
+    "command": "python -m unittest discover -s tests -q",
+    "ran": 478,
+    "passed": 476,
+    "errors": 2,
+    "error_details": [
+      "Generated documentation resource index needed rebuilding",
+      "Relative-import test module needs package-qualified discovery"
+    ]
+  },
+  "followups": [
+    {
+      "command": "python -m unittest tests.test_execution_gate -q",
+      "tests": 22,
+      "status": "PASS",
+      "note": "Final gate code, includes 2 tests added after initial suite collection"
+    },
+    {
+      "command": "python -m unittest tests.test_screenplay_integration tests.test_minimal_core -q",
+      "tests": 34,
+      "status": "PASS"
+    },
+    {
+      "command": "python -m unittest tests.test_community_routing.CommunityRoutingTests.test_all_seven_module_reference_indexes_are_closed_even_when_bundled -q",
+      "tests": 1,
+      "status": "PASS"
+    }
+  ],
+  "unresolved_test_failures": [],
+  "future_full_suite_command": "python -m unittest discover -s tests -t . -q",
+  "checks": {
+    "compileall": "PASS",
+    "patch_dry_run_against_original": "PASS",
+    "package_smoke": "PASS",
+    "reference_link_audit": "PASS"
+  },
+  "limits": [
+    "Host tool isolation is not installed by the skill package",
+    "Visual and semantic observations remain host-reviewed, not machine-proven",
+    "Legacy and V6 audited projects are not silently migrated"
+  ]
+}

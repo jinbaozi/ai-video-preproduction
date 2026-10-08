@@ -89,6 +89,9 @@ class ProductionLedger:
                 self.kernel.project.get('production_policy') in ('verified-production/1.0', 'studio-production/2.0'))
 
     def _verify_current_preproduction(self, compile_path=None):
+        from .execution_gate import enabled, endpoint
+        if enabled(self.kernel.project) and endpoint(self.kernel.project)=='images':
+            raise ValueError('Video production is paused at the images delivery endpoint')
         # New lean production is bound to accepted current native artifacts,
         # rather than any externally supplied self-consistent compile file.
         if (self.kernel.project.get('production_policy') not in ('verified-production/1.0', 'studio-production/2.0') or

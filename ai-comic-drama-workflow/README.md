@@ -3,17 +3,21 @@
 > **V2.0 默认变更**：新 `start` 使用 `studio`，自动专业路由、不强制 Flow、默认 FFmpeg，并在视频执行前配置预算。见[制作手册](references/studio-production.md)。下文的 lean/Flow/剪映及 V5/V6 章节仍描述这些显式配置与已有项目；不是新 studio 的默认依赖。
 
 
-新的一句话/创意任务默认通过 `start` 使用 lean，当前宿主连续完成原生专业任务，只输出必要交付。`start --profile audited` 或兼容的 `init` 使用 V6 编排协议：内核按 [唯一阶段图](workflow-v6.json) 生成任务和检查门，Codex 宿主真实派发专业子智能体，独立审阅后才接受候选。总包携带六个专业 Skill 的锁定发行物；专业模块也可分别安装。`production_target=video` 时继续登记真实执行、媒体回收、验收及总装。
+新的一句话/创意任务默认通过 `start` 使用 studio（复用当前宿主原生内核），当前宿主连续完成原生专业任务，只输出必要交付。`start --profile audited` 或兼容的 `init` 使用 V6 编排协议：内核按 [唯一阶段图](workflow-v6.json) 生成任务和检查门，Codex 宿主真实派发专业子智能体，独立审阅后才接受候选。总包携带六个专业 Skill 的锁定发行物；专业模块也可分别安装。`production_target=video` 时继续登记真实执行、媒体回收、验收及总装。
 
 新 lean 的人工入口是 `00-progress.md`，实际产物按 `01-source/` 到 `09-delivery/` 顺序归档。原生结果按任务的 `output_file` 写入，RoleResult 支持标准输入；完整字段使用 `context --slot SLOT --pointer /field` 按需读取，不创建上下文副本。旧项目与 audited 保持原布局。见[最少输出合同](references/compact-workspace.md)。
 
 新版 lean/full 默认先生成图片，再通过 Google Flow 重制为有实际像素和对照验收的 2K 参考；视频生成后通过独立 Jianying Headless 核心执行真实剪辑。详见 [Flow 与剪辑合同](references/flow-and-editing.md)。生成/登录/导出未执行时不会声称完成。
 
+## 0.20.2 执行门禁
+
+新 studio 默认在生图前复核原生上游、提示词与任务记录；生成结果必须绑定执行记录及逐项视觉审阅。`start --stop-after images` / `scope --stop-after images --reason ...` 只缩小交付终点，保留剧本、导演、美术依赖；`image-report` 与 `export` 据真实收据生成状态。`dispatch_image` 提供宿主受控调用入口，超时保留 UNKNOWN，候选不自动通过。详见[执行门禁与图片终点](references/execution-gates.md)。旧项目不自动升级；本地门禁不等于宿主工具权限隔离。
+
 ## 开始使用
 
 ```text
 使用 $ai-comic-drama-workflow，根据这些资料制作参考图与视频提示词包。
-默认 lean 自动继续；只制作镜头需要的素材，保留原文对白与身份。
+默认 studio 自动继续；只制作镜头需要的素材，保留原文对白与身份。
 需要独立审阅时明确选择 audited；要求成片时设置 production_target=video。
 普通创作和身份定稿自动继续；只在硬冲突、登录/权限、许可、未授权费用或能力降级时提出必要决定。
 ```
@@ -57,7 +61,7 @@ python scripts/package_skill.py --out /绝对路径/单包发行
 
 样例使用固定原文和已编写的原生制作包，证明旧协议静态交接和编译可运行，不证明 V6 子智能体派发或媒体质量。完整流程还需要宿主真实工具、实际看图和身份决定。
 
-V5 使用独立的 project/state/任务协议。`init` 的旧默认仍为 V6；新 `start` 默认 lean，复用当前 Agent 原生协议但不声称独立审阅。已有项目不会自动切换。V4 项目与旧全流程保留各自历史，复制迁移后的旧“通过”状态不自动成为 V6 审阅证据。
+V5 使用独立的 project/state/任务协议。`init` 的旧默认仍为 V6；新 `start` 默认 studio，复用当前 Agent 原生协议但不声称独立审阅。已有项目不会自动切换。V4 项目与旧全流程保留各自历史，复制迁移后的旧“通过”状态不自动成为 V6 审阅证据。
 
 ## V5.2 运动与空间
 

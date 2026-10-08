@@ -3,4 +3,4 @@
 from .v5 import V5Kernel
 
 __all__ = ["V5Kernel"]
-__version__ = "0.20.1"
+__version__ = "0.20.2"

@@ -10,6 +10,7 @@
 - [默认专业方法路由 / craft-routing/1.0](craft-routing.md)
 - [当前执行合同](current-contract.md)
 - [完整执行参考（按需）](detailed-execution.md)
+- [执行门禁与图片终点 / studio-execution/1.0](execution-gates.md)
 - [Google Flow 2K 参考素材门](flow-2k-reference.md)
 - [Flow 参考图与真实剪辑](flow-and-editing.md)
 - [Jianying Headless 后期接入合同](jianying-postproduction.md)

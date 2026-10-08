@@ -17,6 +17,7 @@ def main(argv=None):
     start_command.add_argument('--delivery',choices=['full','text-only'],default='full')
     start_command.add_argument('--target');start_command.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'])
     start_command.add_argument('--production-target',choices=['none','video'],default='none')
+    start_command.add_argument('--stop-after',choices=['images','full'],default='full',help='Studio delivery endpoint; images retains native screenplay/director/art prerequisites')
     start_command.add_argument('--control-minimum',type=int,choices=range(5),default=0,help='Optional control floor; cannot lower inferred needs')
     start_command.add_argument('--craft-routing',choices=['auto','off'],help='Automatic professional selection by default; off is an explicit opt-out, not a quality bypass')
     start_command.add_argument('--context-profile',choices=['core','audit'],help='New lean defaults to minimal core context; audit retains full host reads')
@@ -30,6 +31,11 @@ def main(argv=None):
     step_command.add_argument('project');step_command.add_argument('--result');step_command.add_argument('--verbose',action='store_true')
     context_command=commands.add_parser('context',help='Read exact native context by pointer without writing a copy')
     context_command.add_argument('project');context_command.add_argument('--slot');context_command.add_argument('--pointer',default='')
+    scope_command=commands.add_parser('scope',help='Change the execution endpoint without discarding accepted prerequisites')
+    scope_command.add_argument('project');scope_command.add_argument('--stop-after',choices=['images','full'],required=True)
+    scope_command.add_argument('--reason',required=True)
+    image_report_command=commands.add_parser('image-report',help='Read evidence-derived image readiness, not files or host claims')
+    image_report_command.add_argument('project')
     init=commands.add_parser('init');init.add_argument('inputs',nargs='+');init.add_argument('--project',required=True)
     init.add_argument('--project-id',default='PROJECT');init.add_argument('--delivery',choices=['full','text-only'],default='full')
     init.add_argument('--target');init.add_argument('--mode',choices=['text','reference','keyframe','edit','extend'],default=None)
@@ -110,7 +116,14 @@ def main(argv=None):
         if a.command=='start':
             from .lean import start
             r=start(a.project,a.inputs,profile=a.profile,project_id=a.project_id,delivery=a.delivery,
-                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile,creative_policy=a.creative_policy,reference_refinement=a.reference_refinement,flow_account=a.flow_account,editing_backend=a.editing_backend,context_profile=a.context_profile)
+                    target=a.target,mode=a.mode,production_target=a.production_target,verbose=a.verbose,control_minimum=a.control_minimum,craft_routing=a.craft_routing,output_profile=a.output_profile,creative_policy=a.creative_policy,reference_refinement=a.reference_refinement,flow_account=a.flow_account,editing_backend=a.editing_backend,context_profile=a.context_profile,stop_after=a.stop_after)
+        elif a.command=='scope':
+            r=V5Kernel(a.project).set_scope(a.stop_after,a.reason)
+        elif a.command=='image-report':
+            from .execution_gate import enabled,image_report
+            k=V5Kernel(a.project);k.require_v5()
+            if not enabled(k.project):raise ValueError('Image report requires a new gated studio project')
+            r=image_report(k)
         elif a.command=='step':
             from .lean import step
             r=step(a.project,result=read_stdin_result(a.result),verbose=a.verbose)
