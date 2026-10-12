@@ -10,7 +10,8 @@ import importlib.util
 from copy import deepcopy
 from hashlib import sha256
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -42,6 +43,26 @@ def catalog(root=ROOT):
         ids = [r.get('id') for r in rows]
         if any(not isinstance(i, str) or not i for i in ids) or len(set(ids)) != len(ids):
             raise ValueError('Duplicate or invalid technique identifier')
+        for row in rows:
+            source = row.get('source', {})
+            if source.get('kind') == 'local_user_analysis':
+                # Local adaptations have their own attribution; never claim the
+                # pinned third-party repository is their source. Read only notes
+                # inside this module. Keep this check self-contained: the workflow
+                # loads the compiler by file path without adding it to sys.path.
+                relative = source.get('path')
+                if not isinstance(relative, str) or re.search(r'[\\\x00-\x20%:#?]', relative):
+                    raise ValueError('Unsafe local technique source path')
+                parts = PurePosixPath(relative)
+                if parts.is_absolute() or any(p in ('.', '..') for p in relative.split('/')):
+                    raise ValueError('Unsafe local technique source path')
+                path = (Path(root) / relative).resolve()
+                if not path.is_relative_to(Path(root).resolve()) or not path.is_file():
+                    raise ValueError('Local technique source missing or outside module')
+                if not relative.startswith('references/') or path.suffix != '.md':
+                    raise ValueError('Local technique source must be a reference note')
+                if not source.get('attribution') or sha256(path.read_bytes()).hexdigest() != source.get('sha256'):
+                    raise ValueError('Local technique source bytes or attribution changed')
     return data
 
 

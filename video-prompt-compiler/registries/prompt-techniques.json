@@ -1005,6 +1005,45 @@
         "sha256": "7fbecf5241d829b5fb0a93f00794ea27eece09b0221bb282b1ca9e6c2c66e671"
       },
       "evidence": "community_structure_adapted_not_cross_model_quality_proof"
+    },
+    {
+      "id": "natural-face-realism",
+      "title": "自然面容与时序稳定",
+      "tags": [
+        "真人感",
+        "自然面容",
+        "写实人像",
+        "去模板感",
+        "photorealistic portrait",
+        "natural-face-realism"
+      ],
+      "roles": [
+        "director",
+        "art",
+        "storyboard",
+        "image-prompt",
+        "avir",
+        "compile-review"
+      ],
+      "dimension": "appearance",
+      "writing_pattern": "身份与可见性 → 五官主识别点 → 分区肤质 → 条件毛发生长 → 既定光线 → 表情/运动/跨镜继承",
+      "instruction": "继承身份、年龄、妆面与风格锁；新设计只重点强化一两个五官，已有锚点不删。按景别写局部皮肤密度与过渡，不把毛孔、胡茬、痣和痘印都画成黑点；胡茬仅在已有或授权设计时分区并顺面部曲面生长，眉毛与发束继承实际方向。轻微不对称区分稳定形态与透视/表情/光照；柔光先检查是设计次序，不改锁定灯光或强制额外生成。视频保持区域随脸运动、发际与毛发密度连续，不为自然感新增动作、标记或台词；冻结后不注入正文。风格化、远景、遮挡与编辑范围不适用项有范围地省略。",
+      "check": "先验身份、编辑范围与风格；近景查区域过渡和毛发密度/边缘/方向，完整镜头查转头/表情时纹理滑动闪烁、发束抽动和跨镜重置。光照变化不等于固定色斑；不可辨记 N/A，无真实生成/看片只验文本、NOT_RUN。",
+      "native_fields": [
+        "/entities",
+        "/scenes",
+        "/bindings",
+        "/shots",
+        "/timeline",
+        "/contract"
+      ],
+      "source": {
+        "kind": "local_user_analysis",
+        "path": "references/natural-face-realism.md",
+        "sha256": "f06a5488fd55b80a344a49845db53ca423d375279b5e6e3edfed08993339d0c8",
+        "attribution": "用户提供的视频分析（2026-10-12），项目归纳与延伸；原视频未独立核验。"
+      },
+      "evidence": "user_supplied_analysis_with_labelled_extensions_not_media_or_cross_model_quality_proof"
     }
   ],
   "adapters": [

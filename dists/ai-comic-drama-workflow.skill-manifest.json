@@ -1,6 +1,6 @@
 {
   "archive": "ai-comic-drama-workflow.skill",
-  "archive_sha256": "23144a504f9694fa8284d8f3031dafa742149d8bf5be513f7f55241c1434f29e",
+  "archive_sha256": "6bb4877294db77310ccffa618389a0ce006f9a5fc9b270aef099e0b73ec14733",
   "file_count": 2349,
   "files": {
     "ai-comic-drama-workflow/README.md": {
@@ -28,16 +28,16 @@
       "sha256": "46c60fb83643085714e27221c0ffb0522535c7afbaae7481e2f9e456dd1d2737"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/image-prompt-optimizer.skill": {
-      "bytes": 379468,
-      "sha256": "f6d45c361901e4acb2d9f561f18a3c922e0b5bf62879cdcda255a5b0f2d333f6"
+      "bytes": 385166,
+      "sha256": "468ed609464c4062fd3fe63e5b0da7da6e54752e84a30f2e6524deb12fd90865"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/image-prompt-optimizer.skill-manifest.json": {
-      "bytes": 20972,
-      "sha256": "da94749e6e92f949a0376f23d41e87afd51d1d045ac7f4471ed12714498bdc69"
+      "bytes": 21322,
+      "sha256": "0303cb1e215d4da79bd405a040ad7c54ee68b33ecf2ac441c0c27564d3572ef5"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/image-prompt-optimizer.skill.sha256": {
       "bytes": 95,
-      "sha256": "da5cd6c732aacd2c33aad7f1d4bc7c4deb8132ea916a29d5d294ca502b3b6144"
+      "sha256": "c507f96038ff94044cab3bb5b349201a847766ce31aea390143018ceb25d8a01"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/production-design-grammar.skill": {
       "bytes": 118392,
@@ -76,16 +76,16 @@
       "sha256": "1b684ce408d7a0c5d459b4a747073bb93ad61b54c3530380f0c66341dd6efc27"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/video-prompt-compiler.skill": {
-      "bytes": 533217,
-      "sha256": "0857dbecdee1a56da427a3475337c7cbf247fad59ec841955ade6a258d896daa"
+      "bytes": 542335,
+      "sha256": "87c7b2970f7a78133e5f57d8b207fab8f3bf7f1f89f1e24c84d3fd359c687445"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/video-prompt-compiler.skill-manifest.json": {
-      "bytes": 28454,
-      "sha256": "70b766d349aeb0debe75977d5654454e57279cbce2fb71663dff71998f5d9896"
+      "bytes": 28978,
+      "sha256": "d350884840edaa13aca7b456c98d4b9fb8aad9057b430070efbbb906c2903f3d"
     },
     "ai-comic-drama-workflow/assets/bundled-skills/video-prompt-compiler.skill.sha256": {
       "bytes": 94,
-      "sha256": "714a03dd69467988a2743efac0bc4a0fb6e09e650cd205fa9be586021e24f906"
+      "sha256": "3efba5825dddfd90ec2afe13e676eaf415f8cef6399f0e0236ea74849aee6c21"
     },
     "ai-comic-drama-workflow/examples/production/envelope-3shot/acceptance-contract.json": {
       "bytes": 683,
@@ -8793,7 +8793,7 @@
     },
     "ai-comic-drama-workflow/modules.lock.json": {
       "bytes": 1245,
-      "sha256": "8f8cf63b3afc8f2e6fe7dd5472848571d6946a06373351dd85f39a7178292f9f"
+      "sha256": "e83ebd1c1fec04417bab20408b292897a0e63c53f192daf6bdc1cafa2889f3e3"
     },
     "ai-comic-drama-workflow/pyproject.toml": {
       "bytes": 1459,

@@ -36,3 +36,5 @@ python scripts/validate_production_contract.py CONTRACT.json
 仅遇模型专属语法、复杂空间/接触、来源冲突或验证器指出的字段问题时展开[完整执行参考](detailed-execution.md)的对应章节；[资料索引](resource-index.md)保留全部方法、人物与场景路径；[专业路由合同](craft-routing.md)解释来源、主语法和采用证据。
 
 图像路由：人物外观读[身份/造型/表情](character-appearance.md)；多人接触读[多主体](multi-subject-and-interaction.md)；指定模型读[模型适配](model-adaptation.md)；复杂版式读[结构化视觉](task-routing-and-layout.md)。只读取命中类别，保留精确文字校对。图像生成与原图审阅由现有宿主任务承担。
+
+写实人物或真人感任务读[自然面容方法](natural-face-realism.md)：先继承身份与可见性，再分配五官、皮肤和毛发细节。已有锁定特征不为增强真人感重画；无真实媒体只验文本约束。

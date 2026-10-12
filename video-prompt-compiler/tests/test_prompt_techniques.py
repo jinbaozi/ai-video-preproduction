@@ -21,10 +21,13 @@ class PromptTechniqueTests(unittest.TestCase):
 
     def test_catalog_has_all_27_pinned_templates_and_no_media(self):
         data = methods.catalog()
-        self.assertEqual(len(data['templates']), 27)
+        self.assertEqual(len(data['templates']), 28)
         self.assertEqual(len(data['methods']), 6)
         self.assertEqual(data['source']['commit'], '9ca56354b3af0d11db22a935a6b831d7d8582c04')
-        for row in data['templates'] + data['methods']:
+        external = [r for r in data['templates'] + data['methods']
+                    if r['source'].get('kind') != 'local_user_analysis']
+        self.assertEqual(len(external), 33)
+        for row in external:
             self.assertRegex(row['source']['sha256'], r'^[0-9a-f]{64}$')
             self.assertTrue(row['source']['path'].startswith('docs/templates/en/'))
             self.assertTrue(row['instruction'] and row['check'] and row['native_fields'])
