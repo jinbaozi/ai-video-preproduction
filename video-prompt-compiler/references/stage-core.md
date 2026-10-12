@@ -38,3 +38,5 @@ python scripts/vpc.py verify outputs/tea
 仅遇模型专属语法、复杂空间/接触、来源冲突或验证器指出的字段问题时展开[完整执行参考](detailed-execution.md)的对应章节；[资料索引](resource-index.md)保留全部方法、人物与场景路径；[专业路由合同](craft-routing.md)解释来源、主语法和采用证据。
 
 目标H3/RunningHub读[H3入口](models/minimax-h3.md)的当前模式；Gemini Omni读[Omni边界](models/gemini-omni.md)；未知模式保持阻塞。社区卡、模板和模型适配仍走[方法目录](prompt-techniques.md)与[社区读取](community-knowledge.md)。
+
+写实人物或真人感任务读[自然面容方法](natural-face-realism.md)：先继承身份与可见性，再分配五官、皮肤和毛发细节。已有锁定特征不为增强真人感重画；无真实媒体只验文本约束。

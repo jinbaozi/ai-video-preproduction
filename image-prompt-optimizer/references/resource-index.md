@@ -25,6 +25,7 @@
 - [布光与色彩](lighting-and-color.md)
 - [模型适配](model-adaptation.md)
 - [多主体与互动](multi-subject-and-interaction.md)
+- [自然面容：五官取舍、皮肤分区与毛发生长](natural-face-realism.md)
 - [自然观看现实感](natural-viewing-realism.md)
 - [摄影语言](photography-language.md)
 - [人像机位与视觉目标](portrait-camera-and-framing.md)

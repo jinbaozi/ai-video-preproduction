@@ -32,6 +32,7 @@
 - [Kling 3.0 / 3.0 Omni](models/kling.md)
 - [MiniMax H3 / RunningHub](models/minimax-h3.md)
 - [Seedance 2.0 / 2.5](models/seedance.md)
+- [自然面容的视频继承与时序检查](natural-face-realism.md)
 - [中端优化、预算与版本](passes-and-optimization.md)
 - [通用方法、任务模板与模型专属能力](prompt-techniques.md)
 - [视频提示词编译器（SKILL）深度研究与可执行方案](research/deep-research-report.md)
